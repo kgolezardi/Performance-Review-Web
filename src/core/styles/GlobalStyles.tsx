@@ -31,10 +31,6 @@ const styles = (theme: Theme) =>
       body: {
         direction: 'ltr', // automatically changes to `rtl` based on theme.
       } as CSSProperties,
-      '#root': {
-        height: '100vh',
-        overflow: 'hidden',
-      },
     },
   });
 
