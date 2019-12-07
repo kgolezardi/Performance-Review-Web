@@ -13,6 +13,6 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: src/App.tsx:4
+#: src/App.tsx:6
 msgid "Performance Review"
 msgstr "Performance Review"
