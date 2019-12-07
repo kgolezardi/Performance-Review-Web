@@ -12,6 +12,9 @@ export function getThemeOptions(base: ThemeOptions, direction: Direction, palett
       ...base.palette,
       type: paletteType,
     },
+    typography: {
+      fontFamily: 'Shabnam, "Roboto", "Helvetica", "Arial", sans-serif',
+    },
   };
   return themeOptions;
 }

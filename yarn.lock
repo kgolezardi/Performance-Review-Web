@@ -10124,6 +10124,11 @@ sha.js@^2.4.0, sha.js@^2.4.8:
     inherits "^2.0.1"
     safe-buffer "^5.0.1"
 
+shabnam-font@^5.0.0:
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/shabnam-font/-/shabnam-font-5.0.0.tgz#4ffd04f23f7145c7c6e1597d61e255c3bc5360d2"
+  integrity sha512-ngRcvlyoq7Ka42uXmy+YjKQBaspOZSRBvGbN6mKeBM2oBj7DgdAWVvxHetvZPyxHS4fsD91Wap5uccg1MwquCQ==
+
 shallow-clone@^0.1.2:
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/shallow-clone/-/shallow-clone-0.1.2.tgz#5909e874ba77106d73ac414cfec1ffca87d97060"
