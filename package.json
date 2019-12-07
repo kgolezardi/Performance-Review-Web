@@ -33,7 +33,9 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "format": "prettier --write '**/*.{js,jsx,ts,tsx,json,css,scss,md}'",
-    "format:check": "prettier --check '**/*.{js,jsx,ts,tsx,json,css,scss,md}'"
+    "format:check": "prettier --check '**/*.{js,jsx,ts,tsx,json,css,scss,md}'",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -54,6 +56,12 @@
     "@babel/core": "^7.7.5",
     "@lingui/cli": "^2.9.0",
     "@lingui/macro": "^2.9.0",
+    "@storybook/addon-actions": "^5.2.8",
+    "@storybook/addon-links": "^5.2.8",
+    "@storybook/addon-storysource": "^5.2.8",
+    "@storybook/addons": "^5.2.8",
+    "@storybook/react": "^5.2.8",
+    "@storybook/source-loader": "^5.2.8",
     "babel-core": "^7.0.0-bridge.0",
     "husky": "^3.1.0",
     "lint-staged": "^9.5.0",
