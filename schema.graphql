@@ -1,6 +1,93 @@
 # source: http://127.0.0.1:8000/graphql
-# timestamp: Sun Nov 24 2019 19:35:13 GMT+0330 (Iran Standard Time)
+# timestamp: Sat Dec 07 2019 20:45:14 GMT+0330 (Iran Standard Time)
+
+input LoginMutationInput {
+  username: String!
+  password: String!
+  clientMutationId: String
+}
+
+type LoginMutationPayload {
+  viewer: ViewerNode!
+  user: UserNode
+  clientMutationId: String
+}
+
+input LogoutMutationInput {
+  clientMutationId: String
+}
+
+type LogoutMutationPayload {
+  viewer: ViewerNode!
+  clientMutationId: String
+}
+
+type Mutation {
+  login(input: LoginMutationInput!): LoginMutationPayload!
+  logout(input: LogoutMutationInput!): LogoutMutationPayload!
+}
+
+"""An object with an ID"""
+interface Node {
+  """The ID of the object."""
+  id: ID!
+}
+
+"""
+The Relay compliant `PageInfo` type, containing data necessary to paginate this connection.
+"""
+type PageInfo {
+  """When paginating forwards, are there more items?"""
+  hasNextPage: Boolean!
+
+  """When paginating backwards, are there more items?"""
+  hasPreviousPage: Boolean!
+
+  """When paginating backwards, the cursor to continue."""
+  startCursor: String
+
+  """When paginating forwards, the cursor to continue."""
+  endCursor: String
+}
 
 type Query {
+  viewer: ViewerNode!
+}
+
+type UserNode implements Node {
+  """Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only."""
+  username: String!
+  firstName: String!
+  lastName: String!
+
+  """The ID of the object."""
   id: ID!
+}
+
+type UserNodeConnection {
+  """Pagination data for this connection."""
+  pageInfo: PageInfo!
+
+  """Contains the nodes in this connection."""
+  edges: [UserNodeEdge]!
+}
+
+"""A Relay edge containing a `UserNode` and its cursor."""
+type UserNodeEdge {
+  """The item at the end of the edge"""
+  node: UserNode
+
+  """A cursor for use in pagination"""
+  cursor: String!
+}
+
+type ViewerNode implements Node {
+  """The ID of the object."""
+  id: ID!
+  users(before: String, after: String, first: Int, last: Int, username: String): UserNodeConnection!
+
+  """The ID of the object"""
+  user(id: ID!): UserNode
+  me: UserNode
+  node(id: ID!): Node
 }
