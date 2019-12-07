@@ -1,0 +1,6 @@
+# source: http://127.0.0.1:8000/graphql
+# timestamp: Sun Nov 24 2019 19:35:13 GMT+0330 (Iran Standard Time)
+
+type Query {
+  id: ID!
+}
