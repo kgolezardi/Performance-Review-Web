@@ -1,2 +1,2 @@
 export { relayDecorator } from './RelayDecorator';
-export { themeDecorator } from './ThemeDecorator';
+export { themeDecorator } from './themeDecorator';
