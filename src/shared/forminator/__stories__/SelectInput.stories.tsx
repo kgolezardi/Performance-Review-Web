@@ -2,15 +2,18 @@ import { FormControl, InputLabel } from '@material-ui/core';
 import { action } from '@storybook/addon-actions';
 import { storiesOf } from '@storybook/react';
 import React from 'react';
-import { themeDecorator } from 'src/stories/decorator';
+import { themeDecorator } from 'src/stories/decorators';
 import { Forminator } from '../index';
 import SelectInput from '../inputs/SelectInput';
 import SubmitButton from '../utils/SubmitButton';
 
-const options = [{ value: '1', label: 'One' }, { value: '2', label: 'Two' }];
+const options = [
+  { value: '1', label: 'One' },
+  { value: '2', label: 'Two' },
+];
 
 storiesOf('Forminator|Select input', module)
-  .addDecorator(themeDecorator(false))
+  .addDecorator(themeDecorator({ rtl: false }))
   .add('simple', () => {
     return (
       <Forminator onSubmit={action('submit')}>

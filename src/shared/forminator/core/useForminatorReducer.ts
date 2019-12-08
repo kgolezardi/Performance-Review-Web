@@ -4,17 +4,10 @@ import { ForminatorStore } from './store/ForminatorStore';
 import { useStoreContext } from './store/StoreContext';
 import { useWritableSubscribableValue } from './subscribable/useWritableSubscribableValue';
 
-type Reducer<S, A> = (prevState: S, action: A, store: ForminatorStore) => S;
-type ReducerState<R extends Reducer<any, any>> = R extends Reducer<infer S, any>
-  ? S
-  : never;
+export type Reducer<S, A> = (prevState: S, action: A, store: ForminatorStore) => S;
+type ReducerState<R extends Reducer<any, any>> = R extends Reducer<infer S, any> ? S : never;
 
-type ReducerAction<R extends Reducer<any, any>> = R extends Reducer<
-  any,
-  infer A
->
-  ? A
-  : never;
+type ReducerAction<R extends Reducer<any, any>> = R extends Reducer<any, infer A> ? A : never;
 
 export function useForminatorReducer<R extends Reducer<any, any>, I, Value>(
   reducer: R,

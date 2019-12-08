@@ -2,7 +2,7 @@ import { Grid, Paper } from '@material-ui/core';
 import { action } from '@storybook/addon-actions';
 import { storiesOf } from '@storybook/react';
 import React from 'react';
-import { themeDecorator } from 'src/stories/decorator';
+import { themeDecorator } from 'src/stories/decorators';
 import { Forminator, StringInput } from '..';
 import ArrayAppendButton from '../inputs/array-input/ArrayAppendButton';
 import ArrayInput from '../inputs/array-input/ArrayInput';
@@ -11,7 +11,7 @@ import ArrayRemoveButton from '../inputs/array-input/ArrayRemoveButton';
 import SubmitButton from '../utils/SubmitButton';
 
 storiesOf('Forminator|Array input', module)
-  .addDecorator(themeDecorator(false))
+  .addDecorator(themeDecorator({ rtl: false }))
   .add('simple', () => {
     return (
       <Forminator onSubmit={action('submit')}>
@@ -65,7 +65,7 @@ storiesOf('Forminator|Array input', module)
     );
   });
 storiesOf('Forminator|Array input/with initial value', module)
-  .addDecorator(themeDecorator(false))
+  .addDecorator(themeDecorator({ rtl: false }))
   .add('on append button', () => {
     return (
       <Forminator onSubmit={action('submit')}>
@@ -224,10 +224,7 @@ storiesOf('Forminator|Array input/with initial value', module)
   })
   .add('on parent node', () => {
     return (
-      <Forminator
-        onSubmit={action('submit')}
-        initialValue={['+98935', undefined, '+98936']}
-      >
+      <Forminator onSubmit={action('submit')} initialValue={['+98935', undefined, '+98936']}>
         <Grid container spacing={2} style={{ width: 400, margin: 16 }}>
           <ArrayInput>
             <ArrayOutput>
@@ -253,10 +250,7 @@ storiesOf('Forminator|Array input/with initial value', module)
   })
   .add('on parent node and array input', () => {
     return (
-      <Forminator
-        onSubmit={action('submit')}
-        initialValue={['+98935', undefined, '+98936']}
-      >
+      <Forminator onSubmit={action('submit')} initialValue={['+98935', undefined, '+98936']}>
         <Grid container spacing={2} style={{ width: 400, margin: 16 }}>
           <ArrayInput initialValue={['+98912', '+98911', '+98935']}>
             <ArrayOutput>

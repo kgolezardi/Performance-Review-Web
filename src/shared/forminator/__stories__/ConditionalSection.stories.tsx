@@ -2,7 +2,7 @@ import { FormControl, InputLabel } from '@material-ui/core';
 import { action } from '@storybook/addon-actions';
 import { storiesOf } from '@storybook/react';
 import React from 'react';
-import { themeDecorator } from 'src/stories/decorator';
+import { themeDecorator } from 'src/stories/decorators';
 import FragmentRef from '../core/fragment-lens/FragmentRef';
 import { useFragmentLens } from '../core/fragment-lens/useFragmentLens';
 import { Forminator, StringInput } from '../index';
@@ -13,7 +13,7 @@ import ConditionalSection from '../utils/ConditionalSection';
 import SubmitButton from '../utils/SubmitButton';
 
 storiesOf('Forminator|Conditional Section', module)
-  .addDecorator(themeDecorator(false))
+  .addDecorator(themeDecorator({ rtl: false }))
   .add('with initial value', () => {
     const lens = useFragmentLens();
     return (

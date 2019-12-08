@@ -3,7 +3,7 @@ import { Subscribable } from './types';
 
 export class ValueSubscribable<V> implements Subscribable<V> {
   private key: string = 'value';
-  private readonly emitter: Emitter = new Mitt();
+  private readonly emitter: Emitter = Mitt();
   constructor(private value?: V | undefined) {}
 
   getValue(): V | undefined;

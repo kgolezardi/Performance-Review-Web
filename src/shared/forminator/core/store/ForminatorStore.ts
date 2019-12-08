@@ -6,7 +6,7 @@ import { MapSubscribable } from '../subscribable/MapSubscribable';
 import { Subscribable } from '../subscribable/types';
 
 export class ForminatorStore {
-  emitter = new Mitt();
+  emitter = Mitt();
 
   states = new Map();
 
@@ -21,10 +21,7 @@ export class ForminatorStore {
     return snapshot;
   }
 
-  getSubscribable<V>(
-    type: string,
-    fragment: ForminatorFragment<V>,
-  ): Subscribable<V> {
+  getSubscribable<V>(type: string, fragment: ForminatorFragment<V>): Subscribable<V> {
     const key = type + ':' + fragment.id;
     if (!this.subscribables.has(key)) {
       const subscribable = new MapSubscribable(this.states, this.emitter, key);
@@ -38,10 +35,7 @@ export class ForminatorStore {
   }
 
   getOwnerSubscribable<V, Value>(fragment: ForminatorFragment<V>) {
-    return this.getSubscribable<FragmentOwner<V, Value> | null>(
-      'owner',
-      fragment,
-    );
+    return this.getSubscribable<FragmentOwner<V, Value> | null>('owner', fragment);
   }
 
   createFragment<V>(initialValue?: V | undefined) {
@@ -56,16 +50,8 @@ export class ForminatorStore {
   }
 
   getInitialValue<V>(fragment: ForminatorFragment<V>, defaultValue: V): V;
-  getInitialValue<V>(
-    fragment: ForminatorFragment<V>,
-    defaultValue?: V | undefined,
-  ): V | undefined;
-  getInitialValue<V>(
-    fragment: ForminatorFragment<V>,
-    defaultValue?: V | undefined,
-  ): V | undefined {
-    return this.initialValues.has(fragment.id)
-      ? this.initialValues.get(fragment.id)
-      : defaultValue;
+  getInitialValue<V>(fragment: ForminatorFragment<V>, defaultValue?: V | undefined): V | undefined;
+  getInitialValue<V>(fragment: ForminatorFragment<V>, defaultValue?: V | undefined): V | undefined {
+    return this.initialValues.has(fragment.id) ? this.initialValues.get(fragment.id) : defaultValue;
   }
 }

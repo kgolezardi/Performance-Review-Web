@@ -1,12 +1,12 @@
 import { action } from '@storybook/addon-actions';
 import { storiesOf } from '@storybook/react';
 import React from 'react';
-import { themeDecorator } from 'src/stories/decorator';
+import { themeDecorator } from 'src/stories/decorators';
 import { Forminator, StringInput } from '..';
 import SubmitButton from '../utils/SubmitButton';
 
 storiesOf('Forminator|String input', module)
-  .addDecorator(themeDecorator(false))
+  .addDecorator(themeDecorator({ rtl: false }))
   .add('simple', () => {
     return (
       <Forminator onSubmit={action('submit')}>
@@ -18,7 +18,7 @@ storiesOf('Forminator|String input', module)
     );
   });
 storiesOf('Forminator|String input/with initial value', module)
-  .addDecorator(themeDecorator(false))
+  .addDecorator(themeDecorator({ rtl: false }))
   .add('on string input', () => {
     return (
       <Forminator onSubmit={action('submit')}>

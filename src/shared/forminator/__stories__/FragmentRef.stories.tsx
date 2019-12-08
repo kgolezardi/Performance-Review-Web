@@ -1,7 +1,7 @@
 import { action } from '@storybook/addon-actions';
 import { storiesOf } from '@storybook/react';
 import React from 'react';
-import { themeDecorator } from 'src/stories/decorator';
+import { themeDecorator } from 'src/stories/decorators';
 import { FragmentLens } from '../core/fragment-lens/FragmentLens';
 import FragmentRef from '../core/fragment-lens/FragmentRef';
 import { useFragmentLens } from '../core/fragment-lens/useFragmentLens';
@@ -23,7 +23,7 @@ const Spy = ({ lens, name }: { lens?: FragmentLens<any>; name: string }) => {
 };
 
 storiesOf('Forminator|Internal / Fragment lens', module)
-  .addDecorator(themeDecorator(false))
+  .addDecorator(themeDecorator({ rtl: false }))
   .add('spy value', () => {
     const lens = useFragmentLens();
 
