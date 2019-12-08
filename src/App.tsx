@@ -1,19 +1,23 @@
 import { i18n } from '@lingui/core';
-import { ThemeProvider, CssBaseline } from '@material-ui/core';
+import { CssBaseline, ThemeProvider } from '@material-ui/core';
 import React from 'react';
+import { RelayEnvironmentProvider } from 'react-relay/hooks';
 import { RtlSupportProvider } from 'src/core/rtl/RtlSupportProvider';
-import { rtlTheme } from 'src/core/theme/themes';
 import { GlobalStyles } from 'src/core/styles/GlobalStyles';
+import { rtlTheme } from 'src/core/theme/themes';
+import { environment } from 'src/relay';
 
 const App: React.FC = () => {
   return (
-    <RtlSupportProvider>
-      <ThemeProvider theme={rtlTheme}>
-        <GlobalStyles />
-        <CssBaseline />
-        <div>{i18n._('Performance Review')}</div>
-      </ThemeProvider>
-    </RtlSupportProvider>
+    <RelayEnvironmentProvider environment={environment}>
+      <RtlSupportProvider>
+        <ThemeProvider theme={rtlTheme}>
+          <GlobalStyles />
+          <CssBaseline />
+          <div>{i18n._('Performance Review')}</div>
+        </ThemeProvider>
+      </RtlSupportProvider>
+    </RelayEnvironmentProvider>
   );
 };
 
