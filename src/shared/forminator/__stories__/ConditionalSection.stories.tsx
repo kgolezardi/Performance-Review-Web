@@ -13,7 +13,7 @@ import ConditionalSection from '../utils/ConditionalSection';
 import SubmitButton from '../utils/SubmitButton';
 
 storiesOf('Forminator|Conditional Section', module)
-  .addDecorator(themeDecorator({ rtl: false }))
+  .addDecorator(themeDecorator({ direction: 'ltr' }))
   .add('with initial value', () => {
     const lens = useFragmentLens();
     return (

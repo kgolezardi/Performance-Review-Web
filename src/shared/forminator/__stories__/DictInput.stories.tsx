@@ -8,7 +8,7 @@ import DictInputItem from '../inputs/dict-input/DictInputItem';
 import SubmitButton from '../utils/SubmitButton';
 
 storiesOf('Forminator|Dict input', module)
-  .addDecorator(themeDecorator({ rtl: false }))
+  .addDecorator(themeDecorator({ direction: 'ltr' }))
   .add('simple', () => {
     return (
       <Forminator onSubmit={action('submit')}>
@@ -70,7 +70,7 @@ storiesOf('Forminator|Dict input', module)
   });
 
 storiesOf('Forminator|Dict input/with initial value', module)
-  .addDecorator(themeDecorator({ rtl: false }))
+  .addDecorator(themeDecorator({ direction: 'ltr' }))
   .add('on field', () => {
     return (
       <Forminator onSubmit={action('submit')}>

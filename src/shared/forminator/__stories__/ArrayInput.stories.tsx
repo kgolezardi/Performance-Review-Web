@@ -11,7 +11,7 @@ import ArrayRemoveButton from '../inputs/array-input/ArrayRemoveButton';
 import SubmitButton from '../utils/SubmitButton';
 
 storiesOf('Forminator|Array input', module)
-  .addDecorator(themeDecorator({ rtl: false }))
+  .addDecorator(themeDecorator({ direction: 'ltr' }))
   .add('simple', () => {
     return (
       <Forminator onSubmit={action('submit')}>
@@ -65,7 +65,7 @@ storiesOf('Forminator|Array input', module)
     );
   });
 storiesOf('Forminator|Array input/with initial value', module)
-  .addDecorator(themeDecorator({ rtl: false }))
+  .addDecorator(themeDecorator({ direction: 'ltr' }))
   .add('on append button', () => {
     return (
       <Forminator onSubmit={action('submit')}>
