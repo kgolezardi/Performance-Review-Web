@@ -5,31 +5,26 @@ import { FCProps } from 'src/shared/types/FCProps';
 import { Styles } from 'src/shared/types/Styles';
 
 interface OwnProps {
-  chars: number;
-  maxChars: number;
+  count: number;
+  max: number;
 }
 
 type Props = FCProps<OwnProps> & StyleProps;
 
-function CharacterCounter({ chars, maxChars, ...props }: Props) {
+function Counter({ count, max, ...props }: Props) {
   const classes = useStyles(props);
 
   return (
     <div className={classes.root}>
-      <CircularProgress
-        className={classes.circularProgress}
-        variant="static"
-        size={20}
-        value={(chars * 100) / maxChars}
-      />
+      <CircularProgress className={classes.circularProgress} variant="static" size={20} value={(count * 100) / max} />
       <Typography className={classes.typography}>
-        {chars} / {maxChars}
+        {count} / {max}
       </Typography>
     </div>
   );
 }
 
-export default CharacterCounter;
+export default Counter;
 
 const styles = (theme: Theme) => ({
   root: {
@@ -42,5 +37,5 @@ const styles = (theme: Theme) => ({
   typography: {} as CSSProperties,
 });
 
-const useStyles = makeStyles(styles, { name: 'CharacterCounter' });
+const useStyles = makeStyles(styles, { name: 'Counter' });
 type StyleProps = Styles<typeof styles>;

@@ -1,17 +1,19 @@
 import { action } from '@storybook/addon-actions';
 import { storiesOf } from '@storybook/react';
 import React from 'react';
-import TextAreaCharacterCounterInput from 'src/shared/forminator/inputs/TextAreaCharacterCounterInput';
+import LimitedTextAreaInput from 'src/shared/forminator/inputs/LimitedTextAreaInput';
 import { themeDecorator } from 'src/stories/decorators';
+import { storyWrapperDecorator } from 'src/stories/decorators/StoryWrapperDecorator';
 import { Forminator } from '..';
 import SubmitButton from '../utils/SubmitButton';
 
-storiesOf('Forminator|Text Area Character Count input', module)
-  .addDecorator(themeDecorator({ rtl: false }))
+storiesOf('Forminator|Limited Text Area Input', module)
+  .addDecorator(themeDecorator({ direction: 'ltr' }))
+  .addDecorator(storyWrapperDecorator())
   .add('simple', () => {
     return (
       <Forminator onSubmit={action('submit')}>
-        <TextAreaCharacterCounterInput label="text" variant="outlined" rows={4} maxChars={11} />
+        <LimitedTextAreaInput label="text" variant="outlined" rows={4} maxChars={11} fullWidth />
         <SubmitButton color="primary" variant="contained">
           Submit
         </SubmitButton>

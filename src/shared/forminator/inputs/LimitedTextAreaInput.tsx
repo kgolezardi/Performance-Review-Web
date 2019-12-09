@@ -2,7 +2,7 @@ import { makeStyles, Omit, TextField, Theme } from '@material-ui/core';
 import { CSSProperties } from '@material-ui/core/styles/withStyles';
 import { TextFieldProps } from '@material-ui/core/TextField';
 import React, { useCallback } from 'react';
-import CharacterCounter from 'src/shared/forminator/utils/CharacterCounter';
+import Counter from 'src/shared/counter/Counter';
 import { FCProps } from 'src/shared/types/FCProps';
 import { Styles } from 'src/shared/types/Styles';
 import { useForminatorState } from '../core/useForminatorState';
@@ -14,7 +14,7 @@ interface OwnProps {
 
 type Props = FCProps<OwnProps> & Omit<TextFieldProps, 'value' | 'onChange' | 'defaultValue'> & StyleProps;
 
-function TextAreaCharacterCounterInput({ initialValue, maxChars, ...props }: Props) {
+function LimitedTextAreaInput({ initialValue, maxChars, ...props }: Props) {
   const classes = useStyles(props);
 
   const [value, setValue] = useForminatorState(initialValue);
@@ -30,31 +30,19 @@ function TextAreaCharacterCounterInput({ initialValue, maxChars, ...props }: Pro
 
   return (
     <div className={classes.root}>
-      <TextField {...props} multiline className={classes.textField} value={value} onChange={onChange} />
-      {!!maxChars && (
-        <CharacterCounter
-          chars={value.length}
-          maxChars={maxChars}
-          classes={{
-            root: classes.characterCounter,
-            circularProgress: classes.circularProgress,
-            typography: classes.counterTypography,
-          }}
-        />
-      )}
+      <TextField multiline {...props} className={classes.textField} value={value} onChange={onChange} />
+      {!!maxChars && <Counter count={value.length} max={maxChars} />}
     </div>
   );
 }
-TextAreaCharacterCounterInput.defaultProps = { initialValue: '' };
-export default TextAreaCharacterCounterInput;
+
+LimitedTextAreaInput.defaultProps = { initialValue: '' };
+export default LimitedTextAreaInput;
 
 const styles = (theme: Theme) => ({
   root: {} as CSSProperties,
   textField: {} as CSSProperties,
-  characterCounter: {} as CSSProperties,
-  circularProgress: {} as CSSProperties,
-  counterTypography: {} as CSSProperties,
 });
 
-const useStyles = makeStyles(styles, { name: 'TextAreaCharacterCounterInput' });
+const useStyles = makeStyles(styles, { name: 'LimitedTextAreaInput' });
 type StyleProps = Styles<typeof styles>;
