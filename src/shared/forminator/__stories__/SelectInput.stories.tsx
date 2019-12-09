@@ -17,7 +17,7 @@ storiesOf('Forminator|Select input', module)
   .add('simple', () => {
     return (
       <Forminator onSubmit={action('submit')}>
-        <FormControl variant="outlined" style={{ minWidth: 200 }}>
+        <FormControl style={{ minWidth: 200 }}>
           <InputLabel>Number</InputLabel>
           <SelectInput options={options} />
         </FormControl>
