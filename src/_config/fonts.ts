@@ -1,1 +1,1 @@
-import 'shabnam-font/dist/font-face.css';
+import 'src/assets/shabnam.css';
