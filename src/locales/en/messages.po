@@ -13,8 +13,16 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
+#: src/core/locales/languages.ts:5
+msgid "English"
+msgstr "English"
+
 #: src/containers/main/MainContainer.tsx:10
 #: src/pages/dashboard-page/DashboardPage.tsx:6
-#: src/shared/layouts/dashboard-layouts/DashboardLayout.stories.tsx:22
+#: src/shared/layouts/dashboard-layouts/DashboardLayout.stories.tsx:28
 msgid "Performance Review"
 msgstr "Performance Review"
+
+#: src/core/locales/languages.ts:4
+msgid "Persian"
+msgstr "فارسی"

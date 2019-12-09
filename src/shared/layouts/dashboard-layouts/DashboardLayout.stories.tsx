@@ -14,6 +14,12 @@ const items: MenuItem[] = [
       to: '/home',
     },
   },
+  {
+    text: 'کاشانه',
+    link: {
+      to: '/kashane',
+    },
+  },
 ];
 
 storiesOf('Dashboard Layout', module)

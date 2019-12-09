@@ -1,4 +1,16 @@
 import { configure } from '@storybook/react';
+import { addParameters } from '@storybook/react';
 
-// automatically import all files ending in *.stories.tsx
-configure(require.context('../src', true, /\.stories\.tsx?$/), module);
+addParameters({
+  backgrounds: [
+    // material ui default
+    { name: 'default', value: '#fafafa', default: true },
+    { name: 'white', value: '#ffffff' },
+  ],
+});
+
+function loadStories() {
+  require('src/stories');
+}
+
+configure(loadStories, module);

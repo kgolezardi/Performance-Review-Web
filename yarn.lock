@@ -1581,6 +1581,22 @@
     react-inspector "^3.0.2"
     uuid "^3.3.2"
 
+"@storybook/addon-backgrounds@^5.2.8":
+  version "5.2.8"
+  resolved "https://registry.yarnpkg.com/@storybook/addon-backgrounds/-/addon-backgrounds-5.2.8.tgz#352c477cde3fdabc6d85fd5407f0e67ffa35b1f5"
+  integrity sha512-FUcNQyIzJwzHUSlzghA41PSA/crf1NwsrVItAsYDf/e0St/XERuZ4hMYGqLFRqBeKXuy6KUJpHbbqucXl/2U4g==
+  dependencies:
+    "@storybook/addons" "5.2.8"
+    "@storybook/api" "5.2.8"
+    "@storybook/client-logger" "5.2.8"
+    "@storybook/components" "5.2.8"
+    "@storybook/core-events" "5.2.8"
+    "@storybook/theming" "5.2.8"
+    core-js "^3.0.1"
+    memoizerific "^1.11.3"
+    react "^16.8.3"
+    util-deprecate "^1.0.2"
+
 "@storybook/addon-links@^5.2.8":
   version "5.2.8"
   resolved "https://registry.yarnpkg.com/@storybook/addon-links/-/addon-links-5.2.8.tgz#8d447581dd511387e9a07ce2484422374f00bc84"
@@ -13989,6 +14005,17 @@ store2@^2.7.1:
   version "2.10.0"
   resolved "https://registry.yarnpkg.com/store2/-/store2-2.10.0.tgz#46b82bb91878daf1b0d56dec2f1d41e54d5103cf"
   integrity sha512-tWEpK0snS2RPUq1i3R6OahfJNjWCQYNxq0+by1amCSuw0mXtymJpzmZIeYpA1UAa+7B0grCpNYIbDcd7AgTbFg==
+
+storybook-addon-selector@^5.2.8-1:
+  version "5.2.8-1"
+  resolved "https://registry.yarnpkg.com/storybook-addon-selector/-/storybook-addon-selector-5.2.8-1.tgz#abcf70ee8602318d916ba045b72551fb4292de18"
+  integrity sha512-R3IqPsm7Kqx5ds6/d+jRrl1R6UiQf1Oq+R4hhHV9+Tz+eOHXHi/DkZ988GhrjM+4chsNrRMInL96Gb2Ep0HaDg==
+  dependencies:
+    "@storybook/addons" "5.2.8"
+    "@storybook/api" "5.2.8"
+    "@storybook/components" "5.2.8"
+    react "^16.8.3"
+    util-deprecate "^1.0.2"
 
 stream-browserify@^2.0.1:
   version "2.0.2"
