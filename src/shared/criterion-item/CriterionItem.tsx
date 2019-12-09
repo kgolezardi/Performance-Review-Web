@@ -12,14 +12,14 @@ interface OwnProps {
 
 type Props = FCProps<OwnProps>;
 
-function Review({ title, prefix }: Props) {
+export function CriterionItem({ title, prefix }: Props) {
   const { labelWidth, labelRef } = useLabelWidth();
 
   return (
     <Card>
       <CardHeader title={title}></CardHeader>
       <CardContent>
-        <DictInputItem field={prefix + '__rating'}>
+        <DictInputItem field={prefix + '__Rating'}>
           <Box width={240}>
             <FormControl variant="outlined" margin="dense" fullWidth>
               <InputLabel ref={labelRef}>{i18n._('Select')}</InputLabel>
@@ -28,12 +28,10 @@ function Review({ title, prefix }: Props) {
             </FormControl>
           </Box>
         </DictInputItem>
-        <DictInputItem field={prefix + '__description'}>
+        <DictInputItem field={prefix + '__Comment'}>
           <LimitedTextAreaInput variant="outlined" maxChars={280} rows={5} fullWidth />
         </DictInputItem>
       </CardContent>
     </Card>
   );
 }
-
-export default Review;
