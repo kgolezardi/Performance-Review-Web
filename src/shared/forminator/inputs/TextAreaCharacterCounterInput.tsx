@@ -14,7 +14,7 @@ interface OwnProps {
 
 type Props = FCProps<OwnProps> & Omit<TextFieldProps, 'value' | 'onChange' | 'defaultValue'> & StyleProps;
 
-function LimitedTextAreaInput({ initialValue, maxChars, ...props }: Props) {
+function TextAreaCharacterCounterInput({ initialValue, maxChars, ...props }: Props) {
   const classes = useStyles(props);
 
   const [value, setValue] = useForminatorState(initialValue);
@@ -38,21 +38,23 @@ function LimitedTextAreaInput({ initialValue, maxChars, ...props }: Props) {
           classes={{
             root: classes.characterCounter,
             circularProgress: classes.circularProgress,
+            typography: classes.counterTypography,
           }}
         />
       )}
     </div>
   );
 }
-LimitedTextAreaInput.defaultProps = { initialValue: '' };
-export default LimitedTextAreaInput;
+TextAreaCharacterCounterInput.defaultProps = { initialValue: '' };
+export default TextAreaCharacterCounterInput;
 
 const styles = (theme: Theme) => ({
   root: {} as CSSProperties,
   textField: {} as CSSProperties,
   characterCounter: {} as CSSProperties,
   circularProgress: {} as CSSProperties,
+  counterTypography: {} as CSSProperties,
 });
 
-const useStyles = makeStyles(styles, { name: 'LimitedTextAreaInput' });
+const useStyles = makeStyles(styles, { name: 'TextAreaCharacterCounterInput' });
 type StyleProps = Styles<typeof styles>;

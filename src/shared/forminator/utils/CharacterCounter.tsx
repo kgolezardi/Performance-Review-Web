@@ -22,7 +22,7 @@ function CharacterCounter({ chars, maxChars, ...props }: Props) {
         size={20}
         value={(chars * 100) / maxChars}
       />
-      <Typography>
+      <Typography className={classes.typography}>
         {chars} / {maxChars}
       </Typography>
     </div>
@@ -39,6 +39,7 @@ const styles = (theme: Theme) => ({
   circularProgress: {
     marginRight: theme.spacing(),
   } as CSSProperties,
+  typography: {} as CSSProperties,
 });
 
 const useStyles = makeStyles(styles, { name: 'CharacterCounter' });
