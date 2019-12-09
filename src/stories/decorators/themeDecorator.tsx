@@ -7,6 +7,7 @@ import React from 'react';
 import { RtlSupportProvider } from 'src/core/rtl/RtlSupportProvider';
 import { GlobalStyles } from 'src/core/styles/GlobalStyles';
 import { ltrTheme, rtlTheme } from 'src/core/theme/themes';
+import { directionState } from 'src/stories/direction-state';
 import { TransparentBackground } from './TransparentBackground';
 
 interface themeDecoratorOptions {
@@ -20,7 +21,7 @@ export const themeDecorator = ({
 }: themeDecoratorOptions = {}): DecoratorFunction<StoryFnReactReturnType> => (
   storyFn: StoryFn<StoryFnReactReturnType>,
 ) => {
-  const direction = maybeDirection || 'rtl'; // directionState.getDirection();
+  const direction = maybeDirection || directionState.getDirection();
   const theme = direction === 'rtl' ? rtlTheme : ltrTheme;
   return (
     <RtlSupportProvider>
