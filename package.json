@@ -48,8 +48,8 @@
     "lint": "eslint --max-warnings=0 src/**/*.{ts,tsx}",
     "format": "prettier --write '**/*.{js,jsx,ts,tsx,json,css,scss,md}'",
     "format:check": "prettier --check '**/*.{js,jsx,ts,tsx,json,css,scss,md}'",
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook",
+    "storybook": "start-storybook -p 9009 -s public",
+    "build-storybook": "build-storybook -s public",
     "relay": "relay-compiler --src ./src --schema ./schema.graphql --extensions ts tsx --language typescript",
     "get-schema": "graphql get-schema -e default"
   },

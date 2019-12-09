@@ -26,3 +26,7 @@ msgstr "Performance Review"
 #: src/core/locales/languages.ts:4
 msgid "Persian"
 msgstr "فارسی"
+
+#: src/shared/review/Review.tsx:28
+msgid "Select"
+msgstr "Select"
