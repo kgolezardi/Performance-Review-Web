@@ -9,6 +9,7 @@ import ArrayInput from '../inputs/array-input/ArrayInput';
 import ArrayOutput from '../inputs/array-input/ArrayOutput';
 import ArrayRemoveButton from '../inputs/array-input/ArrayRemoveButton';
 import SubmitButton from '../utils/SubmitButton';
+import LimitedTextAreaInput from '../inputs/LimitedTextAreaInput';
 
 storiesOf('Forminator|Array input', module)
   .addDecorator(themeDecorator({ direction: 'ltr' }))
@@ -290,6 +291,28 @@ storiesOf('Forminator|Array input/with initial value', module)
             <Grid item>
               <ArrayAppendButton initialValue="+98">add</ArrayAppendButton>
             </Grid>
+          </ArrayInput>
+          <Grid item>
+            <SubmitButton color="primary" variant="contained">
+              Submit
+            </SubmitButton>
+          </Grid>
+        </Grid>
+      </Forminator>
+    );
+  })
+  .add('with limited textarea', () => {
+    return (
+      <Forminator onSubmit={action('submit')}>
+        <Grid container spacing={2} style={{ width: 400, margin: 16 }}>
+          <ArrayInput initialValue={['', '', '']}>
+            <ArrayOutput>
+              <Grid item xs={12}>
+                <Paper style={{ padding: 16 }}>
+                  <LimitedTextAreaInput label="text" variant="outlined" rows={2} maxChars={288} fullWidth />
+                </Paper>
+              </Grid>
+            </ArrayOutput>
           </ArrayInput>
           <Grid item>
             <SubmitButton color="primary" variant="contained">
