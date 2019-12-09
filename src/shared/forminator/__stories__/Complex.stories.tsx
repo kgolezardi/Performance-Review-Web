@@ -46,7 +46,7 @@ function PolygonInput() {
 }
 
 storiesOf('Forminator|complex', module)
-  .addDecorator(themeDecorator({ rtl: false }))
+  .addDecorator(themeDecorator({ direction: 'ltr' }))
   .add('array of dict', () => {
     return (
       <Forminator onSubmit={action('submit')}>

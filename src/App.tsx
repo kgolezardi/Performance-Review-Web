@@ -1,7 +1,7 @@
-import { i18n } from '@lingui/core';
 import { CssBaseline, ThemeProvider } from '@material-ui/core';
 import React from 'react';
 import { RelayEnvironmentProvider } from 'react-relay/hooks';
+import { AppRouter } from 'src/AppRouter';
 import { RtlSupportProvider } from 'src/core/rtl/RtlSupportProvider';
 import { GlobalStyles } from 'src/core/styles/GlobalStyles';
 import { rtlTheme } from 'src/core/theme/themes';
@@ -14,7 +14,7 @@ const App: React.FC = () => {
         <ThemeProvider theme={rtlTheme}>
           <GlobalStyles />
           <CssBaseline />
-          <div>{i18n._('Performance Review')}</div>
+          <AppRouter />
         </ThemeProvider>
       </RtlSupportProvider>
     </RelayEnvironmentProvider>

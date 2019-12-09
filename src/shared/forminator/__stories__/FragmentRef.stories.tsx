@@ -23,7 +23,7 @@ const Spy = ({ lens, name }: { lens?: FragmentLens<any>; name: string }) => {
 };
 
 storiesOf('Forminator|Internal / Fragment lens', module)
-  .addDecorator(themeDecorator({ rtl: false }))
+  .addDecorator(themeDecorator({ direction: 'ltr' }))
   .add('spy value', () => {
     const lens = useFragmentLens();
 

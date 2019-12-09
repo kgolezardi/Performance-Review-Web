@@ -13,7 +13,7 @@ const options = [
 ];
 
 storiesOf('Forminator|Select input', module)
-  .addDecorator(themeDecorator({ rtl: false }))
+  .addDecorator(themeDecorator({ direction: 'ltr' }))
   .add('simple', () => {
     return (
       <Forminator onSubmit={action('submit')}>

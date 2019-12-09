@@ -6,7 +6,7 @@ import { Forminator, StringInput } from '..';
 import SubmitButton from '../utils/SubmitButton';
 
 storiesOf('Forminator|String input', module)
-  .addDecorator(themeDecorator({ rtl: false }))
+  .addDecorator(themeDecorator({ direction: 'ltr' }))
   .add('simple', () => {
     return (
       <Forminator onSubmit={action('submit')}>
@@ -18,7 +18,7 @@ storiesOf('Forminator|String input', module)
     );
   });
 storiesOf('Forminator|String input/with initial value', module)
-  .addDecorator(themeDecorator({ rtl: false }))
+  .addDecorator(themeDecorator({ direction: 'ltr' }))
   .add('on string input', () => {
     return (
       <Forminator onSubmit={action('submit')}>

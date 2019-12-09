@@ -1,4 +1,5 @@
 import { CssBaseline } from '@material-ui/core';
+import { Direction } from '@material-ui/core/styles/createMuiTheme';
 import { ThemeProvider } from '@material-ui/styles';
 import { DecoratorFunction, StoryFn } from '@storybook/addons';
 import { StoryFnReactReturnType } from '@storybook/react/dist/client/preview/types';
@@ -9,17 +10,18 @@ import { ltrTheme, rtlTheme } from 'src/core/theme/themes';
 import { TransparentBackground } from './TransparentBackground';
 
 interface themeDecoratorOptions {
-  rtl?: boolean;
+  direction?: Direction;
   transparent?: boolean;
 }
 
 export const themeDecorator = ({
-  rtl: boolean = true,
+  direction: maybeDirection,
   transparent = true,
 }: themeDecoratorOptions = {}): DecoratorFunction<StoryFnReactReturnType> => (
   storyFn: StoryFn<StoryFnReactReturnType>,
 ) => {
-  const theme = 'rtl' ? rtlTheme : ltrTheme;
+  const direction = maybeDirection || 'rtl'; // directionState.getDirection();
+  const theme = direction === 'rtl' ? rtlTheme : ltrTheme;
   return (
     <RtlSupportProvider>
       <ThemeProvider theme={theme}>

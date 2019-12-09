@@ -13,6 +13,8 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: src/App.tsx:6
+#: src/containers/main/MainContainer.tsx:10
+#: src/pages/dashboard-page/DashboardPage.tsx:6
+#: src/shared/layouts/dashboard-layouts/DashboardLayout.stories.tsx:22
 msgid "Performance Review"
 msgstr "ارزیابی عملکرد"
