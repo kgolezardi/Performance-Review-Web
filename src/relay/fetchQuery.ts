@@ -4,6 +4,7 @@ import { GRAPHQL_API } from './constants';
 export function fetchQuery(operation: RequestParameters, variables: Variables = {}) {
   return fetch(GRAPHQL_API, {
     method: 'POST',
+    credentials: 'include',
     headers: {
       'Content-Type': 'application/json',
     },
