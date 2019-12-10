@@ -1,5 +1,26 @@
 # source: http://127.0.0.1:8000/graphql
-# timestamp: Sat Dec 07 2019 20:45:14 GMT+0330 (Iran Standard Time)
+# timestamp: Tue Dec 10 2019 14:49:28 GMT+0330 (Iran Standard Time)
+
+input ChangePasswordMutationInput {
+  oldPassword: String!
+  newPassword: String!
+  clientMutationId: String
+}
+
+type ChangePasswordMutationPayload {
+  viewer: ViewerNode!
+  ok: Boolean!
+  clientMutationId: String
+}
+
+"""An enumeration."""
+enum Evaluation {
+  NEEDS_IMPROVMENT
+  MEETS_EXPECTATIONS
+  EXCEEDS_EXPECTATIONS
+  STRONGLY_EXCEEDS_EXPECTATIONS
+  SUPERB
+}
 
 input LoginMutationInput {
   username: String!
@@ -23,8 +44,10 @@ type LogoutMutationPayload {
 }
 
 type Mutation {
+  savePersonReview(input: SavePersonReviewMutationInput!): SavePersonReviewMutationPayload!
   login(input: LoginMutationInput!): LoginMutationPayload!
   logout(input: LogoutMutationInput!): LogoutMutationPayload!
+  changePassword(input: ChangePasswordMutationInput!): ChangePasswordMutationPayload!
 }
 
 """An object with an ID"""
@@ -50,8 +73,78 @@ type PageInfo {
   endCursor: String
 }
 
+type PersonReviewNode implements Node {
+  reviewee: UserNode!
+  sahabinessComment: String
+  problemSolvingComment: String
+  executionComment: String
+  thoughtLeadershipComment: String
+  leadershipComment: String
+  presenceComment: String
+  strengths: [String]
+  weaknesses: [String]
+
+  """The ID of the object."""
+  id: ID!
+  sahabinessRating: Evaluation
+  problemSolvingRating: Evaluation
+  executionRating: Evaluation
+  thoughtLeadershipRating: Evaluation
+  leadershipRating: Evaluation
+  presenceRating: Evaluation
+}
+
+type ProjectNode implements Node {
+  name: String!
+
+  """The ID of the object."""
+  id: ID!
+}
+
+type ProjectNodeConnection {
+  """Pagination data for this connection."""
+  pageInfo: PageInfo!
+
+  """Contains the nodes in this connection."""
+  edges: [ProjectNodeEdge]!
+}
+
+"""A Relay edge containing a `ProjectNode` and its cursor."""
+type ProjectNodeEdge {
+  """The item at the end of the edge"""
+  node: ProjectNode
+
+  """A cursor for use in pagination"""
+  cursor: String!
+}
+
 type Query {
   viewer: ViewerNode!
+}
+
+input SavePersonReviewMutationInput {
+  revieweeId: ID!
+  sahabinessRating: Evaluation
+  sahabinessComment: String
+  problemSolvingRating: Evaluation
+  problemSolvingComment: String
+  executionRating: Evaluation
+  executionComment: String
+  thoughtLeadershipRating: Evaluation
+  thoughtLeadershipComment: String
+  leadershipRating: Evaluation
+  leadershipComment: String
+  presenceRating: Evaluation
+  presenceComment: String
+  strengths: [String!]
+  weaknesses: [String!]
+  clientMutationId: String
+}
+
+type SavePersonReviewMutationPayload {
+  viewer: ViewerNode!
+  personReview: PersonReviewNode
+  clientMutationId: String
 }
 
 type UserNode implements Node {
@@ -89,5 +182,6 @@ type ViewerNode implements Node {
   """The ID of the object"""
   user(id: ID!): UserNode
   me: UserNode
+  projects(before: String, after: String, first: Int, last: Int, name: String, name_Icontains: String): ProjectNodeConnection!
   node(id: ID!): Node
 }
