@@ -16,7 +16,7 @@ export class ErrorBoundary extends React.Component<Props, State> {
   }
 
   static getDerivedStateFromError(error: Error) {
-    return { error: error };
+    return { error };
   }
 
   private retry = () => {
