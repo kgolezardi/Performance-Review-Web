@@ -6,7 +6,7 @@ import { storyWrapperDecorator } from 'src/stories/decorators/StoryWrapperDecora
 import { Forminator } from 'src/shared/forminator';
 import StrengthsWeaknesses from 'src/shared/strengths-weaknesses/StrengthsWeaknesses';
 
-storiesOf('Strengths and Weaknesses', module)
+storiesOf('Forminator|Strengths and Weaknesses', module)
   .addDecorator(themeDecorator({ direction: 'ltr' }))
   .addDecorator(storyWrapperDecorator({ width: 800, height: 'auto' }))
   .add('Strengths', () => {
