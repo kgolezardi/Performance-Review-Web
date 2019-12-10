@@ -20,7 +20,7 @@ export function CriterionItem({ title, subheader, prefix }: Props) {
     <Card>
       <CardHeader title={title} subheader={subheader} />
       <CardContent>
-        <DictInputItem field={prefix + '__Rating'}>
+        <DictInputItem field={prefix + 'Rating'}>
           <Box width={240}>
             <FormControl variant="outlined" margin="dense" fullWidth>
               <InputLabel ref={labelRef}>{i18n._('Select')}</InputLabel>
@@ -29,7 +29,7 @@ export function CriterionItem({ title, subheader, prefix }: Props) {
             </FormControl>
           </Box>
         </DictInputItem>
-        <DictInputItem field={prefix + '__Comment'}>
+        <DictInputItem field={prefix + 'Comment'}>
           <LimitedTextAreaInput variant="outlined" maxChars={280} rows={5} fullWidth />
         </DictInputItem>
       </CardContent>

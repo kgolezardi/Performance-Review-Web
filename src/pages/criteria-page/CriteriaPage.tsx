@@ -21,42 +21,42 @@ export function CriteriaPage(props: Props) {
               <CriterionItem
                 title="انطباق با فرهنگ سازمانی"
                 subheader="همکاری و کار تیمی . گرایش به تعهد به کار. تعهد به نتایج. صداقت و صراحت. تلاش مستمر در مسیر رشد حرفه‌ای. دغدغه‌مند مشتاق و مؤثر در پیشرفت سحابی‌ها و سحاب."
-                prefix="organization-culture"
+                prefix="sahabiness"
               />
             </Grid>
             <Grid item xs={12}>
               <CriterionItem
                 title="حل مسئله"
                 subheader="تحقیق و تحلیل با هدف اشراف بر موضوع. تفکر خلاق. ارائه‌ی پیشنهاد راه حل قابل اجرا و چابک. بررسی راه حل‌های جایگزین. تصمیم گیری."
-                prefix="teamwork"
+                prefix="problemSolving"
               />
             </Grid>
             <Grid item xs={12}>
               <CriterionItem
                 title="اجرا"
                 subheader="انجام کار با کیفیت با حداقل راهنمایی. برنامه‌ریزی و زمان بندی. حفظ توازن سرعت و دقت. قدرت تحلیل الگوریتمی. مستند سازی و ارتباط نوشتاری واضح، منسجم و دقیق. حجم کار Done شده."
-                prefix="teamwork"
+                prefix="execution"
               />
             </Grid>
             <Grid item xs={12}>
               <CriterionItem
                 title="مرجعیت تخصصی"
                 subheader="یادگیری در رشد فردی. احاطه بر دانش تخصصی. آشنایی با ابزارهای کاربردی. انتخاب و تمرکز بر یک زمینه‌ی تخصصی."
-                prefix="teamwork"
+                prefix="thoughtLeadership"
               />
             </Grid>
             <Grid item xs={12}>
               <CriterionItem
                 title="رهبری خود ظهور"
                 subheader="گرفتن هدایت مسئله‌ها و پروژه‌ها. پذیرفتن مسئولیت نتایج. Proactiveبودن."
-                prefix="teamwork"
+                prefix="leadership"
               />
             </Grid>
             <Grid item xs={12}>
               <CriterionItem
                 title="اثر حضور"
                 subheader="ارتباط کلامی واضح، منسجم و دقیق. ارائه و دریافت بازخورد. مهارت شنیده‌شدن. حضور قابل اتکا و موثر."
-                prefix="teamwork"
+                prefix="presence"
               />
             </Grid>
 
