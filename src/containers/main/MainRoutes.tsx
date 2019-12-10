@@ -1,5 +1,6 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
+import { CriteriaPage } from 'src/pages/criteria-page/CriteriaPage';
 import { DashboardPage } from 'src/pages/dashboard-page/DashboardPage';
 import { FCProps } from 'src/shared/types/FCProps';
 
@@ -9,6 +10,7 @@ export function MainRoutes(props: FCProps<Props>) {
   return (
     <Switch>
       <Route path="/" exact component={DashboardPage} />
+      <Route path="/criteria-page" component={CriteriaPage} />
     </Switch>
   );
 }

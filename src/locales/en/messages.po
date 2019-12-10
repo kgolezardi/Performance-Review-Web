@@ -13,6 +13,10 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
+#: src/containers/main/MainContainer.tsx:7
+msgid "Criteria"
+msgstr "Criteria"
+
 #: src/core/locales/languages.ts:5
 msgid "English"
 msgstr "English"
@@ -26,6 +30,7 @@ msgid "Password"
 msgstr "Password"
 
 #: src/containers/main/MainContainer.tsx:13
+#: src/containers/main/MainContainer.tsx:17
 #: src/pages/dashboard-page/DashboardPage.tsx:6
 #: src/shared/layouts/dashboard-layouts/DashboardLayout.stories.tsx:28
 msgid "Performance Review"
