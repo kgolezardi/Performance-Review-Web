@@ -53,7 +53,6 @@
     "relay": "relay-compiler --src ./src --schema ./schema.graphql --extensions ts tsx --language typescript",
     "get-schema": "graphql get-schema -e default"
   },
-  "proxy": "http://127.0.0.1:8000/",
   "eslintConfig": {
     "extends": "react-app"
   },
