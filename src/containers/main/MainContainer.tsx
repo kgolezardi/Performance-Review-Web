@@ -1,5 +1,6 @@
 import { i18n } from '@lingui/core';
-import React from 'react';
+import React, { Suspense } from 'react';
+import { FullPageSpinner } from 'src/pages/loading/FullPageSpinner';
 import {
   Brand,
   BrandRegion,
@@ -29,7 +30,9 @@ export function MainContainer(props: Props) {
         <NavBarMenu items={items} />
       </NavbarRegion>
       <ContentRegion>
-        <MainRoutes />
+        <Suspense fallback={<FullPageSpinner />}>
+          <MainRoutes />
+        </Suspense>
       </ContentRegion>
     </DashboardLayout>
   );
