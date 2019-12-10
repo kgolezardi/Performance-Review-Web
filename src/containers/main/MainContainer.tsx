@@ -1,6 +1,8 @@
 import { i18n } from '@lingui/core';
 import React, { Suspense } from 'react';
+import FullPageError from 'src/pages/full-page-error/FullPageError';
 import { FullPageSpinner } from 'src/pages/loading/FullPageSpinner';
+import { ErrorBoundary } from 'src/shared/error-boundary';
 import {
   Brand,
   BrandRegion,
@@ -30,9 +32,11 @@ export function MainContainer(props: Props) {
         <NavBarMenu items={items} />
       </NavbarRegion>
       <ContentRegion>
-        <Suspense fallback={<FullPageSpinner />}>
-          <MainRoutes />
-        </Suspense>
+        <ErrorBoundary fallback={<FullPageError />}>
+          <Suspense fallback={<FullPageSpinner />}>
+            <MainRoutes />
+          </Suspense>
+        </ErrorBoundary>
       </ContentRegion>
     </DashboardLayout>
   );
