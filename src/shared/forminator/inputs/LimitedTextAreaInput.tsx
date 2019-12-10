@@ -8,13 +8,13 @@ import { Styles } from 'src/shared/types/Styles';
 import { useForminatorState } from '../core/useForminatorState';
 
 interface OwnProps {
-  initialValue: string;
+  initialValue?: string;
   maxChars: number;
 }
 
 type Props = FCProps<OwnProps> & Omit<TextFieldProps, 'value' | 'onChange' | 'defaultValue'> & StyleProps;
 
-function LimitedTextAreaInput({ initialValue, maxChars, ...props }: Props) {
+function LimitedTextAreaInput({ initialValue = '', maxChars, ...props }: Props) {
   const classes = useStyles(props);
 
   const [value, setValue] = useForminatorState(initialValue);
@@ -36,7 +36,6 @@ function LimitedTextAreaInput({ initialValue, maxChars, ...props }: Props) {
   );
 }
 
-LimitedTextAreaInput.defaultProps = { initialValue: '' };
 export default LimitedTextAreaInput;
 
 const styles = (theme: Theme) => ({
