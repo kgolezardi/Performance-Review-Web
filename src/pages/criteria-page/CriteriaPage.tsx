@@ -1,8 +1,10 @@
+import { i18n } from '@lingui/core';
 import { Container, Grid } from '@material-ui/core';
 import { action } from '@storybook/addon-actions';
 import React from 'react';
 import { CriterionItem } from 'src/shared/criterion-item';
 import { DictInput, Forminator, SubmitButton } from 'src/shared/forminator';
+import { StickyActionBar } from 'src/shared/sticky-action-bar/StickyActionBar';
 import { FCProps } from 'src/shared/types/FCProps';
 
 interface OwnProps {}
@@ -57,11 +59,12 @@ export function CriteriaPage(props: Props) {
                 prefix="teamwork"
               />
             </Grid>
-            <Grid item>
+
+            <StickyActionBar elevation={4}>
               <SubmitButton variant="contained" color="primary">
-                ثبت
+                {i18n._('Submit')}
               </SubmitButton>
-            </Grid>
+            </StickyActionBar>
           </Grid>
         </DictInput>
       </Forminator>
