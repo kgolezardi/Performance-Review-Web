@@ -8,16 +8,17 @@ import { FCProps } from 'src/shared/types/FCProps';
 interface OwnProps {
   title: string;
   prefix: string;
+  subheader?: string;
 }
 
 type Props = FCProps<OwnProps>;
 
-export function CriterionItem({ title, prefix }: Props) {
+export function CriterionItem({ title, subheader, prefix }: Props) {
   const { labelWidth, labelRef } = useLabelWidth();
 
   return (
     <Card>
-      <CardHeader title={title}></CardHeader>
+      <CardHeader title={title} subheader={subheader} />
       <CardContent>
         <DictInputItem field={prefix + '__Rating'}>
           <Box width={240}>
