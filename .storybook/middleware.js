@@ -1,7 +1,7 @@
 const proxy = require('http-proxy-middleware');
 
 const proxies = {
-  '/graphql': 'http://127.0.0.1:8000/',
+  '/graphql': process.env.REACT_APP_SERVER_URL || 'http://127.0.0.1:8000/',
 };
 
 module.exports = function proxyMiddleware(router) {
