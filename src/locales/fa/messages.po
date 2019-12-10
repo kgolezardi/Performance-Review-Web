@@ -13,7 +13,11 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: src/containers/main/MainContainer.tsx:7
+#: src/shared/sticky-action-bar/StickyActionBar.stories.tsx:14
+msgid "Cancel"
+msgstr "لغو"
+
+#: src/containers/main/MainContainer.tsx:10
 msgid "Criteria"
 msgstr "معیارها"
 
@@ -29,8 +33,7 @@ msgstr "ورود"
 msgid "Password"
 msgstr "گذرواژه"
 
-#: src/containers/main/MainContainer.tsx:13
-#: src/containers/main/MainContainer.tsx:17
+#: src/containers/main/MainContainer.tsx:20
 #: src/pages/dashboard-page/DashboardPage.tsx:6
 #: src/shared/layouts/dashboard-layouts/DashboardLayout.stories.tsx:28
 msgid "Performance Review"
@@ -45,6 +48,7 @@ msgid "Select"
 msgstr "انتخاب کنید"
 
 #: src/pages/auth/LoginForm.tsx:19
+#: src/shared/sticky-action-bar/StickyActionBar.stories.tsx:16
 msgid "Submit"
 msgstr "ثبت"
 
