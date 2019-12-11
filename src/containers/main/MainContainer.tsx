@@ -26,6 +26,12 @@ const items: MenuItem[] = [
       to: '/criteria-page',
     },
   },
+  {
+    text: i18n._('Strengths and Weaknesses'),
+    link: {
+      to: '/strengths-weaknesses-page',
+    },
+  },
 ];
 
 export function MainContainer(props: Props) {
