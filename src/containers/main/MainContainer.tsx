@@ -19,7 +19,14 @@ interface OwnProps {}
 
 type Props = FCProps<OwnProps>;
 
-const items: MenuItem[] = [];
+const items: MenuItem[] = [
+  {
+    text: i18n._('Criteria'),
+    link: {
+      to: '/criteria-page',
+    },
+  },
+];
 
 export function MainContainer(props: Props) {
   return (
