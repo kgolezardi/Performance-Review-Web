@@ -4,7 +4,7 @@ import React from 'react';
 import { themeDecorator } from 'src/stories/decorators';
 import { storyWrapperDecorator } from 'src/stories/decorators/StoryWrapperDecorator';
 import { DictInput, DictInputItem, Forminator } from 'src/shared/forminator';
-import StrengthsOrWeaknesses from 'src/shared/strengths-weaknesses/StrengthsOrWeaknesses';
+import { StrengthsOrWeaknesses } from './StrengthsOrWeaknesses';
 
 storiesOf('Form|Strengths and Weaknesses', module)
   .addDecorator(themeDecorator())

@@ -1,0 +1,1 @@
+export { StrengthsOrWeaknesses } from './StrengthsOrWeaknesses';

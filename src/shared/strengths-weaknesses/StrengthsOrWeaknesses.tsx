@@ -18,7 +18,7 @@ interface OwnProps {
 
 type Props = FCProps<OwnProps> & StyleProps;
 
-function StrengthsOrWeaknesses({ title, maxLength, ...props }: Props) {
+export function StrengthsOrWeaknesses({ title, maxLength, ...props }: Props) {
   const classes = useStyles(props);
   const lens = useFragmentLens();
   const condition = useCallback(
@@ -48,8 +48,6 @@ function StrengthsOrWeaknesses({ title, maxLength, ...props }: Props) {
     </Card>
   );
 }
-
-export default StrengthsOrWeaknesses;
 
 const styles = (theme: Theme) => ({
   root: {
