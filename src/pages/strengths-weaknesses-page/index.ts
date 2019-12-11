@@ -1,0 +1,1 @@
+export { StrengthsWeaknessesPage } from './StrengthsWeaknessesPage';

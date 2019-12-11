@@ -1,6 +1,6 @@
 import React from 'react';
 import { DictInput, DictInputItem, Forminator, SubmitButton } from 'src/shared/forminator';
-import StrengthsOrWeaknesses from 'src/shared/strengths-weaknesses/StrengthsOrWeaknesses';
+import { StrengthsOrWeaknesses } from 'src/shared/strengths-weaknesses';
 import { i18n } from '@lingui/core';
 import { FCProps } from 'src/shared/types/FCProps';
 import { StrengthsWeaknessesFormData } from './StrengthsWeaknessesPage';

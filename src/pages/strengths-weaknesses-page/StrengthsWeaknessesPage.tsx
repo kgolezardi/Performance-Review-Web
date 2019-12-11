@@ -4,7 +4,7 @@ import { StrengthsWeaknessesForm } from './StrengthsWeaknessesForm';
 import { useMutation } from 'src/relay';
 import graphql from 'babel-plugin-relay/macro';
 import { StrengthsWeaknessesPageMutation } from './__generated__/StrengthsWeaknessesPageMutation.graphql';
-import { useAuthGuardUser } from 'src/core/auth/UserContext';
+import { useAuthGuardUser } from 'src/core/auth';
 
 const useStrengthsWeaknessesPageMutation = () =>
   useMutation<StrengthsWeaknessesPageMutation>(graphql`
