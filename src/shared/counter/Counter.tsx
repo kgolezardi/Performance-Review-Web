@@ -11,7 +11,7 @@ interface OwnProps {
 
 type Props = FCProps<OwnProps> & StyleProps;
 
-function Counter({ count, max, ...props }: Props) {
+export function Counter({ count, max, ...props }: Props) {
   const classes = useStyles(props);
 
   return (
@@ -23,8 +23,6 @@ function Counter({ count, max, ...props }: Props) {
     </div>
   );
 }
-
-export default Counter;
 
 const styles = (theme: Theme) => ({
   root: {

@@ -1,14 +1,14 @@
+import { i18n } from '@lingui/core';
+import { Card, Container, Typography } from '@material-ui/core';
 import { makeStyles, Theme } from '@material-ui/core/styles';
+import { CSSProperties } from '@material-ui/styles';
 import graphql from 'babel-plugin-relay/macro';
 import React, { useState } from 'react';
-import LoginForm, { LoginFormProps } from 'src/pages/auth/LoginForm';
-import { LoginMutation } from 'src/pages/auth/__generated__/LoginMutation.graphql';
 import { useMutation } from 'src/relay';
 import { FCProps } from 'src/shared/types/FCProps';
 import { Styles } from 'src/shared/types/Styles';
-import { CSSProperties } from '@material-ui/styles';
-import { Container, Card, Typography } from '@material-ui/core';
-import { i18n } from '@lingui/core';
+import LoginForm, { LoginFormProps } from './LoginForm';
+import { LoginMutation } from './__generated__/LoginMutation.graphql';
 
 interface OwnProps {}
 

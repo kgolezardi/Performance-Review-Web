@@ -2,7 +2,7 @@ import { makeStyles, Omit, TextField, Theme } from '@material-ui/core';
 import { CSSProperties } from '@material-ui/core/styles/withStyles';
 import { TextFieldProps } from '@material-ui/core/TextField';
 import React, { useCallback } from 'react';
-import Counter from 'src/shared/counter/Counter';
+import { Counter } from 'src/shared/counter';
 import { FCProps } from 'src/shared/types/FCProps';
 import { Styles } from 'src/shared/types/Styles';
 import { useForminatorState } from '../core/useForminatorState';

@@ -1,8 +1,7 @@
 import { i18n } from '@lingui/core';
 import React, { Suspense } from 'react';
-import FullPageError from 'src/pages/full-page-error/FullPageError';
-import { FullPageSpinner } from 'src/pages/loading/FullPageSpinner';
 import { ErrorBoundary } from 'src/shared/error-boundary';
+import { FullPageError } from 'src/shared/full-page-error';
 import {
   Brand,
   BrandRegion,
@@ -12,6 +11,7 @@ import {
   NavbarRegion,
 } from 'src/shared/layouts/dashboard-layouts';
 import { MenuItem } from 'src/shared/layouts/dashboard-layouts/menu/types';
+import { FullPageSpinner } from 'src/shared/loading';
 import { FCProps } from 'src/shared/types/FCProps';
 import { MainRoutes } from './MainRoutes';
 

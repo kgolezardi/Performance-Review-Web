@@ -1,9 +1,9 @@
+import { i18n } from '@lingui/core';
 import React from 'react';
 import { Forminator, StringInput } from 'src/shared/forminator';
-import DictInputItem from 'src/shared/forminator/inputs/dict-input/DictInputItem';
 import DictInput from 'src/shared/forminator/inputs/dict-input/DictInput';
+import DictInputItem from 'src/shared/forminator/inputs/dict-input/DictInputItem';
 import SubmitButton from 'src/shared/forminator/utils/SubmitButton';
-import { i18n } from '@lingui/core';
 
 export interface LoginFormProps {
   onSubmit: (data: { username: string; password: string }) => Promise<void> | void;
