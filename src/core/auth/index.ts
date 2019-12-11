@@ -1,2 +1,2 @@
 export { AuthGuard } from './AuthGuard';
-export { useAuthGuardUser } from './UserContext';
+export { useAuthGuardUser, useUser } from './UserContext';
