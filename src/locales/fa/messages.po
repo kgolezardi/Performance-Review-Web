@@ -15,7 +15,7 @@ msgstr ""
 
 #: src/shared/strengths-weaknesses/StrengthsOrWeaknesses.tsx:41
 msgid "Add"
-msgstr "اضافه"
+msgstr "افزودن"
 
 #: src/shared/sticky-action-bar/StickyActionBar.stories.tsx:14
 msgid "Cancel"
