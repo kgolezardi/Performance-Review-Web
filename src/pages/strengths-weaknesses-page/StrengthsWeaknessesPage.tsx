@@ -18,12 +18,12 @@ const useStrengthsWeaknessesPageMutation = () =>
   `);
 
 const transformData = (data: StrengthsWeaknessesFormData) => {
-  const strengths = data.strengths?.filter(val => val !== '');
-  const weaknesses = data.weaknesses?.filter(val => val !== '');
+  const strengths = data.strengths?.filter(val => !!val);
+  const weaknesses = data.weaknesses?.filter(val => !!val);
 
   return {
-    strengths: strengths?.length ? strengths : null,
-    weaknesses: weaknesses?.length ? weaknesses : null,
+    strengths: strengths ? strengths : [],
+    weaknesses: weaknesses ? weaknesses : [],
   };
 };
 
