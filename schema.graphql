@@ -1,5 +1,5 @@
 # source: http://127.0.0.1:8000/graphql
-# timestamp: Tue Dec 10 2019 14:49:28 GMT+0330 (Iran Standard Time)
+# timestamp: Wed Dec 11 2019 12:10:56 GMT+0330 (Iran Standard Time)
 
 input ChangePasswordMutationInput {
   oldPassword: String!
@@ -56,23 +56,6 @@ interface Node {
   id: ID!
 }
 
-"""
-The Relay compliant `PageInfo` type, containing data necessary to paginate this connection.
-"""
-type PageInfo {
-  """When paginating forwards, are there more items?"""
-  hasNextPage: Boolean!
-
-  """When paginating backwards, are there more items?"""
-  hasPreviousPage: Boolean!
-
-  """When paginating backwards, the cursor to continue."""
-  startCursor: String
-
-  """When paginating forwards, the cursor to continue."""
-  endCursor: String
-}
-
 type PersonReviewNode implements Node {
   reviewee: UserNode!
   sahabinessComment: String
@@ -99,23 +82,6 @@ type ProjectNode implements Node {
 
   """The ID of the object."""
   id: ID!
-}
-
-type ProjectNodeConnection {
-  """Pagination data for this connection."""
-  pageInfo: PageInfo!
-
-  """Contains the nodes in this connection."""
-  edges: [ProjectNodeEdge]!
-}
-
-"""A Relay edge containing a `ProjectNode` and its cursor."""
-type ProjectNodeEdge {
-  """The item at the end of the edge"""
-  node: ProjectNode
-
-  """A cursor for use in pagination"""
-  cursor: String!
 }
 
 type Query {
@@ -157,31 +123,14 @@ type UserNode implements Node {
   id: ID!
 }
 
-type UserNodeConnection {
-  """Pagination data for this connection."""
-  pageInfo: PageInfo!
-
-  """Contains the nodes in this connection."""
-  edges: [UserNodeEdge]!
-}
-
-"""A Relay edge containing a `UserNode` and its cursor."""
-type UserNodeEdge {
-  """The item at the end of the edge"""
-  node: UserNode
-
-  """A cursor for use in pagination"""
-  cursor: String!
-}
-
 type ViewerNode implements Node {
   """The ID of the object."""
   id: ID!
-  users(before: String, after: String, first: Int, last: Int, username: String): UserNodeConnection!
+  users: [UserNode]!
 
   """The ID of the object"""
   user(id: ID!): UserNode
   me: UserNode
-  projects(before: String, after: String, first: Int, last: Int, name: String, name_Icontains: String): ProjectNodeConnection!
+  projects: [ProjectNode]!
   node(id: ID!): Node
 }
