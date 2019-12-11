@@ -1,5 +1,5 @@
 # source: http://127.0.0.1:8000/graphql
-# timestamp: Wed Dec 11 2019 21:28:32 GMT+0330 (Iran Standard Time)
+# timestamp: Wed Dec 11 2019 21:32:59 GMT+0330 (Iran Standard Time)
 
 input ChangePasswordMutationInput {
   oldPassword: String!
@@ -45,6 +45,7 @@ type LogoutMutationPayload {
 
 type Mutation {
   savePersonReview(input: SavePersonReviewMutationInput!): SavePersonReviewMutationPayload!
+  saveProjectReview(input: SaveProjectReviewMutationInput!): SaveProjectReviewMutationPayload!
   login(input: LoginMutationInput!): LoginMutationPayload!
   logout(input: LogoutMutationInput!): LogoutMutationPayload!
   changePassword(input: ChangePasswordMutationInput!): ChangePasswordMutationPayload!
@@ -84,6 +85,16 @@ type ProjectNode implements Node {
   id: ID!
 }
 
+type ProjectReviewNode implements Node {
+  project: ProjectNode!
+  text: String
+
+  """The ID of the object."""
+  id: ID!
+  rating: Evaluation
+  reviewers: [UserNode!]!
+}
+
 type Query {
   viewer: ViewerNode!
 }
@@ -110,6 +121,20 @@ input SavePersonReviewMutationInput {
 type SavePersonReviewMutationPayload {
   viewer: ViewerNode!
   personReview: PersonReviewNode
+  clientMutationId: String
+}
+
+input SaveProjectReviewMutationInput {
+  projectId: ID!
+  text: String
+  rating: Evaluation
+  reviewersId: [ID!]!
+  clientMutationId: String
+}
+
+type SaveProjectReviewMutationPayload {
+  viewer: ViewerNode!
+  projectReview: ProjectReviewNode
   clientMutationId: String
 }
 
