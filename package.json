@@ -39,9 +39,9 @@
   "scripts": {
     "i18n:extract": "lingui extract --clean",
     "i18n:compile": "lingui compile",
-    "prestart": "yarn i18n:compile",
-    "prebuild": "yarn i18n:compile",
-    "pretest": "yarn i18n:compile",
+    "prestart": "yarn relay && yarn i18n:compile",
+    "prebuild": "yarn relay && yarn i18n:compile",
+    "pretest": "yarn relay && yarn i18n:compile",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
