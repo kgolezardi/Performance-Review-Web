@@ -2,7 +2,7 @@ import { i18n } from '@lingui/core';
 import { Box, Card, CardContent, CardHeader, FormControl, InputLabel } from '@material-ui/core';
 import React from 'react';
 import { DictInputItem, LimitedTextAreaInput, SelectInput } from 'src/shared/forminator';
-import { useLabelWidth } from 'src/shared/hooks/useLabelWidth';
+import { useLabelWidth } from 'src/shared/hooks';
 import { FCProps } from 'src/shared/types/FCProps';
 
 interface OwnProps {

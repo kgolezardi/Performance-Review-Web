@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-import { CriteriaPage } from 'src/pages/criteria-page/CriteriaPage';
-import { DashboardPage } from 'src/pages/dashboard-page/DashboardPage';
+import { CriteriaPage } from 'src/pages/criteria-page';
+import { DashboardPage } from 'src/pages/dashboard-page';
 import { FCProps } from 'src/shared/types/FCProps';
 
 interface Props {}

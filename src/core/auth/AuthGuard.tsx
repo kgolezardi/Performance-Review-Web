@@ -1,10 +1,10 @@
 import graphql from 'babel-plugin-relay/macro';
 import React, { useMemo } from 'react';
 import { useLazyLoadQuery } from 'react-relay/hooks';
-import { AuthPage } from 'src/pages/auth/AuthPage';
+import { AuthPage } from 'src/shared/auth';
 import { FCProps } from 'src/shared/types/FCProps';
-import { AuthGuardQuery } from './__generated__/AuthGuardQuery.graphql';
 import { UserContext } from './UserContext';
+import { AuthGuardQuery } from './__generated__/AuthGuardQuery.graphql';
 
 interface OwnProps {}
 

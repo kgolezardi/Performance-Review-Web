@@ -1,11 +1,11 @@
 import { i18n } from '@lingui/core';
 import { Grid } from '@material-ui/core';
 import React from 'react';
-import { CriteriaFormData } from 'src/pages/criteria-page/CriteriaPage';
 import { CriterionItem } from 'src/shared/criterion-item';
 import { DictInput, Forminator, SubmitButton } from 'src/shared/forminator';
-import { StickyActionBar } from 'src/shared/sticky-action-bar/StickyActionBar';
+import { StickyActionBar } from 'src/shared/sticky-action-bar';
 import { FCProps } from 'src/shared/types/FCProps';
+import { CriteriaFormData } from './CriteriaPage';
 
 interface OwnProps {
   onSubmit: (data: CriteriaFormData) => void;

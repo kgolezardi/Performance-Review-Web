@@ -6,7 +6,7 @@ import { StoryFnReactReturnType } from '@storybook/react/dist/client/preview/typ
 import React from 'react';
 import { RtlSupportProvider } from 'src/core/rtl/RtlSupportProvider';
 import { GlobalStyles } from 'src/core/styles/GlobalStyles';
-import { ltrTheme, rtlTheme } from 'src/core/theme/themes';
+import { ltrTheme, rtlTheme } from 'src/core/theme';
 import { directionState } from 'src/stories/direction-state';
 import { TransparentBackground } from './TransparentBackground';
 

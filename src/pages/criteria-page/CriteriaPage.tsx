@@ -1,11 +1,11 @@
 import { Container } from '@material-ui/core';
 import graphql from 'babel-plugin-relay/macro';
 import React, { useCallback } from 'react';
-import { useAuthGuardUser } from 'src/core/auth/UserContext';
-import { CriteriaForm } from 'src/pages/criteria-page/CriteriaForm';
-import { CriteriaPageMutation, Evaluation } from 'src/pages/criteria-page/__generated__/CriteriaPageMutation.graphql';
+import { useAuthGuardUser } from 'src/core/auth';
 import { useMutation } from 'src/relay';
 import { FCProps } from 'src/shared/types/FCProps';
+import { CriteriaForm } from './CriteriaForm';
+import { CriteriaPageMutation, Evaluation } from './__generated__/CriteriaPageMutation.graphql';
 
 interface OwnProps {}
 
