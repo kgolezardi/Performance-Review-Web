@@ -5,3 +5,5 @@ export { default as LimitedTextAreaInput } from './inputs/LimitedTextAreaInput';
 export { default as SelectInput } from './inputs/SelectInput';
 export { default as StringInput } from './inputs/StringInput';
 export { default as SubmitButton } from './utils/SubmitButton';
+export { default as ConditionalSection } from './utils/ConditionalSection';
+export { default as FragmentRef } from './core/fragment-lens/FragmentRef';
