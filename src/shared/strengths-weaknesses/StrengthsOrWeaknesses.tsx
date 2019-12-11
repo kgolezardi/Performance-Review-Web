@@ -10,6 +10,7 @@ import { ConditionalSection } from 'src/shared/forminator';
 import { useFragmentLens } from '../forminator/core/fragment-lens/useFragmentLens';
 import { FragmentRef } from 'src/shared/forminator';
 import LimitedTextAreaInput from '../forminator/inputs/LimitedTextAreaInput';
+import { i18n } from '@lingui/core';
 
 interface OwnProps {
   title: string;
@@ -40,7 +41,7 @@ export function StrengthsOrWeaknesses({ title, maxLength, ...props }: Props) {
           </ArrayOutput>
           <ConditionalSection condition={condition} lens={lens}>
             <Grid item>
-              <ArrayAppendButton>add</ArrayAppendButton>
+              <ArrayAppendButton>{i18n._('Add')}</ArrayAppendButton>
             </Grid>
           </ConditionalSection>
         </ArrayInput>

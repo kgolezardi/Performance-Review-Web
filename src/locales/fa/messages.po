@@ -13,6 +13,10 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
+#: src/shared/strengths-weaknesses/StrengthsOrWeaknesses.tsx:41
+msgid "Add"
+msgstr "اضافه"
+
 #: src/shared/sticky-action-bar/StickyActionBar.stories.tsx:14
 msgid "Cancel"
 msgstr "لغو"
@@ -33,7 +37,7 @@ msgstr "ورود"
 msgid "Password"
 msgstr "گذرواژه"
 
-#: src/containers/main/MainContainer.tsx:20
+#: src/containers/main/MainContainer.tsx:26
 #: src/pages/dashboard-page/DashboardPage.tsx:6
 #: src/shared/layouts/dashboard-layouts/DashboardLayout.stories.tsx:28
 msgid "Performance Review"
@@ -47,7 +51,17 @@ msgstr "فارسی"
 msgid "Select"
 msgstr "انتخاب کنید"
 
+#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:10
+msgid "Strengths"
+msgstr "نقاط قوت"
+
+#: src/containers/main/MainContainer.tsx:16
+msgid "Strengths and Weaknesses"
+msgstr "نقاط قوت و ضعف"
+
 #: src/pages/auth/LoginForm.tsx:19
+#: src/pages/criteria-page/CriteriaForm.tsx:33
+#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:18
 #: src/shared/sticky-action-bar/StickyActionBar.stories.tsx:16
 msgid "Submit"
 msgstr "ثبت"
@@ -59,3 +73,7 @@ msgstr "نام کاربری"
 #: src/pages/auth/Login.tsx:31
 msgid "Username or Password is incorrect."
 msgstr "نام کاربری یا گذرواژه اشتباه است."
+
+#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:14
+msgid "Weaknesses"
+msgstr "نقاط ضعف"
