@@ -8,6 +8,7 @@ import { FCProps } from 'src/shared/types/FCProps';
 import { CriteriaFormData } from './CriteriaPage';
 
 interface OwnProps {
+  initialValue: CriteriaFormData;
   onSubmit: (data: CriteriaFormData) => void;
 }
 
