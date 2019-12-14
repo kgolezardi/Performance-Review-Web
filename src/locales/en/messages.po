@@ -27,7 +27,7 @@ msgstr "Criteria"
 
 #: src/global-types/Evaluation.ts:11
 msgid "EXCEEDS_EXPECTATIONS"
-msgstr "EXCEEDS_EXPECTATIONS"
+msgstr "Exceeds Expectations"
 
 #: src/core/locales/languages.ts:5
 msgid "English"
@@ -39,11 +39,11 @@ msgstr "Login"
 
 #: src/global-types/Evaluation.ts:12
 msgid "MEETS_EXPECTATIONS"
-msgstr "MEETS_EXPECTATIONS"
+msgstr "Meets Expectations"
 
 #: src/global-types/Evaluation.ts:13
 msgid "NEEDS_IMPROVEMENT"
-msgstr "NEEDS_IMPROVEMENT"
+msgstr "Needs Improvement"
 
 #: src/shared/auth/LoginForm.tsx:14
 msgid "Password"
@@ -61,11 +61,11 @@ msgstr "فارسی"
 
 #: src/global-types/Evaluation.ts:14
 msgid "STRONGLY_EXCEEDS_EXPECTATIONS"
-msgstr "STRONGLY_EXCEEDS_EXPECTATIONS"
+msgstr "Strongly Exceeds Expectations"
 
 #: src/global-types/Evaluation.ts:15
 msgid "SUPERB"
-msgstr "SUPERB"
+msgstr "Superb"
 
 #: src/shared/criterion-item/CriterionItem.tsx:14
 #: src/shared/rating/Rating.stories.tsx:15
