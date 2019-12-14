@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-import { evaluationDictionary } from 'src/globalTypes';
+import { evaluationDictionary } from 'src/global-types';
 import { Select } from 'src/shared/select';
 import { FCProps } from 'src/shared/types/FCProps';
 import { getOptionsFromDictionary } from 'src/shared/utils/getOptionsFromDictionary';

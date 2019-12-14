@@ -25,7 +25,7 @@ msgstr "لغو"
 msgid "Criteria"
 msgstr "معیارها"
 
-#: src/globalTypes.ts:11
+#: src/global-types/Evaluation.ts:11
 msgid "EXCEEDS_EXPECTATIONS"
 msgstr "فراتر از انتظار"
 
@@ -37,12 +37,12 @@ msgstr "English"
 msgid "Login"
 msgstr "ورود"
 
-#: src/globalTypes.ts:12
+#: src/global-types/Evaluation.ts:12
 msgid "MEETS_EXPECTATIONS"
 msgstr "مطابق با انتظار"
 
-#: src/globalTypes.ts:13
-msgid "NEEDS_IMPROVMENT"
+#: src/global-types/Evaluation.ts:13
+msgid "NEEDS_IMPROVEMENT"
 msgstr "نیازمند به تلاش"
 
 #: src/shared/auth/LoginForm.tsx:14
@@ -59,11 +59,11 @@ msgstr "ارزیابی عملکرد"
 msgid "Persian"
 msgstr "فارسی"
 
-#: src/globalTypes.ts:14
+#: src/global-types/Evaluation.ts:14
 msgid "STRONGLY_EXCEEDS_EXPECTATIONS"
 msgstr "بسیار فراتر از انتظار"
 
-#: src/globalTypes.ts:15
+#: src/global-types/Evaluation.ts:15
 msgid "SUPERB"
 msgstr "فوق‌العاده"
 

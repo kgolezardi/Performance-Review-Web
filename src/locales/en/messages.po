@@ -25,7 +25,7 @@ msgstr "Cancel"
 msgid "Criteria"
 msgstr "Criteria"
 
-#: src/globalTypes.ts:11
+#: src/global-types/Evaluation.ts:11
 msgid "EXCEEDS_EXPECTATIONS"
 msgstr "EXCEEDS_EXPECTATIONS"
 
@@ -37,13 +37,13 @@ msgstr "English"
 msgid "Login"
 msgstr "Login"
 
-#: src/globalTypes.ts:12
+#: src/global-types/Evaluation.ts:12
 msgid "MEETS_EXPECTATIONS"
 msgstr "MEETS_EXPECTATIONS"
 
-#: src/globalTypes.ts:13
-msgid "NEEDS_IMPROVMENT"
-msgstr "NEEDS_IMPROVMENT"
+#: src/global-types/Evaluation.ts:13
+msgid "NEEDS_IMPROVEMENT"
+msgstr "NEEDS_IMPROVEMENT"
 
 #: src/shared/auth/LoginForm.tsx:14
 msgid "Password"
@@ -59,11 +59,11 @@ msgstr "Performance Review"
 msgid "Persian"
 msgstr "فارسی"
 
-#: src/globalTypes.ts:14
+#: src/global-types/Evaluation.ts:14
 msgid "STRONGLY_EXCEEDS_EXPECTATIONS"
 msgstr "STRONGLY_EXCEEDS_EXPECTATIONS"
 
-#: src/globalTypes.ts:15
+#: src/global-types/Evaluation.ts:15
 msgid "SUPERB"
 msgstr "SUPERB"
 

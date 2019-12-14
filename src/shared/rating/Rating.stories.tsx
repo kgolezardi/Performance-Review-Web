@@ -3,7 +3,7 @@ import { Box } from '@material-ui/core';
 import { action } from '@storybook/addon-actions';
 import { storiesOf } from '@storybook/react';
 import React from 'react';
-import { Evaluation } from 'src/globalTypes/Evaluation';
+import { Evaluation } from 'src/global-types';
 import { Forminator, SubmitButton } from 'src/shared/forminator';
 import { themeDecorator } from 'src/stories/decorators/themeDecorator';
 import { Rating } from './Rating';
