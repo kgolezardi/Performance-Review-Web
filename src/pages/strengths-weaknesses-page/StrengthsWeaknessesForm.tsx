@@ -6,7 +6,7 @@ import { FCProps } from 'src/shared/types/FCProps';
 import { StrengthsWeaknessesFormData } from './StrengthsWeaknessesPage';
 
 interface OwnProps {
-  initialValue: StrengthsWeaknessesFormData;
+  initialValue?: StrengthsWeaknessesFormData;
   onSubmit: (data: StrengthsWeaknessesFormData) => void;
 }
 
