@@ -29,17 +29,29 @@ msgstr "Criteria"
 msgid "English"
 msgstr "English"
 
-#: src/pages/auth/Login.tsx:42
+#: src/global-types/Evaluation.ts:11
+msgid "Exceeds Expectations"
+msgstr "Exceeds Expectations"
+
+#: src/shared/auth/Login.tsx:42
 msgid "Login"
 msgstr "Login"
 
-#: src/pages/auth/LoginForm.tsx:14
+#: src/global-types/Evaluation.ts:12
+msgid "Meets Expectations"
+msgstr "Meets Expectations"
+
+#: src/global-types/Evaluation.ts:13
+msgid "Needs Improvement"
+msgstr "Needs Improvement"
+
+#: src/shared/auth/LoginForm.tsx:14
 msgid "Password"
 msgstr "Password"
 
 #: src/containers/main/MainContainer.tsx:26
 #: src/pages/dashboard-page/DashboardPage.tsx:6
-#: src/shared/layouts/dashboard-layouts/DashboardLayout.stories.tsx:28
+#: src/shared/layouts/dashboard-layouts/DashboardLayout.stories.tsx:27
 msgid "Performance Review"
 msgstr "Performance Review"
 
@@ -48,6 +60,10 @@ msgid "Persian"
 msgstr "فارسی"
 
 #: src/shared/criterion-item/CriterionItem.tsx:14
+#: src/shared/rating/Rating.stories.tsx:15
+#: src/shared/rating/Rating.stories.tsx:25
+#: src/shared/select/Select.stories.tsx:20
+#: src/shared/select/Select.stories.tsx:30
 msgid "Select"
 msgstr "Select"
 
@@ -59,18 +75,30 @@ msgstr "Strengths"
 msgid "Strengths and Weaknesses"
 msgstr "Strengths and Weaknesses"
 
-#: src/pages/auth/LoginForm.tsx:19
+#: src/global-types/Evaluation.ts:14
+msgid "Strongly Exceeds Expectations"
+msgstr "Strongly Exceeds Expectations"
+
 #: src/pages/criteria-page/CriteriaForm.tsx:33
 #: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:18
+#: src/shared/auth/LoginForm.tsx:19
+#: src/shared/rating/Rating.stories.tsx:18
+#: src/shared/rating/Rating.stories.tsx:28
+#: src/shared/select/Select.stories.tsx:23
+#: src/shared/select/Select.stories.tsx:33
 #: src/shared/sticky-action-bar/StickyActionBar.stories.tsx:16
 msgid "Submit"
 msgstr "Submit"
 
-#: src/pages/auth/LoginForm.tsx:11
+#: src/global-types/Evaluation.ts:15
+msgid "Superb"
+msgstr "Superb"
+
+#: src/shared/auth/LoginForm.tsx:11
 msgid "Username"
 msgstr "Username"
 
-#: src/pages/auth/Login.tsx:31
+#: src/shared/auth/Login.tsx:31
 msgid "Username or Password is incorrect."
 msgstr "Username or Password is incorrect."
 

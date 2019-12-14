@@ -29,17 +29,29 @@ msgstr "معیارها"
 msgid "English"
 msgstr "English"
 
-#: src/pages/auth/Login.tsx:42
+#: src/global-types/Evaluation.ts:11
+msgid "Exceeds Expectations"
+msgstr "فراتر از انتظارات"
+
+#: src/shared/auth/Login.tsx:42
 msgid "Login"
 msgstr "ورود"
 
-#: src/pages/auth/LoginForm.tsx:14
+#: src/global-types/Evaluation.ts:12
+msgid "Meets Expectations"
+msgstr "مطابق با انتظارات"
+
+#: src/global-types/Evaluation.ts:13
+msgid "Needs Improvement"
+msgstr "نیازمند به تلاش"
+
+#: src/shared/auth/LoginForm.tsx:14
 msgid "Password"
 msgstr "گذرواژه"
 
 #: src/containers/main/MainContainer.tsx:26
 #: src/pages/dashboard-page/DashboardPage.tsx:6
-#: src/shared/layouts/dashboard-layouts/DashboardLayout.stories.tsx:28
+#: src/shared/layouts/dashboard-layouts/DashboardLayout.stories.tsx:27
 msgid "Performance Review"
 msgstr "ارزیابی عملکرد"
 
@@ -48,6 +60,10 @@ msgid "Persian"
 msgstr "فارسی"
 
 #: src/shared/criterion-item/CriterionItem.tsx:14
+#: src/shared/rating/Rating.stories.tsx:15
+#: src/shared/rating/Rating.stories.tsx:25
+#: src/shared/select/Select.stories.tsx:20
+#: src/shared/select/Select.stories.tsx:30
 msgid "Select"
 msgstr "انتخاب کنید"
 
@@ -59,18 +75,30 @@ msgstr "نقاط قوت"
 msgid "Strengths and Weaknesses"
 msgstr "نقاط قوت و ضعف"
 
-#: src/pages/auth/LoginForm.tsx:19
+#: src/global-types/Evaluation.ts:14
+msgid "Strongly Exceeds Expectations"
+msgstr "بسیار فراتر از انتظارات"
+
 #: src/pages/criteria-page/CriteriaForm.tsx:33
 #: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:18
+#: src/shared/auth/LoginForm.tsx:19
+#: src/shared/rating/Rating.stories.tsx:18
+#: src/shared/rating/Rating.stories.tsx:28
+#: src/shared/select/Select.stories.tsx:23
+#: src/shared/select/Select.stories.tsx:33
 #: src/shared/sticky-action-bar/StickyActionBar.stories.tsx:16
 msgid "Submit"
 msgstr "ثبت"
 
-#: src/pages/auth/LoginForm.tsx:11
+#: src/global-types/Evaluation.ts:15
+msgid "Superb"
+msgstr "فوق‌العاده"
+
+#: src/shared/auth/LoginForm.tsx:11
 msgid "Username"
 msgstr "نام کاربری"
 
-#: src/pages/auth/Login.tsx:31
+#: src/shared/auth/Login.tsx:31
 msgid "Username or Password is incorrect."
 msgstr "نام کاربری یا گذرواژه اشتباه است."
 
