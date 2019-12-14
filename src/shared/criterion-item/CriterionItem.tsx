@@ -4,6 +4,7 @@ import React from 'react';
 import { DictInputItem, LimitedTextAreaInput, SelectInput } from 'src/shared/forminator';
 import { useLabelWidth } from 'src/shared/hooks';
 import { FCProps } from 'src/shared/types/FCProps';
+import { Rating } from 'src/shared/rating';
 
 interface OwnProps {
   title: string;
@@ -22,11 +23,7 @@ export function CriterionItem({ title, subheader, prefix }: Props) {
       <CardContent>
         <DictInputItem field={prefix + 'Rating'}>
           <Box width={240}>
-            <FormControl variant="outlined" margin="dense" fullWidth>
-              <InputLabel ref={labelRef}>{i18n._('Select')}</InputLabel>
-              {/* TODO: get options from GraphQl */}
-              <SelectInput options={[]} labelWidth={labelWidth} />
-            </FormControl>
+            <Rating inputLabel={i18n._('Select')} />
           </Box>
         </DictInputItem>
         <DictInputItem field={prefix + 'Comment'}>
