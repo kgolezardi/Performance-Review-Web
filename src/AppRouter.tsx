@@ -14,7 +14,7 @@ type Props = FCProps<OwnProps>;
 export function AppRouter(props: Props) {
   return (
     <ErrorBoundary fallback={<FullPageError />}>
-      <Suspense fallback={<FullPageSpinner />}>
+      <Suspense fallback={<FullPageSpinner fullHeight />}>
         <Router>
           <AuthGuard>
             <Switch>
