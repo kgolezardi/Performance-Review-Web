@@ -10,7 +10,7 @@ interface OwnProps {}
 
 type Props = FCProps<OwnProps> & StyleProps;
 
-export function DashboardPage(props: Props) {
+export default function DashboardPage(props: Props) {
   const classes = useStyles(props);
   return <div className={classes.root}>{i18n._('Performance Review')}</div>;
 }

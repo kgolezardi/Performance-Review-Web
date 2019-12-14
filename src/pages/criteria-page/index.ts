@@ -1,1 +1,1 @@
-export { CriteriaPage } from './CriteriaPage';
+export { default as CriteriaPage } from './CriteriaPage';

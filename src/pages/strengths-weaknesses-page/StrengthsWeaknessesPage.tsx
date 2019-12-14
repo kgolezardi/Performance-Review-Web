@@ -48,7 +48,7 @@ const normalizeArray = (array: readonly (string | null)[] | null | undefined) =>
   return undefined;
 };
 
-export function StrengthsWeaknessesPage() {
+export default function StrengthsWeaknessesPage() {
   const strengthsWeaknessesPageMutation = useStrengthsWeaknessesPageMutation();
   const { id: revieweeId } = useAuthGuardUser();
   const data = useLazyLoadQuery<StrengthsWeaknessesPageQuery>(query, { id: revieweeId });

@@ -1,1 +1,1 @@
-export { StrengthsWeaknessesPage } from './StrengthsWeaknessesPage';
+export { default as StrengthsWeaknessesPage } from './StrengthsWeaknessesPage';

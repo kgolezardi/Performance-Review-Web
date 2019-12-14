@@ -1,9 +1,10 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-import { CriteriaPage } from 'src/pages/criteria-page';
-import { DashboardPage } from 'src/pages/dashboard-page';
 import { FCProps } from 'src/shared/types/FCProps';
-import { StrengthsWeaknessesPage } from 'src/pages/strengths-weaknesses-page';
+
+const DashboardPage = React.lazy(() => import('src/pages/dashboard-page/DashboardPage'));
+const CriteriaPage = React.lazy(() => import('src/pages/criteria-page/CriteriaPage'));
+const StrengthsWeaknessesPage = React.lazy(() => import('src/pages/strengths-weaknesses-page/StrengthsWeaknessesPage'));
 
 interface Props {}
 
