@@ -1,8 +1,11 @@
 import { Container } from '@material-ui/core';
 import graphql from 'babel-plugin-relay/macro';
-import React, { useCallback } from 'react';
+import React, { Suspense, useCallback } from 'react';
+import { useLazyLoadQuery } from 'react-relay/hooks';
 import { useAuthGuardUser } from 'src/core/auth';
+import { CriteriaPageQuery } from 'src/pages/criteria-page/__generated__/CriteriaPageQuery.graphql';
 import { useMutation } from 'src/relay';
+import { FullPageSpinner } from 'src/shared/loading';
 import { FCProps } from 'src/shared/types/FCProps';
 import { CriteriaForm } from './CriteriaForm';
 import { CriteriaPageMutation, Evaluation } from './__generated__/CriteriaPageMutation.graphql';
@@ -22,10 +25,32 @@ const useCriteriaPageMutation = () =>
     }
   `);
 
+const query = graphql`
+  query CriteriaPageQuery($id: ID!) {
+    viewer {
+      review: findPersonReview(revieweeId: $id) {
+        sahabinessComment
+        problemSolvingComment
+        executionComment
+        thoughtLeadershipComment
+        leadershipComment
+        presenceComment
+        sahabinessRating
+        problemSolvingRating
+        executionRating
+        thoughtLeadershipRating
+        leadershipRating
+        presenceRating
+      }
+    }
+  }
+`;
+
 export function CriteriaPage(props: Props) {
   const criteriaPageMutation = useCriteriaPageMutation();
 
   const { id: revieweeId } = useAuthGuardUser();
+  const data = useLazyLoadQuery<CriteriaPageQuery>(query, { id: revieweeId });
 
   const transformData = (data: CriteriaFormData) => {
     const entries = Object.entries(data);
@@ -44,10 +69,30 @@ export function CriteriaPage(props: Props) {
     [criteriaPageMutation, revieweeId],
   );
 
+  const review = data.viewer.review;
+
   return (
-    <Container>
-      <CriteriaForm onSubmit={handleSubmit} />
-    </Container>
+    <Suspense fallback={FullPageSpinner}>
+      <Container>
+        <CriteriaForm
+          onSubmit={handleSubmit}
+          initialValue={{
+            executionComment: review?.executionComment || undefined,
+            executionRating: review?.executionRating || undefined,
+            leadershipComment: review?.leadershipComment || undefined,
+            leadershipRating: review?.leadershipRating || undefined,
+            presenceComment: review?.presenceComment || undefined,
+            presenceRating: review?.presenceRating || undefined,
+            problemSolvingComment: review?.problemSolvingComment || undefined,
+            problemSolvingRating: review?.problemSolvingRating || undefined,
+            sahabinessComment: review?.sahabinessComment || undefined,
+            sahabinessRating: review?.sahabinessRating || undefined,
+            thoughtLeadershipComment: review?.thoughtLeadershipComment || undefined,
+            thoughtLeadershipRating: review?.thoughtLeadershipRating || undefined,
+          }}
+        />
+      </Container>
+    </Suspense>
   );
 }
 

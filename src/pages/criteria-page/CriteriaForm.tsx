@@ -8,6 +8,7 @@ import { FCProps } from 'src/shared/types/FCProps';
 import { CriteriaFormData } from './CriteriaPage';
 
 interface OwnProps {
+  initialValue?: CriteriaFormData;
   onSubmit: (data: CriteriaFormData) => void;
 }
 
@@ -17,7 +18,7 @@ export function CriteriaForm(props: Props) {
   const { onSubmit } = props;
 
   return (
-    <Forminator onSubmit={onSubmit}>
+    <Forminator onSubmit={onSubmit} initialValue={props.initialValue}>
       <DictInput>
         <Grid container spacing={2}>
           <Grid item xs={12}>
