@@ -6,6 +6,7 @@ import { FullPageError } from 'src/shared/full-page-error';
 import { FullPageSpinner } from 'src/shared/loading';
 import { FCProps } from 'src/shared/types/FCProps';
 import { MainContainer } from './containers/main';
+import { SettingsProvider } from 'src/core/settings';
 
 interface OwnProps {}
 
@@ -17,9 +18,11 @@ export function AppRouter(props: Props) {
       <Suspense fallback={<FullPageSpinner fullHeight />}>
         <Router>
           <AuthGuard>
-            <Switch>
-              <Route path="/" component={MainContainer} />
-            </Switch>
+            <SettingsProvider>
+              <Switch>
+                <Route path="/" component={MainContainer} />
+              </Switch>
+            </SettingsProvider>
           </AuthGuard>
         </Router>
       </Suspense>
