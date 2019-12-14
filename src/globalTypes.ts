@@ -1,0 +1,17 @@
+import { i18n } from '@lingui/core';
+
+export enum Evaluation {
+  'EXCEEDS_EXPECTATIONS' = 'EXCEEDS_EXPECTATIONS',
+  'MEETS_EXPECTATIONS' = 'MEETS_EXPECTATIONS',
+  'NEEDS_IMPROVMENT' = 'NEEDS_IMPROVMENT',
+  'STRONGLY_EXCEEDS_EXPECTATIONS' = 'STRONGLY_EXCEEDS_EXPECTATIONS',
+  'SUPERB' = 'SUPERB',
+}
+
+export const evaluationDictionary: Record<Evaluation, string> = {
+  [Evaluation.EXCEEDS_EXPECTATIONS]: i18n._('EXCEEDS_EXPECTATIONS'),
+  [Evaluation.MEETS_EXPECTATIONS]: i18n._('MEETS_EXPECTATIONS'),
+  [Evaluation.NEEDS_IMPROVMENT]: i18n._('NEEDS_IMPROVMENT'),
+  [Evaluation.STRONGLY_EXCEEDS_EXPECTATIONS]: i18n._('STRONGLY_EXCEEDS_EXPECTATIONS'),
+  [Evaluation.SUPERB]: i18n._('SUPERB'),
+};
