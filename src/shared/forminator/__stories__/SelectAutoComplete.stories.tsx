@@ -3,7 +3,10 @@ import { storiesOf } from '@storybook/react';
 import React from 'react';
 import { themeDecorator } from 'src/stories/decorators';
 import { Forminator } from '../index';
-import SelectWithAutoComplete from '../inputs/SelectWithAutoComplete';
+import DictInput from '../inputs/dict-input/DictInput';
+import DictInputItem from '../inputs/dict-input/DictInputItem';
+import SelectAutoComplete from '../inputs/SelectAutoComplete';
+import SelectMultiAutoComplete from '../inputs/SelectMultiAutoComplete';
 import SubmitButton from '../utils/SubmitButton';
 
 const SUGGESTIONS = [
@@ -24,7 +27,7 @@ storiesOf('Forminator|Auto Complete', module)
   .add('simple', () => {
     return (
       <Forminator onSubmit={action('submit')}>
-        <SelectWithAutoComplete options={SUGGESTIONS} label="یکی را انتخاب کنید:" />
+        <SelectAutoComplete options={SUGGESTIONS} label="یکی را انتخاب کنید:" />
         <SubmitButton>Submit</SubmitButton>
       </Forminator>
     );
@@ -32,7 +35,22 @@ storiesOf('Forminator|Auto Complete', module)
   .add('simple with default value', () => {
     return (
       <Forminator onSubmit={action('submit')}>
-        <SelectWithAutoComplete options={SUGGESTIONS} initialValue={SUGGESTIONS[3].value} label="یکی را انتخاب کنید:" />
+        <SelectAutoComplete options={SUGGESTIONS} initialValue={SUGGESTIONS[3].value} label="یکی را انتخاب کنید:" />
+        <SubmitButton>Submit</SubmitButton>
+      </Forminator>
+    );
+  })
+  .add('inside dict input', () => {
+    return (
+      <Forminator onSubmit={action('submit')}>
+        <DictInput>
+          <DictInputItem field="userId">
+            <SelectAutoComplete options={SUGGESTIONS} initialValue={SUGGESTIONS[3].value} label="یکی را انتخاب کنید:" />
+          </DictInputItem>
+          <DictInputItem field="friendId">
+            <SelectAutoComplete options={SUGGESTIONS} label="یکی را انتخاب کنید:" />
+          </DictInputItem>
+        </DictInput>
         <SubmitButton>Submit</SubmitButton>
       </Forminator>
     );
@@ -40,7 +58,7 @@ storiesOf('Forminator|Auto Complete', module)
   .add('simple with colors', () => {
     return (
       <Forminator onSubmit={action('submit')}>
-        <SelectWithAutoComplete
+        <SelectAutoComplete
           options={SUGGESTIONS_WITH_COLOR}
           initialValue={SUGGESTIONS[3].value}
           label="یکی را انتخاب کنید:"
@@ -60,11 +78,32 @@ storiesOf('Forminator|Auto Complete', module)
   .add('simple with specific size', () => {
     return (
       <Forminator onSubmit={action('submit')}>
-        <SelectWithAutoComplete
+        <SelectAutoComplete
           options={SUGGESTIONS}
           initialValue={SUGGESTIONS[3].value}
           label="یکی را انتخاب کنید:"
           style={{ width: '300px' }}
+        />
+        <SubmitButton>Submit</SubmitButton>
+      </Forminator>
+    );
+  })
+  .add('multiple', () => {
+    return (
+      <Forminator onSubmit={action('submit')}>
+        <SelectMultiAutoComplete filterSelectedOptions options={SUGGESTIONS} label="چند نفر را انتخاب نمایید" />
+        <SubmitButton>Submit</SubmitButton>
+      </Forminator>
+    );
+  })
+  .add('multiple with initial value', () => {
+    return (
+      <Forminator onSubmit={action('submit')}>
+        <SelectMultiAutoComplete
+          filterSelectedOptions
+          options={SUGGESTIONS}
+          initialValue={['1', '4']}
+          label="چند نفر را انتخاب نمایید"
         />
         <SubmitButton>Submit</SubmitButton>
       </Forminator>
