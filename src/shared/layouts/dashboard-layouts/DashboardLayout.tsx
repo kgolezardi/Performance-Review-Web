@@ -64,6 +64,7 @@ const styles = (theme: Theme) => ({
   root: {
     display: 'flex',
     flexDirection: 'column',
+    height: '100vh',
   } as CSSProperties,
   /* ---- app bar ----*/
   appBar: {
