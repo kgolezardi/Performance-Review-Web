@@ -1,5 +1,5 @@
 # source: http://127.0.0.1:8000/graphql
-# timestamp: Sat Dec 14 2019 17:27:32 GMT+0330 (Iran Standard Time)
+# timestamp: Sat Dec 14 2019 18:43:25 GMT+0330 (Iran Standard Time)
 
 input ChangePasswordMutationInput {
   oldPassword: String!
@@ -15,7 +15,7 @@ type ChangePasswordMutationPayload {
 
 """An enumeration."""
 enum Evaluation {
-  NEEDS_IMPROVMENT
+  NEEDS_IMPROVEMENT
   MEETS_EXPECTATIONS
   EXCEEDS_EXPECTATIONS
   STRONGLY_EXCEEDS_EXPECTATIONS
