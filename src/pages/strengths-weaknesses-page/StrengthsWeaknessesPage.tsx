@@ -1,13 +1,13 @@
-import React, { useCallback } from 'react';
 import { Container } from '@material-ui/core';
-import { StrengthsWeaknessesForm } from './StrengthsWeaknessesForm';
-import { useMutation } from 'src/relay';
 import graphql from 'babel-plugin-relay/macro';
-import { StrengthsWeaknessesPageMutation } from './__generated__/StrengthsWeaknessesPageMutation.graphql';
-import { useAuthGuardUser } from 'src/core/auth';
+import React, { useCallback } from 'react';
 import { useLazyLoadQuery } from 'react-relay/hooks';
+import { useAuthGuardUser } from 'src/core/auth';
 import { StrengthsWeaknessesPageQuery } from 'src/pages/strengths-weaknesses-page/__generated__/StrengthsWeaknessesPageQuery.graphql';
+import { useMutation } from 'src/relay';
 import { isNotNil } from 'src/shared/utils/general.util';
+import { StrengthsWeaknessesForm } from './StrengthsWeaknessesForm';
+import { StrengthsWeaknessesPageMutation } from './__generated__/StrengthsWeaknessesPageMutation.graphql';
 
 const useStrengthsWeaknessesPageMutation = () =>
   useMutation<StrengthsWeaknessesPageMutation>(graphql`
