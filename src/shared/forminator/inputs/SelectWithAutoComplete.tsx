@@ -1,41 +1,53 @@
-import React, { useCallback } from 'react';
+import { TextField, TextFieldProps } from '@material-ui/core';
 import Autocomplete, { AutocompleteProps } from '@material-ui/lab/Autocomplete';
-import { TextField } from '@material-ui/core';
-import { useForminatorState } from '../core/useForminatorState';
+import { indexBy, prop } from 'ramda';
+import React, { useCallback, useMemo } from 'react';
 import { FCProps } from 'src/shared/types/FCProps';
+import { useForminatorState } from '../core/useForminatorState';
 
-interface Suggestion {
-  title: string;
+interface BaseSuggestion {
+  value: string;
+  label: string;
 }
 
-interface OwnProps {
-  initialValue: Suggestion;
+interface OwnProps<Suggestion extends BaseSuggestion = BaseSuggestion> {
+  initialValue?: string | null; // id
   options: Array<Suggestion>;
   label: string;
-  textFieldOptions?: Object;
+  textFieldOptions?: TextFieldProps;
+  renderInput?: AutocompleteProps['renderInput'];
 }
-type Props = FCProps<OwnProps> &
-  Omit<AutocompleteProps, 'value' | 'onChange' | 'defaultValue' | 'renderInput' | 'getOptionLabel'>;
+type Props<Suggestion extends BaseSuggestion = BaseSuggestion> = FCProps<OwnProps<Suggestion>> &
+  Omit<AutocompleteProps, 'value' | 'onChange' | 'defaultValue' | 'renderInput'>;
 
-function SelectWithAutoComplete({ initialValue, options, label, textFieldOptions, ...props }: Props) {
-  const [value, setValue] = useForminatorState(initialValue);
+function SelectWithAutoComplete<Suggestion extends BaseSuggestion = BaseSuggestion>({
+  initialValue = null,
+  options,
+  label,
+  textFieldOptions,
+  ...props
+}: Props<Suggestion>) {
+  const [value, setValue] = useForminatorState<string | null, string | null>(initialValue);
+  const indexedOptions = useMemo(() => indexBy<Suggestion>(prop('value'), options), [options]);
   const onChange = useCallback(
-    event => {
-      setValue(event.target.value);
+    (event, newValue: Suggestion | null) => {
+      setValue(newValue === null ? null : newValue.value);
     },
     [setValue],
   );
-
+  const renderInput: AutocompleteProps['renderInput'] = useCallback(
+    params => <TextField label={label} fullWidth {...textFieldOptions} {...params} />,
+    [textFieldOptions, label],
+  );
   return (
     <Autocomplete
+      getOptionLabel={option => option.label}
+      renderInput={renderInput}
       {...props}
       options={options}
-      getOptionLabel={option => option.title}
-      defaultValue={value}
+      value={value === null ? null : indexedOptions[value]}
       onChange={onChange}
-      renderInput={params => <TextField {...params} label={label} {...textFieldOptions} fullWidth />}
     />
   );
 }
-SelectWithAutoComplete.defaultProps = { initialValue: { title: '' } as Suggestion };
 export default SelectWithAutoComplete;
