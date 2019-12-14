@@ -7,3 +7,5 @@ export { default as StringInput } from './inputs/StringInput';
 export { default as SubmitButton } from './utils/SubmitButton';
 export { default as ConditionalSection } from './utils/ConditionalSection';
 export { default as FragmentRef } from './core/fragment-lens/FragmentRef';
+export { default as SelectAutoComplete } from './inputs/SelectAutoComplete';
+export { default as SelectMultiAutoComplete } from './inputs/SelectMultiAutoComplete';
