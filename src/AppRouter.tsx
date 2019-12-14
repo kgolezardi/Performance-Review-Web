@@ -1,6 +1,7 @@
 import React, { Suspense } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { AuthGuard } from 'src/core/auth';
+import { SettingsProvider } from 'src/core/settings';
 import { ErrorBoundary } from 'src/shared/error-boundary';
 import { FullPageError } from 'src/shared/full-page-error';
 import { FullPageSpinner } from 'src/shared/loading';
@@ -17,9 +18,11 @@ export function AppRouter(props: Props) {
       <Suspense fallback={<FullPageSpinner fullHeight />}>
         <Router>
           <AuthGuard>
-            <Switch>
-              <Route path="/" component={MainContainer} />
-            </Switch>
+            <SettingsProvider>
+              <Switch>
+                <Route path="/" component={MainContainer} />
+              </Switch>
+            </SettingsProvider>
           </AuthGuard>
         </Router>
       </Suspense>
