@@ -6,6 +6,7 @@ import { FCProps } from 'src/shared/types/FCProps';
 import { StrengthsWeaknessesFormData } from './StrengthsWeaknessesPage';
 
 interface OwnProps {
+  initialValue: StrengthsWeaknessesFormData;
   onSubmit: (data: StrengthsWeaknessesFormData) => void;
 }
 
@@ -15,7 +16,7 @@ export function StrengthsWeaknessesForm(props: Props) {
   const { onSubmit } = props;
 
   return (
-    <Forminator onSubmit={onSubmit}>
+    <Forminator onSubmit={onSubmit} initialValue={props.initialValue}>
       <DictInput>
         <DictInputItem field="strengths">
           <StrengthsOrWeaknesses maxLength={3} title={i18n._('Strengths')} />
