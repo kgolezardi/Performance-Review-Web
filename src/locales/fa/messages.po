@@ -25,24 +25,24 @@ msgstr "لغو"
 msgid "Criteria"
 msgstr "معیارها"
 
-#: src/global-types/Evaluation.ts:11
-msgid "EXCEEDS_EXPECTATIONS"
-msgstr "فراتر از انتظار"
-
 #: src/core/locales/languages.ts:5
 msgid "English"
 msgstr "English"
+
+#: src/global-types/Evaluation.ts:11
+msgid "Exceeds Expectations"
+msgstr "فراتر از انتظارات"
 
 #: src/shared/auth/Login.tsx:42
 msgid "Login"
 msgstr "ورود"
 
 #: src/global-types/Evaluation.ts:12
-msgid "MEETS_EXPECTATIONS"
-msgstr "مطابق با انتظار"
+msgid "Meets Expectations"
+msgstr "مطابق با انتظارات"
 
 #: src/global-types/Evaluation.ts:13
-msgid "NEEDS_IMPROVEMENT"
+msgid "Needs Improvement"
 msgstr "نیازمند به تلاش"
 
 #: src/shared/auth/LoginForm.tsx:14
@@ -58,14 +58,6 @@ msgstr "ارزیابی عملکرد"
 #: src/core/locales/languages.ts:4
 msgid "Persian"
 msgstr "فارسی"
-
-#: src/global-types/Evaluation.ts:14
-msgid "STRONGLY_EXCEEDS_EXPECTATIONS"
-msgstr "بسیار فراتر از انتظار"
-
-#: src/global-types/Evaluation.ts:15
-msgid "SUPERB"
-msgstr "فوق‌العاده"
 
 #: src/shared/criterion-item/CriterionItem.tsx:14
 #: src/shared/rating/Rating.stories.tsx:15
@@ -83,6 +75,10 @@ msgstr "نقاط قوت"
 msgid "Strengths and Weaknesses"
 msgstr "نقاط قوت و ضعف"
 
+#: src/global-types/Evaluation.ts:14
+msgid "Strongly Exceeds Expectations"
+msgstr "بسیار فراتر از انتظارات"
+
 #: src/pages/criteria-page/CriteriaForm.tsx:33
 #: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:18
 #: src/shared/auth/LoginForm.tsx:19
@@ -93,6 +89,10 @@ msgstr "نقاط قوت و ضعف"
 #: src/shared/sticky-action-bar/StickyActionBar.stories.tsx:16
 msgid "Submit"
 msgstr "ثبت"
+
+#: src/global-types/Evaluation.ts:15
+msgid "Superb"
+msgstr "فوق‌العاده"
 
 #: src/shared/auth/LoginForm.tsx:11
 msgid "Username"

@@ -25,24 +25,24 @@ msgstr "Cancel"
 msgid "Criteria"
 msgstr "Criteria"
 
-#: src/global-types/Evaluation.ts:11
-msgid "EXCEEDS_EXPECTATIONS"
-msgstr "Exceeds Expectations"
-
 #: src/core/locales/languages.ts:5
 msgid "English"
 msgstr "English"
+
+#: src/global-types/Evaluation.ts:11
+msgid "Exceeds Expectations"
+msgstr "Exceeds Expectations"
 
 #: src/shared/auth/Login.tsx:42
 msgid "Login"
 msgstr "Login"
 
 #: src/global-types/Evaluation.ts:12
-msgid "MEETS_EXPECTATIONS"
+msgid "Meets Expectations"
 msgstr "Meets Expectations"
 
 #: src/global-types/Evaluation.ts:13
-msgid "NEEDS_IMPROVEMENT"
+msgid "Needs Improvement"
 msgstr "Needs Improvement"
 
 #: src/shared/auth/LoginForm.tsx:14
@@ -58,14 +58,6 @@ msgstr "Performance Review"
 #: src/core/locales/languages.ts:4
 msgid "Persian"
 msgstr "فارسی"
-
-#: src/global-types/Evaluation.ts:14
-msgid "STRONGLY_EXCEEDS_EXPECTATIONS"
-msgstr "Strongly Exceeds Expectations"
-
-#: src/global-types/Evaluation.ts:15
-msgid "SUPERB"
-msgstr "Superb"
 
 #: src/shared/criterion-item/CriterionItem.tsx:14
 #: src/shared/rating/Rating.stories.tsx:15
@@ -83,6 +75,10 @@ msgstr "Strengths"
 msgid "Strengths and Weaknesses"
 msgstr "Strengths and Weaknesses"
 
+#: src/global-types/Evaluation.ts:14
+msgid "Strongly Exceeds Expectations"
+msgstr "Strongly Exceeds Expectations"
+
 #: src/pages/criteria-page/CriteriaForm.tsx:33
 #: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:18
 #: src/shared/auth/LoginForm.tsx:19
@@ -93,6 +89,10 @@ msgstr "Strengths and Weaknesses"
 #: src/shared/sticky-action-bar/StickyActionBar.stories.tsx:16
 msgid "Submit"
 msgstr "Submit"
+
+#: src/global-types/Evaluation.ts:15
+msgid "Superb"
+msgstr "Superb"
 
 #: src/shared/auth/LoginForm.tsx:11
 msgid "Username"

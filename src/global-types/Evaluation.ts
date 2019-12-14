@@ -9,9 +9,9 @@ export enum Evaluation {
 }
 
 export const evaluationDictionary: Record<Evaluation, string> = {
-  [Evaluation.EXCEEDS_EXPECTATIONS]: i18n._('EXCEEDS_EXPECTATIONS'),
-  [Evaluation.MEETS_EXPECTATIONS]: i18n._('MEETS_EXPECTATIONS'),
-  [Evaluation.NEEDS_IMPROVEMENT]: i18n._('NEEDS_IMPROVEMENT'),
-  [Evaluation.STRONGLY_EXCEEDS_EXPECTATIONS]: i18n._('STRONGLY_EXCEEDS_EXPECTATIONS'),
-  [Evaluation.SUPERB]: i18n._('SUPERB'),
+  [Evaluation.NEEDS_IMPROVEMENT]: i18n._('Needs Improvement'),
+  [Evaluation.MEETS_EXPECTATIONS]: i18n._('Meets Expectations'),
+  [Evaluation.EXCEEDS_EXPECTATIONS]: i18n._('Exceeds Expectations'),
+  [Evaluation.STRONGLY_EXCEEDS_EXPECTATIONS]: i18n._('Strongly Exceeds Expectations'),
+  [Evaluation.SUPERB]: i18n._('Superb'),
 };
