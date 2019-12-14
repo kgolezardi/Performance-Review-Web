@@ -46,7 +46,7 @@ const query = graphql`
   }
 `;
 
-export function CriteriaPage(props: Props) {
+export default function CriteriaPage(props: Props) {
   const criteriaPageMutation = useCriteriaPageMutation();
 
   const { id: revieweeId } = useAuthGuardUser();
