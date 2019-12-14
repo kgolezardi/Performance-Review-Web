@@ -4,7 +4,7 @@ import React, { ReactNode, useCallback } from 'react';
 import { FCProps } from 'src/shared/types/FCProps';
 import { useForminatorState } from '../core/useForminatorState';
 
-interface Option {
+export interface Option {
   value: string;
   label: ReactNode;
 }
@@ -14,8 +14,7 @@ interface OwnProps {
   options: Option[];
 }
 
-type Props = FCProps<OwnProps> &
-  Omit<SelectProps, 'value' | 'onChange' | 'defaultValue'>;
+type Props = FCProps<OwnProps> & Omit<SelectProps, 'value' | 'onChange' | 'defaultValue'>;
 
 function SelectInput({ initialValue, options, ...props }: Props) {
   const [value, setValue] = useForminatorState(initialValue);
