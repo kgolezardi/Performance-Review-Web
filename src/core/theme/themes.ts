@@ -11,6 +11,7 @@ export function getThemeOptions(base: ThemeOptions, direction: Direction, palett
     palette: {
       ...base.palette,
       type: paletteType,
+      background: { default: teal['50'] },
     },
     typography: {
       fontFamily: 'Shabnam, "Roboto", "Helvetica", "Arial", sans-serif',
