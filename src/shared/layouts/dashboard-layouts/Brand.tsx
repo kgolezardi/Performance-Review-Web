@@ -29,6 +29,7 @@ const styles = (theme: Theme) => ({
     margin: theme.spacing(2),
   } as CSSProperties,
   label: {
+    marginLeft: theme.spacing(2),
     fontWeight: 'bold',
     fontSize: theme.typography.h5.fontSize,
   } as CSSProperties,

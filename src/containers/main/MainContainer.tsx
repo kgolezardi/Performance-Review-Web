@@ -23,13 +23,13 @@ const items: MenuItem[] = [
   {
     text: i18n._('Criteria'),
     link: {
-      to: '/criteria-page',
+      to: '/criteria',
     },
   },
   {
     text: i18n._('Strengths and Weaknesses'),
     link: {
-      to: '/strengths-weaknesses-page',
+      to: '/strengths-weaknesses',
     },
   },
 ];

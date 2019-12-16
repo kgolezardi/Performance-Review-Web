@@ -1,4 +1,4 @@
-import { Container } from '@material-ui/core';
+import { Box, Container } from '@material-ui/core';
 import graphql from 'babel-plugin-relay/macro';
 import React, { Suspense, useCallback } from 'react';
 import { useLazyLoadQuery } from 'react-relay/hooks';
@@ -73,24 +73,26 @@ export default function CriteriaPage(props: Props) {
 
   return (
     <Suspense fallback={FullPageSpinner}>
-      <Container>
-        <CriteriaForm
-          onSubmit={handleSubmit}
-          initialValue={{
-            executionComment: review?.executionComment || undefined,
-            executionRating: review?.executionRating || undefined,
-            leadershipComment: review?.leadershipComment || undefined,
-            leadershipRating: review?.leadershipRating || undefined,
-            presenceComment: review?.presenceComment || undefined,
-            presenceRating: review?.presenceRating || undefined,
-            problemSolvingComment: review?.problemSolvingComment || undefined,
-            problemSolvingRating: review?.problemSolvingRating || undefined,
-            sahabinessComment: review?.sahabinessComment || undefined,
-            sahabinessRating: review?.sahabinessRating || undefined,
-            thoughtLeadershipComment: review?.thoughtLeadershipComment || undefined,
-            thoughtLeadershipRating: review?.thoughtLeadershipRating || undefined,
-          }}
-        />
+      <Container maxWidth="sm">
+        <Box marginY={2}>
+          <CriteriaForm
+            onSubmit={handleSubmit}
+            initialValue={{
+              executionComment: review?.executionComment || undefined,
+              executionRating: review?.executionRating || undefined,
+              leadershipComment: review?.leadershipComment || undefined,
+              leadershipRating: review?.leadershipRating || undefined,
+              presenceComment: review?.presenceComment || undefined,
+              presenceRating: review?.presenceRating || undefined,
+              problemSolvingComment: review?.problemSolvingComment || undefined,
+              problemSolvingRating: review?.problemSolvingRating || undefined,
+              sahabinessComment: review?.sahabinessComment || undefined,
+              sahabinessRating: review?.sahabinessRating || undefined,
+              thoughtLeadershipComment: review?.thoughtLeadershipComment || undefined,
+              thoughtLeadershipRating: review?.thoughtLeadershipRating || undefined,
+            }}
+          />
+        </Box>
       </Container>
     </Suspense>
   );

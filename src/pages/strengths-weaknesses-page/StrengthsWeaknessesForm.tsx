@@ -1,8 +1,10 @@
+import { i18n } from '@lingui/core';
+import { Grid } from '@material-ui/core';
 import React from 'react';
 import { DictInput, DictInputItem, Forminator, SubmitButton } from 'src/shared/forminator';
 import { StrengthsOrWeaknesses } from 'src/shared/strengths-weaknesses';
-import { i18n } from '@lingui/core';
 import { FCProps } from 'src/shared/types/FCProps';
+import { StickyActionBar } from 'src/shared/sticky-action-bar';
 import { StrengthsWeaknessesFormData } from './StrengthsWeaknessesPage';
 
 interface OwnProps {
@@ -16,20 +18,27 @@ export function StrengthsWeaknessesForm(props: Props) {
   const { onSubmit } = props;
 
   return (
-    <Forminator onSubmit={onSubmit} initialValue={props.initialValue}>
-      <DictInput>
-        <DictInputItem field="strengths">
-          <StrengthsOrWeaknesses maxLength={3} title={i18n._('Strengths')} />
-        </DictInputItem>
+    <Grid container spacing={2}>
+      <Forminator onSubmit={onSubmit} initialValue={props.initialValue}>
+        <DictInput>
+          <DictInputItem field="strengths">
+            <Grid item xs={12}>
+              <StrengthsOrWeaknesses maxLength={3} title={i18n._('Strengths')} />
+            </Grid>
+          </DictInputItem>
 
-        <DictInputItem field="weaknesses">
-          <StrengthsOrWeaknesses maxLength={3} title={i18n._('Weaknesses')} />
-        </DictInputItem>
-
-        <SubmitButton variant="contained" color="primary">
-          {i18n._('Submit')}
-        </SubmitButton>
-      </DictInput>
-    </Forminator>
+          <DictInputItem field="weaknesses">
+            <Grid item xs={12}>
+              <StrengthsOrWeaknesses maxLength={3} title={i18n._('Weaknesses')} />
+            </Grid>
+          </DictInputItem>
+          <StickyActionBar elevation={4}>
+            <SubmitButton variant="contained" color="primary">
+              {i18n._('Submit')}
+            </SubmitButton>
+          </StickyActionBar>
+        </DictInput>
+      </Forminator>
+    </Grid>
   );
 }

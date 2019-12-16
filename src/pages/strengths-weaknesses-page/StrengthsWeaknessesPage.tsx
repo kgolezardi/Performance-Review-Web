@@ -1,4 +1,4 @@
-import { Container } from '@material-ui/core';
+import { Box, Container } from '@material-ui/core';
 import graphql from 'babel-plugin-relay/macro';
 import React, { useCallback } from 'react';
 import { useLazyLoadQuery } from 'react-relay/hooks';
@@ -6,8 +6,8 @@ import { useAuthGuardUser } from 'src/core/auth';
 import { StrengthsWeaknessesPageQuery } from 'src/pages/strengths-weaknesses-page/__generated__/StrengthsWeaknessesPageQuery.graphql';
 import { useMutation } from 'src/relay';
 import { isNotNil } from 'src/shared/utils/general.util';
-import { StrengthsWeaknessesForm } from './StrengthsWeaknessesForm';
 import { StrengthsWeaknessesPageMutation } from './__generated__/StrengthsWeaknessesPageMutation.graphql';
+import { StrengthsWeaknessesForm } from './StrengthsWeaknessesForm';
 
 const useStrengthsWeaknessesPageMutation = () =>
   useMutation<StrengthsWeaknessesPageMutation>(graphql`
@@ -67,14 +67,16 @@ export default function StrengthsWeaknessesPage() {
   );
 
   return (
-    <Container>
-      <StrengthsWeaknessesForm
-        onSubmit={handleSubmit}
-        initialValue={{
-          strengths: normalizeArray(review?.strengths),
-          weaknesses: normalizeArray(review?.weaknesses),
-        }}
-      />
+    <Container maxWidth="sm">
+      <Box marginY={2}>
+        <StrengthsWeaknessesForm
+          onSubmit={handleSubmit}
+          initialValue={{
+            strengths: normalizeArray(review?.strengths),
+            weaknesses: normalizeArray(review?.weaknesses),
+          }}
+        />
+      </Box>
     </Container>
   );
 }
