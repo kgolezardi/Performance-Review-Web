@@ -5,6 +5,7 @@ import { FCProps } from 'src/shared/types/FCProps';
 const DashboardPage = React.lazy(() => import('src/pages/dashboard-page/DashboardPage'));
 const CriteriaPage = React.lazy(() => import('src/pages/criteria-page/CriteriaPage'));
 const StrengthsWeaknessesPage = React.lazy(() => import('src/pages/strengths-weaknesses-page/StrengthsWeaknessesPage'));
+const ProjectsPage = React.lazy(() => import('src/pages/projects-page/ProjectsPage'));
 
 interface Props {}
 
@@ -14,6 +15,7 @@ export function MainRoutes(props: FCProps<Props>) {
       <Route path="/" exact component={DashboardPage} />
       <Route path="/criteria" component={CriteriaPage} />
       <Route path="/strengths-weaknesses" component={StrengthsWeaknessesPage} />
+      <Route path="/projects" component={ProjectsPage} />
     </Switch>
   );
 }

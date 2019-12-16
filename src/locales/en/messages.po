@@ -13,6 +13,10 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
+#: src/pages/projects/ProjectForm.tsx:15
+msgid "Accomplishments"
+msgstr "Accomplishments"
+
 #: src/shared/strengths-weaknesses/StrengthsOrWeaknesses.tsx:41
 msgid "Add"
 msgstr "Add"
@@ -29,7 +33,11 @@ msgstr "Criteria"
 msgid "English"
 msgstr "English"
 
-#: src/global-types/Evaluation.ts:11
+#: src/pages/projects/ProjectForm.tsx:19
+msgid "Evaluation"
+msgstr "Evaluation"
+
+#: src/global-types/Evaluation.ts:13
 msgid "Exceeds Expectations"
 msgstr "Exceeds Expectations"
 
@@ -41,7 +49,7 @@ msgstr "Login"
 msgid "Meets Expectations"
 msgstr "Meets Expectations"
 
-#: src/global-types/Evaluation.ts:13
+#: src/global-types/Evaluation.ts:11
 msgid "Needs Improvement"
 msgstr "Needs Improvement"
 
@@ -49,7 +57,7 @@ msgstr "Needs Improvement"
 msgid "Password"
 msgstr "Password"
 
-#: src/containers/main/MainContainer.tsx:26
+#: src/containers/main/MainContainer.tsx:32
 #: src/pages/dashboard-page/DashboardPage.tsx:6
 #: src/shared/layouts/dashboard-layouts/DashboardLayout.stories.tsx:27
 msgid "Performance Review"
@@ -59,6 +67,19 @@ msgstr "Performance Review"
 msgid "Persian"
 msgstr "فارسی"
 
+#: src/pages/projects/ProjectForm.tsx:12
+msgid "Project"
+msgstr "Project"
+
+#: src/containers/main/MainContainer.tsx:22
+msgid "Projects"
+msgstr "Projects"
+
+#: src/pages/projects/ProjectForm.tsx:28
+msgid "Reviewers"
+msgstr "Reviewers"
+
+#: src/pages/projects/ProjectForm.tsx:22
 #: src/shared/criterion-item/CriterionItem.tsx:14
 #: src/shared/rating/Rating.stories.tsx:15
 #: src/shared/rating/Rating.stories.tsx:25
@@ -80,6 +101,7 @@ msgid "Strongly Exceeds Expectations"
 msgstr "Strongly Exceeds Expectations"
 
 #: src/pages/criteria-page/CriteriaForm.tsx:33
+#: src/pages/projects/ProjectForm.tsx:32
 #: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:18
 #: src/shared/auth/LoginForm.tsx:19
 #: src/shared/rating/Rating.stories.tsx:18

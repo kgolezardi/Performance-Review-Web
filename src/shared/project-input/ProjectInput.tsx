@@ -9,6 +9,7 @@ interface OwnProps {
   label: string;
   initialValue?: string | null;
   projects: ProjectInput_projects$key;
+  blackList?: string[];
 }
 
 interface Option {
@@ -19,7 +20,7 @@ interface Option {
 type Props = FCProps<OwnProps>;
 
 export function ProjectInput(props: Props) {
-  const { label, initialValue = null } = props;
+  const { label, initialValue = null, blackList } = props;
   const projects = useFragment(
     graphql`
       fragment ProjectInput_projects on ProjectNode @relay(plural: true) {
@@ -33,5 +34,7 @@ export function ProjectInput(props: Props) {
     value: project.id,
     label: project.name,
   }));
-  return <SelectAutoComplete label={label} options={options} initialValue={initialValue} />;
+  return <SelectAutoComplete blackList={blackList} label={label} options={options} initialValue={initialValue} />;
 }
+
+export type ProjectInputProps = Props;

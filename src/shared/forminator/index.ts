@@ -9,3 +9,4 @@ export { default as ConditionalSection } from './utils/ConditionalSection';
 export { default as FragmentRef } from './core/fragment-lens/FragmentRef';
 export { default as SelectAutoComplete } from './inputs/SelectAutoComplete';
 export { default as SelectMultiAutoComplete } from './inputs/SelectMultiAutoComplete';
+export { default as ConstantInput } from './inputs/ConstantInput';

@@ -1,4 +1,4 @@
-import { TextField, TextFieldProps } from '@material-ui/core';
+import { OutlinedTextFieldProps, TextField } from '@material-ui/core';
 import Autocomplete, { AutocompleteProps } from '@material-ui/lab/Autocomplete';
 import { indexBy, prop } from 'ramda';
 import React, { useCallback, useMemo } from 'react';
@@ -14,29 +14,35 @@ interface OwnProps<Suggestion extends BaseSuggestion = BaseSuggestion> {
   initialValue?: string | null; // id
   options: Array<Suggestion>;
   label: string;
-  textFieldOptions?: TextFieldProps;
+  textFieldOptions?: OutlinedTextFieldProps;
   renderInput?: AutocompleteProps['renderInput'];
+  blackList?: string[]; // ids // TODO rethink about this prop
 }
 type Props<Suggestion extends BaseSuggestion = BaseSuggestion> = FCProps<OwnProps<Suggestion>> &
   Omit<AutocompleteProps, 'value' | 'onChange' | 'defaultValue' | 'renderInput' | 'multiple'>;
 
 function SelectAutoComplete<Suggestion extends BaseSuggestion = BaseSuggestion>({
   initialValue = null,
-  options,
+  options: allOptions,
   label,
   textFieldOptions,
+  blackList,
   ...props
 }: Props<Suggestion>) {
   const [value, setValue] = useForminatorState<string | null, string | null>(initialValue);
-  const indexedOptions = useMemo(() => indexBy<Suggestion>(prop('value'), options), [options]);
   const onChange = useCallback(
     (event, newValue: Suggestion | null) => {
       setValue(newValue === null ? null : newValue.value);
     },
     [setValue],
   );
+  const options = useMemo(() => {
+    const bo = new Set(blackList || []);
+    return allOptions.filter(o => !bo.has(o.value));
+  }, [allOptions, blackList]);
+  const indexedOptions = useMemo(() => indexBy<Suggestion>(prop('value'), options), [options]);
   const renderInput: AutocompleteProps['renderInput'] = useCallback(
-    params => <TextField label={label} fullWidth {...textFieldOptions} {...params} />,
+    params => <TextField variant="outlined" label={label} fullWidth {...textFieldOptions} {...params} />,
     [textFieldOptions, label],
   );
   return (
