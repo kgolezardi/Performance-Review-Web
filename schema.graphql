@@ -1,5 +1,5 @@
 # source: http://127.0.0.1:8000/graphql
-# timestamp: Sat Dec 14 2019 18:43:25 GMT+0330 (Iran Standard Time)
+# timestamp: Sun Dec 15 2019 11:59:10 GMT+0330 (Iran Standard Time)
 
 input ChangePasswordMutationInput {
   oldPassword: String!
@@ -128,7 +128,7 @@ input SaveProjectReviewMutationInput {
   projectId: ID!
   text: String
   rating: Evaluation
-  reviewersId: [ID!]!
+  reviewersId: [ID!]
   clientMutationId: String
 }
 

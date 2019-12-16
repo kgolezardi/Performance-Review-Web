@@ -32,6 +32,12 @@ const items: MenuItem[] = [
       to: '/strengths-weaknesses',
     },
   },
+  {
+    text: i18n._('Projects'),
+    link: {
+      to: '/projects',
+    },
+  },
 ];
 
 export function MainContainer(props: Props) {

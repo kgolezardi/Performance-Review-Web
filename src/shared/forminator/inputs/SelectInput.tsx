@@ -10,23 +10,23 @@ export interface Option {
 }
 
 interface OwnProps {
-  initialValue: string;
+  initialValue?: string | null;
   options: Option[];
 }
 
 type Props = FCProps<OwnProps> & Omit<SelectProps, 'value' | 'onChange' | 'defaultValue'>;
 
-function SelectInput({ initialValue, options, ...props }: Props) {
+function SelectInput({ initialValue = null, options, ...props }: Props) {
   const [value, setValue] = useForminatorState(initialValue);
   const onChange = useCallback(
     event => {
-      setValue(event.target.value);
+      setValue(event.target.value || null);
     },
     [setValue],
   );
 
   return (
-    <Select {...props} value={value} onChange={onChange}>
+    <Select {...props} value={value || ''} onChange={onChange}>
       {options.map((option, index) => {
         return (
           <MenuItem key={index} value={option.value}>
@@ -37,5 +37,5 @@ function SelectInput({ initialValue, options, ...props }: Props) {
     </Select>
   );
 }
-SelectInput.defaultProps = { initialValue: '' };
+
 export default SelectInput;

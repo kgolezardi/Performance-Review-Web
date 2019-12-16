@@ -40,6 +40,14 @@ storiesOf('Forminator|Auto Complete', module)
       </Forminator>
     );
   })
+  .add('simple with black list', () => {
+    return (
+      <Forminator onSubmit={action('submit')}>
+        <SelectAutoComplete options={SUGGESTIONS} excludes={['4']} label="یکی را انتخاب کنید:" />
+        <SubmitButton>Submit</SubmitButton>
+      </Forminator>
+    );
+  })
   .add('inside dict input', () => {
     return (
       <Forminator onSubmit={action('submit')}>
@@ -103,6 +111,19 @@ storiesOf('Forminator|Auto Complete', module)
           filterSelectedOptions
           options={SUGGESTIONS}
           initialValue={['1', '4']}
+          label="چند نفر را انتخاب نمایید"
+        />
+        <SubmitButton>Submit</SubmitButton>
+      </Forminator>
+    );
+  })
+  .add('multiple with blocked items', () => {
+    return (
+      <Forminator onSubmit={action('submit')}>
+        <SelectMultiAutoComplete
+          filterSelectedOptions
+          options={SUGGESTIONS}
+          excludes={['4']}
           label="چند نفر را انتخاب نمایید"
         />
         <SubmitButton>Submit</SubmitButton>
