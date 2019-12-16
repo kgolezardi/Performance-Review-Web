@@ -13,11 +13,12 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: src/pages/projects/ProjectForm.tsx:15
+#: src/pages/projects-page/ProjectForm.tsx:47
 msgid "Accomplishments"
 msgstr "دستاوردها"
 
-#: src/shared/strengths-weaknesses/StrengthsOrWeaknesses.tsx:41
+#: src/pages/projects-page/AddProjectForm.tsx:31
+#: src/shared/strengths-weaknesses/StrengthsOrWeaknesses.tsx:40
 msgid "Add"
 msgstr "افزودن"
 
@@ -33,7 +34,7 @@ msgstr "معیارها"
 msgid "English"
 msgstr "English"
 
-#: src/pages/projects/ProjectForm.tsx:19
+#: src/pages/projects-page/ProjectForm.tsx:53
 msgid "Evaluation"
 msgstr "ارزیابی"
 
@@ -67,7 +68,8 @@ msgstr "ارزیابی عملکرد"
 msgid "Persian"
 msgstr "فارسی"
 
-#: src/pages/projects/ProjectForm.tsx:12
+#: src/pages/projects-page/AddProjectForm.tsx:25
+#: src/pages/projects-page/AddProjectForm.tsx:26
 msgid "Project"
 msgstr "پروژه‌"
 
@@ -75,12 +77,13 @@ msgstr "پروژه‌"
 msgid "Projects"
 msgstr "پروژه‌ها"
 
-#: src/pages/projects/ProjectForm.tsx:28
+#: src/pages/projects-page/ProjectForm.tsx:61
+#: src/pages/projects-page/ProjectForm.tsx:62
 msgid "Reviewers"
 msgstr "مرورکننده‌ها"
 
-#: src/pages/projects/ProjectForm.tsx:22
-#: src/shared/criterion-item/CriterionItem.tsx:14
+#: src/pages/projects-page/ProjectForm.tsx:55
+#: src/shared/criterion-item/CriterionItem.tsx:12
 #: src/shared/rating/Rating.stories.tsx:15
 #: src/shared/rating/Rating.stories.tsx:25
 #: src/shared/select/Select.stories.tsx:20
@@ -88,7 +91,7 @@ msgstr "مرورکننده‌ها"
 msgid "Select"
 msgstr "انتخاب کنید"
 
-#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:10
+#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:14
 msgid "Strengths"
 msgstr "نقاط قوت"
 
@@ -101,8 +104,8 @@ msgid "Strongly Exceeds Expectations"
 msgstr "بسیار فراتر از انتظارات"
 
 #: src/pages/criteria-page/CriteriaForm.tsx:33
-#: src/pages/projects/ProjectForm.tsx:32
-#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:18
+#: src/pages/projects-page/ProjectForm.tsx:67
+#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:25
 #: src/shared/auth/LoginForm.tsx:19
 #: src/shared/rating/Rating.stories.tsx:18
 #: src/shared/rating/Rating.stories.tsx:28
@@ -124,6 +127,6 @@ msgstr "نام کاربری"
 msgid "Username or Password is incorrect."
 msgstr "نام کاربری یا گذرواژه اشتباه است."
 
-#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:14
+#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:20
 msgid "Weaknesses"
 msgstr "نقاط ضعف"
