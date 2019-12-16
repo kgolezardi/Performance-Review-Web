@@ -43,7 +43,7 @@ storiesOf('Forminator|Auto Complete', module)
   .add('simple with black list', () => {
     return (
       <Forminator onSubmit={action('submit')}>
-        <SelectAutoComplete options={SUGGESTIONS} blackList={['4']} label="یکی را انتخاب کنید:" />
+        <SelectAutoComplete options={SUGGESTIONS} excludes={['4']} label="یکی را انتخاب کنید:" />
         <SubmitButton>Submit</SubmitButton>
       </Forminator>
     );
@@ -123,7 +123,7 @@ storiesOf('Forminator|Auto Complete', module)
         <SelectMultiAutoComplete
           filterSelectedOptions
           options={SUGGESTIONS}
-          blackList={['4']}
+          excludes={['4']}
           label="چند نفر را انتخاب نمایید"
         />
         <SubmitButton>Submit</SubmitButton>

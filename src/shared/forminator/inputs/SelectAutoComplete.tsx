@@ -16,7 +16,7 @@ interface OwnProps<Suggestion extends BaseSuggestion = BaseSuggestion> {
   label: string;
   textFieldOptions?: OutlinedTextFieldProps;
   renderInput?: AutocompleteProps['renderInput'];
-  blackList?: string[]; // ids // TODO rethink about this prop
+  excludes?: string[];
 }
 type Props<Suggestion extends BaseSuggestion = BaseSuggestion> = FCProps<OwnProps<Suggestion>> &
   Omit<AutocompleteProps, 'value' | 'onChange' | 'defaultValue' | 'renderInput' | 'multiple'>;
@@ -26,7 +26,7 @@ function SelectAutoComplete<Suggestion extends BaseSuggestion = BaseSuggestion>(
   options: allOptions,
   label,
   textFieldOptions,
-  blackList,
+  excludes,
   ...props
 }: Props<Suggestion>) {
   const [value, setValue] = useForminatorState<string | null, string | null>(initialValue);
@@ -37,9 +37,9 @@ function SelectAutoComplete<Suggestion extends BaseSuggestion = BaseSuggestion>(
     [setValue],
   );
   const options = useMemo(() => {
-    const bo = new Set(blackList || []);
-    return allOptions.filter(o => !bo.has(o.value));
-  }, [allOptions, blackList]);
+    const excludesSet = new Set(excludes || []);
+    return allOptions.filter(o => !excludesSet.has(o.value));
+  }, [allOptions, excludes]);
   const indexedOptions = useMemo(() => indexBy<Suggestion>(prop('value'), options), [options]);
   const renderInput: AutocompleteProps['renderInput'] = useCallback(
     params => <TextField variant="outlined" label={label} fullWidth {...textFieldOptions} {...params} />,

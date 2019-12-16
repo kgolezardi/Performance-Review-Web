@@ -92,7 +92,7 @@ export function ProjectForm(props: Props) {
           <Grid item xs={12}>
             <DictInputItem field="reviewersId">
               <Typography>{i18n._('Reviewers')}</Typography>
-              <ReviewersInput label={i18n._('Reviewers')} users={props.users} blackList={userIds} />
+              <ReviewersInput label={i18n._('Reviewers')} users={props.users} excludes={userIds} />
             </DictInputItem>
           </Grid>
           <Grid item>

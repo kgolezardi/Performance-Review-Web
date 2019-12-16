@@ -44,7 +44,7 @@ export function AddProjectForm(props: Props) {
           <Grid item xs={12}>
             <DictInputItem field="projectId">
               <Typography>{i18n._('Project')}</Typography>
-              <ProjectInput label={i18n._('Project')} projects={props.projects} blackList={selectedProjectIds} />
+              <ProjectInput label={i18n._('Project')} projects={props.projects} excludes={selectedProjectIds} />
             </DictInputItem>
           </Grid>
           <Grid item>

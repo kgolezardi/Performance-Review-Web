@@ -16,7 +16,7 @@ interface OwnProps<Suggestion extends BaseSuggestion = BaseSuggestion> {
   label: string;
   textFieldOptions?: OutlinedTextFieldProps;
   renderInput?: AutocompleteProps['renderInput'];
-  blackList?: string[]; // ids // TODO rethink about this prop
+  excludes?: string[]; // ids // TODO rethink about this prop
 }
 type Props<Suggestion extends BaseSuggestion = BaseSuggestion> = FCProps<OwnProps<Suggestion>> &
   Omit<AutocompleteProps, 'value' | 'onChange' | 'defaultValue' | 'renderInput' | 'multiple'>;
@@ -26,15 +26,15 @@ function SelectMultiAutoComplete<Suggestion extends BaseSuggestion = BaseSuggest
   options: allOptions,
   label,
   textFieldOptions,
-  blackList,
+  excludes,
   ...props
 }: Props<Suggestion>) {
   const [values, setValues] = useForminatorState<string[], string[]>(initialValue);
 
   const options = useMemo(() => {
-    const bo = new Set(blackList || []);
-    return allOptions.filter(o => !bo.has(o.value));
-  }, [allOptions, blackList]);
+    const excludesSet = new Set(excludes || []);
+    return allOptions.filter(o => !excludesSet.has(o.value));
+  }, [allOptions, excludes]);
   const indexedOptions = useMemo(() => indexBy<Suggestion>(prop('value'), options), [options]);
   const onChange = useCallback(
     (event, newValue: Suggestion[]) => {

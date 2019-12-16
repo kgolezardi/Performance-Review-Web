@@ -9,7 +9,7 @@ interface OwnProps {
   label: string;
   initialValue?: string[];
   users: ReviewersInput_Reviewers$key;
-  blackList?: string[];
+  excludes?: string[];
 }
 
 interface Option {
@@ -28,7 +28,7 @@ const getLabel = (user: { readonly firstName: string; readonly lastName: string;
 };
 
 export function ReviewersInput(props: Props) {
-  const { label, initialValue, blackList } = props;
+  const { label, initialValue, excludes } = props;
   const users = useFragment(
     graphql`
       fragment ReviewersInput_Reviewers on UserNode @relay(plural: true) {
@@ -47,7 +47,7 @@ export function ReviewersInput(props: Props) {
 
   return (
     <SelectMultiAutoComplete
-      blackList={blackList}
+      excludes={excludes}
       filterSelectedOptions
       label={label}
       options={options}
