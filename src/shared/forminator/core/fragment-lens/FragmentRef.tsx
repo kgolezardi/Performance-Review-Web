@@ -13,10 +13,7 @@ export type Props<V> = FCProps<OwnProps<V>>;
 function FragmentRef<V>(props: Props<V>) {
   const fragment = useFragmentContext();
   const store = useStoreContext();
-  useImperativeHandle(props.lens.getRef(), () => ({ fragment, store }), [
-    fragment,
-    store,
-  ]);
+  useImperativeHandle(props.lens.getRef(), () => ({ fragment, store }), [fragment, store]);
   return null;
 }
 

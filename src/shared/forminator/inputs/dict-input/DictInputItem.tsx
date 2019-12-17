@@ -23,8 +23,7 @@ function DictInputItem<V>(props: Props<V>) {
     dispatch({
       type: DictActionType.createKey,
       key: props.field,
-      initialValue:
-        initialValue !== undefined ? initialValue : props.initialValue,
+      initialValue: initialValue !== undefined ? initialValue : props.initialValue,
     });
     return () => {
       dispatch({ type: DictActionType.deleteKey, key: props.field });
@@ -38,11 +37,7 @@ function DictInputItem<V>(props: Props<V>) {
   if (fragments === undefined || fragments[props.field] === undefined) {
     return null;
   }
-  return (
-    <FragmentProvider value={fragments[props.field]}>
-      {props.children}
-    </FragmentProvider>
-  );
+  return <FragmentProvider value={fragments[props.field]}>{props.children}</FragmentProvider>;
 }
 
 export default DictInputItem;

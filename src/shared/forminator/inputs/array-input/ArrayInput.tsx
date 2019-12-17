@@ -16,11 +16,7 @@ function ArrayInput<V>(props: Props<V>) {
   const [owner] = useState(() => new ArrayOwner<V>());
   useOwner(owner);
 
-  const [, dispatch] = useForminatorReducer(
-    arrayReducer,
-    props.initialValue,
-    arrayInitializer,
-  );
+  const [, dispatch] = useForminatorReducer(arrayReducer, props.initialValue, arrayInitializer);
 
   return <ArrayProvider dispatch={dispatch}>{props.children}</ArrayProvider>;
 }

@@ -15,17 +15,12 @@ type Props<Value> = FCProps<OwnProps<Value>>;
 
 function Forminator<V, Value>(props: Props<Value>) {
   const [store] = useState(() => new ForminatorStore());
-  const [fragment] = useState(() =>
-    store.createFragment<Value>(props.initialValue),
-  );
+  const [fragment] = useState(() => store.createFragment<Value>(props.initialValue));
 
   const { onSubmit } = props;
 
   const handleSubmit = useCallback(async () => {
-    const value = await getFragmentFinalValue<V, Value>(
-      fragment,
-      store.snapshot(),
-    );
+    const value = await getFragmentFinalValue<V, Value>(fragment, store.snapshot());
     await onSubmit(value);
   }, [fragment, store, onSubmit]);
 

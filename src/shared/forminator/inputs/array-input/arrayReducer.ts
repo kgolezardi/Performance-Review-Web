@@ -40,16 +40,9 @@ export interface RemoveItemAction extends BaseArrayAction {
 
 export type ArrayState<V> = ForminatorFragment<V>[];
 
-export type ArrayAction<V = any> =
-  | AppendItemAction<V>
-  | PrependItemAction<V>
-  | RemoveItemAction;
+export type ArrayAction<V = any> = AppendItemAction<V> | PrependItemAction<V> | RemoveItemAction;
 
-export function arrayReducer<V>(
-  state: ArrayState<V>,
-  action: ArrayAction<V>,
-  store: ForminatorStore,
-): ArrayState<V> {
+export function arrayReducer<V>(state: ArrayState<V>, action: ArrayAction<V>, store: ForminatorStore): ArrayState<V> {
   switch (action.type) {
     case ArrayActionType.append: {
       return [...state, store.createFragment<V>(action.initialValue)];
@@ -71,7 +64,5 @@ export function arrayInitializer<V>(
   initialValue: (V | undefined)[] | undefined,
   store: ForminatorStore,
 ): ArrayState<V> {
-  return initialValue === undefined
-    ? []
-    : initialValue.map(value => store.createFragment(value));
+  return initialValue === undefined ? [] : initialValue.map(value => store.createFragment(value));
 }

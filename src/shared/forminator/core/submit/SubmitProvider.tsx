@@ -9,11 +9,7 @@ interface OwnProps {
 type Props = FCProps<OwnProps>;
 
 function SubmitProvider(props: Props) {
-  return (
-    <SubmitContext.Provider value={props.onSubmit}>
-      {props.children}
-    </SubmitContext.Provider>
-  );
+  return <SubmitContext.Provider value={props.onSubmit}>{props.children}</SubmitContext.Provider>;
 }
 
 export default SubmitProvider;

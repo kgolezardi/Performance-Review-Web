@@ -1,8 +1,6 @@
 import { Subscribable } from './types';
 
-export async function getSubscribableValue<V>(
-  subscribable: Subscribable<V>,
-): Promise<V> {
+export async function getSubscribableValue<V>(subscribable: Subscribable<V>): Promise<V> {
   const value = subscribable.getValue();
   if (value !== undefined) {
     return value;

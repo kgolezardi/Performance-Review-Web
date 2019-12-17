@@ -29,11 +29,7 @@ export interface DeleteKeyAction extends BaseDictAction {
 export type DictState<V = any> = Record<string, ForminatorFragment>;
 export type DictAction<V = any> = CreateKeyAction<V> | DeleteKeyAction;
 
-export function dictReducer<V>(
-  state: DictState<V>,
-  action: DictAction<V>,
-  store: ForminatorStore,
-): DictState<V> {
+export function dictReducer<V>(state: DictState<V>, action: DictAction<V>, store: ForminatorStore): DictState<V> {
   switch (action.type) {
     case DictActionType.createKey: {
       if (state[action.key]) {
@@ -60,9 +56,6 @@ export function dictReducer<V>(
   }
 }
 
-export function dictInitializer<V>(
-  initialValue: V,
-  store: ForminatorStore,
-): DictState<V> {
+export function dictInitializer<V>(initialValue: V, store: ForminatorStore): DictState<V> {
   return {};
 }

@@ -10,11 +10,7 @@ interface OwnProps<V> {
 type Props<T> = FCProps<OwnProps<T>>;
 
 function ArrayProvider<V = any>(props: Props<V>) {
-  return (
-    <ArrayContext.Provider value={props.dispatch}>
-      {props.children}
-    </ArrayContext.Provider>
-  );
+  return <ArrayContext.Provider value={props.dispatch}>{props.children}</ArrayContext.Provider>;
 }
 
 export default ArrayProvider;

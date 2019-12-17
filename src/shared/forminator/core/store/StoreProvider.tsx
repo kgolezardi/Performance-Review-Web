@@ -10,11 +10,7 @@ interface OwnProps {
 type Props = FCProps<OwnProps>;
 
 function StoreProvider(props: Props) {
-  return (
-    <StoreContext.Provider value={props.value}>
-      {props.children}
-    </StoreContext.Provider>
-  );
+  return <StoreContext.Provider value={props.value}>{props.children}</StoreContext.Provider>;
 }
 
 export default StoreProvider;
