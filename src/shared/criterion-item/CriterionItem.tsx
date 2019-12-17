@@ -24,7 +24,7 @@ export function CriterionItem({ title, subheader, prefix }: Props) {
           </Box>
         </DictInputItem>
         <DictInputItem field={prefix + 'Comment'}>
-          <LimitedTextAreaInput variant="outlined" maxChars={280} rows={5} fullWidth />
+          <LimitedTextAreaInput variant="outlined" maxChars={280} fullWidth />
         </DictInputItem>
       </CardContent>
     </Card>
