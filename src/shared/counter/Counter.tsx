@@ -16,8 +16,8 @@ export function Counter({ count, max, ...props }: Props) {
 
   return (
     <div className={classes.root}>
-      <CircularProgress className={classes.circularProgress} variant="static" size={20} value={(count * 100) / max} />
-      <Typography className={classes.typography}>
+      <CircularProgress className={classes.circularProgress} variant="static" size={16} value={(count * 100) / max} />
+      <Typography variant="caption" className={classes.typography}>
         {count} / {max}
       </Typography>
     </div>
@@ -27,12 +27,16 @@ export function Counter({ count, max, ...props }: Props) {
 const styles = (theme: Theme) => ({
   root: {
     display: 'flex',
-    marginTop: theme.spacing(0.5),
+    alignItems: 'center',
   } as CSSProperties,
   circularProgress: {
     marginRight: theme.spacing(),
+    marginBottom: theme.spacing(0.5),
   } as CSSProperties,
-  typography: {} as CSSProperties,
+  typography: {
+    flip: false,
+    direction: 'ltr',
+  } as CSSProperties,
 });
 
 const useStyles = makeStyles(styles, { name: 'Counter' });

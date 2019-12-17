@@ -33,13 +33,7 @@ export function StrengthsOrWeaknesses({ title, maxLength, ...props }: Props) {
             <FragmentRef lens={lens} />
             <ArrayOutput>
               <Grid item xs={12}>
-                <LimitedTextAreaInput
-                  variant="outlined"
-                  rows={2}
-                  maxChars={280}
-                  fullWidth
-                  inputProps={{ dir: 'auto' }}
-                />
+                <LimitedTextAreaInput variant="outlined" maxChars={280} fullWidth inputProps={{ dir: 'auto' }} />
               </Grid>
             </ArrayOutput>
             <ConditionalSection condition={condition} lens={lens}>

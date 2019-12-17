@@ -30,8 +30,17 @@ function LimitedTextAreaInput({ initialValue = '', maxChars, ...props }: Props) 
 
   return (
     <div className={classes.root}>
-      <TextField multiline {...props} className={classes.textField} value={value} onChange={onChange} />
-      {!!maxChars && <Counter count={value.length} max={maxChars} />}
+      <TextField
+        multiline
+        {...props}
+        className={classes.textField}
+        InputProps={{ classes: { multiline: classes.multiline } }}
+        value={value}
+        onChange={onChange}
+      />
+      <div className={classes.counterWrapper}>
+        <Counter count={value.length} max={maxChars} />
+      </div>
     </div>
   );
 }
@@ -39,8 +48,18 @@ function LimitedTextAreaInput({ initialValue = '', maxChars, ...props }: Props) 
 export default LimitedTextAreaInput;
 
 const styles = (theme: Theme) => ({
-  root: {} as CSSProperties,
+  root: {
+    position: 'relative',
+  } as CSSProperties,
   textField: {} as CSSProperties,
+  multiline: {
+    paddingBottom: theme.spacing(3),
+  } as CSSProperties,
+  counterWrapper: {
+    position: 'absolute',
+    right: theme.spacing(),
+    bottom: 0,
+  } as CSSProperties,
 });
 
 const useStyles = makeStyles(styles, { name: 'LimitedTextAreaInput' });
