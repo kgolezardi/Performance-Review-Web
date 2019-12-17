@@ -10,11 +10,7 @@ interface OwnProps<V> {
 type Props<T> = FCProps<OwnProps<T>>;
 
 function FragmentProvider<V = any>(props: Props<V>) {
-  return (
-    <FragmentContext.Provider value={props.value}>
-      {props.children}
-    </FragmentContext.Provider>
-  );
+  return <FragmentContext.Provider value={props.value}>{props.children}</FragmentContext.Provider>;
 }
 
 export default FragmentProvider;

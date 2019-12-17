@@ -8,8 +8,7 @@ interface OwnProps {
   initialValue: string;
 }
 
-type Props = FCProps<OwnProps> &
-  Omit<TextFieldProps, 'value' | 'onChange' | 'defaultValue'>;
+type Props = FCProps<OwnProps> & Omit<TextFieldProps, 'value' | 'onChange' | 'defaultValue'>;
 
 function StringInput({ initialValue, ...props }: Props) {
   const [value, setValue] = useForminatorState(initialValue);

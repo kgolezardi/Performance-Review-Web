@@ -11,19 +11,12 @@ interface OwnProps<V> {
   condition: V | ConditionFunction<V>;
 }
 
-function isConditionFunction<C>(
-  condition: C | ConditionFunction<C>,
-): condition is ConditionFunction {
+function isConditionFunction<C>(condition: C | ConditionFunction<C>): condition is ConditionFunction {
   return typeof condition === 'function';
 }
 
-function checkCondition<V>(
-  condition: V | ConditionFunction<V>,
-  value: V | undefined,
-) {
-  return isConditionFunction(condition)
-    ? condition(value)
-    : condition === value;
+function checkCondition<V>(condition: V | ConditionFunction<V>, value: V | undefined) {
+  return isConditionFunction(condition) ? condition(value) : condition === value;
 }
 
 type Props<V> = FCProps<OwnProps<V>>;

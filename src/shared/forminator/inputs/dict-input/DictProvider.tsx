@@ -10,11 +10,7 @@ interface OwnProps<V> {
 type Props<T> = FCProps<OwnProps<T>>;
 
 function DictProvider<V = any>(props: Props<V>) {
-  return (
-    <DictContext.Provider value={props.dispatch}>
-      {props.children}
-    </DictContext.Provider>
-  );
+  return <DictContext.Provider value={props.dispatch}>{props.children}</DictContext.Provider>;
 }
 
 export default DictProvider;
