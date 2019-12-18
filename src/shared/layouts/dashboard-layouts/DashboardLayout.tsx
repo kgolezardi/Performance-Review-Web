@@ -72,6 +72,7 @@ const styles = (theme: Theme) => ({
   } as CSSProperties,
   toolbar: {
     paddingLeft: 0,
+    height: '100%',
   } as CSSProperties,
   brandToolbar: {
     backgroundColor: theme.palette.primary.dark,

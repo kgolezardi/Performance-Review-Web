@@ -20,7 +20,7 @@ export function NavBarMenuItem(props: Props) {
   return (
     <NavLink {...props.item.link} activeClassName={classes.active} className={classes.root}>
       {props.item.text}
-      {/* <div className={classes.bar} /> */}
+      <div className={classes.bar} />
     </NavLink>
   );
 }
@@ -32,22 +32,26 @@ const styles = (theme: Theme) => ({
     padding: theme.spacing(2),
     color: getPaletteColor(theme.palette.primary, 100),
     textDecoration: 'none',
+    display: 'flex',
+    alignItems: 'center',
+    position: 'relative',
   } as CSSProperties,
-
   bar: {
+    position: 'absolute',
+    width: '100%',
+    bottom: 0,
+    right: 0,
     transition: 'transform 0.2s ease-in, opacity 0.2s ease-in',
-    marginTop: theme.spacing(),
     backgroundColor: theme.palette.common.white,
     height: theme.spacing(0.5),
     opacity: 0,
     transform: `translateY(${theme.spacing(1)}px)`,
     borderRadius: 2,
     '$active &': {
-      color: theme.palette.common.white,
       opacity: 1,
       transform: 'translateY(0)',
     },
-  },
+  } as CSSProperties,
   active: {
     color: theme.palette.common.white,
   } as CSSProperties,
