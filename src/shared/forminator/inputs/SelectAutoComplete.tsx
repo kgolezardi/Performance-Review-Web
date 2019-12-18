@@ -42,7 +42,7 @@ function SelectAutoComplete<Suggestion extends BaseSuggestion = BaseSuggestion>(
   }, [allOptions, excludes]);
   const indexedOptions = useMemo(() => indexBy<Suggestion>(prop('value'), options), [options]);
   const renderInput: AutocompleteProps['renderInput'] = useCallback(
-    params => <TextField variant="outlined" label={label} fullWidth {...textFieldOptions} {...params} />,
+    params => <TextField margin="dense" variant="outlined" label={label} fullWidth {...textFieldOptions} {...params} />,
     [textFieldOptions, label],
   );
   return (

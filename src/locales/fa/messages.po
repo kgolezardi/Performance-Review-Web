@@ -13,7 +13,7 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: src/pages/projects-page/ProjectForm.tsx:47
+#: src/pages/projects-page/ProjectForm.tsx:54
 msgid "Accomplishments"
 msgstr "دستاوردها"
 
@@ -21,6 +21,10 @@ msgstr "دستاوردها"
 #: src/shared/strengths-weaknesses/StrengthsOrWeaknesses.tsx:40
 msgid "Add"
 msgstr "افزودن"
+
+#: src/pages/projects-page/ProjectsPage.tsx:44
+msgid "Add project"
+msgstr "افزودن پروژه"
 
 #: src/shared/sticky-action-bar/StickyActionBar.stories.tsx:14
 msgid "Cancel"
@@ -34,7 +38,7 @@ msgstr "معیارها"
 msgid "English"
 msgstr "English"
 
-#: src/pages/projects-page/ProjectForm.tsx:53
+#: src/pages/projects-page/ProjectForm.tsx:48
 msgid "Evaluation"
 msgstr "ارزیابی"
 
@@ -69,7 +73,6 @@ msgid "Persian"
 msgstr "فارسی"
 
 #: src/pages/projects-page/AddProjectForm.tsx:25
-#: src/pages/projects-page/AddProjectForm.tsx:26
 msgid "Project"
 msgstr "پروژه‌"
 
@@ -77,12 +80,10 @@ msgstr "پروژه‌"
 msgid "Projects"
 msgstr "پروژه‌ها"
 
-#: src/pages/projects-page/ProjectForm.tsx:61
-#: src/pages/projects-page/ProjectForm.tsx:62
+#: src/pages/projects-page/ProjectForm.tsx:59
 msgid "Reviewers"
 msgstr "مرورکننده‌ها"
 
-#: src/pages/projects-page/ProjectForm.tsx:55
 #: src/shared/criterion-item/CriterionItem.tsx:12
 #: src/shared/rating/Rating.stories.tsx:15
 #: src/shared/rating/Rating.stories.tsx:25
@@ -108,7 +109,7 @@ msgid "Strongly Exceeds Expectations"
 msgstr "بسیار فراتر از انتظارات"
 
 #: src/pages/criteria-page/CriteriaForm.tsx:33
-#: src/pages/projects-page/ProjectForm.tsx:67
+#: src/pages/projects-page/ProjectForm.tsx:65
 #: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:25
 #: src/shared/auth/LoginForm.tsx:19
 #: src/shared/rating/Rating.stories.tsx:18

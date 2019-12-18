@@ -1,7 +1,9 @@
+import { i18n } from '@lingui/core';
 import {
   Box,
   Card,
   CardContent,
+  CardHeader,
   Container,
   ExpansionPanel,
   ExpansionPanelDetails,
@@ -12,8 +14,8 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import graphql from 'babel-plugin-relay/macro';
 import React, { useCallback, useState } from 'react';
 import { useLazyLoadQuery } from 'react-relay/hooks';
-import { ProjectsPageQuery } from 'src/pages/projects-page/__generated__/ProjectsPageQuery.graphql';
 import { ProjectForm, ProjectFormData } from 'src/pages/projects-page/ProjectForm';
+import { ProjectsPageQuery } from 'src/pages/projects-page/__generated__/ProjectsPageQuery.graphql';
 import { FCProps } from 'src/shared/types/FCProps';
 import { AddProjectForm, AddProjectFormData } from './AddProjectForm';
 import { useSaveProjectReview } from './saveProjectReview.mutation';
@@ -80,6 +82,7 @@ export default function ProjectsPage(props: Props) {
     <Container maxWidth="sm">
       <Box marginY={2}>
         <Card>
+          <CardHeader title={i18n._('Add project')} />
           <CardContent>
             <AddProjectForm
               projectReviews={data.viewer.projectReviews}
