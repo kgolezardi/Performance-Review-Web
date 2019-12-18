@@ -98,7 +98,12 @@ export default function ProjectsPage(props: Props) {
               <Typography variant="h6">{projectReview.project.name}</Typography>
             </ExpansionPanelSummary>
             <ExpansionPanelDetails>
-              <ProjectForm onSubmit={saveProject} projectReview={projectReview} users={data.viewer.users} />
+              <ProjectForm
+                onSubmit={saveProject}
+                onDelete={() => {}}
+                projectReview={projectReview}
+                users={data.viewer.users}
+              />
             </ExpansionPanelDetails>
           </ExpansionPanel>
         );
