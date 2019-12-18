@@ -1,5 +1,7 @@
 import React from 'react';
-// TODO: create error page here
+import { OverlayError } from 'src/shared/error';
+
+// TODO: set retry button and get error messages here
 export function FullPageError() {
-  return <div>ERROR</div>;
+  return <OverlayError />;
 }
