@@ -20,7 +20,7 @@ export function NavBarMenuItem(props: Props) {
   return (
     <NavLink {...props.item.link} activeClassName={classes.active} className={classes.root}>
       {props.item.text}
-      <div className={classes.bar} />
+      {/* <div className={classes.bar} /> */}
     </NavLink>
   );
 }

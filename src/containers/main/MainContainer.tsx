@@ -1,5 +1,6 @@
 import { i18n } from '@lingui/core';
 import React, { Suspense } from 'react';
+import { NavbarUser } from 'src/containers/main/NavbarUser';
 import { ErrorBoundary } from 'src/shared/error-boundary';
 import { FullPageError } from 'src/shared/full-page-error';
 import {
@@ -10,6 +11,7 @@ import {
   NavBarMenu,
   NavbarRegion,
 } from 'src/shared/layouts/dashboard-layouts';
+import { UserRegion } from 'src/shared/layouts/dashboard-layouts/DashboardLayout';
 import { MenuItem } from 'src/shared/layouts/dashboard-layouts/menu/types';
 import { FullPageSpinner } from 'src/shared/loading';
 import { FCProps } from 'src/shared/types/FCProps';
@@ -57,6 +59,9 @@ export function MainContainer(props: Props) {
           </Suspense>
         </ErrorBoundary>
       </ContentRegion>
+      <UserRegion>
+        <NavbarUser />
+      </UserRegion>
     </DashboardLayout>
   );
 }
