@@ -5,6 +5,7 @@ import { prop } from 'ramda';
 import React, { useCallback, useMemo } from 'react';
 import { useFragment } from 'react-relay/hooks';
 import { useAuthGuardUser } from 'src/core/auth';
+import { DeleteProjectReviewMutationInput } from 'src/pages/projects-page/__generated__/deleteProjectReviewMutation.graphql';
 import { ConfirmButton } from 'src/shared/confirm-button';
 import { DangerButton } from 'src/shared/danger-button';
 import {
@@ -30,7 +31,7 @@ export interface ProjectFormData {
 }
 interface OwnProps {
   onSubmit: (data: ProjectFormData) => void;
-  onDelete: (data: any) => void;
+  onDelete: (input: DeleteProjectReviewMutationInput) => void;
   projectReview: ProjectForm_projectReview$key;
   users: ReviewersInputProps['users'];
 }
@@ -70,8 +71,8 @@ export function ProjectForm(props: Props) {
   const userIds = useMemo(() => [user.id], [user]);
 
   const handleDelete = useCallback(() => {
-    onDelete(null);
-  }, [onDelete]);
+    onDelete({ projectReviewId: projectReview.project.id });
+  }, [onDelete, projectReview]);
 
   return (
     <Forminator onSubmit={onSubmit} initialValue={initialValue}>
