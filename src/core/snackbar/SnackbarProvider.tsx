@@ -1,18 +1,31 @@
-import { Theme } from '@material-ui/core';
-import { createStyles, CSSProperties, makeStyles } from '@material-ui/styles';
-import { Styles } from 'src/shared/types/Styles';
-import { FCProps } from 'src/shared/types/FCProps';
+import { createStyles, makeStyles, Theme, SvgIcon, SvgIconProps, useTheme } from '@material-ui/core';
+import { CSSProperties } from '@material-ui/core/styles/withStyles';
 import { SnackbarProvider as Snackbar, SnackbarProviderProps } from 'notistack';
 import React from 'react';
+import { FCProps } from 'src/shared/types/FCProps';
+import { Styles } from 'src/shared/types/Styles';
 
 interface OwnProps extends SnackbarProviderProps {}
 
 type Props = FCProps<OwnProps> & StyleProps;
 
 export function SnackbarProvider(props: Props) {
-  const classes = useStyles(props);
+  const theme = useTheme();
+  const { iconStyles, ...classes } = useStyles(props);
+  console.log(theme);
+
   return (
-    <Snackbar {...props} classes={classes}>
+    <Snackbar
+      {...props}
+      classes={classes}
+      iconVariant={{
+        success: <CheckIcon className={iconStyles} />,
+        warning: <WarningIcon className={iconStyles} />,
+        error: <ErrorIcon className={iconStyles} />,
+        info: <InfoIcon className={iconStyles} />,
+      }}
+      anchorOrigin={{ horizontal: theme.direction === 'rtl' ? 'right' : 'left', vertical: 'bottom' }}
+    >
       {props.children}
     </Snackbar>
   );
@@ -22,7 +35,54 @@ const styles = (theme: Theme) =>
   createStyles({
     containerAnchorOriginBottomLeft: { flip: false, left: 20, right: 'auto' } as CSSProperties,
     containerAnchorOriginBottomRight: { flip: false, right: 20, left: 'auto' } as CSSProperties,
+    /* iconStyles taken from notistack */
+    iconStyles: {
+      opacity: 0.9,
+      fontSize: 20,
+      marginRight: 8,
+    },
   });
 
 const useStyles = makeStyles(styles, { name: 'SnackbarProvider' });
 type StyleProps = Styles<typeof styles>;
+
+/* CheckIcon taken from notistack */
+const CheckIcon = (props: SvgIconProps) => (
+  <SvgIcon {...props}>
+    <path
+      d="M20,12A8,8 0 0,1 12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4C12.76,4 13.5,4.11 14.2,
+        4.31L15.77,2.74C14.61,2.26 13.34,2 12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,
+        0 22,12M7.91,10.08L6.5,11.5L11,16L21,6L19.59,4.58L11,13.17L7.91,10.08Z"
+    />
+  </SvgIcon>
+);
+
+/* WarningIcon taken from notistack */
+const WarningIcon = (props: SvgIconProps) => (
+  <SvgIcon {...props}>
+    <path d="M13,14H11V10H13M13,18H11V16H13M1,21H23L12,2L1,21Z" />
+  </SvgIcon>
+);
+
+/* ErrorIcon taken from notistack */
+const ErrorIcon = (props: SvgIconProps) => (
+  <SvgIcon {...props}>
+    <path
+      d="M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,
+        20 12,20M12,2C6.47,2 2,6.47 2,12C2,17.53 6.47,22 12,22C17.53,22 22,17.53 22,12C22,6.47 17.53,
+        2 12,2M14.59,8L12,10.59L9.41,8L8,9.41L10.59,12L8,14.59L9.41,16L12,13.41L14.59,16L16,
+        14.59L13.41,12L16,9.41L14.59,8Z"
+    />
+  </SvgIcon>
+);
+
+/* InfoIcon taken from notistack */
+const InfoIcon = (props: SvgIconProps) => (
+  <SvgIcon {...props}>
+    <path
+      d="M11,9H13V7H11M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,
+        12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,
+        10 0 0,0 12,2M11,17H13V11H11V17Z"
+    />
+  </SvgIcon>
+);
