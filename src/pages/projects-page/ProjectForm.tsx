@@ -1,5 +1,5 @@
 import { i18n } from '@lingui/core';
-import { Box, Grid } from '@material-ui/core';
+import { Box, Button, Grid } from '@material-ui/core';
 import graphql from 'babel-plugin-relay/macro';
 import { prop } from 'ramda';
 import React, { useMemo } from 'react';
@@ -99,6 +99,9 @@ export function ProjectForm(props: Props) {
             </DictInputItem>
           </Grid>
           <Grid item xs />
+          <Grid item>
+            <Button>{i18n._('Delete')}</Button>
+          </Grid>
           <Grid item>
             <SubmitButton variant="contained" color="primary">
               {i18n._('Submit')}

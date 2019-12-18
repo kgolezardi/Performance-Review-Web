@@ -96,7 +96,7 @@ export default function ProjectsPage(props: Props) {
         return (
           <ExpansionPanel key={projectReview.id} defaultExpanded={!initialProjectIds.has(projectReview.project.id)}>
             <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-              <Typography>{projectReview.project.name}</Typography>
+              <Typography variant="h6">{projectReview.project.name}</Typography>
             </ExpansionPanelSummary>
             <ExpansionPanelDetails>
               <ProjectForm onSubmit={saveProject} projectReview={projectReview} users={data.viewer.users} />

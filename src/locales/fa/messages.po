@@ -34,6 +34,10 @@ msgstr "لغو"
 msgid "Criteria"
 msgstr "معیارها"
 
+#: src/pages/projects-page/ProjectForm.tsx:64
+msgid "Delete"
+msgstr "حذف"
+
 #: src/core/locales/languages.ts:5
 msgid "English"
 msgstr "English"
@@ -109,7 +113,7 @@ msgid "Strongly Exceeds Expectations"
 msgstr "بسیار فراتر از انتظارات"
 
 #: src/pages/criteria-page/CriteriaForm.tsx:33
-#: src/pages/projects-page/ProjectForm.tsx:65
+#: src/pages/projects-page/ProjectForm.tsx:68
 #: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:25
 #: src/shared/auth/LoginForm.tsx:19
 #: src/shared/rating/Rating.stories.tsx:18
