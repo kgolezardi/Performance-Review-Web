@@ -12,6 +12,7 @@ import {
 } from '@material-ui/core';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import graphql from 'babel-plugin-relay/macro';
+import { useSnackbar } from 'notistack';
 import React, { useCallback, useState } from 'react';
 import { useLazyLoadQuery } from 'react-relay/hooks';
 import { ProjectForm, ProjectFormData } from 'src/pages/projects-page/ProjectForm';
@@ -19,8 +20,6 @@ import { ProjectsPageQuery } from 'src/pages/projects-page/__generated__/Project
 import { FCProps } from 'src/shared/types/FCProps';
 import { AddProjectForm, AddProjectFormData } from './AddProjectForm';
 import { useSaveProjectReview } from './saveProjectReview.mutation';
-import { i18n } from '@lingui/core';
-import { useSnackbar } from 'notistack';
 
 interface OwnProps {}
 

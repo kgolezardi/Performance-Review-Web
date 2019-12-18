@@ -62,6 +62,10 @@ msgstr "مطابق با انتظارات"
 msgid "Needs Improvement"
 msgstr "نیازمند به تلاش"
 
+#: src/shared/confirm-button/ConfirmButton.tsx:25
+msgid "No"
+msgstr "خیر"
+
 #: src/shared/auth/LoginForm.tsx:14
 msgid "Password"
 msgstr "گذرواژه"
@@ -143,3 +147,7 @@ msgstr "نام کاربری یا گذرواژه اشتباه است."
 #: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:20
 msgid "Weaknesses"
 msgstr "نقاط ضعف"
+
+#: src/shared/confirm-button/ConfirmButton.tsx:28
+msgid "Yes"
+msgstr "بله"

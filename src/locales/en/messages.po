@@ -62,6 +62,10 @@ msgstr "Meets Expectations"
 msgid "Needs Improvement"
 msgstr "Needs Improvement"
 
+#: src/shared/confirm-button/ConfirmButton.tsx:25
+msgid "No"
+msgstr "No"
+
 #: src/shared/auth/LoginForm.tsx:14
 msgid "Password"
 msgstr "Password"
@@ -143,3 +147,7 @@ msgstr "Username or Password is incorrect."
 #: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:20
 msgid "Weaknesses"
 msgstr "Weaknesses"
+
+#: src/shared/confirm-button/ConfirmButton.tsx:28
+msgid "Yes"
+msgstr "Yes"
