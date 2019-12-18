@@ -91,6 +91,10 @@ msgstr "مرورکننده‌ها"
 msgid "Select"
 msgstr "انتخاب کنید"
 
+#: src/pages/criteria-page/CriteriaPage.tsx:59
+msgid "Something went wrong."
+msgstr "خطایی رخ داد."
+
 #: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:14
 msgid "Strengths"
 msgstr "نقاط قوت"
@@ -114,6 +118,10 @@ msgstr "بسیار فراتر از انتظارات"
 #: src/shared/sticky-action-bar/StickyActionBar.stories.tsx:16
 msgid "Submit"
 msgstr "ثبت"
+
+#: src/pages/criteria-page/CriteriaPage.tsx:56
+msgid "Successfully saved."
+msgstr "با موفقیت ثبت گردید."
 
 #: src/global-types/Evaluation.ts:15
 msgid "Superb"

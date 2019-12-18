@@ -24,6 +24,7 @@
     "lorem-ipsum": "^2.0.3",
     "mitt": "^1.2.0",
     "nanoid": "^2.1.7",
+    "notistack": "^0.9.7",
     "ramda": "^0.26.1",
     "react": "^0.0.0-experimental-b53ea6ca0",
     "react-dom": "^0.0.0-experimental-b53ea6ca0",
