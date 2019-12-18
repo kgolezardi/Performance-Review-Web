@@ -1,11 +1,9 @@
 import { IconButton, makeStyles, Theme, Typography } from '@material-ui/core';
 import { CSSProperties } from '@material-ui/core/styles/withStyles';
 import LogoutIcon from '@material-ui/icons/PowerSettingsNew';
-import graphql from 'babel-plugin-relay/macro';
 import React, { useCallback } from 'react';
-import { NavbarUserMutation } from 'src/containers/main/__generated__/NavbarUserMutation.graphql';
+import { useLogoutMutation } from 'src/containers/main/logout.mutation';
 import { useAuthGuardUser } from 'src/core/auth';
-import { useMutation } from 'src/relay';
 import { FCProps } from 'src/shared/types/FCProps';
 import { Styles } from 'src/shared/types/Styles';
 
@@ -13,30 +11,17 @@ interface OwnProps {}
 
 type Props = FCProps<OwnProps> & StyleProps;
 
-const useNavbarUserMutation = () =>
-  useMutation<NavbarUserMutation>(graphql`
-    mutation NavbarUserMutation($input: LogoutMutationInput!) {
-      logout(input: $input) {
-        viewer {
-          me {
-            id
-          }
-        }
-      }
-    }
-  `);
-
 export function NavbarUser(props: Props) {
   const classes = useStyles(props);
 
-  const navbarUserMutation = useNavbarUserMutation();
+  const logoutMutation = useLogoutMutation();
 
   const handleLogout = useCallback(
     () =>
-      navbarUserMutation({ input: {} })
+      logoutMutation({ input: {} })
         .then(res => {})
         .catch(error => {}),
-    [navbarUserMutation],
+    [logoutMutation],
   );
 
   const { username } = useAuthGuardUser();
