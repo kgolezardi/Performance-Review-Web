@@ -13,7 +13,10 @@ type Props = FCProps<OwnProps>;
 export function AuthGuard(props: Props) {
   const data = useLazyLoadQuery<AuthGuardQuery>(authGuardQuery, {});
   const { me } = data.viewer;
-  const user = useMemo(() => (me ? { username: me.username, id: me.id } : null), [me]);
+  const user = useMemo(
+    () => (me ? { username: me.username, id: me.id, firstName: me.firstName, lastName: me.lastName } : null),
+    [me],
+  );
 
   if (user) {
     return <UserContext.Provider value={user}>{props.children}</UserContext.Provider>;
@@ -28,6 +31,8 @@ const authGuardQuery = graphql`
       me {
         id
         username
+        firstName
+        lastName
       }
     }
   }

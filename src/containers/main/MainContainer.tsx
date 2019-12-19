@@ -1,6 +1,5 @@
 import { i18n } from '@lingui/core';
 import React, { Suspense } from 'react';
-import { NavbarUser } from 'src/containers/main/NavbarUser';
 import { ErrorBoundary } from 'src/shared/error-boundary';
 import { FullPageError } from 'src/shared/full-page-error';
 import {
@@ -10,12 +9,13 @@ import {
   DashboardLayout,
   NavBarMenu,
   NavbarRegion,
+  UserRegion,
 } from 'src/shared/layouts/dashboard-layouts';
-import { UserRegion } from 'src/shared/layouts/dashboard-layouts/DashboardLayout';
-import { MenuItem } from 'src/shared/layouts/dashboard-layouts/menu/types';
+import { MenuItem } from 'src/shared/layouts/dashboard-layouts/types';
 import { FullPageSpinner } from 'src/shared/loading';
 import { FCProps } from 'src/shared/types/FCProps';
 import { MainRoutes } from './MainRoutes';
+import { NavbarUser } from './NavbarUser';
 
 interface OwnProps {}
 
