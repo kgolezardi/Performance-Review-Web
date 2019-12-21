@@ -15,7 +15,9 @@ import graphql from 'babel-plugin-relay/macro';
 import { useSnackbar } from 'notistack';
 import React, { useCallback, useState } from 'react';
 import { useLazyLoadQuery } from 'react-relay/hooks';
+import { useDeleteProjectReview } from 'src/pages/projects-page/deleteProjectReview.mutation';
 import { ProjectForm, ProjectFormData } from 'src/pages/projects-page/ProjectForm';
+import { DeleteProjectReviewMutationInput } from 'src/pages/projects-page/__generated__/deleteProjectReviewMutation.graphql';
 import { ProjectsPageQuery } from 'src/pages/projects-page/__generated__/ProjectsPageQuery.graphql';
 import { FCProps } from 'src/shared/types/FCProps';
 import { AddProjectForm, AddProjectFormData } from './AddProjectForm';
@@ -50,6 +52,7 @@ const query = graphql`
 export default function ProjectsPage(props: Props) {
   const { enqueueSnackbar } = useSnackbar();
   const saveProjectReview = useSaveProjectReview();
+  const deleteProjectReview = useDeleteProjectReview();
 
   const saveProject = useCallback(
     (input: ProjectFormData) => {
@@ -69,6 +72,13 @@ export default function ProjectsPage(props: Props) {
       return saveProjectReview({ input });
     },
     [saveProjectReview],
+  );
+
+  const deleteProject = useCallback(
+    (input: DeleteProjectReviewMutationInput) => {
+      return deleteProjectReview({ input });
+    },
+    [deleteProjectReview],
   );
 
   const data = useLazyLoadQuery<ProjectsPageQuery>(query, {});
@@ -98,7 +108,12 @@ export default function ProjectsPage(props: Props) {
               <Typography variant="h6">{projectReview.project.name}</Typography>
             </ExpansionPanelSummary>
             <ExpansionPanelDetails>
-              <ProjectForm onSubmit={saveProject} projectReview={projectReview} users={data.viewer.users} />
+              <ProjectForm
+                onSubmit={saveProject}
+                onDelete={deleteProject}
+                projectReview={projectReview}
+                users={data.viewer.users}
+              />
             </ExpansionPanelDetails>
           </ExpansionPanel>
         );

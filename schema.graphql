@@ -13,6 +13,17 @@ type ChangePasswordMutationPayload {
   clientMutationId: String
 }
 
+input DeleteProjectReviewMutationInput {
+  projectReviewId: ID!
+  clientMutationId: String
+}
+
+type DeleteProjectReviewMutationPayload {
+  viewer: ViewerNode!
+  deletedProjectReviewId: ID
+  clientMutationId: String
+}
+
 """An enumeration."""
 enum Evaluation {
   NEEDS_IMPROVEMENT
@@ -46,6 +57,7 @@ type LogoutMutationPayload {
 type Mutation {
   savePersonReview(input: SavePersonReviewMutationInput!): SavePersonReviewMutationPayload!
   saveProjectReview(input: SaveProjectReviewMutationInput!): SaveProjectReviewMutationPayload!
+  deleteProjectReview(input: DeleteProjectReviewMutationInput!): DeleteProjectReviewMutationPayload!
   login(input: LoginMutationInput!): LoginMutationPayload!
   logout(input: LogoutMutationInput!): LogoutMutationPayload!
   changePassword(input: ChangePasswordMutationInput!): ChangePasswordMutationPayload!

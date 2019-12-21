@@ -2,9 +2,12 @@ import { i18n } from '@lingui/core';
 import { Box, Grid } from '@material-ui/core';
 import graphql from 'babel-plugin-relay/macro';
 import { prop } from 'ramda';
-import React, { useMemo } from 'react';
+import React, { useCallback, useMemo } from 'react';
 import { useFragment } from 'react-relay/hooks';
 import { useAuthGuardUser } from 'src/core/auth';
+import { DeleteProjectReviewMutationInput } from 'src/pages/projects-page/__generated__/deleteProjectReviewMutation.graphql';
+import { ConfirmButton } from 'src/shared/confirm-button';
+import { DangerButton } from 'src/shared/danger-button';
 import {
   ConstantInput,
   DictInput,
@@ -28,6 +31,7 @@ export interface ProjectFormData {
 }
 interface OwnProps {
   onSubmit: (data: ProjectFormData) => void;
+  onDelete: (input: DeleteProjectReviewMutationInput) => void;
   projectReview: ProjectForm_projectReview$key;
   users: ReviewersInputProps['users'];
 }
@@ -35,7 +39,7 @@ interface OwnProps {
 type Props = FCProps<OwnProps>;
 
 export function ProjectForm(props: Props) {
-  const { onSubmit } = props;
+  const { onSubmit, onDelete } = props;
   const projectReview = useFragment(
     graphql`
       fragment ProjectForm_projectReview on ProjectReviewNode {
@@ -66,6 +70,10 @@ export function ProjectForm(props: Props) {
   const user = useAuthGuardUser();
   const userIds = useMemo(() => [user.id], [user]);
 
+  const handleDelete = useCallback(() => {
+    onDelete({ projectReviewId: projectReview.id });
+  }, [onDelete, projectReview]);
+
   return (
     <Forminator onSubmit={onSubmit} initialValue={initialValue}>
       <DictInput>
@@ -93,6 +101,15 @@ export function ProjectForm(props: Props) {
             </DictInputItem>
           </Grid>
           <Grid item xs />
+          <Grid item>
+            <ConfirmButton
+              buttonText={i18n._('Delete')}
+              onConfirm={handleDelete}
+              text={i18n._('Are you sure you want to delete this project review?')}
+              ConfirmComponent={DangerButton}
+              confirmProps={{ variant: 'contained' }}
+            />
+          </Grid>
           <Grid item>
             <SubmitButton variant="contained" color="primary">
               {i18n._('Submit')}
