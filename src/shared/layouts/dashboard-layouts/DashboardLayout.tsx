@@ -87,6 +87,7 @@ const styles = (theme: Theme) => ({
     marginTop: headerHeight,
     overflow: 'auto',
     maxHeight: `calc(100vh - ${headerHeight}px)`,
+    position: 'relative',
   } as CSSProperties,
   userRegion: {
     marginRight: theme.spacing(8),
