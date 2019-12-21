@@ -20,6 +20,8 @@ import { ProjectsPageQuery } from 'src/pages/projects-page/__generated__/Project
 import { FCProps } from 'src/shared/types/FCProps';
 import { AddProjectForm, AddProjectFormData } from './AddProjectForm';
 import { useSaveProjectReview } from './saveProjectReview.mutation';
+import { useDeleteProjectReview } from 'src/pages/projects-page/deleteProjectReview.mutation';
+import { DeleteProjectReviewMutationInput } from 'src/pages/projects-page/__generated__/deleteProjectReviewMutation.graphql';
 
 interface OwnProps {}
 
@@ -50,6 +52,7 @@ const query = graphql`
 export default function ProjectsPage(props: Props) {
   const { enqueueSnackbar } = useSnackbar();
   const saveProjectReview = useSaveProjectReview();
+  const deleteProjectReview = useDeleteProjectReview();
 
   const saveProject = useCallback(
     (input: ProjectFormData) => {
@@ -71,6 +74,13 @@ export default function ProjectsPage(props: Props) {
     [saveProjectReview],
   );
 
+  const deleteProject = useCallback(
+    (input: DeleteProjectReviewMutationInput) => {
+      return deleteProjectReview({ input });
+    },
+    [deleteProjectReview],
+  );
+  console.log(deleteProject);
   const data = useLazyLoadQuery<ProjectsPageQuery>(query, {});
 
   const [initialProjectIds] = useState(
