@@ -24,7 +24,7 @@ export function AuthGuard(props: Props) {
     return <AuthPage />;
   }
 }
-
+// TODO: add auth-guard-fragment and use it in logout, login
 const authGuardQuery = graphql`
   query AuthGuardQuery {
     viewer {
