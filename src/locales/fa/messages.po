@@ -13,7 +13,7 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: src/pages/projects-page/ProjectForm.tsx:54
+#: src/pages/projects-page/ProjectForm.tsx:59
 msgid "Accomplishments"
 msgstr "دستاوردها"
 
@@ -22,18 +22,26 @@ msgstr "دستاوردها"
 msgid "Add"
 msgstr "افزودن"
 
-#: src/pages/projects-page/ProjectsPage.tsx:52
+#: src/pages/projects-page/ProjectsPage.tsx:57
 msgid "Add project"
 msgstr "افزودن پروژه"
+
+#: src/pages/projects-page/ProjectForm.tsx:69
+msgid "Are you sure you want to delete this project review?"
+msgstr "آیا از حذف  این پروژه مطمین هستید؟"
 
 #: src/shared/sticky-action-bar/StickyActionBar.stories.tsx:14
 msgid "Cancel"
 msgstr "لغو"
 
 #: src/containers/main/MainContainer.tsx:11
-#: src/shared/full-page-error/FullPageError.stories.tsx:10
+#: src/shared/full-page-error/FullPageError.stories.tsx:9
 msgid "Criteria"
 msgstr "معیارها"
+
+#: src/pages/projects-page/ProjectForm.tsx:69
+msgid "Delete"
+msgstr "حذف"
 
 #: src/core/locales/languages.ts:5
 msgid "English"
@@ -44,6 +52,7 @@ msgid "Error"
 msgstr "خطا"
 
 #: src/pages/projects-page/ProjectForm.tsx:53
+#: src/shared/criterion-item/CriterionItem.tsx:17
 msgid "Evaluation"
 msgstr "ارزیابی"
 
@@ -73,7 +82,7 @@ msgstr "گذرواژه"
 
 #: src/containers/main/MainContainer.tsx:33
 #: src/pages/dashboard-page/DashboardPage.tsx:6
-#: src/shared/full-page-error/FullPageError.stories.tsx:36
+#: src/shared/full-page-error/FullPageError.stories.tsx:34
 #: src/shared/layouts/dashboard-layouts/DashboardLayout.stories.tsx:27
 msgid "Performance Review"
 msgstr "ارزیابی عملکرد"
@@ -87,11 +96,11 @@ msgid "Project"
 msgstr "پروژه‌"
 
 #: src/containers/main/MainContainer.tsx:23
-#: src/shared/full-page-error/FullPageError.stories.tsx:22
+#: src/shared/full-page-error/FullPageError.stories.tsx:21
 msgid "Projects"
 msgstr "پروژه‌ها"
 
-#: src/pages/projects-page/ProjectForm.tsx:59
+#: src/pages/projects-page/ProjectForm.tsx:64
 msgid "Reviewers"
 msgstr "مرورکننده‌ها"
 
@@ -104,12 +113,12 @@ msgstr "انتخاب کنید"
 
 #: src/core/snackbar/Snackbar.stories.tsx:24
 #: src/pages/criteria-page/CriteriaPage.tsx:59
-#: src/pages/projects-page/ProjectsPage.tsx:41
+#: src/pages/projects-page/ProjectsPage.tsx:43
 #: src/pages/strengths-weaknesses-page/StrengthsWeaknessesPage.tsx:60
 msgid "Something went wrong."
 msgstr "خطایی رخ داد."
 
-#: src/shared/error/OverlayError.tsx:20
+#: src/shared/error/OverlayError.tsx:9
 msgid "Something went wrong. Please try again"
 msgstr "خطایی رخ داد. لطفا مجددا تلاش نمایید"
 
@@ -118,7 +127,7 @@ msgid "Strengths"
 msgstr "نقاط قوت"
 
 #: src/containers/main/MainContainer.tsx:17
-#: src/shared/full-page-error/FullPageError.stories.tsx:16
+#: src/shared/full-page-error/FullPageError.stories.tsx:15
 msgid "Strengths and Weaknesses"
 msgstr "نقاط قوت و ضعف"
 
@@ -129,7 +138,7 @@ msgstr "بسیار فراتر از انتظارات"
 #: src/core/snackbar/Snackbar.stories.tsx:16
 #: src/core/snackbar/Snackbar.stories.tsx:26
 #: src/pages/criteria-page/CriteriaForm.tsx:33
-#: src/pages/projects-page/ProjectForm.tsx:65
+#: src/pages/projects-page/ProjectForm.tsx:73
 #: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:25
 #: src/shared/auth/LoginForm.tsx:19
 #: src/shared/rating/Rating.stories.tsx:18
@@ -142,7 +151,7 @@ msgstr "ثبت"
 
 #: src/core/snackbar/Snackbar.stories.tsx:14
 #: src/pages/criteria-page/CriteriaPage.tsx:56
-#: src/pages/projects-page/ProjectsPage.tsx:38
+#: src/pages/projects-page/ProjectsPage.tsx:40
 #: src/pages/strengths-weaknesses-page/StrengthsWeaknessesPage.tsx:57
 msgid "Successfully saved."
 msgstr "با موفقیت ثبت گردید."
@@ -151,7 +160,7 @@ msgstr "با موفقیت ثبت گردید."
 msgid "Superb"
 msgstr "فوق‌العاده"
 
-#: src/shared/error/OverlayError.tsx:21
+#: src/shared/error/OverlayError.tsx:9
 msgid "Try Again"
 msgstr "تلاش مجدد"
 

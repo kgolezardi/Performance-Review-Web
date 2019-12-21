@@ -15,13 +15,13 @@ import graphql from 'babel-plugin-relay/macro';
 import { useSnackbar } from 'notistack';
 import React, { useCallback, useState } from 'react';
 import { useLazyLoadQuery } from 'react-relay/hooks';
+import { useDeleteProjectReview } from 'src/pages/projects-page/deleteProjectReview.mutation';
 import { ProjectForm, ProjectFormData } from 'src/pages/projects-page/ProjectForm';
+import { DeleteProjectReviewMutationInput } from 'src/pages/projects-page/__generated__/deleteProjectReviewMutation.graphql';
 import { ProjectsPageQuery } from 'src/pages/projects-page/__generated__/ProjectsPageQuery.graphql';
 import { FCProps } from 'src/shared/types/FCProps';
 import { AddProjectForm, AddProjectFormData } from './AddProjectForm';
 import { useSaveProjectReview } from './saveProjectReview.mutation';
-import { useDeleteProjectReview } from 'src/pages/projects-page/deleteProjectReview.mutation';
-import { DeleteProjectReviewMutationInput } from 'src/pages/projects-page/__generated__/deleteProjectReviewMutation.graphql';
 
 interface OwnProps {}
 
@@ -80,7 +80,7 @@ export default function ProjectsPage(props: Props) {
     },
     [deleteProjectReview],
   );
-  console.log(deleteProject);
+
   const data = useLazyLoadQuery<ProjectsPageQuery>(query, {});
 
   const [initialProjectIds] = useState(
@@ -108,7 +108,12 @@ export default function ProjectsPage(props: Props) {
               <Typography variant="h6">{projectReview.project.name}</Typography>
             </ExpansionPanelSummary>
             <ExpansionPanelDetails>
-              <ProjectForm onSubmit={saveProject} projectReview={projectReview} users={data.viewer.users} />
+              <ProjectForm
+                onSubmit={saveProject}
+                onDelete={deleteProject}
+                projectReview={projectReview}
+                users={data.viewer.users}
+              />
             </ExpansionPanelDetails>
           </ExpansionPanel>
         );
