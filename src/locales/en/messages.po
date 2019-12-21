@@ -13,7 +13,7 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: src/pages/projects-page/ProjectForm.tsx:47
+#: src/pages/projects-page/ProjectForm.tsx:54
 msgid "Accomplishments"
 msgstr "Accomplishments"
 
@@ -21,6 +21,10 @@ msgstr "Accomplishments"
 #: src/shared/strengths-weaknesses/StrengthsOrWeaknesses.tsx:40
 msgid "Add"
 msgstr "Add"
+
+#: src/pages/projects-page/ProjectsPage.tsx:52
+msgid "Add project"
+msgstr "Add project"
 
 #: src/shared/sticky-action-bar/StickyActionBar.stories.tsx:14
 msgid "Cancel"
@@ -34,7 +38,7 @@ msgstr "Criteria"
 msgid "English"
 msgstr "English"
 
-#: src/pages/projects-page/ProjectForm.tsx:53
+#: src/pages/projects-page/ProjectForm.tsx:48
 #: src/shared/criterion-item/CriterionItem.tsx:17
 msgid "Evaluation"
 msgstr "Evaluation"
@@ -74,7 +78,6 @@ msgid "Persian"
 msgstr "فارسی"
 
 #: src/pages/projects-page/AddProjectForm.tsx:25
-#: src/pages/projects-page/AddProjectForm.tsx:26
 msgid "Project"
 msgstr "Project"
 
@@ -82,12 +85,10 @@ msgstr "Project"
 msgid "Projects"
 msgstr "Projects"
 
-#: src/pages/projects-page/ProjectForm.tsx:61
-#: src/pages/projects-page/ProjectForm.tsx:62
+#: src/pages/projects-page/ProjectForm.tsx:59
 msgid "Reviewers"
 msgstr "Reviewers"
 
-#: src/pages/projects-page/ProjectForm.tsx:55
 #: src/shared/rating/Rating.stories.tsx:15
 #: src/shared/rating/Rating.stories.tsx:25
 #: src/shared/select/Select.stories.tsx:20
@@ -117,7 +118,7 @@ msgstr "Strongly Exceeds Expectations"
 #: src/core/snackbar/Snackbar.stories.tsx:16
 #: src/core/snackbar/Snackbar.stories.tsx:26
 #: src/pages/criteria-page/CriteriaForm.tsx:33
-#: src/pages/projects-page/ProjectForm.tsx:67
+#: src/pages/projects-page/ProjectForm.tsx:65
 #: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:25
 #: src/shared/auth/LoginForm.tsx:19
 #: src/shared/rating/Rating.stories.tsx:18
