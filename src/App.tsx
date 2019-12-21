@@ -6,7 +6,7 @@ import { RtlSupportProvider } from 'src/core/rtl/RtlSupportProvider';
 import { GlobalStyles } from 'src/core/styles/GlobalStyles';
 import { rtlTheme } from 'src/core/theme';
 import { environment } from 'src/relay';
-import { SnackbarProvider } from 'src/core/snackbar/SnackbarProvider';
+import { SnackbarProvider } from 'src/core/snackbar';
 
 const App: React.FC = () => {
   return (
