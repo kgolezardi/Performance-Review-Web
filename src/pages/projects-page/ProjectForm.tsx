@@ -92,6 +92,7 @@ export function ProjectForm(props: Props) {
               <ReviewersInput label={i18n._('Reviewers')} users={props.users} excludes={userIds} />
             </DictInputItem>
           </Grid>
+          <Grid item xs />
           <Grid item>
             <SubmitButton variant="contained" color="primary">
               {i18n._('Submit')}
