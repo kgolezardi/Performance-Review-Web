@@ -27,6 +27,9 @@ export function NavBarMenuItem(props: Props) {
 
 const styles = (theme: Theme) => ({
   root: {
+    '&:hover': {
+      color: getPaletteColor(theme.palette.primary, 50),
+    },
     fontSize: theme.typography.h6.fontSize,
     fontWeight: 'bold',
     padding: theme.spacing(2),
