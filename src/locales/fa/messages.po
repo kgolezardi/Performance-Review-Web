@@ -13,20 +13,24 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: src/pages/projects-page/ProjectForm.tsx:47
+#: src/pages/projects-page/ProjectForm.tsx:54
 msgid "Accomplishments"
 msgstr "دستاوردها"
 
-#: src/pages/projects-page/AddProjectForm.tsx:31
+#: src/pages/projects-page/AddProjectForm.tsx:32
 #: src/shared/strengths-weaknesses/StrengthsOrWeaknesses.tsx:40
 msgid "Add"
 msgstr "افزودن"
+
+#: src/pages/projects-page/ProjectsPage.tsx:52
+msgid "Add project"
+msgstr "افزودن پروژه"
 
 #: src/shared/sticky-action-bar/StickyActionBar.stories.tsx:14
 msgid "Cancel"
 msgstr "لغو"
 
-#: src/containers/main/MainContainer.tsx:10
+#: src/containers/main/MainContainer.tsx:11
 msgid "Criteria"
 msgstr "معیارها"
 
@@ -34,7 +38,8 @@ msgstr "معیارها"
 msgid "English"
 msgstr "English"
 
-#: src/pages/projects-page/ProjectForm.tsx:53
+#: src/pages/projects-page/ProjectForm.tsx:48
+#: src/shared/criterion-item/CriterionItem.tsx:17
 msgid "Evaluation"
 msgstr "ارزیابی"
 
@@ -42,7 +47,7 @@ msgstr "ارزیابی"
 msgid "Exceeds Expectations"
 msgstr "فراتر از انتظارات"
 
-#: src/shared/auth/Login.tsx:42
+#: src/shared/auth/Login.tsx:45
 msgid "Login"
 msgstr "ورود"
 
@@ -58,7 +63,7 @@ msgstr "نیازمند به تلاش"
 msgid "Password"
 msgstr "گذرواژه"
 
-#: src/containers/main/MainContainer.tsx:32
+#: src/containers/main/MainContainer.tsx:33
 #: src/pages/dashboard-page/DashboardPage.tsx:6
 #: src/shared/layouts/dashboard-layouts/DashboardLayout.stories.tsx:27
 msgid "Performance Review"
@@ -73,17 +78,14 @@ msgstr "فارسی"
 msgid "Project"
 msgstr "پروژه‌"
 
-#: src/containers/main/MainContainer.tsx:22
+#: src/containers/main/MainContainer.tsx:23
 msgid "Projects"
 msgstr "پروژه‌ها"
 
-#: src/pages/projects-page/ProjectForm.tsx:61
-#: src/pages/projects-page/ProjectForm.tsx:62
+#: src/pages/projects-page/ProjectForm.tsx:59
 msgid "Reviewers"
 msgstr "مرورکننده‌ها"
 
-#: src/pages/projects-page/ProjectForm.tsx:55
-#: src/shared/criterion-item/CriterionItem.tsx:12
 #: src/shared/rating/Rating.stories.tsx:15
 #: src/shared/rating/Rating.stories.tsx:25
 #: src/shared/select/Select.stories.tsx:20
@@ -91,7 +93,10 @@ msgstr "مرورکننده‌ها"
 msgid "Select"
 msgstr "انتخاب کنید"
 
+#: src/core/snackbar/Snackbar.stories.tsx:24
 #: src/pages/criteria-page/CriteriaPage.tsx:59
+#: src/pages/projects-page/ProjectsPage.tsx:41
+#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesPage.tsx:60
 msgid "Something went wrong."
 msgstr "خطایی رخ داد."
 
@@ -99,7 +104,7 @@ msgstr "خطایی رخ داد."
 msgid "Strengths"
 msgstr "نقاط قوت"
 
-#: src/containers/main/MainContainer.tsx:16
+#: src/containers/main/MainContainer.tsx:17
 msgid "Strengths and Weaknesses"
 msgstr "نقاط قوت و ضعف"
 
@@ -107,8 +112,10 @@ msgstr "نقاط قوت و ضعف"
 msgid "Strongly Exceeds Expectations"
 msgstr "بسیار فراتر از انتظارات"
 
+#: src/core/snackbar/Snackbar.stories.tsx:16
+#: src/core/snackbar/Snackbar.stories.tsx:26
 #: src/pages/criteria-page/CriteriaForm.tsx:33
-#: src/pages/projects-page/ProjectForm.tsx:67
+#: src/pages/projects-page/ProjectForm.tsx:65
 #: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:25
 #: src/shared/auth/LoginForm.tsx:19
 #: src/shared/rating/Rating.stories.tsx:18
@@ -119,7 +126,10 @@ msgstr "بسیار فراتر از انتظارات"
 msgid "Submit"
 msgstr "ثبت"
 
+#: src/core/snackbar/Snackbar.stories.tsx:14
 #: src/pages/criteria-page/CriteriaPage.tsx:56
+#: src/pages/projects-page/ProjectsPage.tsx:38
+#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesPage.tsx:57
 msgid "Successfully saved."
 msgstr "با موفقیت ثبت گردید."
 
@@ -131,7 +141,7 @@ msgstr "فوق‌العاده"
 msgid "Username"
 msgstr "نام کاربری"
 
-#: src/shared/auth/Login.tsx:31
+#: src/shared/auth/Login.tsx:34
 msgid "Username or Password is incorrect."
 msgstr "نام کاربری یا گذرواژه اشتباه است."
 
