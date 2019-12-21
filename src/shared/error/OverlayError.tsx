@@ -18,7 +18,11 @@ type Props = FCProps<OwnProps> & StyleProps;
 
 export function OverlayError(props: Props) {
   const classes = useStyles(props);
-  const { retry, errorText, buttonText } = props;
+  const {
+    retry,
+    errorText = i18n._('Something went wrong. Please try again'),
+    buttonText = i18n._('Try Again'),
+  } = props;
 
   return (
     <Overlay>
@@ -33,11 +37,6 @@ export function OverlayError(props: Props) {
     </Overlay>
   );
 }
-
-OverlayError.defaultProps = {
-  errorText: i18n._('Something went wrong. Please try again'),
-  buttonText: i18n._('Try Again'),
-};
 
 const styles = (theme: Theme) => ({
   label: {
