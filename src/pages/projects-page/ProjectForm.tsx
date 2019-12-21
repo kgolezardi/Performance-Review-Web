@@ -71,7 +71,7 @@ export function ProjectForm(props: Props) {
   const userIds = useMemo(() => [user.id], [user]);
 
   const handleDelete = useCallback(() => {
-    onDelete({ projectReviewId: projectReview.project.id });
+    onDelete({ projectReviewId: projectReview.id });
   }, [onDelete, projectReview]);
 
   return (
@@ -92,13 +92,7 @@ export function ProjectForm(props: Props) {
           </Grid>
           <Grid item xs={12}>
             <DictInputItem field="text">
-              <LimitedTextAreaInput
-                label={i18n._('Accomplishments')}
-                maxChars={512}
-                rows={4}
-                variant="outlined"
-                fullWidth
-              />
+              <LimitedTextAreaInput label={i18n._('Accomplishments')} maxChars={512} variant="outlined" fullWidth />
             </DictInputItem>
           </Grid>
           <Grid item xs={12}>

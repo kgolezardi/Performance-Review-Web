@@ -28,7 +28,7 @@ msgstr "افزودن پروژه"
 
 #: src/pages/projects-page/ProjectForm.tsx:68
 msgid "Are you sure you want to delete this project review?"
-msgstr "؟آیا از حذف  این پروژه مطمین هستید"
+msgstr "آیا از حذف  این پروژه مطمین هستید؟"
 
 #: src/shared/sticky-action-bar/StickyActionBar.stories.tsx:14
 msgid "Cancel"

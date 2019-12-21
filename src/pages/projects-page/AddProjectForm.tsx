@@ -47,7 +47,7 @@ export function AddProjectForm(props: Props) {
             </DictInputItem>
           </Grid>
           <Grid item>
-            <Box marginTop={0.35}>
+            <Box marginTop={0.375}>
               <SubmitButton variant="contained" color="primary">
                 {i18n._('Add')}
               </SubmitButton>
