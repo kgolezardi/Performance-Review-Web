@@ -1,5 +1,5 @@
 import { i18n } from '@lingui/core';
-import { Box, Grid, Typography } from '@material-ui/core';
+import { Box, Grid } from '@material-ui/core';
 import graphql from 'babel-plugin-relay/macro';
 import { prop } from 'ramda';
 import React, { useMemo } from 'react';
@@ -77,21 +77,18 @@ export function ProjectForm(props: Props) {
           </Grid>
           <Grid item xs={12}>
             <DictInputItem field="rating">
-              <Typography>{i18n._('Evaluation')}</Typography>
               <Box width={240}>
-                <Rating inputLabel={i18n._('Select')} />
+                <Rating inputLabel={i18n._('Evaluation')} />
               </Box>
             </DictInputItem>
           </Grid>
           <Grid item xs={12}>
             <DictInputItem field="text">
-              <Typography>{i18n._('Accomplishments')}</Typography>
-              <LimitedTextAreaInput maxChars={512} variant="outlined" fullWidth />
+              <LimitedTextAreaInput label={i18n._('Accomplishments')} maxChars={512} variant="outlined" fullWidth />
             </DictInputItem>
           </Grid>
           <Grid item xs={12}>
             <DictInputItem field="reviewersId">
-              <Typography>{i18n._('Reviewers')}</Typography>
               <ReviewersInput label={i18n._('Reviewers')} users={props.users} excludes={userIds} />
             </DictInputItem>
           </Grid>
