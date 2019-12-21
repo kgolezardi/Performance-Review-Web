@@ -10,9 +10,8 @@ import {
   NavbarRegion,
 } from 'src/shared/layouts/dashboard-layouts';
 import { MenuItem } from 'src/shared/layouts/dashboard-layouts/menu/types';
-import { themeDecorator } from 'src/stories/decorators';
+import { themeDecorator, routerDecorator } from 'src/stories/decorators';
 import { FullPageError } from './FullPageError';
-import { BrowserRouter as Router } from 'react-router-dom';
 
 const items: MenuItem[] = [
   {
@@ -37,22 +36,19 @@ const items: MenuItem[] = [
 
 storiesOf('Full Page Error', module)
   .addDecorator(themeDecorator())
+  .addDecorator(routerDecorator())
   .add('default', () => <FullPageError />)
   .add('with navbar', () => (
-    <>
-      <Router>
-        <DashboardLayout>
-          <BrandRegion>
-            {/* TODO: add logo here */}
-            <Brand label={i18n._('Performance Review')} logo={''} />
-          </BrandRegion>
-          <NavbarRegion>
-            <NavBarMenu items={items} />
-          </NavbarRegion>
-          <ContentRegion>
-            <FullPageError />
-          </ContentRegion>
-        </DashboardLayout>
-      </Router>
-    </>
+    <DashboardLayout>
+      <BrandRegion>
+        {/* TODO: add logo here */}
+        <Brand label={i18n._('Performance Review')} logo={''} />
+      </BrandRegion>
+      <NavbarRegion>
+        <NavBarMenu items={items} />
+      </NavbarRegion>
+      <ContentRegion>
+        <FullPageError />
+      </ContentRegion>
+    </DashboardLayout>
   ));
