@@ -9,6 +9,8 @@ import { FullPageSpinner } from 'src/shared/loading';
 import { FCProps } from 'src/shared/types/FCProps';
 import { CriteriaForm } from './CriteriaForm';
 import { CriteriaPageMutation, Evaluation } from './__generated__/CriteriaPageMutation.graphql';
+import { useSnackbar } from 'notistack';
+import { i18n } from '@lingui/core';
 
 interface OwnProps {}
 
@@ -47,6 +49,7 @@ const query = graphql`
 `;
 
 export default function CriteriaPage(props: Props) {
+  const { enqueueSnackbar } = useSnackbar();
   const criteriaPageMutation = useCriteriaPageMutation();
 
   const { id: revieweeId } = useAuthGuardUser();
@@ -63,10 +66,14 @@ export default function CriteriaPage(props: Props) {
       const transformedData = transformData(data);
       const input = { input: { revieweeId, ...transformedData } };
       criteriaPageMutation(input)
-        .then(res => {})
-        .catch(error => {});
+        .then(res => {
+          enqueueSnackbar(i18n._('Successfully saved.'), { variant: 'success' });
+        })
+        .catch(error => {
+          enqueueSnackbar(i18n._('Something went wrong.'), { variant: 'error' });
+        });
     },
-    [criteriaPageMutation, revieweeId],
+    [criteriaPageMutation, revieweeId, enqueueSnackbar],
   );
 
   const review = data.viewer.review;

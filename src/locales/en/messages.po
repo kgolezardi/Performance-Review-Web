@@ -91,6 +91,10 @@ msgstr "Reviewers"
 msgid "Select"
 msgstr "Select"
 
+#: src/pages/criteria-page/CriteriaPage.tsx:59
+msgid "Something went wrong."
+msgstr "Something went wrong."
+
 #: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:14
 msgid "Strengths"
 msgstr "Strengths"
@@ -114,6 +118,10 @@ msgstr "Strongly Exceeds Expectations"
 #: src/shared/sticky-action-bar/StickyActionBar.stories.tsx:16
 msgid "Submit"
 msgstr "Submit"
+
+#: src/pages/criteria-page/CriteriaPage.tsx:56
+msgid "Successfully saved."
+msgstr "Successfully saved."
 
 #: src/global-types/Evaluation.ts:15
 msgid "Superb"

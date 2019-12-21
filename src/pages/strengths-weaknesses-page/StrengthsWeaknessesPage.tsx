@@ -8,6 +8,8 @@ import { useMutation } from 'src/relay';
 import { isNotNil } from 'src/shared/utils/general.util';
 import { StrengthsWeaknessesPageMutation } from './__generated__/StrengthsWeaknessesPageMutation.graphql';
 import { StrengthsWeaknessesForm } from './StrengthsWeaknessesForm';
+import { i18n } from '@lingui/core';
+import { useSnackbar } from 'notistack';
 
 const useStrengthsWeaknessesPageMutation = () =>
   useMutation<StrengthsWeaknessesPageMutation>(graphql`
@@ -49,6 +51,7 @@ const normalizeArray = (array: readonly (string | null)[] | null | undefined) =>
 };
 
 export default function StrengthsWeaknessesPage() {
+  const { enqueueSnackbar } = useSnackbar();
   const strengthsWeaknessesPageMutation = useStrengthsWeaknessesPageMutation();
   const { id: revieweeId } = useAuthGuardUser();
   const data = useLazyLoadQuery<StrengthsWeaknessesPageQuery>(query, { id: revieweeId });
@@ -60,10 +63,14 @@ export default function StrengthsWeaknessesPage() {
 
       const input = { input: { revieweeId, ...transformedData } };
       strengthsWeaknessesPageMutation(input)
-        .then(() => {})
-        .catch(() => {});
+        .then(res => {
+          enqueueSnackbar(i18n._('Successfully saved.'), { variant: 'success' });
+        })
+        .catch(error => {
+          enqueueSnackbar(i18n._('Something went wrong.'), { variant: 'error' });
+        });
     },
-    [strengthsWeaknessesPageMutation, revieweeId],
+    [strengthsWeaknessesPageMutation, revieweeId, enqueueSnackbar],
   );
 
   return (

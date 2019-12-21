@@ -17,6 +17,8 @@ import { ProjectForm, ProjectFormData } from 'src/pages/projects-page/ProjectFor
 import { FCProps } from 'src/shared/types/FCProps';
 import { AddProjectForm, AddProjectFormData } from './AddProjectForm';
 import { useSaveProjectReview } from './saveProjectReview.mutation';
+import { i18n } from '@lingui/core';
+import { useSnackbar } from 'notistack';
 
 interface OwnProps {}
 
@@ -45,13 +47,20 @@ const query = graphql`
 `;
 
 export default function ProjectsPage(props: Props) {
+  const { enqueueSnackbar } = useSnackbar();
   const saveProjectReview = useSaveProjectReview();
 
   const saveProject = useCallback(
     (input: ProjectFormData) => {
-      return saveProjectReview({ input });
+      return saveProjectReview({ input })
+        .then(res => {
+          enqueueSnackbar(i18n._('Successfully saved.'), { variant: 'success' });
+        })
+        .catch(error => {
+          enqueueSnackbar(i18n._('Something went wrong.'), { variant: 'error' });
+        });
     },
-    [saveProjectReview],
+    [saveProjectReview, enqueueSnackbar],
   );
 
   const addProjectReview = useCallback(
