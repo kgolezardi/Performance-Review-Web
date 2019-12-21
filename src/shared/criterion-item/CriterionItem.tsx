@@ -1,31 +1,40 @@
 import { i18n } from '@lingui/core';
-import { Box, Card, CardContent, CardHeader } from '@material-ui/core';
+import { Box, Card, CardContent, CardHeader, Grid, Typography } from '@material-ui/core';
 import React from 'react';
 import { DictInputItem, LimitedTextAreaInput } from 'src/shared/forminator';
-import { FCProps } from 'src/shared/types/FCProps';
 import { Rating } from 'src/shared/rating';
+import { FCProps } from 'src/shared/types/FCProps';
 
 interface OwnProps {
   title: string;
   prefix: string;
-  subheader?: string;
+  details?: string;
 }
 
 type Props = FCProps<OwnProps>;
 
-export function CriterionItem({ title, subheader, prefix }: Props) {
+export function CriterionItem({ title, details, prefix }: Props) {
   return (
     <Card>
-      <CardHeader title={title} subheader={subheader} />
+      <CardHeader title={title} />
       <CardContent>
-        <DictInputItem field={prefix + 'Rating'}>
-          <Box width={240}>
-            <Rating inputLabel={i18n._('Select')} />
-          </Box>
-        </DictInputItem>
-        <DictInputItem field={prefix + 'Comment'}>
-          <LimitedTextAreaInput variant="outlined" maxChars={280} fullWidth />
-        </DictInputItem>
+        <Grid container spacing={2}>
+          <Grid item xs={12}>
+            <Typography>{details}</Typography>
+          </Grid>
+          <Grid item xs={12}>
+            <DictInputItem field={prefix + 'Rating'}>
+              <Box width={240}>
+                <Rating inputLabel={i18n._('Evaluation')} />
+              </Box>
+            </DictInputItem>
+          </Grid>
+          <Grid item xs={12}>
+            <DictInputItem field={prefix + 'Comment'}>
+              <LimitedTextAreaInput variant="outlined" maxChars={280} fullWidth />
+            </DictInputItem>
+          </Grid>
+        </Grid>
       </CardContent>
     </Card>
   );
