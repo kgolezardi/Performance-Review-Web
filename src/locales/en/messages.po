@@ -30,7 +30,7 @@ msgstr "Add project"
 msgid "Cancel"
 msgstr "Cancel"
 
-#: src/containers/main/MainContainer.tsx:10
+#: src/containers/main/MainContainer.tsx:11
 #: src/shared/full-page-error/FullPageError.stories.tsx:10
 msgid "Criteria"
 msgstr "Criteria"
@@ -86,7 +86,7 @@ msgstr "فارسی"
 msgid "Project"
 msgstr "Project"
 
-#: src/containers/main/MainContainer.tsx:22
+#: src/containers/main/MainContainer.tsx:23
 #: src/shared/full-page-error/FullPageError.stories.tsx:22
 msgid "Projects"
 msgstr "Projects"
@@ -117,7 +117,7 @@ msgstr "Something went wrong. Please try again"
 msgid "Strengths"
 msgstr "Strengths"
 
-#: src/containers/main/MainContainer.tsx:16
+#: src/containers/main/MainContainer.tsx:17
 #: src/shared/full-page-error/FullPageError.stories.tsx:16
 msgid "Strengths and Weaknesses"
 msgstr "Strengths and Weaknesses"
