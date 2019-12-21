@@ -9,11 +9,13 @@ import {
   DashboardLayout,
   NavBarMenu,
   NavbarRegion,
+  UserRegion,
 } from 'src/shared/layouts/dashboard-layouts';
-import { MenuItem } from 'src/shared/layouts/dashboard-layouts/menu/types';
+import { MenuItem } from 'src/shared/layouts/dashboard-layouts/types';
 import { FullPageSpinner } from 'src/shared/loading';
 import { FCProps } from 'src/shared/types/FCProps';
 import { MainRoutes } from './MainRoutes';
+import { NavbarUser } from './NavbarUser';
 
 interface OwnProps {}
 
@@ -57,6 +59,9 @@ export function MainContainer(props: Props) {
           </Suspense>
         </ErrorBoundary>
       </ContentRegion>
+      <UserRegion>
+        <NavbarUser />
+      </UserRegion>
     </DashboardLayout>
   );
 }

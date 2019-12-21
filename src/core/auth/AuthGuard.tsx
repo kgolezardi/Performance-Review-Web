@@ -13,7 +13,10 @@ type Props = FCProps<OwnProps>;
 export function AuthGuard(props: Props) {
   const data = useLazyLoadQuery<AuthGuardQuery>(authGuardQuery, {});
   const { me } = data.viewer;
-  const user = useMemo(() => (me ? { username: me.username, id: me.id } : null), [me]);
+  const user = useMemo(
+    () => (me ? { username: me.username, id: me.id, firstName: me.firstName, lastName: me.lastName } : null),
+    [me],
+  );
 
   if (user) {
     return <UserContext.Provider value={user}>{props.children}</UserContext.Provider>;
@@ -21,13 +24,15 @@ export function AuthGuard(props: Props) {
     return <AuthPage />;
   }
 }
-
+// TODO: add auth-guard-fragment and use it in logout, login
 const authGuardQuery = graphql`
   query AuthGuardQuery {
     viewer {
       me {
         id
         username
+        firstName
+        lastName
       }
     }
   }

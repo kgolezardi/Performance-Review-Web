@@ -26,8 +26,10 @@ export function NavBarMenu(props: Props) {
 
 const styles = (theme: Theme) => ({
   root: {
+    height: '100%',
     display: 'flex',
     flexDirection: 'row',
+    marginLeft: theme.spacing(3),
   } as CSSProperties,
 });
 

@@ -3,6 +3,7 @@ import React from 'react';
 import { useFragment } from 'react-relay/hooks';
 import { SelectMultiAutoComplete } from 'src/shared/forminator';
 import { FCProps } from 'src/shared/types/FCProps';
+import { getUserLabel } from 'src/shared/utils/getUserLabel';
 import { ReviewersInput_Reviewers$key } from './__generated__/ReviewersInput_Reviewers.graphql';
 
 interface OwnProps {
@@ -19,14 +20,6 @@ interface Option {
 
 type Props = FCProps<OwnProps>;
 
-const getLabel = (user: { readonly firstName: string; readonly lastName: string; readonly username: string }) => {
-  const name = (user.firstName + ' ' + user.lastName).trim();
-  if (name) {
-    return name;
-  }
-  return user.username;
-};
-
 export function ReviewersInput(props: Props) {
   const { label, initialValue, excludes } = props;
   const users = useFragment(
@@ -42,7 +35,7 @@ export function ReviewersInput(props: Props) {
   );
   const options: Option[] = users.map(user => ({
     value: user.id,
-    label: getLabel(user),
+    label: getUserLabel(user),
   }));
 
   return (

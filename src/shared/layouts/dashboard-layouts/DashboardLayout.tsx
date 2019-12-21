@@ -11,8 +11,9 @@ import { brandWidth, headerHeight } from './constants';
 export const ContentRegion = 'ContentRegion' as any;
 export const NavbarRegion = 'NavbarRegion' as any;
 export const BrandRegion = 'BrandRegion' as any;
+export const UserRegion = 'UserRegion' as any;
 
-const regions = [NavbarRegion, ContentRegion, BrandRegion];
+const regions = [NavbarRegion, ContentRegion, BrandRegion, UserRegion];
 
 interface OwnProps {}
 
@@ -41,21 +42,21 @@ export function DashboardLayout(props: Props) {
 
   const map = groupChildrenByType(props.children, regions);
 
-  const appBarClassName = classes.appBar;
-
-  const contentClassName = classes.content;
-
   const contentChild = map.get(ContentRegion);
   const navbarChild = map.get(NavbarRegion);
   const brandChild = map.get(BrandRegion);
+  const userChild = map.get(UserRegion);
 
   return (
     <div className={classes.root}>
-      <AppBar position="fixed" className={appBarClassName}>
-        <div className={classes.brandToolbar}>{brandChild}</div>
-        <Toolbar>{navbarChild}</Toolbar>
+      <AppBar position="fixed" className={classes.appBar}>
+        <Toolbar className={classes.toolbar}>
+          <div className={classes.brandToolbar}>{brandChild}</div>
+          {navbarChild}
+          <div className={classes.userRegion}>{userChild}</div>
+        </Toolbar>
       </AppBar>
-      <main className={contentClassName}>{contentChild}</main>
+      <main className={classes.content}>{contentChild}</main>
     </div>
   );
 }
@@ -66,28 +67,31 @@ const styles = (theme: Theme) => ({
     flexDirection: 'column',
     height: '100vh',
   } as CSSProperties,
-  /* ---- app bar ----*/
   appBar: {
-    flexDirection: 'row',
     height: headerHeight,
   } as CSSProperties,
-  /* ---- drawer ----*/
+  toolbar: {
+    paddingLeft: 0,
+    height: '100%',
+  } as CSSProperties,
   brandToolbar: {
     backgroundColor: theme.palette.primary.dark,
     overflow: 'hidden',
     width: brandWidth,
     display: 'flex',
-    flexDirection: 'row',
     alignItems: 'center',
+    alignSelf: 'stretch',
   } as CSSProperties,
-
-  /* ---- content ----*/
   content: {
     flex: 1,
     marginTop: headerHeight,
     overflow: 'auto',
     maxHeight: `calc(100vh - ${headerHeight}px)`,
   } as CSSProperties,
+  userRegion: {
+    marginRight: theme.spacing(8),
+    marginLeft: 'auto',
+  },
 });
 
 const useStyles = makeStyles(styles, { name: 'DashboardLayout' });

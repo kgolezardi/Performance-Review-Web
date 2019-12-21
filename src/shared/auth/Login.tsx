@@ -14,6 +14,7 @@ interface OwnProps {}
 
 type Props = FCProps<OwnProps> & StyleProps;
 
+// TODO: move it to another file
 const useLoginMutation = () =>
   useMutation<LoginMutation>(graphql`
     mutation LoginMutation($input: LoginMutationInput!) {
@@ -22,6 +23,8 @@ const useLoginMutation = () =>
           me {
             id
             username
+            firstName
+            lastName
           }
         }
       }

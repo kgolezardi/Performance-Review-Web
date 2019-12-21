@@ -1,7 +1,10 @@
 import React, { useContext } from 'react';
+
 export interface UserContextValue {
   id: string;
   username: string;
+  firstName: string;
+  lastName: string;
 }
 export const UserContext = React.createContext<UserContextValue | null>(null);
 

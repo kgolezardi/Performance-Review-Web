@@ -1,3 +1,3 @@
 export { Brand } from './Brand';
-export { BrandRegion, ContentRegion, DashboardLayout, NavbarRegion } from './DashboardLayout';
+export { BrandRegion, ContentRegion, DashboardLayout, NavbarRegion, UserRegion } from './DashboardLayout';
 export { NavBarMenu } from './menu/NavBarMenu';
