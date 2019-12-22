@@ -30,7 +30,6 @@ const styles = (theme: Theme) => ({
       color: lighten(theme.palette.primary.main, 0.9),
     },
     fontSize: theme.typography.h6.fontSize,
-    fontWeight: 'bold',
     padding: theme.spacing(2),
     color: lighten(theme.palette.primary.main, 0.7),
     textDecoration: 'none',
@@ -56,6 +55,7 @@ const styles = (theme: Theme) => ({
   } as CSSProperties,
   active: {
     color: theme.palette.common.white,
+    fontWeight: 'bold',
   } as CSSProperties,
 });
 
