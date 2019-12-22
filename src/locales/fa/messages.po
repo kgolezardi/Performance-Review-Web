@@ -60,6 +60,10 @@ msgstr "خطا"
 msgid "Evaluation"
 msgstr "ارزیابی"
 
+#: src/shared/criterion-item/CriterionItem.tsx:23
+msgid "Evidence"
+msgstr "شواهد"
+
 #: src/global-types/Evaluation.ts:13
 msgid "Exceeds Expectations"
 msgstr "فراتر از انتظارات"

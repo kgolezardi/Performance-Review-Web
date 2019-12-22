@@ -31,7 +31,7 @@ export function CriterionItem({ title, details, prefix }: Props) {
           </Grid>
           <Grid item xs={12}>
             <DictInputItem field={prefix + 'Comment'}>
-              <LimitedTextAreaInput variant="outlined" maxChars={280} fullWidth />
+              <LimitedTextAreaInput label={i18n._('Evidence')} variant="outlined" maxChars={280} fullWidth />
             </DictInputItem>
           </Grid>
         </Grid>
