@@ -1,6 +1,7 @@
 import { CircularProgress, makeStyles, Theme, Typography } from '@material-ui/core';
 import { CSSProperties } from '@material-ui/core/styles/withStyles';
 import React from 'react';
+import { NumberOutput } from 'src/shared/number-output';
 import { FCProps } from 'src/shared/types/FCProps';
 import { Styles } from 'src/shared/types/Styles';
 
@@ -18,7 +19,7 @@ export function Counter({ count, max, ...props }: Props) {
     <div className={classes.root}>
       <CircularProgress className={classes.circularProgress} variant="static" size={16} value={(count * 100) / max} />
       <Typography variant="caption" className={classes.typography}>
-        {count} / {max}
+        <NumberOutput value={count} /> / <NumberOutput value={max} />
       </Typography>
     </div>
   );
