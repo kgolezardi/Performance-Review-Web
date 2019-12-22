@@ -1,4 +1,4 @@
-import { fade, Theme } from '@material-ui/core';
+import { lighten, Theme } from '@material-ui/core';
 import { makeStyles } from '@material-ui/styles';
 import { CSSProperties } from '@material-ui/styles/withStyles';
 import React from 'react';
@@ -27,12 +27,12 @@ export function NavBarMenuItem(props: Props) {
 const styles = (theme: Theme) => ({
   root: {
     '&:hover': {
-      color: fade(theme.palette.common.white, 0.8),
+      color: lighten(theme.palette.primary.main, 0.9),
     },
     fontSize: theme.typography.h6.fontSize,
     fontWeight: 'bold',
     padding: theme.spacing(2),
-    color: fade(theme.palette.common.white, 0.6),
+    color: lighten(theme.palette.primary.main, 0.7),
     textDecoration: 'none',
     display: 'flex',
     alignItems: 'center',

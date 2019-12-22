@@ -26,6 +26,7 @@ export const baseThemeOptions: ThemeOptions = {
       main: '#27B2EC',
       light: '#56C3F0',
     },
+    contrastThreshold: 2.4,
     error: red,
   },
 };
