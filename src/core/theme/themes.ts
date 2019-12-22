@@ -1,5 +1,4 @@
 import { PaletteType } from '@material-ui/core';
-import deepPurple from '@material-ui/core/colors/deepPurple';
 import red from '@material-ui/core/colors/red';
 import teal from '@material-ui/core/colors/teal';
 import createMuiTheme, { Direction, ThemeOptions } from '@material-ui/core/styles/createMuiTheme';
@@ -22,8 +21,11 @@ export function getThemeOptions(base: ThemeOptions, direction: Direction, palett
 
 export const baseThemeOptions: ThemeOptions = {
   palette: {
-    primary: teal,
-    secondary: deepPurple,
+    primary: {
+      dark: '#1297CE',
+      main: '#27B2EC',
+      light: '#56C3F0',
+    },
     error: red,
   },
 };

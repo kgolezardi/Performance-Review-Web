@@ -1,11 +1,10 @@
-import { Theme } from '@material-ui/core';
+import { fade, Theme } from '@material-ui/core';
 import { makeStyles } from '@material-ui/styles';
 import { CSSProperties } from '@material-ui/styles/withStyles';
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { FCProps } from 'src/shared/types/FCProps';
 import { Styles } from 'src/shared/types/Styles';
-import { getPaletteColor } from 'src/shared/utils/material-ui/palette.utils';
 import { MenuItem } from './types';
 
 interface OwnProps {
@@ -28,12 +27,12 @@ export function NavBarMenuItem(props: Props) {
 const styles = (theme: Theme) => ({
   root: {
     '&:hover': {
-      color: getPaletteColor(theme.palette.primary, 50),
+      color: fade(theme.palette.common.white, 0.8),
     },
     fontSize: theme.typography.h6.fontSize,
     fontWeight: 'bold',
     padding: theme.spacing(2),
-    color: getPaletteColor(theme.palette.primary, 100),
+    color: fade(theme.palette.common.white, 0.6),
     textDecoration: 'none',
     display: 'flex',
     alignItems: 'center',
