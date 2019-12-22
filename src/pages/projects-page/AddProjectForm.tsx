@@ -48,7 +48,7 @@ export function AddProjectForm(props: Props) {
           </Grid>
           <Grid item>
             <Box marginTop={0.375}>
-              <SubmitButton variant="contained" color="primary">
+              <SubmitButton variant="outlined" color="primary">
                 {i18n._('Add')}
               </SubmitButton>
             </Box>

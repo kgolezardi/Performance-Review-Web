@@ -37,8 +37,11 @@ export function StrengthsOrWeaknesses({ title, maxLength, ...props }: Props) {
               </Grid>
             </ArrayOutput>
             <ConditionalSection condition={condition} lens={lens}>
+              <Grid item xs />
               <Grid item>
-                <ArrayAppendButton>{i18n._('Add')}</ArrayAppendButton>
+                <ArrayAppendButton variant="outlined" color="primary">
+                  {i18n._('Add')}
+                </ArrayAppendButton>
               </Grid>
             </ConditionalSection>
           </ArrayInput>
