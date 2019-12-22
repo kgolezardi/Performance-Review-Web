@@ -1,6 +1,6 @@
 import { PaletteType } from '@material-ui/core';
+import lightBlue from '@material-ui/core/colors/lightBlue';
 import red from '@material-ui/core/colors/red';
-import teal from '@material-ui/core/colors/teal';
 import createMuiTheme, { Direction, ThemeOptions } from '@material-ui/core/styles/createMuiTheme';
 
 export function getThemeOptions(base: ThemeOptions, direction: Direction, paletteType: PaletteType) {
@@ -10,7 +10,7 @@ export function getThemeOptions(base: ThemeOptions, direction: Direction, palett
     palette: {
       ...base.palette,
       type: paletteType,
-      background: { default: teal['50'] },
+      background: { default: lightBlue['50'] },
     },
     typography: {
       fontFamily: 'Shabnam, "Roboto", "Helvetica", "Arial", sans-serif',
@@ -22,11 +22,10 @@ export function getThemeOptions(base: ThemeOptions, direction: Direction, palett
 export const baseThemeOptions: ThemeOptions = {
   palette: {
     primary: {
-      dark: '#1297CE',
-      main: '#27B2EC',
-      light: '#56C3F0',
+      dark: '#0F7DAA',
+      main: '#1297CE',
+      light: '#27B2EC',
     },
-    contrastThreshold: 2.4,
     error: red,
   },
 };

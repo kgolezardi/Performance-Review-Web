@@ -64,7 +64,7 @@ export function CriteriaForm(props: Props) {
             />
           </Grid>
 
-          <StickyActionBar elevation={4}>
+          <StickyActionBar elevation={8}>
             <SubmitButton variant="contained" color="primary">
               {i18n._('Submit')}
             </SubmitButton>

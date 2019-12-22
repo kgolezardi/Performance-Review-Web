@@ -32,7 +32,7 @@ export function StrengthsWeaknessesForm(props: Props) {
               <StrengthsOrWeaknesses maxLength={3} title={i18n._('Weaknesses')} />
             </Grid>
           </DictInputItem>
-          <StickyActionBar elevation={4}>
+          <StickyActionBar elevation={8}>
             <SubmitButton variant="contained" color="primary">
               {i18n._('Submit')}
             </SubmitButton>
