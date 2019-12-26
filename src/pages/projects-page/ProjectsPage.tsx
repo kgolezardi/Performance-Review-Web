@@ -8,6 +8,7 @@ import {
   ExpansionPanel,
   ExpansionPanelDetails,
   ExpansionPanelSummary,
+  Grid,
   Typography,
 } from '@material-ui/core';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
@@ -21,6 +22,7 @@ import { DeleteProjectReviewMutationInput } from 'src/pages/projects-page/__gene
 import { ProjectsPageQuery } from 'src/pages/projects-page/__generated__/ProjectsPageQuery.graphql';
 import { FCProps } from 'src/shared/types/FCProps';
 import { AddProjectForm, AddProjectFormData } from './AddProjectForm';
+import { ProjectsDescriptionCard } from './ProjectsDescriptionCard';
 import { useSaveProjectReview } from './saveProjectReview.mutation';
 
 interface OwnProps {}
@@ -90,16 +92,23 @@ export default function ProjectsPage(props: Props) {
   return (
     <Container maxWidth="sm">
       <Box marginY={2}>
-        <Card>
-          <CardHeader title={i18n._('Add project')} />
-          <CardContent>
-            <AddProjectForm
-              projectReviews={data.viewer.projectReviews}
-              projects={data.viewer.projects}
-              onSubmit={addProjectReview}
-            />
-          </CardContent>
-        </Card>
+        <Grid container spacing={2}>
+          <Grid item xs={12}>
+            <ProjectsDescriptionCard />
+          </Grid>
+          <Grid item xs={12}>
+            <Card>
+              <CardHeader title={i18n._('Add project')} />
+              <CardContent>
+                <AddProjectForm
+                  projectReviews={data.viewer.projectReviews}
+                  projects={data.viewer.projects}
+                  onSubmit={addProjectReview}
+                />
+              </CardContent>
+            </Card>
+          </Grid>
+        </Grid>
       </Box>
       {data.viewer.projectReviews.map(projectReview => {
         return (

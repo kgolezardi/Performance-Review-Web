@@ -5,6 +5,7 @@ import { CriterionItem } from 'src/shared/criterion-item';
 import { DictInput, Forminator, SubmitButton } from 'src/shared/forminator';
 import { StickyActionBar } from 'src/shared/sticky-action-bar';
 import { FCProps } from 'src/shared/types/FCProps';
+import { CriteriaDescriptionCard } from './CriteriaDescriptionCard';
 import { CriteriaFormData } from './CriteriaPage';
 
 interface OwnProps {
@@ -21,6 +22,9 @@ export function CriteriaForm(props: Props) {
     <Forminator onSubmit={onSubmit} initialValue={props.initialValue}>
       <DictInput>
         <Grid container spacing={2}>
+          <Grid item xs={12}>
+            <CriteriaDescriptionCard />
+          </Grid>
           <Grid item xs={12}>
             <CriterionItem
               title="انطباق با فرهنگ سازمانی"

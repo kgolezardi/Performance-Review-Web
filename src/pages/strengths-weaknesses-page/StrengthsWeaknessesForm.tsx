@@ -2,9 +2,10 @@ import { i18n } from '@lingui/core';
 import { Grid } from '@material-ui/core';
 import React from 'react';
 import { DictInput, DictInputItem, Forminator, SubmitButton } from 'src/shared/forminator';
+import { StickyActionBar } from 'src/shared/sticky-action-bar';
 import { StrengthsOrWeaknesses } from 'src/shared/strengths-weaknesses';
 import { FCProps } from 'src/shared/types/FCProps';
-import { StickyActionBar } from 'src/shared/sticky-action-bar';
+import { StrengthsWeaknessDescriptionCard } from './StrengthsWeaknessDescriptionCard';
 import { StrengthsWeaknessesFormData } from './StrengthsWeaknessesPage';
 
 interface OwnProps {
@@ -21,6 +22,9 @@ export function StrengthsWeaknessesForm(props: Props) {
     <Grid container spacing={2}>
       <Forminator onSubmit={onSubmit} initialValue={props.initialValue}>
         <DictInput>
+          <Grid item xs={12}>
+            <StrengthsWeaknessDescriptionCard />
+          </Grid>
           <DictInputItem field="strengths">
             <Grid item xs={12}>
               <StrengthsOrWeaknesses maxLength={3} title={i18n._('Strengths')} />
