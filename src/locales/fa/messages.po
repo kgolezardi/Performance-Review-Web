@@ -22,11 +22,11 @@ msgid "Accomplishments"
 msgstr "دستاوردها"
 
 #: src/pages/projects-page/AddProjectForm.tsx:31
-#: src/shared/strengths-weaknesses/StrengthsOrWeaknesses.tsx:40
+#: src/shared/strengths-weaknesses/StrengthsOrWeaknesses.tsx:45
 msgid "Add"
 msgstr "افزودن"
 
-#: src/pages/projects-page/ProjectsPage.tsx:57
+#: src/pages/projects-page/ProjectsPage.tsx:63
 msgid "Add project"
 msgstr "افزودن پروژه"
 
@@ -129,7 +129,7 @@ msgstr "انتخاب کنید"
 
 #: src/core/snackbar/Snackbar.stories.tsx:24
 #: src/pages/criteria-page/CriteriaPage.tsx:59
-#: src/pages/projects-page/ProjectsPage.tsx:43
+#: src/pages/projects-page/ProjectsPage.tsx:44
 #: src/pages/strengths-weaknesses-page/StrengthsWeaknessesPage.tsx:60
 msgid "Something went wrong."
 msgstr "خطایی رخ داد."
@@ -137,10 +137,6 @@ msgstr "خطایی رخ داد."
 #: src/shared/error/OverlayError.tsx:9
 msgid "Something went wrong. Please try again"
 msgstr "خطایی رخ داد. لطفا مجددا تلاش نمایید"
-
-#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:14
-msgid "Strengths"
-msgstr "نقاط قوت"
 
 #: src/containers/main/MainContainer.tsx:17
 #: src/shared/full-page-error/FullPageError.stories.tsx:15
@@ -153,9 +149,9 @@ msgstr "بسیار فراتر از انتظارات"
 
 #: src/core/snackbar/Snackbar.stories.tsx:16
 #: src/core/snackbar/Snackbar.stories.tsx:26
-#: src/pages/criteria-page/CriteriaForm.tsx:33
+#: src/pages/criteria-page/CriteriaForm.tsx:37
 #: src/pages/projects-page/ProjectForm.tsx:73
-#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:25
+#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:29
 #: src/shared/auth/LoginForm.tsx:19
 #: src/shared/rating/Rating.stories.tsx:18
 #: src/shared/rating/Rating.stories.tsx:28
@@ -167,7 +163,7 @@ msgstr "ثبت"
 
 #: src/core/snackbar/Snackbar.stories.tsx:14
 #: src/pages/criteria-page/CriteriaPage.tsx:56
-#: src/pages/projects-page/ProjectsPage.tsx:40
+#: src/pages/projects-page/ProjectsPage.tsx:41
 #: src/pages/strengths-weaknesses-page/StrengthsWeaknessesPage.tsx:57
 msgid "Successfully saved."
 msgstr "با موفقیت ثبت گردید."
@@ -188,9 +184,9 @@ msgstr "نام کاربری"
 msgid "Username or Password is incorrect."
 msgstr "نام کاربری یا گذرواژه اشتباه است."
 
-#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:20
-msgid "Weaknesses"
-msgstr "نقاط ضعف"
+#: src/shared/strengths-weaknesses/StrengthsOrWeaknesses.tsx:53
+msgid "What else"
+msgstr "دیگه چی"
 
 #: src/shared/confirm-button/ConfirmButton.tsx:8
 msgid "Yes"

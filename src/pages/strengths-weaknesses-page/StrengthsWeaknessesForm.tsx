@@ -27,13 +27,21 @@ export function StrengthsWeaknessesForm(props: Props) {
           </Grid>
           <DictInputItem field="strengths">
             <Grid item xs={12}>
-              <StrengthsOrWeaknesses maxLength={3} title={i18n._('Strengths')} />
+              <StrengthsOrWeaknesses
+                maxLength={3}
+                title="مهمترین ویژگی ها یا رفتارهای مؤثری که باید ادامه شون بدم"
+                label="تو چی خفنم"
+              />
             </Grid>
           </DictInputItem>
 
           <DictInputItem field="weaknesses">
             <Grid item xs={12}>
-              <StrengthsOrWeaknesses maxLength={3} title={i18n._('Weaknesses')} />
+              <StrengthsOrWeaknesses
+                maxLength={3}
+                title="مهمترین ویژگی ها یا رفتارهایی که باید باید توی خودم بهبودشون بدم"
+                label="چی‌مو بهبود بدم"
+              />
             </Grid>
           </DictInputItem>
           <StickyActionBar elevation={8}>

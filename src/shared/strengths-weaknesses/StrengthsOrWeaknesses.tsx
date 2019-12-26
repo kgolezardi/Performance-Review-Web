@@ -12,35 +12,42 @@ import LimitedTextAreaInput from '../forminator/inputs/LimitedTextAreaInput';
 interface OwnProps {
   title: string;
   maxLength: number;
+  label?: string;
 }
 
 type Props = FCProps<OwnProps>;
 
-export function StrengthsOrWeaknesses({ title, maxLength, ...props }: Props) {
+export function StrengthsOrWeaknesses({ title, maxLength, label, ...props }: Props) {
   const lens = useFragmentLens();
   const condition = useCallback(
     (value: unknown[]) => {
-      return value ? value.length < maxLength : true;
+      return !value || value.length < maxLength;
     },
     [maxLength],
   );
   return (
     <Card>
-      <CardHeader title={title} />
+      <CardHeader title={title} titleTypographyProps={{ variant: 'h6' }} />
       <CardContent>
         <Grid container spacing={2}>
           <ArrayInput initialValue={[undefined]}>
             <FragmentRef lens={lens} />
             <ArrayOutput>
               <Grid item xs={12}>
-                <LimitedTextAreaInput variant="outlined" maxChars={280} fullWidth inputProps={{ dir: 'auto' }} />
+                <LimitedTextAreaInput
+                  variant="outlined"
+                  maxChars={128}
+                  fullWidth
+                  inputProps={{ dir: 'auto' }}
+                  label={label}
+                />
               </Grid>
             </ArrayOutput>
             <ConditionalSection condition={condition} lens={lens}>
               <Grid item xs />
               <Grid item>
                 <ArrayAppendButton variant="outlined" color="primary">
-                  {i18n._('Add')}
+                  {i18n._('What else')}
                 </ArrayAppendButton>
               </Grid>
             </ConditionalSection>
