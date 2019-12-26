@@ -16,6 +16,7 @@ import { FullPageSpinner } from 'src/shared/loading';
 import { FCProps } from 'src/shared/types/FCProps';
 import { MainRoutes } from './MainRoutes';
 import { NavbarUser } from './NavbarUser';
+import sahabLogo from 'src/assets/sahab-logo.png';
 
 interface OwnProps {}
 
@@ -52,8 +53,7 @@ export function MainContainer(props: Props) {
   return (
     <DashboardLayout>
       <BrandRegion>
-        {/* TODO: add logo here */}
-        <Brand label={i18n._('Performance Review')} logo={''} />
+        <Brand label={i18n._('Performance Review')} logo={sahabLogo} />
       </BrandRegion>
       <NavbarRegion>
         <NavBarMenu items={items} />

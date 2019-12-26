@@ -80,7 +80,9 @@ const styles = (theme: Theme) => ({
     width: brandWidth,
     display: 'flex',
     alignItems: 'center',
+    justifyContent: 'center',
     alignSelf: 'stretch',
+    padding: theme.spacing(2),
   } as CSSProperties,
   content: {
     flex: 1,
