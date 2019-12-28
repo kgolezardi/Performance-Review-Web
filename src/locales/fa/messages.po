@@ -22,7 +22,7 @@ msgid "Accomplishments"
 msgstr "دستاوردها"
 
 #: src/pages/projects-page/AddProjectForm.tsx:31
-#: src/shared/strengths-weaknesses/StrengthsOrWeaknesses.tsx:45
+#: src/shared/strengths-weaknesses/StrengthsOrWeaknesses.tsx:46
 msgid "Add"
 msgstr "افزودن"
 
@@ -38,7 +38,6 @@ msgstr "آیا از حذف  این پروژه مطمین هستید؟"
 msgid "Cancel"
 msgstr "لغو"
 
-#: src/containers/main/MainContainer.tsx:11
 #: src/shared/full-page-error/FullPageError.stories.tsx:9
 msgid "Criteria"
 msgstr "معیارها"
@@ -56,11 +55,11 @@ msgid "Error"
 msgstr "خطا"
 
 #: src/pages/projects-page/ProjectForm.tsx:53
-#: src/shared/criterion-item/CriterionItem.tsx:17
+#: src/shared/criterion-item/CriterionItem.tsx:18
 msgid "Evaluation"
 msgstr "ارزیابی"
 
-#: src/shared/criterion-item/CriterionItem.tsx:23
+#: src/shared/criterion-item/CriterionItem.tsx:24
 msgid "Evidence"
 msgstr "شواهد"
 
@@ -68,7 +67,7 @@ msgstr "شواهد"
 msgid "Exceeds Expectations"
 msgstr "فراتر از انتظارات"
 
-#: src/containers/main/MainContainer.tsx:29
+#: src/containers/main/MainContainer.tsx:30
 msgid "Guide"
 msgstr "راهنما"
 
@@ -111,7 +110,6 @@ msgstr "فارسی"
 msgid "Project"
 msgstr "پروژه‌"
 
-#: src/containers/main/MainContainer.tsx:23
 #: src/shared/full-page-error/FullPageError.stories.tsx:21
 msgid "Projects"
 msgstr "پروژه‌ها"
@@ -138,7 +136,6 @@ msgstr "خطایی رخ داد."
 msgid "Something went wrong. Please try again"
 msgstr "خطایی رخ داد. لطفا مجددا تلاش نمایید"
 
-#: src/containers/main/MainContainer.tsx:17
 #: src/shared/full-page-error/FullPageError.stories.tsx:15
 msgid "Strengths and Weaknesses"
 msgstr "نقاط قوت و ضعف"
@@ -184,7 +181,7 @@ msgstr "نام کاربری"
 msgid "Username or Password is incorrect."
 msgstr "نام کاربری یا گذرواژه اشتباه است."
 
-#: src/shared/strengths-weaknesses/StrengthsOrWeaknesses.tsx:53
+#: src/shared/strengths-weaknesses/StrengthsOrWeaknesses.tsx:54
 msgid "What else"
 msgstr "دیگه چی"
 

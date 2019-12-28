@@ -24,19 +24,19 @@ type Props = FCProps<OwnProps>;
 
 const items: MenuItem[] = [
   {
-    text: i18n._('Criteria'),
+    text: 'شایستگی‌های عملکردی',
     link: {
       to: '/criteria',
     },
   },
   {
-    text: i18n._('Strengths and Weaknesses'),
+    text: 'ویژگی‌های بارز',
     link: {
       to: '/strengths-weaknesses',
     },
   },
   {
-    text: i18n._('Projects'),
+    text: 'دستاوردها',
     link: {
       to: '/projects',
     },
