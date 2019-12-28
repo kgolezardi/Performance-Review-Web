@@ -13,6 +13,10 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
+#: src/pages/guide-page/GuidePage.tsx:11
+msgid "A guide to Nonviolent Communication(NVC)"
+msgstr "A guide to Nonviolent Communication(NVC)"
+
 #: src/pages/projects-page/ProjectForm.tsx:59
 msgid "Accomplishments"
 msgstr "Accomplishments"
@@ -60,6 +64,14 @@ msgstr "Evaluation"
 msgid "Exceeds Expectations"
 msgstr "Exceeds Expectations"
 
+#: src/containers/main/MainContainer.tsx:29
+msgid "Guide"
+msgstr "Guide"
+
+#: src/pages/guide-page/GuidePage.tsx:11
+msgid "How to give feedback to each other?"
+msgstr "How to give feedback to each other?"
+
 #: src/shared/auth/Login.tsx:45
 msgid "Login"
 msgstr "Login"
@@ -80,7 +92,7 @@ msgstr "No"
 msgid "Password"
 msgstr "Password"
 
-#: src/containers/main/MainContainer.tsx:33
+#: src/containers/main/MainContainer.tsx:39
 #: src/pages/dashboard-page/DashboardPage.tsx:6
 #: src/shared/full-page-error/FullPageError.stories.tsx:34
 #: src/shared/layouts/dashboard-layouts/DashboardLayout.stories.tsx:27

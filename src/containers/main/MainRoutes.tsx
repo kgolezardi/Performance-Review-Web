@@ -6,6 +6,7 @@ const DashboardPage = React.lazy(() => import('src/pages/dashboard-page/Dashboar
 const CriteriaPage = React.lazy(() => import('src/pages/criteria-page/CriteriaPage'));
 const StrengthsWeaknessesPage = React.lazy(() => import('src/pages/strengths-weaknesses-page/StrengthsWeaknessesPage'));
 const ProjectsPage = React.lazy(() => import('src/pages/projects-page/ProjectsPage'));
+const GuidePage = React.lazy(() => import('src/pages/guide-page/GuidePage'));
 
 interface Props {}
 
@@ -16,6 +17,7 @@ export function MainRoutes(props: FCProps<Props>) {
       <Route path="/criteria" component={CriteriaPage} />
       <Route path="/strengths-weaknesses" component={StrengthsWeaknessesPage} />
       <Route path="/projects" component={ProjectsPage} />
+      <Route path="/guide" component={GuidePage} />
     </Switch>
   );
 }
