@@ -90,7 +90,7 @@ export default function ProjectsPage(props: Props) {
   );
 
   return (
-    <Container maxWidth="sm">
+    <Container maxWidth="md">
       <Box marginY={2}>
         <Grid container spacing={2}>
           <Grid item xs={12}>
@@ -100,11 +100,13 @@ export default function ProjectsPage(props: Props) {
             <Card>
               <CardHeader title={i18n._('Add project')} />
               <CardContent>
-                <AddProjectForm
-                  projectReviews={data.viewer.projectReviews}
-                  projects={data.viewer.projects}
-                  onSubmit={addProjectReview}
-                />
+                <Container maxWidth="sm">
+                  <AddProjectForm
+                    projectReviews={data.viewer.projectReviews}
+                    projects={data.viewer.projects}
+                    onSubmit={addProjectReview}
+                  />
+                </Container>
               </CardContent>
             </Card>
           </Grid>
@@ -117,12 +119,14 @@ export default function ProjectsPage(props: Props) {
               <Typography variant="h6">{projectReview.project.name}</Typography>
             </ExpansionPanelSummary>
             <ExpansionPanelDetails>
-              <ProjectForm
-                onSubmit={saveProject}
-                onDelete={deleteProject}
-                projectReview={projectReview}
-                users={data.viewer.users}
-              />
+              <Container maxWidth="sm">
+                <ProjectForm
+                  onSubmit={saveProject}
+                  onDelete={deleteProject}
+                  projectReview={projectReview}
+                  users={data.viewer.users}
+                />
+              </Container>
             </ExpansionPanelDetails>
           </ExpansionPanel>
         );

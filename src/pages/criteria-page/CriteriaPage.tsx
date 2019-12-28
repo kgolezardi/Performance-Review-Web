@@ -80,7 +80,7 @@ export default function CriteriaPage(props: Props) {
 
   return (
     <Suspense fallback={FullPageSpinner}>
-      <Container maxWidth="sm">
+      <Container maxWidth="md">
         <Box marginY={2}>
           <CriteriaForm
             onSubmit={handleSubmit}
