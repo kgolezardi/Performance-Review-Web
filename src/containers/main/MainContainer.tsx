@@ -40,6 +40,12 @@ const items: MenuItem[] = [
       to: '/projects',
     },
   },
+  {
+    text: i18n._('Guide'),
+    link: {
+      to: '/guide',
+    },
+  },
 ];
 
 export function MainContainer(props: Props) {

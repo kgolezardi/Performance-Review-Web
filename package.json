@@ -23,6 +23,7 @@
     "jss": "^10.0.0",
     "jss-rtl": "^0.3.0",
     "lorem-ipsum": "^2.0.3",
+    "mdx.macro": "^0.2.9",
     "mitt": "^1.2.0",
     "nanoid": "^2.1.7",
     "notistack": "^0.9.7",
