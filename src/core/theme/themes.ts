@@ -14,6 +14,19 @@ export function getThemeOptions(base: ThemeOptions, direction: Direction, palett
     },
     typography: {
       fontFamily: 'Shabnam, "Roboto", "Helvetica", "Arial", sans-serif',
+      h1: { fontSize: '36px', fontWeight: 'bold' },
+      h2: { fontSize: '30px', fontWeight: 'bold' },
+      h3: { fontSize: '24px', fontWeight: 'bold' },
+      h4: { fontSize: '20px', fontWeight: 'bold' },
+      h5: { fontSize: '18px', fontWeight: 'bold' },
+      h6: { fontSize: '16px', fontWeight: 'bold' },
+      subtitle1: { fontSize: '12px' },
+      subtitle2: { fontSize: '11px', fontWeight: 'bold' },
+      body1: { fontSize: '14px' },
+      body2: { fontSize: '12px' },
+      button: { fontSize: '14px' },
+      caption: { fontSize: '12px', fontWeight: 'lighter' },
+      overline: { fontSize: '13px', fontWeight: 'lighter' },
     },
   };
   return themeOptions;

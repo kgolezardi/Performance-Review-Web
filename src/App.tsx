@@ -7,6 +7,7 @@ import { GlobalStyles } from 'src/core/styles/GlobalStyles';
 import { rtlTheme } from 'src/core/theme';
 import { environment } from 'src/relay';
 import { SnackbarProvider } from 'src/core/snackbar';
+// import { MDXProvider } from '@mdx-js/react'
 
 const App: React.FC = () => {
   return (
@@ -16,7 +17,9 @@ const App: React.FC = () => {
           <GlobalStyles />
           <CssBaseline />
           <SnackbarProvider>
+            {/*<MDXProvider>*/}
             <AppRouter />
+            {/*</MDXProvider>*/}
           </SnackbarProvider>
         </ThemeProvider>
       </RtlSupportProvider>
