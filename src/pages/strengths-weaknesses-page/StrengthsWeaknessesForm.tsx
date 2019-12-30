@@ -5,7 +5,7 @@ import { DictInput, DictInputItem, Forminator, SubmitButton } from 'src/shared/f
 import { StickyActionBar } from 'src/shared/sticky-action-bar';
 import { StrengthsOrWeaknesses } from 'src/shared/strengths-weaknesses';
 import { FCProps } from 'src/shared/types/FCProps';
-import { StrengthsWeaknessDescriptionCard } from './StrengthsWeaknessDescriptionCard';
+import { StrengthsWeaknessDescriptionCard } from './description/StrengthsWeaknessDescriptionCard';
 import { StrengthsWeaknessesFormData } from './StrengthsWeaknessesPage';
 
 interface OwnProps {
@@ -29,8 +29,8 @@ export function StrengthsWeaknessesForm(props: Props) {
             <Grid item xs={12}>
               <StrengthsOrWeaknesses
                 maxLength={3}
-                title="مهمترین ویژگی ها یا رفتارهای مؤثری که باید ادامه شون بدم"
-                label="تو چی خفنم"
+                title={i18n._('Most important characteristics or effective behaviours that I should maintain')}
+                label={i18n._("What I'm awesome at")}
               />
             </Grid>
           </DictInputItem>
@@ -39,8 +39,8 @@ export function StrengthsWeaknessesForm(props: Props) {
             <Grid item xs={12}>
               <StrengthsOrWeaknesses
                 maxLength={3}
-                title="مهمترین ویژگی ها یا رفتارهایی که باید باید توی خودم بهبودشون بدم"
-                label="چی‌مو بهبود بدم"
+                title={i18n._('Most important characteristics or behaviours I should improve in myself')}
+                label={i18n._('What to improve')}
               />
             </Grid>
           </DictInputItem>

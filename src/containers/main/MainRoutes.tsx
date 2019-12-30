@@ -14,9 +14,9 @@ export function MainRoutes(props: FCProps<Props>) {
   return (
     <Switch>
       <Route path="/" exact component={DashboardPage} />
-      <Route path="/criteria" component={CriteriaPage} />
-      <Route path="/strengths-weaknesses" component={StrengthsWeaknessesPage} />
-      <Route path="/projects" component={ProjectsPage} />
+      <Route path="/performance-competencies" component={CriteriaPage} />
+      <Route path="/dominant-characteristics" component={StrengthsWeaknessesPage} />
+      <Route path="/achievements" component={ProjectsPage} />
       <Route path="/guide" component={GuidePage} />
     </Switch>
   );

@@ -1,12 +1,20 @@
 import { i18n } from '@lingui/core';
 import { Grid } from '@material-ui/core';
+import { importMDX } from 'mdx.macro';
 import React from 'react';
 import { CriterionItem } from 'src/shared/criterion-item';
 import { DictInput, Forminator, SubmitButton } from 'src/shared/forminator';
 import { StickyActionBar } from 'src/shared/sticky-action-bar';
 import { FCProps } from 'src/shared/types/FCProps';
-import { CriteriaDescriptionCard } from './CriteriaDescriptionCard';
 import { CriteriaFormData } from './CriteriaPage';
+import { CriteriaDescriptionCard } from './description/CriteriaDescriptionCard';
+
+const OrganizationCultureAdoptionContent = React.lazy(() => importMDX('./OrganizationCultureAdoptionContent.mdx'));
+const ProblemSolvingContent = React.lazy(() => importMDX('./ProblemSolvingContent.mdx'));
+const ExecutionContent = React.lazy(() => importMDX('./ExecutionContent.mdx'));
+const LeadershipContent = React.lazy(() => importMDX('./LeadershipContent.mdx'));
+const ThoughtLeadershipContent = React.lazy(() => importMDX('./ThoughtLeadershipContent.mdx'));
+const CollaborationContent = React.lazy(() => importMDX('./CollaborationContent.mdx'));
 
 interface OwnProps {
   initialValue?: CriteriaFormData;
@@ -27,45 +35,33 @@ export function CriteriaForm(props: Props) {
           </Grid>
           <Grid item xs={12}>
             <CriterionItem
-              title="انطباق با فرهنگ سازمانی"
-              details="همکاری و کار تیمی . گرایش به تعهد به کار. تعهد به نتایج. صداقت و صراحت. تلاش مستمر در مسیر رشد حرفه‌ای. دغدغه‌مند مشتاق و مؤثر در پیشرفت سحابی‌ها و سحاب."
+              title={i18n._('Organization Culture Adoption')}
+              details={<OrganizationCultureAdoptionContent />}
               prefix="sahabiness"
             />
           </Grid>
           <Grid item xs={12}>
             <CriterionItem
-              title="حل مسئله"
-              details="تحقیق و تحلیل با هدف اشراف بر موضوع. تفکر خلاق. ارائه‌ی پیشنهاد راه حل قابل اجرا و چابک. بررسی راه حل‌های جایگزین. تصمیم گیری."
+              title={i18n._('Problem Solving')}
+              details={<ProblemSolvingContent />}
               prefix="problemSolving"
             />
           </Grid>
           <Grid item xs={12}>
-            <CriterionItem
-              title="اجرا"
-              details="انجام کار با کیفیت با حداقل راهنمایی. برنامه‌ریزی و زمان بندی. حفظ توازن سرعت و دقت. قدرت تحلیل الگوریتمی. مستند سازی و ارتباط نوشتاری واضح، منسجم و دقیق. حجم کار Done شده."
-              prefix="execution"
-            />
+            <CriterionItem title={i18n._('Execution')} details={<ExecutionContent />} prefix="execution" />
           </Grid>
           <Grid item xs={12}>
             <CriterionItem
-              title="مرجعیت تخصصی"
-              details="یادگیری در رشد فردی. احاطه بر دانش تخصصی. آشنایی با ابزارهای کاربردی. انتخاب و تمرکز بر یک زمینه‌ی تخصصی."
+              title={i18n._('Thought Leadership')}
+              details={<ThoughtLeadershipContent />}
               prefix="thoughtLeadership"
             />
           </Grid>
           <Grid item xs={12}>
-            <CriterionItem
-              title="رهبری خود ظهور"
-              details="گرفتن هدایت مسئله‌ها و پروژه‌ها. پذیرفتن مسئولیت نتایج. Proactiveبودن."
-              prefix="leadership"
-            />
+            <CriterionItem title={i18n._('Leadership')} details={<LeadershipContent />} prefix="leadership" />
           </Grid>
           <Grid item xs={12}>
-            <CriterionItem
-              title="اثر حضور"
-              details="ارتباط کلامی واضح، منسجم و دقیق. ارائه و دریافت بازخورد. مهارت شنیده‌شدن. حضور قابل اتکا و موثر."
-              prefix="presence"
-            />
+            <CriterionItem title={i18n._('Presence')} details={<CollaborationContent />} prefix="presence" />
           </Grid>
 
           <StickyActionBar elevation={8}>

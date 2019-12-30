@@ -1,5 +1,6 @@
 import { i18n } from '@lingui/core';
 import React, { Suspense } from 'react';
+import sahabLogo from 'src/assets/sahab-logo.png';
 import { ErrorBoundary } from 'src/shared/error-boundary';
 import { FullPageError } from 'src/shared/full-page-error';
 import {
@@ -16,7 +17,6 @@ import { FullPageSpinner } from 'src/shared/loading';
 import { FCProps } from 'src/shared/types/FCProps';
 import { MainRoutes } from './MainRoutes';
 import { NavbarUser } from './NavbarUser';
-import sahabLogo from 'src/assets/sahab-logo.png';
 
 interface OwnProps {}
 
@@ -24,21 +24,21 @@ type Props = FCProps<OwnProps>;
 
 const items: MenuItem[] = [
   {
-    text: 'شایستگی‌های عملکردی',
+    text: i18n._('Performance Competencies'),
     link: {
-      to: '/criteria',
+      to: '/performance-competencies',
     },
   },
   {
-    text: 'ویژگی‌های بارز',
+    text: i18n._('Dominant Characteristics'),
     link: {
-      to: '/strengths-weaknesses',
+      to: '/dominant-characteristics',
     },
   },
   {
-    text: 'دستاوردها',
+    text: i18n._('Achievements'),
     link: {
-      to: '/projects',
+      to: '/achievements',
     },
   },
   {

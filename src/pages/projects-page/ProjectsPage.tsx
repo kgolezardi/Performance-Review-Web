@@ -22,7 +22,7 @@ import { DeleteProjectReviewMutationInput } from 'src/pages/projects-page/__gene
 import { ProjectsPageQuery } from 'src/pages/projects-page/__generated__/ProjectsPageQuery.graphql';
 import { FCProps } from 'src/shared/types/FCProps';
 import { AddProjectForm, AddProjectFormData } from './AddProjectForm';
-import { ProjectsDescriptionCard } from './ProjectsDescriptionCard';
+import { ProjectsDescriptionCard } from './description/ProjectsDescriptionCard';
 import { useSaveProjectReview } from './saveProjectReview.mutation';
 
 interface OwnProps {}

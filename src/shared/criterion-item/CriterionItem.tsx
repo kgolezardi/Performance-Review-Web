@@ -1,6 +1,6 @@
 import { i18n } from '@lingui/core';
-import { Box, Card, CardContent, CardHeader, Container, Grid, Typography } from '@material-ui/core';
-import React from 'react';
+import { Box, Card, CardContent, CardHeader, Container, Grid } from '@material-ui/core';
+import React, { ReactNode } from 'react';
 import { DictInputItem, LimitedTextAreaInput } from 'src/shared/forminator';
 import { Rating } from 'src/shared/rating';
 import { FCProps } from 'src/shared/types/FCProps';
@@ -8,12 +8,12 @@ import { FCProps } from 'src/shared/types/FCProps';
 interface OwnProps {
   title: string;
   prefix: string;
-  details?: string;
+  details?: ReactNode;
 }
 
 type Props = FCProps<OwnProps>;
 
-export function CriterionItem({ title, details, prefix }: Props) {
+export function CriterionItem({ title, details: Details, prefix }: Props) {
   return (
     <Card>
       <CardHeader title={title} />
@@ -21,7 +21,7 @@ export function CriterionItem({ title, details, prefix }: Props) {
         <Container maxWidth="sm">
           <Grid container spacing={2}>
             <Grid item xs={12}>
-              <Typography>{details}</Typography>
+              {Details}
             </Grid>
             <Grid item xs={12}>
               <DictInputItem field={prefix + 'Rating'}>
