@@ -1,5 +1,6 @@
 import { i18n } from '@lingui/core';
 import React, { Suspense } from 'react';
+import sahabLogo from 'src/assets/sahab-logo.png';
 import { ErrorBoundary } from 'src/shared/error-boundary';
 import { FullPageError } from 'src/shared/full-page-error';
 import {
@@ -23,21 +24,21 @@ type Props = FCProps<OwnProps>;
 
 const items: MenuItem[] = [
   {
-    text: i18n._('Criteria'),
+    text: i18n._('Performance Competencies'),
     link: {
-      to: '/criteria',
+      to: '/performance-competencies',
     },
   },
   {
-    text: i18n._('Strengths and Weaknesses'),
+    text: i18n._('Dominant Characteristics'),
     link: {
-      to: '/strengths-weaknesses',
+      to: '/dominant-characteristics',
     },
   },
   {
-    text: i18n._('Projects'),
+    text: i18n._('Achievements'),
     link: {
-      to: '/projects',
+      to: '/achievements',
     },
   },
   {
@@ -52,8 +53,7 @@ export function MainContainer(props: Props) {
   return (
     <DashboardLayout>
       <BrandRegion>
-        {/* TODO: add logo here */}
-        <Brand label={i18n._('Performance Review')} logo={''} />
+        <Brand label={i18n._('Performance Review')} logo={sahabLogo} />
       </BrandRegion>
       <NavbarRegion>
         <NavBarMenu items={items} />

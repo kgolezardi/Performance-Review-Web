@@ -1,5 +1,5 @@
 import { PaletteType } from '@material-ui/core';
-import lightBlue from '@material-ui/core/colors/lightBlue';
+import grey from '@material-ui/core/colors/grey';
 import red from '@material-ui/core/colors/red';
 import createMuiTheme, { Direction, ThemeOptions } from '@material-ui/core/styles/createMuiTheme';
 
@@ -10,7 +10,7 @@ export function getThemeOptions(base: ThemeOptions, direction: Direction, palett
     palette: {
       ...base.palette,
       type: paletteType,
-      background: { default: lightBlue['50'] },
+      background: { default: grey[100] },
     },
     typography: {
       fontFamily: 'Shabnam, "Roboto", "Helvetica", "Arial", sans-serif',

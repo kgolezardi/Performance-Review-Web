@@ -1,5 +1,5 @@
 import { i18n } from '@lingui/core';
-import { Card, CardContent, CardHeader, Grid } from '@material-ui/core';
+import { Card, CardContent, CardHeader, Container, Grid } from '@material-ui/core';
 import React, { useCallback } from 'react';
 import { ConditionalSection, FragmentRef } from 'src/shared/forminator';
 import ArrayAppendButton from 'src/shared/forminator/inputs/array-input/ArrayAppendButton';
@@ -12,37 +12,49 @@ import LimitedTextAreaInput from '../forminator/inputs/LimitedTextAreaInput';
 interface OwnProps {
   title: string;
   maxLength: number;
+  label?: string;
 }
 
 type Props = FCProps<OwnProps>;
 
-export function StrengthsOrWeaknesses({ title, maxLength, ...props }: Props) {
+export function StrengthsOrWeaknesses({ title, maxLength, label, ...props }: Props) {
   const lens = useFragmentLens();
   const condition = useCallback(
     (value: unknown[]) => {
-      return value ? value.length < maxLength : true;
+      return !value || value.length < maxLength;
     },
     [maxLength],
   );
   return (
     <Card>
-      <CardHeader title={title} />
+      <CardHeader title={title} titleTypographyProps={{ variant: 'h6' }} />
       <CardContent>
-        <Grid container spacing={2}>
-          <ArrayInput initialValue={[undefined]}>
-            <FragmentRef lens={lens} />
-            <ArrayOutput>
-              <Grid item xs={12}>
-                <LimitedTextAreaInput variant="outlined" maxChars={280} fullWidth inputProps={{ dir: 'auto' }} />
-              </Grid>
-            </ArrayOutput>
-            <ConditionalSection condition={condition} lens={lens}>
-              <Grid item>
-                <ArrayAppendButton>{i18n._('Add')}</ArrayAppendButton>
-              </Grid>
-            </ConditionalSection>
-          </ArrayInput>
-        </Grid>
+        <Container maxWidth="sm">
+          <Grid container spacing={2}>
+            <ArrayInput initialValue={[undefined]}>
+              <FragmentRef lens={lens} />
+              <ArrayOutput>
+                <Grid item xs={12}>
+                  <LimitedTextAreaInput
+                    variant="outlined"
+                    maxChars={128}
+                    fullWidth
+                    inputProps={{ dir: 'auto' }}
+                    label={label}
+                  />
+                </Grid>
+              </ArrayOutput>
+              <ConditionalSection condition={condition} lens={lens}>
+                <Grid item xs />
+                <Grid item>
+                  <ArrayAppendButton variant="outlined" color="primary">
+                    {i18n._('What else')}
+                  </ArrayAppendButton>
+                </Grid>
+              </ConditionalSection>
+            </ArrayInput>
+          </Grid>
+        </Container>
       </CardContent>
     </Card>
   );

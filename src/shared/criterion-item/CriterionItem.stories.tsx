@@ -1,10 +1,14 @@
+import { i18n } from '@lingui/core';
 import { Container, Grid } from '@material-ui/core';
 import { action } from '@storybook/addon-actions';
 import { storiesOf } from '@storybook/react';
+import { importMDX } from 'mdx.macro';
 import React from 'react';
 import { DictInput, Forminator, SubmitButton } from 'src/shared/forminator';
 import { themeDecorator } from 'src/stories/decorators/themeDecorator';
 import { CriterionItem } from './CriterionItem';
+
+const Content = React.lazy(() => importMDX('./Content.mdx'));
 
 storiesOf('Review', module)
   .addDecorator(themeDecorator())
@@ -16,8 +20,8 @@ storiesOf('Review', module)
             <Grid container spacing={2}>
               <Grid item xs={12}>
                 <CriterionItem
-                  title="انطباق با فرهنگ سازمانی"
-                  details="همکاری و کار تیمی . گرایش به تعهد به کار. تعهد به نتایج. صداقت و صراحت. تلاش مستمر در مسیر رشد حرفه‌ای. دغدغه‌مند مشتاق و مؤثر در پیشرفت سحابی‌ها و سحاب."
+                  title={i18n._('Role Expertise and Self Development')}
+                  details={<Content />}
                   prefix="organization-culture"
                 />
               </Grid>

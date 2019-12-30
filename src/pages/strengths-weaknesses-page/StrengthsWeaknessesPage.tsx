@@ -1,15 +1,15 @@
+import { i18n } from '@lingui/core';
 import { Box, Container } from '@material-ui/core';
 import graphql from 'babel-plugin-relay/macro';
+import { useSnackbar } from 'notistack';
 import React, { useCallback } from 'react';
 import { useLazyLoadQuery } from 'react-relay/hooks';
 import { useAuthGuardUser } from 'src/core/auth';
 import { StrengthsWeaknessesPageQuery } from 'src/pages/strengths-weaknesses-page/__generated__/StrengthsWeaknessesPageQuery.graphql';
 import { useMutation } from 'src/relay';
 import { isNotNil } from 'src/shared/utils/general.util';
-import { StrengthsWeaknessesPageMutation } from './__generated__/StrengthsWeaknessesPageMutation.graphql';
 import { StrengthsWeaknessesForm } from './StrengthsWeaknessesForm';
-import { i18n } from '@lingui/core';
-import { useSnackbar } from 'notistack';
+import { StrengthsWeaknessesPageMutation } from './__generated__/StrengthsWeaknessesPageMutation.graphql';
 
 const useStrengthsWeaknessesPageMutation = () =>
   useMutation<StrengthsWeaknessesPageMutation>(graphql`
@@ -74,7 +74,7 @@ export default function StrengthsWeaknessesPage() {
   );
 
   return (
-    <Container maxWidth="sm">
+    <Container maxWidth="md">
       <Box marginY={2}>
         <StrengthsWeaknessesForm
           onSubmit={handleSubmit}
