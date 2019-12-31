@@ -1,4 +1,5 @@
 export { default as Forminator } from './Forminator';
+export { default as Form } from './utils/Form';
 export { default as DictInput } from './inputs/dict-input/DictInput';
 export { default as DictInputItem } from './inputs/dict-input/DictInputItem';
 export { default as LimitedTextAreaInput } from './inputs/LimitedTextAreaInput';

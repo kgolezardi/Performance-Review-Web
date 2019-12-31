@@ -13,7 +13,7 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: src/pages/guide-page/GuidePage.tsx:11
+#: src/pages/guide-page/GuidePage.tsx:14
 msgid "A guide to Nonviolent Communication(NVC)"
 msgstr "A guide to Nonviolent Communication(NVC)"
 
@@ -22,7 +22,7 @@ msgid "Accomplishments"
 msgstr "Accomplishments"
 
 #: src/containers/main/MainContainer.tsx:24
-#: src/pages/projects-page/description/ProjectsDescriptionCard.tsx:8
+#: src/pages/projects-page/description/ProjectsDescriptionCard.tsx:11
 msgid "Achievements"
 msgstr "Achievements"
 
@@ -51,7 +51,7 @@ msgid "Delete"
 msgstr "Delete"
 
 #: src/containers/main/MainContainer.tsx:18
-#: src/pages/strengths-weaknesses-page/description/StrengthsWeaknessDescriptionCard.tsx:8
+#: src/pages/strengths-weaknesses-page/description/StrengthsWeaknessDescriptionCard.tsx:11
 msgid "Dominant Characteristics"
 msgstr "Dominant Characteristics"
 
@@ -76,7 +76,7 @@ msgstr "Evidence"
 msgid "Exceeds Expectations"
 msgstr "Exceeds Expectations"
 
-#: src/pages/criteria-page/CriteriaForm.tsx:30
+#: src/pages/criteria-page/CriteriaForm.tsx:33
 msgid "Execution"
 msgstr "Execution"
 
@@ -84,15 +84,15 @@ msgstr "Execution"
 msgid "Guide"
 msgstr "Guide"
 
-#: src/pages/guide-page/GuidePage.tsx:11
+#: src/pages/guide-page/GuidePage.tsx:14
 msgid "How to give feedback to each other?"
 msgstr "How to give feedback to each other?"
 
-#: src/pages/criteria-page/CriteriaForm.tsx:36
+#: src/pages/criteria-page/CriteriaForm.tsx:39
 msgid "Leadership"
 msgstr "Leadership"
 
-#: src/shared/auth/Login.tsx:45
+#: src/shared/auth/LoginForm.tsx:19
 msgid "Login"
 msgstr "Login"
 
@@ -116,7 +116,7 @@ msgstr "Needs Improvement"
 msgid "No"
 msgstr "No"
 
-#: src/pages/criteria-page/CriteriaForm.tsx:24
+#: src/pages/criteria-page/CriteriaForm.tsx:27
 msgid "Organization Culture Adoption"
 msgstr "Organization Culture Adoption"
 
@@ -125,7 +125,7 @@ msgid "Password"
 msgstr "Password"
 
 #: src/containers/main/MainContainer.tsx:12
-#: src/pages/criteria-page/description/CriteriaDescriptionCard.tsx:8
+#: src/pages/criteria-page/description/CriteriaDescriptionCard.tsx:11
 msgid "Performance Competencies"
 msgstr "Performance Competencies"
 
@@ -140,11 +140,11 @@ msgstr "Performance Review"
 msgid "Persian"
 msgstr "فارسی"
 
-#: src/pages/criteria-page/CriteriaForm.tsx:39
+#: src/pages/criteria-page/CriteriaForm.tsx:42
 msgid "Presence"
 msgstr "Presence"
 
-#: src/pages/criteria-page/CriteriaForm.tsx:27
+#: src/pages/criteria-page/CriteriaForm.tsx:30
 msgid "Problem Solving"
 msgstr "Problem Solving"
 
@@ -160,9 +160,13 @@ msgstr "Projects"
 msgid "Reviewers"
 msgstr "Reviewers"
 
-#: src/shared/criterion-item/CriterionItem.stories.tsx:19
+#: src/shared/criterion-item/CriterionItem.stories.tsx:17
 msgid "Role Expertise and Self Development"
 msgstr "Role Expertise and Self Development"
+
+#: src/shared/auth/Login.tsx:30
+msgid "Sahab"
+msgstr "Sahab"
 
 #: src/shared/rating/Rating.stories.tsx:15
 #: src/shared/rating/Rating.stories.tsx:25
@@ -192,10 +196,9 @@ msgstr "Strongly Exceeds Expectations"
 
 #: src/core/snackbar/Snackbar.stories.tsx:16
 #: src/core/snackbar/Snackbar.stories.tsx:26
-#: src/pages/criteria-page/CriteriaForm.tsx:44
+#: src/pages/criteria-page/CriteriaForm.tsx:47
 #: src/pages/projects-page/ProjectForm.tsx:73
 #: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:29
-#: src/shared/auth/LoginForm.tsx:19
 #: src/shared/rating/Rating.stories.tsx:18
 #: src/shared/rating/Rating.stories.tsx:28
 #: src/shared/select/Select.stories.tsx:23
@@ -215,7 +218,7 @@ msgstr "Successfully saved."
 msgid "Superb"
 msgstr "Superb"
 
-#: src/pages/criteria-page/CriteriaForm.tsx:33
+#: src/pages/criteria-page/CriteriaForm.tsx:36
 msgid "Thought Leadership"
 msgstr "Thought Leadership"
 
@@ -227,7 +230,7 @@ msgstr "Try Again"
 msgid "Username"
 msgstr "Username"
 
-#: src/shared/auth/Login.tsx:34
+#: src/shared/auth/Login.tsx:20
 msgid "Username or Password is incorrect."
 msgstr "Username or Password is incorrect."
 
@@ -235,7 +238,7 @@ msgstr "Username or Password is incorrect."
 msgid "What I'm awesome at"
 msgstr "What I'm awesome at"
 
-#: src/shared/strengths-weaknesses/StrengthsOrWeaknesses.tsx:43
+#: src/shared/strengths-weaknesses/StrengthsOrWeaknesses.tsx:57
 msgid "What else"
 msgstr "What else"
 

@@ -1,37 +1,19 @@
 import { i18n } from '@lingui/core';
-import { Card, Container, Typography } from '@material-ui/core';
+import { Card, Container } from '@material-ui/core';
 import { makeStyles, Theme } from '@material-ui/core/styles';
 import { CSSProperties } from '@material-ui/styles';
-import graphql from 'babel-plugin-relay/macro';
 import React, { useState } from 'react';
-import { useMutation } from 'src/relay';
+import sahabLogo from 'src/assets/sahab-logo.png';
 import { FCProps } from 'src/shared/types/FCProps';
 import { Styles } from 'src/shared/types/Styles';
+import { useLoginMutation } from './login.mutation';
 import LoginForm, { LoginFormProps } from './LoginForm';
-import { LoginMutation } from './__generated__/LoginMutation.graphql';
 
 interface OwnProps {}
 
 type Props = FCProps<OwnProps> & StyleProps;
 
-// TODO: move it to another file
-const useLoginMutation = () =>
-  useMutation<LoginMutation>(graphql`
-    mutation LoginMutation($input: LoginMutationInput!) {
-      login(input: $input) {
-        viewer {
-          me {
-            id
-            username
-            firstName
-            lastName
-          }
-        }
-      }
-    }
-  `);
-
-export function Login(/* props: Props */) {
+export function Login(props: Props) {
   const classes = useStyles();
   const [error, setError] = useState<string | null>(null);
   // TODO: set submit loading button
@@ -53,10 +35,10 @@ export function Login(/* props: Props */) {
       <div className={classes.background} />
       <div className={classes.fullPageContainer}>
         <Container component="main" maxWidth="xs" className={classes.formContainer}>
+          <div className={classes.logoWrapper}>
+            <img src={sahabLogo} alt={i18n._('Sahab')} />
+          </div>
           <Card className={classes.paper}>
-            <Typography component="h1" variant="h5">
-              {i18n._('Login')}
-            </Typography>
             <LoginForm onSubmit={submitHandler} error={error} />
           </Card>
         </Container>
@@ -73,6 +55,11 @@ const styles = (theme: Theme) => ({
     backgroundColor: theme.palette.background.default,
     padding: 20,
     borderRadius: theme.spacing(1),
+  } as CSSProperties,
+  logoWrapper: {
+    display: 'flex',
+    justifyContent: 'center',
+    paddingBottom: theme.spacing(2),
   } as CSSProperties,
   avatar: {
     margin: theme.spacing(1),
