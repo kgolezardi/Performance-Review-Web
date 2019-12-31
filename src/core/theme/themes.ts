@@ -24,7 +24,7 @@ export function getThemeOptions(base: ThemeOptions, direction: Direction, palett
       subtitle2: { fontSize: '11px', fontWeight: 'bold' },
       body1: { fontSize: '14px' },
       body2: { fontSize: '12px' },
-      button: { fontSize: '14px' },
+      button: { fontSize: '14px', fontWeight: 'bold' },
       caption: { fontSize: '12px', fontWeight: 'lighter' },
       overline: { fontSize: '13px', fontWeight: 'lighter' },
     },
