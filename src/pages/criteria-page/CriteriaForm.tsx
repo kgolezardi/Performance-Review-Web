@@ -11,12 +11,12 @@ import { FCProps } from 'src/shared/types/FCProps';
 import { CriteriaFormData } from './CriteriaPage';
 import { CriteriaDescriptionCard } from './description/CriteriaDescriptionCard';
 
-const OrganizationCultureAdoptionContent = React.lazy(() => importMDX('./OrganizationCultureAdoptionContent.mdx'));
-const ProblemSolvingContent = React.lazy(() => importMDX('./ProblemSolvingContent.mdx'));
-const ExecutionContent = React.lazy(() => importMDX('./ExecutionContent.mdx'));
-const LeadershipContent = React.lazy(() => importMDX('./LeadershipContent.mdx'));
-const ThoughtLeadershipContent = React.lazy(() => importMDX('./ThoughtLeadershipContent.mdx'));
-const CollaborationContent = React.lazy(() => importMDX('./CollaborationContent.mdx'));
+const OrganizationCultureAdoptionContent = importMDX.sync('./OrganizationCultureAdoptionContent.mdx');
+const ProblemSolvingContent = importMDX.sync('./ProblemSolvingContent.mdx');
+const ExecutionContent = importMDX.sync('./ExecutionContent.mdx');
+const LeadershipContent = importMDX.sync('./LeadershipContent.mdx');
+const ThoughtLeadershipContent = importMDX.sync('./ThoughtLeadershipContent.mdx');
+const CollaborationContent = importMDX.sync('./CollaborationContent.mdx');
 
 interface OwnProps {
   initialValue?: CriteriaFormData;
