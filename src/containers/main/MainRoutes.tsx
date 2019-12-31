@@ -2,11 +2,36 @@ import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import { FCProps } from 'src/shared/types/FCProps';
 
-const DashboardPage = React.lazy(() => import('src/pages/dashboard-page/DashboardPage'));
-const CriteriaPage = React.lazy(() => import('src/pages/criteria-page/CriteriaPage'));
-const StrengthsWeaknessesPage = React.lazy(() => import('src/pages/strengths-weaknesses-page/StrengthsWeaknessesPage'));
-const ProjectsPage = React.lazy(() => import('src/pages/projects-page/ProjectsPage'));
-const GuidePage = React.lazy(() => import('src/pages/guide-page/GuidePage'));
+const DashboardPage = React.lazy(() =>
+  import(
+    /* webpackChunkName: "dashboard-page" */
+    'src/pages/dashboard-page/DashboardPage'
+  ),
+);
+const CriteriaPage = React.lazy(() =>
+  import(
+    /* webpackChunkName: "criteria-page" */
+    'src/pages/criteria-page/CriteriaPage'
+  ),
+);
+const StrengthsWeaknessesPage = React.lazy(() =>
+  import(
+    /* webpackChunkName: "strengths-weaknesses-page" */
+    'src/pages/strengths-weaknesses-page/StrengthsWeaknessesPage'
+  ),
+);
+const ProjectsPage = React.lazy(() =>
+  import(
+    /* webpackChunkName: "projects-page" */
+    'src/pages/projects-page/ProjectsPage'
+  ),
+);
+const GuidePage = React.lazy(() =>
+  import(
+    /* webpackChunkName: "guide-page" */
+    'src/pages/guide-page/GuidePage'
+  ),
+);
 
 interface Props {}
 

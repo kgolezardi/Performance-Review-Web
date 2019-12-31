@@ -6,7 +6,7 @@ import { importMDX } from 'mdx.macro';
 import React, { useContext } from 'react';
 import { FCProps } from 'src/shared/types/FCProps';
 
-const Content = React.lazy(() => importMDX('./Content.mdx'));
+const Content = importMDX.sync('./Content.mdx');
 
 interface OwnProps {}
 

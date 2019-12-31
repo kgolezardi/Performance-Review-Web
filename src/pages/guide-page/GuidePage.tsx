@@ -8,7 +8,7 @@ import React, { useContext } from 'react';
 import { FCProps } from 'src/shared/types/FCProps';
 import { Styles } from 'src/shared/types/Styles';
 
-const Content = React.lazy(() => importMDX('./Content.mdx'));
+const Content = importMDX.sync('./Content.mdx');
 
 interface OwnProps {}
 
