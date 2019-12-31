@@ -13,7 +13,7 @@ import {
 } from '@material-ui/core';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import graphql from 'babel-plugin-relay/macro';
-import { useSnackbar } from 'notistack';
+import { useBiDiSnackbar } from 'src/shared/snackbar';
 import React, { useCallback, useState } from 'react';
 import { useLazyLoadQuery } from 'react-relay/hooks';
 import { useDeleteProjectReview } from 'src/pages/projects-page/deleteProjectReview.mutation';
@@ -52,7 +52,7 @@ const query = graphql`
 `;
 
 export default function ProjectsPage(props: Props) {
-  const { enqueueSnackbar } = useSnackbar();
+  const { enqueueSnackbar } = useBiDiSnackbar();
   const saveProjectReview = useSaveProjectReview();
   const deleteProjectReview = useDeleteProjectReview();
 
