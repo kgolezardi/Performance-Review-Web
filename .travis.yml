@@ -7,3 +7,14 @@ cache:
 script:
   - yarn test
   - yarn build
+deploy:
+  - provider: script
+    skip_cleanup: true
+    script: bash scripts/docker_push_dev.sh
+    on:
+      branch: staging
+  - provider: script
+    skip_cleanup: true
+    script: bash scripts/docker_push.sh
+    on:
+      tags: true
