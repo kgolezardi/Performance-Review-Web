@@ -79,7 +79,7 @@ export default function CriteriaPage(props: Props) {
   const review = data.viewer.review;
 
   return (
-    <Suspense fallback={FullPageSpinner}>
+    <Suspense fallback={<FullPageSpinner />}>
       <Container maxWidth="md">
         <Box marginY={2}>
           <CriteriaForm
