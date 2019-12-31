@@ -13,7 +13,7 @@ interface OwnProps {
 
 type Props = FCProps<OwnProps>;
 
-export function CriterionItem({ title, details: Details, prefix }: Props) {
+export function CriterionItem({ title, details, prefix }: Props) {
   return (
     <Card>
       <CardHeader title={title} />
@@ -21,7 +21,7 @@ export function CriterionItem({ title, details: Details, prefix }: Props) {
         <Container maxWidth="sm">
           <Grid container spacing={2}>
             <Grid item xs={12}>
-              {Details}
+              {details}
             </Grid>
             <Grid item xs={12}>
               <DictInputItem field={prefix + 'Rating'}>

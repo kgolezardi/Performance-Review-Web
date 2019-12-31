@@ -24,7 +24,6 @@ const components = {
   h5: H5Typography,
   h6: H6Typography,
   p: PTypography,
-  li: PTypography,
 };
 
 interface OwnProps {}
