@@ -27,7 +27,7 @@ export function StrengthsOrWeaknesses({ title, maxLength, label, ...props }: Pro
   );
   return (
     <Card>
-      <CardHeader title={title} titleTypographyProps={{ variant: 'h6' }} />
+      <CardHeader title={title} />
       <CardContent>
         <Container maxWidth="sm">
           <Grid container spacing={2}>

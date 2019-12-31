@@ -25,7 +25,9 @@ export function NavbarUser(props: Props) {
 
   return (
     <div className={classes.root}>
-      <Typography className={classes.label}>{getUserLabel(user)}</Typography>
+      <Typography variant="body2" className={classes.label}>
+        {getUserLabel(user)}
+      </Typography>
       <IconButton onClick={handleLogout} color="inherit">
         <LogoutIcon />
       </IconButton>
