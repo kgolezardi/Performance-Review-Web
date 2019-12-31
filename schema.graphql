@@ -1,5 +1,5 @@
 # source: http://127.0.0.1:8000/graphql
-# timestamp: Sun Dec 15 2019 11:59:10 GMT+0330 (Iran Standard Time)
+# timestamp: Tue Dec 31 2019 14:59:14 GMT+0330 (Iran Standard Time)
 
 input ChangePasswordMutationInput {
   oldPassword: String!
@@ -90,6 +90,14 @@ type PersonReviewNode implements Node {
   presenceRating: Evaluation
 }
 
+"""An enumeration."""
+enum Phase {
+  SELF_REVIEW
+  PEER_REVIEW
+  MANAGER_REVIEW
+  RESULTS
+}
+
 type ProjectNode implements Node {
   name: String!
 
@@ -150,12 +158,10 @@ type SaveProjectReviewMutationPayload {
   clientMutationId: String
 }
 
-type Settings {
-  selfAssessment: Boolean!
-  peerReviews: Boolean!
-  managerReviews: Boolean!
-  calibration: Boolean!
-  result: Boolean!
+type SettingsNode implements Node {
+  """The ID of the object."""
+  id: ID!
+  phase: Phase!
 }
 
 type UserNode implements Node {
@@ -180,7 +186,7 @@ type ViewerNode implements Node {
   """The ID of the object"""
   projectReview(id: ID!): ProjectReviewNode
   projectReviews: [ProjectReviewNode!]!
-  settings: Settings!
+  settings: SettingsNode!
 
   """The ID of the object"""
   personReview(id: ID!): PersonReviewNode

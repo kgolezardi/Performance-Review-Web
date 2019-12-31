@@ -1,10 +1,8 @@
 import React, { useContext } from 'react';
+import { Phase } from './__generated__/SettingsProviderQuery.graphql';
+
 export interface SettingsContextValue {
-  selfAssessment: boolean;
-  peerReviews: boolean;
-  managerReviews: boolean;
-  calibration: boolean;
-  result: boolean;
+  phase: Phase;
 }
 export const SettingsContext = React.createContext<SettingsContextValue | null>(null);
 
