@@ -1,3 +1,4 @@
+import { i18n } from '@lingui/core';
 import { Box, Container } from '@material-ui/core';
 import graphql from 'babel-plugin-relay/macro';
 import React, { Suspense, useCallback } from 'react';
@@ -6,11 +7,10 @@ import { useAuthGuardUser } from 'src/core/auth';
 import { CriteriaPageQuery } from 'src/pages/criteria-page/__generated__/CriteriaPageQuery.graphql';
 import { useMutation } from 'src/relay';
 import { FullPageSpinner } from 'src/shared/loading';
+import { useBiDiSnackbar } from 'src/shared/snackbar';
 import { FCProps } from 'src/shared/types/FCProps';
 import { CriteriaForm } from './CriteriaForm';
 import { CriteriaPageMutation, Evaluation } from './__generated__/CriteriaPageMutation.graphql';
-import { useSnackbar } from 'notistack';
-import { i18n } from '@lingui/core';
 
 interface OwnProps {}
 
@@ -49,7 +49,7 @@ const query = graphql`
 `;
 
 export default function CriteriaPage(props: Props) {
-  const { enqueueSnackbar } = useSnackbar();
+  const { enqueueSnackbar } = useBiDiSnackbar();
   const criteriaPageMutation = useCriteriaPageMutation();
 
   const { id: revieweeId } = useAuthGuardUser();

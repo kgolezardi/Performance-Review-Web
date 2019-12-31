@@ -1,7 +1,7 @@
 import { i18n } from '@lingui/core';
 import { Box, Container } from '@material-ui/core';
 import graphql from 'babel-plugin-relay/macro';
-import { useSnackbar } from 'notistack';
+import { useBiDiSnackbar } from 'src/shared/snackbar';
 import React, { useCallback } from 'react';
 import { useLazyLoadQuery } from 'react-relay/hooks';
 import { useAuthGuardUser } from 'src/core/auth';
@@ -51,7 +51,7 @@ const normalizeArray = (array: readonly (string | null)[] | null | undefined) =>
 };
 
 export default function StrengthsWeaknessesPage() {
-  const { enqueueSnackbar } = useSnackbar();
+  const { enqueueSnackbar } = useBiDiSnackbar();
   const strengthsWeaknessesPageMutation = useStrengthsWeaknessesPageMutation();
   const { id: revieweeId } = useAuthGuardUser();
   const data = useLazyLoadQuery<StrengthsWeaknessesPageQuery>(query, { id: revieweeId });

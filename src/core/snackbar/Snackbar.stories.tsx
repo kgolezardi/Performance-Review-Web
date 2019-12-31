@@ -2,14 +2,14 @@ import { i18n } from '@lingui/core';
 import { Button, Container } from '@material-ui/core';
 import { storiesOf } from '@storybook/react';
 import React from 'react';
+import { useBiDiSnackbar } from 'src/shared/snackbar';
 import { snackbarDecorator, themeDecorator } from 'src/stories/decorators';
-import { useSnackbar } from 'notistack';
 
 storiesOf('Snackbar', module)
   .addDecorator(snackbarDecorator())
   .addDecorator(themeDecorator())
   .add('success', () => {
-    const { enqueueSnackbar } = useSnackbar();
+    const { enqueueSnackbar } = useBiDiSnackbar();
     return (
       <Container>
         <Button
@@ -25,7 +25,7 @@ storiesOf('Snackbar', module)
     );
   })
   .add('error', () => {
-    const { enqueueSnackbar } = useSnackbar();
+    const { enqueueSnackbar } = useBiDiSnackbar();
     return (
       <Container>
         <Button
