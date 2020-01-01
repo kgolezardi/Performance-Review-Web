@@ -8,7 +8,7 @@ import { CircularProgress } from './CircularProgress';
 storiesOf('CircularProgress', module)
   .addDecorator(storyWrapperDecorator({ display: 'flex', justifyContent: 'center', alignItems: 'center' }))
   .addDecorator(themeDecorator())
-  .add('not complete', () => {
+  .add('default color', () => {
     return (
       <CircularProgress variant="static" value={30} size={180} thickness={3}>
         <Typography variant="h6">Title</Typography>
@@ -17,9 +17,36 @@ storiesOf('CircularProgress', module)
       </CircularProgress>
     );
   })
-  .add('complete', () => {
+  .add('low color', () => {
     return (
-      <CircularProgress variant="static" value={100} size={180} thickness={3}>
+      <CircularProgress variant="static" value={11} color="low" size={180} thickness={3}>
+        <Typography variant="h6">Title</Typography>
+        <Typography variant="subtitle1">Subtitle Subtitle</Typography>
+        <Typography variant="subtitle2">Progress 11%</Typography>
+      </CircularProgress>
+    );
+  })
+  .add('medium color', () => {
+    return (
+      <CircularProgress variant="static" value={32} color="medium" size={180} thickness={3}>
+        <Typography variant="h6">Title</Typography>
+        <Typography variant="subtitle1">Subtitle Subtitle</Typography>
+        <Typography variant="subtitle2">Progress 32%</Typography>
+      </CircularProgress>
+    );
+  })
+  .add('high color', () => {
+    return (
+      <CircularProgress variant="static" value={80} color="high" size={180} thickness={3}>
+        <Typography variant="h6">Title</Typography>
+        <Typography variant="subtitle1">Subtitle Subtitle</Typography>
+        <Typography variant="subtitle2">Progress 80%</Typography>
+      </CircularProgress>
+    );
+  })
+  .add('complete color', () => {
+    return (
+      <CircularProgress variant="static" value={100} color="complete" size={180} thickness={3}>
         <Typography variant="h6">Title</Typography>
         <Typography variant="subtitle1">Subtitle Subtitle</Typography>
         <Typography variant="subtitle2">Progress 100%</Typography>

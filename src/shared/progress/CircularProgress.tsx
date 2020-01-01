@@ -1,20 +1,54 @@
-import { CircularProgress as MuiCircularProgress, CircularProgressProps, makeStyles, Theme } from '@material-ui/core';
-import { amber, green } from '@material-ui/core/colors';
+import {
+  CircularProgress as MuiCircularProgress,
+  CircularProgressProps,
+  lighten,
+  makeStyles,
+  Theme,
+} from '@material-ui/core';
+import { amber, deepOrange, green, lightBlue } from '@material-ui/core/colors';
 import { CSSProperties } from '@material-ui/core/styles/withStyles';
+import clsx from 'clsx';
 import React from 'react';
 import { FCProps } from 'src/shared/types/FCProps';
 import { Styles } from 'src/shared/types/Styles';
 
-interface OwnProps extends CircularProgressProps {}
+interface OwnProps extends Omit<CircularProgressProps, 'color'> {
+  color?: 'low' | 'medium' | 'high' | 'complete';
+}
 
 type Props = FCProps<OwnProps> & StyleProps;
 
 export function CircularProgress(props: Props) {
-  const { children } = props;
+  const { children, color, ...rest } = props;
   const classes = useStyles(props);
   return (
     <div className={classes.root}>
-      <MuiCircularProgress {...props} classes={{ circle: classes.circle }} />
+      <MuiCircularProgress
+        {...rest}
+        variant="static"
+        value={100}
+        classes={{
+          root: classes.backgroundCircularProgress,
+          circle: classes.backgroundCircularProgressCircle,
+          svg: clsx(classes.backgroundCircularProgressColorDefaultSvg, {
+            [classes.backgroundCircularProgressColorLowSvg]: color === 'low',
+            [classes.backgroundCircularProgressColorMediumSvg]: color === 'medium',
+            [classes.backgroundCircularProgressColorHighSvg]: color === 'high',
+            [classes.backgroundCircularProgressColorCompleteSvg]: color === 'complete',
+          }),
+        }}
+      />
+      <MuiCircularProgress
+        {...rest}
+        classes={{
+          circle: clsx(classes.circularProgressCircle, {
+            [classes.circularProgressColorLowSvg]: color === 'low',
+            [classes.circularProgressColorMediumSvg]: color === 'medium',
+            [classes.circularProgressColorHighSvg]: color === 'high',
+            [classes.circularProgressColorCompleteSvg]: color === 'complete',
+          }),
+        }}
+      />
       <div className={classes.content}>{children}</div>
     </div>
   );
@@ -24,6 +58,27 @@ const styles = (theme: Theme) => ({
   root: {
     display: 'inline-block',
     position: 'relative',
+  } as CSSProperties,
+  backgroundCircularProgress: {
+    position: 'absolute',
+  } as CSSProperties,
+  backgroundCircularProgressCircle: {
+    color: theme.palette.grey[300],
+  } as CSSProperties,
+  backgroundCircularProgressColorDefaultSvg: {
+    filter: `drop-shadow(0 0 5px ${lighten(theme.palette.primary.main, 0.8)})`,
+  } as CSSProperties,
+  backgroundCircularProgressColorLowSvg: {
+    filter: `drop-shadow(0 0 5px ${lighten(deepOrange[300], 0.8)})`,
+  } as CSSProperties,
+  backgroundCircularProgressColorMediumSvg: {
+    filter: `drop-shadow(0 0 5px ${lighten(amber[400], 0.8)})`,
+  } as CSSProperties,
+  backgroundCircularProgressColorHighSvg: {
+    filter: `drop-shadow(0 0 5px ${lighten(lightBlue[400], 0.8)})`,
+  } as CSSProperties,
+  backgroundCircularProgressColorCompleteSvg: {
+    filter: `drop-shadow(0 0 5px ${lighten(green[500], 0.8)})`,
   } as CSSProperties,
   content: {
     position: 'absolute',
@@ -36,11 +91,21 @@ const styles = (theme: Theme) => ({
     justifyContent: 'center',
     alignItems: 'center',
   } as CSSProperties,
-  circle: ({ value }: Props) =>
-    ({
-      strokeLinecap: 'round',
-      color: value ? (value < 100 ? amber[400] : green[500]) : theme.palette.primary,
-    } as CSSProperties),
+  circularProgressCircle: {
+    strokeLinecap: 'round',
+  } as CSSProperties,
+  circularProgressColorLowSvg: {
+    color: deepOrange[300],
+  } as CSSProperties,
+  circularProgressColorMediumSvg: {
+    color: amber[400],
+  } as CSSProperties,
+  circularProgressColorHighSvg: {
+    color: lightBlue[400],
+  } as CSSProperties,
+  circularProgressColorCompleteSvg: {
+    color: green[500],
+  } as CSSProperties,
 });
 
 const useStyles = makeStyles(styles, { name: 'CircularProgress' });
