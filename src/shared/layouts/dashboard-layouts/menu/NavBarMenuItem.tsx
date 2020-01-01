@@ -2,7 +2,7 @@ import { lighten, Theme } from '@material-ui/core';
 import { makeStyles } from '@material-ui/styles';
 import { CSSProperties } from '@material-ui/styles/withStyles';
 import React from 'react';
-import { NavLink } from 'src/shared/nav-link';
+import { NavLink } from 'react-router-dom';
 import { FCProps } from 'src/shared/types/FCProps';
 import { Styles } from 'src/shared/types/Styles';
 import { MenuItem } from './types';
