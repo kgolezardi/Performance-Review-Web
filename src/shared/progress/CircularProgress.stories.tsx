@@ -10,7 +10,7 @@ storiesOf('CircularProgress', module)
   .addDecorator(themeDecorator())
   .add('default color', () => {
     return (
-      <CircularProgress variant="static" value={30} size={180} thickness={3}>
+      <CircularProgress value={30} size={180} thickness={3}>
         <Typography variant="h6">Title</Typography>
         <Typography variant="subtitle1">Subtitle Subtitle</Typography>
         <Typography variant="subtitle2">Progress 30%</Typography>
@@ -19,7 +19,7 @@ storiesOf('CircularProgress', module)
   })
   .add('low color', () => {
     return (
-      <CircularProgress variant="static" value={11} color="low" size={180} thickness={3}>
+      <CircularProgress value={11} color="low" size={180} thickness={3}>
         <Typography variant="h6">Title</Typography>
         <Typography variant="subtitle1">Subtitle Subtitle</Typography>
         <Typography variant="subtitle2">Progress 11%</Typography>
@@ -28,7 +28,7 @@ storiesOf('CircularProgress', module)
   })
   .add('medium color', () => {
     return (
-      <CircularProgress variant="static" value={32} color="medium" size={180} thickness={3}>
+      <CircularProgress value={32} color="medium" size={180} thickness={3}>
         <Typography variant="h6">Title</Typography>
         <Typography variant="subtitle1">Subtitle Subtitle</Typography>
         <Typography variant="subtitle2">Progress 32%</Typography>
@@ -37,7 +37,7 @@ storiesOf('CircularProgress', module)
   })
   .add('high color', () => {
     return (
-      <CircularProgress variant="static" value={80} color="high" size={180} thickness={3}>
+      <CircularProgress value={80} color="high" size={180} thickness={3}>
         <Typography variant="h6">Title</Typography>
         <Typography variant="subtitle1">Subtitle Subtitle</Typography>
         <Typography variant="subtitle2">Progress 80%</Typography>
@@ -46,10 +46,26 @@ storiesOf('CircularProgress', module)
   })
   .add('complete color', () => {
     return (
-      <CircularProgress variant="static" value={100} color="complete" size={180} thickness={3}>
+      <CircularProgress value={100} color="complete" size={180} thickness={3}>
         <Typography variant="h6">Title</Typography>
         <Typography variant="subtitle1">Subtitle Subtitle</Typography>
         <Typography variant="subtitle2">Progress 100%</Typography>
+      </CircularProgress>
+    );
+  })
+  .add('small', () => {
+    return (
+      <CircularProgress value={11} color="low" size={60} thickness={3}>
+        <Typography variant="h6">Title</Typography>
+      </CircularProgress>
+    );
+  })
+  .add('large', () => {
+    return (
+      <CircularProgress value={32} color="medium" size={360} thickness={3}>
+        <Typography variant="h6">Title</Typography>
+        <Typography variant="subtitle1">Subtitle Subtitle</Typography>
+        <Typography variant="subtitle2">Progress 32%</Typography>
       </CircularProgress>
     );
   });
