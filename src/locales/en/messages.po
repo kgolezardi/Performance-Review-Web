@@ -23,6 +23,8 @@ msgstr "Accomplishments"
 
 #: src/pages/dashboard-page/DashboardPage.tsx:50
 #: src/pages/self-review-page/SelfReviewPage.tsx:19
+#: src/containers/main/MainContainer.tsx:26
+#: src/pages/projects-page/description/ProjectsDescriptionCard.tsx:11
 msgid "Achievements"
 msgstr "Achievements"
 
@@ -34,6 +36,10 @@ msgstr "Add"
 #: src/pages/projects-page/ProjectForm.tsx:75
 msgid "Are you sure you want to delete this project review?"
 msgstr "Are you sure you want to delete this project review?"
+
+#: src/pages/start-page/StartPage.tsx:22
+msgid "Begin my review"
+msgstr "Begin my review"
 
 #: src/shared/sticky-action-bar/StickyActionBar.stories.tsx:14
 msgid "Cancel"
@@ -92,8 +98,14 @@ msgid "Go to Achievements page and add projects you have participated in"
 msgstr "Go to Achievements page and add projects you have participated in"
 
 #: src/containers/main/MainContainer.tsx:25
+#: src/containers/main/MainContainer.tsx:37
+#: src/containers/main/MainContainer.tsx:32
 msgid "Guide"
 msgstr "Guide"
+
+#: src/pages/start-page/StartPage.tsx:17
+msgid "Hello dear {name}, Welcome to the performance review system"
+msgstr "Hello dear {name}, Welcome to the performance review system"
 
 #: src/pages/guide-page/GuidePage.tsx:14
 msgid "How to give feedback to each other?"
@@ -153,6 +165,9 @@ msgstr "Organization Culture Adoption"
 msgid "Password"
 msgstr "Password"
 
+#: src/containers/main/MainContainer.tsx:19
+#: src/containers/main/MainContainer.tsx:14
+#: src/pages/criteria-page/description/CriteriaDescriptionCard.tsx:11
 #: src/pages/dashboard-page/DashboardPage.tsx:34
 #: src/pages/self-review-page/SelfReviewPage.tsx:17
 msgid "Performance Competencies"
@@ -196,7 +211,7 @@ msgstr "Reviewers"
 msgid "Role Expertise and Self Development"
 msgstr "Role Expertise and Self Development"
 
-#: src/shared/auth/Login.tsx:31
+#: src/shared/auth/Login.tsx:29
 msgid "Sahab"
 msgstr "Sahab"
 
@@ -269,7 +284,7 @@ msgstr "Try Again"
 msgid "Username"
 msgstr "Username"
 
-#: src/shared/auth/Login.tsx:20
+#: src/shared/auth/Login.tsx:19
 msgid "Username or Password is incorrect."
 msgstr "Username or Password is incorrect."
 
