@@ -13,13 +13,13 @@ import {
 } from '@material-ui/core';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import graphql from 'babel-plugin-relay/macro';
-import { useBiDiSnackbar } from 'src/shared/snackbar';
 import React, { useCallback, useState } from 'react';
 import { useLazyLoadQuery } from 'react-relay/hooks';
-import { useDeleteProjectReview } from 'src/pages/projects-page/deleteProjectReview.mutation';
-import { ProjectForm, ProjectFormData } from 'src/pages/projects-page/ProjectForm';
 import { DeleteProjectReviewMutationInput } from 'src/pages/projects-page/__generated__/deleteProjectReviewMutation.graphql';
 import { ProjectsPageQuery } from 'src/pages/projects-page/__generated__/ProjectsPageQuery.graphql';
+import { useDeleteProjectReview } from 'src/pages/projects-page/deleteProjectReview.mutation';
+import { ProjectForm, ProjectFormData } from 'src/pages/projects-page/ProjectForm';
+import { useBiDiSnackbar } from 'src/shared/snackbar';
 import { FCProps } from 'src/shared/types/FCProps';
 import { AddProjectForm, AddProjectFormData } from './AddProjectForm';
 import { ProjectsDescriptionCard } from './description/ProjectsDescriptionCard';
@@ -112,25 +112,27 @@ export default function ProjectsPage(props: Props) {
           </Grid>
         </Grid>
       </Box>
-      {data.viewer.projectReviews.map(projectReview => {
-        return (
-          <ExpansionPanel key={projectReview.id} defaultExpanded={!initialProjectIds.has(projectReview.project.id)}>
-            <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-              <Typography variant="h6">{projectReview.project.name}</Typography>
-            </ExpansionPanelSummary>
-            <ExpansionPanelDetails>
-              <Container maxWidth="sm">
-                <ProjectForm
-                  onSubmit={saveProject}
-                  onDelete={deleteProject}
-                  projectReview={projectReview}
-                  users={data.viewer.users}
-                />
-              </Container>
-            </ExpansionPanelDetails>
-          </ExpansionPanel>
-        );
-      })}
+      <Box marginY={2}>
+        {data.viewer.projectReviews.map(projectReview => {
+          return (
+            <ExpansionPanel key={projectReview.id} defaultExpanded={!initialProjectIds.has(projectReview.project.id)}>
+              <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
+                <Typography variant="h6">{projectReview.project.name}</Typography>
+              </ExpansionPanelSummary>
+              <ExpansionPanelDetails>
+                <Container maxWidth="sm">
+                  <ProjectForm
+                    onSubmit={saveProject}
+                    onDelete={deleteProject}
+                    projectReview={projectReview}
+                    users={data.viewer.users}
+                  />
+                </Container>
+              </ExpansionPanelDetails>
+            </ExpansionPanel>
+          );
+        })}
+      </Box>
     </Container>
   );
 }

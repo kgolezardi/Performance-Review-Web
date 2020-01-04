@@ -21,7 +21,7 @@ msgstr "A guide to Nonviolent Communication(NVC)"
 msgid "Accomplishments"
 msgstr "Accomplishments"
 
-#: src/containers/main/MainContainer.tsx:24
+#: src/containers/main/MainContainer.tsx:31
 #: src/pages/projects-page/description/ProjectsDescriptionCard.tsx:11
 msgid "Achievements"
 msgstr "Achievements"
@@ -38,6 +38,10 @@ msgstr "Add project"
 msgid "Are you sure you want to delete this project review?"
 msgstr "Are you sure you want to delete this project review?"
 
+#: src/containers/main/MainContainer.tsx:12
+msgid "Beginning"
+msgstr "Beginning"
+
 #: src/shared/sticky-action-bar/StickyActionBar.stories.tsx:14
 msgid "Cancel"
 msgstr "Cancel"
@@ -50,7 +54,7 @@ msgstr "Criteria"
 msgid "Delete"
 msgstr "Delete"
 
-#: src/containers/main/MainContainer.tsx:18
+#: src/containers/main/MainContainer.tsx:25
 #: src/pages/dashboard-page/DashboardPage.tsx:35
 #: src/pages/strengths-weaknesses-page/description/StrengthsWeaknessDescriptionCard.tsx:11
 msgid "Dominant Characteristics"
@@ -81,7 +85,7 @@ msgstr "Exceeds Expectations"
 msgid "Execution"
 msgstr "Execution"
 
-#: src/containers/main/MainContainer.tsx:30
+#: src/containers/main/MainContainer.tsx:37
 msgid "Guide"
 msgstr "Guide"
 
@@ -111,7 +115,7 @@ msgstr "It's complete!"
 msgid "Leadership"
 msgstr "Leadership"
 
-#: src/shared/auth/LoginForm.tsx:28
+#: src/shared/auth/LoginForm.tsx:20
 msgid "Login to user panel"
 msgstr "Login to user panel"
 
@@ -139,17 +143,17 @@ msgstr "No"
 msgid "Organization Culture Adoption"
 msgstr "Organization Culture Adoption"
 
-#: src/shared/auth/LoginForm.tsx:23
+#: src/shared/auth/LoginForm.tsx:15
 msgid "Password"
 msgstr "Password"
 
-#: src/containers/main/MainContainer.tsx:12
+#: src/containers/main/MainContainer.tsx:19
 #: src/pages/criteria-page/description/CriteriaDescriptionCard.tsx:11
 #: src/pages/dashboard-page/DashboardPage.tsx:27
 msgid "Performance Competencies"
 msgstr "Performance Competencies"
 
-#: src/containers/main/MainContainer.tsx:39
+#: src/containers/main/MainContainer.tsx:46
 #: src/shared/full-page-error/FullPageError.stories.tsx:34
 #: src/shared/layouts/dashboard-layouts/DashboardLayout.stories.tsx:27
 msgid "Performance Review"
@@ -249,7 +253,7 @@ msgstr "Thought Leadership"
 msgid "Try Again"
 msgstr "Try Again"
 
-#: src/shared/auth/LoginForm.tsx:16
+#: src/shared/auth/LoginForm.tsx:12
 msgid "Username"
 msgstr "Username"
 

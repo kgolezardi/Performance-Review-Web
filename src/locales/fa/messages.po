@@ -21,7 +21,7 @@ msgstr "راهنمای مدل NVC (ارتباط بدون خشونت)"
 msgid "Accomplishments"
 msgstr "دستاوردها"
 
-#: src/containers/main/MainContainer.tsx:24
+#: src/containers/main/MainContainer.tsx:31
 #: src/pages/projects-page/description/ProjectsDescriptionCard.tsx:11
 msgid "Achievements"
 msgstr "دستاوردها"
@@ -38,6 +38,10 @@ msgstr "افزودن پروژه"
 msgid "Are you sure you want to delete this project review?"
 msgstr "آیا از حذف  این پروژه مطمین هستید؟"
 
+#: src/containers/main/MainContainer.tsx:12
+msgid "Beginning"
+msgstr "سرآغاز"
+
 #: src/shared/sticky-action-bar/StickyActionBar.stories.tsx:14
 msgid "Cancel"
 msgstr "لغو"
@@ -50,7 +54,7 @@ msgstr "معیارها"
 msgid "Delete"
 msgstr "حذف"
 
-#: src/containers/main/MainContainer.tsx:18
+#: src/containers/main/MainContainer.tsx:25
 #: src/pages/dashboard-page/DashboardPage.tsx:35
 #: src/pages/strengths-weaknesses-page/description/StrengthsWeaknessDescriptionCard.tsx:11
 msgid "Dominant Characteristics"
@@ -81,7 +85,7 @@ msgstr "فراتر از انتظارات"
 msgid "Execution"
 msgstr "اجرا"
 
-#: src/containers/main/MainContainer.tsx:30
+#: src/containers/main/MainContainer.tsx:37
 msgid "Guide"
 msgstr "راهنما"
 
@@ -111,7 +115,7 @@ msgstr "تکمیل شد!"
 msgid "Leadership"
 msgstr "رهبری خودظهور"
 
-#: src/shared/auth/LoginForm.tsx:28
+#: src/shared/auth/LoginForm.tsx:20
 msgid "Login to user panel"
 msgstr "ورود به ناحیه کاربری"
 
@@ -139,17 +143,17 @@ msgstr "خیر"
 msgid "Organization Culture Adoption"
 msgstr "انطباق با فرهنگ سازمانی"
 
-#: src/shared/auth/LoginForm.tsx:23
+#: src/shared/auth/LoginForm.tsx:15
 msgid "Password"
 msgstr "گذرواژه"
 
-#: src/containers/main/MainContainer.tsx:12
+#: src/containers/main/MainContainer.tsx:19
 #: src/pages/criteria-page/description/CriteriaDescriptionCard.tsx:11
 #: src/pages/dashboard-page/DashboardPage.tsx:27
 msgid "Performance Competencies"
 msgstr "شایستگی‌های عملکردی"
 
-#: src/containers/main/MainContainer.tsx:39
+#: src/containers/main/MainContainer.tsx:46
 #: src/shared/full-page-error/FullPageError.stories.tsx:34
 #: src/shared/layouts/dashboard-layouts/DashboardLayout.stories.tsx:27
 msgid "Performance Review"
@@ -249,7 +253,7 @@ msgstr "مرجعیت تخصصی"
 msgid "Try Again"
 msgstr "تلاش مجدد"
 
-#: src/shared/auth/LoginForm.tsx:16
+#: src/shared/auth/LoginForm.tsx:12
 msgid "Username"
 msgstr "نام کاربری"
 
