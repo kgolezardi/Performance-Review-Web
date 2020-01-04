@@ -23,11 +23,6 @@ export const LoginForm = (props: Props) => {
           <DictInputItem field="username">
             <StringInput
               className={classes.stringInput}
-              InputProps={{
-                classes: {
-                  input: classes.input,
-                },
-              }}
               variant="outlined"
               margin="dense"
               label={i18n._('Username')}
@@ -38,11 +33,6 @@ export const LoginForm = (props: Props) => {
           <DictInputItem field="password">
             <StringInput
               className={classes.stringInput}
-              InputProps={{
-                classes: {
-                  input: classes.input,
-                },
-              }}
               type="password"
               variant="outlined"
               margin="dense"
@@ -63,9 +53,6 @@ export const LoginForm = (props: Props) => {
 };
 
 const styles = (theme: Theme) => ({
-  input: {
-    padding: theme.spacing(2, 1.5),
-  } as CSSProperties,
   stringInput: {
     marginBottom: theme.spacing(4),
   } as CSSProperties,
