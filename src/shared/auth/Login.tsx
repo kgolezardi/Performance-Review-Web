@@ -76,23 +76,23 @@ const styles = (theme: Theme) => ({
   avatar: {
     margin: theme.spacing(1),
     backgroundColor: theme.palette.secondary.main,
-  },
+  } as CSSProperties,
   form: {
     width: '100%', // Fix IE 11 issue.
     marginTop: theme.spacing(1),
-  },
+  } as CSSProperties,
   textField: {
     margin: 0,
-  },
+  } as CSSProperties,
   fullPageContainer: {
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
     height: '100vh',
-  },
+  } as CSSProperties,
   formContainer: {
     zIndex: 1,
-  },
+  } as CSSProperties,
   background: {
     position: 'absolute',
     height: '100%',
