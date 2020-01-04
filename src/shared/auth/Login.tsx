@@ -3,12 +3,12 @@ import { Card, Container, Typography } from '@material-ui/core';
 import { makeStyles, Theme } from '@material-ui/core/styles';
 import { CSSProperties } from '@material-ui/styles';
 import React, { useState } from 'react';
+import loginBackgroundImage from 'src/assets/login-background.png';
 import sahabLogoLight from 'src/assets/sahab-logo-light.png';
 import { FCProps } from 'src/shared/types/FCProps';
 import { Styles } from 'src/shared/types/Styles';
 import { useLoginMutation } from './login.mutation';
-import { LoginFormProps, LoginForm } from './LoginForm';
-import loginBackgroundImage from 'src/assets/login-background.png';
+import { LoginForm, LoginFormProps } from './LoginForm';
 
 interface OwnProps {}
 
