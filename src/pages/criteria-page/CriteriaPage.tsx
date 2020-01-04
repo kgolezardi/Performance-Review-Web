@@ -9,8 +9,8 @@ import { useMutation } from 'src/relay';
 import { FullPageSpinner } from 'src/shared/loading';
 import { useBiDiSnackbar } from 'src/shared/snackbar';
 import { FCProps } from 'src/shared/types/FCProps';
-import { CriteriaForm } from './CriteriaForm';
 import { CriteriaPageMutation, Evaluation } from './__generated__/CriteriaPageMutation.graphql';
+import { CriteriaForm } from './CriteriaForm';
 
 interface OwnProps {}
 
@@ -22,6 +22,8 @@ const useCriteriaPageMutation = () =>
       savePersonReview(input: $input) {
         personReview {
           id
+          ...PerformanceCompetenciesCircularIndicator_review
+          ...DominantCharacteristicsCircularIndicator_review
         }
       }
     }
@@ -55,16 +57,9 @@ export default function CriteriaPage(props: Props) {
   const { id: revieweeId } = useAuthGuardUser();
   const data = useLazyLoadQuery<CriteriaPageQuery>(query, { id: revieweeId });
 
-  const transformData = (data: CriteriaFormData) => {
-    const entries = Object.entries(data);
-    const transformedEntries = entries.map(([key, value]) => (value === '' ? [key, null] : [key, value]));
-    return Object.fromEntries(transformedEntries);
-  };
-
   const handleSubmit = useCallback(
     (data: CriteriaFormData) => {
-      const transformedData = transformData(data);
-      const input = { input: { revieweeId, ...transformedData } };
+      const input = { input: { revieweeId, ...data } };
       criteriaPageMutation(input)
         .then(res => {
           enqueueSnackbar(i18n._('Successfully saved.'), { variant: 'success' });
