@@ -22,7 +22,6 @@ export function getThemeOptions(base: ThemeOptions, direction: Direction, palett
     caption: { fontSize: '12px', fontWeight: 'lighter' },
     overline: { fontSize: '13px', fontWeight: 'lighter' },
   };
-
   return {
     ...base,
     direction,
