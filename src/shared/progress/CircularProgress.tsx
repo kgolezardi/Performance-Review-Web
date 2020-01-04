@@ -75,6 +75,7 @@ const styles = (theme: Theme) => ({
     color: theme.palette.grey[300],
     transformOrigin: 'center center',
     transform: 'translate(10%,10%) scale(0.8)',
+    flip: false,
   } as CSSProperties,
   circularProgressRoot: {} as CSSProperties,
   circularProgressColorDefaultSvg: {
@@ -111,6 +112,7 @@ const styles = (theme: Theme) => ({
     strokeLinecap: 'round',
     transformOrigin: 'center center',
     transform: 'translate(10%,10%) scale(0.8)',
+    flip: false,
   } as CSSProperties,
 });
 
