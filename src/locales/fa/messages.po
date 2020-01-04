@@ -111,9 +111,9 @@ msgstr "تکمیل شد!"
 msgid "Leadership"
 msgstr "رهبری خودظهور"
 
-#: src/shared/auth/LoginForm.tsx:19
-msgid "Login"
-msgstr "ورود"
+#: src/shared/auth/LoginForm.tsx:28
+msgid "Login to user panel"
+msgstr "ورود به ناحیه کاربری"
 
 #: src/global-types/Evaluation.ts:12
 msgid "Meets Expectations"
@@ -139,7 +139,7 @@ msgstr "خیر"
 msgid "Organization Culture Adoption"
 msgstr "انطباق با فرهنگ سازمانی"
 
-#: src/shared/auth/LoginForm.tsx:14
+#: src/shared/auth/LoginForm.tsx:23
 msgid "Password"
 msgstr "گذرواژه"
 
@@ -153,6 +153,10 @@ msgstr "شایستگی‌های عملکردی"
 #: src/shared/layouts/dashboard-layouts/DashboardLayout.stories.tsx:27
 msgid "Performance Review"
 msgstr "ارزیابی عملکرد"
+
+#: src/shared/auth/Login.tsx:34
+msgid "Performance Review System"
+msgstr "سامانه ارزیابی همکاران"
 
 #: src/core/locales/languages.ts:4
 msgid "Persian"
@@ -248,7 +252,7 @@ msgstr "مرجعیت تخصصی"
 msgid "Try Again"
 msgstr "تلاش مجدد"
 
-#: src/shared/auth/LoginForm.tsx:11
+#: src/shared/auth/LoginForm.tsx:16
 msgid "Username"
 msgstr "نام کاربری"
 

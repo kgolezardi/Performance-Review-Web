@@ -1,21 +1,33 @@
 import { i18n } from '@lingui/core';
-import { Button } from '@material-ui/core';
+import { Button, Theme, makeStyles } from '@material-ui/core';
 import React from 'react';
 import { DictInput, DictInputItem, Form, Forminator, StringInput } from 'src/shared/forminator';
 import { NON_BREAKING_SPACE } from 'src/shared/constants';
+import { Styles } from 'src/shared/types/Styles';
+import { CSSProperties } from '@material-ui/core/styles/withStyles';
+import { FCProps } from 'src/shared/types/FCProps';
 
 export interface LoginFormProps {
   onSubmit: (data: { username: string; password: string }) => Promise<void> | void;
   error: string | null;
 }
 
-export default function LoginForm(props: LoginFormProps) {
+type Props = FCProps<LoginFormProps> & StyleProps;
+
+export const LoginForm = (props: Props) => {
+  const classes = useStyles(props);
   return (
     <Forminator onSubmit={props.onSubmit}>
       <Form>
         <DictInput>
           <DictInputItem field="username">
             <StringInput
+              className={classes.stringInput}
+              InputProps={{
+                classes: {
+                  input: classes.input,
+                },
+              }}
               variant="outlined"
               margin="dense"
               label={i18n._('Username')}
@@ -25,6 +37,12 @@ export default function LoginForm(props: LoginFormProps) {
           </DictInputItem>
           <DictInputItem field="password">
             <StringInput
+              className={classes.stringInput}
+              InputProps={{
+                classes: {
+                  input: classes.input,
+                },
+              }}
               type="password"
               variant="outlined"
               margin="dense"
@@ -36,10 +54,22 @@ export default function LoginForm(props: LoginFormProps) {
           </DictInputItem>
         </DictInput>
         <br /> {/* TODO: PLEASE FIX THIS */}
-        <Button variant="contained" fullWidth type="submit">
-          {i18n._('Login')}
+        <Button variant="contained" fullWidth type="submit" color="primary" size="large">
+          {i18n._('Login to user panel')}
         </Button>
       </Form>
     </Forminator>
   );
-}
+};
+
+const styles = (theme: Theme) => ({
+  input: {
+    padding: theme.spacing(2, 1.5),
+  } as CSSProperties,
+  stringInput: {
+    marginBottom: theme.spacing(4),
+  } as CSSProperties,
+});
+
+const useStyles = makeStyles(styles, { name: 'LoginForm' });
+type StyleProps = Styles<typeof styles>;

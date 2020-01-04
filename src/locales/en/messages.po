@@ -111,9 +111,9 @@ msgstr "It's complete!"
 msgid "Leadership"
 msgstr "Leadership"
 
-#: src/shared/auth/LoginForm.tsx:19
-msgid "Login"
-msgstr "Login"
+#: src/shared/auth/LoginForm.tsx:28
+msgid "Login to user panel"
+msgstr "Login to user panel"
 
 #: src/global-types/Evaluation.ts:12
 msgid "Meets Expectations"
@@ -139,7 +139,7 @@ msgstr "No"
 msgid "Organization Culture Adoption"
 msgstr "Organization Culture Adoption"
 
-#: src/shared/auth/LoginForm.tsx:14
+#: src/shared/auth/LoginForm.tsx:23
 msgid "Password"
 msgstr "Password"
 
@@ -153,6 +153,10 @@ msgstr "Performance Competencies"
 #: src/shared/layouts/dashboard-layouts/DashboardLayout.stories.tsx:27
 msgid "Performance Review"
 msgstr "Performance Review"
+
+#: src/shared/auth/Login.tsx:34
+msgid "Performance Review System"
+msgstr "Performance Review System"
 
 #: src/core/locales/languages.ts:4
 msgid "Persian"
@@ -248,7 +252,7 @@ msgstr "Thought Leadership"
 msgid "Try Again"
 msgstr "Try Again"
 
-#: src/shared/auth/LoginForm.tsx:11
+#: src/shared/auth/LoginForm.tsx:16
 msgid "Username"
 msgstr "Username"
 
