@@ -2,6 +2,7 @@ import { Theme } from '@material-ui/core';
 import { makeStyles } from '@material-ui/styles';
 import { CSSProperties } from '@material-ui/styles/withStyles';
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import { FCProps } from 'src/shared/types/FCProps';
 import { Styles } from 'src/shared/types/Styles';
 
@@ -14,10 +15,24 @@ type Props = FCProps<OwnProps> & StyleProps;
 
 export function Brand(props: Props) {
   const classes = useStyles(props);
-  return <img className={classes.logo} src={props.logo} alt={props.label} />;
+
+  return (
+    <NavLink to="/" className={classes.root}>
+      <img className={classes.logo} src={props.logo} alt={props.label} />
+    </NavLink>
+  );
 }
 
 const styles = (theme: Theme) => ({
+  root: {
+    textDecoration: 'none',
+    color: theme.palette.common.white,
+    display: 'flex',
+    justifyContent: 'center',
+    padding: theme.spacing(2),
+    height: '100%',
+    width: '100%',
+  } as CSSProperties,
   logo: {
     height: '100%',
   } as CSSProperties,

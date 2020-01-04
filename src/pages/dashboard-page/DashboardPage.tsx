@@ -1,25 +1,56 @@
 import { i18n } from '@lingui/core';
-import { Theme } from '@material-ui/core';
-import { makeStyles } from '@material-ui/styles';
-import { CSSProperties } from '@material-ui/styles/withStyles';
+import { Box, Card, CardContent, CardHeader, Container, Grid } from '@material-ui/core';
+import graphql from 'babel-plugin-relay/macro';
 import React from 'react';
+import { useLazyLoadQuery } from 'react-relay/hooks';
+import { useAuthGuardUser } from 'src/core/auth';
+import { DashboardPageQuery } from 'src/pages/dashboard-page/__generated__/DashboardPageQuery.graphql';
 import { FCProps } from 'src/shared/types/FCProps';
-import { Styles } from 'src/shared/types/Styles';
+import { DominantCharacteristicsCircularIndicator } from './DominantCharacteristicsCircularIndicator';
+import { PerformanceCompetenciesCircularIndicator } from './PerformanceCompetenciesCircularIndicator';
 
 interface OwnProps {}
 
-type Props = FCProps<OwnProps> & StyleProps;
+type Props = FCProps<OwnProps>;
+
+const query = graphql`
+  query DashboardPageQuery($id: ID!) {
+    viewer {
+      review: findPersonReview(revieweeId: $id) {
+        ...PerformanceCompetenciesCircularIndicator_review
+        ...DominantCharacteristicsCircularIndicator_review
+      }
+    }
+  }
+`;
 
 export default function DashboardPage(props: Props) {
-  const classes = useStyles(props);
-  return <div className={classes.root}>{i18n._('Performance Review')}</div>;
+  const { id } = useAuthGuardUser();
+
+  const data = useLazyLoadQuery<DashboardPageQuery>(query, { id });
+
+  return (
+    <Container maxWidth="md">
+      <Box marginY={2}>
+        <Grid container spacing={2}>
+          <Grid item xs={4}>
+            <Card>
+              <CardHeader title={i18n._('Performance Competencies')} />
+              <CardContent>
+                <PerformanceCompetenciesCircularIndicator review={data.viewer.review} />
+              </CardContent>
+            </Card>
+          </Grid>
+          <Grid item xs={4}>
+            <Card>
+              <CardHeader title={i18n._('Dominant Characteristics')} />
+              <CardContent>
+                <DominantCharacteristicsCircularIndicator review={data.viewer.review} />
+              </CardContent>
+            </Card>
+          </Grid>
+        </Grid>
+      </Box>
+    </Container>
+  );
 }
-
-const styles = (theme: Theme) => ({
-  root: {
-    padding: theme.spacing(4),
-  } as CSSProperties,
-});
-
-const useStyles = makeStyles(styles, { name: 'DashboardPage' });
-type StyleProps = Styles<typeof styles>;
