@@ -2,6 +2,7 @@ import { PaletteType } from '@material-ui/core';
 import grey from '@material-ui/core/colors/grey';
 import red from '@material-ui/core/colors/red';
 import createMuiTheme, { Direction, ThemeOptions } from '@material-ui/core/styles/createMuiTheme';
+import { deepOrange } from '@material-ui/core/colors';
 
 export function getThemeOptions(base: ThemeOptions, direction: Direction, paletteType: PaletteType) {
   const themeOptions: ThemeOptions = {
@@ -38,6 +39,11 @@ export const baseThemeOptions: ThemeOptions = {
       dark: '#0F7DAA',
       main: '#1297CE',
       light: '#27B2EC',
+    },
+    secondary: {
+      dark: deepOrange[600],
+      main: deepOrange[500],
+      light: deepOrange[300],
     },
     error: red,
   },

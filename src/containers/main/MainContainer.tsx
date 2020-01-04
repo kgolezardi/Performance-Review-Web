@@ -17,6 +17,8 @@ import { FullPageSpinner } from 'src/shared/loading';
 import { FCProps } from 'src/shared/types/FCProps';
 import { MainRoutes } from './MainRoutes';
 import { NavbarUser } from './NavbarUser';
+import { useAuthGuardUser } from 'src/core/auth';
+import { StartReviewPage } from 'src/pages/start-review-page/StartReviewPage';
 
 interface OwnProps {}
 
@@ -50,19 +52,18 @@ const items: MenuItem[] = [
 ];
 
 export function MainContainer(props: Props) {
+  const user = useAuthGuardUser();
   return (
     <DashboardLayout>
       <BrandRegion>
         <Brand label={i18n._('Performance Review')} logo={sahabLogo} />
       </BrandRegion>
       <NavbarRegion>
-        <NavBarMenu items={items} />
+        <NavBarMenu items={user.hasStarted ? items : []} />
       </NavbarRegion>
       <ContentRegion>
         <ErrorBoundary fallback={<FullPageError />}>
-          <Suspense fallback={<FullPageSpinner />}>
-            <MainRoutes />
-          </Suspense>
+          <Suspense fallback={<FullPageSpinner />}>{user.hasStarted ? <MainRoutes /> : <StartReviewPage />}</Suspense>
         </ErrorBoundary>
       </ContentRegion>
       <UserRegion>

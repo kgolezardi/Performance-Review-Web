@@ -14,7 +14,16 @@ export function AuthGuard(props: Props) {
   const data = useLazyLoadQuery<AuthGuardQuery>(authGuardQuery, {});
   const { me } = data.viewer;
   const user = useMemo(
-    () => (me ? { username: me.username, id: me.id, firstName: me.firstName, lastName: me.lastName } : null),
+    () =>
+      me
+        ? {
+            username: me.username,
+            id: me.id,
+            firstName: me.firstName,
+            lastName: me.lastName,
+            hasStarted: me.hasStarted || false,
+          }
+        : null,
     [me],
   );
 
@@ -33,6 +42,7 @@ const authGuardQuery = graphql`
         username
         firstName
         lastName
+        hasStarted
       }
     }
   }

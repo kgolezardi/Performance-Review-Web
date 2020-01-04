@@ -1,5 +1,5 @@
 # source: http://127.0.0.1:8000/graphql
-# timestamp: Tue Dec 31 2019 14:59:14 GMT+0330 (Iran Standard Time)
+# timestamp: Sat Jan 04 2020 12:06:50 GMT+0330 (Iran Standard Time)
 
 input ChangePasswordMutationInput {
   oldPassword: String!
@@ -24,7 +24,9 @@ type DeleteProjectReviewMutationPayload {
   clientMutationId: String
 }
 
-"""An enumeration."""
+"""
+An enumeration.
+"""
 enum Evaluation {
   NEEDS_IMPROVEMENT
   MEETS_EXPECTATIONS
@@ -61,11 +63,16 @@ type Mutation {
   login(input: LoginMutationInput!): LoginMutationPayload!
   logout(input: LogoutMutationInput!): LogoutMutationPayload!
   changePassword(input: ChangePasswordMutationInput!): ChangePasswordMutationPayload!
+  startReview(input: StartReviewMutationInput!): StartReviewMutationPayload!
 }
 
-"""An object with an ID"""
+"""
+An object with an ID
+"""
 interface Node {
-  """The ID of the object."""
+  """
+  The ID of the object.
+  """
   id: ID!
 }
 
@@ -80,7 +87,9 @@ type PersonReviewNode implements Node {
   strengths: [String]
   weaknesses: [String]
 
-  """The ID of the object."""
+  """
+  The ID of the object.
+  """
   id: ID!
   sahabinessRating: Evaluation
   problemSolvingRating: Evaluation
@@ -90,7 +99,9 @@ type PersonReviewNode implements Node {
   presenceRating: Evaluation
 }
 
-"""An enumeration."""
+"""
+An enumeration.
+"""
 enum Phase {
   SELF_REVIEW
   PEER_REVIEW
@@ -101,7 +112,9 @@ enum Phase {
 type ProjectNode implements Node {
   name: String!
 
-  """The ID of the object."""
+  """
+  The ID of the object.
+  """
   id: ID!
 }
 
@@ -109,7 +122,9 @@ type ProjectReviewNode implements Node {
   project: ProjectNode!
   text: String
 
-  """The ID of the object."""
+  """
+  The ID of the object.
+  """
   id: ID!
   rating: Evaluation
   reviewers: [UserNode!]!
@@ -159,41 +174,68 @@ type SaveProjectReviewMutationPayload {
 }
 
 type SettingsNode implements Node {
-  """The ID of the object."""
+  """
+  The ID of the object.
+  """
   id: ID!
   phase: Phase!
 }
 
+input StartReviewMutationInput {
+  clientMutationId: String
+}
+
+type StartReviewMutationPayload {
+  viewer: ViewerNode!
+  ok: Boolean!
+  clientMutationId: String
+}
+
 type UserNode implements Node {
-  """Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only."""
+  """
+  Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only.
+  """
   username: String!
   firstName: String!
   lastName: String!
 
-  """The ID of the object."""
+  """
+  The ID of the object.
+  """
   id: ID!
+  hasStarted: Boolean
 }
 
 type ViewerNode implements Node {
-  """The ID of the object."""
+  """
+  The ID of the object.
+  """
   id: ID!
   users: [UserNode!]!
 
-  """The ID of the object"""
+  """
+  The ID of the object
+  """
   user(id: ID!): UserNode
   me: UserNode
 
-  """The ID of the object"""
+  """
+  The ID of the object
+  """
   projectReview(id: ID!): ProjectReviewNode
   projectReviews: [ProjectReviewNode!]!
   settings: SettingsNode!
 
-  """The ID of the object"""
+  """
+  The ID of the object
+  """
   personReview(id: ID!): PersonReviewNode
   personReviews: [PersonReviewNode!]!
   findPersonReview(revieweeId: ID): PersonReviewNode
 
-  """The ID of the object"""
+  """
+  The ID of the object
+  """
   project(id: ID!): ProjectNode
   projects: [ProjectNode!]!
   node(id: ID!): Node
