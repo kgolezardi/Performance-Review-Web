@@ -1,10 +1,11 @@
 import graphql from 'babel-plugin-relay/macro';
 import React, { useMemo } from 'react';
-import { useLazyLoadQuery } from 'react-relay/hooks';
+import { useLazyLoadQuery, useFragment } from 'react-relay/hooks';
 import { AuthPage } from 'src/shared/auth';
 import { FCProps } from 'src/shared/types/FCProps';
 import { UserContext } from './UserContext';
 import { AuthGuardQuery } from './__generated__/AuthGuardQuery.graphql';
+import { AuthGuard_user$key } from './__generated__/AuthGuard_user.graphql';
 
 interface OwnProps {}
 
@@ -12,7 +13,8 @@ type Props = FCProps<OwnProps>;
 
 export function AuthGuard(props: Props) {
   const data = useLazyLoadQuery<AuthGuardQuery>(authGuardQuery, {});
-  const { me } = data.viewer;
+  const me = useFragment<AuthGuard_user$key>(fragment, data.viewer.me);
+
   const user = useMemo(
     () =>
       me
@@ -38,12 +40,18 @@ const authGuardQuery = graphql`
   query AuthGuardQuery {
     viewer {
       me {
-        id
-        username
-        firstName
-        lastName
-        hasStarted
+        ...AuthGuard_user
       }
     }
+  }
+`;
+
+const fragment = graphql`
+  fragment AuthGuard_user on UserNode {
+    id
+    username
+    firstName
+    lastName
+    hasStarted
   }
 `;

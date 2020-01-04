@@ -7,7 +7,7 @@ export const useLogoutMutation = () =>
       logout(input: $input) {
         viewer {
           me {
-            id
+            ...AuthGuard_user
           }
         }
       }

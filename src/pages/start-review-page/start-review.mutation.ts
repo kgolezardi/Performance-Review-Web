@@ -7,7 +7,7 @@ export const useStartReviewMutation = () =>
       startReview(input: $input) {
         viewer {
           me {
-            hasStarted
+            ...AuthGuard_user
           }
         }
         ok
