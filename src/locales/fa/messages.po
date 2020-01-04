@@ -51,8 +51,7 @@ msgid "Delete"
 msgstr "حذف"
 
 #: src/containers/main/MainContainer.tsx:18
-#: src/pages/dashboard-page/DominantCharacteristicsCircularIndicator.tsx:15
-#: src/pages/dashboard-page/PerformanceCompetenciesCircularIndicator.tsx:15
+#: src/pages/dashboard-page/DashboardPage.tsx:35
 #: src/pages/strengths-weaknesses-page/description/StrengthsWeaknessDescriptionCard.tsx:11
 msgid "Dominant Characteristics"
 msgstr "ویژگی‌های بارز"
@@ -90,20 +89,21 @@ msgstr "راهنما"
 msgid "How to give feedback to each other?"
 msgstr "چطور به همدیگه بازخورد بدیم؟"
 
-#: src/pages/dashboard-page/DominantCharacteristicsCircularIndicator.tsx:54
+#: src/pages/dashboard-page/DominantCharacteristicsCircularIndicator.tsx:56
 msgid "I thought you forgot to write your strengths!"
 msgstr "کاش یه نقطه‌ی قوت هم بنویسی!"
 
-#: src/pages/dashboard-page/DominantCharacteristicsCircularIndicator.tsx:57
+#: src/pages/dashboard-page/DominantCharacteristicsCircularIndicator.tsx:59
 msgid "It'd be a good idea to write a weakness!"
 msgstr "کاش یه نقطه‌ی ضعف هم بنویسی!"
 
-#: src/pages/dashboard-page/PerformanceCompetenciesCircularIndicator.tsx:71
+#: src/pages/dashboard-page/DominantCharacteristicsCircularIndicator.tsx:67
+#: src/pages/dashboard-page/PerformanceCompetenciesCircularIndicator.tsx:70
 msgid "It'd be good if u wrote more!"
 msgstr "کاش بیشتر برامون بنویسی!"
 
-#: src/pages/dashboard-page/DominantCharacteristicsCircularIndicator.tsx:60
-#: src/pages/dashboard-page/PerformanceCompetenciesCircularIndicator.tsx:77
+#: src/pages/dashboard-page/DominantCharacteristicsCircularIndicator.tsx:62
+#: src/pages/dashboard-page/PerformanceCompetenciesCircularIndicator.tsx:76
 msgid "It's complete!"
 msgstr "تکمیل شد!"
 
@@ -111,9 +111,9 @@ msgstr "تکمیل شد!"
 msgid "Leadership"
 msgstr "رهبری خودظهور"
 
-#: src/shared/auth/LoginForm.tsx:19
-msgid "Login"
-msgstr "ورود"
+#: src/shared/auth/LoginForm.tsx:28
+msgid "Login to user panel"
+msgstr "ورود به ناحیه کاربری"
 
 #: src/global-types/Evaluation.ts:12
 msgid "Meets Expectations"
@@ -139,12 +139,13 @@ msgstr "خیر"
 msgid "Organization Culture Adoption"
 msgstr "انطباق با فرهنگ سازمانی"
 
-#: src/shared/auth/LoginForm.tsx:14
+#: src/shared/auth/LoginForm.tsx:23
 msgid "Password"
 msgstr "گذرواژه"
 
 #: src/containers/main/MainContainer.tsx:12
 #: src/pages/criteria-page/description/CriteriaDescriptionCard.tsx:11
+#: src/pages/dashboard-page/DashboardPage.tsx:27
 msgid "Performance Competencies"
 msgstr "شایستگی‌های عملکردی"
 
@@ -154,13 +155,13 @@ msgstr "شایستگی‌های عملکردی"
 msgid "Performance Review"
 msgstr "ارزیابی عملکرد"
 
+#: src/shared/auth/Login.tsx:34
+msgid "Performance Review System"
+msgstr "سامانه ارزیابی همکاران"
+
 #: src/core/locales/languages.ts:4
 msgid "Persian"
 msgstr "فارسی"
-
-#: src/pages/dashboard-page/DashboardPage.tsx:28
-msgid "Person Review"
-msgstr "ارزیابی شخصی"
 
 #: src/pages/criteria-page/CriteriaForm.tsx:42
 msgid "Presence"
@@ -186,7 +187,7 @@ msgstr "مرورکننده‌ها"
 msgid "Role Expertise and Self Development"
 msgstr "مرجعیت تخصصی"
 
-#: src/shared/auth/Login.tsx:29
+#: src/shared/auth/Login.tsx:31
 msgid "Sahab"
 msgstr "سحاب"
 
@@ -198,7 +199,7 @@ msgid "Select"
 msgstr "انتخاب کنید"
 
 #: src/core/snackbar/Snackbar.stories.tsx:24
-#: src/pages/criteria-page/CriteriaPage.tsx:61
+#: src/pages/criteria-page/CriteriaPage.tsx:55
 #: src/pages/projects-page/ProjectsPage.tsx:44
 #: src/pages/strengths-weaknesses-page/StrengthsWeaknessesPage.tsx:60
 msgid "Something went wrong."
@@ -230,7 +231,7 @@ msgid "Submit"
 msgstr "ثبت"
 
 #: src/core/snackbar/Snackbar.stories.tsx:14
-#: src/pages/criteria-page/CriteriaPage.tsx:58
+#: src/pages/criteria-page/CriteriaPage.tsx:52
 #: src/pages/projects-page/ProjectsPage.tsx:41
 #: src/pages/strengths-weaknesses-page/StrengthsWeaknessesPage.tsx:57
 msgid "Successfully saved."
@@ -248,11 +249,11 @@ msgstr "مرجعیت تخصصی"
 msgid "Try Again"
 msgstr "تلاش مجدد"
 
-#: src/shared/auth/LoginForm.tsx:11
+#: src/shared/auth/LoginForm.tsx:16
 msgid "Username"
 msgstr "نام کاربری"
 
-#: src/shared/auth/Login.tsx:19
+#: src/shared/auth/Login.tsx:20
 msgid "Username or Password is incorrect."
 msgstr "نام کاربری یا گذرواژه اشتباه است."
 
@@ -272,12 +273,12 @@ msgstr "چیمو بهبود بدم"
 msgid "Yes"
 msgstr "بله"
 
-#: src/pages/dashboard-page/DominantCharacteristicsCircularIndicator.tsx:51
-#: src/pages/dashboard-page/PerformanceCompetenciesCircularIndicator.tsx:68
+#: src/pages/dashboard-page/DominantCharacteristicsCircularIndicator.tsx:53
+#: src/pages/dashboard-page/PerformanceCompetenciesCircularIndicator.tsx:67
 msgid "You haven't entered anything yet!"
 msgstr "هنوز چیزی ننوشتی!"
 
-#: src/pages/dashboard-page/DominantCharacteristicsCircularIndicator.tsx:63
-#: src/pages/dashboard-page/PerformanceCompetenciesCircularIndicator.tsx:74
+#: src/pages/dashboard-page/DominantCharacteristicsCircularIndicator.tsx:65
+#: src/pages/dashboard-page/PerformanceCompetenciesCircularIndicator.tsx:73
 msgid "You're almost there!"
 msgstr "یه کم مونده!"
