@@ -1,4 +1,3 @@
-///<reference types="react/experimental"/>
 import { History } from 'history';
 import React, { SuspenseConfig, useEffect, useState, useTransition } from 'react';
 import { __RouterContext as RouterContext } from 'react-router';
