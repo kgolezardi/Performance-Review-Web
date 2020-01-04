@@ -37,7 +37,7 @@ msgstr "Add"
 msgid "Are you sure you want to delete this project review?"
 msgstr "Are you sure you want to delete this project review?"
 
-#: src/pages/start-page/StartPage.tsx:22
+#: src/pages/start-review-page/StartReviewPage.tsx:27
 msgid "Begin my review"
 msgstr "Begin my review"
 
@@ -103,7 +103,7 @@ msgstr "Go to Achievements page and add projects you have participated in"
 msgid "Guide"
 msgstr "Guide"
 
-#: src/pages/start-page/StartPage.tsx:17
+#: src/pages/start-review-page/StartReviewPage.tsx:22
 msgid "Hello dear {name}, Welcome to the performance review system"
 msgstr "Hello dear {name}, Welcome to the performance review system"
 
