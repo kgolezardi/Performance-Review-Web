@@ -76,7 +76,7 @@ export default function CriteriaPage(props: Props) {
   return (
     <Suspense fallback={<FullPageSpinner />}>
       <Container maxWidth="md">
-        <Box marginY={2}>
+        <Box marginY={4}>
           <CriteriaForm
             onSubmit={handleSubmit}
             initialValue={{

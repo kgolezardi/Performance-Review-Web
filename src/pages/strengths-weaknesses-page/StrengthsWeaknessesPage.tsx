@@ -76,7 +76,7 @@ export default function StrengthsWeaknessesPage() {
 
   return (
     <Container maxWidth="md">
-      <Box marginY={2}>
+      <Box marginY={4}>
         <StrengthsWeaknessesForm
           onSubmit={handleSubmit}
           initialValue={{

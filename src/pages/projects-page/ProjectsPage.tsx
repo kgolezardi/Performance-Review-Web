@@ -91,7 +91,7 @@ export default function ProjectsPage(props: Props) {
 
   return (
     <Container maxWidth="md">
-      <Box marginY={2}>
+      <Box marginY={4}>
         <Grid container spacing={2}>
           <Grid item xs={12}>
             <ProjectsDescriptionCard />
@@ -111,27 +111,27 @@ export default function ProjectsPage(props: Props) {
             </Card>
           </Grid>
         </Grid>
-      </Box>
-      <Box marginY={2}>
-        {data.viewer.projectReviews.map(projectReview => {
-          return (
-            <ExpansionPanel key={projectReview.id} defaultExpanded={!initialProjectIds.has(projectReview.project.id)}>
-              <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-                <Typography variant="h6">{projectReview.project.name}</Typography>
-              </ExpansionPanelSummary>
-              <ExpansionPanelDetails>
-                <Container maxWidth="sm">
-                  <ProjectForm
-                    onSubmit={saveProject}
-                    onDelete={deleteProject}
-                    projectReview={projectReview}
-                    users={data.viewer.users}
-                  />
-                </Container>
-              </ExpansionPanelDetails>
-            </ExpansionPanel>
-          );
-        })}
+        <Box marginY={2}>
+          {data.viewer.projectReviews.map(projectReview => {
+            return (
+              <ExpansionPanel key={projectReview.id} defaultExpanded={!initialProjectIds.has(projectReview.project.id)}>
+                <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
+                  <Typography variant="h6">{projectReview.project.name}</Typography>
+                </ExpansionPanelSummary>
+                <ExpansionPanelDetails>
+                  <Container maxWidth="sm">
+                    <ProjectForm
+                      onSubmit={saveProject}
+                      onDelete={deleteProject}
+                      projectReview={projectReview}
+                      users={data.viewer.users}
+                    />
+                  </Container>
+                </ExpansionPanelDetails>
+              </ExpansionPanel>
+            );
+          })}
+        </Box>
       </Box>
     </Container>
   );

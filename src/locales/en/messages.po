@@ -39,10 +39,6 @@ msgstr "Add project"
 msgid "Are you sure you want to delete this project review?"
 msgstr "Are you sure you want to delete this project review?"
 
-#: src/containers/main/MainContainer.tsx:12
-msgid "Beginning"
-msgstr "Beginning"
-
 #: src/shared/sticky-action-bar/StickyActionBar.stories.tsx:14
 msgid "Cancel"
 msgstr "Cancel"
@@ -50,6 +46,10 @@ msgstr "Cancel"
 #: src/shared/full-page-error/FullPageError.stories.tsx:9
 msgid "Criteria"
 msgstr "Criteria"
+
+#: src/containers/main/MainContainer.tsx:12
+msgid "Dashboard"
+msgstr "Dashboard"
 
 #: src/pages/projects-page/ProjectForm.tsx:69
 msgid "Delete"

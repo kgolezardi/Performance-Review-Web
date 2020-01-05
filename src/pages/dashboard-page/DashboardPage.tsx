@@ -40,7 +40,7 @@ export default function DashboardPage(props: Props) {
 
   return (
     <Container maxWidth="md">
-      <Box marginY={2}>
+      <Box marginY={4}>
         <Grid container spacing={2}>
           <Grid item xs={12} sm={6} md={4}>
             <Card classes={{ root: classes.progressCard }}>
