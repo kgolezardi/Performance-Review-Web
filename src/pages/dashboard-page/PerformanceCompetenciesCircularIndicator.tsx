@@ -27,7 +27,7 @@ export function PerformanceCompetenciesCircularIndicator(props: Props) {
 
   return (
     <DashboardPageCircularIndicator {...props} color={color} value={value}>
-      <Typography variant="subtitle1">{text}</Typography>
+      <Typography>{text}</Typography>
     </DashboardPageCircularIndicator>
   );
 }
@@ -98,4 +98,5 @@ const getText = (numberOfFilledFields: number) => {
   if (numberOfFilledFields === 12) {
     return i18n._("It's complete!");
   }
+  return i18n._("You're almost there!");
 };

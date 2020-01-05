@@ -30,7 +30,7 @@ export function DominantCharacteristicsCircularIndicator(props: Props) {
 
   return (
     <DashboardPageCircularIndicator value={value} color={color}>
-      <Typography variant="subtitle1">{text}</Typography>
+      <Typography>{text}</Typography>
     </DashboardPageCircularIndicator>
   );
 }

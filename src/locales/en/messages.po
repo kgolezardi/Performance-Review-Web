@@ -22,6 +22,7 @@ msgid "Accomplishments"
 msgstr "Accomplishments"
 
 #: src/containers/main/MainContainer.tsx:31
+#: src/pages/dashboard-page/DashboardPage.tsx:49
 #: src/pages/projects-page/description/ProjectsDescriptionCard.tsx:11
 msgid "Achievements"
 msgstr "Achievements"
@@ -55,7 +56,7 @@ msgid "Delete"
 msgstr "Delete"
 
 #: src/containers/main/MainContainer.tsx:25
-#: src/pages/dashboard-page/DashboardPage.tsx:35
+#: src/pages/dashboard-page/DashboardPage.tsx:41
 #: src/pages/strengths-weaknesses-page/description/StrengthsWeaknessDescriptionCard.tsx:11
 msgid "Dominant Characteristics"
 msgstr "Dominant Characteristics"
@@ -84,6 +85,10 @@ msgstr "Exceeds Expectations"
 #: src/pages/criteria-page/CriteriaForm.tsx:33
 msgid "Execution"
 msgstr "Execution"
+
+#: src/pages/dashboard-page/AchievementsNoProjects.tsx:8
+msgid "Go to Achievements page and add projects you have participated in"
+msgstr "Go to Achievements page and add projects you have participated in"
 
 #: src/containers/main/MainContainer.tsx:37
 msgid "Guide"
@@ -149,7 +154,7 @@ msgstr "Password"
 
 #: src/containers/main/MainContainer.tsx:19
 #: src/pages/criteria-page/description/CriteriaDescriptionCard.tsx:11
-#: src/pages/dashboard-page/DashboardPage.tsx:27
+#: src/pages/dashboard-page/DashboardPage.tsx:33
 msgid "Performance Competencies"
 msgstr "Performance Competencies"
 
@@ -205,7 +210,7 @@ msgstr "Select"
 #: src/core/snackbar/Snackbar.stories.tsx:24
 #: src/pages/criteria-page/CriteriaPage.tsx:55
 #: src/pages/projects-page/ProjectsPage.tsx:44
-#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesPage.tsx:60
+#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesPage.tsx:61
 msgid "Something went wrong."
 msgstr "Something went wrong."
 
@@ -237,7 +242,7 @@ msgstr "Submit"
 #: src/core/snackbar/Snackbar.stories.tsx:14
 #: src/pages/criteria-page/CriteriaPage.tsx:52
 #: src/pages/projects-page/ProjectsPage.tsx:41
-#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesPage.tsx:57
+#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesPage.tsx:58
 msgid "Successfully saved."
 msgstr "Successfully saved."
 
@@ -277,6 +282,10 @@ msgstr "What to improve"
 msgid "Yes"
 msgstr "Yes"
 
+#: src/pages/dashboard-page/AchievementsNoProjects.tsx:6
+msgid "You haven't added any project."
+msgstr "You haven't added any project."
+
 #: src/pages/dashboard-page/DominantCharacteristicsCircularIndicator.tsx:53
 #: src/pages/dashboard-page/PerformanceCompetenciesCircularIndicator.tsx:67
 msgid "You haven't entered anything yet!"
@@ -284,5 +293,6 @@ msgstr "You haven't entered anything yet!"
 
 #: src/pages/dashboard-page/DominantCharacteristicsCircularIndicator.tsx:65
 #: src/pages/dashboard-page/PerformanceCompetenciesCircularIndicator.tsx:73
+#: src/pages/dashboard-page/PerformanceCompetenciesCircularIndicator.tsx:78
 msgid "You're almost there!"
 msgstr "You're almost there!"
