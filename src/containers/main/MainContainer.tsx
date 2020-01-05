@@ -24,7 +24,7 @@ type Props = FCProps<OwnProps>;
 
 const items: MenuItem[] = [
   {
-    text: i18n._('Beginning'),
+    text: i18n._('Dashboard'),
     link: {
       exact: true,
       to: '/',
