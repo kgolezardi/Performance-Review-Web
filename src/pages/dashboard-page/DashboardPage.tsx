@@ -11,6 +11,7 @@ import { FCProps } from 'src/shared/types/FCProps';
 import { Styles } from 'src/shared/types/Styles';
 import { AchievementsIndicators } from './AchievementsIndicators';
 import { DominantCharacteristicsCircularIndicator } from './DominantCharacteristicsCircularIndicator';
+import { FinalSubmission } from './FinalSubmission';
 import { LinkButton } from './LinkButton';
 import { PerformanceCompetenciesCircularIndicator } from './PerformanceCompetenciesCircularIndicator';
 
@@ -76,6 +77,13 @@ export default function DashboardPage(props: Props) {
               />
               <CardContent classes={{ root: classes.achievementsContent }}>
                 <AchievementsIndicators projects={data.viewer.projects} />
+              </CardContent>
+            </Card>
+          </Grid>
+          <Grid item xs={12}>
+            <Card>
+              <CardContent>
+                <FinalSubmission />
               </CardContent>
             </Card>
           </Grid>

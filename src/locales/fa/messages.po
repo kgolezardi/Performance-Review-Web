@@ -86,6 +86,10 @@ msgstr "فراتر از انتظارات"
 msgid "Execution"
 msgstr "اجرا"
 
+#: src/pages/dashboard-page/FinalSubmission.tsx:41
+msgid "Finish and send review"
+msgstr "اتمام و ارسال ارزیابی"
+
 #: src/pages/dashboard-page/AchievementsNoProjects.tsx:8
 msgid "Go to Achievements page and add projects you have participated in"
 msgstr "به صفحه‌ی دستاوردها برو و پروژه‌هایی که در آن‌ها شرکت داشتی را وارد کن"
@@ -143,6 +147,10 @@ msgstr "نیازمند به تلاش"
 #: src/shared/confirm-button/ConfirmButton.tsx:8
 msgid "No"
 msgstr "خیر"
+
+#: src/pages/dashboard-page/FinalSubmission.tsx:41
+msgid "Once you finish the process and submit forms, you wouldn't be able to edit forms and forms will be sent to us. Are you sure?"
+msgstr "با اتمام و ارسال فرم، امکان ویرایش مجدد فرم‌ها رو نخواهی داشت و فرم‌ها برای ما ارسال خواهد شد. آیا از این‌ کار مطمئنی؟"
 
 #: src/pages/criteria-page/CriteriaForm.tsx:27
 msgid "Organization Culture Adoption"
@@ -209,6 +217,7 @@ msgstr "انتخاب کنید"
 
 #: src/core/snackbar/Snackbar.stories.tsx:24
 #: src/pages/criteria-page/CriteriaPage.tsx:55
+#: src/pages/dashboard-page/FinalSubmission.tsx:28
 #: src/pages/projects-page/ProjectsPage.tsx:44
 #: src/pages/strengths-weaknesses-page/StrengthsWeaknessesPage.tsx:61
 msgid "Something went wrong."

@@ -24,7 +24,6 @@ export function AchievementsIndicators(props: Props) {
     return <AchievementsNoProjects />;
   }
 
-  console.log(projects);
   return (
     <Fragment>
       {projects.map(project => {
