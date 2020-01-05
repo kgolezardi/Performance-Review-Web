@@ -1,5 +1,5 @@
 # source: http://127.0.0.1:8000/graphql
-# timestamp: Tue Dec 31 2019 14:59:14 GMT+0330 (Iran Standard Time)
+# timestamp: Sun Jan 05 2020 18:00:57 GMT+0330 (Iran Standard Time)
 
 input ChangePasswordMutationInput {
   oldPassword: String!
@@ -33,6 +33,17 @@ enum Evaluation {
   SUPERB
 }
 
+input FinalizeSubmissionMutationInput {
+  revieweeId: ID!
+  clientMutationId: String
+}
+
+type FinalizeSubmissionMutationPayload {
+  viewer: ViewerNode!
+  personReview: PersonReviewNode
+  clientMutationId: String
+}
+
 input LoginMutationInput {
   username: String!
   password: String!
@@ -58,9 +69,11 @@ type Mutation {
   savePersonReview(input: SavePersonReviewMutationInput!): SavePersonReviewMutationPayload!
   saveProjectReview(input: SaveProjectReviewMutationInput!): SaveProjectReviewMutationPayload!
   deleteProjectReview(input: DeleteProjectReviewMutationInput!): DeleteProjectReviewMutationPayload!
+  finalizeSubmission(input: FinalizeSubmissionMutationInput!): FinalizeSubmissionMutationPayload!
   login(input: LoginMutationInput!): LoginMutationPayload!
   logout(input: LogoutMutationInput!): LogoutMutationPayload!
   changePassword(input: ChangePasswordMutationInput!): ChangePasswordMutationPayload!
+  startReview(input: StartReviewMutationInput!): StartReviewMutationPayload!
 }
 
 """An object with an ID"""
@@ -79,6 +92,7 @@ type PersonReviewNode implements Node {
   presenceComment: String
   strengths: [String]
   weaknesses: [String]
+  finalSubmit: Boolean!
 
   """The ID of the object."""
   id: ID!
@@ -107,6 +121,7 @@ type ProjectNode implements Node {
 
 type ProjectReviewNode implements Node {
   project: ProjectNode!
+  reviewee: UserNode!
   text: String
 
   """The ID of the object."""
@@ -164,6 +179,16 @@ type SettingsNode implements Node {
   phase: Phase!
 }
 
+input StartReviewMutationInput {
+  clientMutationId: String
+}
+
+type StartReviewMutationPayload {
+  viewer: ViewerNode!
+  ok: Boolean!
+  clientMutationId: String
+}
+
 type UserNode implements Node {
   """Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only."""
   username: String!
@@ -172,6 +197,7 @@ type UserNode implements Node {
 
   """The ID of the object."""
   id: ID!
+  hasStarted: Boolean
 }
 
 type ViewerNode implements Node {
