@@ -20,7 +20,7 @@ export default function GuidePage(props: Props) {
 
   return (
     <Container maxWidth="md">
-      <Box marginY={2}>
+      <Box marginY={4}>
         <Card>
           <CardHeader
             title={i18n._('How to give feedback to each other?')}
