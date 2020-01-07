@@ -111,7 +111,7 @@ export function ProjectForm(props: Props) {
           </Grid>
           <Grid item>
             <SubmitButton variant="contained" color="primary">
-              {i18n._('Submit')}
+              {i18n._('Save')}
             </SubmitButton>
           </Grid>
         </Grid>
