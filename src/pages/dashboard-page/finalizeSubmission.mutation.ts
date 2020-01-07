@@ -1,10 +1,10 @@
 import graphql from 'babel-plugin-relay/macro';
 import { useMutation } from 'src/relay';
-import { FinalSubmissionPageMutation } from './__generated__/FinalSubmissionPageMutation.graphql';
+import { finalizeSubmissionMutation } from './__generated__/finalizeSubmissionMutation.graphql';
 
 export const useFinalSubmissionMutation = () =>
-  useMutation<FinalSubmissionPageMutation>(graphql`
-    mutation FinalSubmissionPageMutation($input: FinalizeSubmissionMutationInput!) {
+  useMutation<finalizeSubmissionMutation>(graphql`
+    mutation finalizeSubmissionMutation($input: FinalizeSubmissionMutationInput!) {
       finalizeSubmission(input: $input) {
         personReview {
           finalSubmit

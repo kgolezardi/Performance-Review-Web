@@ -4,11 +4,9 @@ import graphql from 'babel-plugin-relay/macro';
 import React from 'react';
 import { useFragment } from 'react-relay/hooks';
 import { FCProps } from 'src/shared/types/FCProps';
-import {
-  PerformanceCompetenciesCircularIndicator_review,
-  PerformanceCompetenciesCircularIndicator_review$key,
-} from './__generated__/PerformanceCompetenciesCircularIndicator_review.graphql';
+import { PerformanceCompetenciesCircularIndicator_review$key } from './__generated__/PerformanceCompetenciesCircularIndicator_review.graphql';
 import { DashboardPageCircularIndicator } from './DashboardPageCircularIndicator';
+import { getNumberOfFilledFieldsOfPerformanceCompetencies, getPerformanceCompetenciesValue } from './utils';
 
 interface OwnProps {
   review: PerformanceCompetenciesCircularIndicator_review$key | null;
@@ -19,9 +17,8 @@ type Props = FCProps<OwnProps>;
 export function PerformanceCompetenciesCircularIndicator(props: Props) {
   const review = useFragment(fragment, props.review);
 
-  const numberOfFilledFields = getNumberOfFilledFields(review);
-  const totalNumber = getLength(review);
-  const value = getValue(numberOfFilledFields, totalNumber);
+  const numberOfFilledFields = getNumberOfFilledFieldsOfPerformanceCompetencies(review);
+  const value = getPerformanceCompetenciesValue(review);
   const color = getColor(numberOfFilledFields);
   const text = getText(numberOfFilledFields);
 
@@ -48,27 +45,6 @@ export const fragment = graphql`
     presenceRating
   }
 `;
-
-const getLength = (obj: object | null) => {
-  if (obj === null) {
-    return 0;
-  }
-  return Object.keys(obj).length;
-};
-
-const getNumberOfFilledFields = (review: PerformanceCompetenciesCircularIndicator_review | null): number => {
-  if (review === null) {
-    return 0;
-  }
-
-  const keys = Object.keys(review) as [keyof PerformanceCompetenciesCircularIndicator_review];
-  const items = keys.map(key => Boolean(review[key]));
-  return items.filter(Boolean).length;
-};
-
-const getValue = (numberOfFilledFields: number, totalNumber: number): number => {
-  return (numberOfFilledFields / totalNumber) * 100;
-};
 
 const getColor = (numberOfFilledFields: number) => {
   if (numberOfFilledFields <= 3) {

@@ -25,9 +25,12 @@ const query = graphql`
       review: findPersonReview(revieweeId: $id) {
         ...PerformanceCompetenciesCircularIndicator_review
         ...DominantCharacteristicsCircularIndicator_review
+        ...FinalSubmission_performanceCompetencies
+        ...FinalSubmission_dominantCharacteristics
       }
       projects: projectReviews {
         ...AchievementsIndicators_projects
+        ...FinalSubmission_projects
       }
     }
   }
@@ -83,7 +86,11 @@ export default function DashboardPage(props: Props) {
           <Grid item xs={12}>
             <Card>
               <CardContent>
-                <FinalSubmission />
+                <FinalSubmission
+                  performanceCompetencies={data.viewer.review}
+                  dominantCharacteristics={data.viewer.review}
+                  projects={data.viewer.projects}
+                />
               </CardContent>
             </Card>
           </Grid>

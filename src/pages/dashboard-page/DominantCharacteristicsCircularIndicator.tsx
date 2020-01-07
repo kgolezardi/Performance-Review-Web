@@ -4,11 +4,9 @@ import graphql from 'babel-plugin-relay/macro';
 import React from 'react';
 import { useFragment } from 'react-relay/hooks';
 import { FCProps } from 'src/shared/types/FCProps';
-import {
-  DominantCharacteristicsCircularIndicator_review,
-  DominantCharacteristicsCircularIndicator_review$key,
-} from './__generated__/DominantCharacteristicsCircularIndicator_review.graphql';
+import { DominantCharacteristicsCircularIndicator_review$key } from './__generated__/DominantCharacteristicsCircularIndicator_review.graphql';
 import { DashboardPageCircularIndicator } from './DashboardPageCircularIndicator';
+import { getDominantCharacteristicsValue, getNumberOfFilledFieldsOfDominantCharacteristics } from './utils';
 
 interface OwnProps {
   review: DominantCharacteristicsCircularIndicator_review$key | null;
@@ -22,9 +20,8 @@ const MAX_WEAKNESSES = 3;
 export function DominantCharacteristicsCircularIndicator(props: Props) {
   const review = useFragment(fragment, props.review);
 
-  const { numberOfStrengths, numberOfWeaknesses } = getNumberOfFilledFields(review);
-  const totalNumber = MAX_STRENGTHS + MAX_WEAKNESSES;
-  const value = getValue(numberOfStrengths, numberOfWeaknesses, totalNumber);
+  const { numberOfStrengths, numberOfWeaknesses } = getNumberOfFilledFieldsOfDominantCharacteristics(review);
+  const value = getDominantCharacteristicsValue(review);
   const color = getColor(numberOfStrengths, numberOfWeaknesses);
   const text = getText(numberOfStrengths, numberOfWeaknesses);
 
@@ -41,23 +38,6 @@ export const fragment = graphql`
     weaknesses
   }
 `;
-
-const getNumberOfFilledFields = (review: DominantCharacteristicsCircularIndicator_review | null) => {
-  if (review === null) {
-    return { numberOfStrengths: 0, numberOfWeaknesses: 0 };
-  }
-  const strengths: ReadonlyArray<any> = review.strengths || [];
-  const weaknesses: ReadonlyArray<any> = review.weaknesses || [];
-
-  const numberOfStrengths = strengths.filter(Boolean).length;
-  const numberOfWeaknesses = weaknesses.filter(Boolean).length;
-
-  return { numberOfStrengths, numberOfWeaknesses };
-};
-
-const getValue = (numberOfStrengths: number, numberOfWeaknesses: number, totalNumber: number) => {
-  return ((numberOfStrengths + numberOfWeaknesses) / totalNumber) * 100;
-};
 
 const getColor = (numberOfStrengths: number, numberOfWeaknesses: number) => {
   if (numberOfStrengths === 0 || numberOfWeaknesses === 0) {
