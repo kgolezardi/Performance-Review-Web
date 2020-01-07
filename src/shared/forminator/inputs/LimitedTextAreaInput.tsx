@@ -1,7 +1,7 @@
-import { makeStyles, Omit, TextField, Theme } from '@material-ui/core';
+import { FormHelperText, makeStyles, Omit, TextField, Theme } from '@material-ui/core';
 import { CSSProperties } from '@material-ui/core/styles/withStyles';
 import { TextFieldProps } from '@material-ui/core/TextField';
-import React, { useCallback } from 'react';
+import React, { Fragment, useCallback } from 'react';
 import { Counter } from 'src/shared/counter';
 import { FCProps } from 'src/shared/types/FCProps';
 import { Styles } from 'src/shared/types/Styles';
@@ -14,7 +14,8 @@ interface OwnProps {
 
 type Props = FCProps<OwnProps> & Omit<TextFieldProps, 'value' | 'onChange' | 'defaultValue'> & StyleProps;
 
-function LimitedTextAreaInput({ initialValue = '', maxChars, ...props }: Props) {
+function LimitedTextAreaInput(props: Props) {
+  const { initialValue = '', maxChars, error, helperText, ...rest } = props;
   const classes = useStyles(props);
 
   const [value, setValue] = useForminatorState(initialValue);
@@ -29,19 +30,25 @@ function LimitedTextAreaInput({ initialValue = '', maxChars, ...props }: Props) 
   );
 
   return (
-    <div className={classes.root}>
-      <TextField
-        multiline
-        {...props}
-        className={classes.textField}
-        InputProps={{ classes: { multiline: classes.multiline } }}
-        value={value}
-        onChange={onChange}
-      />
-      <div className={classes.counterWrapper}>
-        <Counter count={value.length} max={maxChars} />
+    <Fragment>
+      <div className={classes.root}>
+        <TextField
+          multiline
+          {...rest}
+          className={classes.textField}
+          InputProps={{ classes: { multiline: classes.multiline } }}
+          value={value}
+          onChange={onChange}
+          error={error}
+        />
+        <div className={classes.counterWrapper}>
+          <Counter count={value.length} max={maxChars} />
+        </div>
       </div>
-    </div>
+      <FormHelperText error={error} classes={{ root: classes.formHelperTextRoot }}>
+        {helperText}
+      </FormHelperText>
+    </Fragment>
   );
 }
 
@@ -59,6 +66,9 @@ const styles = (theme: Theme) => ({
     position: 'absolute',
     right: theme.spacing(),
     bottom: 0,
+  } as CSSProperties,
+  formHelperTextRoot: {
+    fontFamily: 'Shabnam FD',
   } as CSSProperties,
 });
 

@@ -17,7 +17,7 @@ msgstr ""
 msgid "A guide to Nonviolent Communication(NVC)"
 msgstr "راهنمای مدل NVC (ارتباط بدون خشونت)"
 
-#: src/pages/projects-page/ProjectForm.tsx:59
+#: src/pages/projects-page/ProjectForm.tsx:60
 msgid "Accomplishments"
 msgstr "دستاوردها"
 
@@ -35,7 +35,7 @@ msgstr "افزودن"
 msgid "Add project"
 msgstr "افزودن پروژه"
 
-#: src/pages/projects-page/ProjectForm.tsx:69
+#: src/pages/projects-page/ProjectForm.tsx:70
 msgid "Are you sure you want to delete this project review?"
 msgstr "آیا از حذف  این پروژه مطمین هستید؟"
 
@@ -51,7 +51,7 @@ msgstr "معیارها"
 msgid "Dashboard"
 msgstr "پیشخوان"
 
-#: src/pages/projects-page/ProjectForm.tsx:69
+#: src/pages/projects-page/ProjectForm.tsx:70
 msgid "Delete"
 msgstr "حذف"
 
@@ -69,7 +69,7 @@ msgstr "English"
 msgid "Error"
 msgstr "خطا"
 
-#: src/pages/projects-page/ProjectForm.tsx:53
+#: src/pages/projects-page/ProjectForm.tsx:54
 #: src/shared/criterion-item/CriterionItem.tsx:18
 msgid "Evaluation"
 msgstr "ارزیابی"
@@ -188,7 +188,7 @@ msgstr "پروژه‌"
 msgid "Projects"
 msgstr "پروژه‌ها"
 
-#: src/pages/projects-page/ProjectForm.tsx:64
+#: src/pages/projects-page/ProjectForm.tsx:65
 msgid "Reviewers"
 msgstr "مرورکننده‌ها"
 
@@ -229,7 +229,7 @@ msgstr "بسیار فراتر از انتظارات"
 #: src/core/snackbar/Snackbar.stories.tsx:16
 #: src/core/snackbar/Snackbar.stories.tsx:26
 #: src/pages/criteria-page/CriteriaForm.tsx:47
-#: src/pages/projects-page/ProjectForm.tsx:73
+#: src/pages/projects-page/ProjectForm.tsx:74
 #: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:29
 #: src/shared/rating/Rating.stories.tsx:18
 #: src/shared/rating/Rating.stories.tsx:28
@@ -294,6 +294,10 @@ msgstr "هنوز هیچ پروژه‌ای را اضافه نکردی!"
 #: src/pages/dashboard-page/PerformanceCompetenciesCircularIndicator.tsx:67
 msgid "You haven't entered anything yet!"
 msgstr "هنوز چیزی ننوشتی!"
+
+#: src/shared/accomplishments-limited-text-area-input/AccomplishmentsLimitedTextAreaInput.tsx:28
+msgid "You should write at least {limit} character"
+msgstr "شما باید حداقل {limit} کاراکتر بنویسید"
 
 #: src/pages/dashboard-page/DominantCharacteristicsCircularIndicator.tsx:65
 #: src/pages/dashboard-page/PerformanceCompetenciesCircularIndicator.tsx:73
