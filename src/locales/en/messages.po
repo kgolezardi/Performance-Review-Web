@@ -22,7 +22,7 @@ msgid "Accomplishments"
 msgstr "Accomplishments"
 
 #: src/containers/main/MainContainer.tsx:31
-#: src/pages/dashboard-page/DashboardPage.tsx:49
+#: src/pages/dashboard-page/DashboardPage.tsx:50
 #: src/pages/projects-page/description/ProjectsDescriptionCard.tsx:11
 msgid "Achievements"
 msgstr "Achievements"
@@ -56,7 +56,7 @@ msgid "Delete"
 msgstr "Delete"
 
 #: src/containers/main/MainContainer.tsx:25
-#: src/pages/dashboard-page/DashboardPage.tsx:41
+#: src/pages/dashboard-page/DashboardPage.tsx:42
 #: src/pages/strengths-weaknesses-page/description/StrengthsWeaknessDescriptionCard.tsx:11
 msgid "Dominant Characteristics"
 msgstr "Dominant Characteristics"
@@ -154,7 +154,7 @@ msgstr "Password"
 
 #: src/containers/main/MainContainer.tsx:19
 #: src/pages/criteria-page/description/CriteriaDescriptionCard.tsx:11
-#: src/pages/dashboard-page/DashboardPage.tsx:33
+#: src/pages/dashboard-page/DashboardPage.tsx:34
 msgid "Performance Competencies"
 msgstr "Performance Competencies"
 
@@ -265,6 +265,10 @@ msgstr "Username"
 #: src/shared/auth/Login.tsx:20
 msgid "Username or Password is incorrect."
 msgstr "Username or Password is incorrect."
+
+#: src/pages/dashboard-page/LinkButton.tsx:10
+msgid "View"
+msgstr "View"
 
 #: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:18
 msgid "What I'm awesome at"
