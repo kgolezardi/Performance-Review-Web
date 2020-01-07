@@ -27,4 +27,17 @@ export abstract class BaseOwner<V, Value> implements FragmentOwner<V, Value> {
     const fragmentsValues = await getFragmentsFinalValues(await this.getFragments(fragmentValue), store);
     return await this.calcValue(fragmentValue, fragmentsValues);
   }
+
+  subscribeValue(
+    fragment: ForminatorFragment<V>,
+    store: ForminatorStore,
+    callback: (value: Value) => void,
+  ): () => void {
+    // const emitter = Mitt();
+    // const value = undefined;
+    // const fragmentSubscribable = store.getValueSubscribable<V>(fragment);
+    // const fragmentValue = fragmentSubscribable.getValue();
+    // const fragments = this.getFragments(fragmentValue);
+    return () => {};
+  }
 }

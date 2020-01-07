@@ -5,7 +5,7 @@ import { MDXContext } from '@mdx-js/react';
 import { importMDX } from 'mdx.macro';
 import React, { useContext } from 'react';
 import { CriterionItem } from 'src/shared/criterion-item';
-import { DictInput, Forminator, SubmitButton } from 'src/shared/forminator';
+import { BlockUnsaved, DictInput, Forminator, SubmitButton } from 'src/shared/forminator';
 import { StickyActionBar } from 'src/shared/sticky-action-bar';
 import { FCProps } from 'src/shared/types/FCProps';
 import { CriteriaFormData } from './CriteriaPage';
@@ -31,6 +31,7 @@ export function CriteriaForm(props: Props) {
 
   return (
     <Forminator onSubmit={onSubmit} initialValue={props.initialValue}>
+      <BlockUnsaved message="به کجا چنین شتابان" />
       <DictInput>
         <Grid container spacing={2}>
           <Grid item xs={12}>
