@@ -11,6 +11,7 @@ import { FCProps } from 'src/shared/types/FCProps';
 import { Styles } from 'src/shared/types/Styles';
 import { AchievementsIndicators } from './AchievementsIndicators';
 import { DominantCharacteristicsCircularIndicator } from './DominantCharacteristicsCircularIndicator';
+import { LinkButton } from './LinkButton';
 import { PerformanceCompetenciesCircularIndicator } from './PerformanceCompetenciesCircularIndicator';
 
 interface OwnProps {}
@@ -44,7 +45,11 @@ export default function DashboardPage(props: Props) {
         <Grid container spacing={2}>
           <Grid item xs={12} sm={6} md={4}>
             <Card classes={{ root: classes.progressCard }}>
-              <CardHeader title={i18n._('Performance Competencies')} />
+              <CardHeader
+                title={i18n._('Performance Competencies')}
+                action={<LinkButton to="/performance-competencies" />}
+                classes={{ action: classes.cardHeaderAction }}
+              />
               <CardContent classes={{ root: classes.centerCardContent }}>
                 <PerformanceCompetenciesCircularIndicator review={data.viewer.review} />
               </CardContent>
@@ -52,7 +57,11 @@ export default function DashboardPage(props: Props) {
           </Grid>
           <Grid item xs={12} sm={6} md={4}>
             <Card classes={{ root: classes.progressCard }}>
-              <CardHeader title={i18n._('Dominant Characteristics')} />
+              <CardHeader
+                title={i18n._('Dominant Characteristics')}
+                action={<LinkButton to="/dominant-characteristics" />}
+                classes={{ action: classes.cardHeaderAction }}
+              />
               <CardContent classes={{ root: classes.centerCardContent }}>
                 <DominantCharacteristicsCircularIndicator review={data.viewer.review} />
               </CardContent>
@@ -60,7 +69,11 @@ export default function DashboardPage(props: Props) {
           </Grid>
           <Grid item xs={12} sm={6} md={4}>
             <Card classes={{ root: clsx(classes.progressCard, classes.achievementsCard) }}>
-              <CardHeader title={i18n._('Achievements')} classes={{ root: classes.achievementsHeader }} />
+              <CardHeader
+                title={i18n._('Achievements')}
+                action={<LinkButton to="/achievements" />}
+                classes={{ root: classes.achievementsHeader, action: classes.cardHeaderAction }}
+              />
               <CardContent classes={{ root: classes.achievementsContent }}>
                 <AchievementsIndicators projects={data.viewer.projects} />
               </CardContent>
@@ -90,6 +103,9 @@ const styles = (theme: Theme) => ({
   achievementsContent: {
     flex: 1,
     overflow: 'auto',
+  } as CSSProperties,
+  cardHeaderAction: {
+    marginTop: 0,
   },
 });
 
