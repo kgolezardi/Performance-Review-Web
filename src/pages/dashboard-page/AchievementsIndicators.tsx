@@ -25,7 +25,7 @@ export function AchievementsIndicators(props: Props) {
 
   return (
     <Fragment>
-      {projects.map(project => {
+      {projects.map((project, index) => {
         const value = getValue(project);
         return <ProjectProgress key={project.project.id} value={value} name={project.project.name} />;
       })}

@@ -76,7 +76,7 @@ export default function DashboardPage(props: Props) {
                 classes={{ root: classes.achievementsHeader, action: classes.cardHeaderAction }}
               />
               <Overlayscrollbars className={classes.overlayscrollbars}>
-                <CardContent>
+                <CardContent className={classes.achievementCardContent}>
                   <AchievementsIndicators projects={data.viewer.projects} />
                 </CardContent>
               </Overlayscrollbars>
@@ -105,10 +105,15 @@ const styles = (theme: Theme) => ({
   } as CSSProperties,
   overlayscrollbars: {
     flex: 1,
+    marginBottom: theme.spacing(3),
   } as CSSProperties,
   cardHeaderAction: {
     marginTop: 0,
-  },
+  } as CSSProperties,
+  achievementCardContent: {
+    height: '100%',
+    paddingTop: 0,
+  } as CSSProperties,
 });
 
 const useStyles = makeStyles(styles, { name: 'DashboardPage' });
