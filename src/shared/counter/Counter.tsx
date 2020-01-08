@@ -1,5 +1,7 @@
 import { makeStyles, Theme, Typography } from '@material-ui/core';
+import { amber } from '@material-ui/core/colors';
 import { CSSProperties } from '@material-ui/core/styles/withStyles';
+import clsx from 'clsx';
 import React from 'react';
 import { NumberOutput } from 'src/shared/number-output';
 import { CircularProgress } from 'src/shared/progress';
@@ -9,19 +11,36 @@ import { Styles } from 'src/shared/types/Styles';
 interface OwnProps {
   count: number;
   max: number;
+  warning?: number;
 }
 
 type Props = FCProps<OwnProps> & StyleProps;
 
-export function Counter({ count, max, ...props }: Props) {
+export function Counter(props: Props) {
+  const { count, max, warning = 20 } = props;
   const classes = useStyles(props);
+
+  const remaining = max - count;
+  const color = remaining === 0 ? 'error' : remaining < warning ? 'medium' : 'default';
 
   return (
     <div className={classes.root}>
-      <CircularProgress className={classes.circularProgress} size={18} thickness={6} value={(count * 100) / max} />
-      <Typography variant="caption" className={classes.typography}>
-        <NumberOutput value={count} /> / <NumberOutput value={max} />
+      <Typography
+        variant="caption"
+        className={clsx(classes.typography, {
+          [classes.redColor]: color === 'error',
+          [classes.warningColor]: color === 'medium',
+        })}
+      >
+        <NumberOutput value={remaining} />
       </Typography>
+      <CircularProgress
+        className={classes.circularProgress}
+        size={18}
+        thickness={6}
+        value={(count * 100) / max}
+        color={color}
+      />
     </div>
   );
 }
@@ -31,12 +50,15 @@ const styles = (theme: Theme) => ({
     display: 'flex',
   } as CSSProperties,
   circularProgress: {
-    marginRight: theme.spacing(0.5),
+    marginLeft: theme.spacing(),
   } as CSSProperties,
-  typography: {
-    flip: false,
-    direction: 'ltr',
+  redColor: {
+    color: theme.palette.error.main,
   } as CSSProperties,
+  warningColor: {
+    color: amber[700],
+  } as CSSProperties,
+  typography: {} as CSSProperties,
 });
 
 const useStyles = makeStyles(styles, { name: 'Counter' });
