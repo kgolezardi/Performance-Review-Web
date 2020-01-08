@@ -29,7 +29,7 @@ export function DominantCharacteristicsCircularIndicator(props: Props) {
   const text = getText(numberOfStrengths, numberOfWeaknesses);
 
   return (
-    <DashboardPageCircularIndicator value={value} color={color}>
+    <DashboardPageCircularIndicator value={value} color={color} shadow>
       <Typography>{text}</Typography>
     </DashboardPageCircularIndicator>
   );
