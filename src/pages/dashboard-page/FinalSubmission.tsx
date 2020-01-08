@@ -42,42 +42,18 @@ export function FinalSubmission(props: Props) {
       });
   }, [enqueueSnackbar, revieweeId, finalSubmissionMutation]);
 
-  const contentForEmptyForms = i18n._(
-    "Dear {firstName}, you haven't filled anything yet. We'd be thankful if you filled forms completely and submit them.",
-    { firstName },
-  );
-
-  const contentForFilledForms = i18n._(
-    "Dear {firstName}, you haven'nt filled the forms completely yet. But you can finish your review by clicking on the following button. Keep in mind that after your submission, you can not edit the forms.",
-    { firstName },
-  );
-
-  const contentForCompleteForms = i18n._(
-    'Dear {firstName}, we are really thankful to you. You have completed the review and now you can finish the review by clicking on the following button. Keep in mind that after your submission, you can not edit the forms.',
-    { firstName },
-  );
-
   const performanceCompetenciesValue = getPerformanceCompetenciesValue(performanceCompetencies);
   const dominantCharacteristicsValue = getDominantCharacteristicsValue(dominantCharacteristics);
-  const achievementValue = projects.map(project => getAchievementValue(project));
+  const achievementValue = projects.map(getAchievementValue);
 
   const value = getValue(performanceCompetenciesValue, dominantCharacteristicsValue, achievementValue);
-
-  const getText = () => {
-    if (value === 0) {
-      return contentForEmptyForms;
-    }
-    if (value === 100) {
-      return contentForCompleteForms;
-    }
-    return contentForFilledForms;
-  };
+  const text = getText(performanceCompetenciesValue, dominantCharacteristicsValue, achievementValue, { firstName });
 
   return (
     <Box marginY={3}>
       <Grid container spacing={2} alignItems="center">
         <Grid item sm xs={12}>
-          <Typography>{getText()}</Typography>
+          <Typography>{text}</Typography>
         </Grid>
         <Grid item>
           <ConfirmButton
@@ -138,4 +114,34 @@ const getValue = (
 ) => {
   const achievementsValue = achievementValue.length ? mean(achievementValue) : 0;
   return (performanceCompetenciesValue + dominantCharacteristicsValue + achievementsValue) / 3;
+};
+
+const getText = (
+  performanceCompetenciesValue: number,
+  dominantCharacteristicsValue: number,
+  achievementValue: number[],
+  i18nValues: object,
+) => {
+  const contentForEmptyForms = i18n._(
+    "Dear {firstName}, you haven't filled anything yet. We'd be thankful if you filled forms completely and submit them.",
+    i18nValues,
+  );
+  const contentForFilledForms = i18n._(
+    "Dear {firstName}, you haven'nt filled the forms completely yet. But you can finish your review by clicking on the following button. Keep in mind that after your submission, you can not edit the forms.",
+    i18nValues,
+  );
+  const contentForCompleteForms = i18n._(
+    'Dear {firstName}, we are really thankful to you. You have completed the review and now you can finish the review by clicking on the following button. Keep in mind that after your submission, you can not edit the forms.',
+    i18nValues,
+  );
+
+  const value = getValue(performanceCompetenciesValue, dominantCharacteristicsValue, achievementValue);
+
+  if (value === 0) {
+    return contentForEmptyForms;
+  }
+  if (value === 100) {
+    return contentForCompleteForms;
+  }
+  return contentForFilledForms;
 };
