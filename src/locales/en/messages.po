@@ -200,6 +200,12 @@ msgstr "Role Expertise and Self Development"
 msgid "Sahab"
 msgstr "Sahab"
 
+#: src/pages/criteria-page/CriteriaForm.tsx:47
+#: src/pages/projects-page/ProjectForm.tsx:74
+#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:29
+msgid "Save"
+msgstr "Save"
+
 #: src/shared/rating/Rating.stories.tsx:15
 #: src/shared/rating/Rating.stories.tsx:25
 #: src/shared/select/Select.stories.tsx:20
@@ -228,9 +234,6 @@ msgstr "Strongly Exceeds Expectations"
 
 #: src/core/snackbar/Snackbar.stories.tsx:16
 #: src/core/snackbar/Snackbar.stories.tsx:26
-#: src/pages/criteria-page/CriteriaForm.tsx:47
-#: src/pages/projects-page/ProjectForm.tsx:74
-#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:29
 #: src/shared/rating/Rating.stories.tsx:18
 #: src/shared/rating/Rating.stories.tsx:28
 #: src/shared/select/Select.stories.tsx:23
