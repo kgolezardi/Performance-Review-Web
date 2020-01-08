@@ -26,7 +26,7 @@ export function PerformanceCompetenciesCircularIndicator(props: Props) {
   const text = getText(numberOfFilledFields);
 
   return (
-    <DashboardPageCircularIndicator {...props} color={color} value={value}>
+    <DashboardPageCircularIndicator {...props} color={color} value={value} shadow>
       <Typography>{text}</Typography>
     </DashboardPageCircularIndicator>
   );
