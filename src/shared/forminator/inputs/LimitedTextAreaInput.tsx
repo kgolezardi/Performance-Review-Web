@@ -45,9 +45,11 @@ function LimitedTextAreaInput(props: Props) {
           <Counter count={value.length} max={maxChars} />
         </div>
       </div>
-      <FormHelperText error={error} classes={{ root: classes.formHelperTextRoot }}>
-        {helperText}
-      </FormHelperText>
+      {helperText && (
+        <FormHelperText error={error} classes={{ root: classes.formHelperTextRoot }}>
+          {helperText}
+        </FormHelperText>
+      )}
     </Fragment>
   );
 }
