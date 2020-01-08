@@ -13,6 +13,7 @@ import {
 } from '@material-ui/core';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import graphql from 'babel-plugin-relay/macro';
+import { reverse } from 'ramda';
 import React, { useCallback, useState } from 'react';
 import { useLazyLoadQuery } from 'react-relay/hooks';
 import { DeleteProjectReviewMutationInput } from 'src/pages/projects-page/__generated__/deleteProjectReviewMutation.graphql';
@@ -89,6 +90,8 @@ export default function ProjectsPage(props: Props) {
     () => new Set(data.viewer.projectReviews.map(projectReview => projectReview.project.id)),
   );
 
+  const projectReviews = reverse(data.viewer.projectReviews);
+
   return (
     <Container maxWidth="md">
       <Box marginY={4}>
@@ -112,7 +115,7 @@ export default function ProjectsPage(props: Props) {
           </Grid>
         </Grid>
         <Box marginY={2}>
-          {data.viewer.projectReviews.map(projectReview => {
+          {projectReviews.map(projectReview => {
             return (
               <ExpansionPanel key={projectReview.id} defaultExpanded={!initialProjectIds.has(projectReview.project.id)}>
                 <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
