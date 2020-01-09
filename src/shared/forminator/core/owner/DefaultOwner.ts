@@ -6,7 +6,7 @@ export class DefaultOwner<V> extends BaseOwner<V, V> {
     return fragmentValue;
   }
 
-  async getFragments(fragmentValue: V): Promise<Array<ForminatorFragment<any>>> {
+  getFragments(fragmentValue: V): Array<ForminatorFragment<any>> {
     return [];
   }
 }

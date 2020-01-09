@@ -1,3 +1,4 @@
+import Mitt from 'mitt';
 import { EmptyFragmentError } from '../errors/EmptyFragmentError';
 import { ForminatorFragment } from '../fragment/ForminatorFragment';
 import { ForminatorStore } from '../store/ForminatorStore';
@@ -10,7 +11,7 @@ export abstract class BaseOwner<V, Value> implements FragmentOwner<V, Value> {
    * @param fragmentValue: value of fragment
    * @return list of fragments that final value depends on their values
    */
-  abstract async getFragments(fragmentValue: V): Promise<Array<ForminatorFragment<any>>>;
+  abstract getFragments(fragmentValue: V): Array<ForminatorFragment<any>>;
 
   /**
    *
@@ -24,7 +25,7 @@ export abstract class BaseOwner<V, Value> implements FragmentOwner<V, Value> {
     if (fragmentValue === undefined) {
       throw new EmptyFragmentError(fragment);
     }
-    const fragmentsValues = await getFragmentsFinalValues(await this.getFragments(fragmentValue), store);
+    const fragmentsValues = await getFragmentsFinalValues(this.getFragments(fragmentValue), store);
     return await this.calcValue(fragmentValue, fragmentsValues);
   }
 
@@ -33,11 +34,23 @@ export abstract class BaseOwner<V, Value> implements FragmentOwner<V, Value> {
     store: ForminatorStore,
     callback: (value: Value) => void,
   ): () => void {
-    // const emitter = Mitt();
-    // const value = undefined;
+    const emitter = Mitt();
+
+    const handler = (value: Value) => {
+      callback(value);
+    };
+    emitter.on('value', handler);
+
     // const fragmentSubscribable = store.getValueSubscribable<V>(fragment);
     // const fragmentValue = fragmentSubscribable.getValue();
     // const fragments = this.getFragments(fragmentValue);
-    return () => {};
+    //
+    // console.log(fragments);
+    //
+    // fragmentSubscribable.subscribe(newFragmentValue => {});
+
+    return () => {
+      emitter.off('value', handler);
+    };
   }
 }

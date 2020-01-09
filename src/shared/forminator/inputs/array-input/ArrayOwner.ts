@@ -3,7 +3,7 @@ import { BaseOwner } from '../../core/owner/BaseOwner';
 import { ArrayState } from './arrayReducer';
 
 export class ArrayOwner<V> extends BaseOwner<ArrayState<V>, V[]> {
-  async getFragments(fragmentValue: ArrayState<V>): Promise<Array<ForminatorFragment<V>>> {
+  getFragments(fragmentValue: ArrayState<V>): Array<ForminatorFragment<V>> {
     return fragmentValue;
   }
 

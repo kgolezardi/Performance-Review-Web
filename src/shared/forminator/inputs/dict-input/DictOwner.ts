@@ -4,7 +4,7 @@ import { BaseOwner } from '../../core/owner/BaseOwner';
 import { DictState } from './dictReducer';
 
 export class DictOwner<Value> extends BaseOwner<DictState, Value> {
-  async getFragments(fragmentValue: DictState): Promise<Array<ForminatorFragment<any>>> {
+  getFragments(fragmentValue: DictState): Array<ForminatorFragment<any>> {
     return values(fragmentValue);
   }
 

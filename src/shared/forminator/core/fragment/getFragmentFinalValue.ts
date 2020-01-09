@@ -9,6 +9,6 @@ export async function getFragmentFinalValue<V, Value>(
   fragment: ForminatorFragment<V>,
   store: ForminatorStore,
 ): Promise<Value> {
-  const owner = await getFragmentOwner<V, Value>(fragment, store);
+  const owner = getFragmentOwner<V, Value>(fragment, store);
   return await (owner || defaultOwner).getValue(fragment, store);
 }
