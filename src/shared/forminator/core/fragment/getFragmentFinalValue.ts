@@ -5,10 +5,7 @@ import { ForminatorFragment } from './ForminatorFragment';
 
 const defaultOwner = new DefaultOwner<any>();
 
-export async function getFragmentFinalValue<V, Value>(
-  fragment: ForminatorFragment<V>,
-  store: ForminatorStore,
-): Promise<Value> {
+export function getFragmentFinalValue<V, Value>(fragment: ForminatorFragment<V>, store: ForminatorStore): Value {
   const owner = getFragmentOwner<V, Value>(fragment, store);
-  return await (owner || defaultOwner).getValue(fragment, store);
+  return (owner || defaultOwner).getValue(fragment, store);
 }

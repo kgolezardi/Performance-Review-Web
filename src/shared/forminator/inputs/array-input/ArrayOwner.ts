@@ -7,7 +7,7 @@ export class ArrayOwner<V> extends BaseOwner<ArrayState<V>, V[]> {
     return fragmentValue;
   }
 
-  async calcValue(fragmentValue: ForminatorFragment<V>[], fragmentsValues: Record<string, V>): Promise<V[]> {
+  calcValue(fragmentValue: ForminatorFragment<V>[], fragmentsValues: Record<string, V>): V[] {
     return fragmentValue.map(fragment => fragmentsValues[fragment.id]);
   }
 }

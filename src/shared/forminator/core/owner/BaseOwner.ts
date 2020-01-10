@@ -18,15 +18,15 @@ export abstract class BaseOwner<V, Value> implements FragmentOwner<V, Value> {
    * @param fragmentValue value of fragment
    * @param fragmentsValues map from fragment id to fragment value
    */
-  abstract async calcValue(fragmentValue: V, fragmentsValues: Record<string, any>): Promise<Value>;
+  abstract calcValue(fragmentValue: V, fragmentsValues: Record<string, any>): Value;
 
-  async getValue(fragment: ForminatorFragment<V>, store: ForminatorStore): Promise<Value> {
+  getValue(fragment: ForminatorFragment<V>, store: ForminatorStore): Value {
     const fragmentValue = store.getValueSubscribable<V>(fragment).getValue();
     if (fragmentValue === undefined) {
       throw new EmptyFragmentError(fragment);
     }
-    const fragmentsValues = await getFragmentsFinalValues(this.getFragments(fragmentValue), store);
-    return await this.calcValue(fragmentValue, fragmentsValues);
+    const fragmentsValues = getFragmentsFinalValues(this.getFragments(fragmentValue), store);
+    return this.calcValue(fragmentValue, fragmentsValues);
   }
 
   subscribeValue(

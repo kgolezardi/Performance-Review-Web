@@ -8,7 +8,7 @@ export class DictOwner<Value> extends BaseOwner<DictState, Value> {
     return values(fragmentValue);
   }
 
-  async calcValue(dictValue: DictState, fragmentsValues: Record<string, any>): Promise<Value> {
+  calcValue(dictValue: DictState, fragmentsValues: Record<string, any>): Value {
     return pipe<typeof dictValue, any, any, any>(
       toPairs,
       map(([key, f]) => [key.split('.'), fragmentsValues[f.id]]),
