@@ -1,5 +1,4 @@
 import { makeStyles, Theme, Typography } from '@material-ui/core';
-import { amber } from '@material-ui/core/colors';
 import { CSSProperties } from '@material-ui/core/styles/withStyles';
 import clsx from 'clsx';
 import React from 'react';
@@ -55,9 +54,7 @@ const styles = (theme: Theme) => ({
   redColor: {
     color: theme.palette.error.main,
   } as CSSProperties,
-  warningColor: {
-    color: amber[700],
-  } as CSSProperties,
+  warningColor: {} as CSSProperties,
   typography: {} as CSSProperties,
 });
 
