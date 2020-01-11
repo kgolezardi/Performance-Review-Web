@@ -8,6 +8,7 @@ import { RtlSupportProvider } from 'src/core/rtl/RtlSupportProvider';
 import { GlobalStyles } from 'src/core/styles/GlobalStyles';
 import { ltrTheme, rtlTheme } from 'src/core/theme';
 import { directionState } from 'src/stories/direction-state';
+import { StoryDummy } from './StoryDummy';
 import { TransparentBackground } from './TransparentBackground';
 
 interface themeDecoratorOptions {
@@ -29,7 +30,7 @@ export const themeDecorator = ({
         <CssBaseline />
         <GlobalStyles />
         {transparent && <TransparentBackground />}
-        {storyFn()}
+        <StoryDummy storyFn={storyFn} />
       </ThemeProvider>
     </RtlSupportProvider>
   );
