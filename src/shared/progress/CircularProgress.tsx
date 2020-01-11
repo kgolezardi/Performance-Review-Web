@@ -13,14 +13,14 @@ import { FCProps } from 'src/shared/types/FCProps';
 import { Styles } from 'src/shared/types/Styles';
 
 interface OwnProps extends Omit<CircularProgressProps, 'color' | 'variant'> {
-  color?: 'low' | 'medium' | 'high' | 'complete';
+  color?: 'low' | 'medium' | 'high' | 'complete' | 'error' | 'default';
   shadow?: boolean;
 }
 
 type Props = FCProps<OwnProps> & StyleProps;
 
 export function CircularProgress(props: Props) {
-  const { children, color, value: finalValue = 0, shadow, ...rest } = props;
+  const { children, color = 'default', value: finalValue = 0, shadow, ...rest } = props;
   const classes = useStyles(props);
   const [value, setValue] = useState(0);
 
@@ -46,13 +46,16 @@ export function CircularProgress(props: Props) {
         classes={{
           root: classes.circularProgressRoot,
           circle: clsx(classes.circularProgressCircle, {
+            [classes.circularProgressColorErrorSvg]: color === 'error',
             [classes.circularProgressColorLowSvg]: color === 'low',
             [classes.circularProgressColorMediumSvg]: color === 'medium',
             [classes.circularProgressColorHighSvg]: color === 'high',
             [classes.circularProgressColorCompleteSvg]: color === 'complete',
           }),
           svg: clsx(classes.circularProgressColorDefaultSvg, {
-            [classes.circularProgressColorDefaultSvg]: color === undefined && shadow,
+            [classes.circularProgressColorDefaultSvg]: color === 'default' && shadow,
+            [classes.circularProgressColorErrorSvg]: color === 'error',
+            [classes.circularProgressColorErrorSvgShadow]: color === 'error' && shadow,
             [classes.circularProgressColorLowSvg]: color === 'low',
             [classes.circularProgressColorLowSvgShadow]: color === 'low' && shadow,
             [classes.circularProgressColorMediumSvg]: color === 'medium',
@@ -87,6 +90,12 @@ const styles = (theme: Theme) => ({
   circularProgressColorDefaultSvg: {} as CSSProperties,
   circularProgressColorDefaultSvgShadow: {
     filter: `drop-shadow(0 0 2px ${lighten(theme.palette.primary.main, 0.6)})`,
+  } as CSSProperties,
+  circularProgressColorErrorSvg: {
+    color: theme.palette.error.main,
+  } as CSSProperties,
+  circularProgressColorErrorSvgShadow: {
+    filter: `drop-shadow(0 0 2px ${lighten(theme.palette.error.main, 0.6)})`,
   } as CSSProperties,
   circularProgressColorLowSvg: {
     color: deepOrange[300],
