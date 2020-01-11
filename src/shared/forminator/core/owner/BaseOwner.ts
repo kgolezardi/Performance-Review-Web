@@ -1,9 +1,9 @@
-import Mitt from 'mitt';
 import { EmptyFragmentError } from '../errors/EmptyFragmentError';
 import { ForminatorFragment } from '../fragment/ForminatorFragment';
 import { ForminatorStore } from '../store/ForminatorStore';
 import { FragmentOwner } from './FragmentOwner';
 import { getFragmentsFinalValues } from './getFragmentsFinalValues';
+import { subscribeFragmentsFinalValues } from './subscribeFragmentsFinalValues';
 
 export abstract class BaseOwner<V, Value> implements FragmentOwner<V, Value> {
   /**
@@ -34,23 +34,27 @@ export abstract class BaseOwner<V, Value> implements FragmentOwner<V, Value> {
     store: ForminatorStore,
     callback: (value: Value) => void,
   ): () => void {
-    const emitter = Mitt();
+    const fragmentSubscribable = store.getValueSubscribable<V>(fragment);
 
-    const handler = (value: Value) => {
-      callback(value);
-    };
-    emitter.on('value', handler);
-
-    // const fragmentSubscribable = store.getValueSubscribable<V>(fragment);
-    // const fragmentValue = fragmentSubscribable.getValue();
-    // const fragments = this.getFragments(fragmentValue);
-    //
-    // console.log(fragments);
-    //
-    // fragmentSubscribable.subscribe(newFragmentValue => {});
+    let fragmentValue = fragmentSubscribable.getValue();
+    let fragments: Array<ForminatorFragment<any>> = fragmentValue === undefined ? [] : this.getFragments(fragmentValue);
+    let resubscribe = subscribeFragmentsFinalValues(fragments, store, newFragmentsValues => {
+      const newFragmentValue = fragmentSubscribable.getValue();
+      if (newFragmentValue === undefined) {
+        return;
+      }
+      callback(this.calcValue(newFragmentValue, newFragmentsValues));
+    });
+    const unsubscribe = fragmentSubscribable.subscribe(newFragmentValue => {
+      fragmentValue = newFragmentValue;
+      let newFragments: Array<ForminatorFragment<any>> =
+        fragmentValue === undefined ? [] : this.getFragments(fragmentValue);
+      resubscribe(newFragments);
+    });
 
     return () => {
-      emitter.off('value', handler);
+      unsubscribe();
+      resubscribe([]);
     };
   }
 }
