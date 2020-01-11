@@ -1,6 +1,7 @@
 import { EmptyFragmentError } from '../errors/EmptyFragmentError';
 import { ForminatorFragment } from '../fragment/ForminatorFragment';
 import { ForminatorStore } from '../store/ForminatorStore';
+import { ReadOnlySubscribable } from '../subscribable/types';
 import { FragmentOwner } from './FragmentOwner';
 import { getFragmentsFinalValues } from './getFragmentsFinalValues';
 import { subscribeFragmentsFinalValues } from './subscribeFragmentsFinalValues';
@@ -36,19 +37,28 @@ export abstract class BaseOwner<V, Value> implements FragmentOwner<V, Value> {
   ): () => void {
     const fragmentSubscribable = store.getValueSubscribable<V>(fragment);
 
-    let fragmentValue = fragmentSubscribable.getValue();
+    let fragmentValue: V | undefined = fragmentSubscribable.getValue();
+    let fragmentsValues: Record<string, any> | undefined = undefined;
+    if (fragmentValue !== undefined) {
+      try {
+        fragmentsValues = getFragmentsFinalValues(this.getFragments(fragmentValue), store);
+      } catch (e) {}
+    }
     let fragments: Array<ForminatorFragment<any>> = fragmentValue === undefined ? [] : this.getFragments(fragmentValue);
     let resubscribe = subscribeFragmentsFinalValues(fragments, store, newFragmentsValues => {
-      const newFragmentValue = fragmentSubscribable.getValue();
-      if (newFragmentValue === undefined) {
+      fragmentsValues = newFragmentsValues;
+      if (fragmentValue === undefined) {
         return;
       }
-      callback(this.calcValue(newFragmentValue, newFragmentsValues));
+      callback(this.calcValue(fragmentValue, newFragmentsValues));
     });
     const unsubscribe = fragmentSubscribable.subscribe(newFragmentValue => {
       fragmentValue = newFragmentValue;
       let newFragments: Array<ForminatorFragment<any>> =
         fragmentValue === undefined ? [] : this.getFragments(fragmentValue);
+      if (fragmentsValues !== undefined) {
+        callback(this.calcValue(newFragmentValue, fragmentsValues));
+      }
       resubscribe(newFragments);
     });
 
@@ -56,5 +66,28 @@ export abstract class BaseOwner<V, Value> implements FragmentOwner<V, Value> {
       unsubscribe();
       resubscribe([]);
     };
+  }
+
+  private _subscribable: ReadOnlySubscribable<Value> | undefined = undefined;
+
+  getSubscribable<V>(fragment: ForminatorFragment<V>, store: ForminatorStore): ReadOnlySubscribable<Value> {
+    const owner = this;
+    if (this._subscribable) {
+      return this._subscribable;
+    }
+    const subscribable: ReadOnlySubscribable<Value> = {
+      getValue(defaultValue?: Value): any {
+        let value;
+        try {
+          value = owner.getValue(fragment, store);
+        } catch (e) {}
+        return value === undefined ? defaultValue : value;
+      },
+      subscribe(callback: (value: Value) => void): () => void {
+        return owner.subscribeValue(fragment, store, callback);
+      },
+    };
+    this._subscribable = subscribable;
+    return subscribable;
   }
 }
