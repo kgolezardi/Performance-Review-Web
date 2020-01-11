@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { routerDecorator } from 'src/stories/decorators';
 import { Prompt } from './Prompt';
 import { useLocation } from 'react-router';
+import { PromptProvider, usePrompt } from './PromptProvider';
 const Links = () => {
   const location = useLocation();
   return (
@@ -11,6 +12,23 @@ const Links = () => {
       <Link to="/one">link 1</Link> <Link to="/two">link 2</Link>
       <br />
       pathname: {location.pathname}
+    </div>
+  );
+};
+
+const PromptButton = (props: { id: string }) => {
+  const [when, setWhen] = useState(true);
+  usePrompt(props.id, when);
+  return (
+    <div>
+      <button
+        onClick={() => {
+          setWhen(w => !w);
+        }}
+      >
+        toggle
+      </button>
+      when: {when + ''}
     </div>
   );
 };
@@ -53,4 +71,13 @@ storiesOf('Prompt', module)
         <Links />
       </div>
     );
-  });
+  })
+  .add('provider', () => (
+    <div>
+      <PromptProvider message="where are you going?">
+        <PromptButton id="a" />
+        <PromptButton id="b" />
+      </PromptProvider>
+      <Links />
+    </div>
+  ));
