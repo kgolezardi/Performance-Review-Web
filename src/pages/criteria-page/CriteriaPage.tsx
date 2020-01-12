@@ -9,8 +9,10 @@ import { useMutation } from 'src/relay';
 import { FullPageSpinner } from 'src/shared/loading';
 import { useBiDiSnackbar } from 'src/shared/snackbar';
 import { FCProps } from 'src/shared/types/FCProps';
-import { CriteriaPageMutation, Evaluation } from './__generated__/CriteriaPageMutation.graphql';
+import { PromptProvider } from 'src/shared/prompt';
+import { CriteriaPageMutation } from './__generated__/CriteriaPageMutation.graphql';
 import { CriteriaForm } from './CriteriaForm';
+import { CriteriaFormData } from './CriteriaFormData';
 
 interface OwnProps {}
 
@@ -77,40 +79,27 @@ export default function CriteriaPage(props: Props) {
     <Suspense fallback={<FullPageSpinner />}>
       <Container maxWidth="md">
         <Box marginY={4}>
-          <CriteriaForm
-            onSubmit={handleSubmit}
-            initialValue={{
-              executionComment: review?.executionComment || undefined,
-              executionRating: review?.executionRating || undefined,
-              leadershipComment: review?.leadershipComment || undefined,
-              leadershipRating: review?.leadershipRating || undefined,
-              presenceComment: review?.presenceComment || undefined,
-              presenceRating: review?.presenceRating || undefined,
-              problemSolvingComment: review?.problemSolvingComment || undefined,
-              problemSolvingRating: review?.problemSolvingRating || undefined,
-              sahabinessComment: review?.sahabinessComment || undefined,
-              sahabinessRating: review?.sahabinessRating || undefined,
-              thoughtLeadershipComment: review?.thoughtLeadershipComment || undefined,
-              thoughtLeadershipRating: review?.thoughtLeadershipRating || undefined,
-            }}
-          />
+          <PromptProvider message={i18n._('Changes you made may not be saved.')}>
+            <CriteriaForm
+              onSubmit={handleSubmit}
+              initialValue={{
+                executionComment: review?.executionComment || undefined,
+                executionRating: review?.executionRating || undefined,
+                leadershipComment: review?.leadershipComment || undefined,
+                leadershipRating: review?.leadershipRating || undefined,
+                presenceComment: review?.presenceComment || undefined,
+                presenceRating: review?.presenceRating || undefined,
+                problemSolvingComment: review?.problemSolvingComment || undefined,
+                problemSolvingRating: review?.problemSolvingRating || undefined,
+                sahabinessComment: review?.sahabinessComment || undefined,
+                sahabinessRating: review?.sahabinessRating || undefined,
+                thoughtLeadershipComment: review?.thoughtLeadershipComment || undefined,
+                thoughtLeadershipRating: review?.thoughtLeadershipRating || undefined,
+              }}
+            />
+          </PromptProvider>
         </Box>
       </Container>
     </Suspense>
   );
-}
-
-export interface CriteriaFormData {
-  sahabinessRating?: Evaluation;
-  sahabinessComment?: string;
-  problemSolvingRating?: Evaluation;
-  problemSolvingComment?: string;
-  executionRating?: Evaluation;
-  executionComment?: string;
-  thoughtLeadershipRating?: Evaluation;
-  thoughtLeadershipComment?: string;
-  leadershipRating?: Evaluation;
-  leadershipComment?: string;
-  presenceRating?: Evaluation;
-  presenceComment?: string;
 }

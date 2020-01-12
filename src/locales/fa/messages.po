@@ -31,7 +31,7 @@ msgstr "دستاوردها"
 msgid "Add"
 msgstr "افزودن"
 
-#: src/pages/projects-page/ProjectsPage.tsx:63
+#: src/pages/projects-page/ProjectsPage.tsx:65
 msgid "Add project"
 msgstr "افزودن پروژه"
 
@@ -42,6 +42,10 @@ msgstr "آیا از حذف  این پروژه مطمین هستید؟"
 #: src/shared/sticky-action-bar/StickyActionBar.stories.tsx:14
 msgid "Cancel"
 msgstr "لغو"
+
+#: src/pages/criteria-page/CriteriaPage.tsx:63
+msgid "Changes you made may not be saved."
+msgstr "ممکن است تغییرات ایجاد شده ذخیره نشده باشد."
 
 #: src/shared/full-page-error/FullPageError.stories.tsx:9
 msgid "Criteria"
@@ -70,11 +74,11 @@ msgid "Error"
 msgstr "خطا"
 
 #: src/pages/projects-page/ProjectForm.tsx:54
-#: src/shared/criterion-item/CriterionItem.tsx:18
+#: src/shared/criterion-item/CriterionItem.tsx:22
 msgid "Evaluation"
 msgstr "ارزیابی"
 
-#: src/shared/criterion-item/CriterionItem.tsx:24
+#: src/shared/criterion-item/CriterionItem.tsx:29
 msgid "Evidence"
 msgstr "شواهد"
 
@@ -82,7 +86,7 @@ msgstr "شواهد"
 msgid "Exceeds Expectations"
 msgstr "فراتر از انتظارات"
 
-#: src/pages/criteria-page/CriteriaForm.tsx:33
+#: src/pages/criteria-page/CriteriaForm.tsx:35
 msgid "Execution"
 msgstr "اجرا"
 
@@ -116,7 +120,7 @@ msgstr "کاش بیشتر برامون بنویسی!"
 msgid "It's complete!"
 msgstr "تکمیل شد!"
 
-#: src/pages/criteria-page/CriteriaForm.tsx:39
+#: src/pages/criteria-page/CriteriaForm.tsx:41
 msgid "Leadership"
 msgstr "رهبری خودظهور"
 
@@ -144,7 +148,7 @@ msgstr "نیازمند به تلاش"
 msgid "No"
 msgstr "خیر"
 
-#: src/pages/criteria-page/CriteriaForm.tsx:27
+#: src/pages/criteria-page/CriteriaForm.tsx:29
 msgid "Organization Culture Adoption"
 msgstr "انطباق با فرهنگ سازمانی"
 
@@ -172,11 +176,11 @@ msgstr "سامانه ارزیابی همکاران"
 msgid "Persian"
 msgstr "فارسی"
 
-#: src/pages/criteria-page/CriteriaForm.tsx:42
+#: src/pages/criteria-page/CriteriaForm.tsx:44
 msgid "Presence"
 msgstr "اثر حضور"
 
-#: src/pages/criteria-page/CriteriaForm.tsx:30
+#: src/pages/criteria-page/CriteriaForm.tsx:32
 msgid "Problem Solving"
 msgstr "حل مسئله"
 
@@ -200,7 +204,7 @@ msgstr "مرجعیت تخصصی"
 msgid "Sahab"
 msgstr "سحاب"
 
-#: src/pages/criteria-page/CriteriaForm.tsx:47
+#: src/pages/criteria-page/CriteriaForm.tsx:49
 #: src/pages/projects-page/ProjectForm.tsx:74
 #: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:29
 msgid "Save"
@@ -214,8 +218,8 @@ msgid "Select"
 msgstr "انتخاب کنید"
 
 #: src/core/snackbar/Snackbar.stories.tsx:24
-#: src/pages/criteria-page/CriteriaPage.tsx:55
-#: src/pages/projects-page/ProjectsPage.tsx:44
+#: src/pages/criteria-page/CriteriaPage.tsx:56
+#: src/pages/projects-page/ProjectsPage.tsx:45
 #: src/pages/strengths-weaknesses-page/StrengthsWeaknessesPage.tsx:61
 msgid "Something went wrong."
 msgstr "خطایی رخ داد."
@@ -243,8 +247,8 @@ msgid "Submit"
 msgstr "ثبت"
 
 #: src/core/snackbar/Snackbar.stories.tsx:14
-#: src/pages/criteria-page/CriteriaPage.tsx:52
-#: src/pages/projects-page/ProjectsPage.tsx:41
+#: src/pages/criteria-page/CriteriaPage.tsx:53
+#: src/pages/projects-page/ProjectsPage.tsx:42
 #: src/pages/strengths-weaknesses-page/StrengthsWeaknessesPage.tsx:58
 msgid "Successfully saved."
 msgstr "با موفقیت ثبت گردید."
@@ -253,7 +257,7 @@ msgstr "با موفقیت ثبت گردید."
 msgid "Superb"
 msgstr "فوق‌العاده"
 
-#: src/pages/criteria-page/CriteriaForm.tsx:36
+#: src/pages/criteria-page/CriteriaForm.tsx:38
 msgid "Thought Leadership"
 msgstr "مرجعیت تخصصی"
 
