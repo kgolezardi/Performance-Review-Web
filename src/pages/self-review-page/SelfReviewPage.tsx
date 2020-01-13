@@ -60,7 +60,9 @@ export default function SelfReviewPage(props: Props) {
 }
 const styles = (theme: Theme) => ({
   tabsPaper: {
-    position: 'relative',
+    position: 'sticky',
+    top: 0,
+    zIndex: theme.zIndex.appBar - 25,
     borderBottomLeftRadius: 0,
     borderBottomRightRadius: 0,
   } as CSSProperties,
