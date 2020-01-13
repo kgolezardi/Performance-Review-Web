@@ -17,7 +17,7 @@ msgstr ""
 msgid "A guide to Nonviolent Communication(NVC)"
 msgstr "راهنمای مدل NVC (ارتباط بدون خشونت)"
 
-#: src/pages/projects-page/ProjectForm.tsx:60
+#: src/pages/projects-page/ProjectForm.tsx:64
 msgid "Accomplishments"
 msgstr "دستاوردها"
 
@@ -31,11 +31,11 @@ msgstr "دستاوردها"
 msgid "Add"
 msgstr "افزودن"
 
-#: src/pages/projects-page/ProjectsPage.tsx:65
+#: src/pages/projects-page/ProjectsPage.tsx:66
 msgid "Add project"
 msgstr "افزودن پروژه"
 
-#: src/pages/projects-page/ProjectForm.tsx:70
+#: src/pages/projects-page/ProjectForm.tsx:76
 msgid "Are you sure you want to delete this project review?"
 msgstr "آیا از حذف  این پروژه مطمین هستید؟"
 
@@ -44,6 +44,8 @@ msgid "Cancel"
 msgstr "لغو"
 
 #: src/pages/criteria-page/CriteriaPage.tsx:63
+#: src/pages/projects-page/ProjectsPage.tsx:76
+#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesPage.tsx:61
 msgid "Changes you made may not be saved."
 msgstr "ممکن است تغییرات ایجاد شده ذخیره نشده باشد."
 
@@ -55,7 +57,7 @@ msgstr "معیارها"
 msgid "Dashboard"
 msgstr "پیشخوان"
 
-#: src/pages/projects-page/ProjectForm.tsx:70
+#: src/pages/projects-page/ProjectForm.tsx:76
 msgid "Delete"
 msgstr "حذف"
 
@@ -73,7 +75,7 @@ msgstr "English"
 msgid "Error"
 msgstr "خطا"
 
-#: src/pages/projects-page/ProjectForm.tsx:54
+#: src/pages/projects-page/ProjectForm.tsx:57
 #: src/shared/criterion-item/CriterionItem.tsx:22
 msgid "Evaluation"
 msgstr "ارزیابی"
@@ -132,11 +134,11 @@ msgstr "ورود به ناحیه کاربری"
 msgid "Meets Expectations"
 msgstr "مطابق با انتظارات"
 
-#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:24
+#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:30
 msgid "Most important characteristics or behaviours I should improve in myself"
 msgstr "مهمترین ویژگی ها یا رفتارهایی که باید باید توی خودم بهبودشون بدم"
 
-#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:18
+#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:23
 msgid "Most important characteristics or effective behaviours that I should maintain"
 msgstr "مهمترین ویژگی ها یا رفتارهای مؤثری که باید ادامه شون بدم"
 
@@ -192,7 +194,7 @@ msgstr "پروژه‌"
 msgid "Projects"
 msgstr "پروژه‌ها"
 
-#: src/pages/projects-page/ProjectForm.tsx:65
+#: src/pages/projects-page/ProjectForm.tsx:70
 msgid "Reviewers"
 msgstr "مرورکننده‌ها"
 
@@ -205,8 +207,8 @@ msgid "Sahab"
 msgstr "سحاب"
 
 #: src/pages/criteria-page/CriteriaForm.tsx:49
-#: src/pages/projects-page/ProjectForm.tsx:74
-#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:29
+#: src/pages/projects-page/ProjectForm.tsx:80
+#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:36
 msgid "Save"
 msgstr "ذخیره"
 
@@ -219,8 +221,8 @@ msgstr "انتخاب کنید"
 
 #: src/core/snackbar/Snackbar.stories.tsx:24
 #: src/pages/criteria-page/CriteriaPage.tsx:56
-#: src/pages/projects-page/ProjectsPage.tsx:45
-#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesPage.tsx:61
+#: src/pages/projects-page/ProjectsPage.tsx:46
+#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesPage.tsx:56
 msgid "Something went wrong."
 msgstr "خطایی رخ داد."
 
@@ -248,8 +250,8 @@ msgstr "ثبت"
 
 #: src/core/snackbar/Snackbar.stories.tsx:14
 #: src/pages/criteria-page/CriteriaPage.tsx:53
-#: src/pages/projects-page/ProjectsPage.tsx:42
-#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesPage.tsx:58
+#: src/pages/projects-page/ProjectsPage.tsx:43
+#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesPage.tsx:53
 msgid "Successfully saved."
 msgstr "با موفقیت ثبت گردید."
 
@@ -277,7 +279,7 @@ msgstr "نام کاربری یا گذرواژه اشتباه است."
 msgid "View"
 msgstr "مشاهده"
 
-#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:18
+#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:23
 msgid "What I'm awesome at"
 msgstr "تو چی خفنم"
 
@@ -285,7 +287,7 @@ msgstr "تو چی خفنم"
 msgid "What else"
 msgstr "دیگه چی"
 
-#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:24
+#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:30
 msgid "What to improve"
 msgstr "چیمو بهبود بدم"
 

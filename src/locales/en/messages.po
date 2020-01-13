@@ -17,7 +17,7 @@ msgstr ""
 msgid "A guide to Nonviolent Communication(NVC)"
 msgstr "A guide to Nonviolent Communication(NVC)"
 
-#: src/pages/projects-page/ProjectForm.tsx:60
+#: src/pages/projects-page/ProjectForm.tsx:64
 msgid "Accomplishments"
 msgstr "Accomplishments"
 
@@ -31,11 +31,11 @@ msgstr "Achievements"
 msgid "Add"
 msgstr "Add"
 
-#: src/pages/projects-page/ProjectsPage.tsx:65
+#: src/pages/projects-page/ProjectsPage.tsx:66
 msgid "Add project"
 msgstr "Add project"
 
-#: src/pages/projects-page/ProjectForm.tsx:70
+#: src/pages/projects-page/ProjectForm.tsx:76
 msgid "Are you sure you want to delete this project review?"
 msgstr "Are you sure you want to delete this project review?"
 
@@ -44,6 +44,8 @@ msgid "Cancel"
 msgstr "Cancel"
 
 #: src/pages/criteria-page/CriteriaPage.tsx:63
+#: src/pages/projects-page/ProjectsPage.tsx:76
+#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesPage.tsx:61
 msgid "Changes you made may not be saved."
 msgstr "Changes you made may not be saved."
 
@@ -55,7 +57,7 @@ msgstr "Criteria"
 msgid "Dashboard"
 msgstr "Dashboard"
 
-#: src/pages/projects-page/ProjectForm.tsx:70
+#: src/pages/projects-page/ProjectForm.tsx:76
 msgid "Delete"
 msgstr "Delete"
 
@@ -73,7 +75,7 @@ msgstr "English"
 msgid "Error"
 msgstr "Error"
 
-#: src/pages/projects-page/ProjectForm.tsx:54
+#: src/pages/projects-page/ProjectForm.tsx:57
 #: src/shared/criterion-item/CriterionItem.tsx:22
 msgid "Evaluation"
 msgstr "Evaluation"
@@ -132,11 +134,11 @@ msgstr "Login to user panel"
 msgid "Meets Expectations"
 msgstr "Meets Expectations"
 
-#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:24
+#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:30
 msgid "Most important characteristics or behaviours I should improve in myself"
 msgstr "Most important characteristics or behaviours I should improve in myself"
 
-#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:18
+#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:23
 msgid "Most important characteristics or effective behaviours that I should maintain"
 msgstr "Most important characteristics or effective behaviours that I should maintain"
 
@@ -192,7 +194,7 @@ msgstr "Project"
 msgid "Projects"
 msgstr "Projects"
 
-#: src/pages/projects-page/ProjectForm.tsx:65
+#: src/pages/projects-page/ProjectForm.tsx:70
 msgid "Reviewers"
 msgstr "Reviewers"
 
@@ -205,8 +207,8 @@ msgid "Sahab"
 msgstr "Sahab"
 
 #: src/pages/criteria-page/CriteriaForm.tsx:49
-#: src/pages/projects-page/ProjectForm.tsx:74
-#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:29
+#: src/pages/projects-page/ProjectForm.tsx:80
+#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:36
 msgid "Save"
 msgstr "Save"
 
@@ -219,8 +221,8 @@ msgstr "Select"
 
 #: src/core/snackbar/Snackbar.stories.tsx:24
 #: src/pages/criteria-page/CriteriaPage.tsx:56
-#: src/pages/projects-page/ProjectsPage.tsx:45
-#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesPage.tsx:61
+#: src/pages/projects-page/ProjectsPage.tsx:46
+#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesPage.tsx:56
 msgid "Something went wrong."
 msgstr "Something went wrong."
 
@@ -248,8 +250,8 @@ msgstr "Submit"
 
 #: src/core/snackbar/Snackbar.stories.tsx:14
 #: src/pages/criteria-page/CriteriaPage.tsx:53
-#: src/pages/projects-page/ProjectsPage.tsx:42
-#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesPage.tsx:58
+#: src/pages/projects-page/ProjectsPage.tsx:43
+#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesPage.tsx:53
 msgid "Successfully saved."
 msgstr "Successfully saved."
 
@@ -277,7 +279,7 @@ msgstr "Username or Password is incorrect."
 msgid "View"
 msgstr "View"
 
-#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:18
+#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:23
 msgid "What I'm awesome at"
 msgstr "What I'm awesome at"
 
@@ -285,7 +287,7 @@ msgstr "What I'm awesome at"
 msgid "What else"
 msgstr "What else"
 
-#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:24
+#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:30
 msgid "What to improve"
 msgstr "What to improve"
 
