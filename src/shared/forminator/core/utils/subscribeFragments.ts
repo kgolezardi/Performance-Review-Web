@@ -55,3 +55,7 @@ export function subscribeFragments<V>(
     });
   };
 }
+
+export function getFragmentsValues<V>(fragments: ForminatorFragment[], store: ForminatorStore): Array<V | undefined> {
+  return fragments.map(fragment => store.getValueSubscribable(fragment).getValue());
+}
