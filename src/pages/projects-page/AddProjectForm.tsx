@@ -42,9 +42,11 @@ export function AddProjectForm(props: Props) {
     <Forminator onSubmit={onSubmit}>
       <DictInput>
         <Grid container spacing={2} alignItems="center">
-          <Grid item xs>
+          <Grid item>
             <DictInputItem field="projectId">
-              <ProjectInput label={i18n._('Project')} projects={props.projects} excludes={selectedProjectIds} />
+              <Box width={240}>
+                <ProjectInput label={i18n._('Project')} projects={props.projects} excludes={selectedProjectIds} />
+              </Box>
             </DictInputItem>
           </Grid>
           <Grid item>
