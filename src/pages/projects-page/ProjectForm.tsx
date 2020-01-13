@@ -6,7 +6,6 @@ import React, { useCallback, useMemo } from 'react';
 import { useFragment } from 'react-relay/hooks';
 import { useAuthGuardUser } from 'src/core/auth';
 import { DeleteProjectReviewMutationInput } from 'src/pages/projects-page/__generated__/deleteProjectReviewMutation.graphql';
-import AccomplishmentsLimitedTextAreaInput from 'src/shared/accomplishments-limited-text-area-input/AccomplishmentsLimitedTextAreaInput';
 import { ConfirmButton } from 'src/shared/confirm-button';
 import { DangerButton } from 'src/shared/danger-button';
 import {
@@ -15,6 +14,7 @@ import {
   DictInputItem,
   Forminator,
   FragmentPrompt,
+  LimitedTextAreaInput,
   SubmitButton,
 } from 'src/shared/forminator';
 import { Rating } from 'src/shared/rating';
@@ -98,12 +98,7 @@ export function ProjectForm(props: Props) {
           </Grid>
           <Grid item xs={12}>
             <DictInputItem field="text">
-              <AccomplishmentsLimitedTextAreaInput
-                label={i18n._('Accomplishments')}
-                maxChars={512}
-                variant="outlined"
-                fullWidth
-              />
+              <LimitedTextAreaInput label={i18n._('Accomplishments')} maxChars={512} variant="outlined" fullWidth />
               <FragmentPrompt value={initialValue.text || ''} />
             </DictInputItem>
           </Grid>

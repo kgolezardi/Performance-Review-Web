@@ -1,5 +1,5 @@
 import { i18n } from '@lingui/core';
-import { Box, Container } from '@material-ui/core';
+import { Box } from '@material-ui/core';
 import graphql from 'babel-plugin-relay/macro';
 import React, { useCallback } from 'react';
 import { useLazyLoadQuery } from 'react-relay/hooks';
@@ -69,19 +69,17 @@ export default function StrengthsWeaknessesPage() {
   );
 
   return (
-    <Container maxWidth="md">
-      <Box marginY={4}>
-        <PromptProvider message={i18n._('Changes you made may not be saved.')}>
-          <StrengthsWeaknessesForm
-            onSubmit={handleSubmit}
-            initialValue={{
-              strengths: normalizeArray(review?.strengths),
-              weaknesses: normalizeArray(review?.weaknesses),
-            }}
-          />
-        </PromptProvider>
-      </Box>
-    </Container>
+    <Box padding={4}>
+      <PromptProvider message={i18n._('Changes you made may not be saved.')}>
+        <StrengthsWeaknessesForm
+          onSubmit={handleSubmit}
+          initialValue={{
+            strengths: normalizeArray(review?.strengths),
+            weaknesses: normalizeArray(review?.weaknesses),
+          }}
+        />
+      </PromptProvider>
+    </Box>
   );
 }
 

@@ -17,25 +17,21 @@ msgstr ""
 msgid "A guide to Nonviolent Communication(NVC)"
 msgstr "راهنمای مدل NVC (ارتباط بدون خشونت)"
 
-#: src/pages/projects-page/ProjectForm.tsx:64
+#: src/pages/projects-page/ProjectForm.tsx:63
 msgid "Accomplishments"
 msgstr "دستاوردها"
 
-#: src/containers/main/MainContainer.tsx:31
 #: src/pages/dashboard-page/DashboardPage.tsx:50
-#: src/pages/projects-page/description/ProjectsDescriptionCard.tsx:11
+#: src/pages/self-review-page/SelfReviewPage.tsx:19
 msgid "Achievements"
 msgstr "دستاوردها"
 
-#: src/pages/projects-page/AddProjectForm.tsx:31
+#: src/pages/projects-page/AddProjectForm.tsx:32
+#: src/shared/strengths-weaknesses/StrengthsOrWeaknesses.tsx:59
 msgid "Add"
 msgstr "افزودن"
 
-#: src/pages/projects-page/ProjectsPage.tsx:66
-msgid "Add project"
-msgstr "افزودن پروژه"
-
-#: src/pages/projects-page/ProjectForm.tsx:76
+#: src/pages/projects-page/ProjectForm.tsx:75
 msgid "Are you sure you want to delete this project review?"
 msgstr "آیا از حذف  این پروژه مطمین هستید؟"
 
@@ -43,9 +39,9 @@ msgstr "آیا از حذف  این پروژه مطمین هستید؟"
 msgid "Cancel"
 msgstr "لغو"
 
-#: src/pages/criteria-page/CriteriaPage.tsx:63
-#: src/pages/projects-page/ProjectsPage.tsx:76
-#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesPage.tsx:61
+#: src/pages/criteria-page/CriteriaPage.tsx:60
+#: src/pages/projects-page/ProjectsPage.tsx:74
+#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesPage.tsx:60
 msgid "Changes you made may not be saved."
 msgstr "ممکن است تغییرات ایجاد شده ذخیره نشده باشد."
 
@@ -57,13 +53,12 @@ msgstr "معیارها"
 msgid "Dashboard"
 msgstr "پیشخوان"
 
-#: src/pages/projects-page/ProjectForm.tsx:76
+#: src/pages/projects-page/ProjectForm.tsx:75
 msgid "Delete"
 msgstr "حذف"
 
-#: src/containers/main/MainContainer.tsx:25
 #: src/pages/dashboard-page/DashboardPage.tsx:42
-#: src/pages/strengths-weaknesses-page/description/StrengthsWeaknessDescriptionCard.tsx:11
+#: src/pages/self-review-page/SelfReviewPage.tsx:18
 msgid "Dominant Characteristics"
 msgstr "ویژگی‌های بارز"
 
@@ -75,12 +70,12 @@ msgstr "English"
 msgid "Error"
 msgstr "خطا"
 
-#: src/pages/projects-page/ProjectForm.tsx:57
-#: src/shared/criterion-item/CriterionItem.tsx:22
+#: src/pages/projects-page/ProjectForm.tsx:56
+#: src/shared/criterion-item/CriterionItem.tsx:23
 msgid "Evaluation"
 msgstr "ارزیابی"
 
-#: src/shared/criterion-item/CriterionItem.tsx:29
+#: src/shared/criterion-item/CriterionItem.tsx:30
 msgid "Evidence"
 msgstr "شواهد"
 
@@ -88,7 +83,7 @@ msgstr "شواهد"
 msgid "Exceeds Expectations"
 msgstr "فراتر از انتظارات"
 
-#: src/pages/criteria-page/CriteriaForm.tsx:35
+#: src/pages/criteria-page/CriteriaForm.tsx:37
 msgid "Execution"
 msgstr "اجرا"
 
@@ -96,7 +91,7 @@ msgstr "اجرا"
 msgid "Go to Achievements page and add projects you have participated in"
 msgstr "به صفحه‌ی دستاوردها برو و پروژه‌هایی که در آن‌ها شرکت داشتی را وارد کن"
 
-#: src/containers/main/MainContainer.tsx:37
+#: src/containers/main/MainContainer.tsx:25
 msgid "Guide"
 msgstr "راهنما"
 
@@ -122,7 +117,7 @@ msgstr "کاش بیشتر برامون بنویسی!"
 msgid "It's complete!"
 msgstr "تکمیل شد!"
 
-#: src/pages/criteria-page/CriteriaForm.tsx:41
+#: src/pages/criteria-page/CriteriaForm.tsx:43
 msgid "Leadership"
 msgstr "رهبری خودظهور"
 
@@ -134,11 +129,11 @@ msgstr "ورود به ناحیه کاربری"
 msgid "Meets Expectations"
 msgstr "مطابق با انتظارات"
 
-#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:30
+#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:36
 msgid "Most important characteristics or behaviours I should improve in myself"
 msgstr "مهمترین ویژگی ها یا رفتارهایی که باید باید توی خودم بهبودشون بدم"
 
-#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:23
+#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:29
 msgid "Most important characteristics or effective behaviours that I should maintain"
 msgstr "مهمترین ویژگی ها یا رفتارهای مؤثری که باید ادامه شون بدم"
 
@@ -150,7 +145,7 @@ msgstr "نیازمند به تلاش"
 msgid "No"
 msgstr "خیر"
 
-#: src/pages/criteria-page/CriteriaForm.tsx:29
+#: src/pages/criteria-page/CriteriaForm.tsx:31
 msgid "Organization Culture Adoption"
 msgstr "انطباق با فرهنگ سازمانی"
 
@@ -158,13 +153,12 @@ msgstr "انطباق با فرهنگ سازمانی"
 msgid "Password"
 msgstr "گذرواژه"
 
-#: src/containers/main/MainContainer.tsx:19
-#: src/pages/criteria-page/description/CriteriaDescriptionCard.tsx:11
 #: src/pages/dashboard-page/DashboardPage.tsx:34
+#: src/pages/self-review-page/SelfReviewPage.tsx:17
 msgid "Performance Competencies"
 msgstr "شایستگی‌های عملکردی"
 
-#: src/containers/main/MainContainer.tsx:46
+#: src/containers/main/MainContainer.tsx:34
 #: src/shared/full-page-error/FullPageError.stories.tsx:34
 #: src/shared/layouts/dashboard-layouts/DashboardLayout.stories.tsx:27
 msgid "Performance Review"
@@ -178,15 +172,15 @@ msgstr "سامانه ارزیابی همکاران"
 msgid "Persian"
 msgstr "فارسی"
 
-#: src/pages/criteria-page/CriteriaForm.tsx:44
+#: src/pages/criteria-page/CriteriaForm.tsx:46
 msgid "Presence"
 msgstr "اثر حضور"
 
-#: src/pages/criteria-page/CriteriaForm.tsx:32
+#: src/pages/criteria-page/CriteriaForm.tsx:34
 msgid "Problem Solving"
 msgstr "حل مسئله"
 
-#: src/pages/projects-page/AddProjectForm.tsx:25
+#: src/pages/projects-page/AddProjectForm.tsx:26
 msgid "Project"
 msgstr "پروژه‌"
 
@@ -194,7 +188,7 @@ msgstr "پروژه‌"
 msgid "Projects"
 msgstr "پروژه‌ها"
 
-#: src/pages/projects-page/ProjectForm.tsx:70
+#: src/pages/projects-page/ProjectForm.tsx:69
 msgid "Reviewers"
 msgstr "مرورکننده‌ها"
 
@@ -206,9 +200,9 @@ msgstr "مرجعیت تخصصی"
 msgid "Sahab"
 msgstr "سحاب"
 
-#: src/pages/criteria-page/CriteriaForm.tsx:49
-#: src/pages/projects-page/ProjectForm.tsx:80
-#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:36
+#: src/pages/criteria-page/CriteriaForm.tsx:51
+#: src/pages/projects-page/ProjectForm.tsx:79
+#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:43
 msgid "Save"
 msgstr "ذخیره"
 
@@ -219,9 +213,13 @@ msgstr "ذخیره"
 msgid "Select"
 msgstr "انتخاب کنید"
 
+#: src/containers/main/MainContainer.tsx:19
+msgid "Self Review"
+msgstr "ارزیابی من"
+
 #: src/core/snackbar/Snackbar.stories.tsx:24
-#: src/pages/criteria-page/CriteriaPage.tsx:56
-#: src/pages/projects-page/ProjectsPage.tsx:46
+#: src/pages/criteria-page/CriteriaPage.tsx:55
+#: src/pages/projects-page/ProjectsPage.tsx:49
 #: src/pages/strengths-weaknesses-page/StrengthsWeaknessesPage.tsx:56
 msgid "Something went wrong."
 msgstr "خطایی رخ داد."
@@ -249,8 +247,8 @@ msgid "Submit"
 msgstr "ثبت"
 
 #: src/core/snackbar/Snackbar.stories.tsx:14
-#: src/pages/criteria-page/CriteriaPage.tsx:53
-#: src/pages/projects-page/ProjectsPage.tsx:43
+#: src/pages/criteria-page/CriteriaPage.tsx:52
+#: src/pages/projects-page/ProjectsPage.tsx:46
 #: src/pages/strengths-weaknesses-page/StrengthsWeaknessesPage.tsx:53
 msgid "Successfully saved."
 msgstr "با موفقیت ثبت گردید."
@@ -259,7 +257,7 @@ msgstr "با موفقیت ثبت گردید."
 msgid "Superb"
 msgstr "فوق‌العاده"
 
-#: src/pages/criteria-page/CriteriaForm.tsx:38
+#: src/pages/criteria-page/CriteriaForm.tsx:40
 msgid "Thought Leadership"
 msgstr "مرجعیت تخصصی"
 
@@ -279,15 +277,11 @@ msgstr "نام کاربری یا گذرواژه اشتباه است."
 msgid "View"
 msgstr "مشاهده"
 
-#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:23
+#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:29
 msgid "What I'm awesome at"
 msgstr "تو چی خفنم"
 
-#: src/shared/strengths-weaknesses/StrengthsOrWeaknesses.tsx:57
-msgid "What else"
-msgstr "دیگه چی"
-
-#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:30
+#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:36
 msgid "What to improve"
 msgstr "چیمو بهبود بدم"
 
@@ -303,10 +297,6 @@ msgstr "هنوز هیچ پروژه‌ای را اضافه نکردی!"
 #: src/pages/dashboard-page/PerformanceCompetenciesCircularIndicator.tsx:67
 msgid "You haven't entered anything yet!"
 msgstr "هنوز چیزی ننوشتی!"
-
-#: src/shared/accomplishments-limited-text-area-input/AccomplishmentsLimitedTextAreaInput.tsx:28
-msgid "You should write at least {limit} character"
-msgstr "شما باید حداقل {limit} کاراکتر بنویسید"
 
 #: src/pages/dashboard-page/DominantCharacteristicsCircularIndicator.tsx:65
 #: src/pages/dashboard-page/PerformanceCompetenciesCircularIndicator.tsx:73

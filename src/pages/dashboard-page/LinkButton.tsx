@@ -2,12 +2,12 @@ import { i18n } from '@lingui/core';
 import { Button, makeStyles, Theme } from '@material-ui/core';
 import { CSSProperties } from '@material-ui/styles/withStyles';
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, LinkProps } from 'react-router-dom';
 import { FCProps } from 'src/shared/types/FCProps';
 import { Styles } from 'src/shared/types/Styles';
 
 interface OwnProps {
-  to: string;
+  to: LinkProps['to'];
 }
 
 type Props = FCProps<OwnProps> & StyleProps;

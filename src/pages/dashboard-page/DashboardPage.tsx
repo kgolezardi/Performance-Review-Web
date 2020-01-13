@@ -47,7 +47,7 @@ export default function DashboardPage(props: Props) {
             <Card classes={{ root: classes.progressCard }}>
               <CardHeader
                 title={i18n._('Performance Competencies')}
-                action={<LinkButton to="/performance-competencies" />}
+                action={<LinkButton to="/self-review/performance-competencies" />}
                 classes={{ action: classes.cardHeaderAction }}
               />
               <CardContent classes={{ root: classes.centerCardContent }}>
@@ -59,7 +59,7 @@ export default function DashboardPage(props: Props) {
             <Card classes={{ root: classes.progressCard }}>
               <CardHeader
                 title={i18n._('Dominant Characteristics')}
-                action={<LinkButton to="/dominant-characteristics" />}
+                action={<LinkButton to="/self-review/dominant-characteristics" />}
                 classes={{ action: classes.cardHeaderAction }}
               />
               <CardContent classes={{ root: classes.centerCardContent }}>
@@ -71,7 +71,7 @@ export default function DashboardPage(props: Props) {
             <Card classes={{ root: clsx(classes.progressCard, classes.achievementsCard) }}>
               <CardHeader
                 title={i18n._('Achievements')}
-                action={<LinkButton to="/achievements" />}
+                action={<LinkButton to="/self-review/achievements" />}
                 classes={{ root: classes.achievementsHeader, action: classes.cardHeaderAction }}
               />
               <CardContent classes={{ root: classes.achievementsContent }}>

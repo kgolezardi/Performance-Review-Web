@@ -1,15 +1,19 @@
 import { i18n } from '@lingui/core';
 import { Grid } from '@material-ui/core';
+// @ts-ignore
+import { MDXContext } from '@mdx-js/react';
+import { importMDX } from 'mdx.macro';
 import { equals } from 'ramda';
-import React from 'react';
+import React, { useContext } from 'react';
 import { DictInput, DictInputItem, Forminator, SubmitButton } from 'src/shared/forminator';
-import { StickyActionBar } from 'src/shared/sticky-action-bar';
+import { SectionGuide } from 'src/shared/section-guide';
 import { StrengthsOrWeaknesses } from 'src/shared/strengths-weaknesses';
 import { FCProps } from 'src/shared/types/FCProps';
 import { ArrayValuePrompt, Equal } from './ArrayValuePrompt';
-import { StrengthsWeaknessDescriptionCard } from './description/StrengthsWeaknessDescriptionCard';
 import { StrengthsWeaknessesFormData } from './StrengthsWeaknessesPage';
 import { normalizeArray } from './utils';
+
+const DescriptionContent = importMDX.sync('./DescriptionContent.mdx');
 
 interface OwnProps {
   initialValue?: StrengthsWeaknessesFormData;
@@ -23,13 +27,16 @@ const arrayEqual: Equal = (fragmentValue, propValue) =>
 
 export function StrengthsWeaknessesForm(props: Props) {
   const { onSubmit } = props;
+  const components = useContext(MDXContext);
 
   return (
-    <Grid container spacing={2}>
+    <Grid container spacing={4}>
       <Forminator onSubmit={onSubmit} initialValue={props.initialValue}>
         <DictInput>
           <Grid item xs={12}>
-            <StrengthsWeaknessDescriptionCard />
+            <SectionGuide>
+              <DescriptionContent components={components} />
+            </SectionGuide>
           </Grid>
           <DictInputItem field="strengths">
             <Grid item xs={12}>
@@ -52,11 +59,12 @@ export function StrengthsWeaknessesForm(props: Props) {
               <ArrayValuePrompt value={props.initialValue?.weaknesses || []} equal={arrayEqual} />
             </Grid>
           </DictInputItem>
-          <StickyActionBar elevation={8}>
+          <Grid item xs />
+          <Grid item>
             <SubmitButton variant="contained" color="primary">
               {i18n._('Save')}
             </SubmitButton>
-          </StickyActionBar>
+          </Grid>
         </DictInput>
       </Forminator>
     </Grid>

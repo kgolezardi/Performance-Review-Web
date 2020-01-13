@@ -31,21 +31,9 @@ const items: MenuItem[] = [
     },
   },
   {
-    text: i18n._('Performance Competencies'),
+    text: i18n._('Self Review'),
     link: {
-      to: '/performance-competencies',
-    },
-  },
-  {
-    text: i18n._('Dominant Characteristics'),
-    link: {
-      to: '/dominant-characteristics',
-    },
-  },
-  {
-    text: i18n._('Achievements'),
-    link: {
-      to: '/achievements',
+      to: '/self-review',
     },
   },
   {

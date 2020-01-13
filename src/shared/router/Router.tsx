@@ -14,19 +14,27 @@ function computeRootMatch(pathname: string) {
   return { path: '/', url: '/', params: {}, isExact: pathname === '/' };
 }
 export function Router(props: Props) {
-  // TODO handle initial pending location
-  // https://github.com/ReactTraining/react-router/blob/a1b96d5085053d1e3d67831a75d9a6c76e8dca70/packages/react-router/modules/Router.js#L22-L26
   // TODO provide transition pending location
   const { history, suspenseConfig = defaultConfig, children = null } = props;
   const [location, setLocation] = useState(() => history.location);
   const [startTransition] = useTransition(suspenseConfig);
 
   useEffect(() => {
+    if (location !== history.location) {
+      // handle initial pending location
+      // https://github.com/ReactTraining/react-router/blob/a1b96d5085053d1e3d67831a75d9a6c76e8dca70/packages/react-router/modules/Router.js#L22-L26
+      startTransition(() => {
+        setLocation(history.location);
+      });
+    }
     return history.listen(location => {
       startTransition(() => {
         setLocation(location);
       });
     });
+    // `location` variable only used on initial value, because between render and useEffect if location has been
+    // changed like redirect, we can detect and change location state
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [history, startTransition]);
   return (
     <RouterContext.Provider

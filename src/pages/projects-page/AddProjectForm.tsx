@@ -1,5 +1,6 @@
 import { i18n } from '@lingui/core';
 import { Box, Grid } from '@material-ui/core';
+import AddIcon from '@material-ui/icons/Add';
 import graphql from 'babel-plugin-relay/macro';
 import React, { useMemo } from 'react';
 import { useFragment } from 'react-relay/hooks';
@@ -48,7 +49,7 @@ export function AddProjectForm(props: Props) {
           </Grid>
           <Grid item>
             <Box marginTop={0.375}>
-              <SubmitButton variant="outlined" color="primary">
+              <SubmitButton variant="outlined" color="primary" startIcon={<AddIcon />}>
                 {i18n._('Add')}
               </SubmitButton>
             </Box>
