@@ -14,7 +14,7 @@ import { ProjectFormData } from 'src/pages/projects-page/ProjectForm';
 import { SectionGuide } from 'src/shared/section-guide';
 import { useBiDiSnackbar } from 'src/shared/snackbar';
 import { FCProps } from 'src/shared/types/FCProps';
-import {PromptProvider} from "../../shared/prompt";
+import { PromptProvider } from '../../shared/prompt';
 import { AddProjectForm, AddProjectFormData } from './AddProjectForm';
 import { ProjectExpansionPanel } from './ProjectExpansionPanel';
 import { useSaveProjectReview } from './saveProjectReview.mutation';
@@ -107,18 +107,18 @@ export default function ProjectsPage(props: Props) {
         </Grid>
       </Box>
       <PromptProvider message={i18n._('Changes you made may not be saved.')}>
-      {projectReviews.map(projectReview => {
-        return (
-          <ProjectExpansionPanel
-            key={projectReview.id}
-            projectReview={projectReview}
-            initialProjectIds={initialProjectIds}
-            saveProject={saveProject}
-            deleteProject={deleteProject}
-            users={data.viewer.users}
-          />
-        );
-      })}
+        {projectReviews.map(projectReview => {
+          return (
+            <ProjectExpansionPanel
+              key={projectReview.id}
+              projectReview={projectReview}
+              initialProjectIds={initialProjectIds}
+              saveProject={saveProject}
+              deleteProject={deleteProject}
+              users={data.viewer.users}
+            />
+          );
+        })}
       </PromptProvider>
     </Fragment>
   );

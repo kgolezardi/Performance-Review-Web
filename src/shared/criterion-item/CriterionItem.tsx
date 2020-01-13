@@ -34,12 +34,13 @@ export function CriterionItem({ title, details, prefix }: Props) {
           <Box width={240}>
             <Rating inputLabel={i18n._('Evaluation')} />
           </Box>
-        <FragmentPrompt value={rating} />
-              </DictInputItem>
+          <FragmentPrompt value={rating} />
+        </DictInputItem>
       </Grid>
       <Grid item xs={12}>
         <DictInputItem field={prefix + 'Comment'}>
-          <LimitedTextAreaInput label={i18n._('Evidence')} variant="outlined" maxChars={280} fullWidth /><FragmentPrompt value={comment} />
+          <LimitedTextAreaInput label={i18n._('Evidence')} variant="outlined" maxChars={280} fullWidth />
+          <FragmentPrompt value={comment} />
         </DictInputItem>
       </Grid>
     </Grid>
