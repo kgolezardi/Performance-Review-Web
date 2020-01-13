@@ -11,6 +11,7 @@ import { StrengthsOrWeaknesses } from 'src/shared/strengths-weaknesses';
 import { FCProps } from 'src/shared/types/FCProps';
 import { ArrayValuePrompt, Equal } from './ArrayValuePrompt';
 import { StrengthsWeaknessesFormData } from './StrengthsWeaknessesPage';
+import { StickyActionBar } from 'src/shared/sticky-action-bar';
 
 const DescriptionContent = importMDX.sync('./DescriptionContent.mdx');
 
@@ -59,12 +60,11 @@ export function StrengthsWeaknessesForm(props: Props) {
               <ArrayValuePrompt value={props.initialValue?.weaknesses || []} equal={arrayEqual} />
             </Grid>
           </DictInputItem>
-          <Grid item xs />
-          <Grid item>
+          <StickyActionBar>
             <SubmitButton variant="contained" color="primary">
               {i18n._('Save')}
             </SubmitButton>
-          </Grid>
+          </StickyActionBar>
         </DictInput>
       </Forminator>
     </Grid>

@@ -12,7 +12,7 @@ storiesOf('Sticky Action Bar', module)
     return (
       <Container>
         <Lorem paragraphCount={20} />
-        <StickyActionBar elevation={8}>
+        <StickyActionBar>
           <Button>{i18n._('Cancel')}</Button>
           <Button variant="contained" color="primary">
             {i18n._('Submit')}
