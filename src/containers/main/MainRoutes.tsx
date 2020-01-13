@@ -8,22 +8,10 @@ const DashboardPage = React.lazy(() =>
     'src/pages/dashboard-page/DashboardPage'
   ),
 );
-const CriteriaPage = React.lazy(() =>
+const SelfReviewPage = React.lazy(() =>
   import(
-    /* webpackChunkName: "criteria-page" */
-    'src/pages/criteria-page/CriteriaPage'
-  ),
-);
-const StrengthsWeaknessesPage = React.lazy(() =>
-  import(
-    /* webpackChunkName: "strengths-weaknesses-page" */
-    'src/pages/strengths-weaknesses-page/StrengthsWeaknessesPage'
-  ),
-);
-const ProjectsPage = React.lazy(() =>
-  import(
-    /* webpackChunkName: "projects-page" */
-    'src/pages/projects-page/ProjectsPage'
+    /* webpackChunkName: "self-review-page" */
+    'src/pages/self-review-page/SelfReviewPage'
   ),
 );
 const GuidePage = React.lazy(() =>
@@ -39,9 +27,7 @@ export function MainRoutes(props: FCProps<Props>) {
   return (
     <Switch>
       <Route path="/" exact component={DashboardPage} />
-      <Route path="/performance-competencies" component={CriteriaPage} />
-      <Route path="/dominant-characteristics" component={StrengthsWeaknessesPage} />
-      <Route path="/achievements" component={ProjectsPage} />
+      <Route path="/self-review/:tab?" component={SelfReviewPage} />
       <Route path="/guide" component={GuidePage} />
     </Switch>
   );

@@ -1,31 +1,25 @@
 import { i18n } from '@lingui/core';
-import {
-  Box,
-  Card,
-  CardContent,
-  CardHeader,
-  Container,
-  ExpansionPanel,
-  ExpansionPanelDetails,
-  ExpansionPanelSummary,
-  Grid,
-  Typography,
-} from '@material-ui/core';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import { Box, Grid } from '@material-ui/core';
+// @ts-ignore
+import { MDXContext } from '@mdx-js/react';
 import graphql from 'babel-plugin-relay/macro';
+import { importMDX } from 'mdx.macro';
 import { reverse } from 'ramda';
-import React, { useCallback, useState } from 'react';
+import React, { Fragment, useCallback, useContext, useState } from 'react';
 import { useLazyLoadQuery } from 'react-relay/hooks';
 import { DeleteProjectReviewMutationInput } from 'src/pages/projects-page/__generated__/deleteProjectReviewMutation.graphql';
 import { ProjectsPageQuery } from 'src/pages/projects-page/__generated__/ProjectsPageQuery.graphql';
 import { useDeleteProjectReview } from 'src/pages/projects-page/deleteProjectReview.mutation';
-import { ProjectForm, ProjectFormData } from 'src/pages/projects-page/ProjectForm';
+import { ProjectFormData } from 'src/pages/projects-page/ProjectForm';
+import { SectionGuide } from 'src/shared/section-guide';
 import { useBiDiSnackbar } from 'src/shared/snackbar';
 import { FCProps } from 'src/shared/types/FCProps';
-import { PromptProvider } from 'src/shared/prompt';
+import {PromptProvider} from "../../shared/prompt";
 import { AddProjectForm, AddProjectFormData } from './AddProjectForm';
-import { ProjectsDescriptionCard } from './description/ProjectsDescriptionCard';
+import { ProjectExpansionPanel } from './ProjectExpansionPanel';
 import { useSaveProjectReview } from './saveProjectReview.mutation';
+
+const DescriptionContent = importMDX.sync('./DescriptionContent.mdx');
 
 interface OwnProps {}
 
@@ -47,7 +41,7 @@ const query = graphql`
           name
         }
         ...AddProjectForm_projectReview
-        ...ProjectForm_projectReview
+        ...ProjectExpansionPanel_projectReview
       }
     }
   }
@@ -57,6 +51,7 @@ export default function ProjectsPage(props: Props) {
   const { enqueueSnackbar } = useBiDiSnackbar();
   const saveProjectReview = useSaveProjectReview();
   const deleteProjectReview = useDeleteProjectReview();
+  const components = useContext(MDXContext);
 
   const saveProject = useCallback(
     (input: ProjectFormData) => {
@@ -94,54 +89,37 @@ export default function ProjectsPage(props: Props) {
   const projectReviews = reverse(data.viewer.projectReviews);
 
   return (
-    <Container maxWidth="md">
-      <Box marginY={4}>
+    <Fragment>
+      <Box padding={4}>
         <Grid container spacing={2}>
           <Grid item xs={12}>
-            <ProjectsDescriptionCard />
+            <SectionGuide>
+              <DescriptionContent components={components} />
+            </SectionGuide>
           </Grid>
           <Grid item xs={12}>
-            <Card>
-              <CardHeader title={i18n._('Add project')} />
-              <CardContent>
-                <Container maxWidth="sm">
-                  <AddProjectForm
-                    projectReviews={data.viewer.projectReviews}
-                    projects={data.viewer.projects}
-                    onSubmit={addProjectReview}
-                  />
-                </Container>
-              </CardContent>
-            </Card>
+            <AddProjectForm
+              projectReviews={data.viewer.projectReviews}
+              projects={data.viewer.projects}
+              onSubmit={addProjectReview}
+            />
           </Grid>
         </Grid>
-        <Box marginY={2}>
-          <PromptProvider message={i18n._('Changes you made may not be saved.')}>
-            {projectReviews.map(projectReview => {
-              return (
-                <ExpansionPanel
-                  key={projectReview.id}
-                  defaultExpanded={!initialProjectIds.has(projectReview.project.id)}
-                >
-                  <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-                    <Typography variant="h6">{projectReview.project.name}</Typography>
-                  </ExpansionPanelSummary>
-                  <ExpansionPanelDetails>
-                    <Container maxWidth="sm">
-                      <ProjectForm
-                        onSubmit={saveProject}
-                        onDelete={deleteProject}
-                        projectReview={projectReview}
-                        users={data.viewer.users}
-                      />
-                    </Container>
-                  </ExpansionPanelDetails>
-                </ExpansionPanel>
-              );
-            })}
-          </PromptProvider>
-        </Box>
       </Box>
-    </Container>
+      <PromptProvider message={i18n._('Changes you made may not be saved.')}>
+      {projectReviews.map(projectReview => {
+        return (
+          <ProjectExpansionPanel
+            key={projectReview.id}
+            projectReview={projectReview}
+            initialProjectIds={initialProjectIds}
+            saveProject={saveProject}
+            deleteProject={deleteProject}
+            users={data.viewer.users}
+          />
+        );
+      })}
+      </PromptProvider>
+    </Fragment>
   );
 }

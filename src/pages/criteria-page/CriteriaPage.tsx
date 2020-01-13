@@ -1,15 +1,14 @@
 import { i18n } from '@lingui/core';
-import { Box, Container } from '@material-ui/core';
+import { Box } from '@material-ui/core';
 import graphql from 'babel-plugin-relay/macro';
-import React, { Suspense, useCallback } from 'react';
+import React, { useCallback } from 'react';
 import { useLazyLoadQuery } from 'react-relay/hooks';
 import { useAuthGuardUser } from 'src/core/auth';
 import { CriteriaPageQuery } from 'src/pages/criteria-page/__generated__/CriteriaPageQuery.graphql';
 import { useMutation } from 'src/relay';
-import { FullPageSpinner } from 'src/shared/loading';
+import { PromptProvider } from 'src/shared/prompt';
 import { useBiDiSnackbar } from 'src/shared/snackbar';
 import { FCProps } from 'src/shared/types/FCProps';
-import { PromptProvider } from 'src/shared/prompt';
 import { CriteriaPageMutation } from './__generated__/CriteriaPageMutation.graphql';
 import { CriteriaForm } from './CriteriaForm';
 import { CriteriaFormData } from './CriteriaFormData';
@@ -76,30 +75,26 @@ export default function CriteriaPage(props: Props) {
   const review = data.viewer.review;
 
   return (
-    <Suspense fallback={<FullPageSpinner />}>
-      <Container maxWidth="md">
-        <Box marginY={4}>
-          <PromptProvider message={i18n._('Changes you made may not be saved.')}>
-            <CriteriaForm
-              onSubmit={handleSubmit}
-              initialValue={{
-                executionComment: review?.executionComment || undefined,
-                executionRating: review?.executionRating || undefined,
-                leadershipComment: review?.leadershipComment || undefined,
-                leadershipRating: review?.leadershipRating || undefined,
-                presenceComment: review?.presenceComment || undefined,
-                presenceRating: review?.presenceRating || undefined,
-                problemSolvingComment: review?.problemSolvingComment || undefined,
-                problemSolvingRating: review?.problemSolvingRating || undefined,
-                sahabinessComment: review?.sahabinessComment || undefined,
-                sahabinessRating: review?.sahabinessRating || undefined,
-                thoughtLeadershipComment: review?.thoughtLeadershipComment || undefined,
-                thoughtLeadershipRating: review?.thoughtLeadershipRating || undefined,
-              }}
-            />
-          </PromptProvider>
-        </Box>
-      </Container>
-    </Suspense>
+    <Box padding={4}>
+      <PromptProvider message={i18n._('Changes you made may not be saved.')}>
+        <CriteriaForm
+          onSubmit={handleSubmit}
+          initialValue={{
+            executionComment: review?.executionComment || undefined,
+            executionRating: review?.executionRating || undefined,
+            leadershipComment: review?.leadershipComment || undefined,
+            leadershipRating: review?.leadershipRating || undefined,
+            presenceComment: review?.presenceComment || undefined,
+            presenceRating: review?.presenceRating || undefined,
+            problemSolvingComment: review?.problemSolvingComment || undefined,
+            problemSolvingRating: review?.problemSolvingRating || undefined,
+            sahabinessComment: review?.sahabinessComment || undefined,
+            sahabinessRating: review?.sahabinessRating || undefined,
+            thoughtLeadershipComment: review?.thoughtLeadershipComment || undefined,
+            thoughtLeadershipRating: review?.thoughtLeadershipRating || undefined,
+          }}
+        />
+      </PromptProvider>
+    </Box>
   );
 }

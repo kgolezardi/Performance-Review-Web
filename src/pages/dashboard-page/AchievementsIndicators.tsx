@@ -1,6 +1,7 @@
 import graphql from 'babel-plugin-relay/macro';
 import React, { Fragment } from 'react';
 import { useFragment } from 'react-relay/hooks';
+import { ElementType } from 'src/shared/types/ElementType';
 import { FCProps } from 'src/shared/types/FCProps';
 import {
   AchievementsIndicators_projects,
@@ -15,8 +16,6 @@ interface OwnProps {
 
 type Props = FCProps<OwnProps>;
 
-const CHAR_LIMIT = 100;
-
 export function AchievementsIndicators(props: Props) {
   const projects = useFragment(fragment, props.projects);
 
@@ -24,12 +23,11 @@ export function AchievementsIndicators(props: Props) {
     return <AchievementsNoProjects />;
   }
 
-  console.log(projects);
   return (
     <Fragment>
       {projects.map(project => {
         const value = getValue(project);
-        return <ProjectProgress value={value} name={project.project.name} />;
+        return <ProjectProgress key={project.project.id} value={value} name={project.project.name} />;
       })}
     </Fragment>
   );
@@ -39,6 +37,7 @@ export const fragment = graphql`
   fragment AchievementsIndicators_projects on ProjectReviewNode @relay(plural: true) {
     project {
       name
+      id
     }
     rating
     reviewers {
@@ -48,12 +47,10 @@ export const fragment = graphql`
   }
 `;
 
-type ElementType<T extends ReadonlyArray<unknown>> = T extends ReadonlyArray<infer R> ? R : never;
-
 const getValue = (project: ElementType<AchievementsIndicators_projects>) => {
   const { rating, text, reviewers } = project;
   const hasFilledRating = Boolean(rating);
-  const hasFilledText = Boolean(text ? text.length >= CHAR_LIMIT : 0);
+  const hasFilledText = Boolean(text);
   const hasFilledReviewers = Boolean(reviewers.length);
 
   return ((Number(hasFilledRating) + 6 * Number(hasFilledText) + 3 * Number(hasFilledReviewers)) / 10) * 100;
