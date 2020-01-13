@@ -7,6 +7,7 @@ import React from 'react';
 import { useLazyLoadQuery } from 'react-relay/hooks';
 import { useAuthGuardUser } from 'src/core/auth';
 import { DashboardPageQuery } from 'src/pages/dashboard-page/__generated__/DashboardPageQuery.graphql';
+import { Overlayscrollbars } from 'src/shared/overlayscrollbars/Overlayscrollbars';
 import { FCProps } from 'src/shared/types/FCProps';
 import { Styles } from 'src/shared/types/Styles';
 import { AchievementsIndicators } from './AchievementsIndicators';
@@ -74,9 +75,11 @@ export default function DashboardPage(props: Props) {
                 action={<LinkButton to="/self-review/achievements" />}
                 classes={{ root: classes.achievementsHeader, action: classes.cardHeaderAction }}
               />
-              <CardContent classes={{ root: classes.achievementsContent }}>
-                <AchievementsIndicators projects={data.viewer.projects} />
-              </CardContent>
+              <Overlayscrollbars className={classes.overlayscrollbars}>
+                <CardContent className={classes.achievementCardContent}>
+                  <AchievementsIndicators projects={data.viewer.projects} />
+                </CardContent>
+              </Overlayscrollbars>
             </Card>
           </Grid>
         </Grid>
@@ -100,13 +103,17 @@ const styles = (theme: Theme) => ({
   achievementsHeader: {
     flex: 0,
   } as CSSProperties,
-  achievementsContent: {
+  overlayscrollbars: {
     flex: 1,
-    overflow: 'auto',
+    marginBottom: theme.spacing(3),
   } as CSSProperties,
   cardHeaderAction: {
     marginTop: 0,
-  },
+  } as CSSProperties,
+  achievementCardContent: {
+    height: '100%',
+    paddingTop: 0,
+  } as CSSProperties,
 });
 
 const useStyles = makeStyles(styles, { name: 'DashboardPage' });

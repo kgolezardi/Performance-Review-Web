@@ -50,7 +50,7 @@ const styles = (theme: Theme) => ({
   root: {
     overflow: 'visible',
     backgroundColor: theme.palette.grey[300],
-    height: 10,
+    height: 8,
     borderRadius: theme.spacing(),
   } as CSSProperties,
   bar: {
