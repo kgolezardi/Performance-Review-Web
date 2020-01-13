@@ -1,15 +1,16 @@
 import { i18n } from '@lingui/core';
 import { Box, Container } from '@material-ui/core';
 import graphql from 'babel-plugin-relay/macro';
-import { useBiDiSnackbar } from 'src/shared/snackbar';
 import React, { useCallback } from 'react';
 import { useLazyLoadQuery } from 'react-relay/hooks';
 import { useAuthGuardUser } from 'src/core/auth';
 import { StrengthsWeaknessesPageQuery } from 'src/pages/strengths-weaknesses-page/__generated__/StrengthsWeaknessesPageQuery.graphql';
 import { useMutation } from 'src/relay';
-import { isNotNil } from 'src/shared/utils/general.util';
-import { StrengthsWeaknessesForm } from './StrengthsWeaknessesForm';
+import { PromptProvider } from 'src/shared/prompt';
+import { useBiDiSnackbar } from 'src/shared/snackbar';
 import { StrengthsWeaknessesPageMutation } from './__generated__/StrengthsWeaknessesPageMutation.graphql';
+import { StrengthsWeaknessesForm } from './StrengthsWeaknessesForm';
+import { normalizeArray } from './utils';
 
 const useStrengthsWeaknessesPageMutation = () =>
   useMutation<StrengthsWeaknessesPageMutation>(graphql`
@@ -44,13 +45,6 @@ const transformData = (data: StrengthsWeaknessesFormData) => {
   };
 };
 
-const normalizeArray = (array: readonly (string | null)[] | null | undefined) => {
-  if (array && array.length) {
-    return array.filter<string>(isNotNil);
-  }
-  return undefined;
-};
-
 export default function StrengthsWeaknessesPage() {
   const { enqueueSnackbar } = useBiDiSnackbar();
   const strengthsWeaknessesPageMutation = useStrengthsWeaknessesPageMutation();
@@ -77,13 +71,15 @@ export default function StrengthsWeaknessesPage() {
   return (
     <Container maxWidth="md">
       <Box marginY={4}>
-        <StrengthsWeaknessesForm
-          onSubmit={handleSubmit}
-          initialValue={{
-            strengths: normalizeArray(review?.strengths),
-            weaknesses: normalizeArray(review?.weaknesses),
-          }}
-        />
+        <PromptProvider message={i18n._('Changes you made may not be saved.')}>
+          <StrengthsWeaknessesForm
+            onSubmit={handleSubmit}
+            initialValue={{
+              strengths: normalizeArray(review?.strengths),
+              weaknesses: normalizeArray(review?.weaknesses),
+            }}
+          />
+        </PromptProvider>
       </Box>
     </Container>
   );

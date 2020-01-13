@@ -22,6 +22,7 @@ import { useDeleteProjectReview } from 'src/pages/projects-page/deleteProjectRev
 import { ProjectForm, ProjectFormData } from 'src/pages/projects-page/ProjectForm';
 import { useBiDiSnackbar } from 'src/shared/snackbar';
 import { FCProps } from 'src/shared/types/FCProps';
+import { PromptProvider } from 'src/shared/prompt';
 import { AddProjectForm, AddProjectFormData } from './AddProjectForm';
 import { ProjectsDescriptionCard } from './description/ProjectsDescriptionCard';
 import { useSaveProjectReview } from './saveProjectReview.mutation';
@@ -115,25 +116,30 @@ export default function ProjectsPage(props: Props) {
           </Grid>
         </Grid>
         <Box marginY={2}>
-          {projectReviews.map(projectReview => {
-            return (
-              <ExpansionPanel key={projectReview.id} defaultExpanded={!initialProjectIds.has(projectReview.project.id)}>
-                <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-                  <Typography variant="h6">{projectReview.project.name}</Typography>
-                </ExpansionPanelSummary>
-                <ExpansionPanelDetails>
-                  <Container maxWidth="sm">
-                    <ProjectForm
-                      onSubmit={saveProject}
-                      onDelete={deleteProject}
-                      projectReview={projectReview}
-                      users={data.viewer.users}
-                    />
-                  </Container>
-                </ExpansionPanelDetails>
-              </ExpansionPanel>
-            );
-          })}
+          <PromptProvider message={i18n._('Changes you made may not be saved.')}>
+            {projectReviews.map(projectReview => {
+              return (
+                <ExpansionPanel
+                  key={projectReview.id}
+                  defaultExpanded={!initialProjectIds.has(projectReview.project.id)}
+                >
+                  <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
+                    <Typography variant="h6">{projectReview.project.name}</Typography>
+                  </ExpansionPanelSummary>
+                  <ExpansionPanelDetails>
+                    <Container maxWidth="sm">
+                      <ProjectForm
+                        onSubmit={saveProject}
+                        onDelete={deleteProject}
+                        projectReview={projectReview}
+                        users={data.viewer.users}
+                      />
+                    </Container>
+                  </ExpansionPanelDetails>
+                </ExpansionPanel>
+              );
+            })}
+          </PromptProvider>
         </Box>
       </Box>
     </Container>
