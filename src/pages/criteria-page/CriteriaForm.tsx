@@ -10,6 +10,7 @@ import { SectionGuide } from 'src/shared/section-guide';
 import { FCProps } from 'src/shared/types/FCProps';
 import { ServerValueProvider } from 'src/shared/server-value';
 import { CriteriaFormData } from './CriteriaFormData';
+import { StickyActionBar } from 'src/shared/sticky-action-bar/StickyActionBar';
 
 const OrganizationCultureAdoptionContent = importMDX.sync('./OrganizationCultureAdoptionContent.mdx');
 const ProblemSolvingContent = importMDX.sync('./ProblemSolvingContent.mdx');
@@ -82,12 +83,11 @@ export function CriteriaForm(props: Props) {
                 prefix="presence"
               />
             </Grid>
-            <Grid item xs />
-            <Grid item>
+            <StickyActionBar>
               <SubmitButton variant="contained" color="primary">
                 {i18n._('Save')}
               </SubmitButton>
-            </Grid>
+            </StickyActionBar>
           </Grid>
         </DictInput>
       </Forminator>
