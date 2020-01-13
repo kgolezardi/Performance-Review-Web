@@ -1,5 +1,5 @@
 import OverlayScrollbars from 'overlayscrollbars';
-import React, { useImperativeHandle, useLayoutEffect, useRef } from 'react';
+import { Ref, useCallback, useLayoutEffect, useState } from 'react';
 import { useDeepMemoize } from 'src/shared/utils/deepMemoize';
 
 const defaultOptions: OverlayScrollbars.Options = {
@@ -15,21 +15,25 @@ export interface ImperativeHandles {
  * @see https://kingsora.github.io/OverlayScrollbars/#!documentation/flexbox for the fix.
  */
 export function useOverlayscrollbars(
-  ref: React.RefObject<HTMLElement | null>,
   options: OverlayScrollbars.Options = defaultOptions,
-  instanceRef?: React.Ref<ImperativeHandles>,
-) {
+): [Ref<HTMLDivElement>, OverlayScrollbars | null] {
+  const [element, setElement] = useState<HTMLDivElement | null>(null);
+  const ref = useCallback((element: HTMLDivElement | null) => {
+    setElement(element);
+  }, []);
+
   const memoizedOptions = useDeepMemoize(options);
-  const instance = useRef<OverlayScrollbars | null>(null);
+  const [instance, setInstance] = useState<OverlayScrollbars | null>(null);
   // it's important to use "useLayoutEffect" otherwise you will see a flash of un-styled content.
   useLayoutEffect(() => {
-    if (ref.current) {
-      instance.current = OverlayScrollbars(ref.current, memoizedOptions);
+    if (element) {
+      const instance = OverlayScrollbars(element, memoizedOptions);
+      setInstance(instance);
       return () => {
-        if (instance && instance.current) instance.current.destroy();
+        instance.destroy();
       };
     }
-  }, [memoizedOptions, ref]);
+  }, [memoizedOptions, element]);
 
-  useImperativeHandle(instanceRef, () => ({ getOverlayScrollbar: () => instance.current }), []);
+  return [ref, instance];
 }

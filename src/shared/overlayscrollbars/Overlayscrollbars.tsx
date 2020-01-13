@@ -1,7 +1,7 @@
 import * as OverlayScrollbars from 'overlayscrollbars';
-import React, { forwardRef, HTMLAttributes, useRef } from 'react';
-import { ImperativeHandles, useOverlayscrollbars } from './useOverlayscrollbars';
+import React, { forwardRef, HTMLAttributes, useImperativeHandle } from 'react';
 import { FCProps } from 'src/shared/types/FCProps';
+import { ImperativeHandles, useOverlayscrollbars } from './useOverlayscrollbars';
 
 interface OwnProps extends HTMLAttributes<HTMLDivElement> {
   options?: OverlayScrollbars.Options;
@@ -10,9 +10,10 @@ interface OwnProps extends HTMLAttributes<HTMLDivElement> {
 type Props = FCProps<OwnProps>;
 
 export const Overlayscrollbars = forwardRef(function(props: Props, instanceRef: React.Ref<ImperativeHandles>) {
-  const ref = useRef<HTMLDivElement>(null);
   const { options, ...divProps } = props;
-  useOverlayscrollbars(ref, options, instanceRef);
+  const [ref, instance] = useOverlayscrollbars(options);
+
+  useImperativeHandle(instanceRef, () => ({ getOverlayScrollbar: () => instance }), [instance]);
 
   return (
     <div {...divProps} ref={ref}>
