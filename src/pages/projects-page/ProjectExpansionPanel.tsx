@@ -54,8 +54,6 @@ const styles = (theme: Theme) => ({
     '&:not(:first-child):before': {
       display: 'block !important',
       opacity: '100% !important',
-      left: theme.spacing(4),
-      right: theme.spacing(4),
     },
   } as CSSProperties,
   expansionPanelSummary: {
