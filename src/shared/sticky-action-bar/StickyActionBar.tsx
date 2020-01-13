@@ -17,7 +17,7 @@ export function StickyActionBar(props: Props) {
   return (
     <>
       <Paper
-        elevation={0}
+        elevation={inView ? 0 : 4}
         classes={{
           root: clsx(classes.root, {
             [classes.sticky]: !inView,
@@ -26,7 +26,7 @@ export function StickyActionBar(props: Props) {
       >
         {props.children}
       </Paper>
-      <div className={classes.stickyBottom} ref={ref} />
+      <div className={classes.inViewSpy} ref={ref} />
     </>
   );
 }
@@ -35,7 +35,7 @@ const styles = (theme: Theme) => ({
   root: {
     marginTop: theme.spacing(2),
     bottom: -4,
-    zIndex: 1000,
+    zIndex: theme.zIndex.appBar - 25,
     width: '100%',
     display: 'grid',
     gridAutoFlow: 'column',
@@ -45,11 +45,8 @@ const styles = (theme: Theme) => ({
   } as CSSProperties,
   sticky: {
     position: 'sticky',
-    boxShadow: '0px -2px 4px 0px rgba(0,0,0,0.3)',
-    borderBottomRightRadius: 0,
-    borderBottomLeftRadius: 0,
   } as CSSProperties,
-  stickyBottom: {
+  inViewSpy: {
     height: 1,
     width: '100%',
     backgroundColor: 'transparent',
