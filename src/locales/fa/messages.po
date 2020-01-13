@@ -23,8 +23,6 @@ msgstr "دستاوردها"
 
 #: src/pages/dashboard-page/DashboardPage.tsx:50
 #: src/pages/self-review-page/SelfReviewPage.tsx:19
-#: src/containers/main/MainContainer.tsx:26
-#: src/pages/projects-page/description/ProjectsDescriptionCard.tsx:11
 msgid "Achievements"
 msgstr "دستاوردها"
 
@@ -46,7 +44,7 @@ msgid "Cancel"
 msgstr "لغو"
 
 #: src/pages/criteria-page/CriteriaPage.tsx:60
-#: src/pages/projects-page/ProjectsPage.tsx:74
+#: src/pages/projects-page/ProjectsPage.tsx:75
 #: src/pages/strengths-weaknesses-page/StrengthsWeaknessesPage.tsx:60
 msgid "Changes you made may not be saved."
 msgstr "ممکن است تغییرات ایجاد شده ذخیره نشده باشد."
@@ -55,9 +53,13 @@ msgstr "ممکن است تغییرات ایجاد شده ذخیره نشده ب�
 msgid "Criteria"
 msgstr "معیارها"
 
-#: src/containers/main/MainContainer.tsx:12
+#: src/containers/main/MainContainer.tsx:14
 msgid "Dashboard"
 msgstr "پیشخوان"
+
+#: src/pages/start-review-page/StartReviewPage.tsx:22
+msgid "Dear {name}, Hello"
+msgstr "{name} عزیز، سلام"
 
 #: src/pages/projects-page/ProjectForm.tsx:75
 msgid "Delete"
@@ -97,15 +99,9 @@ msgstr "اجرا"
 msgid "Go to Achievements page and add projects you have participated in"
 msgstr "به صفحه‌ی دستاوردها برو و پروژه‌هایی که در آن‌ها شرکت داشتی را وارد کن"
 
-#: src/containers/main/MainContainer.tsx:25
-#: src/containers/main/MainContainer.tsx:37
-#: src/containers/main/MainContainer.tsx:32
+#: src/containers/main/MainContainer.tsx:27
 msgid "Guide"
 msgstr "راهنما"
-
-#: src/pages/start-review-page/StartReviewPage.tsx:22
-msgid "Hello dear {name}, Welcome to the performance review system"
-msgstr "سلام {name} عزیز، به سامانه ارزیابی عملکرد خوش اومدی"
 
 #: src/pages/guide-page/GuidePage.tsx:14
 msgid "How to give feedback to each other?"
@@ -165,15 +161,12 @@ msgstr "انطباق با فرهنگ سازمانی"
 msgid "Password"
 msgstr "گذرواژه"
 
-#: src/containers/main/MainContainer.tsx:19
-#: src/containers/main/MainContainer.tsx:14
-#: src/pages/criteria-page/description/CriteriaDescriptionCard.tsx:11
 #: src/pages/dashboard-page/DashboardPage.tsx:34
 #: src/pages/self-review-page/SelfReviewPage.tsx:17
 msgid "Performance Competencies"
 msgstr "شایستگی‌های عملکردی"
 
-#: src/containers/main/MainContainer.tsx:34
+#: src/containers/main/MainContainer.tsx:37
 #: src/shared/full-page-error/FullPageError.stories.tsx:34
 #: src/shared/layouts/dashboard-layouts/DashboardLayout.stories.tsx:27
 msgid "Performance Review"
@@ -211,7 +204,7 @@ msgstr "مرورکننده‌ها"
 msgid "Role Expertise and Self Development"
 msgstr "مرجعیت تخصصی"
 
-#: src/shared/auth/Login.tsx:29
+#: src/shared/auth/Login.tsx:31
 msgid "Sahab"
 msgstr "سحاب"
 
@@ -228,13 +221,13 @@ msgstr "ذخیره"
 msgid "Select"
 msgstr "انتخاب کنید"
 
-#: src/containers/main/MainContainer.tsx:19
+#: src/containers/main/MainContainer.tsx:21
 msgid "Self Review"
 msgstr "ارزیابی من"
 
 #: src/core/snackbar/Snackbar.stories.tsx:24
 #: src/pages/criteria-page/CriteriaPage.tsx:55
-#: src/pages/projects-page/ProjectsPage.tsx:49
+#: src/pages/projects-page/ProjectsPage.tsx:50
 #: src/pages/strengths-weaknesses-page/StrengthsWeaknessesPage.tsx:56
 msgid "Something went wrong."
 msgstr "خطایی رخ داد."
@@ -263,7 +256,7 @@ msgstr "ثبت"
 
 #: src/core/snackbar/Snackbar.stories.tsx:14
 #: src/pages/criteria-page/CriteriaPage.tsx:52
-#: src/pages/projects-page/ProjectsPage.tsx:46
+#: src/pages/projects-page/ProjectsPage.tsx:47
 #: src/pages/strengths-weaknesses-page/StrengthsWeaknessesPage.tsx:53
 msgid "Successfully saved."
 msgstr "با موفقیت ثبت گردید."
@@ -284,7 +277,7 @@ msgstr "تلاش مجدد"
 msgid "Username"
 msgstr "نام کاربری"
 
-#: src/shared/auth/Login.tsx:19
+#: src/shared/auth/Login.tsx:20
 msgid "Username or Password is incorrect."
 msgstr "نام کاربری یا گذرواژه اشتباه است."
 

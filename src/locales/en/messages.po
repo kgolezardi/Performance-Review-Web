@@ -23,8 +23,6 @@ msgstr "Accomplishments"
 
 #: src/pages/dashboard-page/DashboardPage.tsx:50
 #: src/pages/self-review-page/SelfReviewPage.tsx:19
-#: src/containers/main/MainContainer.tsx:26
-#: src/pages/projects-page/description/ProjectsDescriptionCard.tsx:11
 msgid "Achievements"
 msgstr "Achievements"
 
@@ -46,7 +44,7 @@ msgid "Cancel"
 msgstr "Cancel"
 
 #: src/pages/criteria-page/CriteriaPage.tsx:60
-#: src/pages/projects-page/ProjectsPage.tsx:74
+#: src/pages/projects-page/ProjectsPage.tsx:75
 #: src/pages/strengths-weaknesses-page/StrengthsWeaknessesPage.tsx:60
 msgid "Changes you made may not be saved."
 msgstr "Changes you made may not be saved."
@@ -55,9 +53,13 @@ msgstr "Changes you made may not be saved."
 msgid "Criteria"
 msgstr "Criteria"
 
-#: src/containers/main/MainContainer.tsx:12
+#: src/containers/main/MainContainer.tsx:14
 msgid "Dashboard"
 msgstr "Dashboard"
+
+#: src/pages/start-review-page/StartReviewPage.tsx:22
+msgid "Dear {name}, Hello"
+msgstr "Dear {name}, Hello"
 
 #: src/pages/projects-page/ProjectForm.tsx:75
 msgid "Delete"
@@ -97,15 +99,9 @@ msgstr "Execution"
 msgid "Go to Achievements page and add projects you have participated in"
 msgstr "Go to Achievements page and add projects you have participated in"
 
-#: src/containers/main/MainContainer.tsx:25
-#: src/containers/main/MainContainer.tsx:37
-#: src/containers/main/MainContainer.tsx:32
+#: src/containers/main/MainContainer.tsx:27
 msgid "Guide"
 msgstr "Guide"
-
-#: src/pages/start-review-page/StartReviewPage.tsx:22
-msgid "Hello dear {name}, Welcome to the performance review system"
-msgstr "Hello dear {name}, Welcome to the performance review system"
 
 #: src/pages/guide-page/GuidePage.tsx:14
 msgid "How to give feedback to each other?"
@@ -165,15 +161,12 @@ msgstr "Organization Culture Adoption"
 msgid "Password"
 msgstr "Password"
 
-#: src/containers/main/MainContainer.tsx:19
-#: src/containers/main/MainContainer.tsx:14
-#: src/pages/criteria-page/description/CriteriaDescriptionCard.tsx:11
 #: src/pages/dashboard-page/DashboardPage.tsx:34
 #: src/pages/self-review-page/SelfReviewPage.tsx:17
 msgid "Performance Competencies"
 msgstr "Performance Competencies"
 
-#: src/containers/main/MainContainer.tsx:34
+#: src/containers/main/MainContainer.tsx:37
 #: src/shared/full-page-error/FullPageError.stories.tsx:34
 #: src/shared/layouts/dashboard-layouts/DashboardLayout.stories.tsx:27
 msgid "Performance Review"
@@ -211,7 +204,7 @@ msgstr "Reviewers"
 msgid "Role Expertise and Self Development"
 msgstr "Role Expertise and Self Development"
 
-#: src/shared/auth/Login.tsx:29
+#: src/shared/auth/Login.tsx:31
 msgid "Sahab"
 msgstr "Sahab"
 
@@ -228,13 +221,13 @@ msgstr "Save"
 msgid "Select"
 msgstr "Select"
 
-#: src/containers/main/MainContainer.tsx:19
+#: src/containers/main/MainContainer.tsx:21
 msgid "Self Review"
 msgstr "Self Review"
 
 #: src/core/snackbar/Snackbar.stories.tsx:24
 #: src/pages/criteria-page/CriteriaPage.tsx:55
-#: src/pages/projects-page/ProjectsPage.tsx:49
+#: src/pages/projects-page/ProjectsPage.tsx:50
 #: src/pages/strengths-weaknesses-page/StrengthsWeaknessesPage.tsx:56
 msgid "Something went wrong."
 msgstr "Something went wrong."
@@ -263,7 +256,7 @@ msgstr "Submit"
 
 #: src/core/snackbar/Snackbar.stories.tsx:14
 #: src/pages/criteria-page/CriteriaPage.tsx:52
-#: src/pages/projects-page/ProjectsPage.tsx:46
+#: src/pages/projects-page/ProjectsPage.tsx:47
 #: src/pages/strengths-weaknesses-page/StrengthsWeaknessesPage.tsx:53
 msgid "Successfully saved."
 msgstr "Successfully saved."
@@ -284,7 +277,7 @@ msgstr "Try Again"
 msgid "Username"
 msgstr "Username"
 
-#: src/shared/auth/Login.tsx:19
+#: src/shared/auth/Login.tsx:20
 msgid "Username or Password is incorrect."
 msgstr "Username or Password is incorrect."
 
