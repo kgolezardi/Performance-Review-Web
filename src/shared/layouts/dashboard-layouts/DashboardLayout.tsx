@@ -2,6 +2,7 @@ import { AppBar, Theme, Toolbar } from '@material-ui/core';
 import { makeStyles } from '@material-ui/styles';
 import { CSSProperties } from '@material-ui/styles/withStyles';
 import React from 'react';
+import { Overlayscrollbars } from 'src/shared/overlayscrollbars/Overlayscrollbars';
 import { FCProps } from 'src/shared/types/FCProps';
 import { Styles } from 'src/shared/types/Styles';
 import { groupChildrenByType } from 'src/shared/utils/groupChildrenByType.utils';
@@ -56,7 +57,9 @@ export function DashboardLayout(props: Props) {
           <div className={classes.userRegion}>{userChild}</div>
         </Toolbar>
       </AppBar>
-      <main className={classes.content}>{contentChild}</main>
+      <main className={classes.content}>
+        <Overlayscrollbars className={classes.overlayscrollbars}>{contentChild}</Overlayscrollbars>
+      </main>
     </div>
   );
 }
@@ -91,7 +94,10 @@ const styles = (theme: Theme) => ({
   userRegion: {
     marginRight: theme.spacing(8),
     marginLeft: 'auto',
-  },
+  } as CSSProperties,
+  overlayscrollbars: {
+    height: '100%',
+  } as CSSProperties,
 });
 
 const useStyles = makeStyles(styles, { name: 'DashboardLayout' });

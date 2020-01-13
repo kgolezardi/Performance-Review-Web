@@ -17,7 +17,7 @@ export const Overlayscrollbars = forwardRef(function(props: Props, instanceRef: 
 
   return (
     <div {...divProps} ref={ref}>
-      {props.children}
+      <div>{props.children}</div>
     </div>
   );
 });
