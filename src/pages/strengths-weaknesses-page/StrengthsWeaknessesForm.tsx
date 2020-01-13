@@ -3,7 +3,7 @@ import { Grid } from '@material-ui/core';
 // @ts-ignore
 import { MDXContext } from '@mdx-js/react';
 import { importMDX } from 'mdx.macro';
-import { equals } from 'ramda';
+import { equals, filter } from 'ramda';
 import React, { useContext } from 'react';
 import { DictInput, DictInputItem, Forminator, SubmitButton } from 'src/shared/forminator';
 import { SectionGuide } from 'src/shared/section-guide';
@@ -11,7 +11,6 @@ import { StrengthsOrWeaknesses } from 'src/shared/strengths-weaknesses';
 import { FCProps } from 'src/shared/types/FCProps';
 import { ArrayValuePrompt, Equal } from './ArrayValuePrompt';
 import { StrengthsWeaknessesFormData } from './StrengthsWeaknessesPage';
-import { normalizeArray } from './utils';
 
 const DescriptionContent = importMDX.sync('./DescriptionContent.mdx');
 
@@ -22,8 +21,9 @@ interface OwnProps {
 
 type Props = FCProps<OwnProps>;
 
-const arrayEqual: Equal = (fragmentValue, propValue) =>
-  equals(normalizeArray(fragmentValue), normalizeArray(propValue));
+const arrayEqual: Equal = (fragmentValue, propValue) => {
+  return equals(filter(Boolean, fragmentValue || []), filter(Boolean, propValue || []));
+};
 
 export function StrengthsWeaknessesForm(props: Props) {
   const { onSubmit } = props;
