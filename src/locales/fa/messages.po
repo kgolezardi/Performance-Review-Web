@@ -86,7 +86,6 @@ msgstr "English"
 msgid "Error"
 msgstr "خطا"
 
-#: src/pages/projects-page/ProjectForm.tsx:65
 #: src/shared/criterion-item/CriterionItem.tsx:21
 msgid "Evaluation"
 msgstr "ارزیابی"
@@ -155,7 +154,7 @@ msgstr "در حد انتظار سازمان"
 
 #: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:38
 msgid "Most important characteristics or behaviours I should improve in myself"
-msgstr "مهمترین ویژگی ها یا رفتارهایی که باید باید توی خودم بهبودشون بدم"
+msgstr "مهمترین ویژگی‌ها یا رفتارهایی که باید توی خودم بهبود بدم"
 
 #: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:31
 msgid "Most important characteristics or effective behaviours that I should maintain"
@@ -185,6 +184,10 @@ msgstr "کسانی هستن که روی دستاوردهاتون کامنت می
 #: src/pages/self-review-page/SelfReviewPage.tsx:17
 msgid "Performance Competencies"
 msgstr "شایستگی‌های عملکردی"
+
+#: src/pages/projects-page/ProjectForm.tsx:65
+msgid "Performance Evaluation"
+msgstr "ارزیابی عملکرد"
 
 #: src/containers/main/MainContainer.tsx:37
 #: src/shared/full-page-error/FullPageError.stories.tsx:34
