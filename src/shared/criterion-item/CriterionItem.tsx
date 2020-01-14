@@ -3,8 +3,8 @@ import { Box, Grid, Typography } from '@material-ui/core';
 import React, { ReactNode } from 'react';
 import { DictInputItem, FragmentPrompt, LimitedTextAreaInput } from 'src/shared/forminator';
 import { Rating } from 'src/shared/rating';
-import { FCProps } from 'src/shared/types/FCProps';
 import { useServerValueContext } from 'src/shared/server-value';
+import { FCProps } from 'src/shared/types/FCProps';
 
 interface OwnProps {
   title: string;
@@ -22,9 +22,7 @@ export function CriterionItem({ title, details, prefix }: Props) {
   return (
     <Grid container spacing={2}>
       <Grid item xs={12}>
-        <Typography variant="h5" gutterBottom>
-          {title}
-        </Typography>
+        <Typography variant="h5">{title}</Typography>
       </Grid>
       <Grid item xs={12}>
         {details}

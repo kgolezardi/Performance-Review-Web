@@ -1,5 +1,5 @@
 import { i18n } from '@lingui/core';
-import { Box, Grid, Theme } from '@material-ui/core';
+import { Box, Grid, Theme, Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/styles';
 import { CSSProperties } from '@material-ui/styles/withStyles';
 import graphql from 'babel-plugin-relay/macro';
@@ -98,6 +98,9 @@ export function ProjectForm(props: Props) {
               </DictInputItem>
             </Grid>
             <Grid item xs={12}>
+              <Typography>{i18n._('How was your performance based on your expectations?')}</Typography>
+            </Grid>
+            <Grid item xs={12}>
               <DictInputItem field="rating">
                 <Box width={240}>
                   <Rating inputLabel={i18n._('Evaluation')} />
@@ -107,13 +110,26 @@ export function ProjectForm(props: Props) {
             </Grid>
             <Grid item xs={12}>
               <DictInputItem field="text">
-                <LimitedTextAreaInput label={i18n._('Accomplishments')} maxChars={512} variant="outlined" fullWidth />
+                <LimitedTextAreaInput
+                  label={i18n._('Accomplishments')}
+                  maxChars={512}
+                  variant="outlined"
+                  fullWidth
+                  helperText={i18n._('For instance, your personal key-results may be your accomplishments.')}
+                />
                 <FragmentPrompt value={initialValue.text || ''} />
               </DictInputItem>
             </Grid>
             <Grid item xs={12}>
               <DictInputItem field="reviewersId">
-                <ReviewersInput label={i18n._('Reviewers')} users={props.users} excludes={userIds} />
+                <ReviewersInput
+                  label={i18n._('Reviewers')}
+                  users={props.users}
+                  excludes={userIds}
+                  helperText={i18n._(
+                    'People who will comment on your accomplishments and write your performance competencies and dominant characteristics from their own point of view.',
+                  )}
+                />
                 <FragmentPrompt value={initialValue.reviewersId || []} equal={arrayEqual} />
               </DictInputItem>
             </Grid>

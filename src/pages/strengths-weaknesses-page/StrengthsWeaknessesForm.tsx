@@ -44,7 +44,7 @@ export function StrengthsWeaknessesForm(props: Props) {
               <StrengthsOrWeaknesses
                 maxLength={3}
                 title={i18n._('Most important characteristics or effective behaviours that I should maintain')}
-                label={i18n._("What I'm awesome at")}
+                label={i18n._('What to continue doing')}
               />
               <ArrayValuePrompt value={props.initialValue?.strengths || []} equal={arrayEqual} />
             </Grid>

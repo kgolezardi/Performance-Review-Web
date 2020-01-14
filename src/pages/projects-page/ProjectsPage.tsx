@@ -11,10 +11,10 @@ import { DeleteProjectReviewMutationInput } from 'src/pages/projects-page/__gene
 import { ProjectsPageQuery } from 'src/pages/projects-page/__generated__/ProjectsPageQuery.graphql';
 import { useDeleteProjectReview } from 'src/pages/projects-page/deleteProjectReview.mutation';
 import { ProjectFormData } from 'src/pages/projects-page/ProjectForm';
+import { PromptProvider } from 'src/shared/prompt';
 import { SectionGuide } from 'src/shared/section-guide';
 import { useBiDiSnackbar } from 'src/shared/snackbar';
 import { FCProps } from 'src/shared/types/FCProps';
-import { PromptProvider } from '../../shared/prompt';
 import { AddProjectForm, AddProjectFormData } from './AddProjectForm';
 import { ProjectExpansionPanel } from './ProjectExpansionPanel';
 import { useSaveProjectReview } from './saveProjectReview.mutation';
