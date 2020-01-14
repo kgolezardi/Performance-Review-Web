@@ -95,7 +95,7 @@ msgstr "Evaluation"
 msgid "Evidence"
 msgstr "Evidence"
 
-#: src/global-types/Evaluation.ts:13
+#: src/global-types/Evaluation.ts:12
 msgid "Exceeds Expectations"
 msgstr "Exceeds Expectations"
 
@@ -149,7 +149,7 @@ msgstr "Leadership"
 msgid "Login to user panel"
 msgstr "Login to user panel"
 
-#: src/global-types/Evaluation.ts:12
+#: src/global-types/Evaluation.ts:11
 msgid "Meets Expectations"
 msgstr "Meets Expectations"
 
@@ -161,7 +161,7 @@ msgstr "Most important characteristics or behaviours I should improve in myself"
 msgid "Most important characteristics or effective behaviours that I should maintain"
 msgstr "Most important characteristics or effective behaviours that I should maintain"
 
-#: src/global-types/Evaluation.ts:11
+#: src/global-types/Evaluation.ts:10
 msgid "Needs Improvement"
 msgstr "Needs Improvement"
 
@@ -260,10 +260,6 @@ msgstr "Something went wrong. Please try again"
 msgid "Strengths and Weaknesses"
 msgstr "Strengths and Weaknesses"
 
-#: src/global-types/Evaluation.ts:14
-msgid "Strongly Exceeds Expectations"
-msgstr "Strongly Exceeds Expectations"
-
 #: src/core/snackbar/Snackbar.stories.tsx:16
 #: src/core/snackbar/Snackbar.stories.tsx:26
 #: src/shared/rating/Rating.stories.tsx:18
@@ -281,7 +277,7 @@ msgstr "Submit"
 msgid "Successfully saved."
 msgstr "Successfully saved."
 
-#: src/global-types/Evaluation.ts:15
+#: src/global-types/Evaluation.ts:13
 msgid "Superb"
 msgstr "Superb"
 

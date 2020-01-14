@@ -95,9 +95,9 @@ msgstr "ارزیابی"
 msgid "Evidence"
 msgstr "شواهد"
 
-#: src/global-types/Evaluation.ts:13
+#: src/global-types/Evaluation.ts:12
 msgid "Exceeds Expectations"
-msgstr "فراتر از انتظارات"
+msgstr "فراتر از انتظار سازمان"
 
 #: src/pages/criteria-page/CriteriaForm.tsx:38
 msgid "Execution"
@@ -149,9 +149,9 @@ msgstr "رهبری خودظهور"
 msgid "Login to user panel"
 msgstr "ورود به ناحیه کاربری"
 
-#: src/global-types/Evaluation.ts:12
+#: src/global-types/Evaluation.ts:11
 msgid "Meets Expectations"
-msgstr "مطابق با انتظارات"
+msgstr "در حد انتظار سازمان"
 
 #: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:38
 msgid "Most important characteristics or behaviours I should improve in myself"
@@ -161,9 +161,9 @@ msgstr "مهمترین ویژگی ها یا رفتارهایی که باید ب�
 msgid "Most important characteristics or effective behaviours that I should maintain"
 msgstr "مهمترین ویژگی ها یا رفتارهای مؤثری که باید ادامه شون بدم"
 
-#: src/global-types/Evaluation.ts:11
+#: src/global-types/Evaluation.ts:10
 msgid "Needs Improvement"
-msgstr "نیازمند به تلاش"
+msgstr "نیازمند به بهتر شدن"
 
 #: src/shared/confirm-button/ConfirmButton.tsx:8
 msgid "No"
@@ -260,10 +260,6 @@ msgstr "خطایی رخ داد. لطفا مجددا تلاش نمایید"
 msgid "Strengths and Weaknesses"
 msgstr "نقاط قوت و ضعف"
 
-#: src/global-types/Evaluation.ts:14
-msgid "Strongly Exceeds Expectations"
-msgstr "بسیار فراتر از انتظارات"
-
 #: src/core/snackbar/Snackbar.stories.tsx:16
 #: src/core/snackbar/Snackbar.stories.tsx:26
 #: src/shared/rating/Rating.stories.tsx:18
@@ -281,7 +277,7 @@ msgstr "ثبت"
 msgid "Successfully saved."
 msgstr "با موفقیت ثبت گردید."
 
-#: src/global-types/Evaluation.ts:15
+#: src/global-types/Evaluation.ts:13
 msgid "Superb"
 msgstr "فوق‌العاده"
 
