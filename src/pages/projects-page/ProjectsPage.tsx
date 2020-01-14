@@ -90,7 +90,7 @@ export default function ProjectsPage(props: Props) {
 
   return (
     <Fragment>
-      <Box padding={4}>
+      <Box padding={3} paddingTop={4}>
         <Grid container spacing={7}>
           <Grid item xs={12}>
             <SectionGuide>
@@ -106,20 +106,22 @@ export default function ProjectsPage(props: Props) {
           </Grid>
         </Grid>
       </Box>
-      <PromptProvider message={i18n._('Changes you made may not be saved.')}>
-        {projectReviews.map(projectReview => {
-          return (
-            <ProjectExpansionPanel
-              key={projectReview.id}
-              projectReview={projectReview}
-              initialProjectIds={initialProjectIds}
-              saveProject={saveProject}
-              deleteProject={deleteProject}
-              users={data.viewer.users}
-            />
-          );
-        })}
-      </PromptProvider>
+      <Box paddingY={2}>
+        <PromptProvider message={i18n._('Changes you made may not be saved.')}>
+          {projectReviews.map(projectReview => {
+            return (
+              <ProjectExpansionPanel
+                key={projectReview.id}
+                projectReview={projectReview}
+                initialProjectIds={initialProjectIds}
+                saveProject={saveProject}
+                deleteProject={deleteProject}
+                users={data.viewer.users}
+              />
+            );
+          })}
+        </PromptProvider>
+      </Box>
     </Fragment>
   );
 }

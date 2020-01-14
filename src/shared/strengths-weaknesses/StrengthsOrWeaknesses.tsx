@@ -1,5 +1,5 @@
 import { i18n } from '@lingui/core';
-import { Grid, makeStyles, Theme, Typography } from '@material-ui/core';
+import { Box, Grid, makeStyles, Theme, Typography } from '@material-ui/core';
 import { CSSProperties } from '@material-ui/core/styles/withStyles';
 import AddIcon from '@material-ui/icons/Add';
 import React, { useCallback } from 'react';
@@ -35,44 +35,46 @@ export function StrengthsOrWeaknesses({ title, maxLength, label, ...props }: Pro
   }, []);
 
   return (
-    <Grid container spacing={2}>
-      <Grid item xs={12}>
-        <Typography variant="h5" gutterBottom>
-          {title}
-        </Typography>
+    <Box paddingTop={5}>
+      <Grid container spacing={2}>
+        <Grid item xs={12}>
+          <Typography variant="h5" gutterBottom>
+            {title}
+          </Typography>
+        </Grid>
+        <ArrayInput initialValue={[undefined]}>
+          <FragmentRef lens={lens} />
+          <ArrayOutput>
+            <Grid item xs={12}>
+              <div className={classes.textAreaWrapper}>
+                <div>
+                  <LimitedTextAreaInput
+                    variant="outlined"
+                    maxChars={280}
+                    label={label}
+                    fullWidth
+                    inputProps={{ dir: 'auto' }}
+                  />
+                </div>
+                <div>
+                  <ConditionalSection lens={lens} condition={clearIconCondition}>
+                    <ClearIcon />
+                  </ConditionalSection>
+                </div>
+              </div>
+            </Grid>
+          </ArrayOutput>
+          <ConditionalSection condition={addButtonCondition} lens={lens}>
+            <Grid item xs />
+            <Grid item>
+              <ArrayAppendButton variant="outlined" color="primary" startIcon={<AddIcon />}>
+                {i18n._('Add')}
+              </ArrayAppendButton>
+            </Grid>
+          </ConditionalSection>
+        </ArrayInput>
       </Grid>
-      <ArrayInput initialValue={[undefined]}>
-        <FragmentRef lens={lens} />
-        <ArrayOutput>
-          <Grid item xs={12}>
-            <div className={classes.textAreaWrapper}>
-              <div>
-                <LimitedTextAreaInput
-                  variant="outlined"
-                  maxChars={280}
-                  label={label}
-                  fullWidth
-                  inputProps={{ dir: 'auto' }}
-                />
-              </div>
-              <div>
-                <ConditionalSection lens={lens} condition={clearIconCondition}>
-                  <ClearIcon />
-                </ConditionalSection>
-              </div>
-            </div>
-          </Grid>
-        </ArrayOutput>
-        <ConditionalSection condition={addButtonCondition} lens={lens}>
-          <Grid item xs />
-          <Grid item>
-            <ArrayAppendButton variant="outlined" color="primary" startIcon={<AddIcon />}>
-              {i18n._('Add')}
-            </ArrayAppendButton>
-          </Grid>
-        </ConditionalSection>
-      </ArrayInput>
-    </Grid>
+    </Box>
   );
 }
 

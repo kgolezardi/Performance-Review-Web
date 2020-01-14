@@ -39,10 +39,10 @@ export function ProjectExpansionPanel(props: Props) {
       elevation={0}
       classes={{ root: classes.expansionPanelRoot, expanded: classes.expansionPanelExpanded }}
     >
-      <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />} className={classes.expansionPanelSummary}>
+      <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
         <Typography variant="h6">{projectReview.project.name}</Typography>
       </ExpansionPanelSummary>
-      <ExpansionPanelDetails classes={{ root: classes.expansionPanelDetails }}>
+      <ExpansionPanelDetails>
         <ProjectForm onSubmit={saveProject} onDelete={deleteProject} projectReview={projectReview} users={users} />
       </ExpansionPanelDetails>
     </ExpansionPanel>
@@ -51,27 +51,16 @@ export function ProjectExpansionPanel(props: Props) {
 
 const styles = (theme: Theme) => ({
   expansionPanelRoot: {
-    '&:nth-child(2):before': {
+    '&:first-child:before': {
       display: 'none',
     },
-    '&:not(:nth-child(2)):before': {
+    '&:not(:first-child):before': {
       display: 'block !important',
       opacity: '100% !important',
-    },
-    '&:last-child': {
-      paddingBottom: theme.spacing(2),
     },
     '&$expansionPanelExpanded': {
       margin: 0,
     },
-  } as CSSProperties,
-  expansionPanelSummary: {
-    paddingLeft: theme.spacing(4),
-    paddingRight: theme.spacing(4),
-  } as CSSProperties,
-  expansionPanelDetails: {
-    paddingLeft: theme.spacing(4),
-    paddingRight: theme.spacing(4),
   } as CSSProperties,
   expansionPanelExpanded: {} as CSSProperties,
 });

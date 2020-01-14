@@ -75,7 +75,7 @@ export default function CriteriaPage(props: Props) {
   const review = data.viewer.review;
 
   return (
-    <Box padding={4}>
+    <Box padding={3} paddingTop={4}>
       <PromptProvider message={i18n._('Changes you made may not be saved.')}>
         <CriteriaForm
           onSubmit={handleSubmit}
