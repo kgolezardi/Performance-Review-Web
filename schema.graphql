@@ -1,5 +1,5 @@
 # source: http://127.0.0.1:8000/graphql
-# timestamp: Sun Jan 05 2020 18:00:57 GMT+0330 (Iran Standard Time)
+# timestamp: Tue Jan 14 2020 16:26:45 GMT+0330 (Iran Standard Time)
 
 input ChangePasswordMutationInput {
   oldPassword: String!
@@ -29,7 +29,6 @@ enum Evaluation {
   NEEDS_IMPROVEMENT
   MEETS_EXPECTATIONS
   EXCEEDS_EXPECTATIONS
-  STRONGLY_EXCEEDS_EXPECTATIONS
   SUPERB
 }
 
