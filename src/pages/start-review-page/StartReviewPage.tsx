@@ -1,5 +1,5 @@
 import { i18n } from '@lingui/core';
-import { Box, Button, Container, Grid, makeStyles, Theme, Typography } from '@material-ui/core';
+import { Box, Button, Card, CardContent, CardHeader, Container, Grid, makeStyles, Theme } from '@material-ui/core';
 import { CSSProperties } from '@material-ui/core/styles/withStyles';
 // @ts-ignore
 import { Components, MDXContext } from '@mdx-js/react';
@@ -29,26 +29,30 @@ export const StartReviewPage = (props: Props) => {
   return (
     <Container maxWidth="md">
       <Box marginTop={15}>
-        <Typography variant="h4" className={classes.title}>
-          {i18n._('Dear {name}, Hello', { name: getUserLabel(user) })}
-        </Typography>
-        <Content components={{ ...components, blockquote: BlackQuote }} />
-        <Grid container justify="center" className={classes.startButtonContainer}>
-          <Button variant="contained" color="secondary" size="large" onClick={startReview}>
-            {i18n._('Begin my review')}
-          </Button>
-        </Grid>
+        <Card classes={{ root: classes.cardRoot }}>
+          <CardHeader title={i18n._('Dear {name}, Hello', { name: getUserLabel(user) })} />
+          <CardContent>
+            <Content components={{ ...components, blockquote: BlackQuote }} />
+            <Grid container justify="center" className={classes.startButtonContainer}>
+              <Grid item>
+                <Button variant="contained" color="secondary" size="large" onClick={startReview}>
+                  {i18n._('Begin my review')}
+                </Button>
+              </Grid>
+            </Grid>
+          </CardContent>
+        </Card>
       </Box>
     </Container>
   );
 };
 
 const styles = (theme: Theme) => ({
-  title: {
-    marginBottom: theme.spacing(6),
+  cardRoot: {
+    padding: theme.spacing(6),
   } as CSSProperties,
   startButtonContainer: {
-    marginTop: theme.spacing(7.5),
+    marginTop: theme.spacing(7),
   },
 });
 
