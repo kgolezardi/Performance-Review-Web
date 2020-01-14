@@ -31,7 +31,7 @@ export default function SelfReviewPage(props: Props) {
             indicatorColor="primary"
             textColor="primary"
             centered
-            classes={{ scroller: classes.tabsScroller }}
+            classes={{ scroller: classes.tabsScroller, indicator: classes.indicator }}
           >
             <TabLink
               label={i18n._('Performance Competencies')}
@@ -72,6 +72,10 @@ const styles = (theme: Theme) => ({
   } as CSSProperties,
   tabsScroller: {
     display: 'block',
+  } as CSSProperties,
+  indicator: {
+    height: theme.spacing(0.5),
+    borderRadius: theme.spacing(0.5),
   } as CSSProperties,
 });
 
