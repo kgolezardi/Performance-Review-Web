@@ -1,3 +1,4 @@
+import { FormHelperText } from '@material-ui/core';
 import graphql from 'babel-plugin-relay/macro';
 import React from 'react';
 import { useFragment } from 'react-relay/hooks';
@@ -11,6 +12,7 @@ interface OwnProps {
   initialValue?: string[];
   users: ReviewersInput_Reviewers$key;
   excludes?: string[];
+  helperText?: React.ReactNode;
 }
 
 interface Option {
@@ -21,7 +23,7 @@ interface Option {
 type Props = FCProps<OwnProps>;
 
 export function ReviewersInput(props: Props) {
-  const { label, initialValue, excludes } = props;
+  const { label, initialValue, excludes, helperText } = props;
   const users = useFragment(
     graphql`
       fragment ReviewersInput_Reviewers on UserNode @relay(plural: true) {
@@ -39,13 +41,16 @@ export function ReviewersInput(props: Props) {
   }));
 
   return (
-    <SelectMultiAutoComplete
-      excludes={excludes}
-      filterSelectedOptions
-      label={label}
-      options={options}
-      initialValue={initialValue}
-    />
+    <>
+      <SelectMultiAutoComplete
+        excludes={excludes}
+        filterSelectedOptions
+        label={label}
+        options={options}
+        initialValue={initialValue}
+      />
+      {helperText && <FormHelperText>{helperText}</FormHelperText>}
+    </>
   );
 }
 

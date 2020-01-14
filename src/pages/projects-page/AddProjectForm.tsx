@@ -1,5 +1,5 @@
 import { i18n } from '@lingui/core';
-import { Box, Grid } from '@material-ui/core';
+import { Box, Grid, Typography } from '@material-ui/core';
 import AddIcon from '@material-ui/icons/Add';
 import graphql from 'babel-plugin-relay/macro';
 import React, { useMemo } from 'react';
@@ -41,20 +41,32 @@ export function AddProjectForm(props: Props) {
   return (
     <Forminator onSubmit={onSubmit}>
       <DictInput>
-        <Grid container spacing={2} alignItems="center">
-          <Grid item>
-            <DictInputItem field="projectId">
-              <Box width={240}>
-                <ProjectInput label={i18n._('Project')} projects={props.projects} excludes={selectedProjectIds} />
-              </Box>
-            </DictInputItem>
+        <Grid container spacing={2}>
+          <Grid item xs={12}>
+            <Typography variant="h5">{i18n._('Adding Projects')}</Typography>
           </Grid>
-          <Grid item>
-            <Box marginTop={0.375}>
-              <SubmitButton variant="outlined" color="primary" startIcon={<AddIcon />}>
-                {i18n._('Add')}
-              </SubmitButton>
-            </Box>
+          <Grid item xs={12}>
+            <Typography>{i18n._('Choose projects you have been working on in the past year.')}</Typography>
+          </Grid>
+          <Grid container item spacing={2} alignItems="center" xs={12}>
+            <Grid item>
+              <DictInputItem field="projectId">
+                <Box width={240}>
+                  <ProjectInput
+                    label={i18n._('Select project')}
+                    projects={props.projects}
+                    excludes={selectedProjectIds}
+                  />
+                </Box>
+              </DictInputItem>
+            </Grid>
+            <Grid item>
+              <Box marginTop={0.375}>
+                <SubmitButton variant="outlined" color="primary" startIcon={<AddIcon />}>
+                  {i18n._('Add')}
+                </SubmitButton>
+              </Box>
+            </Grid>
           </Grid>
         </Grid>
       </DictInput>

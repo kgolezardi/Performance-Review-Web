@@ -7,17 +7,17 @@ import React, { useContext } from 'react';
 import { CriterionItem } from 'src/shared/criterion-item';
 import { DictInput, Forminator, SubmitButton } from 'src/shared/forminator';
 import { SectionGuide } from 'src/shared/section-guide';
-import { FCProps } from 'src/shared/types/FCProps';
 import { ServerValueProvider } from 'src/shared/server-value';
-import { CriteriaFormData } from './CriteriaFormData';
 import { StickyActionBar } from 'src/shared/sticky-action-bar/StickyActionBar';
+import { FCProps } from 'src/shared/types/FCProps';
+import { CriteriaFormData } from './CriteriaFormData';
 
 const OrganizationCultureAdoptionContent = importMDX.sync('./OrganizationCultureAdoptionContent.mdx');
 const ProblemSolvingContent = importMDX.sync('./ProblemSolvingContent.mdx');
 const ExecutionContent = importMDX.sync('./ExecutionContent.mdx');
 const LeadershipContent = importMDX.sync('./LeadershipContent.mdx');
 const ThoughtLeadershipContent = importMDX.sync('./ThoughtLeadershipContent.mdx');
-const CollaborationContent = importMDX.sync('./CollaborationContent.mdx');
+const PresenceContent = importMDX.sync('./PresenceContent.mdx');
 const DescriptionContent = importMDX.sync('./DescriptionContent.mdx');
 
 interface OwnProps {
@@ -35,7 +35,7 @@ export function CriteriaForm(props: Props) {
     <ServerValueProvider value={props.initialValue}>
       <Forminator onSubmit={onSubmit} initialValue={props.initialValue}>
         <DictInput>
-          <Grid container spacing={4}>
+          <Grid container spacing={7}>
             <Grid item xs={12}>
               <SectionGuide>
                 <DescriptionContent components={components} />
@@ -79,7 +79,7 @@ export function CriteriaForm(props: Props) {
             <Grid item xs={12}>
               <CriterionItem
                 title={i18n._('Presence')}
-                details={<CollaborationContent components={components} />}
+                details={<PresenceContent components={components} />}
                 prefix="presence"
               />
             </Grid>

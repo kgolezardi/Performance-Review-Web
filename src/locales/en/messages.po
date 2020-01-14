@@ -17,25 +17,29 @@ msgstr ""
 msgid "A guide to Nonviolent Communication(NVC)"
 msgstr "A guide to Nonviolent Communication(NVC)"
 
-#: src/pages/projects-page/ProjectForm.tsx:63
+#: src/pages/projects-page/ProjectForm.tsx:72
 msgid "Accomplishments"
 msgstr "Accomplishments"
 
-#: src/pages/dashboard-page/DashboardPage.tsx:50
+#: src/pages/dashboard-page/DashboardPage.tsx:51
 #: src/pages/self-review-page/SelfReviewPage.tsx:19
 msgid "Achievements"
 msgstr "Achievements"
 
-#: src/pages/projects-page/AddProjectForm.tsx:32
+#: src/pages/projects-page/AddProjectForm.tsx:41
 #: src/shared/strengths-weaknesses/StrengthsOrWeaknesses.tsx:59
 msgid "Add"
 msgstr "Add"
 
-#: src/pages/projects-page/ProjectForm.tsx:75
+#: src/pages/projects-page/AddProjectForm.tsx:25
+msgid "Adding Projects"
+msgstr "Adding Projects"
+
+#: src/pages/projects-page/ProjectForm.tsx:83
 msgid "Are you sure you want to delete this project review?"
 msgstr "Are you sure you want to delete this project review?"
 
-#: src/pages/start-review-page/StartReviewPage.tsx:27
+#: src/pages/start-review-page/StartReviewPage.tsx:29
 msgid "Begin my review"
 msgstr "Begin my review"
 
@@ -49,6 +53,10 @@ msgstr "Cancel"
 msgid "Changes you made may not be saved."
 msgstr "Changes you made may not be saved."
 
+#: src/pages/projects-page/AddProjectForm.tsx:28
+msgid "Choose projects you have been working on in the past year."
+msgstr "Choose projects you have been working on in the past year."
+
 #: src/shared/full-page-error/FullPageError.stories.tsx:9
 msgid "Criteria"
 msgstr "Criteria"
@@ -57,15 +65,15 @@ msgstr "Criteria"
 msgid "Dashboard"
 msgstr "Dashboard"
 
-#: src/pages/start-review-page/StartReviewPage.tsx:22
+#: src/pages/start-review-page/StartReviewPage.tsx:23
 msgid "Dear {name}, Hello"
 msgstr "Dear {name}, Hello"
 
-#: src/pages/projects-page/ProjectForm.tsx:75
+#: src/pages/projects-page/ProjectForm.tsx:83
 msgid "Delete"
 msgstr "Delete"
 
-#: src/pages/dashboard-page/DashboardPage.tsx:42
+#: src/pages/dashboard-page/DashboardPage.tsx:43
 #: src/pages/self-review-page/SelfReviewPage.tsx:18
 msgid "Dominant Characteristics"
 msgstr "Dominant Characteristics"
@@ -78,12 +86,12 @@ msgstr "English"
 msgid "Error"
 msgstr "Error"
 
-#: src/pages/projects-page/ProjectForm.tsx:56
-#: src/shared/criterion-item/CriterionItem.tsx:23
+#: src/pages/projects-page/ProjectForm.tsx:65
+#: src/shared/criterion-item/CriterionItem.tsx:21
 msgid "Evaluation"
 msgstr "Evaluation"
 
-#: src/shared/criterion-item/CriterionItem.tsx:30
+#: src/shared/criterion-item/CriterionItem.tsx:28
 msgid "Evidence"
 msgstr "Evidence"
 
@@ -91,9 +99,13 @@ msgstr "Evidence"
 msgid "Exceeds Expectations"
 msgstr "Exceeds Expectations"
 
-#: src/pages/criteria-page/CriteriaForm.tsx:37
+#: src/pages/criteria-page/CriteriaForm.tsx:38
 msgid "Execution"
 msgstr "Execution"
+
+#: src/pages/projects-page/ProjectForm.tsx:72
+msgid "For instance, your personal key-results may be your accomplishments."
+msgstr "For instance, your personal key-results may be your accomplishments."
 
 #: src/pages/dashboard-page/AchievementsNoProjects.tsx:8
 msgid "Go to Achievements page and add projects you have participated in"
@@ -106,6 +118,10 @@ msgstr "Guide"
 #: src/pages/guide-page/GuidePage.tsx:14
 msgid "How to give feedback to each other?"
 msgstr "How to give feedback to each other?"
+
+#: src/pages/projects-page/ProjectForm.tsx:60
+msgid "How was your performance based on your expectations?"
+msgstr "How was your performance based on your expectations?"
 
 #: src/pages/dashboard-page/DominantCharacteristicsCircularIndicator.tsx:56
 msgid "I thought you forgot to write your strengths!"
@@ -125,7 +141,7 @@ msgstr "It'd be good if u wrote more!"
 msgid "It's complete!"
 msgstr "It's complete!"
 
-#: src/pages/criteria-page/CriteriaForm.tsx:43
+#: src/pages/criteria-page/CriteriaForm.tsx:44
 msgid "Leadership"
 msgstr "Leadership"
 
@@ -137,11 +153,11 @@ msgstr "Login to user panel"
 msgid "Meets Expectations"
 msgstr "Meets Expectations"
 
-#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:36
+#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:38
 msgid "Most important characteristics or behaviours I should improve in myself"
 msgstr "Most important characteristics or behaviours I should improve in myself"
 
-#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:29
+#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:31
 msgid "Most important characteristics or effective behaviours that I should maintain"
 msgstr "Most important characteristics or effective behaviours that I should maintain"
 
@@ -153,7 +169,7 @@ msgstr "Needs Improvement"
 msgid "No"
 msgstr "No"
 
-#: src/pages/criteria-page/CriteriaForm.tsx:31
+#: src/pages/criteria-page/CriteriaForm.tsx:32
 msgid "Organization Culture Adoption"
 msgstr "Organization Culture Adoption"
 
@@ -161,7 +177,11 @@ msgstr "Organization Culture Adoption"
 msgid "Password"
 msgstr "Password"
 
-#: src/pages/dashboard-page/DashboardPage.tsx:34
+#: src/pages/projects-page/ProjectForm.tsx:78
+msgid "People who will comment on your accomplishments and write your performance competencies and dominant characteristics from their own point of view."
+msgstr "People who will comment on your accomplishments and write your performance competencies and dominant characteristics from their own point of view."
+
+#: src/pages/dashboard-page/DashboardPage.tsx:35
 #: src/pages/self-review-page/SelfReviewPage.tsx:17
 msgid "Performance Competencies"
 msgstr "Performance Competencies"
@@ -180,23 +200,19 @@ msgstr "Performance Review System"
 msgid "Persian"
 msgstr "فارسی"
 
-#: src/pages/criteria-page/CriteriaForm.tsx:46
+#: src/pages/criteria-page/CriteriaForm.tsx:47
 msgid "Presence"
 msgstr "Presence"
 
-#: src/pages/criteria-page/CriteriaForm.tsx:34
+#: src/pages/criteria-page/CriteriaForm.tsx:35
 msgid "Problem Solving"
 msgstr "Problem Solving"
-
-#: src/pages/projects-page/AddProjectForm.tsx:26
-msgid "Project"
-msgstr "Project"
 
 #: src/shared/full-page-error/FullPageError.stories.tsx:21
 msgid "Projects"
 msgstr "Projects"
 
-#: src/pages/projects-page/ProjectForm.tsx:69
+#: src/pages/projects-page/ProjectForm.tsx:78
 msgid "Reviewers"
 msgstr "Reviewers"
 
@@ -209,8 +225,8 @@ msgid "Sahab"
 msgstr "Sahab"
 
 #: src/pages/criteria-page/CriteriaForm.tsx:51
-#: src/pages/projects-page/ProjectForm.tsx:79
-#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:43
+#: src/pages/projects-page/ProjectForm.tsx:85
+#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:44
 msgid "Save"
 msgstr "Save"
 
@@ -220,6 +236,10 @@ msgstr "Save"
 #: src/shared/select/Select.stories.tsx:30
 msgid "Select"
 msgstr "Select"
+
+#: src/pages/projects-page/AddProjectForm.tsx:34
+msgid "Select project"
+msgstr "Select project"
 
 #: src/containers/main/MainContainer.tsx:21
 msgid "Self Review"
@@ -265,7 +285,7 @@ msgstr "Successfully saved."
 msgid "Superb"
 msgstr "Superb"
 
-#: src/pages/criteria-page/CriteriaForm.tsx:40
+#: src/pages/criteria-page/CriteriaForm.tsx:41
 msgid "Thought Leadership"
 msgstr "Thought Leadership"
 
@@ -285,11 +305,11 @@ msgstr "Username or Password is incorrect."
 msgid "View"
 msgstr "View"
 
-#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:29
-msgid "What I'm awesome at"
-msgstr "What I'm awesome at"
+#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:31
+msgid "What to continue doing"
+msgstr "What to continue doing"
 
-#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:36
+#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:38
 msgid "What to improve"
 msgstr "What to improve"
 
