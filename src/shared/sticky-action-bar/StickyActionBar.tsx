@@ -1,26 +1,31 @@
-import React from 'react';
-import { useInView } from 'react-intersection-observer';
 import { makeStyles, Paper, Theme } from '@material-ui/core';
 import { CSSProperties } from '@material-ui/styles';
+import clsx from 'clsx';
+import React from 'react';
+import { useInView } from 'react-intersection-observer';
 import { FCProps } from 'src/shared/types/FCProps';
 import { Styles } from 'src/shared/types/Styles';
-import clsx from 'clsx';
 
-interface OwnProps {}
+interface OwnProps {
+  noSticky?: boolean;
+}
 
 type Props = FCProps<OwnProps> & StyleProps;
 
 export function StickyActionBar(props: Props) {
+  const { noSticky = false } = props;
   const [ref, inView] = useInView();
   const classes = useStyles(props);
+
+  const sticky = !noSticky && !inView;
 
   return (
     <>
       <Paper
-        elevation={inView ? 0 : 4}
+        elevation={sticky ? 4 : 0}
         classes={{
           root: clsx(classes.root, {
-            [classes.sticky]: !inView,
+            [classes.sticky]: sticky,
           }),
         }}
       >
@@ -35,7 +40,7 @@ const styles = (theme: Theme) => ({
   root: {
     marginTop: theme.spacing(2),
     bottom: -4,
-    zIndex: theme.zIndex.appBar - 25,
+    zIndex: theme.zIndex.appBar - 30,
     width: '100%',
     display: 'grid',
     gridAutoFlow: 'column',
