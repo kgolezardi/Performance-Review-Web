@@ -1,6 +1,5 @@
 import { i18n } from '@lingui/core';
-import { Box, Grid, makeStyles, Theme, Typography } from '@material-ui/core';
-import { CSSProperties } from '@material-ui/core/styles/withStyles';
+import { Box, Grid, InputAdornment, Typography } from '@material-ui/core';
 import AddIcon from '@material-ui/icons/Add';
 import React, { useCallback } from 'react';
 import { ConditionalSection, FragmentRef } from 'src/shared/forminator';
@@ -10,7 +9,6 @@ import ArrayInput from 'src/shared/forminator/inputs/array-input/ArrayInput';
 import ArrayOutput from 'src/shared/forminator/inputs/array-input/ArrayOutput';
 import LimitedTextAreaInput from 'src/shared/forminator/inputs/LimitedTextAreaInput';
 import { FCProps } from 'src/shared/types/FCProps';
-import { Styles } from 'src/shared/types/Styles';
 import { ClearIcon } from './ClearIcon';
 
 interface OwnProps {
@@ -19,10 +17,9 @@ interface OwnProps {
   label?: string;
 }
 
-type Props = FCProps<OwnProps> & StyleProps;
+type Props = FCProps<OwnProps>;
 
 export function StrengthsOrWeaknesses({ title, maxLength, label, ...props }: Props) {
-  const classes = useStyles(props);
   const lens = useFragmentLens();
   const addButtonCondition = useCallback(
     (value: unknown[] | undefined) => {
@@ -46,22 +43,24 @@ export function StrengthsOrWeaknesses({ title, maxLength, label, ...props }: Pro
           <FragmentRef lens={lens} />
           <ArrayOutput>
             <Grid item xs={12}>
-              <div className={classes.textAreaWrapper}>
-                <div>
-                  <LimitedTextAreaInput
-                    variant="outlined"
-                    maxChars={280}
-                    label={label}
-                    fullWidth
-                    inputProps={{ dir: 'auto' }}
-                  />
-                </div>
-                <div>
-                  <ConditionalSection lens={lens} condition={clearIconCondition}>
-                    <ClearIcon />
-                  </ConditionalSection>
-                </div>
-              </div>
+              <Box position="relative">
+                <LimitedTextAreaInput
+                  variant="outlined"
+                  maxChars={280}
+                  label={label}
+                  fullWidth
+                  inputProps={{ dir: 'auto' }}
+                  InputProps={{
+                    endAdornment: (
+                      <ConditionalSection lens={lens} condition={clearIconCondition}>
+                        <InputAdornment position="end">
+                          <ClearIcon />
+                        </InputAdornment>
+                      </ConditionalSection>
+                    ),
+                  }}
+                />
+              </Box>
             </Grid>
           </ArrayOutput>
           <ConditionalSection condition={addButtonCondition} lens={lens}>
@@ -77,15 +76,3 @@ export function StrengthsOrWeaknesses({ title, maxLength, label, ...props }: Pro
     </Box>
   );
 }
-
-const styles = (theme: Theme) => ({
-  textAreaWrapper: {
-    display: 'grid',
-    gridTemplateColumns: `100% ${theme.spacing(1)}px`,
-    gridGap: theme.spacing(),
-    alignItems: 'center',
-  } as CSSProperties,
-});
-
-const useStyles = makeStyles(styles, { name: 'StrengthsOrWeaknesses' });
-type StyleProps = Styles<typeof styles>;
