@@ -2,7 +2,7 @@ import { AppBar, Theme, Toolbar } from '@material-ui/core';
 import { makeStyles } from '@material-ui/styles';
 import { CSSProperties } from '@material-ui/styles/withStyles';
 import React from 'react';
-import { Overlayscrollbars } from 'src/shared/overlayscrollbars/Overlayscrollbars';
+import { Overlayscrollbars } from 'src/shared/overlayscrollbars';
 import { FCProps } from 'src/shared/types/FCProps';
 import { Styles } from 'src/shared/types/Styles';
 import { groupChildrenByType } from 'src/shared/utils/groupChildrenByType.utils';
