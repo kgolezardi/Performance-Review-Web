@@ -31,7 +31,7 @@ export function StrengthsWeaknessesForm(props: Props) {
   const components = useContext(MDXContext);
 
   return (
-    <Grid container spacing={4}>
+    <Grid container spacing={7}>
       <Forminator onSubmit={onSubmit} initialValue={props.initialValue}>
         <DictInput>
           <Grid item xs={12}>

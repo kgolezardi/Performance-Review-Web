@@ -91,12 +91,10 @@ export function ProjectForm(props: Props) {
     <div ref={ref} className={classes.wrapper}>
       <Forminator onSubmit={onSubmit} initialValue={initialValue}>
         <DictInput>
+          <DictInputItem field="projectId">
+            <ConstantInput />
+          </DictInputItem>
           <Grid container spacing={2}>
-            <Grid item xs={12}>
-              <DictInputItem field="projectId">
-                <ConstantInput />
-              </DictInputItem>
-            </Grid>
             <Grid item xs={12}>
               <Typography>{i18n._('How was your performance based on your expectations?')}</Typography>
             </Grid>

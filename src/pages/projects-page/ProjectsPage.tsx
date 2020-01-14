@@ -91,7 +91,7 @@ export default function ProjectsPage(props: Props) {
   return (
     <Fragment>
       <Box padding={4}>
-        <Grid container spacing={2}>
+        <Grid container spacing={7}>
           <Grid item xs={12}>
             <SectionGuide>
               <DescriptionContent components={components} />
