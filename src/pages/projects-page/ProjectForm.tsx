@@ -1,8 +1,11 @@
 import { i18n } from '@lingui/core';
-import { Box, Grid } from '@material-ui/core';
+import { Box, Grid, Theme } from '@material-ui/core';
+import { makeStyles } from '@material-ui/styles';
+import { CSSProperties } from '@material-ui/styles/withStyles';
 import graphql from 'babel-plugin-relay/macro';
 import { equals, identity, prop, sortBy } from 'ramda';
 import React, { useCallback, useMemo } from 'react';
+import { useInView } from 'react-intersection-observer';
 import { useFragment } from 'react-relay/hooks';
 import { useAuthGuardUser } from 'src/core/auth';
 import { DeleteProjectReviewMutationInput } from 'src/pages/projects-page/__generated__/deleteProjectReviewMutation.graphql';
@@ -20,7 +23,9 @@ import {
 import { Rating } from 'src/shared/rating';
 import { ReviewersInput } from 'src/shared/reviewers-input';
 import { ReviewersInputProps } from 'src/shared/reviewers-input/types';
+import { StickyActionBar } from 'src/shared/sticky-action-bar';
 import { FCProps } from 'src/shared/types/FCProps';
+import { Styles } from 'src/shared/types/Styles';
 import { ProjectForm_projectReview$key } from './__generated__/ProjectForm_projectReview.graphql';
 import { Evaluation } from './__generated__/saveProjectReviewMutation.graphql';
 
@@ -37,7 +42,7 @@ interface OwnProps {
   users: ReviewersInputProps['users'];
 }
 
-type Props = FCProps<OwnProps>;
+type Props = FCProps<OwnProps> & StyleProps;
 
 const arrayEqual = (v1: string[] | undefined, v2: string[] | undefined) => {
   return equals(sortBy(identity, v1 || []), sortBy(identity, v2 || []));
@@ -79,52 +84,63 @@ export function ProjectForm(props: Props) {
     onDelete({ projectReviewId: projectReview.id });
   }, [onDelete, projectReview]);
 
+  const [ref, inView] = useInView();
+  const classes = useStyles(props);
+
   return (
-    <Forminator onSubmit={onSubmit} initialValue={initialValue}>
-      <DictInput>
-        <Grid container spacing={2}>
-          <Grid item xs={12}>
-            <DictInputItem field="projectId">
-              <ConstantInput />
-            </DictInputItem>
+    <div ref={ref} className={classes.wrapper}>
+      <Forminator onSubmit={onSubmit} initialValue={initialValue}>
+        <DictInput>
+          <Grid container spacing={2}>
+            <Grid item xs={12}>
+              <DictInputItem field="projectId">
+                <ConstantInput />
+              </DictInputItem>
+            </Grid>
+            <Grid item xs={12}>
+              <DictInputItem field="rating">
+                <Box width={240}>
+                  <Rating inputLabel={i18n._('Evaluation')} />
+                  <FragmentPrompt value={initialValue.rating || null} />
+                </Box>
+              </DictInputItem>
+            </Grid>
+            <Grid item xs={12}>
+              <DictInputItem field="text">
+                <LimitedTextAreaInput label={i18n._('Accomplishments')} maxChars={512} variant="outlined" fullWidth />
+                <FragmentPrompt value={initialValue.text || ''} />
+              </DictInputItem>
+            </Grid>
+            <Grid item xs={12}>
+              <DictInputItem field="reviewersId">
+                <ReviewersInput label={i18n._('Reviewers')} users={props.users} excludes={userIds} />
+                <FragmentPrompt value={initialValue.reviewersId || []} equal={arrayEqual} />
+              </DictInputItem>
+            </Grid>
+            <StickyActionBar noSticky={!inView}>
+              <ConfirmButton
+                buttonText={i18n._('Delete')}
+                onConfirm={handleDelete}
+                text={i18n._('Are you sure you want to delete this project review?')}
+                ConfirmComponent={DangerButton}
+                confirmProps={{ variant: 'contained' }}
+              />
+              <SubmitButton variant="contained" color="primary">
+                {i18n._('Save')}
+              </SubmitButton>
+            </StickyActionBar>
           </Grid>
-          <Grid item xs={12}>
-            <DictInputItem field="rating">
-              <Box width={240}>
-                <Rating inputLabel={i18n._('Evaluation')} />
-                <FragmentPrompt value={initialValue.rating || null} />
-              </Box>
-            </DictInputItem>
-          </Grid>
-          <Grid item xs={12}>
-            <DictInputItem field="text">
-              <LimitedTextAreaInput label={i18n._('Accomplishments')} maxChars={512} variant="outlined" fullWidth />
-              <FragmentPrompt value={initialValue.text || ''} />
-            </DictInputItem>
-          </Grid>
-          <Grid item xs={12}>
-            <DictInputItem field="reviewersId">
-              <ReviewersInput label={i18n._('Reviewers')} users={props.users} excludes={userIds} />
-              <FragmentPrompt value={initialValue.reviewersId || []} equal={arrayEqual} />
-            </DictInputItem>
-          </Grid>
-          <Grid item xs />
-          <Grid item>
-            <ConfirmButton
-              buttonText={i18n._('Delete')}
-              onConfirm={handleDelete}
-              text={i18n._('Are you sure you want to delete this project review?')}
-              ConfirmComponent={DangerButton}
-              confirmProps={{ variant: 'contained' }}
-            />
-          </Grid>
-          <Grid item>
-            <SubmitButton variant="contained" color="primary">
-              {i18n._('Save')}
-            </SubmitButton>
-          </Grid>
-        </Grid>
-      </DictInput>
-    </Forminator>
+        </DictInput>
+      </Forminator>
+    </div>
   );
 }
+
+const styles = (theme: Theme) => ({
+  wrapper: {
+    width: '100%',
+  } as CSSProperties,
+});
+
+const useStyles = makeStyles(styles, { name: 'ProjectForm' });
+type StyleProps = Styles<typeof styles>;
