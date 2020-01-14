@@ -32,6 +32,13 @@ export function getThemeOptions(base: ThemeOptions, direction: Direction, palett
     },
     typography,
     overrides: {
+      MuiOutlinedInput: {
+        notchedOutline: {
+          '.MuiFormLabel-filled:not(.Mui-focused) + .MuiInputBase-root:not(:hover) > &': {
+            borderColor: 'rgba(0, 0, 0, 0.40)',
+          },
+        },
+      },
       MuiInputBase: {
         root: {
           fontSize: typography?.body1?.fontSize,
