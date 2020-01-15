@@ -67,8 +67,11 @@ export default function ProjectsPage(props: Props) {
   );
 
   const addProjectReview = useCallback(
-    (input: AddProjectFormData) => {
-      return saveProjectReview({ input });
+    ({ projectId }: AddProjectFormData) => {
+      if (projectId !== null) {
+        const input = { projectId };
+        return saveProjectReview({ input });
+      }
     },
     [saveProjectReview],
   );
