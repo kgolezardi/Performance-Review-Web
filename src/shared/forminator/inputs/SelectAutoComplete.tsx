@@ -1,8 +1,14 @@
-import { OutlinedTextFieldProps, TextField } from '@material-ui/core';
+import { i18n } from '@lingui/core';
+import { OutlinedTextFieldProps, Paper, TextField, Theme } from '@material-ui/core';
 import Autocomplete, { AutocompleteProps } from '@material-ui/lab/Autocomplete';
+import { AutocompleteClassKey } from '@material-ui/lab/Autocomplete/Autocomplete';
+import { makeStyles } from '@material-ui/styles';
+import { CSSProperties } from '@material-ui/styles/withStyles';
 import { indexBy, prop } from 'ramda';
-import React, { useCallback, useMemo } from 'react';
+import React, { ComponentType, useCallback, useMemo } from 'react';
 import { FCProps } from 'src/shared/types/FCProps';
+import { Styles } from 'src/shared/types/Styles';
+import { withProps } from 'src/shared/utils/withProps';
 import { useForminatorState } from '../core/useForminatorState';
 
 interface BaseSuggestion {
@@ -19,7 +25,10 @@ interface OwnProps<Suggestion extends BaseSuggestion = BaseSuggestion> {
   excludes?: string[];
 }
 type Props<Suggestion extends BaseSuggestion = BaseSuggestion> = FCProps<OwnProps<Suggestion>> &
-  Omit<AutocompleteProps, 'value' | 'onChange' | 'defaultValue' | 'renderInput' | 'multiple'>;
+  Omit<AutocompleteProps, 'value' | 'onChange' | 'defaultValue' | 'renderInput' | 'multiple'> &
+  StyleProps;
+
+const OptionsPaper: ComponentType = withProps(Paper, { elevation: 4 }) as any;
 
 function SelectAutoComplete<Suggestion extends BaseSuggestion = BaseSuggestion>({
   initialValue = null,
@@ -29,6 +38,8 @@ function SelectAutoComplete<Suggestion extends BaseSuggestion = BaseSuggestion>(
   excludes,
   ...props
 }: Props<Suggestion>) {
+  const classes = useStyles(props);
+
   const [value, setValue] = useForminatorState<string | null, string | null>(initialValue);
   const onChange = useCallback(
     (event, newValue: Suggestion | null) => {
@@ -49,11 +60,26 @@ function SelectAutoComplete<Suggestion extends BaseSuggestion = BaseSuggestion>(
     <Autocomplete
       getOptionLabel={option => option.label}
       renderInput={renderInput}
+      PaperComponent={OptionsPaper}
+      noOptionsText={i18n._('No Options')}
       {...props}
       options={options}
       value={value === null ? null : indexedOptions[value]}
       onChange={onChange}
+      classes={classes}
     />
   );
 }
+
+const styles = (theme: Theme) => ({
+  paper: {
+    '& > ul': {
+      maxHeight: 8 * 32, // 8 item x item height
+    },
+  } as CSSProperties,
+});
+
+const useStyles = makeStyles(styles, { name: 'SelectAutoComplete' });
+type StyleProps = Styles<AutocompleteClassKey>;
+
 export default SelectAutoComplete;

@@ -11,7 +11,7 @@ import { FCProps } from 'src/shared/types/FCProps';
 import { AddProjectForm_projectReview$key } from './__generated__/AddProjectForm_projectReview.graphql';
 
 export interface AddProjectFormData {
-  projectId: string;
+  projectId: string | null;
 }
 interface OwnProps {
   onSubmit: (data: AddProjectFormData) => void;

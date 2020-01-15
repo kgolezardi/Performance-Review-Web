@@ -48,7 +48,7 @@ msgid "Cancel"
 msgstr "لغو"
 
 #: src/pages/criteria-page/CriteriaPage.tsx:60
-#: src/pages/projects-page/ProjectsPage.tsx:76
+#: src/pages/projects-page/ProjectsPage.tsx:79
 #: src/pages/strengths-weaknesses-page/StrengthsWeaknessesPage.tsx:60
 msgid "Changes you made may not be saved."
 msgstr "ممکن است تغییرات ایجاد شده ذخیره نشده باشد."
@@ -172,6 +172,10 @@ msgstr "نیازمند به بهتر شدن"
 msgid "No"
 msgstr "خیر"
 
+#: src/shared/forminator/inputs/SelectAutoComplete.tsx:34
+msgid "No Options"
+msgstr "یافت نشد"
+
 #: src/pages/criteria-page/CriteriaForm.tsx:32
 msgid "Organization Culture Adoption"
 msgstr "انطباق با فرهنگ سازمانی"
@@ -199,7 +203,7 @@ msgstr "ارزیابی عملکرد"
 msgid "Performance Review"
 msgstr "ارزیابی عملکرد"
 
-#: src/shared/auth/Login.tsx:34
+#: src/shared/auth/Login.tsx:37
 msgid "Performance Review System"
 msgstr "سامانه ارزیابی همکاران"
 
@@ -226,10 +230,6 @@ msgstr "مرورکننده‌ها"
 #: src/shared/criterion-item/CriterionItem.stories.tsx:17
 msgid "Role Expertise and Self Development"
 msgstr "مرجعیت تخصصی"
-
-#: src/shared/auth/Login.tsx:31
-msgid "Sahab"
-msgstr "سحاب"
 
 #: src/pages/criteria-page/CriteriaForm.tsx:52
 #: src/pages/projects-page/ProjectForm.tsx:85
@@ -300,7 +300,7 @@ msgstr "تلاش مجدد"
 msgid "Username"
 msgstr "نام کاربری"
 
-#: src/shared/auth/Login.tsx:20
+#: src/shared/auth/Login.tsx:22
 msgid "Username or Password is incorrect."
 msgstr "نام کاربری یا گذرواژه اشتباه است."
 
