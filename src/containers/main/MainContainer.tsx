@@ -1,6 +1,6 @@
 import { i18n } from '@lingui/core';
 import React, { Suspense } from 'react';
-import sahabLogo from 'src/assets/sahab-logo.png';
+import logo from 'src/assets/logo.png';
 import { useAuthGuardUser } from 'src/core/auth';
 import { StartReviewPage } from 'src/pages/start-review-page/StartReviewPage';
 import { ErrorBoundary } from 'src/shared/error-boundary';
@@ -51,7 +51,7 @@ export function MainContainer(props: Props) {
   return (
     <DashboardLayout>
       <BrandRegion>
-        <Brand label={i18n._('Performance Review')} logo={sahabLogo} />
+        <Brand label={i18n._('Performance Review')} logo={logo} />
       </BrandRegion>
       <NavbarRegion>
         <NavBarMenu items={user.hasStarted ? items : []} />
