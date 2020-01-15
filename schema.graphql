@@ -1,5 +1,5 @@
 # source: http://127.0.0.1:8000/graphql
-# timestamp: Tue Jan 14 2020 16:26:45 GMT+0330 (Iran Standard Time)
+# timestamp: Wed Jan 15 2020 10:08:39 GMT+0330 (Iran Standard Time)
 
 input ChangePasswordMutationInput {
   oldPassword: String!
@@ -12,6 +12,13 @@ type ChangePasswordMutationPayload {
   ok: Boolean!
   clientMutationId: String
 }
+
+"""
+The `DateTime` scalar type represents a DateTime
+value as specified by
+[iso8601](https://en.wikipedia.org/wiki/ISO_8601).
+"""
+scalar DateTime
 
 input DeleteProjectReviewMutationInput {
   projectReviewId: ID!
@@ -173,6 +180,9 @@ type SaveProjectReviewMutationPayload {
 }
 
 type SettingsNode implements Node {
+  dueDate: DateTime
+  loginBackgroundImage: String
+
   """The ID of the object."""
   id: ID!
   phase: Phase!
