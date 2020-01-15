@@ -3,8 +3,9 @@ import { Card, Container, Typography } from '@material-ui/core';
 import { makeStyles, Theme } from '@material-ui/core/styles';
 import { CSSProperties } from '@material-ui/styles';
 import React, { useState } from 'react';
-import loginBackgroundImage from 'src/assets/login-background.png';
-import sahabLogoLight from 'src/assets/sahab-logo-light.png';
+import defaultLoginBackgroundImage from 'src/assets/login-background.png';
+import logo from 'src/assets/logo-light.png';
+import { useAppSettings } from 'src/core/settings';
 import { FCProps } from 'src/shared/types/FCProps';
 import { Styles } from 'src/shared/types/Styles';
 import { useLoginMutation } from './login.mutation';
@@ -16,6 +17,7 @@ type Props = FCProps<OwnProps> & StyleProps;
 
 export function Login(props: Props) {
   const classes = useStyles();
+  const settings = useAppSettings();
   const [error, setError] = useState<string | null>(null);
   // TODO: set submit loading button
   // const [submitButtonLoading, setSubmitButtonLoading] = useState(false);
@@ -31,14 +33,17 @@ export function Login(props: Props) {
       }
     });
   };
+
+  const loginBackgroundImage = settings.loginBackgroundImage || defaultLoginBackgroundImage;
+
   return (
     <>
-      <div className={classes.background} />
+      <div className={classes.background} style={{ backgroundImage: `url(${loginBackgroundImage})` }} />
       <div className={classes.fullPageContainer}>
         <Container component="main" maxWidth="xs" className={classes.formContainer}>
           <Card className={classes.paper}>
             <div className={classes.logoWrapper}>
-              <img src={sahabLogoLight} alt={i18n._('Sahab')} className={classes.logo} />
+              <img src={logo} alt={'logo'} className={classes.logo} />
             </div>
             <Typography variant="h5" color="primary" className={classes.logoSubtitle}>
               {i18n._('Performance Review System')}
@@ -97,8 +102,8 @@ const styles = (theme: Theme) => ({
     position: 'absolute',
     height: '100%',
     width: '100vw',
-    backgroundImage: `url(${loginBackgroundImage})`,
     backgroundColor: theme.palette.primary.dark,
+    backgroundSize: 'cover',
   } as CSSProperties,
 });
 

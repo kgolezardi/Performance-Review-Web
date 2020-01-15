@@ -18,13 +18,13 @@ export function AppRouter(props: Props) {
     <ErrorBoundary fallback={<FullPageError />}>
       <Suspense fallback={<FullPageSpinner fullHeight />}>
         <Router>
-          <AuthGuard>
-            <SettingsProvider>
+          <SettingsProvider>
+            <AuthGuard>
               <Switch>
                 <Route path="/" component={MainContainer} />
               </Switch>
-            </SettingsProvider>
-          </AuthGuard>
+            </AuthGuard>
+          </SettingsProvider>
         </Router>
       </Suspense>
     </ErrorBoundary>
