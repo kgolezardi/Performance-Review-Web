@@ -90,20 +90,19 @@ export function ProjectForm(props: Props) {
   return (
     <div ref={ref} className={classes.wrapper}>
       <Forminator onSubmit={onSubmit} initialValue={initialValue}>
-        <DictInput>
-          <Grid container spacing={2}>
-            <Grid item xs={12}>
-              <DictInputItem field="projectId">
-                <ConstantInput />
-              </DictInputItem>
-            </Grid>
+        <Grid container spacing={2}>
+          <DictInput>
+            <DictInputItem field="projectId">
+              <ConstantInput />
+            </DictInputItem>
+
             <Grid item xs={12}>
               <Typography>{i18n._('How was your performance based on your expectations?')}</Typography>
             </Grid>
             <Grid item xs={12}>
               <DictInputItem field="rating">
                 <Box width={240}>
-                  <Rating inputLabel={i18n._('Evaluation')} />
+                  <Rating inputLabel={i18n._('Performance Evaluation')} />
                   <FragmentPrompt value={initialValue.rating || null} />
                 </Box>
               </DictInputItem>
@@ -133,20 +132,20 @@ export function ProjectForm(props: Props) {
                 <FragmentPrompt value={initialValue.reviewersId || []} equal={arrayEqual} />
               </DictInputItem>
             </Grid>
-            <StickyActionBar noSticky={!inView}>
-              <ConfirmButton
-                buttonText={i18n._('Delete')}
-                onConfirm={handleDelete}
-                text={i18n._('Are you sure you want to delete this project review?')}
-                ConfirmComponent={DangerButton}
-                confirmProps={{ variant: 'contained' }}
-              />
-              <SubmitButton variant="contained" color="primary">
-                {i18n._('Save')}
-              </SubmitButton>
-            </StickyActionBar>
-          </Grid>
-        </DictInput>
+          </DictInput>
+          <StickyActionBar noSticky={!inView}>
+            <ConfirmButton
+              buttonText={i18n._('Delete')}
+              onConfirm={handleDelete}
+              text={i18n._('Are you sure you want to delete this project review?')}
+              ConfirmComponent={DangerButton}
+              confirmProps={{ variant: 'contained' }}
+            />
+            <SubmitButton variant="contained" color="primary">
+              {i18n._('Save')}
+            </SubmitButton>
+          </StickyActionBar>
+        </Grid>
       </Forminator>
     </div>
   );

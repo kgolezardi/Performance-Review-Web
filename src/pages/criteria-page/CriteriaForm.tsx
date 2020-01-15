@@ -34,8 +34,8 @@ export function CriteriaForm(props: Props) {
   return (
     <ServerValueProvider value={props.initialValue}>
       <Forminator onSubmit={onSubmit} initialValue={props.initialValue}>
-        <DictInput>
-          <Grid container spacing={7}>
+        <Grid container spacing={2}>
+          <DictInput>
             <Grid item xs={12}>
               <SectionGuide>
                 <DescriptionContent components={components} />
@@ -83,13 +83,13 @@ export function CriteriaForm(props: Props) {
                 prefix="presence"
               />
             </Grid>
-            <StickyActionBar>
-              <SubmitButton variant="contained" color="primary">
-                {i18n._('Save')}
-              </SubmitButton>
-            </StickyActionBar>
-          </Grid>
-        </DictInput>
+          </DictInput>
+          <StickyActionBar>
+            <SubmitButton variant="contained" color="primary">
+              {i18n._('Save')}
+            </SubmitButton>
+          </StickyActionBar>
+        </Grid>
       </Forminator>
     </ServerValueProvider>
   );

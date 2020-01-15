@@ -15,7 +15,7 @@ interface OwnProps {
 type Props = FCProps<OwnProps> & Omit<TextFieldProps, 'value' | 'onChange' | 'defaultValue'> & StyleProps;
 
 function LimitedTextAreaInput(props: Props) {
-  const { initialValue = '', maxChars, error, helperText, ...rest } = props;
+  const { initialValue = '', maxChars, error, helperText, InputProps = {}, ...rest } = props;
   const classes = useStyles(props);
 
   const [value, setValue] = useForminatorState(initialValue);
@@ -36,7 +36,7 @@ function LimitedTextAreaInput(props: Props) {
           multiline
           {...rest}
           className={classes.textField}
-          InputProps={{ classes: { multiline: classes.multiline } }}
+          InputProps={{ ...InputProps, classes: { multiline: classes.multiline, ...InputProps.classes } }}
           value={value}
           onChange={onChange}
           error={error}

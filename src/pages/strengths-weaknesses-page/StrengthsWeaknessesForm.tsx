@@ -7,11 +7,11 @@ import { equals, filter } from 'ramda';
 import React, { useContext } from 'react';
 import { DictInput, DictInputItem, Forminator, SubmitButton } from 'src/shared/forminator';
 import { SectionGuide } from 'src/shared/section-guide';
+import { StickyActionBar } from 'src/shared/sticky-action-bar';
 import { StrengthsOrWeaknesses } from 'src/shared/strengths-weaknesses';
 import { FCProps } from 'src/shared/types/FCProps';
 import { ArrayValuePrompt, Equal } from './ArrayValuePrompt';
 import { StrengthsWeaknessesFormData } from './StrengthsWeaknessesPage';
-import { StickyActionBar } from 'src/shared/sticky-action-bar';
 
 const DescriptionContent = importMDX.sync('./DescriptionContent.mdx');
 
@@ -31,8 +31,8 @@ export function StrengthsWeaknessesForm(props: Props) {
   const components = useContext(MDXContext);
 
   return (
-    <Grid container spacing={4}>
-      <Forminator onSubmit={onSubmit} initialValue={props.initialValue}>
+    <Forminator onSubmit={onSubmit} initialValue={props.initialValue}>
+      <Grid container spacing={2}>
         <DictInput>
           <Grid item xs={12}>
             <SectionGuide>
@@ -60,13 +60,13 @@ export function StrengthsWeaknessesForm(props: Props) {
               <ArrayValuePrompt value={props.initialValue?.weaknesses || []} equal={arrayEqual} />
             </Grid>
           </DictInputItem>
-          <StickyActionBar>
-            <SubmitButton variant="contained" color="primary">
-              {i18n._('Save')}
-            </SubmitButton>
-          </StickyActionBar>
         </DictInput>
-      </Forminator>
-    </Grid>
+        <StickyActionBar>
+          <SubmitButton variant="contained" color="primary">
+            {i18n._('Save')}
+          </SubmitButton>
+        </StickyActionBar>
+      </Grid>
+    </Forminator>
   );
 }

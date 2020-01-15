@@ -86,7 +86,6 @@ msgstr "English"
 msgid "Error"
 msgstr "Error"
 
-#: src/pages/projects-page/ProjectForm.tsx:65
 #: src/shared/criterion-item/CriterionItem.tsx:21
 msgid "Evaluation"
 msgstr "Evaluation"
@@ -185,6 +184,10 @@ msgstr "People who will comment on your accomplishments and write your performan
 #: src/pages/self-review-page/SelfReviewPage.tsx:17
 msgid "Performance Competencies"
 msgstr "Performance Competencies"
+
+#: src/pages/projects-page/ProjectForm.tsx:65
+msgid "Performance Evaluation"
+msgstr "Performance Evaluation"
 
 #: src/containers/main/MainContainer.tsx:37
 #: src/shared/full-page-error/FullPageError.stories.tsx:34

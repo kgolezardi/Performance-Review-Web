@@ -1,3 +1,4 @@
+import { styled } from '@material-ui/core';
 import * as OverlayScrollbars from 'overlayscrollbars';
 import React, { forwardRef, HTMLAttributes, useImperativeHandle } from 'react';
 import { FCProps } from 'src/shared/types/FCProps';
@@ -17,7 +18,9 @@ export const Overlayscrollbars = forwardRef(function(props: Props, instanceRef: 
 
   return (
     <div {...divProps} ref={ref}>
-      <div>{props.children}</div>
+      <InnerDiv>{props.children}</InnerDiv>
     </div>
   );
 });
+
+const InnerDiv = styled('div')({ height: '100%' });
