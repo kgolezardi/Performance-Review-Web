@@ -45,7 +45,7 @@ export const LoginForm = (props: Props) => {
         </DictInput>
         <br /> {/* TODO: PLEASE FIX THIS */}
         <Button variant="contained" fullWidth type="submit" color="primary" size="large">
-          {i18n._('Login to user panel')}
+          {i18n._('Login')}
         </Button>
       </Form>
     </Forminator>
@@ -53,9 +53,7 @@ export const LoginForm = (props: Props) => {
 };
 
 const styles = (theme: Theme) => ({
-  stringInput: {
-    marginBottom: theme.spacing(4),
-  } as CSSProperties,
+  stringInput: {} as CSSProperties,
 });
 
 const useStyles = makeStyles(styles, { name: 'LoginForm' });

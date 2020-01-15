@@ -149,8 +149,8 @@ msgid "Leadership"
 msgstr "Leadership"
 
 #: src/shared/auth/LoginForm.tsx:20
-msgid "Login to user panel"
-msgstr "Login to user panel"
+msgid "Login"
+msgstr "Login"
 
 #: src/global-types/Evaluation.ts:11
 msgid "Meets Expectations"
@@ -173,6 +173,7 @@ msgid "No"
 msgstr "No"
 
 #: src/shared/forminator/inputs/SelectAutoComplete.tsx:34
+#: src/shared/forminator/inputs/SelectMultiAutoComplete.tsx:34
 msgid "No Options"
 msgstr "No Options"
 
