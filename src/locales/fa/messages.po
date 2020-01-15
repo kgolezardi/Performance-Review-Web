@@ -51,7 +51,7 @@ msgstr "لغو"
 #: src/pages/projects-page/ProjectsPage.tsx:79
 #: src/pages/strengths-weaknesses-page/StrengthsWeaknessesPage.tsx:60
 msgid "Changes you made may not be saved."
-msgstr "ممکن است تغییرات ایجاد شده ذخیره نشده باشد."
+msgstr "یعنی بدون ذخیره تغییرات می‌خوای بری؟؟"
 
 #: src/pages/projects-page/AddProjectForm.tsx:28
 msgid "Choose projects you have been working on in the past year."
@@ -176,6 +176,10 @@ msgstr "خیر"
 #: src/shared/forminator/inputs/SelectMultiAutoComplete.tsx:34
 msgid "No Options"
 msgstr "یافت نشد"
+
+#: src/shared/confirm-provider/ConfirmationDialog.tsx:23
+msgid "No! Wait"
+msgstr "نه! می‌مونم"
 
 #: src/pages/criteria-page/CriteriaForm.tsx:32
 msgid "Organization Culture Adoption"
@@ -320,6 +324,10 @@ msgstr "چی رو بهبود بدم"
 #: src/shared/confirm-button/ConfirmButton.tsx:8
 msgid "Yes"
 msgstr "بله"
+
+#: src/shared/confirm-provider/ConfirmationDialog.tsx:25
+msgid "Yes! Go"
+msgstr "آره! می‌رم"
 
 #: src/pages/dashboard-page/AchievementsNoProjects.tsx:6
 msgid "You haven't added any project."

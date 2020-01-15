@@ -8,6 +8,7 @@ import { GlobalStyles } from 'src/core/styles/GlobalStyles';
 import { rtlTheme } from 'src/core/theme';
 import { environment } from 'src/relay';
 import { MDXProvider } from 'src/shared/mdx-provider/MDXProvider';
+import { ConfirmProvider } from './shared/confirm-provider';
 
 const App: React.FC = () => {
   return (
@@ -17,9 +18,11 @@ const App: React.FC = () => {
           <GlobalStyles />
           <CssBaseline />
           <SnackbarProvider>
-            <MDXProvider>
-              <AppRouter />
-            </MDXProvider>
+            <ConfirmProvider>
+              <MDXProvider>
+                <AppRouter />
+              </MDXProvider>
+            </ConfirmProvider>
           </SnackbarProvider>
         </ThemeProvider>
       </RtlSupportProvider>

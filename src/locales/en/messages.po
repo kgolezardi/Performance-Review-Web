@@ -177,6 +177,10 @@ msgstr "No"
 msgid "No Options"
 msgstr "No Options"
 
+#: src/shared/confirm-provider/ConfirmationDialog.tsx:23
+msgid "No! Wait"
+msgstr "No! Wait"
+
 #: src/pages/criteria-page/CriteriaForm.tsx:32
 msgid "Organization Culture Adoption"
 msgstr "Organization Culture Adoption"
@@ -320,6 +324,10 @@ msgstr "What to improve"
 #: src/shared/confirm-button/ConfirmButton.tsx:8
 msgid "Yes"
 msgstr "Yes"
+
+#: src/shared/confirm-provider/ConfirmationDialog.tsx:25
+msgid "Yes! Go"
+msgstr "Yes! Go"
 
 #: src/pages/dashboard-page/AchievementsNoProjects.tsx:6
 msgid "You haven't added any project."
