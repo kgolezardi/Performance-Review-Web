@@ -149,8 +149,8 @@ msgid "Leadership"
 msgstr "رهبری خودظهور"
 
 #: src/shared/auth/LoginForm.tsx:20
-msgid "Login to user panel"
-msgstr "ورود به ناحیه کاربری"
+msgid "Login"
+msgstr "ورود"
 
 #: src/global-types/Evaluation.ts:11
 msgid "Meets Expectations"
@@ -173,6 +173,7 @@ msgid "No"
 msgstr "خیر"
 
 #: src/shared/forminator/inputs/SelectAutoComplete.tsx:34
+#: src/shared/forminator/inputs/SelectMultiAutoComplete.tsx:34
 msgid "No Options"
 msgstr "یافت نشد"
 
@@ -205,7 +206,7 @@ msgstr "ارزیابی عملکرد"
 
 #: src/shared/auth/Login.tsx:37
 msgid "Performance Review System"
-msgstr "سامانه ارزیابی همکاران"
+msgstr "سامانه ارزیابی عملکرد"
 
 #: src/core/locales/languages.ts:4
 msgid "Persian"
