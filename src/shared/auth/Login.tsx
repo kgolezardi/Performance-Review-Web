@@ -42,9 +42,7 @@ export function Login(props: Props) {
       <div className={classes.fullPageContainer}>
         <Container component="main" maxWidth="xs" className={classes.formContainer}>
           <Card className={classes.paper}>
-            <div className={classes.logoWrapper}>
-              <img src={logo} alt={'logo'} className={classes.logo} />
-            </div>
+            <img src={logo} alt={'logo'} className={classes.logo} />
             <Typography variant="h5" color="primary" className={classes.logoSubtitle}>
               {i18n._('Performance Review System')}
             </Typography>
@@ -65,15 +63,10 @@ const styles = (theme: Theme) => ({
     padding: theme.spacing(8.5),
     borderRadius: theme.spacing(1),
   } as CSSProperties,
-  logoWrapper: {
-    display: 'flex',
-    justifyContent: 'center',
-    width: '100%',
-    paddingBottom: theme.spacing(2),
-  } as CSSProperties,
   logo: {
     width: '100%',
     margin: -theme.spacing(6),
+    minHeight: 0,
   } as CSSProperties,
   logoSubtitle: {
     marginBottom: theme.spacing(6),
