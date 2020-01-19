@@ -1,11 +1,12 @@
 import { i18n } from '@lingui/core';
 import { Box, Container, makeStyles, Paper, Tabs, Theme } from '@material-ui/core';
 import { CSSProperties } from '@material-ui/core/styles/withStyles';
-import React from 'react';
+import React, { Suspense } from 'react';
 import { Redirect, Route, Switch, useParams } from 'react-router-dom';
 import CriteriaPage from 'src/pages/criteria-page/CriteriaPage';
 import ProjectsPage from 'src/pages/projects-page/ProjectsPage';
 import StrengthsWeaknessesPage from 'src/pages/strengths-weaknesses-page/StrengthsWeaknessesPage';
+import { FullPageSpinner } from 'src/shared/loading';
 import { TabLink } from 'src/shared/tab';
 import { FCProps } from 'src/shared/types/FCProps';
 import { Styles } from 'src/shared/types/Styles';
@@ -47,12 +48,20 @@ export default function SelfReviewPage(props: Props) {
           </Tabs>
         </Paper>
         <Paper classes={{ root: classes.tabPanelPaper }}>
-          <Switch>
-            <Route path={toPrefix + '/performance-competencies'} component={CriteriaPage} />
-            <Route path={toPrefix + '/dominant-characteristics'} component={StrengthsWeaknessesPage} />
-            <Route path={toPrefix + '/achievements'} component={ProjectsPage} />
-            <Redirect to={toPrefix + '/performance-competencies'} />
-          </Switch>
+          <Suspense
+            fallback={
+              <Box height={200}>
+                <FullPageSpinner />
+              </Box>
+            }
+          >
+            <Switch>
+              <Route path={toPrefix + '/performance-competencies'} component={CriteriaPage} />
+              <Route path={toPrefix + '/dominant-characteristics'} component={StrengthsWeaknessesPage} />
+              <Route path={toPrefix + '/achievements'} component={ProjectsPage} />
+              <Redirect to={toPrefix + '/performance-competencies'} />
+            </Switch>
+          </Suspense>
         </Paper>
       </Box>
     </Container>
