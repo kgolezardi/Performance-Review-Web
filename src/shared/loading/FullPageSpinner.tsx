@@ -29,7 +29,6 @@ const styles = (theme: Theme) => ({
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: theme.palette.background.default,
   } as CSSProperties,
   fullHeight: {
     height: '100vh',
