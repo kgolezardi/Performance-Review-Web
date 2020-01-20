@@ -39,9 +39,9 @@ const items: MenuItem[] = [
     },
   },
   {
-    text: i18n._('Guide'),
+    text: i18n._('FAQ'),
     link: {
-      to: '/guide',
+      to: '/faq',
     },
   },
 ];

@@ -51,7 +51,7 @@ export function AddProjectForm(props: Props) {
           <Grid container item spacing={2} alignItems="center" xs={12}>
             <Grid item>
               <DictInputItem field="projectId">
-                <Box width={240}>
+                <Box width={320}>
                   <ProjectInput
                     label={i18n._('Select project')}
                     projects={props.projects}

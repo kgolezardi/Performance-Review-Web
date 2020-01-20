@@ -97,12 +97,12 @@ export function ProjectForm(props: Props) {
             </DictInputItem>
 
             <Grid item xs={12}>
-              <Typography>{i18n._('How was your performance based on your expectations?')}</Typography>
+              <Typography>{i18n._('How effective were you in this project?')}</Typography>
             </Grid>
             <Grid item xs={12}>
               <DictInputItem field="rating">
                 <Box width={240}>
-                  <Rating inputLabel={i18n._('Performance Evaluation')} />
+                  <Rating inputLabel={i18n._('My impact')} />
                   <FragmentPrompt value={initialValue.rating || null} />
                 </Box>
               </DictInputItem>

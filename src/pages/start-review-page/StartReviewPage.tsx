@@ -46,6 +46,7 @@ export const StartReviewPage = (props: Props) => {
   const formattedDueDate =
     dueDate &&
     DateTime.fromISO(dueDate)
+      .reconfigure({ outputCalendar: 'persian' })
       .setLocale('fa')
       .toFormat('EEEE، d MMMM');
 

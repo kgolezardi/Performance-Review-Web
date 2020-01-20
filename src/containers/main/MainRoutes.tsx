@@ -28,7 +28,7 @@ export function MainRoutes(props: FCProps<Props>) {
     <Switch>
       <Route path="/" exact component={DashboardPage} />
       <Route path="/self-review/:tab?" component={SelfReviewPage} />
-      <Route path="/guide" component={GuidePage} />
+      <Route path="/faq" component={GuidePage} />
     </Switch>
   );
 }
