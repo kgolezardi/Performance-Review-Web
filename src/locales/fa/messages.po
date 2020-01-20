@@ -13,16 +13,12 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: src/pages/guide-page/GuidePage.tsx:14
-msgid "A guide to Nonviolent Communication(NVC)"
-msgstr "راهنمای مدل NVC (ارتباط بدون خشونت)"
-
 #: src/pages/projects-page/ProjectForm.tsx:71
 msgid "Accomplishments"
 msgstr "دستاوردها"
 
 #: src/pages/dashboard-page/DashboardPage.tsx:51
-#: src/pages/self-review-page/SelfReviewPage.tsx:19
+#: src/pages/self-review-page/SelfReviewPage.tsx:20
 msgid "Achievements"
 msgstr "دستاوردها"
 
@@ -39,7 +35,7 @@ msgstr "افزودن پروژه"
 msgid "Are you sure you want to delete this project review?"
 msgstr "آیا از حذف  این پروژه مطمین هستید؟"
 
-#: src/pages/start-review-page/StartReviewPage.tsx:40
+#: src/pages/start-review-page/StartReviewPage.tsx:42
 msgid "Begin my review"
 msgstr "شروع ارزیابی من"
 
@@ -65,7 +61,7 @@ msgstr "معیارها"
 msgid "Dashboard"
 msgstr "پیشخوان"
 
-#: src/pages/start-review-page/StartReviewPage.tsx:31
+#: src/pages/start-review-page/StartReviewPage.tsx:33
 msgid "Dear {name}, Hello"
 msgstr "{name} عزیز، سلام"
 
@@ -74,7 +70,7 @@ msgid "Delete"
 msgstr "حذف"
 
 #: src/pages/dashboard-page/DashboardPage.tsx:43
-#: src/pages/self-review-page/SelfReviewPage.tsx:18
+#: src/pages/self-review-page/SelfReviewPage.tsx:19
 msgid "Dominant Characteristics"
 msgstr "ویژگی‌های بارز"
 
@@ -90,7 +86,7 @@ msgstr "خطا"
 msgid "Evaluation"
 msgstr "ارزیابی"
 
-#: src/pages/start-review-page/StartReviewPage.tsx:35
+#: src/pages/start-review-page/StartReviewPage.tsx:37
 msgid "Evaluation due date: {formattedDueDate}"
 msgstr "پایان مهلت ارزیابی: {formattedDueDate}"
 
@@ -100,11 +96,15 @@ msgstr "شواهد"
 
 #: src/global-types/Evaluation.ts:12
 msgid "Exceeds Expectations"
-msgstr "فراتر از انتظار سازمان"
+msgstr "فراتر از انتظاری که از من میره"
 
 #: src/pages/criteria-page/CriteriaForm.tsx:38
 msgid "Execution"
 msgstr "اجرا"
+
+#: src/pages/guide-page/GuidePage.tsx:14
+msgid "FAQ"
+msgstr "‌سؤالات متداول"
 
 #: src/pages/projects-page/ProjectForm.tsx:71
 msgid "For instance, your personal key-results may be your accomplishments."
@@ -118,13 +118,9 @@ msgstr "به صفحه‌ی دستاوردها برو و پروژه‌هایی ک
 msgid "Guide"
 msgstr "راهنما"
 
-#: src/pages/guide-page/GuidePage.tsx:14
-msgid "How to give feedback to each other?"
-msgstr "چطور به همدیگه بازخورد بدیم؟"
-
 #: src/pages/projects-page/ProjectForm.tsx:59
-msgid "How was your performance based on your expectations?"
-msgstr "عملکردتون نسبت به انتظار اولیه‌تون در چه سطحی بوده؟"
+msgid "How effective were you in this project?"
+msgstr "توی این پروژه چقدر مؤثر بودی؟"
 
 #: src/pages/dashboard-page/DominantCharacteristicsCircularIndicator.tsx:56
 msgid "I thought you forgot to write your strengths!"
@@ -154,7 +150,7 @@ msgstr "ورود"
 
 #: src/global-types/Evaluation.ts:11
 msgid "Meets Expectations"
-msgstr "در حد انتظار سازمان"
+msgstr "در حد انتظاری که از من میره"
 
 #: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:38
 msgid "Most important characteristics or behaviours I should improve in myself"
@@ -164,9 +160,13 @@ msgstr "مهمترین ویژگی‌ها یا رفتارهایی که باید �
 msgid "Most important characteristics or effective behaviours that I should maintain"
 msgstr "مهمترین ویژگی ها یا رفتارهای مؤثری که باید ادامه شون بدم"
 
+#: src/pages/projects-page/ProjectForm.tsx:64
+msgid "My impact"
+msgstr "تأثیر من"
+
 #: src/global-types/Evaluation.ts:10
 msgid "Needs Improvement"
-msgstr "نیازمند به بهتر شدن"
+msgstr "کمتر از حد انتظاری که از من میره"
 
 #: src/shared/confirm-button/ConfirmButton.tsx:8
 msgid "No"
@@ -194,13 +194,9 @@ msgid "People who will comment on your accomplishments and write your performanc
 msgstr "کسانی هستن که روی دستاوردهاتون کامنت میدن و شایستگی‌های عملکردی  و ویژگی‌های بارز شما رو از نگاه خودشون می‌‌نویسن."
 
 #: src/pages/dashboard-page/DashboardPage.tsx:35
-#: src/pages/self-review-page/SelfReviewPage.tsx:17
+#: src/pages/self-review-page/SelfReviewPage.tsx:18
 msgid "Performance Competencies"
 msgstr "شایستگی‌های عملکردی"
-
-#: src/pages/projects-page/ProjectForm.tsx:64
-msgid "Performance Evaluation"
-msgstr "ارزیابی عملکرد"
 
 #: src/containers/main/MainContainer.tsx:37
 #: src/shared/full-page-error/FullPageError.stories.tsx:34
@@ -208,7 +204,7 @@ msgstr "ارزیابی عملکرد"
 msgid "Performance Review"
 msgstr "ارزیابی عملکرد"
 
-#: src/shared/auth/Login.tsx:37
+#: src/shared/auth/Login.tsx:35
 msgid "Performance Review System"
 msgstr "سامانه ارزیابی عملکرد"
 

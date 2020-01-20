@@ -13,16 +13,12 @@ msgstr ""
 "Language-Team: \n"
 "Plural-Forms: \n"
 
-#: src/pages/guide-page/GuidePage.tsx:14
-msgid "A guide to Nonviolent Communication(NVC)"
-msgstr "A guide to Nonviolent Communication(NVC)"
-
 #: src/pages/projects-page/ProjectForm.tsx:71
 msgid "Accomplishments"
 msgstr "Accomplishments"
 
 #: src/pages/dashboard-page/DashboardPage.tsx:51
-#: src/pages/self-review-page/SelfReviewPage.tsx:19
+#: src/pages/self-review-page/SelfReviewPage.tsx:20
 msgid "Achievements"
 msgstr "Achievements"
 
@@ -39,7 +35,7 @@ msgstr "Adding Projects"
 msgid "Are you sure you want to delete this project review?"
 msgstr "Are you sure you want to delete this project review?"
 
-#: src/pages/start-review-page/StartReviewPage.tsx:40
+#: src/pages/start-review-page/StartReviewPage.tsx:42
 msgid "Begin my review"
 msgstr "Begin my review"
 
@@ -65,7 +61,7 @@ msgstr "Criteria"
 msgid "Dashboard"
 msgstr "Dashboard"
 
-#: src/pages/start-review-page/StartReviewPage.tsx:31
+#: src/pages/start-review-page/StartReviewPage.tsx:33
 msgid "Dear {name}, Hello"
 msgstr "Dear {name}, Hello"
 
@@ -74,7 +70,7 @@ msgid "Delete"
 msgstr "Delete"
 
 #: src/pages/dashboard-page/DashboardPage.tsx:43
-#: src/pages/self-review-page/SelfReviewPage.tsx:18
+#: src/pages/self-review-page/SelfReviewPage.tsx:19
 msgid "Dominant Characteristics"
 msgstr "Dominant Characteristics"
 
@@ -90,7 +86,7 @@ msgstr "Error"
 msgid "Evaluation"
 msgstr "Evaluation"
 
-#: src/pages/start-review-page/StartReviewPage.tsx:35
+#: src/pages/start-review-page/StartReviewPage.tsx:37
 msgid "Evaluation due date: {formattedDueDate}"
 msgstr "Evaluation due date: {formattedDueDate}"
 
@@ -106,6 +102,10 @@ msgstr "Exceeds Expectations"
 msgid "Execution"
 msgstr "Execution"
 
+#: src/pages/guide-page/GuidePage.tsx:14
+msgid "FAQ"
+msgstr "FAQ"
+
 #: src/pages/projects-page/ProjectForm.tsx:71
 msgid "For instance, your personal key-results may be your accomplishments."
 msgstr "For instance, your personal key-results may be your accomplishments."
@@ -118,13 +118,9 @@ msgstr "Go to Achievements page and add projects you have participated in"
 msgid "Guide"
 msgstr "Guide"
 
-#: src/pages/guide-page/GuidePage.tsx:14
-msgid "How to give feedback to each other?"
-msgstr "How to give feedback to each other?"
-
 #: src/pages/projects-page/ProjectForm.tsx:59
-msgid "How was your performance based on your expectations?"
-msgstr "How was your performance based on your expectations?"
+msgid "How effective were you in this project?"
+msgstr "How effective were you in this project?"
 
 #: src/pages/dashboard-page/DominantCharacteristicsCircularIndicator.tsx:56
 msgid "I thought you forgot to write your strengths!"
@@ -164,6 +160,10 @@ msgstr "Most important characteristics or behaviours I should improve in myself"
 msgid "Most important characteristics or effective behaviours that I should maintain"
 msgstr "Most important characteristics or effective behaviours that I should maintain"
 
+#: src/pages/projects-page/ProjectForm.tsx:64
+msgid "My impact"
+msgstr "My impact"
+
 #: src/global-types/Evaluation.ts:10
 msgid "Needs Improvement"
 msgstr "Needs Improvement"
@@ -194,13 +194,9 @@ msgid "People who will comment on your accomplishments and write your performanc
 msgstr "People who will comment on your accomplishments and write your performance competencies and dominant characteristics from their own point of view."
 
 #: src/pages/dashboard-page/DashboardPage.tsx:35
-#: src/pages/self-review-page/SelfReviewPage.tsx:17
+#: src/pages/self-review-page/SelfReviewPage.tsx:18
 msgid "Performance Competencies"
 msgstr "Performance Competencies"
-
-#: src/pages/projects-page/ProjectForm.tsx:64
-msgid "Performance Evaluation"
-msgstr "Performance Evaluation"
 
 #: src/containers/main/MainContainer.tsx:37
 #: src/shared/full-page-error/FullPageError.stories.tsx:34
@@ -208,7 +204,7 @@ msgstr "Performance Evaluation"
 msgid "Performance Review"
 msgstr "Performance Review"
 
-#: src/shared/auth/Login.tsx:37
+#: src/shared/auth/Login.tsx:35
 msgid "Performance Review System"
 msgstr "Performance Review System"
 

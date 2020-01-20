@@ -22,11 +22,7 @@ export default function GuidePage(props: Props) {
     <Container maxWidth="md">
       <Box marginY={4}>
         <Card>
-          <CardHeader
-            title={i18n._('How to give feedback to each other?')}
-            subheader={i18n._('A guide to Nonviolent Communication(NVC)')}
-            classes={{ root: classes.headerRoot }}
-          />
+          <CardHeader title={i18n._('FAQ')} classes={{ root: classes.headerRoot }} />
           <CardContent>
             <Box padding={4} paddingTop={0}>
               <Content components={components} />
