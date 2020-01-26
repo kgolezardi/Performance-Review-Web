@@ -57,7 +57,7 @@ msgstr "پروژه‌هایی که طی یک سال گذشته درگیرشون 
 msgid "Criteria"
 msgstr "معیارها"
 
-#: src/containers/main/MainContainer.tsx:14
+#: src/containers/main/MainContainer.tsx:18
 msgid "Dashboard"
 msgstr "پیشخوان"
 
@@ -102,7 +102,7 @@ msgstr "فراتر از انتظاری که از من میره"
 msgid "Execution"
 msgstr "اجرا"
 
-#: src/containers/main/MainContainer.tsx:27
+#: src/containers/main/MainContainer.tsx:31
 #: src/pages/guide-page/GuidePage.tsx:14
 msgid "FAQ"
 msgstr "‌سؤالات متداول"
@@ -195,7 +195,7 @@ msgstr "کسانی هستن که روی دستاوردهاتون کامنت می
 msgid "Performance Competencies"
 msgstr "شایستگی‌های عملکردی"
 
-#: src/containers/main/MainContainer.tsx:37
+#: src/containers/main/MainContainer.tsx:45
 #: src/shared/full-page-error/FullPageError.stories.tsx:34
 #: src/shared/layouts/dashboard-layouts/DashboardLayout.stories.tsx:27
 msgid "Performance Review"
@@ -216,6 +216,10 @@ msgstr "اثر حضور"
 #: src/pages/criteria-page/CriteriaForm.tsx:35
 msgid "Problem Solving"
 msgstr "حل مسئله"
+
+#: src/pages/idle-page/IdlePage.tsx:9
+msgid "Programmers are typing..."
+msgstr "برنامه‌نویسان در حال تایپند...‌"
 
 #: src/shared/full-page-error/FullPageError.stories.tsx:21
 msgid "Projects"
@@ -246,7 +250,7 @@ msgstr "انتخاب کنید"
 msgid "Select project"
 msgstr "انتخاب پروژه"
 
-#: src/containers/main/MainContainer.tsx:21
+#: src/containers/main/MainContainer.tsx:25
 msgid "Self Review"
 msgstr "ارزیابی من"
 

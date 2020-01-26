@@ -57,7 +57,7 @@ msgstr "Choose projects you have been working on in the past year."
 msgid "Criteria"
 msgstr "Criteria"
 
-#: src/containers/main/MainContainer.tsx:14
+#: src/containers/main/MainContainer.tsx:18
 msgid "Dashboard"
 msgstr "Dashboard"
 
@@ -102,7 +102,7 @@ msgstr "Exceeds Expectations"
 msgid "Execution"
 msgstr "Execution"
 
-#: src/containers/main/MainContainer.tsx:27
+#: src/containers/main/MainContainer.tsx:31
 #: src/pages/guide-page/GuidePage.tsx:14
 msgid "FAQ"
 msgstr "FAQ"
@@ -195,7 +195,7 @@ msgstr "People who will comment on your accomplishments and write your performan
 msgid "Performance Competencies"
 msgstr "Performance Competencies"
 
-#: src/containers/main/MainContainer.tsx:37
+#: src/containers/main/MainContainer.tsx:45
 #: src/shared/full-page-error/FullPageError.stories.tsx:34
 #: src/shared/layouts/dashboard-layouts/DashboardLayout.stories.tsx:27
 msgid "Performance Review"
@@ -216,6 +216,10 @@ msgstr "Presence"
 #: src/pages/criteria-page/CriteriaForm.tsx:35
 msgid "Problem Solving"
 msgstr "Problem Solving"
+
+#: src/pages/idle-page/IdlePage.tsx:9
+msgid "Programmers are typing..."
+msgstr "Programmers are typing..."
 
 #: src/shared/full-page-error/FullPageError.stories.tsx:21
 msgid "Projects"
@@ -246,7 +250,7 @@ msgstr "Select"
 msgid "Select project"
 msgstr "Select project"
 
-#: src/containers/main/MainContainer.tsx:21
+#: src/containers/main/MainContainer.tsx:25
 msgid "Self Review"
 msgstr "Self Review"
 

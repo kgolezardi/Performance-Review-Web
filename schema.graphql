@@ -1,5 +1,5 @@
 # source: http://127.0.0.1:8000/graphql
-# timestamp: Wed Jan 15 2020 10:08:39 GMT+0330 (Iran Standard Time)
+# timestamp: Sun Jan 26 2020 16:47:40 GMT+0330 (Iran Standard Time)
 
 input ChangePasswordMutationInput {
   oldPassword: String!
@@ -116,6 +116,7 @@ enum Phase {
   PEER_REVIEW
   MANAGER_REVIEW
   RESULTS
+  IDLE
 }
 
 type ProjectNode implements Node {
@@ -181,6 +182,7 @@ type SaveProjectReviewMutationPayload {
 
 type SettingsNode implements Node {
   dueDate: DateTime
+  idlePageUrl: String
   loginBackgroundImage: String
 
   """The ID of the object."""
