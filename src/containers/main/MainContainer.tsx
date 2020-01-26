@@ -59,8 +59,8 @@ export function MainContainer(props: Props) {
 
   const { phase, idlePageUrl } = useAppSettings();
 
-  if (phase === 'IDLE' && !!idlePageUrl) {
-    return <IdlePage />;
+  if (phase === 'IDLE') {
+    return <IdlePage src={idlePageUrl} />;
   }
 
   return (
