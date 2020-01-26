@@ -2,6 +2,7 @@ import { i18n } from '@lingui/core';
 import React, { Suspense } from 'react';
 import logo from 'src/assets/logo.png';
 import { useAuthGuardUser } from 'src/core/auth';
+import { useAppSettings } from 'src/core/settings';
 import { StartReviewPage } from 'src/pages/start-review-page/StartReviewPage';
 import { ErrorBoundary } from 'src/shared/error-boundary';
 import { FullPageError } from 'src/shared/full-page-error';
@@ -19,6 +20,13 @@ import { FullPageSpinner } from 'src/shared/loading';
 import { FCProps } from 'src/shared/types/FCProps';
 import { MainRoutes } from './MainRoutes';
 import { NavbarUser } from './NavbarUser';
+
+const IdlePage = React.lazy(() =>
+  import(
+    /* webpackChunkName: "idle-page" */
+    'src/pages/idle-page/IdlePage'
+  ),
+);
 
 interface OwnProps {}
 
@@ -48,6 +56,13 @@ const items: MenuItem[] = [
 
 export function MainContainer(props: Props) {
   const user = useAuthGuardUser();
+
+  const { phase, idlePageUrl } = useAppSettings();
+
+  if (phase === 'IDLE' && !!idlePageUrl) {
+    return <IdlePage />;
+  }
+
   return (
     <DashboardLayout>
       <BrandRegion>
