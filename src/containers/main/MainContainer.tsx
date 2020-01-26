@@ -57,10 +57,10 @@ const items: MenuItem[] = [
 export function MainContainer(props: Props) {
   const user = useAuthGuardUser();
 
-  const { phase, idlePageUrl } = useAppSettings();
+  const { phase } = useAppSettings();
 
   if (phase === 'IDLE') {
-    return <IdlePage src={idlePageUrl} />;
+    return <IdlePage />;
   }
 
   return (

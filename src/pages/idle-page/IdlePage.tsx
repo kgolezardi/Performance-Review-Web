@@ -4,24 +4,23 @@ import { CSSProperties } from '@material-ui/core/styles/withStyles';
 import React from 'react';
 import { FCProps } from 'src/shared/types/FCProps';
 import { Styles } from 'src/shared/types/Styles';
+import { useAppSettings } from '../../core/settings';
 
-interface OwnProps {
-  src: string | null;
-}
+interface OwnProps {}
 
 type Props = FCProps<OwnProps> & StyleProps;
 
 export default function IdlePage(props: Props) {
-  const { src } = props;
   const classes = useStyles(props);
+  const { idlePageUrl } = useAppSettings();
 
   return (
     <div className={classes.root}>
       <Card className={classes.card}>
-        {!src ? (
+        {!idlePageUrl ? (
           <Typography variant="h1">{i18n._('Programmers are typing...')}</Typography>
         ) : (
-          <iframe src={src} title="title" width="640px" height="360px" className={classes.iframe} />
+          <iframe src={idlePageUrl} title="title" width="640px" height="360px" className={classes.iframe} />
         )}
       </Card>
     </div>
