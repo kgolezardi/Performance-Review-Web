@@ -24,6 +24,7 @@ export function AuthGuard(props: Props) {
             firstName: me.firstName,
             lastName: me.lastName,
             hasStarted: me.hasStarted || false,
+            isManager: me.isManager,
           }
         : null,
     [me],
@@ -53,5 +54,6 @@ const fragment = graphql`
     firstName
     lastName
     hasStarted
+    isManager
   }
 `;

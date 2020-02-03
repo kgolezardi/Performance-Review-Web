@@ -1,5 +1,5 @@
 # source: http://127.0.0.1:8000/graphql
-# timestamp: Sun Jan 26 2020 16:47:40 GMT+0330 (Iran Standard Time)
+# timestamp: Mon Feb 03 2020 10:36:20 GMT+0330 (Iran Standard Time)
 
 input ChangePasswordMutationInput {
   oldPassword: String!
@@ -209,6 +209,7 @@ type UserNode implements Node {
   """The ID of the object."""
   id: ID!
   hasStarted: Boolean
+  isManager: Boolean!
 }
 
 type ViewerNode implements Node {

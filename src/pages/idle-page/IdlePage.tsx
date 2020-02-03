@@ -29,7 +29,7 @@ export default function IdlePage(props: Props) {
 
 const styles = (theme: Theme) => ({
   root: {
-    height: '100vh',
+    height: '100%',
     width: '100vw',
     display: 'flex',
     justifyContent: 'center',
