@@ -6,6 +6,7 @@ export interface UserContextValue {
   firstName: string;
   lastName: string;
   hasStarted: boolean;
+  isManager: boolean;
 }
 export const UserContext = React.createContext<UserContextValue | null>(null);
 
