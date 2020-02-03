@@ -1,36 +1,25 @@
-import { makeStyles, Theme, Typography, TypographyProps } from '@material-ui/core';
-import { CSSProperties } from '@material-ui/core/styles/withStyles';
-import React from 'react';
+import { Typography, TypographyProps } from '@material-ui/core';
+import React, { Fragment } from 'react';
 import { FCProps } from 'src/shared/types/FCProps';
-import { Styles } from 'src/shared/types/Styles';
 
-interface OwnProps extends Omit<TypographyProps, 'children' | 'classes'> {
+interface OwnProps extends Omit<TypographyProps, 'children'> {
   value: string;
 }
 
-type Props = FCProps<OwnProps> & StyleProps;
+type Props = FCProps<OwnProps>;
 
 export function MultilineOutput(props: Props) {
-  const { value, classes: classesProp, ...typographyProps } = props;
-
-  const classes = useStyles(props);
+  const { value, ...typographyProps } = props;
 
   const splitString = value.split('\n');
 
   return (
-    <div className={classes.root}>
+    <Fragment>
       {splitString.map((str, index) => (
         <Typography {...typographyProps} key={index}>
           {str}
         </Typography>
       ))}
-    </div>
+    </Fragment>
   );
 }
-
-const styles = (theme: Theme) => ({
-  root: {} as CSSProperties,
-});
-
-const useStyles = makeStyles(styles, { name: 'MultilineOutput' });
-type StyleProps = Styles<typeof styles>;
