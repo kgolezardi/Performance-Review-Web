@@ -1,40 +1,30 @@
 import { ListItem, ListItemIcon, ListItemText } from '@material-ui/core';
-import React, { useCallback, useState } from 'react';
-import { FCProps } from 'src/shared/types/FCProps';
-import { useFragment } from 'react-relay/hooks';
-import graphql from 'babel-plugin-relay/macro';
-import { MembersListItem_user$key } from './__generated__/MembersListItem_user.graphql';
 import { Person as PersonIcon } from '@material-ui/icons';
-import { getUserLabel } from 'src/shared/utils/getUserLabel';
+import React, { useCallback } from 'react';
+import { FCProps } from 'src/shared/types/FCProps';
 
 interface OwnProps {
-  member: MembersListItem_user$key;
+  id: string | null;
+  label: React.ReactNode;
+  onClick: (id: string | null) => void;
+  selected?: boolean;
 }
 
 type Props = FCProps<OwnProps>;
 
 export function MembersListItem(props: Props) {
-  const member = useFragment(fragment, props.member);
-  const [activeId, setActiveId] = useState(null);
-  const onClick = useCallback(id => {
-    setActiveId(id);
-  }, []);
+  const { id, onClick, selected, label } = props;
+
+  const handleClick = useCallback(() => {
+    onClick(id);
+  }, [onClick, id]);
 
   return (
-    <ListItem button onClick={() => onClick(member.id)} selected={activeId === member.id}>
+    <ListItem button onClick={handleClick} selected={selected}>
       <ListItemIcon>
         <PersonIcon />
       </ListItemIcon>
-      <ListItemText primary={getUserLabel(member)} />
+      <ListItemText primary={label} />
     </ListItem>
   );
 }
-
-const fragment = graphql`
-  fragment MembersListItem_user on UserNode {
-    id
-    username
-    firstName
-    lastName
-  }
-`;

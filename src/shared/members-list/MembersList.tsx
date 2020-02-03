@@ -1,61 +1,54 @@
-import React, { useMemo } from 'react';
-import { FCProps } from 'src/shared/types/FCProps';
-import graphql from 'babel-plugin-relay/macro';
-import { useFragment } from 'react-relay/hooks';
-import {
-  MembersList_projectReviews,
-  MembersList_projectReviews$key,
-} from './__generated__/MembersList_projectReviews.graphql';
-import {
-  MembersList_personReviews,
-  MembersList_personReviews$key,
-} from './__generated__/MembersList_personReviews.graphql';
-import { MembersListItem } from './MembersListItem';
-import { map, prop, uniqBy } from 'ramda';
-import { ElementType } from 'src/shared/types/ElementType';
 import { List } from '@material-ui/core';
+import graphql from 'babel-plugin-relay/macro';
+import React, { useCallback, useState } from 'react';
+import { useFragment } from 'react-relay/hooks';
+import { FCProps } from 'src/shared/types/FCProps';
+import { getUserLabel } from 'src/shared/utils/getUserLabel';
+import { MembersList_user$key } from './__generated__/MembersList_user.graphql';
+import { MembersListItem } from './MembersListItem';
 
 interface OwnProps {
-  projectReviews: MembersList_projectReviews$key;
-  personReviews: MembersList_personReviews$key;
+  members: MembersList_user$key;
+  onClick: (id: string | null) => void;
 }
 
-type UserType = ElementType<MembersList_personReviews | MembersList_projectReviews>['reviewee'];
 type Props = FCProps<OwnProps>;
-const getReviewee = map(prop('reviewee'));
-const uniqueByUser = uniqBy<UserType, string>(prop('id'));
 
 export function MembersList(props: Props) {
-  const projectReviews = useFragment(fragmentProjectReviews, props.projectReviews);
-  const personReviews = useFragment(fragmentPersonReviews, props.personReviews);
+  const { onClick } = props;
 
-  const members = useMemo(() => uniqueByUser([...getReviewee(projectReviews), ...getReviewee(personReviews)]), [
-    personReviews,
-    projectReviews,
-  ]);
+  const [selectedUserId, setSelectedUserId] = useState<string | null>(null);
+
+  const members = useFragment(fragment, props.members);
+
+  const handleClick = useCallback(
+    (id: string | null) => {
+      onClick(id);
+      setSelectedUserId(id);
+    },
+    [onClick],
+  );
 
   return (
     <List component="nav">
       {members.map(member => (
-        <MembersListItem key={member.id} member={member} />
+        <MembersListItem
+          key={member.id}
+          id={member.id}
+          label={getUserLabel(member)}
+          onClick={handleClick}
+          selected={member.id === selectedUserId}
+        />
       ))}
     </List>
   );
 }
-const fragmentProjectReviews = graphql`
-  fragment MembersList_projectReviews on ProjectReviewNode @relay(plural: true) {
-    reviewee {
-      id
-      ...MembersListItem_user
-    }
-  }
-`;
 
-const fragmentPersonReviews = graphql`
-  fragment MembersList_personReviews on PersonReviewNode @relay(plural: true) {
-    reviewee {
-      id
-      ...MembersListItem_user
-    }
+const fragment = graphql`
+  fragment MembersList_user on UserNode @relay(plural: true) {
+    id
+    username
+    firstName
+    lastName
   }
 `;
