@@ -1,9 +1,10 @@
 import { i18n } from '@lingui/core';
-import { Box, Container, Grid, makeStyles, Paper, Tab, Tabs, Theme } from '@material-ui/core';
+import { Box, Container, Drawer, makeStyles, Paper, Tab, Tabs, Theme } from '@material-ui/core';
 import { CSSProperties } from '@material-ui/core/styles/withStyles';
 import graphql from 'babel-plugin-relay/macro';
-import React, { useCallback, useState } from 'react';
+import React, { Fragment, useCallback, useState } from 'react';
 import { useLazyLoadQuery } from 'react-relay/hooks';
+import { Overlayscrollbars } from 'src/shared/overlayscrollbars';
 import { TabPanel, TabPanelsProvider } from 'src/shared/tab';
 import { FCProps } from 'src/shared/types/FCProps';
 import { Styles } from 'src/shared/types/Styles';
@@ -31,17 +32,25 @@ export default function ManagerReviewPage(props: Props) {
   const data = useLazyLoadQuery<ManagerReviewPageQuery>(query, {});
 
   return (
-    <Container maxWidth="md">
-      <Box marginY={5}>
-        <Grid container>
-          <Grid item xs={3}>
-            <ManagerReviewMembersList
-              personReviews={data.viewer.personReviews}
-              projectReviews={data.viewer.projectReviews}
-              onClick={handleOnUserClick}
-            />
-          </Grid>
-          <Grid item xs={9}>
+    <Fragment>
+      <Drawer
+        variant="permanent"
+        classes={{
+          paper: classes.drawerPaper,
+        }}
+        anchor="left"
+      >
+        <Overlayscrollbars className={classes.overlayscrollbars}>
+          <ManagerReviewMembersList
+            personReviews={data.viewer.personReviews}
+            projectReviews={data.viewer.projectReviews}
+            onClick={handleOnUserClick}
+          />
+        </Overlayscrollbars>
+      </Drawer>
+      <div className={classes.content}>
+        <Container maxWidth="md">
+          <Box marginY={5}>
             <Paper classes={{ root: classes.tabsPaper }}>
               <Tabs
                 value={tab}
@@ -72,10 +81,10 @@ export default function ManagerReviewPage(props: Props) {
                 </TabPanel>
               </TabPanelsProvider>
             </Paper>
-          </Grid>
-        </Grid>
-      </Box>
-    </Container>
+          </Box>
+        </Container>
+      </div>
+    </Fragment>
   );
 }
 
@@ -97,6 +106,16 @@ const styles = (theme: Theme) => ({
   indicator: {
     height: theme.spacing(0.5),
     borderRadius: theme.spacing(0.5),
+  } as CSSProperties,
+  drawerPaper: {
+    top: 72,
+    width: 192,
+  } as CSSProperties,
+  overlayscrollbars: {
+    height: 'calc(100% - 72px)',
+  } as CSSProperties,
+  content: {
+    paddingLeft: 192,
   } as CSSProperties,
 });
 
