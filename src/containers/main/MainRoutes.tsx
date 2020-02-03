@@ -29,6 +29,14 @@ const IdlePage = React.lazy(() =>
     'src/pages/idle-page/IdlePage'
   ),
 );
+
+const ManagerReviewPage = React.lazy(() =>
+  import(
+    /* webpackChunkName: "manager-review-page" */
+    'src/pages/manager-review-page/ManagerReviewPage'
+  ),
+);
+
 interface Props {}
 
 export function MainRoutes(props: FCProps<Props>) {
@@ -48,6 +56,11 @@ export function MainRoutes(props: FCProps<Props>) {
       </Switch>
     );
   }
+
+  if (phase === 'MANAGER_REVIEW' && user.isManager) {
+    return <Route path="/" component={ManagerReviewPage} />;
+  }
+
   // TODO support other phases
 
   return <IdlePage />;
