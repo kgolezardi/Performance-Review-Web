@@ -15,8 +15,10 @@ export function MultilineOutput(props: Props) {
 
   return (
     <Fragment>
-      {splitString.map(str => (
-        <Typography {...typographyProps}>{str}</Typography>
+      {splitString.map((str, index) => (
+        <Typography {...typographyProps} key={index}>
+          {str}
+        </Typography>
       ))}
     </Fragment>
   );
