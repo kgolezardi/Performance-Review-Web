@@ -1,10 +1,14 @@
 import { i18n } from '@lingui/core';
 import { Box, Container, Grid, makeStyles, Paper, Tab, Tabs, Theme } from '@material-ui/core';
 import { CSSProperties } from '@material-ui/core/styles/withStyles';
+import graphql from 'babel-plugin-relay/macro';
 import React, { useCallback, useState } from 'react';
+import { useLazyLoadQuery } from 'react-relay/hooks';
 import { TabPanel, TabPanelsProvider } from 'src/shared/tab';
 import { FCProps } from 'src/shared/types/FCProps';
 import { Styles } from 'src/shared/types/Styles';
+import { ManagerReviewPageQuery } from './__generated__/ManagerReviewPageQuery.graphql';
+import { ManagerReviewMembersList } from './ManagerReviewMembersList';
 
 interface OwnProps {}
 
@@ -14,16 +18,28 @@ export default function ManagerReviewPage(props: Props) {
   const classes = useStyles(props);
   const [tab, setTab] = useState(0);
 
+  // Todo: handle selected-user-id
+
+  const handleOnUserClick = useCallback((id: string | null) => {
+    // Todo: set selected-user-id
+  }, []);
+
   const handleTabChange = useCallback((event: React.ChangeEvent<{}>, value: any) => {
     setTab(value);
   }, []);
+
+  const data = useLazyLoadQuery<ManagerReviewPageQuery>(query, {});
 
   return (
     <Container maxWidth="md">
       <Box marginY={5}>
         <Grid container>
           <Grid item xs={3}>
-            {/* add sidebar here*/}
+            <ManagerReviewMembersList
+              personReviews={data.viewer.personReviews}
+              projectReviews={data.viewer.projectReviews}
+              onClick={handleOnUserClick}
+            />
           </Grid>
           <Grid item xs={9}>
             <Paper classes={{ root: classes.tabsPaper }}>
@@ -86,3 +102,16 @@ const styles = (theme: Theme) => ({
 
 const useStyles = makeStyles(styles, { name: 'ManagerReviewPage' });
 type StyleProps = Styles<typeof styles>;
+
+const query = graphql`
+  query ManagerReviewPageQuery {
+    viewer {
+      personReviews {
+        ...ManagerReviewMembersList_personReviews
+      }
+      projectReviews {
+        ...ManagerReviewMembersList_projectReviews
+      }
+    }
+  }
+`;
