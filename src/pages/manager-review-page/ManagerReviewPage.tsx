@@ -48,40 +48,42 @@ export default function ManagerReviewPage(props: Props) {
           />
         </Overlayscrollbars>
       </Drawer>
-      <Container maxWidth="md">
-        <Box marginY={5}>
-          <Paper classes={{ root: classes.tabsPaper }}>
-            <Tabs
-              value={tab}
-              indicatorColor="primary"
-              textColor="primary"
-              centered
-              onChange={handleTabChange}
-              classes={{ scroller: classes.tabsScroller, indicator: classes.indicator }}
-            >
-              <Tab label={i18n._('Performance Competencies')} value={0} />
-              <Tab label={i18n._('Dominant Characteristics')} value={1} />
-              <Tab label={i18n._('Achievements')} value={2} />
-            </Tabs>
-          </Paper>
-          <Paper classes={{ root: classes.tabPanelPaper }}>
-            <TabPanelsProvider value={{ value: tab }}>
-              <TabPanel value={0}>
-                {/*Add performance competencies component here*/}
-                {i18n._('Performance Competencies')}
-              </TabPanel>
-              <TabPanel value={1}>
-                {/*Add dominant characteristics component here*/}
-                {i18n._('Dominant Characteristics')}
-              </TabPanel>
-              <TabPanel value={2}>
-                {/*Add achievements component here*/}
-                {i18n._('Achievements')}
-              </TabPanel>
-            </TabPanelsProvider>
-          </Paper>
-        </Box>
-      </Container>
+      <div className={classes.content}>
+        <Container maxWidth="md">
+          <Box marginY={5}>
+            <Paper classes={{ root: classes.tabsPaper }}>
+              <Tabs
+                value={tab}
+                indicatorColor="primary"
+                textColor="primary"
+                centered
+                onChange={handleTabChange}
+                classes={{ scroller: classes.tabsScroller, indicator: classes.indicator }}
+              >
+                <Tab label={i18n._('Performance Competencies')} value={0} />
+                <Tab label={i18n._('Dominant Characteristics')} value={1} />
+                <Tab label={i18n._('Achievements')} value={2} />
+              </Tabs>
+            </Paper>
+            <Paper classes={{ root: classes.tabPanelPaper }}>
+              <TabPanelsProvider value={{ value: tab }}>
+                <TabPanel value={0}>
+                  {/*Add performance competencies component here*/}
+                  {i18n._('Performance Competencies')}
+                </TabPanel>
+                <TabPanel value={1}>
+                  {/*Add dominant characteristics component here*/}
+                  {i18n._('Dominant Characteristics')}
+                </TabPanel>
+                <TabPanel value={2}>
+                  {/*Add achievements component here*/}
+                  {i18n._('Achievements')}
+                </TabPanel>
+              </TabPanelsProvider>
+            </Paper>
+          </Box>
+        </Container>
+      </div>
     </Fragment>
   );
 }
@@ -111,6 +113,9 @@ const styles = (theme: Theme) => ({
   } as CSSProperties,
   overlayscrollbars: {
     height: 'calc(100% - 72px)',
+  } as CSSProperties,
+  content: {
+    paddingLeft: 192,
   } as CSSProperties,
 });
 
