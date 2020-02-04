@@ -11,11 +11,6 @@ const query = graphql`
   query ProjectManagerReviewQuery {
     viewer {
       projectReviews {
-        id
-        project {
-          id
-          name
-        }
         ...ProjectManagerReview_review
       }
     }

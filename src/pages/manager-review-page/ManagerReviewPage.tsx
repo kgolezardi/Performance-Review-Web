@@ -38,7 +38,10 @@ export default function ManagerReviewPage(props: Props) {
       <div className={classes.content}>
         <Container maxWidth="md">
           <Box marginY={5}>
-            <ManagerReviewContent personReviews={data.viewer.personReviews} />
+            <ManagerReviewContent
+              personReviews={data.viewer.personReviews}
+              projectReviews={data.viewer.projectReviews}
+            />
           </Box>
         </Container>
       </div>
@@ -71,6 +74,7 @@ const query = graphql`
       }
       projectReviews {
         ...useMembers_projectReviews
+        ...ManagerReviewContent_projectReviews
       }
     }
   }

@@ -19,8 +19,7 @@ msgid "Accomplishments"
 msgstr "Accomplishments"
 
 #: src/pages/dashboard-page/DashboardPage.tsx:51
-#: src/pages/manager-review-page/ManagerReviewContent.tsx:17
-#: src/pages/manager-review-page/ManagerReviewContent.tsx:32
+#: src/pages/manager-review-page/ManagerReviewContent.tsx:27
 #: src/pages/self-review-page/SelfReviewPage.tsx:20
 msgid "Achievements"
 msgstr "Achievements"
@@ -73,8 +72,7 @@ msgid "Delete"
 msgstr "Delete"
 
 #: src/pages/dashboard-page/DashboardPage.tsx:43
-#: src/pages/manager-review-page/ManagerReviewContent.tsx:16
-#: src/pages/manager-review-page/ManagerReviewContent.tsx:28
+#: src/pages/manager-review-page/ManagerReviewContent.tsx:26
 #: src/pages/self-review-page/SelfReviewPage.tsx:19
 msgid "Dominant Characteristics"
 msgstr "Dominant Characteristics"
@@ -203,8 +201,7 @@ msgid "People who will comment on your accomplishments and write your performanc
 msgstr "People who will comment on your accomplishments and write your performance competencies and dominant characteristics from their own point of view."
 
 #: src/pages/dashboard-page/DashboardPage.tsx:35
-#: src/pages/manager-review-page/ManagerReviewContent.tsx:15
-#: src/pages/manager-review-page/ManagerReviewContent.tsx:24
+#: src/pages/manager-review-page/ManagerReviewContent.tsx:25
 #: src/pages/self-review-page/SelfReviewPage.tsx:18
 msgid "Performance Competencies"
 msgstr "Performance Competencies"
