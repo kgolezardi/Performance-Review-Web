@@ -45,7 +45,7 @@ export function ProjectManagerReview(props: Props) {
       <ExpansionPanelDetails>
         <Grid container spacing={2}>
           <Grid item xs={12}>
-            <Typography gutterBottom>{i18n._('Performance to initial expectation')}: </Typography>
+            <Typography gutterBottom>{i18n._('Performance to initial expectation')}:</Typography>
             <Box width={240}>
               <OutputBorder>
                 {review.rating ? (
