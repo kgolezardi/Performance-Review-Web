@@ -19,7 +19,7 @@ msgid "Accomplishments"
 msgstr "دستاوردها"
 
 #: src/pages/dashboard-page/DashboardPage.tsx:51
-#: src/pages/manager-review-page/ManagerReviewContent.tsx:27
+#: src/pages/manager-review-page/ManagerReviewContent.tsx:36
 #: src/pages/self-review-page/SelfReviewPage.tsx:20
 msgid "Achievements"
 msgstr "دستاوردها"
@@ -72,7 +72,7 @@ msgid "Delete"
 msgstr "حذف"
 
 #: src/pages/dashboard-page/DashboardPage.tsx:43
-#: src/pages/manager-review-page/ManagerReviewContent.tsx:26
+#: src/pages/manager-review-page/ManagerReviewContent.tsx:35
 #: src/pages/self-review-page/SelfReviewPage.tsx:19
 msgid "Dominant Characteristics"
 msgstr "ویژگی‌های بارز"
@@ -201,7 +201,7 @@ msgid "People who will comment on your accomplishments and write your performanc
 msgstr "کسانی هستن که روی دستاوردهاتون کامنت میدن و شایستگی‌های عملکردی  و ویژگی‌های بارز شما رو از نگاه خودشون می‌‌نویسن. (حداکثر ۶ نفر)"
 
 #: src/pages/dashboard-page/DashboardPage.tsx:35
-#: src/pages/manager-review-page/ManagerReviewContent.tsx:25
+#: src/pages/manager-review-page/ManagerReviewContent.tsx:34
 #: src/pages/self-review-page/SelfReviewPage.tsx:18
 msgid "Performance Competencies"
 msgstr "شایستگی‌های عملکردی"
@@ -267,6 +267,10 @@ msgstr "انتخاب کنید"
 #: src/pages/projects-page/AddProjectForm.tsx:34
 msgid "Select project"
 msgstr "انتخاب پروژه"
+
+#: src/pages/manager-review-page/ManagerReviewContent.tsx:27
+msgid "Select team a member please"
+msgstr "لطفا یک عضو تیم را انتخاب نمایید"
 
 #: src/containers/main/getMenuItems.ts:13
 msgid "Self Review"
@@ -363,3 +367,7 @@ msgstr "هنوز چیزی ننوشتی!"
 #: src/pages/dashboard-page/PerformanceCompetenciesCircularIndicator.tsx:78
 msgid "You're almost there!"
 msgstr "یه کم مونده!"
+
+#: src/pages/manager-review-page/ManagerReviewPage.tsx:20
+msgid "Your team members"
+msgstr "اعضای تیم شما"

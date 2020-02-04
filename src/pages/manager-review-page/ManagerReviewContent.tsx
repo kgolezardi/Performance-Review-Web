@@ -1,19 +1,20 @@
 import { i18n } from '@lingui/core';
-import { Box, makeStyles, Paper, Tab, Tabs, Theme } from '@material-ui/core';
+import { Box, makeStyles, Paper, Tab, Tabs, Theme, Typography } from '@material-ui/core';
 import { CSSProperties } from '@material-ui/core/styles/withStyles';
 import graphql from 'babel-plugin-relay/macro';
 import React, { Fragment, useCallback, useState } from 'react';
 import { useFragment } from 'react-relay/hooks';
 import { CriteriaManagerReview } from 'src/shared/criteria-manager-review';
+import { useMemberListContext } from 'src/shared/members-list';
 import { ProjectManagerReview } from 'src/shared/project-manager-review';
 import { TabPanel, TabPanelsProvider } from 'src/shared/tab';
 import { FCProps } from 'src/shared/types/FCProps';
 import { Styles } from 'src/shared/types/Styles';
+import { ManagerReviewContent_personReviews$key } from './__generated__/ManagerReviewContent_personReviews.graphql';
+import { ManagerReviewContent_projectReviews$key } from './__generated__/ManagerReviewContent_projectReviews.graphql';
 import { DominantCharacteristicsManagerReview } from './DominantCharacteristics';
 import { useCurrentPersonReview } from './useCurrentPersonReview';
 import { useCurrentProjectReviews } from './useCurrentProjectReviews';
-import { ManagerReviewContent_personReviews$key } from './__generated__/ManagerReviewContent_personReviews.graphql';
-import { ManagerReviewContent_projectReviews$key } from './__generated__/ManagerReviewContent_projectReviews.graphql';
 
 interface OwnProps {
   personReviews: ManagerReviewContent_personReviews$key;
@@ -30,6 +31,8 @@ export function ManagerReviewContent(props: Props) {
     setTab(value);
   }, []);
 
+  const { selectedId } = useMemberListContext();
+
   const personReviews = useFragment(personReviewsFragment, props.personReviews);
 
   const projectReviews = useFragment(projectReviewsFragment, props.projectReviews);
@@ -37,6 +40,16 @@ export function ManagerReviewContent(props: Props) {
   const currentPersonReview = useCurrentPersonReview(personReviews);
 
   const currentProjectReviews = useCurrentProjectReviews(projectReviews);
+
+  if (selectedId === null) {
+    return (
+      <Paper>
+        <Box px={4} py={8} textAlign="center">
+          <Typography variant="h3">{i18n._('Select team a member please')}</Typography>
+        </Box>
+      </Paper>
+    );
+  }
 
   return (
     <Fragment>
