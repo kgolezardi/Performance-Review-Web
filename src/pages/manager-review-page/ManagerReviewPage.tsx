@@ -1,4 +1,5 @@
-import { Box, Container, Drawer, makeStyles, Theme } from '@material-ui/core';
+import { i18n } from '@lingui/core';
+import { Box, Container, Drawer, makeStyles, Theme, Typography } from '@material-ui/core';
 import { CSSProperties } from '@material-ui/core/styles/withStyles';
 import graphql from 'babel-plugin-relay/macro';
 import React from 'react';
@@ -32,6 +33,9 @@ export default function ManagerReviewPage(props: Props) {
         anchor="left"
       >
         <Overlayscrollbars className={classes.overlayscrollbars}>
+          <Box p={2}>
+            <Typography variant="h6">{i18n._('Your team members')}</Typography>
+          </Box>
           <MembersList members={members} />
         </Overlayscrollbars>
       </Drawer>

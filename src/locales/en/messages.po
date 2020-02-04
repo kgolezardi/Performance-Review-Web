@@ -19,7 +19,7 @@ msgid "Accomplishments"
 msgstr "Accomplishments"
 
 #: src/pages/dashboard-page/DashboardPage.tsx:51
-#: src/pages/manager-review-page/ManagerReviewContent.tsx:27
+#: src/pages/manager-review-page/ManagerReviewContent.tsx:36
 #: src/pages/self-review-page/SelfReviewPage.tsx:20
 msgid "Achievements"
 msgstr "Achievements"
@@ -72,7 +72,7 @@ msgid "Delete"
 msgstr "Delete"
 
 #: src/pages/dashboard-page/DashboardPage.tsx:43
-#: src/pages/manager-review-page/ManagerReviewContent.tsx:26
+#: src/pages/manager-review-page/ManagerReviewContent.tsx:35
 #: src/pages/self-review-page/SelfReviewPage.tsx:19
 msgid "Dominant Characteristics"
 msgstr "Dominant Characteristics"
@@ -201,7 +201,7 @@ msgid "People who will comment on your accomplishments and write your performanc
 msgstr "People who will comment on your accomplishments and write your performance competencies and dominant characteristics from their own point of view."
 
 #: src/pages/dashboard-page/DashboardPage.tsx:35
-#: src/pages/manager-review-page/ManagerReviewContent.tsx:25
+#: src/pages/manager-review-page/ManagerReviewContent.tsx:34
 #: src/pages/self-review-page/SelfReviewPage.tsx:18
 msgid "Performance Competencies"
 msgstr "Performance Competencies"
@@ -267,6 +267,10 @@ msgstr "Select"
 #: src/pages/projects-page/AddProjectForm.tsx:34
 msgid "Select project"
 msgstr "Select project"
+
+#: src/pages/manager-review-page/ManagerReviewContent.tsx:27
+msgid "Select team a member please"
+msgstr "Select team a member please"
 
 #: src/containers/main/getMenuItems.ts:13
 msgid "Self Review"
@@ -363,3 +367,7 @@ msgstr "You haven't entered anything yet!"
 #: src/pages/dashboard-page/PerformanceCompetenciesCircularIndicator.tsx:78
 msgid "You're almost there!"
 msgstr "You're almost there!"
+
+#: src/pages/manager-review-page/ManagerReviewPage.tsx:20
+msgid "Your team members"
+msgstr "Your team members"
