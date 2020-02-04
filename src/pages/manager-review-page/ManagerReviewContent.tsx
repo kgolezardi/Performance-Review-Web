@@ -2,23 +2,23 @@ import { i18n } from '@lingui/core';
 import { Paper, Tab, Tabs, Theme } from '@material-ui/core';
 import { makeStyles } from '@material-ui/styles';
 import { CSSProperties } from '@material-ui/styles/withStyles';
+import graphql from 'babel-plugin-relay/macro';
 import React, { Fragment, useCallback, useState } from 'react';
+import { useFragment } from 'react-relay/hooks';
 import { TabPanel, TabPanelsProvider } from 'src/shared/tab';
 import { FCProps } from 'src/shared/types/FCProps';
 import { Styles } from 'src/shared/types/Styles';
-import { useMemberListContext } from '../../shared/members-list';
-import { useDominantCharacteristics_projectReviews$key } from './__generated__/useDominantCharacteristics_projectReviews.graphql';
+import { ManagerReviewContent_personReviews$key } from './__generated__/ManagerReviewContent_personReviews.graphql';
 import { DominantCharacteristicsManagerReview } from './DominantCharacteristics';
 import { useDominantCharacteristics } from './useDominantCharacteristics';
 
 interface OwnProps {
-  personReviews: useDominantCharacteristics_projectReviews$key;
+  personReviews: ManagerReviewContent_personReviews$key;
 }
 
 type Props = FCProps<OwnProps> & StyleProps;
 
 export function ManagerReviewContent(props: Props) {
-  const { personReviews } = props;
   const classes = useStyles(props);
   const [tab, setTab] = useState(0);
 
@@ -26,9 +26,9 @@ export function ManagerReviewContent(props: Props) {
     setTab(value);
   }, []);
 
-  const { selectedId } = useMemberListContext();
+  const personReviews = useFragment(personReviewsFragment, props.personReviews);
 
-  const currentDominantCharacteristics = useDominantCharacteristics(personReviews, selectedId);
+  const currentDominantCharacteristics = useDominantCharacteristics(personReviews);
 
   return (
     <Fragment>
@@ -90,3 +90,12 @@ const styles = (theme: Theme) => ({
 
 const useStyles = makeStyles(styles, { name: 'ManagerReviewContent' });
 type StyleProps = Styles<typeof styles>;
+
+const personReviewsFragment = graphql`
+  fragment ManagerReviewContent_personReviews on PersonReviewNode @relay(plural: true) {
+    reviewee {
+      id
+    }
+    ...DominantCharacteristicsManagerReview_review
+  }
+`;

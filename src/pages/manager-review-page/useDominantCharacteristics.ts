@@ -1,29 +1,17 @@
-import graphql from 'babel-plugin-relay/macro';
 import { indexBy } from 'ramda';
 import { useMemo } from 'react';
-import { useFragment } from 'react-relay/hooks';
+import { useMemberListContext } from 'src/shared/members-list';
 import { ElementType } from 'src/shared/types/ElementType';
 import {
-  useDominantCharacteristics_projectReviews,
-  useDominantCharacteristics_projectReviews$key,
-} from './__generated__/useDominantCharacteristics_projectReviews.graphql';
+  ManagerReviewContent_personReviews,
+  ManagerReviewContent_personReviews$data,
+} from './__generated__/ManagerReviewContent_personReviews.graphql';
 
-const getReviewId = (review: ElementType<useDominantCharacteristics_projectReviews>) => review.reviewee.id;
+const getReviewId = (review: ElementType<ManagerReviewContent_personReviews>) => review.reviewee.id;
 
-export function useDominantCharacteristics(
-  personReviewsFragment: useDominantCharacteristics_projectReviews$key,
-  selectedUserId: string | null,
-) {
-  const personReviews = useFragment(fragment, personReviewsFragment);
+export function useDominantCharacteristics(personReviews: ManagerReviewContent_personReviews$data) {
+  const { selectedId } = useMemberListContext();
   const dominantCharacteristics = useMemo(() => indexBy(getReviewId, personReviews), [personReviews]);
-  return selectedUserId !== null ? dominantCharacteristics[selectedUserId] : null;
-}
 
-const fragment = graphql`
-  fragment useDominantCharacteristics_projectReviews on PersonReviewNode @relay(plural: true) {
-    reviewee {
-      id
-    }
-    ...DominantCharacteristicsManagerReview_review
-  }
-`;
+  return selectedId !== null ? dominantCharacteristics[selectedId] : null;
+}

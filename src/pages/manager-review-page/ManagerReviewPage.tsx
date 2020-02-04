@@ -68,7 +68,7 @@ const query = graphql`
     viewer {
       personReviews {
         ...useMembers_personReviews
-        ...useDominantCharacteristics_projectReviews
+        ...ManagerReviewContent_personReviews
       }
       projectReviews {
         ...useMembers_projectReviews
