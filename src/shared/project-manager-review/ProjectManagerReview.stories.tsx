@@ -22,7 +22,7 @@ const query = graphql`
   }
 `;
 
-storiesOf('Achievement Project', module)
+storiesOf('Project Manager Review', module)
   .addDecorator(themeDecorator())
   .addDecorator(relayDecorator())
   .add('simple', () => {
