@@ -80,3 +80,5 @@ const fragment = graphql`
     presenceRating
   }
 `;
+
+export type CriteriaManagerReviewProps = Props;
