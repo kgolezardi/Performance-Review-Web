@@ -3,12 +3,13 @@ import { CSSProperties } from '@material-ui/core/styles/withStyles';
 import graphql from 'babel-plugin-relay/macro';
 import React, { Fragment, useCallback } from 'react';
 import { useLazyLoadQuery } from 'react-relay/hooks';
+import { MembersList } from 'src/shared/members-list';
 import { Overlayscrollbars } from 'src/shared/overlayscrollbars';
 import { FCProps } from 'src/shared/types/FCProps';
 import { Styles } from 'src/shared/types/Styles';
 import { ManagerReviewPageQuery } from './__generated__/ManagerReviewPageQuery.graphql';
 import { ManagerReviewContent } from './ManagerReviewContent';
-import { ManagerReviewMembersList } from './ManagerReviewMembersList';
+import { useMembers } from './useMembers';
 
 interface OwnProps {}
 
@@ -25,6 +26,8 @@ export default function ManagerReviewPage(props: Props) {
 
   const data = useLazyLoadQuery<ManagerReviewPageQuery>(query, {});
 
+  const members = useMembers(data.viewer.projectReviews, data.viewer.personReviews);
+
   return (
     <Fragment>
       <Drawer
@@ -35,11 +38,7 @@ export default function ManagerReviewPage(props: Props) {
         anchor="left"
       >
         <Overlayscrollbars className={classes.overlayscrollbars}>
-          <ManagerReviewMembersList
-            personReviews={data.viewer.personReviews}
-            projectReviews={data.viewer.projectReviews}
-            onClick={handleOnUserClick}
-          />
+          <MembersList members={members} onClick={handleOnUserClick} />
         </Overlayscrollbars>
       </Drawer>
       <div className={classes.content}>
@@ -73,10 +72,10 @@ const query = graphql`
   query ManagerReviewPageQuery {
     viewer {
       personReviews {
-        ...ManagerReviewMembersList_personReviews
+        ...useMembers_personReviews
       }
       projectReviews {
-        ...ManagerReviewMembersList_projectReviews
+        ...useMembers_projectReviews
       }
     }
   }
