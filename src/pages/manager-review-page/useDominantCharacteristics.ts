@@ -1,15 +1,16 @@
 import { indexBy } from 'ramda';
 import { useMemo } from 'react';
 import { useMemberListContext } from 'src/shared/members-list';
-import { ElementType } from 'src/shared/types/ElementType';
-import {
-  ManagerReviewContent_personReviews,
-  ManagerReviewContent_personReviews$data,
-} from './__generated__/ManagerReviewContent_personReviews.graphql';
 
-const getReviewId = (review: ElementType<ManagerReviewContent_personReviews>) => review.reviewee.id;
+interface Review {
+  reviewee: {
+    id: string;
+  };
+}
 
-export function useDominantCharacteristics(personReviews: ManagerReviewContent_personReviews$data) {
+const getReviewId = (review: Review) => review.reviewee.id;
+
+export function useDominantCharacteristics<R extends Review = Review>(personReviews: ReadonlyArray<R>): R | null {
   const { selectedId } = useMemberListContext();
   const dominantCharacteristics = useMemo(() => indexBy(getReviewId, personReviews), [personReviews]);
 

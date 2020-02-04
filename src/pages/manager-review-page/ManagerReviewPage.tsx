@@ -9,7 +9,6 @@ import { FCProps } from 'src/shared/types/FCProps';
 import { Styles } from 'src/shared/types/Styles';
 import { ManagerReviewPageQuery } from './__generated__/ManagerReviewPageQuery.graphql';
 import { ManagerReviewContent } from './ManagerReviewContent';
-
 import { useMembers } from './useMembers';
 
 interface OwnProps {}
