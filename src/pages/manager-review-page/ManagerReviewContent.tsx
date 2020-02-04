@@ -2,12 +2,19 @@ import { i18n } from '@lingui/core';
 import { Paper, Tab, Tabs, Theme } from '@material-ui/core';
 import { makeStyles } from '@material-ui/styles';
 import { CSSProperties } from '@material-ui/styles/withStyles';
+import graphql from 'babel-plugin-relay/macro';
 import React, { Fragment, useCallback, useState } from 'react';
+import { useFragment } from 'react-relay/hooks';
 import { TabPanel, TabPanelsProvider } from 'src/shared/tab';
 import { FCProps } from 'src/shared/types/FCProps';
 import { Styles } from 'src/shared/types/Styles';
+import { ManagerReviewContent_personReviews$key } from './__generated__/ManagerReviewContent_personReviews.graphql';
+import { DominantCharacteristicsManagerReview } from './DominantCharacteristics';
+import { useDominantCharacteristics } from './useDominantCharacteristics';
 
-interface OwnProps {}
+interface OwnProps {
+  personReviews: ManagerReviewContent_personReviews$key;
+}
 
 type Props = FCProps<OwnProps> & StyleProps;
 
@@ -18,6 +25,10 @@ export function ManagerReviewContent(props: Props) {
   const handleTabChange = useCallback((event: React.ChangeEvent<{}>, value: any) => {
     setTab(value);
   }, []);
+
+  const personReviews = useFragment(personReviewsFragment, props.personReviews);
+
+  const currentDominantCharacteristics = useDominantCharacteristics(personReviews);
 
   return (
     <Fragment>
@@ -42,8 +53,9 @@ export function ManagerReviewContent(props: Props) {
             {i18n._('Performance Competencies')}
           </TabPanel>
           <TabPanel value={1}>
-            {/*Add dominant characteristics component here*/}
-            {i18n._('Dominant Characteristics')}
+            {currentDominantCharacteristics && (
+              <DominantCharacteristicsManagerReview review={currentDominantCharacteristics} />
+            )}
           </TabPanel>
           <TabPanel value={2}>
             {/*Add achievements component here*/}
@@ -78,3 +90,12 @@ const styles = (theme: Theme) => ({
 
 const useStyles = makeStyles(styles, { name: 'ManagerReviewContent' });
 type StyleProps = Styles<typeof styles>;
+
+const personReviewsFragment = graphql`
+  fragment ManagerReviewContent_personReviews on PersonReviewNode @relay(plural: true) {
+    reviewee {
+      id
+    }
+    ...DominantCharacteristicsManagerReview_review
+  }
+`;
