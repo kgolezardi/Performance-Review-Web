@@ -17,6 +17,7 @@ import { useFragment } from 'react-relay/hooks';
 import { Evaluation } from 'src/global-types';
 import { EvaluationOutput } from 'src/shared/evaluationt-output';
 import { MultilineOutput } from 'src/shared/multiline-output';
+import { OutputBorder } from 'src/shared/output-border';
 import { FCProps } from 'src/shared/types/FCProps';
 import { Styles } from 'src/shared/types/Styles';
 import { ProjectManagerReview_review$key } from './__generated__/ProjectManagerReview_review.graphql';
@@ -44,12 +45,13 @@ export function ProjectManagerReview(props: Props) {
         <Grid container spacing={2}>
           <Grid item xs={12}>
             <Typography gutterBottom>{i18n._('Performance to initial expectation')}: </Typography>
-            <Box className={classes.wrapperBox}>
-              {review.rating ? <EvaluationOutput value={review.rating as Evaluation} /> : <p></p>}
+            <Box width={240}>
+              <OutputBorder></OutputBorder>
             </Box>
           </Grid>
           <Grid item xs={12}>
             <Typography gutterBottom>{i18n._('Accomplishments')}:</Typography>
+            <OutputBorder></OutputBorder>
           </Grid>
         </Grid>
       </ExpansionPanelDetails>
@@ -71,11 +73,6 @@ const styles = (theme: Theme) => ({
     },
   } as CSSProperties,
   expansionPanelExpanded: {} as CSSProperties,
-  wrapperBox: {
-    border: '1px solid ' + theme.palette.grey[400],
-    borderRadius: theme.spacing(0.5),
-    padding: theme.spacing(1),
-  } as CSSProperties,
 });
 
 const useStyles = makeStyles(styles, { name: 'ProjectManagerReview' });
