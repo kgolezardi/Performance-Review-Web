@@ -1,7 +1,9 @@
-import { ListItem, ListItemIcon, ListItemText } from '@material-ui/core';
+import { lighten, ListItem, ListItemIcon, ListItemText, makeStyles, Theme } from '@material-ui/core';
 import { Person as PersonIcon } from '@material-ui/icons';
 import React, { useCallback } from 'react';
 import { FCProps } from 'src/shared/types/FCProps';
+import { CSSProperties } from '@material-ui/styles';
+import { Styles } from 'src/shared/types/Styles';
 
 interface OwnProps {
   id: string | null;
@@ -10,9 +12,10 @@ interface OwnProps {
   selected?: boolean;
 }
 
-type Props = FCProps<OwnProps>;
+type Props = FCProps<OwnProps> & StyleProps;
 
 export function MembersListItem(props: Props) {
+  const classes = useStyles(props);
   const { id, onChange, selected, label } = props;
 
   const handleClick = useCallback(() => {
@@ -20,11 +23,56 @@ export function MembersListItem(props: Props) {
   }, [onChange, id]);
 
   return (
-    <ListItem button onClick={handleClick} selected={selected}>
-      <ListItemIcon>
+    <ListItem
+      button
+      onClick={handleClick}
+      selected={selected}
+      classes={{
+        root: classes.root,
+        selected: classes.selected,
+      }}
+    >
+      <ListItemIcon classes={{ root: classes.itemIconRoot }}>
         <PersonIcon />
       </ListItemIcon>
-      <ListItemText primary={label} />
+      <ListItemText
+        primary={label}
+        primaryTypographyProps={{
+          classes: {
+            body1: classes.typographyBody1,
+          },
+        }}
+      />
     </ListItem>
   );
 }
+
+const styles = (theme: Theme) => ({
+  selected: {} as CSSProperties,
+  itemIconRoot: {} as CSSProperties,
+  typographyBody1: {} as CSSProperties,
+  root: {
+    borderBottom: '1px solid',
+    borderBottomColor: theme.palette.divider,
+    paddingBottom: theme.spacing(1) + 1,
+    '&$selected': {
+      backgroundColor: lighten(theme.palette.primary.main, 0.85),
+      borderBottomWidth: 2,
+      borderBottomColor: theme.palette.primary.main,
+      color: theme.palette.primary.main,
+      paddingBottom: theme.spacing(1),
+    },
+    '&$selected:hover': {
+      backgroundColor: lighten(theme.palette.primary.main, 0.85),
+    },
+    '&$selected $itemIconRoot': {
+      color: theme.palette.primary.main,
+    },
+    '&$selected $typographyBody1': {
+      fontWeight: theme.typography.fontWeightBold,
+    },
+  } as CSSProperties,
+});
+
+const useStyles = makeStyles(styles, { name: 'MemberListItem' });
+type StyleProps = Styles<typeof styles>;
