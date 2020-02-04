@@ -14,12 +14,13 @@ msgstr ""
 "Plural-Forms: \n"
 
 #: src/pages/projects-page/ProjectForm.tsx:71
+#: src/shared/project-manager-review/ProjectManagerReview.tsx:25
 msgid "Accomplishments"
 msgstr "Accomplishments"
 
 #: src/pages/dashboard-page/DashboardPage.tsx:51
-#: src/pages/manager-review-page/ManagerReviewPage.tsx:22
-#: src/pages/manager-review-page/ManagerReviewPage.tsx:37
+#: src/pages/manager-review-page/ManagerReviewPage.tsx:35
+#: src/pages/manager-review-page/ManagerReviewPage.tsx:50
 #: src/pages/self-review-page/SelfReviewPage.tsx:20
 msgid "Achievements"
 msgstr "Achievements"
@@ -72,8 +73,8 @@ msgid "Delete"
 msgstr "Delete"
 
 #: src/pages/dashboard-page/DashboardPage.tsx:43
-#: src/pages/manager-review-page/ManagerReviewPage.tsx:21
-#: src/pages/manager-review-page/ManagerReviewPage.tsx:33
+#: src/pages/manager-review-page/ManagerReviewPage.tsx:34
+#: src/pages/manager-review-page/ManagerReviewPage.tsx:46
 #: src/pages/self-review-page/SelfReviewPage.tsx:19
 msgid "Dominant Characteristics"
 msgstr "Dominant Characteristics"
@@ -157,6 +158,8 @@ msgstr "Meets Expectations"
 msgid "Most important characteristics or behaviours I should improve in myself"
 msgstr "Most important characteristics or behaviours I should improve in myself"
 
+#: src/pages/manager-review-page/DominantCharacteristics.tsx:12
+#: src/pages/manager-review-page/DominantCharacteristics.tsx:15
 #: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:31
 msgid "Most important characteristics or effective behaviours that I should maintain"
 msgstr "Most important characteristics or effective behaviours that I should maintain"
@@ -195,8 +198,8 @@ msgid "People who will comment on your accomplishments and write your performanc
 msgstr "People who will comment on your accomplishments and write your performance competencies and dominant characteristics from their own point of view."
 
 #: src/pages/dashboard-page/DashboardPage.tsx:35
-#: src/pages/manager-review-page/ManagerReviewPage.tsx:20
-#: src/pages/manager-review-page/ManagerReviewPage.tsx:29
+#: src/pages/manager-review-page/ManagerReviewPage.tsx:33
+#: src/pages/manager-review-page/ManagerReviewPage.tsx:42
 #: src/pages/self-review-page/SelfReviewPage.tsx:18
 msgid "Performance Competencies"
 msgstr "Performance Competencies"
@@ -210,6 +213,10 @@ msgstr "Performance Review"
 #: src/shared/auth/Login.tsx:35
 msgid "Performance Review System"
 msgstr "Performance Review System"
+
+#: src/shared/project-manager-review/ProjectManagerReview.tsx:19
+msgid "Performance to initial expectation"
+msgstr "Performance to initial expectation"
 
 #: src/core/locales/languages.ts:4
 msgid "Persian"
