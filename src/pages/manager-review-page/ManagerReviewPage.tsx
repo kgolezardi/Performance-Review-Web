@@ -3,13 +3,12 @@ import { CSSProperties } from '@material-ui/core/styles/withStyles';
 import graphql from 'babel-plugin-relay/macro';
 import React from 'react';
 import { useLazyLoadQuery } from 'react-relay/hooks';
-import { MembersList } from 'src/shared/members-list';
+import { MemberListContextProvider, MembersList } from 'src/shared/members-list';
 import { Overlayscrollbars } from 'src/shared/overlayscrollbars';
 import { FCProps } from 'src/shared/types/FCProps';
 import { Styles } from 'src/shared/types/Styles';
 import { ManagerReviewPageQuery } from './__generated__/ManagerReviewPageQuery.graphql';
 import { ManagerReviewContent } from './ManagerReviewContent';
-import { MemberListContextProvider } from 'src/shared/members-list';
 
 import { useMembers } from './useMembers';
 
@@ -40,7 +39,7 @@ export default function ManagerReviewPage(props: Props) {
       <div className={classes.content}>
         <Container maxWidth="md">
           <Box marginY={5}>
-            <ManagerReviewContent />
+            <ManagerReviewContent personReviews={data.viewer.personReviews} />
           </Box>
         </Container>
       </div>
@@ -69,6 +68,7 @@ const query = graphql`
     viewer {
       personReviews {
         ...useMembers_personReviews
+        ...useDominantCharacteristics_projectReviews
       }
       projectReviews {
         ...useMembers_projectReviews

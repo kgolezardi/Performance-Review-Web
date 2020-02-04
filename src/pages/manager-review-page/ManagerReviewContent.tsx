@@ -6,18 +6,29 @@ import React, { Fragment, useCallback, useState } from 'react';
 import { TabPanel, TabPanelsProvider } from 'src/shared/tab';
 import { FCProps } from 'src/shared/types/FCProps';
 import { Styles } from 'src/shared/types/Styles';
+import { useMemberListContext } from '../../shared/members-list';
+import { useDominantCharacteristics_projectReviews$key } from './__generated__/useDominantCharacteristics_projectReviews.graphql';
+import { DominantCharacteristicsManagerReview } from './DominantCharacteristics';
+import { useDominantCharacteristics } from './useDominantCharacteristics';
 
-interface OwnProps {}
+interface OwnProps {
+  personReviews: useDominantCharacteristics_projectReviews$key;
+}
 
 type Props = FCProps<OwnProps> & StyleProps;
 
 export function ManagerReviewContent(props: Props) {
+  const { personReviews } = props;
   const classes = useStyles(props);
   const [tab, setTab] = useState(0);
 
   const handleTabChange = useCallback((event: React.ChangeEvent<{}>, value: any) => {
     setTab(value);
   }, []);
+
+  const { selectedId } = useMemberListContext();
+
+  const currentDominantCharacteristics = useDominantCharacteristics(personReviews, selectedId);
 
   return (
     <Fragment>
@@ -42,8 +53,9 @@ export function ManagerReviewContent(props: Props) {
             {i18n._('Performance Competencies')}
           </TabPanel>
           <TabPanel value={1}>
-            {/*Add dominant characteristics component here*/}
-            {i18n._('Dominant Characteristics')}
+            {currentDominantCharacteristics && (
+              <DominantCharacteristicsManagerReview review={currentDominantCharacteristics} />
+            )}
           </TabPanel>
           <TabPanel value={2}>
             {/*Add achievements component here*/}
