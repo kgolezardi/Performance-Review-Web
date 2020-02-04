@@ -15,6 +15,7 @@ import graphql from 'babel-plugin-relay/macro';
 import React from 'react';
 import { useFragment } from 'react-relay/hooks';
 import { Evaluation } from 'src/global-types';
+import { NON_BREAKING_SPACE } from 'src/shared/constants';
 import { EvaluationOutput } from 'src/shared/evaluationt-output';
 import { MultilineOutput } from 'src/shared/multiline-output';
 import { OutputBorder } from 'src/shared/output-border';
@@ -46,12 +47,20 @@ export function ProjectManagerReview(props: Props) {
           <Grid item xs={12}>
             <Typography gutterBottom>{i18n._('Performance to initial expectation')}: </Typography>
             <Box width={240}>
-              <OutputBorder></OutputBorder>
+              <OutputBorder>
+                {review.rating ? (
+                  <EvaluationOutput value={review.rating as Evaluation} />
+                ) : (
+                  <Typography variant="body1">{NON_BREAKING_SPACE}</Typography>
+                )}
+              </OutputBorder>
             </Box>
           </Grid>
           <Grid item xs={12}>
             <Typography gutterBottom>{i18n._('Accomplishments')}:</Typography>
-            <OutputBorder></OutputBorder>
+            <OutputBorder>
+              <MultilineOutput value={review.text || NON_BREAKING_SPACE} />
+            </OutputBorder>
           </Grid>
         </Grid>
       </ExpansionPanelDetails>
