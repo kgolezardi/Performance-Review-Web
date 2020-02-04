@@ -1,19 +1,23 @@
 import { i18n } from '@lingui/core';
-import { Paper, Tab, Tabs, Theme } from '@material-ui/core';
-import { makeStyles } from '@material-ui/styles';
-import { CSSProperties } from '@material-ui/styles/withStyles';
+import { Box, makeStyles, Paper, Tab, Tabs, Theme } from '@material-ui/core';
+import { CSSProperties } from '@material-ui/core/styles/withStyles';
 import graphql from 'babel-plugin-relay/macro';
 import React, { Fragment, useCallback, useState } from 'react';
 import { useFragment } from 'react-relay/hooks';
+import { CriteriaManagerReview } from 'src/shared/criteria-manager-review';
+import { ProjectManagerReview } from 'src/shared/project-manager-review';
 import { TabPanel, TabPanelsProvider } from 'src/shared/tab';
 import { FCProps } from 'src/shared/types/FCProps';
 import { Styles } from 'src/shared/types/Styles';
-import { ManagerReviewContent_personReviews$key } from './__generated__/ManagerReviewContent_personReviews.graphql';
 import { DominantCharacteristicsManagerReview } from './DominantCharacteristics';
-import { useDominantCharacteristics } from './useDominantCharacteristics';
+import { useCurrentPersonReview } from './useCurrentPersonReview';
+import { useCurrentProjectReviews } from './useCurrentProjectReviews';
+import { ManagerReviewContent_personReviews$key } from './__generated__/ManagerReviewContent_personReviews.graphql';
+import { ManagerReviewContent_projectReviews$key } from './__generated__/ManagerReviewContent_projectReviews.graphql';
 
 interface OwnProps {
   personReviews: ManagerReviewContent_personReviews$key;
+  projectReviews: ManagerReviewContent_projectReviews$key;
 }
 
 type Props = FCProps<OwnProps> & StyleProps;
@@ -28,7 +32,11 @@ export function ManagerReviewContent(props: Props) {
 
   const personReviews = useFragment(personReviewsFragment, props.personReviews);
 
-  const currentDominantCharacteristics = useDominantCharacteristics(personReviews);
+  const projectReviews = useFragment(projectReviewsFragment, props.projectReviews);
+
+  const currentPersonReview = useCurrentPersonReview(personReviews);
+
+  const currentProjectReviews = useCurrentProjectReviews(projectReviews);
 
   return (
     <Fragment>
@@ -48,18 +56,16 @@ export function ManagerReviewContent(props: Props) {
       </Paper>
       <Paper classes={{ root: classes.tabPanelPaper }}>
         <TabPanelsProvider value={{ value: tab }}>
-          <TabPanel value={0}>
-            {/*Add performance competencies component here*/}
-            {i18n._('Performance Competencies')}
-          </TabPanel>
+          <TabPanel value={0}>{currentPersonReview && <CriteriaManagerReview review={currentPersonReview} />}</TabPanel>
           <TabPanel value={1}>
-            {currentDominantCharacteristics && (
-              <DominantCharacteristicsManagerReview review={currentDominantCharacteristics} />
-            )}
+            {currentPersonReview && <DominantCharacteristicsManagerReview review={currentPersonReview} />}
           </TabPanel>
           <TabPanel value={2}>
-            {/*Add achievements component here*/}
-            {i18n._('Achievements')}
+            <Box paddingTop={4}>
+              {currentProjectReviews.map((review, index) => (
+                <ProjectManagerReview review={review} key={index} />
+              ))}
+            </Box>
           </TabPanel>
         </TabPanelsProvider>
       </Paper>
@@ -97,5 +103,15 @@ const personReviewsFragment = graphql`
       id
     }
     ...DominantCharacteristicsManagerReview_review
+    ...CriteriaManagerReview_review
+  }
+`;
+
+const projectReviewsFragment = graphql`
+  fragment ManagerReviewContent_projectReviews on ProjectReviewNode @relay(plural: true) {
+    reviewee {
+      id
+    }
+    ...ProjectManagerReview_review
   }
 `;

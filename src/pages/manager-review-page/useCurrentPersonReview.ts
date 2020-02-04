@@ -10,9 +10,9 @@ interface Review {
 
 const getReviewId = (review: Review) => review.reviewee.id;
 
-export function useDominantCharacteristics<R extends Review = Review>(personReviews: ReadonlyArray<R>): R | null {
+export function useCurrentPersonReview<R extends Review = Review>(personReviews: ReadonlyArray<R>): R | null {
   const { selectedId } = useMemberListContext();
-  const dominantCharacteristics = useMemo(() => indexBy(getReviewId, personReviews), [personReviews]);
+  const indexedPersonReviews = useMemo(() => indexBy(getReviewId, personReviews), [personReviews]);
 
-  return selectedId !== null ? dominantCharacteristics[selectedId] : null;
+  return selectedId !== null ? indexedPersonReviews[selectedId] : null;
 }
