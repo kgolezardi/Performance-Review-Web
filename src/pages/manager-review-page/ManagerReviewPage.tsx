@@ -1,7 +1,7 @@
 import { Box, Container, Drawer, makeStyles, Theme } from '@material-ui/core';
 import { CSSProperties } from '@material-ui/core/styles/withStyles';
 import graphql from 'babel-plugin-relay/macro';
-import React, { Fragment, useCallback } from 'react';
+import React from 'react';
 import { useLazyLoadQuery } from 'react-relay/hooks';
 import { MembersList } from 'src/shared/members-list';
 import { Overlayscrollbars } from 'src/shared/overlayscrollbars';
@@ -9,6 +9,8 @@ import { FCProps } from 'src/shared/types/FCProps';
 import { Styles } from 'src/shared/types/Styles';
 import { ManagerReviewPageQuery } from './__generated__/ManagerReviewPageQuery.graphql';
 import { ManagerReviewContent } from './ManagerReviewContent';
+import { MemberListContextProvider } from 'src/shared/members-list';
+
 import { useMembers } from './useMembers';
 
 interface OwnProps {}
@@ -18,18 +20,12 @@ type Props = FCProps<OwnProps> & StyleProps;
 export default function ManagerReviewPage(props: Props) {
   const classes = useStyles(props);
 
-  // Todo: handle selected-user-id
-
-  const handleOnUserClick = useCallback((id: string | null) => {
-    // Todo: set selected-user-id
-  }, []);
-
   const data = useLazyLoadQuery<ManagerReviewPageQuery>(query, {});
 
   const members = useMembers(data.viewer.projectReviews, data.viewer.personReviews);
 
   return (
-    <Fragment>
+    <MemberListContextProvider>
       <Drawer
         variant="permanent"
         classes={{
@@ -38,7 +34,7 @@ export default function ManagerReviewPage(props: Props) {
         anchor="left"
       >
         <Overlayscrollbars className={classes.overlayscrollbars}>
-          <MembersList members={members} onClick={handleOnUserClick} />
+          <MembersList members={members} />
         </Overlayscrollbars>
       </Drawer>
       <div className={classes.content}>
@@ -48,7 +44,7 @@ export default function ManagerReviewPage(props: Props) {
           </Box>
         </Container>
       </div>
-    </Fragment>
+    </MemberListContextProvider>
   );
 }
 

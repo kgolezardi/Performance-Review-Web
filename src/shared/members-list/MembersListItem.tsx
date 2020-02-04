@@ -6,18 +6,18 @@ import { FCProps } from 'src/shared/types/FCProps';
 interface OwnProps {
   id: string | null;
   label: React.ReactNode;
-  onClick: (id: string | null) => void;
+  onChange: (id: string | null) => void;
   selected?: boolean;
 }
 
 type Props = FCProps<OwnProps>;
 
 export function MembersListItem(props: Props) {
-  const { id, onClick, selected, label } = props;
+  const { id, onChange, selected, label } = props;
 
   const handleClick = useCallback(() => {
-    onClick(id);
-  }, [onClick, id]);
+    onChange(id);
+  }, [onChange, id]);
 
   return (
     <ListItem button onClick={handleClick} selected={selected}>
