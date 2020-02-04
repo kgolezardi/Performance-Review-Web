@@ -14,13 +14,13 @@ msgstr ""
 "Plural-Forms: \n"
 
 #: src/pages/projects-page/ProjectForm.tsx:71
-#: src/shared/project-manager-review/ProjectManagerReview.tsx:25
+#: src/shared/project-manager-review/ProjectManagerReview.tsx:29
 msgid "Accomplishments"
 msgstr "Accomplishments"
 
 #: src/pages/dashboard-page/DashboardPage.tsx:51
-#: src/pages/manager-review-page/ManagerReviewPage.tsx:35
-#: src/pages/manager-review-page/ManagerReviewPage.tsx:50
+#: src/pages/manager-review-page/ManagerReviewContent.tsx:17
+#: src/pages/manager-review-page/ManagerReviewContent.tsx:32
 #: src/pages/self-review-page/SelfReviewPage.tsx:20
 msgid "Achievements"
 msgstr "Achievements"
@@ -73,8 +73,8 @@ msgid "Delete"
 msgstr "Delete"
 
 #: src/pages/dashboard-page/DashboardPage.tsx:43
-#: src/pages/manager-review-page/ManagerReviewPage.tsx:34
-#: src/pages/manager-review-page/ManagerReviewPage.tsx:46
+#: src/pages/manager-review-page/ManagerReviewContent.tsx:16
+#: src/pages/manager-review-page/ManagerReviewContent.tsx:28
 #: src/pages/self-review-page/SelfReviewPage.tsx:19
 msgid "Dominant Characteristics"
 msgstr "Dominant Characteristics"
@@ -88,6 +88,7 @@ msgid "Error"
 msgstr "Error"
 
 #: src/shared/criterion-item/CriterionItem.tsx:22
+#: src/shared/criterion-output-item/CriterionOutputItem.tsx:16
 msgid "Evaluation"
 msgstr "Evaluation"
 
@@ -96,6 +97,7 @@ msgid "Evaluation due date: {formattedDueDate}"
 msgstr "Evaluation due date: {formattedDueDate}"
 
 #: src/shared/criterion-item/CriterionItem.tsx:29
+#: src/shared/criterion-output-item/CriterionOutputItem.tsx:26
 msgid "Evidence"
 msgstr "Evidence"
 
@@ -104,6 +106,7 @@ msgid "Exceeds Expectations"
 msgstr "Exceeds Expectations"
 
 #: src/pages/criteria-page/CriteriaForm.tsx:38
+#: src/shared/criteria-manager-review/CriteriaManagerReview.tsx:17
 msgid "Execution"
 msgstr "Execution"
 
@@ -143,6 +146,7 @@ msgid "It's complete!"
 msgstr "It's complete!"
 
 #: src/pages/criteria-page/CriteriaForm.tsx:44
+#: src/shared/criteria-manager-review/CriteriaManagerReview.tsx:23
 msgid "Leadership"
 msgstr "Leadership"
 
@@ -186,6 +190,7 @@ msgid "No! Wait"
 msgstr "No! Wait"
 
 #: src/pages/criteria-page/CriteriaForm.tsx:32
+#: src/shared/criteria-manager-review/CriteriaManagerReview.tsx:11
 msgid "Organization Culture Adoption"
 msgstr "Organization Culture Adoption"
 
@@ -198,8 +203,8 @@ msgid "People who will comment on your accomplishments and write your performanc
 msgstr "People who will comment on your accomplishments and write your performance competencies and dominant characteristics from their own point of view."
 
 #: src/pages/dashboard-page/DashboardPage.tsx:35
-#: src/pages/manager-review-page/ManagerReviewPage.tsx:33
-#: src/pages/manager-review-page/ManagerReviewPage.tsx:42
+#: src/pages/manager-review-page/ManagerReviewContent.tsx:15
+#: src/pages/manager-review-page/ManagerReviewContent.tsx:24
 #: src/pages/self-review-page/SelfReviewPage.tsx:18
 msgid "Performance Competencies"
 msgstr "Performance Competencies"
@@ -214,7 +219,7 @@ msgstr "Performance Review"
 msgid "Performance Review System"
 msgstr "Performance Review System"
 
-#: src/shared/project-manager-review/ProjectManagerReview.tsx:19
+#: src/shared/project-manager-review/ProjectManagerReview.tsx:21
 msgid "Performance to initial expectation"
 msgstr "Performance to initial expectation"
 
@@ -223,10 +228,12 @@ msgid "Persian"
 msgstr "فارسی"
 
 #: src/pages/criteria-page/CriteriaForm.tsx:47
+#: src/shared/criteria-manager-review/CriteriaManagerReview.tsx:26
 msgid "Presence"
 msgstr "Presence"
 
 #: src/pages/criteria-page/CriteriaForm.tsx:35
+#: src/shared/criteria-manager-review/CriteriaManagerReview.tsx:14
 msgid "Problem Solving"
 msgstr "Problem Solving"
 
@@ -243,6 +250,7 @@ msgid "Reviewers"
 msgstr "Reviewers"
 
 #: src/shared/criterion-item/CriterionItem.stories.tsx:17
+#: src/shared/criterion-output-item/CriterionOutputItem.stories.tsx:15
 msgid "Role Expertise and Self Development"
 msgstr "Role Expertise and Self Development"
 
@@ -304,6 +312,7 @@ msgid "Superb"
 msgstr "Superb"
 
 #: src/pages/criteria-page/CriteriaForm.tsx:41
+#: src/shared/criteria-manager-review/CriteriaManagerReview.tsx:20
 msgid "Thought Leadership"
 msgstr "Thought Leadership"
 
