@@ -4,6 +4,7 @@ import {
   ExpansionPanel,
   ExpansionPanelDetails,
   ExpansionPanelSummary,
+  Grid,
   makeStyles,
   Theme,
   Typography,
@@ -40,20 +41,17 @@ export function ProjectManagerReview(props: Props) {
         <Typography variant="h6">{review.project.name}</Typography>
       </ExpansionPanelSummary>
       <ExpansionPanelDetails>
-        <div className={classes.wrapper}>
-          <div>
+        <Grid container spacing={2}>
+          <Grid item xs={12}>
             <Typography gutterBottom>{i18n._('Performance to initial expectation')}: </Typography>
             <Box className={classes.wrapperBox}>
               {review.rating ? <EvaluationOutput value={review.rating as Evaluation} /> : <p></p>}
             </Box>
-          </div>
-          <div>
+          </Grid>
+          <Grid item xs={12}>
             <Typography gutterBottom>{i18n._('Accomplishments')}:</Typography>
-            <Box className={classes.wrapperBox}>
-              <MultilineOutput value={review.text || ''} />
-            </Box>
-          </div>
-        </div>
+          </Grid>
+        </Grid>
       </ExpansionPanelDetails>
     </ExpansionPanel>
   );
@@ -73,12 +71,6 @@ const styles = (theme: Theme) => ({
     },
   } as CSSProperties,
   expansionPanelExpanded: {} as CSSProperties,
-  wrapper: {
-    width: '100%',
-    '& > *': {
-      margin: theme.spacing(0, 0, 2),
-    },
-  } as CSSProperties,
   wrapperBox: {
     border: '1px solid ' + theme.palette.grey[400],
     borderRadius: theme.spacing(0.5),
