@@ -1,5 +1,6 @@
-import { configure } from '@storybook/react';
 import { addParameters } from '@storybook/react';
+import configI18nSelector from 'src/stories/config-i18n-selector';
+import 'src/_config/install';
 
 addParameters({
   backgrounds: [
@@ -9,8 +10,4 @@ addParameters({
   ],
 });
 
-function loadStories() {
-  require('src/stories');
-}
-
-configure(loadStories, module);
+configI18nSelector('fa');

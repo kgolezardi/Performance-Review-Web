@@ -14,17 +14,27 @@ const setLanguage = (language?: { value: string; direction: Direction }) => {
 
 export default function configI18nSelector(defaultLang: string) {
   addParameters({
-    languages: {
-      items: getLanguages().map(({ code, name, direction }) => ({ value: code, title: name, direction })),
-    },
+    selector: [
+      {
+        name: 'language',
+        icon: 'globe',
+        title: 'Change language',
+        options: getLanguages().map(({ code, name, direction }) => ({
+          value: code,
+          title: name,
+          direction,
+          default: code === defaultLang,
+        })),
+      },
+    ],
   });
 
-  addons.getChannel().on('storybook/language/update', language => {
-    setLanguage(language);
+  addons.getChannel().on('storybook/selector/language/update', selected => {
+    setLanguage(selected);
     forceReRender();
   });
 
-  addons.getChannel().on('storybook/language/rendered', language => {
-    setLanguage(language);
+  addons.getChannel().on('storybook/selector/language/rendered', selected => {
+    setLanguage(selected);
   });
 }
