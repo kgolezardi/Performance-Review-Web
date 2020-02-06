@@ -21,11 +21,11 @@ interface OwnProps<Suggestion extends BaseSuggestion = BaseSuggestion> {
   options: Array<Suggestion>;
   label: string;
   textFieldOptions?: OutlinedTextFieldProps;
-  renderInput?: AutocompleteProps['renderInput'];
+  renderInput?: AutocompleteProps<Suggestion>['renderInput'];
   excludes?: string[];
 }
 type Props<Suggestion extends BaseSuggestion = BaseSuggestion> = FCProps<OwnProps<Suggestion>> &
-  Omit<AutocompleteProps, 'value' | 'onChange' | 'defaultValue' | 'renderInput' | 'multiple'> &
+  Omit<AutocompleteProps<Suggestion>, 'value' | 'onChange' | 'defaultValue' | 'renderInput' | 'multiple'> &
   StyleProps;
 
 const OptionsPaper: ComponentType = withProps(Paper, { elevation: 4 }) as any;
@@ -52,7 +52,7 @@ function SelectAutoComplete<Suggestion extends BaseSuggestion = BaseSuggestion>(
     return allOptions.filter(o => !excludesSet.has(o.value));
   }, [allOptions, excludes]);
   const indexedOptions = useMemo(() => indexBy<Suggestion>(prop('value'), options), [options]);
-  const renderInput: AutocompleteProps['renderInput'] = useCallback(
+  const renderInput: AutocompleteProps<Suggestion>['renderInput'] = useCallback(
     params => <TextField margin="dense" variant="outlined" label={label} fullWidth {...textFieldOptions} {...params} />,
     [textFieldOptions, label],
   );
@@ -64,7 +64,7 @@ function SelectAutoComplete<Suggestion extends BaseSuggestion = BaseSuggestion>(
       noOptionsText={i18n._('No Options')}
       {...props}
       options={options}
-      value={value === null ? null : indexedOptions[value]}
+      value={value === null ? null : indexedOptions[value] || null}
       onChange={onChange}
       classes={classes}
     />
