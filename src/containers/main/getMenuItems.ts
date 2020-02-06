@@ -12,7 +12,6 @@ export function getMenuItems(phase: Phase, user: User): MenuItem[] {
       {
         text: i18n._('Dashboard'),
         link: {
-          exact: true,
           to: '/',
         },
       },

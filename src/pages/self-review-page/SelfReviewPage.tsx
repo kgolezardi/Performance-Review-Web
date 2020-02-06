@@ -2,7 +2,7 @@ import { i18n } from '@lingui/core';
 import { Box, Container, makeStyles, Paper, Tabs, Theme } from '@material-ui/core';
 import { CSSProperties } from '@material-ui/core/styles/withStyles';
 import React, { Suspense } from 'react';
-import { Redirect, Route, Switch, useParams } from 'react-router-dom';
+import { Redirect, Route, Routes, useParams } from 'react-router-dom';
 import CriteriaPage from 'src/pages/criteria-page/CriteriaPage';
 import ProjectsPage from 'src/pages/projects-page/ProjectsPage';
 import StrengthsWeaknessesPage from 'src/pages/strengths-weaknesses-page/StrengthsWeaknessesPage';
@@ -12,7 +12,7 @@ import { FCProps } from 'src/shared/types/FCProps';
 import { Styles } from 'src/shared/types/Styles';
 
 interface Params {
-  tab?: string;
+  '*': string;
 }
 interface OwnProps {}
 
@@ -20,9 +20,8 @@ type Props = FCProps<OwnProps> & StyleProps;
 
 export default function SelfReviewPage(props: Props) {
   const classes = useStyles(props);
-  const { tab } = useParams<Params>();
-  const toPrefix = '/self-review';
-
+  const params = useParams<Params>();
+  const tab = params['*']; // TODO change when useRouteMatch is back
   return (
     <Container maxWidth="md">
       <Box marginY={5}>
@@ -37,14 +36,14 @@ export default function SelfReviewPage(props: Props) {
             <TabLink
               label={i18n._('Performance Competencies')}
               value="performance-competencies"
-              to={toPrefix + '/performance-competencies'}
+              to="performance-competencies"
             />
             <TabLink
               label={i18n._('Dominant Characteristics')}
               value="dominant-characteristics"
-              to={toPrefix + '/dominant-characteristics'}
+              to="dominant-characteristics"
             />
-            <TabLink label={i18n._('Achievements')} value="achievements" to={toPrefix + '/achievements'} />
+            <TabLink label={i18n._('Achievements')} value="achievements" to="achievements" />
           </Tabs>
         </Paper>
         <Paper classes={{ root: classes.tabPanelPaper }}>
@@ -55,12 +54,12 @@ export default function SelfReviewPage(props: Props) {
               </Box>
             }
           >
-            <Switch>
-              <Route path={toPrefix + '/performance-competencies'} children={<CriteriaPage />} />
-              <Route path={toPrefix + '/dominant-characteristics'} children={<StrengthsWeaknessesPage />} />
-              <Route path={toPrefix + '/achievements'} children={<ProjectsPage />} />
-              <Redirect to={toPrefix + '/performance-competencies'} />
-            </Switch>
+            <Routes>
+              <Route path="performance-competencies" element={<CriteriaPage />} />
+              <Route path="dominant-characteristics" element={<StrengthsWeaknessesPage />} />
+              <Route path="achievements" element={<ProjectsPage />} />
+              <Redirect path="/" to="performance-competencies" />
+            </Routes>
           </Suspense>
         </Paper>
       </Box>

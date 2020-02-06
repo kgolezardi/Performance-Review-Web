@@ -2,7 +2,7 @@ import { values } from 'ramda';
 import React, { createContext, useCallback, useContext, useEffect, useMemo, useState } from 'react';
 import { FCProps } from 'src/shared/types/FCProps';
 import { Prompt as UnloadPrompt } from './Prompt';
-import { Prompt as RouterPrompt } from 'react-router';
+import { Prompt as RouterPrompt } from 'react-router-dom';
 
 export interface PromptContextType {
   (id: string, state: boolean): void;

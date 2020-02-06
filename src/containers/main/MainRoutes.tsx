@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import { useAuthGuardUser } from 'src/core/auth';
 import { useAppSettings } from 'src/core/settings';
 import { StartReviewPage } from 'src/pages/start-review-page/StartReviewPage';
@@ -49,19 +49,19 @@ export function MainRoutes(props: FCProps<Props>) {
       return <StartReviewPage />;
     }
     return (
-      <Switch>
-        <Route path="/" exact children={<DashboardPage />} />
-        <Route path="/self-review/:tab?" children={<SelfReviewPage />} />
-        <Route path="/faq" children={<GuidePage />} />
-      </Switch>
+      <Routes>
+        <Route path="/" element={<DashboardPage />} />
+        <Route path="/self-review/*" element={<SelfReviewPage />} />
+        <Route path="/faq" element={<GuidePage />} />
+      </Routes>
     );
   }
 
   if (phase === 'MANAGER_REVIEW' && user.isManager) {
     return (
-      <Switch>
-        <Route path="/" children={<ManagerReviewPage />} />;
-      </Switch>
+      <Routes>
+        <Route path="/" element={<ManagerReviewPage />} />;
+      </Routes>
     );
   }
 
