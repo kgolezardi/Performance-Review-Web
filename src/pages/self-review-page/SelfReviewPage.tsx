@@ -56,9 +56,9 @@ export default function SelfReviewPage(props: Props) {
             }
           >
             <Switch>
-              <Route path={toPrefix + '/performance-competencies'} component={CriteriaPage} />
-              <Route path={toPrefix + '/dominant-characteristics'} component={StrengthsWeaknessesPage} />
-              <Route path={toPrefix + '/achievements'} component={ProjectsPage} />
+              <Route path={toPrefix + '/performance-competencies'} children={<CriteriaPage />} />
+              <Route path={toPrefix + '/dominant-characteristics'} children={<StrengthsWeaknessesPage />} />
+              <Route path={toPrefix + '/achievements'} children={<ProjectsPage />} />
               <Redirect to={toPrefix + '/performance-competencies'} />
             </Switch>
           </Suspense>
