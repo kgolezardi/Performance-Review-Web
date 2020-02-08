@@ -156,12 +156,12 @@ msgstr "Login"
 msgid "Meets Expectations"
 msgstr "Meets Expectations"
 
+#: src/pages/manager-review-page/DominantCharacteristics.tsx:15
 #: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:38
 msgid "Most important characteristics or behaviours I should improve in myself"
 msgstr "Most important characteristics or behaviours I should improve in myself"
 
 #: src/pages/manager-review-page/DominantCharacteristics.tsx:12
-#: src/pages/manager-review-page/DominantCharacteristics.tsx:15
 #: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:31
 msgid "Most important characteristics or effective behaviours that I should maintain"
 msgstr "Most important characteristics or effective behaviours that I should maintain"

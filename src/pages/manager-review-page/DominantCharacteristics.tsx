@@ -27,7 +27,7 @@ export function DominantCharacteristicsManagerReview(props: Props) {
         </Grid>
         <Grid item xs={12}>
           <CharacteristicsOutput
-            title={i18n._('Most important characteristics or effective behaviours that I should maintain')}
+            title={i18n._('Most important characteristics or behaviours I should improve in myself')}
             characteristics={review.weaknesses}
           />
         </Grid>

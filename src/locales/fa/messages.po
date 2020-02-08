@@ -156,12 +156,12 @@ msgstr "ورود"
 msgid "Meets Expectations"
 msgstr "در حد انتظاری که از من میره"
 
+#: src/pages/manager-review-page/DominantCharacteristics.tsx:15
 #: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:38
 msgid "Most important characteristics or behaviours I should improve in myself"
 msgstr "مهمترین ویژگی‌ها یا رفتارهایی که باید توی خودم بهبود بدم"
 
 #: src/pages/manager-review-page/DominantCharacteristics.tsx:12
-#: src/pages/manager-review-page/DominantCharacteristics.tsx:15
 #: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:31
 msgid "Most important characteristics or effective behaviours that I should maintain"
 msgstr "مهمترین ویژگی ها یا رفتارهای مؤثری که باید ادامه شون بدم"
