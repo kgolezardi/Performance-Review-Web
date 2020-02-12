@@ -6,7 +6,7 @@ import {
   Theme,
 } from '@material-ui/core';
 import { amber, deepOrange, green, lightBlue } from '@material-ui/core/colors';
-import { CSSProperties } from '@material-ui/core/styles/withStyles';
+import { CreateCSSProperties, CSSProperties } from '@material-ui/core/styles/withStyles';
 import clsx from 'clsx';
 import React, { useEffect, useState } from 'react';
 import { FCProps } from 'src/shared/types/FCProps';
@@ -61,8 +61,8 @@ const styles = (theme: Theme) => ({
   } as CSSProperties,
   barAnimated: (props: Props) =>
     ({
-      width: `${props.value}%`,
-    } as CSSProperties),
+      width: `${props.value || 0}%`,
+    } as CreateCSSProperties<{ value?: number | undefined }>),
   barDefaultColor: {
     filter: `drop-shadow(0 0 2px ${lighten(theme.palette.primary.main, 0.6)})`,
   } as CSSProperties,
