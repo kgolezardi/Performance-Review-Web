@@ -1,8 +1,8 @@
 import { values } from 'ramda';
 import React, { createContext, useCallback, useContext, useEffect, useMemo, useState } from 'react';
 import { FCProps } from 'src/shared/types/FCProps';
-import { Prompt as UnloadPrompt } from './Prompt';
-import { Prompt as RouterPrompt } from 'react-router';
+import { useUnloadPrompt } from './UnloadPrompt';
+import { useRouterPrompt } from './RouterPrompt';
 
 export interface PromptContextType {
   (id: string, state: boolean): void;
@@ -43,12 +43,7 @@ export function PromptProvider(props: Props) {
   const when = useMemo(() => {
     return values(prompts).filter(Boolean).length > 0;
   }, [prompts]);
-
-  return (
-    <PromptContext.Provider value={setPrompt}>
-      <RouterPrompt message={props.message} when={when} />
-      <UnloadPrompt message={props.message} when={when} />
-      {props.children}
-    </PromptContext.Provider>
-  );
+  useUnloadPrompt(props.message, when);
+  useRouterPrompt(props.message, when);
+  return <PromptContext.Provider value={setPrompt}>{props.children}</PromptContext.Provider>;
 }

@@ -2,7 +2,7 @@ import { storiesOf } from '@storybook/react';
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { routerDecorator } from 'src/stories/decorators';
-import { Prompt } from './Prompt';
+import { UnloadPrompt } from './UnloadPrompt';
 import { useLocation } from 'react-router';
 import { PromptProvider, usePrompt } from './PromptProvider';
 const Links = () => {
@@ -45,13 +45,13 @@ storiesOf('Prompt', module)
   )
   .add('true', () => (
     <div>
-      <Prompt message="where are you going?" when={true} />
+      <UnloadPrompt message="where are you going?" when={true} />
       <Links />
     </div>
   ))
   .add('false', () => (
     <div>
-      <Prompt message="where are you going?" when={false} />
+      <UnloadPrompt message="where are you going?" when={false} />
       <Links />
     </div>
   ))
@@ -67,7 +67,7 @@ storiesOf('Prompt', module)
           toggle
         </button>
         when: {when + ''}
-        <Prompt message="where are you going?" when={when} />
+        <UnloadPrompt message="where are you going?" when={when} />
         <Links />
       </div>
     );

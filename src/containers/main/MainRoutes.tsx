@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import { useAuthGuardUser } from 'src/core/auth';
 import { useAppSettings } from 'src/core/settings';
 import { StartReviewPage } from 'src/pages/start-review-page/StartReviewPage';
@@ -49,16 +49,20 @@ export function MainRoutes(props: FCProps<Props>) {
       return <StartReviewPage />;
     }
     return (
-      <Switch>
-        <Route path="/" exact component={DashboardPage} />
-        <Route path="/self-review/:tab?" component={SelfReviewPage} />
-        <Route path="/faq" component={GuidePage} />
-      </Switch>
+      <Routes>
+        <Route path="/" element={<DashboardPage />} />
+        <Route path="/self-review/*" element={<SelfReviewPage />} />
+        <Route path="/faq" element={<GuidePage />} />
+      </Routes>
     );
   }
 
   if (phase === 'MANAGER_REVIEW' && user.isManager) {
-    return <Route path="/" component={ManagerReviewPage} />;
+    return (
+      <Routes>
+        <Route path="/" element={<ManagerReviewPage />} />;
+      </Routes>
+    );
   }
 
   // TODO support other phases
