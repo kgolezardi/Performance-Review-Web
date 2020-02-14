@@ -8,8 +8,7 @@ interface OwnProps {
 
 type Props = FCProps<OwnProps>;
 
-export function Prompt(props: Props) {
-  const { when, message } = props;
+export function useUnloadPrompt(message: string, when: boolean) {
   const whenRef = useRef(when);
   const messageRef = useRef(message);
   useEffect(() => {
@@ -30,5 +29,10 @@ export function Prompt(props: Props) {
       window.removeEventListener('beforeunload', handler);
     };
   }, []);
+}
+
+export function UnloadPrompt(props: Props) {
+  const { when = true, message } = props;
+  useUnloadPrompt(message, when);
   return null;
 }
