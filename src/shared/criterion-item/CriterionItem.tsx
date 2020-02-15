@@ -31,7 +31,7 @@ export function CriterionItem({ title, details, prefix }: Props) {
         <Grid item xs={12}>
           <DictInputItem field={prefix + 'Rating'}>
             <Box width={240}>
-              <Rating inputLabel={i18n._('Evaluation')} />
+              <Rating inputLabel={i18n._('Evaluation')} type="self" />
             </Box>
             <FragmentPrompt value={rating} />
           </DictInputItem>

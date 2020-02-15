@@ -10,11 +10,11 @@ import { Rating } from './Rating';
 
 storiesOf('Rating', module)
   .addDecorator(themeDecorator())
-  .add('simple', () => {
+  .add('self', () => {
     return (
       <Forminator onSubmit={action('submit')}>
         <Box width={240}>
-          <Rating inputLabel={i18n._('Select')} />
+          <Rating inputLabel={i18n._('Select')} type="self" />
         </Box>
         <SubmitButton variant="contained" color="primary">
           {i18n._('Submit')}
@@ -22,11 +22,35 @@ storiesOf('Rating', module)
       </Forminator>
     );
   })
-  .add('w/ initial value', () => {
+  .add('self w/ initial value', () => {
     return (
       <Forminator onSubmit={action('submit')}>
         <Box width={240}>
-          <Rating inputLabel={i18n._('Select')} initialValue={Evaluation.EXCEEDS_EXPECTATIONS} />
+          <Rating inputLabel={i18n._('Select')} initialValue={Evaluation.EXCEEDS_EXPECTATIONS} type="self" />
+        </Box>
+        <SubmitButton variant="contained" color="primary">
+          {i18n._('Submit')}
+        </SubmitButton>
+      </Forminator>
+    );
+  })
+  .add('peer', () => {
+    return (
+      <Forminator onSubmit={action('submit')}>
+        <Box width={240}>
+          <Rating inputLabel={i18n._('Select')} type="peer" />
+        </Box>
+        <SubmitButton variant="contained" color="primary">
+          {i18n._('Submit')}
+        </SubmitButton>
+      </Forminator>
+    );
+  })
+  .add('peer w/ initial value', () => {
+    return (
+      <Forminator onSubmit={action('submit')}>
+        <Box width={240}>
+          <Rating inputLabel={i18n._('Select')} initialValue={Evaluation.EXCEEDS_EXPECTATIONS} type="peer" />
         </Box>
         <SubmitButton variant="contained" color="primary">
           {i18n._('Submit')}

@@ -1,1 +1,1 @@
-export { Evaluation, evaluationDictionary } from './Evaluation';
+export { Evaluation, peerReviewEvaluationDictionary, selfReviewEvaluationDictionary } from './Evaluation';

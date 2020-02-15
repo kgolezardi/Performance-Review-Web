@@ -99,9 +99,13 @@ msgstr "Evaluation due date: {formattedDueDate}"
 msgid "Evidence"
 msgstr "Evidence"
 
+#: src/global-types/Evaluation.ts:18
+msgid "Exceeds Expectations from Him/Her"
+msgstr "Exceeds Expectations from Him/Her"
+
 #: src/global-types/Evaluation.ts:12
-msgid "Exceeds Expectations"
-msgstr "Exceeds Expectations"
+msgid "Exceeds Expectations from me"
+msgstr "Exceeds Expectations from me"
 
 #: src/pages/criteria-page/CriteriaForm.tsx:38
 #: src/shared/criteria-manager-review/CriteriaManagerReview.tsx:17
@@ -121,9 +125,17 @@ msgstr "For instance, your personal key-results may be your accomplishments."
 msgid "Go to Achievements page and add projects you have participated in"
 msgstr "Go to Achievements page and add projects you have participated in"
 
+#: src/global-types/Evaluation.ts:16
+msgid "He/She Needs Improvement"
+msgstr "He/She Needs Improvement"
+
 #: src/pages/projects-page/ProjectForm.tsx:59
 msgid "How effective were you in this project?"
 msgstr "How effective were you in this project?"
+
+#: src/global-types/Evaluation.ts:10
+msgid "I Need Improvement"
+msgstr "I Need Improvement"
 
 #: src/pages/dashboard-page/DominantCharacteristicsCircularIndicator.tsx:56
 msgid "I thought you forgot to write your strengths!"
@@ -152,9 +164,13 @@ msgstr "Leadership"
 msgid "Login"
 msgstr "Login"
 
+#: src/global-types/Evaluation.ts:17
+msgid "Meets Expectations from Him/Her"
+msgstr "Meets Expectations from Him/Her"
+
 #: src/global-types/Evaluation.ts:11
-msgid "Meets Expectations"
-msgstr "Meets Expectations"
+msgid "Meets Expectations from me"
+msgstr "Meets Expectations from me"
 
 #: src/pages/manager-review-page/DominantCharacteristics.tsx:15
 #: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:38
@@ -169,10 +185,6 @@ msgstr "Most important characteristics or effective behaviours that I should mai
 #: src/pages/projects-page/ProjectForm.tsx:64
 msgid "My impact"
 msgstr "My impact"
-
-#: src/global-types/Evaluation.ts:10
-msgid "Needs Improvement"
-msgstr "Needs Improvement"
 
 #: src/shared/confirm-button/ConfirmButton.tsx:8
 msgid "No"
@@ -259,6 +271,8 @@ msgstr "Save"
 
 #: src/shared/rating/Rating.stories.tsx:15
 #: src/shared/rating/Rating.stories.tsx:25
+#: src/shared/rating/Rating.stories.tsx:35
+#: src/shared/rating/Rating.stories.tsx:45
 #: src/shared/select/Select.stories.tsx:20
 #: src/shared/select/Select.stories.tsx:30
 msgid "Select"
@@ -295,6 +309,8 @@ msgstr "Strengths and Weaknesses"
 #: src/core/snackbar/Snackbar.stories.tsx:26
 #: src/shared/rating/Rating.stories.tsx:18
 #: src/shared/rating/Rating.stories.tsx:28
+#: src/shared/rating/Rating.stories.tsx:38
+#: src/shared/rating/Rating.stories.tsx:48
 #: src/shared/select/Select.stories.tsx:23
 #: src/shared/select/Select.stories.tsx:33
 #: src/shared/sticky-action-bar/StickyActionBar.stories.tsx:16
@@ -309,6 +325,7 @@ msgid "Successfully saved."
 msgstr "Successfully saved."
 
 #: src/global-types/Evaluation.ts:13
+#: src/global-types/Evaluation.ts:19
 msgid "Superb"
 msgstr "Superb"
 
@@ -321,7 +338,8 @@ msgstr "Thought Leadership"
 msgid "Try Again"
 msgstr "Try Again"
 
-#: src/shared/evaluationt-output/EvaluationOutput.tsx:8
+#: src/shared/evaluation-output/EvaluationOutput.tsx:9
+#: src/shared/evaluation-output/EvaluationOutput.tsx:10
 msgid "Unknown"
 msgstr "Unknown"
 
