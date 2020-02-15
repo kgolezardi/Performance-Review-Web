@@ -23,8 +23,8 @@ export function CharacteristicsOutput(props: Props) {
           </Typography>
         </Grid>
         {characteristics &&
-          characteristics.filter(isNotNil).map(characteristic => (
-            <Grid item xs={12}>
+          characteristics.filter(isNotNil).map((characteristic, index) => (
+            <Grid item xs={12} key={index}>
               <OutputBorder>
                 <MultilineOutput value={characteristic} />
               </OutputBorder>
