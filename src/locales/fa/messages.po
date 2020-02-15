@@ -99,8 +99,12 @@ msgstr "پایان مهلت ارزیابی: {formattedDueDate}"
 msgid "Evidence"
 msgstr "شواهد"
 
+#: src/global-types/Evaluation.ts:18
+msgid "Exceeds Expectations from Him/Her"
+msgstr "فراتر از انتظاری که ازش میره"
+
 #: src/global-types/Evaluation.ts:12
-msgid "Exceeds Expectations"
+msgid "Exceeds Expectations from me"
 msgstr "فراتر از انتظاری که از من میره"
 
 #: src/pages/criteria-page/CriteriaForm.tsx:38
@@ -121,9 +125,17 @@ msgstr "مثلاً ممکنه Key Result های شخصیتون، دستاورد�
 msgid "Go to Achievements page and add projects you have participated in"
 msgstr "به صفحه‌ی دستاوردها برو و پروژه‌هایی که در آن‌ها شرکت داشتی را وارد کن"
 
+#: src/global-types/Evaluation.ts:16
+msgid "He/She Needs Improvement"
+msgstr "کمتر از حد انتظاری که ازش میره"
+
 #: src/pages/projects-page/ProjectForm.tsx:59
 msgid "How effective were you in this project?"
 msgstr "توی این پروژه چقدر مؤثر بودی؟"
+
+#: src/global-types/Evaluation.ts:10
+msgid "I Need Improvement"
+msgstr "کمتر از حد انتظاری که از من میره"
 
 #: src/pages/dashboard-page/DominantCharacteristicsCircularIndicator.tsx:56
 msgid "I thought you forgot to write your strengths!"
@@ -152,8 +164,12 @@ msgstr "رهبری خودظهور"
 msgid "Login"
 msgstr "ورود"
 
+#: src/global-types/Evaluation.ts:17
+msgid "Meets Expectations from Him/Her"
+msgstr "در حد انتظاری که ازش میره"
+
 #: src/global-types/Evaluation.ts:11
-msgid "Meets Expectations"
+msgid "Meets Expectations from me"
 msgstr "در حد انتظاری که از من میره"
 
 #: src/pages/manager-review-page/DominantCharacteristics.tsx:15
@@ -169,10 +185,6 @@ msgstr "مهمترین ویژگی ها یا رفتارهای مؤثری که ب�
 #: src/pages/projects-page/ProjectForm.tsx:64
 msgid "My impact"
 msgstr "تأثیر من"
-
-#: src/global-types/Evaluation.ts:10
-msgid "Needs Improvement"
-msgstr "کمتر از حد انتظاری که از من میره"
 
 #: src/shared/confirm-button/ConfirmButton.tsx:8
 msgid "No"
@@ -259,6 +271,8 @@ msgstr "ذخیره"
 
 #: src/shared/rating/Rating.stories.tsx:15
 #: src/shared/rating/Rating.stories.tsx:25
+#: src/shared/rating/Rating.stories.tsx:35
+#: src/shared/rating/Rating.stories.tsx:45
 #: src/shared/select/Select.stories.tsx:20
 #: src/shared/select/Select.stories.tsx:30
 msgid "Select"
@@ -295,6 +309,8 @@ msgstr "نقاط قوت و ضعف"
 #: src/core/snackbar/Snackbar.stories.tsx:26
 #: src/shared/rating/Rating.stories.tsx:18
 #: src/shared/rating/Rating.stories.tsx:28
+#: src/shared/rating/Rating.stories.tsx:38
+#: src/shared/rating/Rating.stories.tsx:48
 #: src/shared/select/Select.stories.tsx:23
 #: src/shared/select/Select.stories.tsx:33
 #: src/shared/sticky-action-bar/StickyActionBar.stories.tsx:16
@@ -309,6 +325,7 @@ msgid "Successfully saved."
 msgstr "با موفقیت ثبت گردید."
 
 #: src/global-types/Evaluation.ts:13
+#: src/global-types/Evaluation.ts:19
 msgid "Superb"
 msgstr "فوق‌العاده"
 
@@ -321,7 +338,8 @@ msgstr "مرجعیت تخصصی"
 msgid "Try Again"
 msgstr "تلاش مجدد"
 
-#: src/shared/evaluationt-output/EvaluationOutput.tsx:8
+#: src/shared/evaluation-output/EvaluationOutput.tsx:9
+#: src/shared/evaluation-output/EvaluationOutput.tsx:10
 msgid "Unknown"
 msgstr "ناشناخته"
 

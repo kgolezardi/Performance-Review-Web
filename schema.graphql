@@ -1,5 +1,5 @@
 # source: http://127.0.0.1:8000/graphql
-# timestamp: Mon Feb 03 2020 10:36:20 GMT+0330 (Iran Standard Time)
+# timestamp: Sat Feb 15 2020 14:19:12 GMT+0330 (Iran Standard Time)
 
 input ChangePasswordMutationInput {
   oldPassword: String!
@@ -76,6 +76,7 @@ type Mutation {
   saveProjectReview(input: SaveProjectReviewMutationInput!): SaveProjectReviewMutationPayload!
   deleteProjectReview(input: DeleteProjectReviewMutationInput!): DeleteProjectReviewMutationPayload!
   finalizeSubmission(input: FinalizeSubmissionMutationInput!): FinalizeSubmissionMutationPayload!
+  saveProjectComment(input: SaveProjectCommentMutationInput!): SaveProjectCommentMutationPayload!
   login(input: LoginMutationInput!): LoginMutationPayload!
   logout(input: LogoutMutationInput!): LogoutMutationPayload!
   changePassword(input: ChangePasswordMutationInput!): ChangePasswordMutationPayload!
@@ -108,6 +109,7 @@ type PersonReviewNode implements Node {
   thoughtLeadershipRating: Evaluation
   leadershipRating: Evaluation
   presenceRating: Evaluation
+  isSelfReview: Boolean!
 }
 
 """An enumeration."""
@@ -117,6 +119,14 @@ enum Phase {
   MANAGER_REVIEW
   RESULTS
   IDLE
+}
+
+type ProjectCommentNode implements Node {
+  text: String
+
+  """The ID of the object."""
+  id: ID!
+  rating: Evaluation
 }
 
 type ProjectNode implements Node {
@@ -135,6 +145,7 @@ type ProjectReviewNode implements Node {
   id: ID!
   rating: Evaluation
   reviewers: [UserNode!]!
+  comments: [ProjectCommentNode!]!
 }
 
 type Query {
@@ -163,6 +174,19 @@ input SavePersonReviewMutationInput {
 type SavePersonReviewMutationPayload {
   viewer: ViewerNode!
   personReview: PersonReviewNode
+  clientMutationId: String
+}
+
+input SaveProjectCommentMutationInput {
+  projectReviewId: ID!
+  text: String
+  rating: Evaluation
+  clientMutationId: String
+}
+
+type SaveProjectCommentMutationPayload {
+  viewer: ViewerNode!
+  projectComment: ProjectCommentNode
   clientMutationId: String
 }
 
@@ -220,6 +244,10 @@ type ViewerNode implements Node {
   """The ID of the object"""
   user(id: ID!): UserNode
   me: UserNode
+
+  """The ID of the object"""
+  projectComment(id: ID!): ProjectCommentNode
+  projectComments: [ProjectCommentNode!]!
 
   """The ID of the object"""
   projectReview(id: ID!): ProjectReviewNode

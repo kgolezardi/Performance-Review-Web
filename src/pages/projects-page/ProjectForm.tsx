@@ -102,7 +102,7 @@ export function ProjectForm(props: Props) {
             <Grid item xs={12}>
               <DictInputItem field="rating">
                 <Box width={240}>
-                  <Rating inputLabel={i18n._('My impact')} />
+                  <Rating inputLabel={i18n._('My impact')} type="self" />
                   <FragmentPrompt value={initialValue.rating || null} />
                 </Box>
               </DictInputItem>

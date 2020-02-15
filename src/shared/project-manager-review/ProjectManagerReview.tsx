@@ -16,7 +16,7 @@ import React from 'react';
 import { useFragment } from 'react-relay/hooks';
 import { Evaluation } from 'src/global-types';
 import { NON_BREAKING_SPACE } from 'src/shared/constants';
-import { EvaluationOutput } from 'src/shared/evaluationt-output';
+import { EvaluationOutput } from 'src/shared/evaluation-output';
 import { MultilineOutput } from 'src/shared/multiline-output';
 import { OutputBorder } from 'src/shared/output-border';
 import { FCProps } from 'src/shared/types/FCProps';
@@ -49,7 +49,7 @@ export function ProjectManagerReview(props: Props) {
             <Box width={240}>
               <OutputBorder>
                 {review.rating ? (
-                  <EvaluationOutput value={review.rating as Evaluation} />
+                  <EvaluationOutput value={review.rating as Evaluation} type="self" />
                 ) : (
                   <Typography variant="body1">{NON_BREAKING_SPACE}</Typography>
                 )}

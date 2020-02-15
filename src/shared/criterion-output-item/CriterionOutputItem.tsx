@@ -3,7 +3,7 @@ import { Box, Grid, Typography } from '@material-ui/core';
 import React from 'react';
 import { Evaluation } from 'src/global-types';
 import { NON_BREAKING_SPACE } from 'src/shared/constants';
-import { EvaluationOutput } from 'src/shared/evaluationt-output';
+import { EvaluationOutput } from 'src/shared/evaluation-output';
 import { MultilineOutput } from 'src/shared/multiline-output';
 import { OutputBorder } from 'src/shared/output-border';
 import { FCProps } from 'src/shared/types/FCProps';
@@ -30,7 +30,7 @@ export function CriterionOutputItem({ title, evaluation, evidence }: Props) {
           <Box width={240}>
             <OutputBorder>
               {evaluation ? (
-                <EvaluationOutput value={evaluation} />
+                <EvaluationOutput value={evaluation} type="self" />
               ) : (
                 <Typography variant="body1">{NON_BREAKING_SPACE}</Typography>
               )}
