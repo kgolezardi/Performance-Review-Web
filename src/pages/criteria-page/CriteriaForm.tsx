@@ -22,6 +22,7 @@ const DescriptionContent = importMDX.sync('./DescriptionContent.mdx');
 
 interface OwnProps {
   initialValue?: CriteriaFormData;
+  isSelfReview: boolean;
   onSubmit: (data: CriteriaFormData) => void;
 }
 

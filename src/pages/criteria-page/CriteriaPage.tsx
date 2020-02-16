@@ -46,6 +46,7 @@ const query = graphql`
         thoughtLeadershipRating
         leadershipRating
         presenceRating
+        isSelfReview
       }
     }
   }
@@ -93,6 +94,7 @@ export default function CriteriaPage(props: Props) {
             thoughtLeadershipComment: review?.thoughtLeadershipComment || undefined,
             thoughtLeadershipRating: review?.thoughtLeadershipRating || undefined,
           }}
+          isSelfReview={data.viewer.review?.isSelfReview || false}
         />
       </PromptProvider>
     </Box>
