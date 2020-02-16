@@ -20,6 +20,7 @@ msgstr "Accomplishments"
 
 #: src/pages/dashboard-page/DashboardPage.tsx:51
 #: src/pages/manager-review-page/ManagerReviewContent.tsx:36
+#: src/pages/peer-review-page/PeerReviewPage.tsx:16
 #: src/pages/self-review-page/SelfReviewPage.tsx:20
 msgid "Achievements"
 msgstr "Achievements"
@@ -73,6 +74,7 @@ msgstr "Delete"
 
 #: src/pages/dashboard-page/DashboardPage.tsx:43
 #: src/pages/manager-review-page/ManagerReviewContent.tsx:35
+#: src/pages/peer-review-page/PeerReviewPage.tsx:15
 #: src/pages/self-review-page/SelfReviewPage.tsx:19
 msgid "Dominant Characteristics"
 msgstr "Dominant Characteristics"
@@ -89,6 +91,10 @@ msgstr "Error"
 #: src/shared/criterion-output-item/CriterionOutputItem.tsx:16
 msgid "Evaluation"
 msgstr "Evaluation"
+
+#: src/containers/main/getMenuItems.ts:29
+msgid "Evaluation Board"
+msgstr "Evaluation Board"
 
 #: src/pages/start-review-page/StartReviewPage.tsx:36
 msgid "Evaluation due date: {formattedDueDate}"
@@ -113,6 +119,7 @@ msgid "Execution"
 msgstr "Execution"
 
 #: src/containers/main/getMenuItems.ts:19
+#: src/containers/main/getMenuItems.ts:35
 #: src/pages/guide-page/GuidePage.tsx:14
 msgid "FAQ"
 msgstr "FAQ"
@@ -214,6 +221,7 @@ msgstr "People who will comment on your accomplishments and write your performan
 
 #: src/pages/dashboard-page/DashboardPage.tsx:35
 #: src/pages/manager-review-page/ManagerReviewContent.tsx:34
+#: src/pages/peer-review-page/PeerReviewPage.tsx:14
 #: src/pages/self-review-page/SelfReviewPage.tsx:18
 msgid "Performance Competencies"
 msgstr "Performance Competencies"

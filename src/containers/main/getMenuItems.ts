@@ -29,6 +29,21 @@ export function getMenuItems(phase: Phase, user: User): MenuItem[] {
         },
       },
     ];
+  } else if (phase === 'PEER_REVIEW' && user.hasStarted) {
+    return [
+      {
+        text: i18n._('Evaluation Board'),
+        link: {
+          to: '/',
+        },
+      },
+      {
+        text: i18n._('FAQ'),
+        link: {
+          to: '/faq',
+        },
+      },
+    ];
   }
   // TODO support other phases
   return [];
