@@ -50,13 +50,14 @@ export default function PeerReviewPage(props: Props) {
             <Switch>
               <Route
                 path={toPrefix + '/performance-competencies'}
-                children={<div> todo: Performance Competencies</div>}
+                children={<div>Performance Competencies</div>} /* TODO: Create Performance Competencies page here */
               />
               <Route
                 path={toPrefix + '/dominant-characteristics'}
-                children={<div>todo: Dominant Characteristics</div>}
+                children={<div>Dominant Characteristics</div>} /* TODO: Create Dominant Characteristics page here */
               />
-              <Route path={toPrefix + '/achievements'} children={<div>todo: Achievements</div>} />
+              <Route path={toPrefix + '/achievements'} children={<div>Achievements</div>} />
+              {/* TODO: Create Achievements page here */}
               <Redirect to={toPrefix + '/performance-competencies'} />
             </Switch>
           </Suspense>
