@@ -1,29 +1,20 @@
-import { i18n } from '@lingui/core';
 import { Container, Grid } from '@material-ui/core';
 import { storiesOf } from '@storybook/react';
 import { LoremIpsum } from 'lorem-ipsum';
 import React from 'react';
 import { Evaluation } from 'src/global-types';
 import { themeDecorator } from 'src/stories/decorators/themeDecorator';
-import { CriterionOutputItem } from './CriterionOutputItem';
+import { ProjectPeerReviewOutput } from './ProjectPeerReviewOutput';
 
-storiesOf('Criterion Output Item', module)
+storiesOf('Project Peer Review Output', module)
   .addDecorator(themeDecorator())
-  .add('simple', () => {
+  .add('Peer Review', () => {
     return (
       <Container>
         <Grid container spacing={2}>
           <Grid item xs={12}>
-            <CriterionOutputItem
-              title={i18n._('Role Expertise and Self Development')}
+            <ProjectPeerReviewOutput
               evaluation={Evaluation.EXCEEDS_EXPECTATIONS}
-              evidence={new LoremIpsum().generateSentences(2)}
-            />
-          </Grid>
-          <Grid item xs={12}>
-            <CriterionOutputItem
-              title="روحیه‌ی کار تیمی"
-              evaluation={Evaluation.MEETS_EXPECTATIONS}
               evidence={new LoremIpsum().generateSentences(2)}
             />
           </Grid>

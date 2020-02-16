@@ -1,12 +1,12 @@
 import { i18n } from '@lingui/core';
-import { Box, Grid, Typography, Theme, makeStyles } from '@material-ui/core';
+import { Box, Grid, makeStyles, Theme, Typography } from '@material-ui/core';
+import { CSSProperties } from '@material-ui/core/styles/withStyles';
 import React from 'react';
 import { Evaluation } from 'src/global-types';
 import { NON_BREAKING_SPACE } from 'src/shared/constants';
 import { EvaluationOutput } from 'src/shared/evaluation-output';
 import { MultilineOutput } from 'src/shared/multiline-output';
 import { FCProps } from 'src/shared/types/FCProps';
-import { CSSProperties } from '@material-ui/core/styles/withStyles';
 import { Styles } from 'src/shared/types/Styles';
 
 interface OwnProps {
@@ -16,7 +16,7 @@ interface OwnProps {
 
 type Props = FCProps<OwnProps> & StyleProps;
 
-export function CriterionPeerReviewOutputItem({ evaluation, evidence, ...otherProps }: Props) {
+export function ProjectPeerReviewOutput({ evaluation, evidence, ...otherProps }: Props) {
   const classes = useStyles(otherProps);
   return (
     <Box className={classes.outputBox}>
@@ -49,5 +49,5 @@ const styles = (theme: Theme) => ({
   } as CSSProperties,
 });
 
-const useStyles = makeStyles(styles, { name: 'CriterionPeerReviewOutputItem' });
+const useStyles = makeStyles(styles, { name: 'ProjectPeerReviewOutput' });
 type StyleProps = Styles<typeof styles>;
