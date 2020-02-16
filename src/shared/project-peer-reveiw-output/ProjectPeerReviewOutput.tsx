@@ -16,10 +16,11 @@ interface OwnProps {
 
 type Props = FCProps<OwnProps> & StyleProps;
 
-export function ProjectPeerReviewOutput({ evaluation, evidence, ...otherProps }: Props) {
-  const classes = useStyles(otherProps);
+export function ProjectPeerReviewOutput(props: Props) {
+  const { evaluation, evidence } = props;
+  const classes = useStyles(props);
   return (
-    <Box className={classes.outputBox}>
+    <Box className={classes.root}>
       <Grid container spacing={2}>
         <Grid item xs={12}>
           <Typography variant="caption" gutterBottom>
@@ -31,7 +32,7 @@ export function ProjectPeerReviewOutput({ evaluation, evidence, ...otherProps }:
           <Typography variant="caption" gutterBottom>
             {i18n._('Accomplishments')}:
           </Typography>
-          <MultilineOutput value={evidence || NON_BREAKING_SPACE} className={classes.outputTypography} />
+          <MultilineOutput value={evidence || NON_BREAKING_SPACE} className={classes.typography} />
         </Grid>
       </Grid>
     </Box>
@@ -39,13 +40,13 @@ export function ProjectPeerReviewOutput({ evaluation, evidence, ...otherProps }:
 }
 
 const styles = (theme: Theme) => ({
-  outputBox: {
+  root: {
     backgroundColor: '#f5f5f5',
     borderRadius: 4,
     padding: theme.spacing(2, 1.5),
   } as CSSProperties,
-  outputTypography: {
-    color: '#000',
+  typography: {
+    color: theme.palette.common.black,
   } as CSSProperties,
 });
 
