@@ -50,15 +50,19 @@ export function MainRoutes(props: FCProps<Props>) {
     }
     return (
       <Switch>
-        <Route path="/" exact component={DashboardPage} />
-        <Route path="/self-review/:tab?" component={SelfReviewPage} />
-        <Route path="/faq" component={GuidePage} />
+        <Route path="/" exact children={<DashboardPage />} />
+        <Route path="/self-review/:tab?" children={<SelfReviewPage />} />
+        <Route path="/faq" children={<GuidePage />} />
       </Switch>
     );
   }
 
   if (phase === 'MANAGER_REVIEW' && user.isManager) {
-    return <Route path="/" component={ManagerReviewPage} />;
+    return (
+      <Switch>
+        <Route path="/" children={<ManagerReviewPage />} />;
+      </Switch>
+    );
   }
 
   // TODO support other phases

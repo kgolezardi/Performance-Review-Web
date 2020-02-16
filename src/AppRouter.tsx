@@ -1,5 +1,4 @@
 import React, { Suspense, useMemo } from 'react';
-import { Route, Switch } from 'react-router-dom';
 import { AuthGuard } from 'src/core/auth';
 import { SettingsProvider } from 'src/core/settings';
 import { ErrorBoundary } from 'src/shared/error-boundary';
@@ -23,9 +22,7 @@ export function AppRouter(props: Props) {
         <Router historyOptions={routerOptions}>
           <SettingsProvider>
             <AuthGuard>
-              <Switch>
-                <Route path="/" component={MainContainer} />
-              </Switch>
+              <MainContainer />
             </AuthGuard>
           </SettingsProvider>
         </Router>
