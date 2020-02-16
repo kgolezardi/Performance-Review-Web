@@ -25,7 +25,7 @@ export function CriterionPeerReviewOutputItem({ evaluation, evidence, ...otherPr
           <Typography variant="caption" gutterBottom>
             {i18n._('Evaluation')}
           </Typography>
-          <EvaluationOutput value={evaluation} type="peer" classes={{}} />
+          <EvaluationOutput value={evaluation} type="peer" />
         </Grid>
         <Grid item xs={12}>
           <Typography variant="caption" gutterBottom>
