@@ -14,7 +14,6 @@ msgstr ""
 "Plural-Forms: \n"
 
 #: src/pages/projects-page/ProjectForm.tsx:71
-#: src/shared/criterion-output-item/CriterionPeerReviewOutputItem.tsx:40
 #: src/shared/project-manager-review/ProjectManagerReview.tsx:29
 msgid "Accomplishments"
 msgstr "Accomplishments"
@@ -46,7 +45,7 @@ msgstr "Begin my review"
 msgid "Cancel"
 msgstr "Cancel"
 
-#: src/pages/criteria-page/CriteriaPage.tsx:61
+#: src/pages/criteria-page/CriteriaPage.tsx:60
 #: src/pages/projects-page/ProjectsPage.tsx:79
 #: src/pages/strengths-weaknesses-page/StrengthsWeaknessesPage.tsx:60
 msgid "Changes you made may not be saved."
@@ -88,7 +87,6 @@ msgstr "Error"
 
 #: src/shared/criterion-item/CriterionItem.tsx:22
 #: src/shared/criterion-output-item/CriterionOutputItem.tsx:16
-#: src/shared/criterion-output-item/CriterionPeerReviewOutputItem.tsx:32
 msgid "Evaluation"
 msgstr "Evaluation"
 
@@ -261,7 +259,7 @@ msgid "Reviewers"
 msgstr "Reviewers"
 
 #: src/shared/criterion-item/CriterionItem.stories.tsx:17
-#: src/shared/criterion-output-item/CriterionOutputItem.stories.tsx:16
+#: src/shared/criterion-output-item/CriterionOutputItem.stories.tsx:15
 msgid "Role Expertise and Self Development"
 msgstr "Role Expertise and Self Development"
 
@@ -293,7 +291,7 @@ msgid "Self Review"
 msgstr "Self Review"
 
 #: src/core/snackbar/Snackbar.stories.tsx:24
-#: src/pages/criteria-page/CriteriaPage.tsx:56
+#: src/pages/criteria-page/CriteriaPage.tsx:55
 #: src/pages/projects-page/ProjectsPage.tsx:50
 #: src/pages/strengths-weaknesses-page/StrengthsWeaknessesPage.tsx:56
 msgid "Something went wrong."
@@ -320,7 +318,7 @@ msgid "Submit"
 msgstr "Submit"
 
 #: src/core/snackbar/Snackbar.stories.tsx:14
-#: src/pages/criteria-page/CriteriaPage.tsx:53
+#: src/pages/criteria-page/CriteriaPage.tsx:52
 #: src/pages/projects-page/ProjectsPage.tsx:47
 #: src/pages/strengths-weaknesses-page/StrengthsWeaknessesPage.tsx:53
 msgid "Successfully saved."
@@ -340,8 +338,8 @@ msgstr "Thought Leadership"
 msgid "Try Again"
 msgstr "Try Again"
 
-#: src/shared/evaluation-output/EvaluationOutput.tsx:20
-#: src/shared/evaluation-output/EvaluationOutput.tsx:21
+#: src/shared/evaluation-output/EvaluationOutput.tsx:9
+#: src/shared/evaluation-output/EvaluationOutput.tsx:10
 msgid "Unknown"
 msgstr "Unknown"
 
@@ -391,7 +389,3 @@ msgstr "You're almost there!"
 #: src/pages/manager-review-page/ManagerReviewPage.tsx:20
 msgid "Your team members"
 msgstr "Your team members"
-
-#: src/shared/criterion-output-item/CriterionPeerReviewOutputItem.tsx:27
-msgid "{name}' opinion about his/him performance compared to initial expectation"
-msgstr "{name}' opinion about his/him performance compared to initial expectation"
