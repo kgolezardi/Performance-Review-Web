@@ -9,9 +9,9 @@ import { useMutation } from 'src/relay';
 import { PromptProvider } from 'src/shared/prompt';
 import { useBiDiSnackbar } from 'src/shared/snackbar';
 import { FCProps } from 'src/shared/types/FCProps';
-import { CriteriaPageMutation } from './__generated__/CriteriaPageMutation.graphql';
 import { CriteriaForm } from './CriteriaForm';
 import { CriteriaFormData } from './CriteriaFormData';
+import { CriteriaPageMutation } from './__generated__/CriteriaPageMutation.graphql';
 
 interface OwnProps {}
 
@@ -94,7 +94,7 @@ export default function CriteriaPage(props: Props) {
             thoughtLeadershipComment: review?.thoughtLeadershipComment || undefined,
             thoughtLeadershipRating: review?.thoughtLeadershipRating || undefined,
           }}
-          isSelfReview={data.viewer.review?.isSelfReview || false}
+          isSelfReview={review?.isSelfReview || false}
         />
       </PromptProvider>
     </Box>
