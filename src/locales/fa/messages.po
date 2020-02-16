@@ -14,6 +14,7 @@ msgstr ""
 "Plural-Forms: \n"
 
 #: src/pages/projects-page/ProjectForm.tsx:71
+#: src/shared/criterion-output-item/CriterionPeerReviewOutputItem.tsx:40
 #: src/shared/project-manager-review/ProjectManagerReview.tsx:29
 msgid "Accomplishments"
 msgstr "دستاوردها"
@@ -45,7 +46,7 @@ msgstr "شروع ارزیابی من"
 msgid "Cancel"
 msgstr "لغو"
 
-#: src/pages/criteria-page/CriteriaPage.tsx:60
+#: src/pages/criteria-page/CriteriaPage.tsx:61
 #: src/pages/projects-page/ProjectsPage.tsx:79
 #: src/pages/strengths-weaknesses-page/StrengthsWeaknessesPage.tsx:60
 msgid "Changes you made may not be saved."
@@ -87,6 +88,7 @@ msgstr "خطا"
 
 #: src/shared/criterion-item/CriterionItem.tsx:22
 #: src/shared/criterion-output-item/CriterionOutputItem.tsx:16
+#: src/shared/criterion-output-item/CriterionPeerReviewOutputItem.tsx:32
 msgid "Evaluation"
 msgstr "ارزیابی"
 
@@ -259,7 +261,7 @@ msgid "Reviewers"
 msgstr "مرورکننده‌ها"
 
 #: src/shared/criterion-item/CriterionItem.stories.tsx:17
-#: src/shared/criterion-output-item/CriterionOutputItem.stories.tsx:15
+#: src/shared/criterion-output-item/CriterionOutputItem.stories.tsx:16
 msgid "Role Expertise and Self Development"
 msgstr "مرجعیت تخصصی"
 
@@ -291,7 +293,7 @@ msgid "Self Review"
 msgstr "ارزیابی من"
 
 #: src/core/snackbar/Snackbar.stories.tsx:24
-#: src/pages/criteria-page/CriteriaPage.tsx:55
+#: src/pages/criteria-page/CriteriaPage.tsx:56
 #: src/pages/projects-page/ProjectsPage.tsx:50
 #: src/pages/strengths-weaknesses-page/StrengthsWeaknessesPage.tsx:56
 msgid "Something went wrong."
@@ -318,7 +320,7 @@ msgid "Submit"
 msgstr "ثبت"
 
 #: src/core/snackbar/Snackbar.stories.tsx:14
-#: src/pages/criteria-page/CriteriaPage.tsx:52
+#: src/pages/criteria-page/CriteriaPage.tsx:53
 #: src/pages/projects-page/ProjectsPage.tsx:47
 #: src/pages/strengths-weaknesses-page/StrengthsWeaknessesPage.tsx:53
 msgid "Successfully saved."
@@ -338,8 +340,8 @@ msgstr "مرجعیت تخصصی"
 msgid "Try Again"
 msgstr "تلاش مجدد"
 
-#: src/shared/evaluation-output/EvaluationOutput.tsx:9
-#: src/shared/evaluation-output/EvaluationOutput.tsx:10
+#: src/shared/evaluation-output/EvaluationOutput.tsx:20
+#: src/shared/evaluation-output/EvaluationOutput.tsx:21
 msgid "Unknown"
 msgstr "ناشناخته"
 
@@ -389,3 +391,7 @@ msgstr "یه کم مونده!"
 #: src/pages/manager-review-page/ManagerReviewPage.tsx:20
 msgid "Your team members"
 msgstr "اعضای تیم شما"
+
+#: src/shared/criterion-output-item/CriterionPeerReviewOutputItem.tsx:27
+msgid "{name}' opinion about his/him performance compared to initial expectation"
+msgstr "نظر {name} در مورد سطح عملکردش نسبت به انتظار اولیش"

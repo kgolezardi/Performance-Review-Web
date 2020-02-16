@@ -6,6 +6,7 @@ import React from 'react';
 import { Evaluation } from 'src/global-types';
 import { themeDecorator } from 'src/stories/decorators/themeDecorator';
 import { CriterionOutputItem } from './CriterionOutputItem';
+import { CriterionPeerReviewOutputItem } from 'src/shared/criterion-output-item/CriterionPeerReviewOutputItem';
 
 storiesOf('Criterion Output Item', module)
   .addDecorator(themeDecorator())
@@ -24,6 +25,22 @@ storiesOf('Criterion Output Item', module)
             <CriterionOutputItem
               title="روحیه‌ی کار تیمی"
               evaluation={Evaluation.MEETS_EXPECTATIONS}
+              evidence={new LoremIpsum().generateSentences(2)}
+            />
+          </Grid>
+        </Grid>
+      </Container>
+    );
+  })
+  .add('Peer Review', () => {
+    return (
+      <Container>
+        <Grid container spacing={2}>
+          <Grid item xs={12}>
+            <CriterionPeerReviewOutputItem
+              title="پروژه شماره یک"
+              name="حمید"
+              evaluation={Evaluation.EXCEEDS_EXPECTATIONS}
               evidence={new LoremIpsum().generateSentences(2)}
             />
           </Grid>
