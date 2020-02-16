@@ -17,6 +17,12 @@ const SelfReviewPage = React.lazy(() =>
     'src/pages/self-review-page/SelfReviewPage'
   ),
 );
+const PeerReviewPage = React.lazy(() =>
+  import(
+    /* webpackChunkName: "peer-review-page" */
+    'src/pages/peer-review-page/PeerReviewPage'
+  ),
+);
 const GuidePage = React.lazy(() =>
   import(
     /* webpackChunkName: "guide-page" */
@@ -52,6 +58,19 @@ export function MainRoutes(props: FCProps<Props>) {
       <Switch>
         <Route path="/" exact children={<DashboardPage />} />
         <Route path="/self-review/:tab?" children={<SelfReviewPage />} />
+        <Route path="/faq" children={<GuidePage />} />
+      </Switch>
+    );
+  }
+
+  if (phase === 'PEER_REVIEW') {
+    if (!user.hasStarted) {
+      return <StartReviewPage />;
+    }
+    return (
+      <Switch>
+        <Route path="/" exact children={<div> todo: board page </div>} />
+        <Route path="/peer-review/:tab?" children={<PeerReviewPage />} />
         <Route path="/faq" children={<GuidePage />} />
       </Switch>
     );
