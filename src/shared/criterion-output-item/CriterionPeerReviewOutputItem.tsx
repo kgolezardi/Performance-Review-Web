@@ -10,47 +10,29 @@ import { CSSProperties } from '@material-ui/core/styles/withStyles';
 import { Styles } from 'src/shared/types/Styles';
 
 interface OwnProps {
-  title: string;
   evaluation: '%future added value' | Evaluation | null;
-  name: string;
   evidence: string | null;
 }
 
 type Props = FCProps<OwnProps> & StyleProps;
 
-export function CriterionPeerReviewOutputItem({ title, evaluation, evidence, name, ...otherProps }: Props) {
+export function CriterionPeerReviewOutputItem({ evaluation, evidence, ...otherProps }: Props) {
   const classes = useStyles(otherProps);
   return (
-    <Box>
+    <Box className={classes.outputBox}>
       <Grid container spacing={2}>
         <Grid item xs={12}>
-          <Typography variant="h5">{title}</Typography>
+          <Typography variant="caption" gutterBottom>
+            {i18n._('Evaluation')}
+          </Typography>
+          <EvaluationOutput value={evaluation} type="peer" classes={{}} />
         </Grid>
         <Grid item xs={12}>
-          <Typography variant="button" className={classes.detailTypography}>
-            {i18n._("{name}' opinion about his/him performance compared to initial expectation", { name })}
+          <Typography variant="caption" gutterBottom>
+            {i18n._('Accomplishments')}:
           </Typography>
+          <MultilineOutput value={evidence || NON_BREAKING_SPACE} className={classes.outputTypography} />
         </Grid>
-        <Box className={classes.outputBox}>
-          <Grid item xs={12}>
-            <Typography variant="caption" gutterBottom>
-              {i18n._('Evaluation')}
-            </Typography>
-            <Box width={240}>
-              {evaluation ? (
-                <EvaluationOutput value={evaluation} type="peer" className={classes.outputTypography} />
-              ) : (
-                <Typography variant="body1">{NON_BREAKING_SPACE}</Typography>
-              )}
-            </Box>
-          </Grid>
-          <Grid item xs={12}>
-            <Typography variant="caption" gutterBottom>
-              {i18n._('Accomplishments')}:
-            </Typography>
-            <MultilineOutput value={evidence || NON_BREAKING_SPACE} className={classes.outputTypography} />
-          </Grid>
-        </Box>
       </Grid>
     </Box>
   );
@@ -64,9 +46,6 @@ const styles = (theme: Theme) => ({
   } as CSSProperties,
   outputTypography: {
     color: '#000',
-  } as CSSProperties,
-  detailTypography: {
-    color: '#616161',
   } as CSSProperties,
 });
 

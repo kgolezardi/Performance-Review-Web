@@ -38,8 +38,6 @@ storiesOf('Criterion Output Item', module)
         <Grid container spacing={2}>
           <Grid item xs={12}>
             <CriterionPeerReviewOutputItem
-              title="پروژه شماره یک"
-              name="حمید"
               evaluation={Evaluation.EXCEEDS_EXPECTATIONS}
               evidence={new LoremIpsum().generateSentences(2)}
             />
