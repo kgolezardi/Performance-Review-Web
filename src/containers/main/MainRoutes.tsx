@@ -65,13 +65,13 @@ export function MainRoutes(props: FCProps<Props>) {
 
   if (phase === 'PEER_REVIEW') {
     if (!user.hasStarted) {
-      return <StartReviewPage />;
+      return <StartReviewPage />; // todo: implement start review page for peer review phase
     }
     return (
       <Switch>
         <Route path="/" exact children={<div> todo: board page </div>} />
         <Route path="/peer-review/:tab?" children={<PeerReviewPage />} />
-        <Route path="/faq" children={<GuidePage />} />
+        <Route path="/faq" children={<GuidePage />} /> // todo: implement guide page for peer review phase
       </Switch>
     );
   }

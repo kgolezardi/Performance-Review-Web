@@ -1,12 +1,12 @@
-import React, { Suspense } from 'react';
-import { FCProps } from 'src/shared/types/FCProps';
+import { i18n } from '@lingui/core';
 import { Box, Container, makeStyles, Paper, Tabs, Theme } from '@material-ui/core';
 import { CSSProperties } from '@material-ui/core/styles/withStyles';
-import { Styles } from 'src/shared/types/Styles';
+import React, { Suspense } from 'react';
 import { Redirect, Route, Switch, useParams } from 'react-router-dom';
-import { TabLink } from 'src/shared/tab';
-import { i18n } from '@lingui/core';
 import { FullPageSpinner } from 'src/shared/loading';
+import { TabLink } from 'src/shared/tab';
+import { FCProps } from 'src/shared/types/FCProps';
+import { Styles } from 'src/shared/types/Styles';
 
 interface Params {
   tab?: string;
