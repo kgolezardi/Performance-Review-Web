@@ -48,11 +48,7 @@ export function ProjectManagerReview(props: Props) {
             <Typography gutterBottom>{i18n._('Performance to initial expectation')}:</Typography>
             <Box width={240}>
               <OutputBorder>
-                {review.rating ? (
-                  <EvaluationOutput value={review.rating as Evaluation} type="self" />
-                ) : (
-                  <Typography variant="body1">{NON_BREAKING_SPACE}</Typography>
-                )}
+                <EvaluationOutput value={review.rating as Evaluation} type="self" />
               </OutputBorder>
             </Box>
           </Grid>

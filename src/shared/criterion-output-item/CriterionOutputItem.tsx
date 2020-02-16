@@ -29,11 +29,7 @@ export function CriterionOutputItem({ title, evaluation, evidence }: Props) {
           </Typography>
           <Box width={240}>
             <OutputBorder>
-              {evaluation ? (
-                <EvaluationOutput value={evaluation} type="self" />
-              ) : (
-                <Typography variant="body1">{NON_BREAKING_SPACE}</Typography>
-              )}
+              <EvaluationOutput value={evaluation} type="self" />
             </OutputBorder>
           </Box>
         </Grid>
