@@ -1,0 +1,49 @@
+import { Container, Grid } from '@material-ui/core';
+import { storiesOf } from '@storybook/react';
+import React from 'react';
+import { Evaluation } from 'src/global-types';
+import { themeDecorator } from 'src/stories/decorators/themeDecorator';
+import { EvaluationOutput } from './EvaluationOutput';
+
+storiesOf('Evaluation Output', module)
+  .addDecorator(themeDecorator())
+  .add('Self', () => {
+    return (
+      <Container>
+        <Grid container spacing={2}>
+          <Grid item xs={12}>
+            <EvaluationOutput type="self" value={Evaluation.EXCEEDS_EXPECTATIONS} />
+          </Grid>
+          <Grid item xs={12}>
+            <EvaluationOutput type="self" value={Evaluation.MEETS_EXPECTATIONS} />
+          </Grid>
+          <Grid item xs={12}>
+            <EvaluationOutput type="self" value={Evaluation.NEEDS_IMPROVEMENT} />
+          </Grid>
+          <Grid item xs={12}>
+            <EvaluationOutput type="self" value={Evaluation.SUPERB} />
+          </Grid>
+        </Grid>
+      </Container>
+    );
+  })
+  .add('Peer', () => {
+    return (
+      <Container>
+        <Grid container spacing={2}>
+          <Grid item xs={12}>
+            <EvaluationOutput type="peer" value={Evaluation.EXCEEDS_EXPECTATIONS} />
+          </Grid>
+          <Grid item xs={12}>
+            <EvaluationOutput type="peer" value={Evaluation.MEETS_EXPECTATIONS} />
+          </Grid>
+          <Grid item xs={12}>
+            <EvaluationOutput type="peer" value={Evaluation.NEEDS_IMPROVEMENT} />
+          </Grid>
+          <Grid item xs={12}>
+            <EvaluationOutput type="peer" value={Evaluation.SUPERB} />
+          </Grid>
+        </Grid>
+      </Container>
+    );
+  });
