@@ -6,7 +6,7 @@ import React from 'react';
 import { Evaluation } from 'src/global-types';
 import { themeDecorator } from 'src/stories/decorators/themeDecorator';
 import { CriterionOutputItem } from './CriterionOutputItem';
-import { CriterionPeerReviewOutputItem } from 'src/shared/criterion-output-item/CriterionPeerReviewOutputItem';
+import { CriterionPeerReviewOutputItem } from './CriterionPeerReviewOutputItem';
 
 storiesOf('Criterion Output Item', module)
   .addDecorator(themeDecorator())
