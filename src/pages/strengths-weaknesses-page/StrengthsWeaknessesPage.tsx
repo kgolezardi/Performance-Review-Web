@@ -3,14 +3,20 @@ import { Box } from '@material-ui/core';
 import graphql from 'babel-plugin-relay/macro';
 import React, { useCallback } from 'react';
 import { useLazyLoadQuery } from 'react-relay/hooks';
-import { useAuthGuardUser } from 'src/core/auth';
 import { StrengthsWeaknessesPageQuery } from 'src/pages/strengths-weaknesses-page/__generated__/StrengthsWeaknessesPageQuery.graphql';
 import { useMutation } from 'src/relay';
 import { PromptProvider } from 'src/shared/prompt';
 import { useBiDiSnackbar } from 'src/shared/snackbar';
-import { StrengthsWeaknessesPageMutation } from './__generated__/StrengthsWeaknessesPageMutation.graphql';
+import { FCProps } from 'src/shared/types/FCProps';
 import { StrengthsWeaknessesForm } from './StrengthsWeaknessesForm';
 import { normalizeArray } from './utils';
+import { StrengthsWeaknessesPageMutation } from './__generated__/StrengthsWeaknessesPageMutation.graphql';
+
+interface OwnProps {
+  revieweeId: string;
+}
+
+type Props = FCProps<OwnProps>;
 
 const useStrengthsWeaknessesPageMutation = () =>
   useMutation<StrengthsWeaknessesPageMutation>(graphql`
@@ -45,10 +51,10 @@ const transformData = (data: StrengthsWeaknessesFormData) => {
   };
 };
 
-export default function StrengthsWeaknessesPage() {
+export default function StrengthsWeaknessesPage(props: Props) {
+  const { revieweeId } = props;
   const { enqueueSnackbar } = useBiDiSnackbar();
   const strengthsWeaknessesPageMutation = useStrengthsWeaknessesPageMutation();
-  const { id: revieweeId } = useAuthGuardUser();
   const data = useLazyLoadQuery<StrengthsWeaknessesPageQuery>(query, { id: revieweeId });
   const review = data.viewer.findPersonReview;
 

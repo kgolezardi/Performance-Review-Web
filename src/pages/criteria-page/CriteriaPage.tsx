@@ -3,7 +3,6 @@ import { Box } from '@material-ui/core';
 import graphql from 'babel-plugin-relay/macro';
 import React, { useCallback } from 'react';
 import { useLazyLoadQuery } from 'react-relay/hooks';
-import { useAuthGuardUser } from 'src/core/auth';
 import { CriteriaPageQuery } from 'src/pages/criteria-page/__generated__/CriteriaPageQuery.graphql';
 import { useMutation } from 'src/relay';
 import { PromptProvider } from 'src/shared/prompt';
@@ -13,7 +12,9 @@ import { CriteriaForm } from './CriteriaForm';
 import { CriteriaFormData } from './CriteriaFormData';
 import { CriteriaPageMutation } from './__generated__/CriteriaPageMutation.graphql';
 
-interface OwnProps {}
+interface OwnProps {
+  revieweeId: string;
+}
 
 type Props = FCProps<OwnProps>;
 
@@ -53,10 +54,10 @@ const query = graphql`
 `;
 
 export default function CriteriaPage(props: Props) {
+  const { revieweeId } = props;
   const { enqueueSnackbar } = useBiDiSnackbar();
   const criteriaPageMutation = useCriteriaPageMutation();
 
-  const { id: revieweeId } = useAuthGuardUser();
   const data = useLazyLoadQuery<CriteriaPageQuery>(query, { id: revieweeId });
 
   const handleSubmit = useCallback(
