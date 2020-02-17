@@ -1,42 +1,26 @@
-import { makeStyles, Theme, Grid, Typography, Paper, Divider } from '@material-ui/core';
+import { makeStyles, Theme, Grid, Divider, Card, CardHeader, CardContent } from '@material-ui/core';
 import { CSSProperties } from '@material-ui/core/styles/withStyles';
-import React, { ReactNode } from 'react';
+import React from 'react';
 import { Overlayscrollbars } from 'src/shared/overlayscrollbars';
 import { FCProps } from 'src/shared/types/FCProps';
 import { Styles } from 'src/shared/types/Styles';
-import { PlaceHolder } from './PlaceHolder';
 
 export interface BoardListProps {
   listTitle: string;
-  placeHolder?: ReactNode;
 }
 type Props = FCProps<BoardListProps> & StyleProps;
 
 export const BoardList = (props: Props) => {
   const classes = useStyles(props);
   return (
-    <Grid xs={4} className={classes.root} item container>
-      <Grid xs={12} component={Paper} item container>
-        <Grid xs={12} className={classes.head} item>
-          <Typography variant="h5" className={classes.listTitle}>
-            {props.listTitle}
-          </Typography>
-        </Grid>
-        <Grid xs={12} className={classes.divider} item>
-          <Divider />
-        </Grid>
-        <Grid xs={12} className={classes.innerBody} item container>
-          <Overlayscrollbars className={classes.overlayscrollbars}>
-            {(Array.isArray(props.children) && props.children.length !== 0) || !!props.children ? (
-              <Grid xs className={classes.childrenWrapper} item container>
-                {props.children}
-              </Grid>
-            ) : (
-              <PlaceHolder>{props.placeHolder}</PlaceHolder>
-            )}
-          </Overlayscrollbars>
-        </Grid>
-      </Grid>
+    <Grid xs={4} className={classes.root} item>
+      <Card className={classes.card}>
+        <CardHeader classes={{ root: classes.cardHeaderRoot }} title={props.listTitle} />
+        <Divider variant="middle" />
+        <Overlayscrollbars className={classes.overlayscrollbars}>
+          <CardContent classes={{ root: classes.cardContentRoot }}>{props.children}</CardContent>
+        </Overlayscrollbars>
+      </Card>
     </Grid>
   );
 };
@@ -46,27 +30,21 @@ const styles = (theme: Theme) => ({
     marginTop: theme.spacing(7),
     height: '70vh',
   } as CSSProperties,
-  head: {
-    padding: theme.spacing(3.4),
-    height: theme.spacing(9),
+  card: {
+    height: '100%',
+    display: 'flex',
+    flexDirection: 'column',
   } as CSSProperties,
-  listTitle: {
-    color: '#616161',
-  } as CSSProperties,
-  divider: {
-    paddingLeft: theme.spacing(1),
-    paddingRight: theme.spacing(1),
-  } as CSSProperties,
-  innerBody: {
-    overflowX: 'hidden',
-    overflowY: 'auto',
-    height: 'calc(100% - 72px)',
+  cardContentRoot: {
+    padding: theme.spacing(3),
     position: 'relative',
-    paddingBottom: theme.spacing(),
+    height: '100%',
+  } as CSSProperties,
+  cardHeaderRoot: {
+    padding: theme.spacing(3, 2),
   } as CSSProperties,
   overlayscrollbars: {
-    height: '100%',
-    padding: theme.spacing(4),
+    flex: 1,
     width: '100%',
   } as CSSProperties,
   childrenWrapper: {} as CSSProperties,

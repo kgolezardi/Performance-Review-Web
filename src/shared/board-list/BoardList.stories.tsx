@@ -3,17 +3,24 @@ import { Grid, Box } from '@material-ui/core';
 import React from 'react';
 import { themeDecorator } from 'src/stories/decorators';
 import { BoardList } from './BoardList';
+import { PlaceHolder } from './PlaceHolder';
 import { UserCard } from 'src/shared/user-card/UserCard';
 
-const PlaceHoler = () => {
-  return <div>No Child! No Money!</div>;
+const PlaceHolerExample = () => {
+  return (
+    <PlaceHolder>
+      <div>No Child! No Money!</div>
+    </PlaceHolder>
+  );
 };
 const CustomBoardListWithChild = ({ title, count = 0 }: { title: string; count?: Number }) => {
   return (
-    <BoardList listTitle={title} placeHolder={<PlaceHoler />}>
-      {Array.from(Array(count)).map((item, index) => (
-        <div key={index}>Oh my card! {index + 1}</div>
-      ))}
+    <BoardList listTitle={title}>
+      {count ? (
+        Array.from(Array(count)).map((item, index) => <div key={index}>Oh my card! {index + 1}</div>)
+      ) : (
+        <PlaceHolerExample />
+      )}
     </BoardList>
   );
 };

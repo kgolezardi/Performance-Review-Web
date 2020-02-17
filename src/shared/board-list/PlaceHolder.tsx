@@ -21,5 +21,5 @@ const styles = (theme: Theme) => ({
     transform: 'translate(-50%, -50%)',
   } as CSSProperties,
 });
-const useStyles = makeStyles(styles, { name: 'BoardList' });
+const useStyles = makeStyles(styles, { name: 'PlaceHolder' });
 type StyleProps = Styles<typeof styles>;
