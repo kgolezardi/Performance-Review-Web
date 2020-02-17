@@ -14,7 +14,7 @@ export const UserCard = (props: Props) => {
   const { profilePicture = avatarPlaceholder, userFullName, description } = props;
   const classes = useStyles(props);
   return (
-    <Paper className={classes.root} elevation={3}>
+    <Paper className={classes.root}>
       <Grid container spacing={2}>
         <Grid xs={4} className={classes.imageWrapper} item>
           <div className={classes.image}>
@@ -42,6 +42,7 @@ const styles = (theme: Theme) => ({
   root: {
     marginBottom: theme.spacing(3),
     width: '100%',
+    boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.15)',
   } as CSSProperties,
   imageWrapper: {
     marginTop: theme.spacing(),
