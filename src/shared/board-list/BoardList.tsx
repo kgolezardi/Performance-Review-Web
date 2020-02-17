@@ -62,6 +62,7 @@ const styles = (theme: Theme) => ({
     overflowY: 'auto',
     height: 'calc(100% - 72px)',
     position: 'relative',
+    paddingBottom: theme.spacing(),
   } as CSSProperties,
   overlayscrollbars: {
     height: '100%',
