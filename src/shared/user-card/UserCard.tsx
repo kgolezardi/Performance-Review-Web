@@ -1,5 +1,5 @@
 import React from 'react';
-import { makeStyles, Theme, Grid, Typography, Paper } from '@material-ui/core';
+import { makeStyles, Theme, Grid, Typography, Paper, Avatar } from '@material-ui/core';
 import { FCProps } from 'src/shared/types/FCProps';
 import { Styles } from 'src/shared/types/Styles';
 import { CSSProperties } from '@material-ui/core/styles/withStyles';
@@ -17,9 +17,7 @@ export const UserCard = (props: Props) => {
     <Paper className={classes.root}>
       <Grid container spacing={2}>
         <Grid xs={4} className={classes.imageWrapper} item>
-          <div className={classes.image}>
-            <img alt={userFullName} className={classes.profilePicture} src={profilePicture} />
-          </div>
+          <Avatar alt={userFullName} src={profilePicture} className={classes.profilePicture} />
         </Grid>
         <Grid xs={8} item container>
           <Grid className={classes.textSection} item xs container direction="column">
@@ -41,30 +39,16 @@ export const UserCard = (props: Props) => {
 const styles = (theme: Theme) => ({
   root: {
     marginBottom: theme.spacing(3),
-    width: '100%',
     boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.15)',
   } as CSSProperties,
   imageWrapper: {
     marginTop: theme.spacing(),
     marginBottom: theme.spacing(),
   } as CSSProperties,
-  image: {
-    width: '80px',
-    height: '80px',
-    overflow: 'hidden',
-    position: 'relative',
-    borderRadius: '50%',
-    marginLeft: theme.spacing(2),
-  } as CSSProperties,
   profilePicture: {
-    display: 'block',
-    position: 'absolute',
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
-    objectFit: 'contain',
-    width: '100%',
-    height: '100%',
+    width: theme.spacing(10),
+    height: theme.spacing(10),
+    marginLeft: theme.spacing(2),
   } as CSSProperties,
   textSection: {
     marginBottom: theme.spacing(),
