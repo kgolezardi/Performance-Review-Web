@@ -43,6 +43,13 @@ const ManagerReviewPage = React.lazy(() =>
   ),
 );
 
+const PeerReviewBoardPage = React.lazy(() =>
+  import(
+    /* webpackChunkName: "peer-review-board-page" */
+    'src/pages/peer-review-board-page/PeerReviewBoardPage'
+  ),
+);
+
 interface Props {}
 
 export function MainRoutes(props: FCProps<Props>) {
@@ -71,7 +78,7 @@ export function MainRoutes(props: FCProps<Props>) {
       <Switch>
         <Redirect exact path="/" to="/peer-review" />
         <Route path="/peer-review/:uid/:tab?" children={<PeerReviewPage />} />
-        <Route path="/peer-review/" children={<div>todo: board page</div>} />
+        <Route path="/peer-review/" children={<PeerReviewBoardPage />} />
         <Route path="/faq" children={<GuidePage />} />
       </Switch>
     );

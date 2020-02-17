@@ -15,6 +15,7 @@ msgstr ""
 
 #: src/pages/projects-page/ProjectForm.tsx:71
 #: src/shared/project-manager-review/ProjectManagerReview.tsx:29
+#: src/shared/project-peer-reveiw-output/ProjectPeerReviewOutput.tsx:20
 msgid "Accomplishments"
 msgstr "Accomplishments"
 
@@ -29,6 +30,10 @@ msgstr "Achievements"
 #: src/shared/strengths-weaknesses/StrengthsOrWeaknesses.tsx:58
 msgid "Add"
 msgstr "Add"
+
+#: src/pages/peer-review-board-page/PeerReviewBoardPage.tsx:24
+msgid "Add every review that completed here"
+msgstr "Add every review that completed here"
 
 #: src/pages/projects-page/AddProjectForm.tsx:25
 msgid "Adding Projects"
@@ -46,7 +51,7 @@ msgstr "Begin my review"
 msgid "Cancel"
 msgstr "Cancel"
 
-#: src/pages/criteria-page/CriteriaPage.tsx:60
+#: src/pages/criteria-page/CriteriaPage.tsx:61
 #: src/pages/projects-page/ProjectsPage.tsx:79
 #: src/pages/strengths-weaknesses-page/StrengthsWeaknessesPage.tsx:60
 msgid "Changes you made may not be saved."
@@ -79,6 +84,10 @@ msgstr "Delete"
 msgid "Dominant Characteristics"
 msgstr "Dominant Characteristics"
 
+#: src/pages/peer-review-board-page/PeerReviewBoardPage.tsx:23
+msgid "Done"
+msgstr "Done"
+
 #: src/core/locales/languages.ts:5
 msgid "English"
 msgstr "English"
@@ -89,6 +98,7 @@ msgstr "Error"
 
 #: src/shared/criterion-item/CriterionItem.tsx:22
 #: src/shared/criterion-output-item/CriterionOutputItem.tsx:16
+#: src/shared/project-peer-reveiw-output/ProjectPeerReviewOutput.tsx:14
 msgid "Evaluation"
 msgstr "Evaluation"
 
@@ -132,6 +142,10 @@ msgstr "For instance, your personal key-results may be your accomplishments."
 msgid "Go to Achievements page and add projects you have participated in"
 msgstr "Go to Achievements page and add projects you have participated in"
 
+#: src/pages/peer-review-board-page/PeerReviewBoardPage.tsx:14
+msgid "Good job!"
+msgstr "Good job!"
+
 #: src/global-types/Evaluation.ts:16
 msgid "He/She Needs Improvement"
 msgstr "He/She Needs Improvement"
@@ -147,6 +161,10 @@ msgstr "I Need Improvement"
 #: src/pages/dashboard-page/DominantCharacteristicsCircularIndicator.tsx:56
 msgid "I thought you forgot to write your strengths!"
 msgstr "I thought you forgot to write your strengths!"
+
+#: src/pages/peer-review-board-page/PeerReviewBoardPage.tsx:18
+msgid "In Progress"
+msgstr "In Progress"
 
 #: src/pages/dashboard-page/DominantCharacteristicsCircularIndicator.tsx:59
 msgid "It'd be a good idea to write a weakness!"
@@ -299,7 +317,7 @@ msgid "Self Review"
 msgstr "Self Review"
 
 #: src/core/snackbar/Snackbar.stories.tsx:24
-#: src/pages/criteria-page/CriteriaPage.tsx:55
+#: src/pages/criteria-page/CriteriaPage.tsx:56
 #: src/pages/projects-page/ProjectsPage.tsx:50
 #: src/pages/strengths-weaknesses-page/StrengthsWeaknessesPage.tsx:56
 msgid "Something went wrong."
@@ -326,7 +344,7 @@ msgid "Submit"
 msgstr "Submit"
 
 #: src/core/snackbar/Snackbar.stories.tsx:14
-#: src/pages/criteria-page/CriteriaPage.tsx:52
+#: src/pages/criteria-page/CriteriaPage.tsx:53
 #: src/pages/projects-page/ProjectsPage.tsx:47
 #: src/pages/strengths-weaknesses-page/StrengthsWeaknessesPage.tsx:53
 msgid "Successfully saved."
@@ -342,12 +360,16 @@ msgstr "Superb"
 msgid "Thought Leadership"
 msgstr "Thought Leadership"
 
+#: src/pages/peer-review-board-page/PeerReviewBoardPage.tsx:13
+msgid "Todo"
+msgstr "Todo"
+
 #: src/shared/error/OverlayError.tsx:9
 msgid "Try Again"
 msgstr "Try Again"
 
-#: src/shared/evaluation-output/EvaluationOutput.tsx:9
-#: src/shared/evaluation-output/EvaluationOutput.tsx:10
+#: src/shared/evaluation-output/EvaluationOutput.tsx:23
+#: src/shared/evaluation-output/EvaluationOutput.tsx:24
 msgid "Unknown"
 msgstr "Unknown"
 
@@ -378,6 +400,10 @@ msgstr "Yes"
 #: src/shared/confirm-provider/ConfirmationDialog.tsx:25
 msgid "Yes! Go"
 msgstr "Yes! Go"
+
+#: src/pages/peer-review-board-page/PeerReviewBoardPage.tsx:19
+msgid "You don't start to review yet!"
+msgstr "You don't start to review yet!"
 
 #: src/pages/dashboard-page/AchievementsNoProjects.tsx:6
 msgid "You haven't added any project."
