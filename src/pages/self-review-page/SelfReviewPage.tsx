@@ -3,6 +3,7 @@ import { Box, Container, makeStyles, Paper, Tabs, Theme } from '@material-ui/cor
 import { CSSProperties } from '@material-ui/core/styles/withStyles';
 import React, { Suspense } from 'react';
 import { Redirect, Route, Switch, useParams } from 'react-router-dom';
+import { useAuthGuardUser } from 'src/core/auth';
 import CriteriaPage from 'src/pages/criteria-page/CriteriaPage';
 import ProjectsPage from 'src/pages/projects-page/ProjectsPage';
 import StrengthsWeaknessesPage from 'src/pages/strengths-weaknesses-page/StrengthsWeaknessesPage';
@@ -21,6 +22,8 @@ type Props = FCProps<OwnProps> & StyleProps;
 export default function SelfReviewPage(props: Props) {
   const classes = useStyles(props);
   const { tab } = useParams<Params>();
+  const { id: revieweeId } = useAuthGuardUser();
+
   const toPrefix = '/self-review';
 
   return (
@@ -56,8 +59,14 @@ export default function SelfReviewPage(props: Props) {
             }
           >
             <Switch>
-              <Route path={toPrefix + '/performance-competencies'} children={<CriteriaPage />} />
-              <Route path={toPrefix + '/dominant-characteristics'} children={<StrengthsWeaknessesPage />} />
+              <Route
+                path={toPrefix + '/performance-competencies'}
+                children={<CriteriaPage revieweeId={revieweeId} />}
+              />
+              <Route
+                path={toPrefix + '/dominant-characteristics'}
+                children={<StrengthsWeaknessesPage revieweeId={revieweeId} />}
+              />
               <Route path={toPrefix + '/achievements'} children={<ProjectsPage />} />
               <Redirect to={toPrefix + '/performance-competencies'} />
             </Switch>
