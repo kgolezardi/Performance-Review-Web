@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Redirect, Route, Switch } from 'react-router-dom';
 import { useAuthGuardUser } from 'src/core/auth';
 import { useAppSettings } from 'src/core/settings';
 import { StartReviewPage } from 'src/pages/start-review-page/StartReviewPage';
@@ -65,13 +65,14 @@ export function MainRoutes(props: FCProps<Props>) {
 
   if (phase === 'PEER_REVIEW') {
     if (!user.hasStarted) {
-      return <StartReviewPage />; // todo: implement start review page for peer review phase
+      return <StartReviewPage />;
     }
     return (
       <Switch>
-        <Route path="/" exact children={<div> todo: board page </div>} />
-        <Route path="/peer-review/:tab?" children={<PeerReviewPage />} />
-        <Route path="/faq" children={<GuidePage />} /> // todo: implement guide page for peer review phase
+        <Redirect exact path="/" to="/peer-review" />
+        <Route path="/peer-review/:uid/:tab?" children={<PeerReviewPage />} />
+        <Route path="/peer-review/" children={<div>todo: board page</div>} />
+        <Route path="/faq" children={<GuidePage />} />
       </Switch>
     );
   }

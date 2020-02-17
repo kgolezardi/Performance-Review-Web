@@ -9,6 +9,7 @@ import { FCProps } from 'src/shared/types/FCProps';
 import { Styles } from 'src/shared/types/Styles';
 
 interface Params {
+  uid: string;
   tab?: string;
 }
 
@@ -18,8 +19,8 @@ type Props = FCProps<OwnProps> & StyleProps;
 
 export default function PeerReviewPage(props: Props) {
   const classes = useStyles(props);
-  const { tab } = useParams<Params>();
-  const toPrefix = '/peer-review';
+  const { tab, uid } = useParams<Params>();
+  const toPrefix = '/peer-review/' + uid;
 
   return (
     <Container maxWidth="md">
@@ -50,7 +51,7 @@ export default function PeerReviewPage(props: Props) {
             <Switch>
               <Route
                 path={toPrefix + '/performance-competencies'}
-                children={<div> todo: Performance Competencies</div>}
+                children={<div>todo: Performance Competencies</div>}
               />
               <Route
                 path={toPrefix + '/dominant-characteristics'}

@@ -29,12 +29,13 @@ export function getMenuItems(phase: Phase, user: User): MenuItem[] {
         },
       },
     ];
-  } else if (phase === 'PEER_REVIEW' && user.hasStarted) {
+  }
+  if (phase === 'PEER_REVIEW' && user.hasStarted) {
     return [
       {
         text: i18n._('Evaluation Board'),
         link: {
-          to: '/',
+          to: '/peer-review',
         },
       },
       {
