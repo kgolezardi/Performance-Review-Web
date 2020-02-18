@@ -3,10 +3,12 @@ import { Box, Container, makeStyles, Paper, Tabs, Theme } from '@material-ui/cor
 import { CSSProperties } from '@material-ui/core/styles/withStyles';
 import React, { Suspense } from 'react';
 import { Redirect, Route, Switch, useParams } from 'react-router-dom';
+import CriteriaPage from 'src/pages/criteria-page/CriteriaPage';
 import { FullPageSpinner } from 'src/shared/loading';
 import { TabLink } from 'src/shared/tab';
 import { FCProps } from 'src/shared/types/FCProps';
 import { Styles } from 'src/shared/types/Styles';
+import { unescape } from 'src/shared/utils/base64.util';
 
 interface Params {
   uid: string;
@@ -21,6 +23,7 @@ export default function PeerReviewPage(props: Props) {
   const classes = useStyles(props);
   const { tab, uid } = useParams<Params>();
   const toPrefix = '/peer-review/' + uid;
+  const revieweeId = unescape(uid);
 
   return (
     <Container maxWidth="md">
@@ -51,7 +54,7 @@ export default function PeerReviewPage(props: Props) {
             <Switch>
               <Route
                 path={toPrefix + '/performance-competencies'}
-                children={<div>todo: Performance Competencies</div>}
+                children={<CriteriaPage revieweeId={revieweeId} />}
               />
               <Route
                 path={toPrefix + '/dominant-characteristics'}
