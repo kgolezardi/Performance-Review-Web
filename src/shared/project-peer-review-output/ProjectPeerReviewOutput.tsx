@@ -5,7 +5,6 @@ import graphql from 'babel-plugin-relay/macro';
 import React from 'react';
 import { useFragment } from 'react-relay/hooks';
 import { Evaluation } from 'src/global-types';
-import { NON_BREAKING_SPACE } from 'src/shared/constants';
 import { EvaluationOutput } from 'src/shared/evaluation-output';
 import { MultilineOutput } from 'src/shared/multiline-output';
 import { FCProps } from 'src/shared/types/FCProps';
@@ -41,7 +40,7 @@ export function ProjectPeerReviewOutput(props: Props) {
           <Typography variant="caption" gutterBottom>
             {i18n._('Accomplishments')}:
           </Typography>
-          <MultilineOutput value={projectReview.text || NON_BREAKING_SPACE} className={classes.mainTypography} />
+          <MultilineOutput value={projectReview.text} className={classes.mainTypography} />
         </Grid>
       </Grid>
     </Box>
