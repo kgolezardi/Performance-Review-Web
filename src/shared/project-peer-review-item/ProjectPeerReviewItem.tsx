@@ -73,7 +73,7 @@ export function ProjectPeerReviewItem(props: Props) {
             </Typography>
           </Grid>
           <Grid item xs={12}>
-            <ProjectPeerReviewOutput projectNode={projectReview} />
+            <ProjectPeerReviewOutput projectReview={projectReview} />
           </Grid>
           <Grid item xs={12}>
             <Typography variant="button" className={classes.detailTypography}>

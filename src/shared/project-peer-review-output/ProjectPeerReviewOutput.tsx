@@ -13,7 +13,7 @@ import { Styles } from 'src/shared/types/Styles';
 import { ProjectPeerReviewOutput_projectReview$key } from './__generated__/ProjectPeerReviewOutput_projectReview.graphql';
 
 interface OwnProps {
-  projectNode: ProjectPeerReviewOutput_projectReview$key;
+  projectReview: ProjectPeerReviewOutput_projectReview$key;
 }
 
 const fragment = graphql`
@@ -26,7 +26,7 @@ const fragment = graphql`
 type Props = FCProps<OwnProps> & StyleProps;
 
 export function ProjectPeerReviewOutput(props: Props) {
-  const projectReview = useFragment(fragment, props.projectNode);
+  const projectReview = useFragment(fragment, props.projectReview);
   const classes = useStyles(props);
   return (
     <Box className={classes.root}>

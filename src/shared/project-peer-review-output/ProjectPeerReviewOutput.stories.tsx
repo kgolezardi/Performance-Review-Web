@@ -28,7 +28,7 @@ storiesOf('Project Peer Review Output', module)
         <Grid container spacing={2}>
           {data.viewer.projectReviews.map((review, index) => (
             <Grid item xs={12} key={index}>
-              <ProjectPeerReviewOutput projectNode={review} />
+              <ProjectPeerReviewOutput projectReview={review} />
             </Grid>
           ))}
         </Grid>
