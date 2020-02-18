@@ -13,7 +13,8 @@ import { SectionGuide } from 'src/shared/section-guide';
 import { ServerValueProvider } from 'src/shared/server-value';
 import { StickyActionBar } from 'src/shared/sticky-action-bar/StickyActionBar';
 import { FCProps } from 'src/shared/types/FCProps';
-import { CriteriaForm_userNode, CriteriaForm_userNode$key } from './__generated__/CriteriaForm_userNode.graphql';
+import { UserType } from 'src/shared/utils/getUserLabel';
+import { CriteriaForm_user$key } from './__generated__/CriteriaForm_user.graphql';
 import { CriteriaFormData } from './CriteriaFormData';
 
 // self review helper texts
@@ -42,7 +43,7 @@ interface OwnProps {
   initialValue?: CriteriaFormData;
   isSelfReview: boolean;
   onSubmit: (data: CriteriaFormData) => void;
-  user: CriteriaForm_userNode$key | null;
+  user: CriteriaForm_user$key | null;
 }
 
 type Props = FCProps<OwnProps>;
@@ -63,7 +64,7 @@ export function CriteriaForm(props: Props) {
                 {isSelfReview ? (
                   <DescriptionContentSelfReview components={components} />
                 ) : (
-                  <MDXPropsProvider<CriteriaForm_userNode | null> value={user}>
+                  <MDXPropsProvider<UserType | null> value={user}>
                     <DescriptionContentPeerReview components={components} />
                   </MDXPropsProvider>
                 )}
@@ -166,7 +167,7 @@ export function CriteriaForm(props: Props) {
 }
 
 const fragmentUserNode = graphql`
-  fragment CriteriaForm_userNode on UserNode {
+  fragment CriteriaForm_user on UserNode {
     id
     username
     firstName

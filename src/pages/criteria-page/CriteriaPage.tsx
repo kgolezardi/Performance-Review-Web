@@ -37,7 +37,7 @@ const query = graphql`
       review: findPersonReview(revieweeId: $id) {
         reviewee {
           id
-          ...CriteriaForm_userNode
+          ...CriteriaForm_user
         }
         sahabinessComment
         problemSolvingComment

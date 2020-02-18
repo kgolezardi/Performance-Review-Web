@@ -1,8 +1,7 @@
 import { useMDXPropsContext } from 'src/shared/mdx-provider/MDXPropsProvider';
-import { getUserLabel } from 'src/shared/utils/getUserLabel';
-import { CriteriaForm_userNode } from './__generated__/CriteriaForm_userNode.graphql';
+import { getUserLabel, UserType } from 'src/shared/utils/getUserLabel';
 
 export function Username() {
-  const user = useMDXPropsContext<CriteriaForm_userNode | null>();
+  const user = useMDXPropsContext<UserType | null>();
   return user ? getUserLabel(user) : '';
 }
