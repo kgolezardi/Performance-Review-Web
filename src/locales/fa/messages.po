@@ -21,7 +21,7 @@ msgstr "دستاوردها"
 
 #: src/pages/dashboard-page/DashboardPage.tsx:51
 #: src/pages/manager-review-page/ManagerReviewContent.tsx:36
-#: src/pages/peer-review-page/PeerReviewPage.tsx:19
+#: src/pages/peer-review-page/PeerReviewPage.tsx:26
 #: src/pages/self-review-page/SelfReviewPage.tsx:22
 msgid "Achievements"
 msgstr "دستاوردها"
@@ -80,15 +80,16 @@ msgstr "حذف"
 
 #: src/pages/dashboard-page/DashboardPage.tsx:43
 #: src/pages/manager-review-page/ManagerReviewContent.tsx:35
-#: src/pages/peer-review-page/PeerReviewPage.tsx:18
+#: src/pages/peer-review-page/PeerReviewPage.tsx:25
 #: src/pages/self-review-page/SelfReviewPage.tsx:21
 msgid "Dominant Characteristics"
 msgstr "ویژگی‌های بارز"
 
 #: src/assets/icons/Done.tsx:5
 #: src/pages/peer-review-board-page/PeerReviewBoardPage.tsx:59
+#: src/pages/peer-review-page/PersonInfoCard.tsx:38
 msgid "Done"
-msgstr "انجام شده"
+msgstr "انجام شد"
 
 #: src/core/locales/languages.ts:5
 msgid "English"
@@ -153,6 +154,10 @@ msgstr "باریکلا! چه خوب که همه رو داری انجام مید�
 #: src/global-types/Evaluation.ts:16
 msgid "He/She Needs Improvement"
 msgstr "کمتر از حد انتظاری که ازش میره"
+
+#: src/pages/peer-review-page/PersonInfoCard.tsx:35
+msgid "He/She asked your review on {numberOfProjects} project(s)"
+msgstr "در {numberOfProjects} پروژه از شما نظر خواسته است"
 
 #: src/pages/projects-page/ProjectForm.tsx:59
 msgid "How effective were you in this project?"
@@ -244,7 +249,7 @@ msgstr "کسانی هستن که روی دستاوردهاتون کامنت می
 
 #: src/pages/dashboard-page/DashboardPage.tsx:35
 #: src/pages/manager-review-page/ManagerReviewContent.tsx:34
-#: src/pages/peer-review-page/PeerReviewPage.tsx:17
+#: src/pages/peer-review-page/PeerReviewPage.tsx:24
 #: src/pages/self-review-page/SelfReviewPage.tsx:20
 msgid "Performance Competencies"
 msgstr "شایستگی‌های عملکردی"

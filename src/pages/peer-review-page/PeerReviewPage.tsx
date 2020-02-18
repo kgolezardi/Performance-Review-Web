@@ -1,7 +1,9 @@
 import { i18n } from '@lingui/core';
 import { Box, Container, makeStyles, Paper, Tabs, Theme } from '@material-ui/core';
 import { CSSProperties } from '@material-ui/core/styles/withStyles';
+import graphql from 'babel-plugin-relay/macro';
 import React, { Suspense } from 'react';
+import { useLazyLoadQuery } from 'react-relay/hooks';
 import { Redirect, Route, Switch, useParams } from 'react-router-dom';
 import CriteriaPage from 'src/pages/criteria-page/CriteriaPage';
 import { FullPageSpinner } from 'src/shared/loading';
@@ -9,6 +11,18 @@ import { TabLink } from 'src/shared/tab';
 import { FCProps } from 'src/shared/types/FCProps';
 import { Styles } from 'src/shared/types/Styles';
 import { unescape } from 'src/shared/utils/base64.util';
+import { PersonInfoCard } from './PersonInfoCard';
+import { PeerReviewPageQuery } from './__generated__/PeerReviewPageQuery.graphql';
+
+const peerReviewPageQuery = graphql`
+  query PeerReviewPageQuery($id: ID!) {
+    viewer {
+      user(id: $id) {
+        ...PersonInfoCard_user
+      }
+    }
+  }
+`;
 
 interface Params {
   uid: string;
@@ -25,24 +39,33 @@ export default function PeerReviewPage(props: Props) {
   const toPrefix = '/peer-review/' + uid;
   const revieweeId = unescape(uid);
 
+  const data = useLazyLoadQuery<PeerReviewPageQuery>(peerReviewPageQuery, { id: revieweeId });
+
+  if (!data.viewer.user) {
+    // TODO: handle this
+    return <div>No user found</div>;
+  }
+
   return (
     <Container maxWidth="md">
-      <Paper classes={{ root: classes.topPaper }}>
-        <Tabs value={tab ?? 'performance-competencies'} indicatorColor="primary" textColor="primary" centered>
-          <TabLink
-            label={i18n._('Performance Competencies')}
-            value="performance-competencies"
-            to={toPrefix + '/performance-competencies'}
-          />
-          <TabLink
-            label={i18n._('Dominant Characteristics')}
-            value="dominant-characteristics"
-            to={toPrefix + '/dominant-characteristics'}
-          />
-          <TabLink label={i18n._('Achievements')} value="achievements" to={toPrefix + '/achievements'} />
-        </Tabs>
-      </Paper>
       <Box marginY={5}>
+        <PersonInfoCard user={data.viewer.user} classes={{ root: classes.personInfoCardRoot }}>
+          <Tabs value={tab ?? 'performance-competencies'} indicatorColor="primary" textColor="primary" centered>
+            <TabLink
+              label={i18n._('Performance Competencies')}
+              value="performance-competencies"
+              to={toPrefix + '/performance-competencies'}
+            />
+            <TabLink
+              label={i18n._('Dominant Characteristics')}
+              value="dominant-characteristics"
+              to={toPrefix + '/dominant-characteristics'}
+            />
+            <TabLink label={i18n._('Achievements')} value="achievements" to={toPrefix + '/achievements'} />
+          </Tabs>
+        </PersonInfoCard>
+      </Box>
+      <Box marginY={2}>
         <Paper>
           <Suspense
             fallback={
@@ -71,7 +94,7 @@ export default function PeerReviewPage(props: Props) {
 }
 
 const styles = (theme: Theme) => ({
-  topPaper: {
+  personInfoCardRoot: {
     position: 'sticky',
     top: 0,
     zIndex: theme.zIndex.appBar - 25,
