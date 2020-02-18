@@ -6,6 +6,7 @@ import React, { Suspense } from 'react';
 import { useLazyLoadQuery } from 'react-relay/hooks';
 import { Redirect, Route, Switch, useParams } from 'react-router-dom';
 import CriteriaPage from 'src/pages/criteria-page/CriteriaPage';
+import { ProjectCommentPage } from 'src/pages/project-comment-page';
 import { FullPageSpinner } from 'src/shared/loading';
 import { TabLink } from 'src/shared/tab';
 import { FCProps } from 'src/shared/types/FCProps';
@@ -83,7 +84,7 @@ export default function PeerReviewPage(props: Props) {
                 path={toPrefix + '/dominant-characteristics'}
                 children={<div>todo: Dominant Characteristics</div>}
               />
-              <Route path={toPrefix + '/achievements'} children={<div>todo: Achievements</div>} />
+              <Route path={toPrefix + '/achievements'} children={<ProjectCommentPage revieweeId={revieweeId} />} />
               <Redirect to={toPrefix + '/performance-competencies'} />
             </Switch>
           </Suspense>
