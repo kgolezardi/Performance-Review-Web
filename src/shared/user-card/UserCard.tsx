@@ -5,13 +5,16 @@ import { Link } from 'react-router-dom';
 import avatarPlaceholder from 'src/assets/avatar-placeholder.png';
 import { FCProps } from 'src/shared/types/FCProps';
 import { Styles } from 'src/shared/types/Styles';
+
 export interface UserCardProps {
   profilePicture?: string;
   userFullName: string;
   description: string;
   userId: string;
 }
+
 type Props = FCProps<UserCardProps> & StyleProps;
+
 export const UserCard = (props: Props) => {
   const { userId, profilePicture = avatarPlaceholder, userFullName, description } = props;
   const classes = useStyles(props);

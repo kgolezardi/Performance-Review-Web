@@ -1,10 +1,10 @@
+import { Box, Grid } from '@material-ui/core';
 import { storiesOf } from '@storybook/react';
-import { Grid, Box } from '@material-ui/core';
 import React from 'react';
-import { themeDecorator, routerDecorator } from 'src/stories/decorators';
+import { UserCard } from 'src/shared/user-card/UserCard';
+import { routerDecorator, themeDecorator } from 'src/stories/decorators';
 import { BoardList } from './BoardList';
 import { PlaceHolder } from './PlaceHolder';
-import { UserCard } from 'src/shared/user-card/UserCard';
 
 const PlaceHolerExample = () => {
   return (
