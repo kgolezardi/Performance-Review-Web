@@ -49,7 +49,7 @@ export default function PeerReviewPage(props: Props) {
 
   return (
     <Container maxWidth="md">
-      <Box marginY={5}>
+      <Box marginTop={5}>
         <PersonInfoCard user={data.viewer.user} classes={{ root: classes.personInfoCardRoot }}>
           <Tabs value={tab ?? 'performance-competencies'} indicatorColor="primary" textColor="primary" centered>
             <TabLink
