@@ -53,7 +53,7 @@ export function ProjectPeerReviewForm(props: Props) {
             <Grid item xs={12}>
               <DictInputItem field="rating">
                 <Box width={240} paddingBottom={4}>
-                  <Rating inputLabel={i18n._('Evaluation')} type="self" />
+                  <Rating inputLabel={i18n._('Evaluation')} type="peer" />
                 </Box>
                 <FragmentPrompt value={projectComment?.rating || null} />
               </DictInputItem>
