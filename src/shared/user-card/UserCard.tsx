@@ -1,10 +1,11 @@
 import { Avatar, Grid, makeStyles, Paper, Theme, Typography } from '@material-ui/core';
 import { CSSProperties } from '@material-ui/core/styles/withStyles';
-import React from 'react';
+import React, { useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import avatarPlaceholder from 'src/assets/avatar-placeholder.png';
 import { FCProps } from 'src/shared/types/FCProps';
 import { Styles } from 'src/shared/types/Styles';
+import { escape } from 'src/shared/utils/base64.util';
 
 export interface UserCardProps {
   profilePicture?: string;
@@ -18,9 +19,11 @@ type Props = FCProps<UserCardProps> & StyleProps;
 export const UserCard = (props: Props) => {
   const { userId, profilePicture = avatarPlaceholder, userFullName, description } = props;
   const classes = useStyles(props);
+  const escapeUid = useMemo(() => escape(userId), [userId]);
+
   return (
     <Paper className={classes.root}>
-      <Link to={`/peer-review/${userId}`} className={classes.link}>
+      <Link to={`/peer-review/${escapeUid}`} className={classes.link}>
         <Grid container spacing={2}>
           <Grid xs={4} className={classes.imageWrapper} item>
             <Avatar alt={userFullName} src={profilePicture} className={classes.profilePicture} />

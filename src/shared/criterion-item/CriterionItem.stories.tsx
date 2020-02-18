@@ -19,13 +19,14 @@ storiesOf('Criterion Item', module)
             <Grid container spacing={2}>
               <Grid item xs={12}>
                 <CriterionItem
+                  type="self"
                   title={i18n._('Role Expertise and Self Development')}
                   details="Demonstrates role knowledge, skills, and procedures Commitment to growth and development"
                   prefix="organization-culture"
                 />
               </Grid>
               <Grid item xs={12}>
-                <CriterionItem title="روحیه‌ی کار تیمی" prefix="teamwork" />
+                <CriterionItem type="peer" title="روحیه‌ی کار تیمی" prefix="teamwork" />
               </Grid>
               <Grid item>
                 <SubmitButton variant="contained" color="primary">
