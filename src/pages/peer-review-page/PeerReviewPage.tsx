@@ -7,13 +7,14 @@ import { useLazyLoadQuery } from 'react-relay/hooks';
 import { Redirect, Route, Switch, useParams } from 'react-router-dom';
 import CriteriaPage from 'src/pages/criteria-page/CriteriaPage';
 import { ProjectCommentPage } from 'src/pages/project-comment-page';
+import StrengthsWeaknessesPage from 'src/pages/strengths-weaknesses-page/StrengthsWeaknessesPage';
 import { FullPageSpinner } from 'src/shared/loading';
 import { TabLink } from 'src/shared/tab';
 import { FCProps } from 'src/shared/types/FCProps';
 import { Styles } from 'src/shared/types/Styles';
 import { unescape } from 'src/shared/utils/base64.util';
-import { PersonInfoCard } from './PersonInfoCard';
 import { PeerReviewPageQuery } from './__generated__/PeerReviewPageQuery.graphql';
+import { PersonInfoCard } from './PersonInfoCard';
 
 const peerReviewPageQuery = graphql`
   query PeerReviewPageQuery($id: ID!) {
@@ -82,7 +83,7 @@ export default function PeerReviewPage(props: Props) {
               />
               <Route
                 path={toPrefix + '/dominant-characteristics'}
-                children={<div>todo: Dominant Characteristics</div>}
+                children={<StrengthsWeaknessesPage revieweeId={revieweeId} />}
               />
               <Route path={toPrefix + '/achievements'} children={<ProjectCommentPage revieweeId={revieweeId} />} />
               <Redirect to={toPrefix + '/performance-competencies'} />
