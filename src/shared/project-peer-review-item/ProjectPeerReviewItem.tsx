@@ -49,7 +49,7 @@ export function ProjectPeerReviewItem(props: Props) {
   const saveProjectComment = useSaveProjectComment();
   const projectReviewId = projectReview.id;
   const onSubmit = useCallback(
-    (input: ProjectCommentFormData | null) => {
+    (input: ProjectCommentFormData) => {
       saveProjectComment({ input: { ...input, projectReviewId } });
     },
     [saveProjectComment, projectReviewId],
@@ -76,14 +76,18 @@ export function ProjectPeerReviewItem(props: Props) {
           <Grid item xs={12}>
             <ProjectPeerReviewOutput projectReview={projectReview} />
           </Grid>
-          <Grid item xs={12}>
-            <Typography variant="button" className={classes.detailTypography}>
-              {i18n._("Your comment about {name}'s performance in this project", { name })}
-            </Typography>
-          </Grid>
-          <Grid item xs={12}>
-            <ProjectPeerReviewForm onSubmit={onSubmit} projectComment={projectReview.comment} />
-          </Grid>
+          {projectReview.comment && (
+            <>
+              <Grid item xs={12}>
+                <Typography variant="button" className={classes.detailTypography}>
+                  {i18n._("Your comment about {name}'s performance in this project", { name })}
+                </Typography>
+              </Grid>
+              <Grid item xs={12}>
+                <ProjectPeerReviewForm onSubmit={onSubmit} projectComment={projectReview.comment} />
+              </Grid>
+            </>
+          )}
         </Grid>
       </ExpansionPanelDetails>
     </ExpansionPanel>

@@ -22,13 +22,13 @@ import {
 
 export interface ProjectCommentFormData {
   id: string;
-  text: string | null;
+  text: string;
   rating: Evaluation | null;
 }
 
 interface OwnProps {
-  onSubmit: (data: ProjectCommentFormData | null) => void;
-  projectComment: ProjectPeerReviewForm_projectComment$key | null;
+  onSubmit: (data: ProjectCommentFormData) => void;
+  projectComment: ProjectPeerReviewForm_projectComment$key;
 }
 
 type Props = FCProps<OwnProps> & StyleProps;
@@ -43,7 +43,12 @@ const fragment = graphql`
 
 export function ProjectPeerReviewForm(props: Props) {
   const { onSubmit } = props;
-  const projectComment = useFragment(fragment, props.projectComment);
+  const projectCommentObj = useFragment(fragment, props.projectComment);
+  const projectComment = {
+    text: projectCommentObj.text || '',
+    rating: projectCommentObj.rating || null,
+    id: projectCommentObj.id || '',
+  };
   const classes = useStyles(props);
   return (
     <Box>

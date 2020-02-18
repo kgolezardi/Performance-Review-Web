@@ -29,17 +29,16 @@ storiesOf('Project Peer Review Form', module)
     const data = useLazyLoadQuery<ProjectPeerReviewFormQuery>(query, {});
     return (
       <Container>
-        <Grid container spacing={2}>
-          <Grid item xs={12}>
-            {data.viewer.projectReviews.map((review, index) => (
+        {data.viewer.projectReviews.map(
+          (review, index) =>
+            review.comment && (
               <Grid container spacing={2} key={index}>
                 <Grid item xs={12}>
-                  <ProjectPeerReviewForm projectComment={review.comment || null} onSubmit={action('submit')} />
+                  <ProjectPeerReviewForm projectComment={review.comment} onSubmit={action('submit')} />
                 </Grid>
               </Grid>
-            ))}
-          </Grid>
-        </Grid>
+            ),
+        )}
       </Container>
     );
   });
