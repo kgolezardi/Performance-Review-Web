@@ -35,6 +35,10 @@ const query = graphql`
   query CriteriaPageQuery($id: ID!) {
     viewer {
       review: findPersonReview(revieweeId: $id) {
+        reviewee {
+          id
+          ...CriteriaForm_user
+        }
         sahabinessComment
         problemSolvingComment
         executionComment
@@ -81,6 +85,7 @@ export default function CriteriaPage(props: Props) {
       <PromptProvider message={i18n._('Changes you made may not be saved.')}>
         <CriteriaForm
           onSubmit={handleSubmit}
+          user={review?.reviewee ?? null}
           initialValue={{
             executionComment: review?.executionComment || undefined,
             executionRating: review?.executionRating || undefined,

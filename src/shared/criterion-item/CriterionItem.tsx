@@ -9,12 +9,13 @@ import { FCProps } from 'src/shared/types/FCProps';
 interface OwnProps {
   title: string;
   prefix: string;
+  type: 'self' | 'peer';
   details?: ReactNode;
 }
 
 type Props = FCProps<OwnProps>;
 
-export function CriterionItem({ title, details, prefix }: Props) {
+export function CriterionItem({ title, details, prefix, type }: Props) {
   const serverValue = useServerValueContext<any>();
   const rating = (serverValue && serverValue[prefix + 'Rating']) || null;
   const comment = (serverValue && serverValue[prefix + 'Comment']) || '';
@@ -31,7 +32,7 @@ export function CriterionItem({ title, details, prefix }: Props) {
         <Grid item xs={12}>
           <DictInputItem field={prefix + 'Rating'}>
             <Box width={240}>
-              <Rating inputLabel={i18n._('Evaluation')} type="self" />
+              <Rating inputLabel={i18n._('Evaluation')} type={type} />
             </Box>
             <FragmentPrompt value={rating} />
           </DictInputItem>
