@@ -1,5 +1,5 @@
 # source: http://127.0.0.1:8000/graphql
-# timestamp: Tue Feb 18 2020 10:48:23 GMT+0330 (Iran Standard Time)
+# timestamp: Tue Feb 18 2020 15:52:28 GMT+0330 (Iran Standard Time)
 
 input ChangePasswordMutationInput {
   oldPassword: String!
@@ -96,7 +96,7 @@ type PersonReviewNode implements Node {
   thoughtLeadershipRating: Evaluation
   leadershipRating: Evaluation
   presenceRating: Evaluation
-  state: State
+  state: State!
   isSelfReview: Boolean!
 }
 
@@ -134,6 +134,9 @@ type ProjectReviewNode implements Node {
   id: ID!
   rating: Evaluation
   reviewers: [UserNode!]!
+
+  """get or create a project comment about this comment from logged in user"""
+  comment: ProjectCommentNode
   comments: [ProjectCommentNode!]!
 }
 
@@ -157,6 +160,7 @@ input SavePersonReviewMutationInput {
   presenceComment: String
   strengths: [String!]
   weaknesses: [String!]
+  state: State
   clientMutationId: String
 }
 

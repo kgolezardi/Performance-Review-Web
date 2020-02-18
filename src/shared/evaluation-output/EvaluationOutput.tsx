@@ -33,7 +33,7 @@ export function EvaluationOutput(props: Props) {
 
 const styles = (theme: Theme) => ({
   root: {
-    color: theme.palette.common.black,
+    color: theme.palette.grey[900],
   } as CSSProperties,
 });
 

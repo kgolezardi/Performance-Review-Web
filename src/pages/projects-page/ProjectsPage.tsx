@@ -7,17 +7,17 @@ import { importMDX } from 'mdx.macro';
 import { reverse } from 'ramda';
 import React, { Fragment, useCallback, useContext, useState } from 'react';
 import { useLazyLoadQuery } from 'react-relay/hooks';
-import { DeleteProjectReviewMutationInput } from 'src/pages/projects-page/__generated__/deleteProjectReviewMutation.graphql';
-import { ProjectsPageQuery } from 'src/pages/projects-page/__generated__/ProjectsPageQuery.graphql';
-import { useDeleteProjectReview } from 'src/pages/projects-page/deleteProjectReview.mutation';
-import { ProjectFormData } from 'src/pages/projects-page/ProjectForm';
 import { PromptProvider } from 'src/shared/prompt';
 import { SectionGuide } from 'src/shared/section-guide';
 import { useBiDiSnackbar } from 'src/shared/snackbar';
 import { FCProps } from 'src/shared/types/FCProps';
 import { AddProjectForm, AddProjectFormData } from './AddProjectForm';
+import { useDeleteProjectReview } from './deleteProjectReview.mutation';
 import { ProjectExpansionPanel } from './ProjectExpansionPanel';
+import { ProjectFormData } from './ProjectForm';
 import { useSaveProjectReview } from './saveProjectReview.mutation';
+import { DeleteProjectReviewMutationInput } from './__generated__/deleteProjectReviewMutation.graphql';
+import { ProjectsPageQuery } from './__generated__/ProjectsPageQuery.graphql';
 
 const DescriptionContent = importMDX.sync('./DescriptionContent.mdx');
 
