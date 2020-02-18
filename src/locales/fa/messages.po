@@ -87,7 +87,7 @@ msgstr "ویژگی‌های بارز"
 
 #: src/assets/icons/Done.tsx:5
 #: src/pages/peer-review-board-page/PeerReviewBoardPage.tsx:59
-#: src/pages/peer-review-page/PersonInfoCard.tsx:21
+#: src/pages/peer-review-page/PersonInfoCard.tsx:38
 msgid "Done"
 msgstr "انجام شد"
 
@@ -155,9 +155,9 @@ msgstr "باریکلا! چه خوب که همه رو داری انجام مید�
 msgid "He/She Needs Improvement"
 msgstr "کمتر از حد انتظاری که ازش میره"
 
-#: src/pages/peer-review-page/PersonInfoCard.tsx:18
+#: src/pages/peer-review-page/PersonInfoCard.tsx:35
 msgid "He/She asked your review on {numberOfProjects} project(s)"
-msgstr ""
+msgstr "در {numberOfProjects} پروژه از شما نظر خواسته"
 
 #: src/pages/projects-page/ProjectForm.tsx:59
 msgid "How effective were you in this project?"

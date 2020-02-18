@@ -87,7 +87,7 @@ msgstr "Dominant Characteristics"
 
 #: src/assets/icons/Done.tsx:5
 #: src/pages/peer-review-board-page/PeerReviewBoardPage.tsx:59
-#: src/pages/peer-review-page/PersonInfoCard.tsx:21
+#: src/pages/peer-review-page/PersonInfoCard.tsx:38
 msgid "Done"
 msgstr "Done"
 
@@ -155,7 +155,7 @@ msgstr "Good job!"
 msgid "He/She Needs Improvement"
 msgstr "He/She Needs Improvement"
 
-#: src/pages/peer-review-page/PersonInfoCard.tsx:18
+#: src/pages/peer-review-page/PersonInfoCard.tsx:35
 msgid "He/She asked your review on {numberOfProjects} project(s)"
 msgstr "He/She asked your review on {numberOfProjects} project(s)"
 
