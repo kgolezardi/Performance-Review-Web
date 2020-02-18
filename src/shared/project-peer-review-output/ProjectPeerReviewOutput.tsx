@@ -34,7 +34,7 @@ export function ProjectPeerReviewOutput(props: Props) {
           <Typography variant="caption" gutterBottom>
             {i18n._('Evaluation')}
           </Typography>
-          <EvaluationOutput value={projectReview.rating as Evaluation} type="peer" className={classes.mainTypography} />
+          <EvaluationOutput value={projectReview.rating as Evaluation} type="self" className={classes.mainTypography} />
         </Grid>
         <Grid item xs={12}>
           <Typography variant="caption" gutterBottom>
