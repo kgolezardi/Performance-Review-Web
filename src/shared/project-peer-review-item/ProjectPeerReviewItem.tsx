@@ -30,6 +30,7 @@ const fragment = graphql`
   fragment ProjectPeerReviewItem_projectReview on ProjectReviewNode {
     id
     reviewee {
+      id
       firstName
     }
     project {
@@ -49,7 +50,7 @@ export function ProjectPeerReviewItem(props: Props) {
   const projectReviewId = projectReview.id;
   const onSubmit = useCallback(
     (input: ProjectCommentFormData | null) => {
-      saveProjectComment({ input: { ...input, projectReviewId }, projectReviewId });
+      saveProjectComment({ input: { ...input, projectReviewId } });
     },
     [saveProjectComment, projectReviewId],
   );

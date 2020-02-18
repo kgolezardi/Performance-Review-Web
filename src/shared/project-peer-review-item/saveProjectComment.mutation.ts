@@ -4,14 +4,16 @@ import { saveProjectCommentMutation } from './__generated__/saveProjectCommentMu
 
 export const useSaveProjectComment = () =>
   useMutation<saveProjectCommentMutation>(graphql`
-    mutation saveProjectCommentMutation($input: SaveProjectCommentMutationInput!, $projectReviewId: ID!) {
+    mutation saveProjectCommentMutation($input: SaveProjectCommentMutationInput!) {
       saveProjectComment(input: $input) {
-        viewer {
-          projectReview(id: $projectReviewId) {
-            ...ProjectPeerReviewItem_projectReview
-          }
-        }
         projectComment {
+          projectReview {
+            reviewee {
+              personReview {
+                state
+              }
+            }
+          }
           ...ProjectPeerReviewForm_projectComment
         }
       }
