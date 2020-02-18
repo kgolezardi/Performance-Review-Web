@@ -1,5 +1,5 @@
 # source: http://127.0.0.1:8000/graphql
-# timestamp: Tue Feb 18 2020 10:48:23 GMT+0330 (Iran Standard Time)
+# timestamp: Tue Feb 18 2020 11:22:45 GMT+0330 (Iran Standard Time)
 
 input ChangePasswordMutationInput {
   oldPassword: String!
