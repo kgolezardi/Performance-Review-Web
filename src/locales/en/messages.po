@@ -31,9 +31,9 @@ msgstr "Achievements"
 msgid "Add"
 msgstr "Add"
 
-#: src/pages/peer-review-board-page/PeerReviewBoardPage.tsx:58
-msgid "Add every review that completed here"
-msgstr "Add every review that completed here"
+#: src/pages/peer-review-board-page/PeerReviewBoardPage.tsx:60
+msgid "Add here after completing any evaluation"
+msgstr "Add here after completing any evaluation"
 
 #: src/pages/projects-page/AddProjectForm.tsx:25
 msgid "Adding Projects"
@@ -84,7 +84,8 @@ msgstr "Delete"
 msgid "Dominant Characteristics"
 msgstr "Dominant Characteristics"
 
-#: src/pages/peer-review-board-page/PeerReviewBoardPage.tsx:57
+#: src/assets/icons/Done.tsx:5
+#: src/pages/peer-review-board-page/PeerReviewBoardPage.tsx:59
 msgid "Done"
 msgstr "Done"
 
@@ -142,7 +143,7 @@ msgstr "For instance, your personal key-results may be your accomplishments."
 msgid "Go to Achievements page and add projects you have participated in"
 msgstr "Go to Achievements page and add projects you have participated in"
 
-#: src/pages/peer-review-board-page/PeerReviewBoardPage.tsx:48
+#: src/pages/peer-review-board-page/PeerReviewBoardPage.tsx:50
 msgid "Good job!"
 msgstr "Good job!"
 
@@ -162,7 +163,8 @@ msgstr "I Need Improvement"
 msgid "I thought you forgot to write your strengths!"
 msgstr "I thought you forgot to write your strengths!"
 
-#: src/pages/peer-review-board-page/PeerReviewBoardPage.tsx:52
+#: src/assets/icons/InProgress.tsx:5
+#: src/pages/peer-review-board-page/PeerReviewBoardPage.tsx:54
 msgid "In Progress"
 msgstr "In Progress"
 
@@ -280,7 +282,7 @@ msgstr "Programmers are typing..."
 msgid "Projects"
 msgstr "Projects"
 
-#: src/pages/peer-review-board-page/PeerReviewBoardPage.tsx:39
+#: src/pages/peer-review-board-page/PeerReviewBoardPage.tsx:41
 msgid "Requested for {count} project(s) to reivew."
 msgstr "Requested for {count} project(s) to reivew."
 
@@ -364,7 +366,8 @@ msgstr "Superb"
 msgid "Thought Leadership"
 msgstr "Thought Leadership"
 
-#: src/pages/peer-review-board-page/PeerReviewBoardPage.tsx:47
+#: src/assets/icons/Todo.tsx:5
+#: src/pages/peer-review-board-page/PeerReviewBoardPage.tsx:49
 msgid "Todo"
 msgstr "Todo"
 
@@ -405,10 +408,6 @@ msgstr "Yes"
 msgid "Yes! Go"
 msgstr "Yes! Go"
 
-#: src/pages/peer-review-board-page/PeerReviewBoardPage.tsx:53
-msgid "You don't start to review yet!"
-msgstr "You don't start to review yet!"
-
 #: src/pages/dashboard-page/AchievementsNoProjects.tsx:6
 msgid "You haven't added any project."
 msgstr "You haven't added any project."
@@ -417,6 +416,10 @@ msgstr "You haven't added any project."
 #: src/pages/dashboard-page/PerformanceCompetenciesCircularIndicator.tsx:67
 msgid "You haven't entered anything yet!"
 msgstr "You haven't entered anything yet!"
+
+#: src/pages/peer-review-board-page/PeerReviewBoardPage.tsx:55
+msgid "You haven't started evaluating yet!"
+msgstr "You haven't started evaluating yet!"
 
 #: src/pages/dashboard-page/DominantCharacteristicsCircularIndicator.tsx:65
 #: src/pages/dashboard-page/PerformanceCompetenciesCircularIndicator.tsx:73

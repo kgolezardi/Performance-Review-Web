@@ -13,6 +13,7 @@ import { ElementType } from 'src/shared/types/ElementType';
 import { FCProps } from 'src/shared/types/FCProps';
 import { Styles } from 'src/shared/types/Styles';
 import { UserCard } from 'src/shared/user-card';
+import { getUserLabel } from 'src/shared/utils/getUserLabel';
 import { EmptyList } from './EmptyList';
 import { PeerReviewBoardPageQuery } from './__generated__/PeerReviewBoardPageQuery.graphql';
 import {
@@ -39,6 +40,7 @@ const userFragment = graphql`
     id
     firstName
     lastName
+    username
     personReview {
       state
     }
@@ -58,7 +60,7 @@ const generateCardList = (cardList: PeerReviewBoardPage_user) =>
   cardList.map((item: UserType) => (
     <UserCard
       userId={item.id}
-      userFullName={`${item.firstName} ${item.lastName}`}
+      userFullName={getUserLabel({ firstName: item.firstName, lastName: item.lastName, username: item.username })}
       description={i18n._('Requested for {count} project(s) to reivew.', { count: item.projectReviews.length })}
     />
   ));
@@ -84,7 +86,7 @@ export default function PeerReviewBoardPage(props: Props) {
           {boards['DOING'] ? (
             generateCardList(boards['DOING'])
           ) : (
-            <EmptyList text={i18n._("You don't start to review yet!")}>
+            <EmptyList text={i18n._("You haven't started evaluating yet!")}>
               <InProgress />
             </EmptyList>
           )}
@@ -93,7 +95,7 @@ export default function PeerReviewBoardPage(props: Props) {
           {boards['DONE'] ? (
             generateCardList(boards['DONE'])
           ) : (
-            <EmptyList text={i18n._('Add every review that completed here')}>
+            <EmptyList text={i18n._('Add here after completing any evaluation')}>
               <Done />
             </EmptyList>
           )}
