@@ -1,5 +1,5 @@
 # source: http://127.0.0.1:8000/graphql
-# timestamp: Sat Feb 15 2020 16:33:03 GMT+0330 (Iran Standard Time)
+# timestamp: Tue Feb 18 2020 10:48:23 GMT+0330 (Iran Standard Time)
 
 input ChangePasswordMutationInput {
   oldPassword: String!
@@ -39,17 +39,6 @@ enum Evaluation {
   SUPERB
 }
 
-input FinalizeSubmissionMutationInput {
-  revieweeId: ID!
-  clientMutationId: String
-}
-
-type FinalizeSubmissionMutationPayload {
-  viewer: ViewerNode!
-  personReview: PersonReviewNode
-  clientMutationId: String
-}
-
 input LoginMutationInput {
   username: String!
   password: String!
@@ -75,7 +64,6 @@ type Mutation {
   savePersonReview(input: SavePersonReviewMutationInput!): SavePersonReviewMutationPayload!
   saveProjectReview(input: SaveProjectReviewMutationInput!): SaveProjectReviewMutationPayload!
   deleteProjectReview(input: DeleteProjectReviewMutationInput!): DeleteProjectReviewMutationPayload!
-  finalizeSubmission(input: FinalizeSubmissionMutationInput!): FinalizeSubmissionMutationPayload!
   saveProjectComment(input: SaveProjectCommentMutationInput!): SaveProjectCommentMutationPayload!
   login(input: LoginMutationInput!): LoginMutationPayload!
   logout(input: LogoutMutationInput!): LogoutMutationPayload!
@@ -99,7 +87,6 @@ type PersonReviewNode implements Node {
   presenceComment: String
   strengths: [String]
   weaknesses: [String]
-  finalSubmit: Boolean!
 
   """The ID of the object."""
   id: ID!
@@ -109,6 +96,7 @@ type PersonReviewNode implements Node {
   thoughtLeadershipRating: Evaluation
   leadershipRating: Evaluation
   presenceRating: Evaluation
+  state: State
   isSelfReview: Boolean!
 }
 
@@ -122,6 +110,7 @@ enum Phase {
 }
 
 type ProjectCommentNode implements Node {
+  projectReview: ProjectReviewNode!
   text: String
 
   """The ID of the object."""
@@ -224,6 +213,13 @@ type StartReviewMutationPayload {
   clientMutationId: String
 }
 
+"""An enumeration."""
+enum State {
+  TODO
+  DOING
+  DONE
+}
+
 type UserNode implements Node {
   """Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only."""
   username: String!
@@ -234,6 +230,15 @@ type UserNode implements Node {
   id: ID!
   hasStarted: Boolean
   isManager: Boolean!
+
+  """get or create a person review about this user from logged in user"""
+  personReview: PersonReviewNode
+
+  """list of person reviews about this user"""
+  personReviews: [PersonReviewNode!]!
+
+  """list of project reviews about this user"""
+  projectReviews: [ProjectReviewNode!]!
 }
 
 type ViewerNode implements Node {
@@ -251,7 +256,7 @@ type ViewerNode implements Node {
 
   """The ID of the object"""
   projectReview(id: ID!): ProjectReviewNode
-  projectReviews: [ProjectReviewNode!]!
+  projectReviews(revieweeId: ID): [ProjectReviewNode!]!
   usersToReview: [UserNode!]!
   settings: SettingsNode!
 
