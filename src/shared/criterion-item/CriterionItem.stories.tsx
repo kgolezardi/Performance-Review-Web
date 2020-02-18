@@ -6,9 +6,12 @@ import React from 'react';
 import { DictInput, Forminator, SubmitButton } from 'src/shared/forminator';
 import { themeDecorator } from 'src/stories/decorators/themeDecorator';
 import { CriterionItem } from './CriterionItem';
+import { promptDecorator, routerDecorator } from 'src/stories/decorators';
 
 storiesOf('Criterion Item', module)
   .addDecorator(themeDecorator())
+  .addDecorator(promptDecorator())
+  .addDecorator(routerDecorator())
   .add('simple', () => {
     return (
       <Container>

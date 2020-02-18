@@ -1,38 +1,47 @@
 import { i18n } from '@lingui/core';
 import { Box, Grid, makeStyles, Theme, Typography } from '@material-ui/core';
 import { CSSProperties } from '@material-ui/core/styles/withStyles';
+import graphql from 'babel-plugin-relay/macro';
 import React from 'react';
+import { useFragment } from 'react-relay/hooks';
 import { Evaluation } from 'src/global-types';
 import { NON_BREAKING_SPACE } from 'src/shared/constants';
 import { EvaluationOutput } from 'src/shared/evaluation-output';
 import { MultilineOutput } from 'src/shared/multiline-output';
 import { FCProps } from 'src/shared/types/FCProps';
 import { Styles } from 'src/shared/types/Styles';
+import { ProjectPeerReviewOutput_projectReview$key } from './__generated__/ProjectPeerReviewOutput_projectReview.graphql';
 
 interface OwnProps {
-  evaluation: '%future added value' | Evaluation | null;
-  evidence: string | null;
+  projectNode: ProjectPeerReviewOutput_projectReview$key;
 }
+
+const fragment = graphql`
+  fragment ProjectPeerReviewOutput_projectReview on ProjectReviewNode {
+    rating
+    text
+  }
+`;
 
 type Props = FCProps<OwnProps> & StyleProps;
 
 export function ProjectPeerReviewOutput(props: Props) {
-  const { evaluation, evidence } = props;
+  const projectReview = useFragment(fragment, props.projectNode);
   const classes = useStyles(props);
   return (
     <Box className={classes.root}>
-      <Grid container spacing={2}>
+      <Grid container>
         <Grid item xs={12}>
           <Typography variant="caption" gutterBottom>
             {i18n._('Evaluation')}
           </Typography>
-          <EvaluationOutput value={evaluation} type="peer" />
+          <EvaluationOutput value={projectReview.rating as Evaluation} type="peer" className={classes.mainTypography} />
         </Grid>
         <Grid item xs={12}>
           <Typography variant="caption" gutterBottom>
             {i18n._('Accomplishments')}:
           </Typography>
-          <MultilineOutput value={evidence || NON_BREAKING_SPACE} className={classes.typography} />
+          <MultilineOutput value={projectReview.text || NON_BREAKING_SPACE} className={classes.mainTypography} />
         </Grid>
       </Grid>
     </Box>
@@ -41,12 +50,13 @@ export function ProjectPeerReviewOutput(props: Props) {
 
 const styles = (theme: Theme) => ({
   root: {
-    backgroundColor: '#f5f5f5',
+    backgroundColor: theme.palette.grey[100],
     borderRadius: 4,
     padding: theme.spacing(2, 1.5),
+    width: '100%',
   } as CSSProperties,
-  typography: {
-    color: theme.palette.common.black,
+  mainTypography: {
+    color: theme.palette.grey[900],
   } as CSSProperties,
 });
 
