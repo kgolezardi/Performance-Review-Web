@@ -34,13 +34,13 @@ export function ProjectPeerReviewOutput(props: Props) {
           <Typography variant="caption" gutterBottom>
             {i18n._('Evaluation')}
           </Typography>
-          <EvaluationOutput value={projectReview.rating as Evaluation} type="self" className={classes.mainTypography} />
+          <EvaluationOutput value={projectReview.rating as Evaluation} type="self" className={classes.grayTypography} />
         </Grid>
         <Grid item xs={12}>
           <Typography variant="caption" gutterBottom>
             {i18n._('Accomplishments')}:
           </Typography>
-          <MultilineOutput value={projectReview.text} className={classes.mainTypography} />
+          <MultilineOutput value={projectReview.text} className={classes.grayTypography} />
         </Grid>
       </Grid>
     </Box>
@@ -54,7 +54,7 @@ const styles = (theme: Theme) => ({
     padding: theme.spacing(2, 1.5),
     width: '100%',
   } as CSSProperties,
-  mainTypography: {
+  grayTypography: {
     color: theme.palette.grey[900],
   } as CSSProperties,
 });
