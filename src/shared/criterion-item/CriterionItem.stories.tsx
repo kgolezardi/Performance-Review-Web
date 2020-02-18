@@ -4,11 +4,13 @@ import { action } from '@storybook/addon-actions';
 import { storiesOf } from '@storybook/react';
 import React from 'react';
 import { DictInput, Forminator, SubmitButton } from 'src/shared/forminator';
-import { themeDecorator } from 'src/stories/decorators/themeDecorator';
+import { promptDecorator, routerDecorator, themeDecorator } from 'src/stories/decorators';
 import { CriterionItem } from './CriterionItem';
 
 storiesOf('Criterion Item', module)
   .addDecorator(themeDecorator())
+  .addDecorator(promptDecorator())
+  .addDecorator(routerDecorator())
   .add('simple', () => {
     return (
       <Container>

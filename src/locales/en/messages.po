@@ -15,13 +15,13 @@ msgstr ""
 
 #: src/pages/projects-page/ProjectForm.tsx:71
 #: src/shared/project-manager-review/ProjectManagerReview.tsx:29
-#: src/shared/project-peer-reveiw-output/ProjectPeerReviewOutput.tsx:20
+#: src/shared/project-peer-review-output/ProjectPeerReviewOutput.tsx:27
 msgid "Accomplishments"
 msgstr "Accomplishments"
 
 #: src/pages/dashboard-page/DashboardPage.tsx:51
 #: src/pages/manager-review-page/ManagerReviewContent.tsx:36
-#: src/pages/peer-review-page/PeerReviewPage.tsx:16
+#: src/pages/peer-review-page/PeerReviewPage.tsx:19
 #: src/pages/self-review-page/SelfReviewPage.tsx:22
 msgid "Achievements"
 msgstr "Achievements"
@@ -51,9 +51,10 @@ msgstr "Begin my review"
 msgid "Cancel"
 msgstr "Cancel"
 
-#: src/pages/criteria-page/CriteriaPage.tsx:60
+#: src/pages/criteria-page/CriteriaPage.tsx:64
 #: src/pages/projects-page/ProjectsPage.tsx:79
 #: src/pages/strengths-weaknesses-page/StrengthsWeaknessesPage.tsx:59
+#: src/stories/decorators/promptDecorator.tsx:5
 msgid "Changes you made may not be saved."
 msgstr "Changes you made may not be saved."
 
@@ -79,7 +80,7 @@ msgstr "Delete"
 
 #: src/pages/dashboard-page/DashboardPage.tsx:43
 #: src/pages/manager-review-page/ManagerReviewContent.tsx:35
-#: src/pages/peer-review-page/PeerReviewPage.tsx:15
+#: src/pages/peer-review-page/PeerReviewPage.tsx:18
 #: src/pages/self-review-page/SelfReviewPage.tsx:21
 msgid "Dominant Characteristics"
 msgstr "Dominant Characteristics"
@@ -99,7 +100,8 @@ msgstr "Error"
 
 #: src/shared/criterion-item/CriterionItem.tsx:22
 #: src/shared/criterion-output-item/CriterionOutputItem.tsx:16
-#: src/shared/project-peer-reveiw-output/ProjectPeerReviewOutput.tsx:14
+#: src/shared/project-peer-review-form/ProjectPeerReviewForm.tsx:32
+#: src/shared/project-peer-review-output/ProjectPeerReviewOutput.tsx:21
 msgid "Evaluation"
 msgstr "Evaluation"
 
@@ -124,7 +126,7 @@ msgstr "Exceeds Expectations from Him/Her"
 msgid "Exceeds Expectations from me"
 msgstr "Exceeds Expectations from me"
 
-#: src/pages/criteria-page/CriteriaForm.tsx:38
+#: src/pages/criteria-page/CriteriaForm.tsx:54
 #: src/shared/criteria-manager-review/CriteriaManagerReview.tsx:17
 msgid "Execution"
 msgstr "Execution"
@@ -136,6 +138,7 @@ msgid "FAQ"
 msgstr "FAQ"
 
 #: src/pages/projects-page/ProjectForm.tsx:71
+#: src/shared/project-peer-review-form/ProjectPeerReviewForm.tsx:39
 msgid "For instance, your personal key-results may be your accomplishments."
 msgstr "For instance, your personal key-results may be your accomplishments."
 
@@ -182,7 +185,7 @@ msgstr "It'd be good if u wrote more!"
 msgid "It's complete!"
 msgstr "It's complete!"
 
-#: src/pages/criteria-page/CriteriaForm.tsx:44
+#: src/pages/criteria-page/CriteriaForm.tsx:60
 #: src/shared/criteria-manager-review/CriteriaManagerReview.tsx:23
 msgid "Leadership"
 msgstr "Leadership"
@@ -226,7 +229,7 @@ msgstr "No Options"
 msgid "No! Wait"
 msgstr "No! Wait"
 
-#: src/pages/criteria-page/CriteriaForm.tsx:32
+#: src/pages/criteria-page/CriteriaForm.tsx:48
 #: src/shared/criteria-manager-review/CriteriaManagerReview.tsx:11
 msgid "Organization Culture Adoption"
 msgstr "Organization Culture Adoption"
@@ -241,7 +244,7 @@ msgstr "People who will comment on your accomplishments and write your performan
 
 #: src/pages/dashboard-page/DashboardPage.tsx:35
 #: src/pages/manager-review-page/ManagerReviewContent.tsx:34
-#: src/pages/peer-review-page/PeerReviewPage.tsx:14
+#: src/pages/peer-review-page/PeerReviewPage.tsx:17
 #: src/pages/self-review-page/SelfReviewPage.tsx:20
 msgid "Performance Competencies"
 msgstr "Performance Competencies"
@@ -264,12 +267,12 @@ msgstr "Performance to initial expectation"
 msgid "Persian"
 msgstr "فارسی"
 
-#: src/pages/criteria-page/CriteriaForm.tsx:47
+#: src/pages/criteria-page/CriteriaForm.tsx:63
 #: src/shared/criteria-manager-review/CriteriaManagerReview.tsx:26
 msgid "Presence"
 msgstr "Presence"
 
-#: src/pages/criteria-page/CriteriaForm.tsx:35
+#: src/pages/criteria-page/CriteriaForm.tsx:51
 #: src/shared/criteria-manager-review/CriteriaManagerReview.tsx:14
 msgid "Problem Solving"
 msgstr "Problem Solving"
@@ -290,14 +293,15 @@ msgstr "Requested for {count} project(s) to reivew."
 msgid "Reviewers"
 msgstr "Reviewers"
 
-#: src/shared/criterion-item/CriterionItem.stories.tsx:17
+#: src/shared/criterion-item/CriterionItem.stories.tsx:19
 #: src/shared/criterion-output-item/CriterionOutputItem.stories.tsx:15
 msgid "Role Expertise and Self Development"
 msgstr "Role Expertise and Self Development"
 
-#: src/pages/criteria-page/CriteriaForm.tsx:52
+#: src/pages/criteria-page/CriteriaForm.tsx:68
 #: src/pages/projects-page/ProjectForm.tsx:85
 #: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:45
+#: src/shared/project-peer-review-form/ProjectPeerReviewForm.tsx:45
 msgid "Save"
 msgstr "Save"
 
@@ -323,7 +327,7 @@ msgid "Self Review"
 msgstr "Self Review"
 
 #: src/core/snackbar/Snackbar.stories.tsx:24
-#: src/pages/criteria-page/CriteriaPage.tsx:55
+#: src/pages/criteria-page/CriteriaPage.tsx:59
 #: src/pages/projects-page/ProjectsPage.tsx:50
 #: src/pages/strengths-weaknesses-page/StrengthsWeaknessesPage.tsx:55
 msgid "Something went wrong."
@@ -350,7 +354,7 @@ msgid "Submit"
 msgstr "Submit"
 
 #: src/core/snackbar/Snackbar.stories.tsx:14
-#: src/pages/criteria-page/CriteriaPage.tsx:52
+#: src/pages/criteria-page/CriteriaPage.tsx:56
 #: src/pages/projects-page/ProjectsPage.tsx:47
 #: src/pages/strengths-weaknesses-page/StrengthsWeaknessesPage.tsx:52
 msgid "Successfully saved."
@@ -361,7 +365,7 @@ msgstr "Successfully saved."
 msgid "Superb"
 msgstr "Superb"
 
-#: src/pages/criteria-page/CriteriaForm.tsx:41
+#: src/pages/criteria-page/CriteriaForm.tsx:57
 #: src/shared/criteria-manager-review/CriteriaManagerReview.tsx:20
 msgid "Thought Leadership"
 msgstr "Thought Leadership"
@@ -427,6 +431,18 @@ msgstr "You haven't started evaluating yet!"
 msgid "You're almost there!"
 msgstr "You're almost there!"
 
+#: src/shared/project-peer-review-form/ProjectPeerReviewForm.tsx:39
+msgid "Your comment"
+msgstr "Your comment"
+
+#: src/shared/project-peer-review-item/ProjectPeerReviewItem.tsx:52
+msgid "Your comment about {name}'s performance in this project"
+msgstr "Your comment about {name}'s performance in this project"
+
 #: src/pages/manager-review-page/ManagerReviewPage.tsx:20
 msgid "Your team members"
 msgstr "Your team members"
+
+#: src/shared/project-peer-review-item/ProjectPeerReviewItem.tsx:43
+msgid "{name}'s comment about his/her performance compared to initial expectation"
+msgstr "{name}'s comment about his/her performance compared to initial expectation"
