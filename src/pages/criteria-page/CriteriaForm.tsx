@@ -51,6 +51,7 @@ export function CriteriaForm(props: Props) {
   const { onSubmit, isSelfReview } = props;
   const components = useContext(MDXContext);
   const user = useFragment(fragmentUserNode, props.user);
+  const reviewType = isSelfReview ? 'self' : 'peer';
 
   return (
     <ServerValueProvider value={props.initialValue}>
@@ -71,7 +72,7 @@ export function CriteriaForm(props: Props) {
             <Grid item xs={12}>
               <CriterionItem
                 title={i18n._('Organization Culture Adoption')}
-                type={isSelfReview ? 'self' : 'peer'}
+                type={reviewType}
                 details={
                   isSelfReview ? (
                     <OrganizationCultureAdoptionContentSelfReview components={components} />
@@ -85,7 +86,7 @@ export function CriteriaForm(props: Props) {
             <Grid item xs={12}>
               <CriterionItem
                 title={i18n._('Problem Solving')}
-                type={isSelfReview ? 'self' : 'peer'}
+                type={reviewType}
                 details={
                   isSelfReview ? (
                     <ProblemSolvingContentSelfReview components={components} />
@@ -99,7 +100,7 @@ export function CriteriaForm(props: Props) {
             <Grid item xs={12}>
               <CriterionItem
                 title={i18n._('Execution')}
-                type={isSelfReview ? 'self' : 'peer'}
+                type={reviewType}
                 details={
                   isSelfReview ? (
                     <ExecutionContentSelfReview components={components} />
@@ -113,7 +114,7 @@ export function CriteriaForm(props: Props) {
             <Grid item xs={12}>
               <CriterionItem
                 title={i18n._('Thought Leadership')}
-                type={isSelfReview ? 'self' : 'peer'}
+                type={reviewType}
                 details={
                   isSelfReview ? (
                     <ThoughtLeadershipContentSelfReview components={components} />
@@ -127,7 +128,7 @@ export function CriteriaForm(props: Props) {
             <Grid item xs={12}>
               <CriterionItem
                 title={i18n._('Leadership')}
-                type={isSelfReview ? 'self' : 'peer'}
+                type={reviewType}
                 details={
                   isSelfReview ? (
                     <LeadershipContentSelfReview components={components} />
@@ -141,7 +142,7 @@ export function CriteriaForm(props: Props) {
             <Grid item xs={12}>
               <CriterionItem
                 title={i18n._('Presence')}
-                type={isSelfReview ? 'self' : 'peer'}
+                type={reviewType}
                 details={
                   isSelfReview ? (
                     <PresenceContentSelfReview components={components} />
