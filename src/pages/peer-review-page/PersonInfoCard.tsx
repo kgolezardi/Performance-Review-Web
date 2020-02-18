@@ -10,7 +10,6 @@ import { FCProps } from 'src/shared/types/FCProps';
 import { Styles } from 'src/shared/types/Styles';
 import { getUserLabel } from 'src/shared/utils/getUserLabel';
 import { localizeNumber } from 'src/shared/utils/localizeNumber.util';
-<<<<<<< HEAD
 import { useFinalSubmitMutation } from './finalSubmit.mutation';
 import { PersonInfoCard_user$key } from './__generated__/PersonInfoCard_user.graphql';
 
@@ -28,8 +27,6 @@ const fragment = graphql`
     }
   }
 `;
-=======
->>>>>>> feat: improve person-info-card
 
 interface OwnProps {
   user: PersonInfoCard_user$key;
@@ -45,19 +42,18 @@ export function PersonInfoCard(props: Props) {
 
   const finalSubmitMutation = useFinalSubmitMutation();
 
-<<<<<<< HEAD
   const handleSubmit = useCallback(() => {
     finalSubmitMutation({ input: { revieweeId: user.id, state: 'DONE' } });
   }, [user, finalSubmitMutation]);
 
   const numberOfProjects = localizeNumber(user.projectReviews.length, i18n.language as LanguageCodes);
-=======
-  const numberOfProjects = localizeNumber(user.projectReviews.length, 'fa');
->>>>>>> feat: improve person-info-card
 
-  const disabled = !user.projectReviews.every(projectReview =>
-    projectReview.comments.map(comment => (!!comment ? !!comment.rating && !!comment.rating : false)),
-  );
+  const disabled = !user.projectReviews.every(({ comments }) => {
+    if (!comments.length) {
+      return false;
+    }
+    return comments.map(comment => !!(comment?.text && comment?.rating));
+  });
 
   return (
     <Card classes={{ root: classes.root }}>
@@ -78,7 +74,6 @@ export function PersonInfoCard(props: Props) {
             // TODO: get avatar from server
             // src={avatar}
           >
-            {/* TODO: enhance this */}
             {user.firstName[0]}
           </Avatar>
         }
@@ -115,4 +110,3 @@ const styles = (theme: Theme) => ({
 
 const useStyles = makeStyles(styles, { name: 'PersonInfoCard' });
 type StyleProps = Styles<typeof styles>;
-

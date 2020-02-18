@@ -157,7 +157,7 @@ msgstr "کمتر از حد انتظاری که ازش میره"
 
 #: src/pages/peer-review-page/PersonInfoCard.tsx:35
 msgid "He/She asked your review on {numberOfProjects} project(s)"
-msgstr "در {numberOfProjects} پروژه از شما نظر خواسته"
+msgstr "در {numberOfProjects} پروژه از شما نظر خواسته است"
 
 #: src/pages/projects-page/ProjectForm.tsx:59
 msgid "How effective were you in this project?"

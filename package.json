@@ -12,7 +12,6 @@
     "@types/base64-url": "^2.2.0",
     "@types/jest": "^25.1.2",
     "@types/lingui__core": "^2.7.0",
-    "@types/lingui__macro": "^2.7.3",
     "@types/lingui__react": "^2.8.1",
     "@types/luxon": "^1.21.0",
     "@types/nanoid": "^2.1.0",

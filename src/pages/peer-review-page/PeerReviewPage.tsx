@@ -6,13 +6,23 @@ import React, { Suspense } from 'react';
 import { useLazyLoadQuery } from 'react-relay/hooks';
 import { Redirect, Route, Switch, useParams } from 'react-router-dom';
 import CriteriaPage from 'src/pages/criteria-page/CriteriaPage';
-import { PersonInfoCard } from 'src/pages/peer-review-page/PersonInfoCard';
-import { PeerReviewPageQuery } from 'src/pages/peer-review-page/__generated__/PeerReviewPageQuery.graphql';
 import { FullPageSpinner } from 'src/shared/loading';
 import { TabLink } from 'src/shared/tab';
 import { FCProps } from 'src/shared/types/FCProps';
 import { Styles } from 'src/shared/types/Styles';
 import { unescape } from 'src/shared/utils/base64.util';
+import { PersonInfoCard } from './PersonInfoCard';
+import { PeerReviewPageQuery } from './__generated__/PeerReviewPageQuery.graphql';
+
+const peerReviewPageQuery = graphql`
+  query PeerReviewPageQuery($id: ID!) {
+    viewer {
+      user(id: $id) {
+        ...PersonInfoCard_user
+      }
+    }
+  }
+`;
 
 interface Params {
   uid: string;
@@ -29,17 +39,17 @@ export default function PeerReviewPage(props: Props) {
   const toPrefix = '/peer-review/' + uid;
   const revieweeId = unescape(uid);
 
-  const data = useLazyLoadQuery<PeerReviewPageQuery>(peerReviewPageQuery, { id: uid });
+  const data = useLazyLoadQuery<PeerReviewPageQuery>(peerReviewPageQuery, { id: revieweeId });
+
+  if (!data.viewer.user) {
+    // TODO: handle this
+    return <div>No user found</div>;
+  }
 
   return (
     <Container maxWidth="md">
       <Box marginY={5}>
-        <PersonInfoCard
-          user={data.viewer.user}
-          // TODO: Add mutation
-          onComplete={() => {}}
-          classes={{ root: classes.personInfoCardRoot }}
-        >
+        <PersonInfoCard user={data.viewer.user} classes={{ root: classes.personInfoCardRoot }}>
           <Tabs value={tab ?? 'performance-competencies'} indicatorColor="primary" textColor="primary" centered>
             <TabLink
               label={i18n._('Performance Competencies')}
@@ -95,13 +105,3 @@ const styles = (theme: Theme) => ({
 
 const useStyles = makeStyles(styles, { name: 'PeerReviewPage' });
 type StyleProps = Styles<typeof styles>;
-
-const peerReviewPageQuery = graphql`
-  query PeerReviewPageQuery($id: ID!) {
-    viewer {
-      user(id: $id) {
-        ...PersonInfoCard_user
-      }
-    }
-  }
-`;
