@@ -1,7 +1,7 @@
 import { storiesOf } from '@storybook/react';
 import { Grid, Box } from '@material-ui/core';
 import React from 'react';
-import { themeDecorator } from 'src/stories/decorators';
+import { themeDecorator, routerDecorator } from 'src/stories/decorators';
 import { BoardList } from './BoardList';
 import { PlaceHolder } from './PlaceHolder';
 import { UserCard } from 'src/shared/user-card/UserCard';
@@ -26,6 +26,7 @@ const CustomBoardListWithChild = ({ title, count = 0 }: { title: string; count?:
 };
 storiesOf('Board List', module)
   .addDecorator(themeDecorator())
+  .addDecorator(routerDecorator())
   .add('default', () => {
     return (
       <Box padding={2}>
@@ -42,23 +43,23 @@ storiesOf('Board List', module)
       <Box padding={2}>
         <Grid container spacing={2}>
           <BoardList listTitle="انجام نشده">
-            <UserCard userFullName="SomeOne" description="Foo is good because!" />
+            <UserCard userId="my-id" userFullName="SomeOne" description="Foo is good because!" />
           </BoardList>
           <BoardList listTitle="انجام شده">
-            <UserCard userFullName="SomeOne" description="Foo is good because!" />
-            <UserCard userFullName="SomeOne" description="Foo is good because!" />
-            <UserCard userFullName="SomeOne" description="Foo is good because!" />
-            <UserCard userFullName="SomeOne" description="Foo is good because!" />
-            <UserCard userFullName="SomeOne" description="Foo is good because!" />
-            <UserCard userFullName="SomeOne" description="Foo is good because!" />
-            <UserCard userFullName="SomeOne" description="Foo is good because!" />
-            <UserCard userFullName="SomeOne" description="Foo is good because!" />
-            <UserCard userFullName="SomeOne" description="Foo is good because!" />
-            <UserCard userFullName="SomeOne" description="Foo is good because!" />
-            <UserCard userFullName="SomeOne" description="Foo is good because!" />
-            <UserCard userFullName="SomeOne" description="Foo is good because!" />
-            <UserCard userFullName="SomeOne" description="Foo is good because!" />
-            <UserCard userFullName="SomeOne" description="Foo is good because!" />
+            <UserCard userId="my-id" userFullName="SomeOne" description="Foo is good because!" />
+            <UserCard userId="my-id" userFullName="SomeOne" description="Foo is good because!" />
+            <UserCard userId="my-id" userFullName="SomeOne" description="Foo is good because!" />
+            <UserCard userId="my-id" userFullName="SomeOne" description="Foo is good because!" />
+            <UserCard userId="my-id" userFullName="SomeOne" description="Foo is good because!" />
+            <UserCard userId="my-id" userFullName="SomeOne" description="Foo is good because!" />
+            <UserCard userId="my-id" userFullName="SomeOne" description="Foo is good because!" />
+            <UserCard userId="my-id" userFullName="SomeOne" description="Foo is good because!" />
+            <UserCard userId="my-id" userFullName="SomeOne" description="Foo is good because!" />
+            <UserCard userId="my-id" userFullName="SomeOne" description="Foo is good because!" />
+            <UserCard userId="my-id" userFullName="SomeOne" description="Foo is good because!" />
+            <UserCard userId="my-id" userFullName="SomeOne" description="Foo is good because!" />
+            <UserCard userId="my-id" userFullName="SomeOne" description="Foo is good because!" />
+            <UserCard userId="my-id" userFullName="SomeOne" description="Foo is good because!" />
           </BoardList>
         </Grid>
       </Box>
