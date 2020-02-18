@@ -22,7 +22,7 @@ msgstr "دستاوردها"
 #: src/pages/dashboard-page/DashboardPage.tsx:51
 #: src/pages/manager-review-page/ManagerReviewContent.tsx:36
 #: src/pages/peer-review-page/PeerReviewPage.tsx:16
-#: src/pages/self-review-page/SelfReviewPage.tsx:20
+#: src/pages/self-review-page/SelfReviewPage.tsx:22
 msgid "Achievements"
 msgstr "دستاوردها"
 
@@ -31,7 +31,7 @@ msgstr "دستاوردها"
 msgid "Add"
 msgstr "افزودن"
 
-#: src/pages/peer-review-board-page/PeerReviewBoardPage.tsx:24
+#: src/pages/peer-review-board-page/PeerReviewBoardPage.tsx:58
 msgid "Add every review that completed here"
 msgstr "هر ارزیابی که تکمیل شد رو به اینجا اضافه کن"
 
@@ -51,9 +51,9 @@ msgstr "شروع ارزیابی من"
 msgid "Cancel"
 msgstr "لغو"
 
-#: src/pages/criteria-page/CriteriaPage.tsx:61
+#: src/pages/criteria-page/CriteriaPage.tsx:60
 #: src/pages/projects-page/ProjectsPage.tsx:79
-#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesPage.tsx:60
+#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesPage.tsx:59
 msgid "Changes you made may not be saved."
 msgstr "یعنی بدون ذخیره تغییرات می‌خوای بری؟؟"
 
@@ -80,11 +80,11 @@ msgstr "حذف"
 #: src/pages/dashboard-page/DashboardPage.tsx:43
 #: src/pages/manager-review-page/ManagerReviewContent.tsx:35
 #: src/pages/peer-review-page/PeerReviewPage.tsx:15
-#: src/pages/self-review-page/SelfReviewPage.tsx:19
+#: src/pages/self-review-page/SelfReviewPage.tsx:21
 msgid "Dominant Characteristics"
 msgstr "ویژگی‌های بارز"
 
-#: src/pages/peer-review-board-page/PeerReviewBoardPage.tsx:23
+#: src/pages/peer-review-board-page/PeerReviewBoardPage.tsx:57
 msgid "Done"
 msgstr "انجام شده"
 
@@ -142,7 +142,7 @@ msgstr "مثلاً ممکنه Key Result های شخصیتون، دستاورد�
 msgid "Go to Achievements page and add projects you have participated in"
 msgstr "به صفحه‌ی دستاوردها برو و پروژه‌هایی که در آن‌ها شرکت داشتی را وارد کن"
 
-#: src/pages/peer-review-board-page/PeerReviewBoardPage.tsx:14
+#: src/pages/peer-review-board-page/PeerReviewBoardPage.tsx:48
 msgid "Good job!"
 msgstr "باریکلا! چه خوب که همه رو داری انجام میدی یا شایدم تمومشون کردی"
 
@@ -162,7 +162,7 @@ msgstr "کمتر از حد انتظاری که از من میره"
 msgid "I thought you forgot to write your strengths!"
 msgstr "کاش یه نقطه‌ی قوت هم بنویسی!"
 
-#: src/pages/peer-review-board-page/PeerReviewBoardPage.tsx:18
+#: src/pages/peer-review-board-page/PeerReviewBoardPage.tsx:52
 msgid "In Progress"
 msgstr "در حال انجام"
 
@@ -240,7 +240,7 @@ msgstr "کسانی هستن که روی دستاوردهاتون کامنت می
 #: src/pages/dashboard-page/DashboardPage.tsx:35
 #: src/pages/manager-review-page/ManagerReviewContent.tsx:34
 #: src/pages/peer-review-page/PeerReviewPage.tsx:14
-#: src/pages/self-review-page/SelfReviewPage.tsx:18
+#: src/pages/self-review-page/SelfReviewPage.tsx:20
 msgid "Performance Competencies"
 msgstr "شایستگی‌های عملکردی"
 
@@ -280,6 +280,10 @@ msgstr "برنامه‌نویسان در حال تایپند...‌"
 msgid "Projects"
 msgstr "پروژه‌ها"
 
+#: src/pages/peer-review-board-page/PeerReviewBoardPage.tsx:39
+msgid "Requested for {count} project(s) to reivew."
+msgstr "در {count} پروژه از شما نظر خواسته است"
+
 #: src/pages/projects-page/ProjectForm.tsx:77
 msgid "Reviewers"
 msgstr "مرورکننده‌ها"
@@ -317,9 +321,9 @@ msgid "Self Review"
 msgstr "ارزیابی من"
 
 #: src/core/snackbar/Snackbar.stories.tsx:24
-#: src/pages/criteria-page/CriteriaPage.tsx:56
+#: src/pages/criteria-page/CriteriaPage.tsx:55
 #: src/pages/projects-page/ProjectsPage.tsx:50
-#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesPage.tsx:56
+#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesPage.tsx:55
 msgid "Something went wrong."
 msgstr "خطایی رخ داد."
 
@@ -344,9 +348,9 @@ msgid "Submit"
 msgstr "ثبت"
 
 #: src/core/snackbar/Snackbar.stories.tsx:14
-#: src/pages/criteria-page/CriteriaPage.tsx:53
+#: src/pages/criteria-page/CriteriaPage.tsx:52
 #: src/pages/projects-page/ProjectsPage.tsx:47
-#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesPage.tsx:53
+#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesPage.tsx:52
 msgid "Successfully saved."
 msgstr "با موفقیت ثبت گردید."
 
@@ -360,7 +364,7 @@ msgstr "فوق‌العاده"
 msgid "Thought Leadership"
 msgstr "مرجعیت تخصصی"
 
-#: src/pages/peer-review-board-page/PeerReviewBoardPage.tsx:13
+#: src/pages/peer-review-board-page/PeerReviewBoardPage.tsx:47
 msgid "Todo"
 msgstr "انجام نشده"
 
@@ -401,7 +405,7 @@ msgstr "بله"
 msgid "Yes! Go"
 msgstr "آره! می‌رم"
 
-#: src/pages/peer-review-board-page/PeerReviewBoardPage.tsx:19
+#: src/pages/peer-review-board-page/PeerReviewBoardPage.tsx:53
 msgid "You don't start to review yet!"
 msgstr "هنوز شروع به ارزیابی نکردی!"
 
