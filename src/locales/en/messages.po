@@ -15,7 +15,7 @@ msgstr ""
 
 #: src/pages/projects-page/ProjectForm.tsx:71
 #: src/shared/project-manager-review/ProjectManagerReview.tsx:29
-#: src/shared/project-peer-review-output/ProjectPeerReviewOutput.tsx:28
+#: src/shared/project-peer-review-output/ProjectPeerReviewOutput.tsx:27
 msgid "Accomplishments"
 msgstr "Accomplishments"
 
@@ -100,8 +100,8 @@ msgstr "Error"
 
 #: src/shared/criterion-item/CriterionItem.tsx:22
 #: src/shared/criterion-output-item/CriterionOutputItem.tsx:16
-#: src/shared/project-peer-review-form/ProjectPeerReviewForm.tsx:27
-#: src/shared/project-peer-review-output/ProjectPeerReviewOutput.tsx:22
+#: src/shared/project-peer-review-form/ProjectPeerReviewForm.tsx:32
+#: src/shared/project-peer-review-output/ProjectPeerReviewOutput.tsx:21
 msgid "Evaluation"
 msgstr "Evaluation"
 
@@ -138,7 +138,7 @@ msgid "FAQ"
 msgstr "FAQ"
 
 #: src/pages/projects-page/ProjectForm.tsx:71
-#: src/shared/project-peer-review-form/ProjectPeerReviewForm.tsx:40
+#: src/shared/project-peer-review-form/ProjectPeerReviewForm.tsx:39
 msgid "For instance, your personal key-results may be your accomplishments."
 msgstr "For instance, your personal key-results may be your accomplishments."
 
@@ -431,11 +431,11 @@ msgstr "You haven't started evaluating yet!"
 msgid "You're almost there!"
 msgstr "You're almost there!"
 
-#: src/shared/project-peer-review-form/ProjectPeerReviewForm.tsx:34
+#: src/shared/project-peer-review-form/ProjectPeerReviewForm.tsx:39
 msgid "Your comment"
 msgstr "Your comment"
 
-#: src/shared/project-peer-review-item/ProjectPeerReviewItem.tsx:48
+#: src/shared/project-peer-review-item/ProjectPeerReviewItem.tsx:52
 msgid "Your comment about {name}'s performance in this project"
 msgstr "Your comment about {name}'s performance in this project"
 
@@ -443,6 +443,6 @@ msgstr "Your comment about {name}'s performance in this project"
 msgid "Your team members"
 msgstr "Your team members"
 
-#: src/shared/project-peer-review-item/ProjectPeerReviewItem.tsx:40
+#: src/shared/project-peer-review-item/ProjectPeerReviewItem.tsx:43
 msgid "{name}'s comment about his/her performance compared to initial expectation"
 msgstr "{name}'s comment about his/her performance compared to initial expectation"
