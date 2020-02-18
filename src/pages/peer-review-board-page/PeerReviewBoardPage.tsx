@@ -59,6 +59,7 @@ const groupByState = groupBy<UserType>((user: UserType) => {
 const generateCardList = (cardList: PeerReviewBoardPage_user) =>
   cardList.map((item: UserType) => (
     <UserCard
+      key={item.id}
       userId={item.id}
       userFullName={getUserLabel({ firstName: item.firstName, lastName: item.lastName, username: item.username })}
       description={i18n._('Requested for {count} project(s) to reivew.', { count: item.projectReviews.length })}
