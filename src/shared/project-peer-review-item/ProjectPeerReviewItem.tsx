@@ -1,6 +1,15 @@
 import { i18n } from '@lingui/core';
-import { Box, Divider, Grid, makeStyles, Theme, Typography } from '@material-ui/core';
+import {
+  ExpansionPanel,
+  ExpansionPanelDetails,
+  ExpansionPanelSummary,
+  Grid,
+  makeStyles,
+  Theme,
+  Typography,
+} from '@material-ui/core';
 import { CSSProperties } from '@material-ui/core/styles/withStyles';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import graphql from 'babel-plugin-relay/macro';
 import React, { useCallback } from 'react';
 import { useFragment } from 'react-relay/hooks';
@@ -48,30 +57,35 @@ export function ProjectPeerReviewItem(props: Props) {
   const name = projectReview.project.name;
 
   return (
-    <Box>
-      <Grid container spacing={2}>
-        <Grid item xs={12}>
-          <Typography variant="h5">{name}</Typography>
+    <ExpansionPanel
+      defaultExpanded={true}
+      elevation={0}
+      classes={{ root: classes.expansionPanelRoot, expanded: classes.expansionPanelExpanded }}
+    >
+      <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
+        <Typography variant="h5">{name}</Typography>
+      </ExpansionPanelSummary>
+      <ExpansionPanelDetails>
+        <Grid container spacing={2}>
+          <Grid item xs={12}>
+            <Typography variant="button" className={classes.detailTypography}>
+              {i18n._("{name}'s comment about his/her performance compared to initial expectation", { name })}
+            </Typography>
+          </Grid>
+          <Grid item xs={12}>
+            <ProjectPeerReviewOutput projectNode={projectReview} />
+          </Grid>
+          <Grid item xs={12}>
+            <Typography variant="button" className={classes.detailTypography}>
+              {i18n._("Your comment about {name}'s performance in this project", { name })}
+            </Typography>
+          </Grid>
+          <Grid item xs={12}>
+            <ProjectPeerReviewForm onSubmit={onSubmit} projectComment={projectReview.comment} />
+          </Grid>
         </Grid>
-        <Grid item xs={12}>
-          <Typography variant="button" className={classes.detailTypography}>
-            {i18n._("{name}'s comment about his/her performance compared to initial expectation", { name })}
-          </Typography>
-        </Grid>
-        <Grid item xs={12}>
-          <ProjectPeerReviewOutput projectNode={projectReview} />
-        </Grid>
-        <Grid item xs={12}>
-          <Typography variant="button" className={classes.detailTypography}>
-            {i18n._("Your comment about {name}'s performance in this project", { name })}
-          </Typography>
-        </Grid>
-        <Grid item xs={12}>
-          <ProjectPeerReviewForm onSubmit={onSubmit} projectComment={projectReview.comment} />
-        </Grid>
-        <Divider variant="fullWidth" className={classes.divider} />
-      </Grid>
-    </Box>
+      </ExpansionPanelDetails>
+    </ExpansionPanel>
   );
 }
 
@@ -79,12 +93,19 @@ const styles = (theme: Theme) => ({
   detailTypography: {
     color: theme.palette.grey[700],
   } as CSSProperties,
-  criterionItemRoot: {
-    paddingTop: 0,
+  expansionPanelRoot: {
+    '&:first-child:before': {
+      display: 'none',
+    },
+    '&:not(:first-child):before': {
+      display: 'block !important',
+      opacity: '100% !important',
+    },
+    '&$expansionPanelExpanded': {
+      margin: 0,
+    },
   } as CSSProperties,
-  divider: {
-    width: '100%',
-  } as CSSProperties,
+  expansionPanelExpanded: {} as CSSProperties,
 });
 
 const useStyles = makeStyles(styles, { name: 'ProjectPeerReviewItem' });

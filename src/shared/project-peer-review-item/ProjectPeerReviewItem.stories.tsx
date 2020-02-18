@@ -1,7 +1,6 @@
-import { Container, Grid } from '@material-ui/core';
 import { storiesOf } from '@storybook/react';
 import graphql from 'babel-plugin-relay/macro';
-import React from 'react';
+import React, { Fragment } from 'react';
 import { useLazyLoadQuery } from 'react-relay/hooks';
 import { promptDecorator, relayDecorator, routerDecorator, themeDecorator } from 'src/stories/decorators';
 import { ProjectPeerReviewItem } from './ProjectPeerReviewItem';
@@ -25,14 +24,10 @@ storiesOf('Project Peer Review Item', module)
   .add('Peer Review', () => {
     const data = useLazyLoadQuery<ProjectPeerReviewItemQuery>(query, {});
     return (
-      <Container>
-        <Grid container spacing={2}>
-          {data.viewer.projectReviews.map((review, index) => (
-            <Grid item xs={12} key={index}>
-              <ProjectPeerReviewItem projectReview={review} />
-            </Grid>
-          ))}
-        </Grid>
-      </Container>
+      <Fragment>
+        {data.viewer.projectReviews.map((review, index) => (
+          <ProjectPeerReviewItem projectReview={review} key={index} />
+        ))}
+      </Fragment>
     );
   });
