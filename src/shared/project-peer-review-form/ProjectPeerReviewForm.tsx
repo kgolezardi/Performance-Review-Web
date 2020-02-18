@@ -1,5 +1,5 @@
 import { i18n } from '@lingui/core';
-import { Box, Grid, makeStyles, Theme, Typography } from '@material-ui/core';
+import { Box, Grid, makeStyles, Theme } from '@material-ui/core';
 import { CSSProperties } from '@material-ui/core/styles/withStyles';
 import graphql from 'babel-plugin-relay/macro';
 import React from 'react';
@@ -60,14 +60,15 @@ export function ProjectPeerReviewForm(props: Props) {
             </Grid>
             <Grid item xs={12}>
               <DictInputItem field="text">
-                <LimitedTextAreaInput label={i18n._('Your comment')} variant="outlined" maxChars={512} fullWidth />
+                <LimitedTextAreaInput
+                  label={i18n._('Your comment')}
+                  variant="outlined"
+                  maxChars={512}
+                  fullWidth
+                  helperText={i18n._('For instance, your personal key-results may be your accomplishments.')}
+                />
                 <FragmentPrompt value={projectComment?.text || ''} />
               </DictInputItem>
-            </Grid>
-            <Grid item xs={12}>
-              <Typography variant="caption" paragraph={true} className={classes.captionTypography}>
-                {i18n._('For instance, your personal key-results may be your accomplishments.')}
-              </Typography>
             </Grid>
             <Grid item className={classes.submitButtonGrid}>
               <SubmitButton variant="contained" color="primary">
@@ -82,10 +83,6 @@ export function ProjectPeerReviewForm(props: Props) {
 }
 
 const styles = (theme: Theme) => ({
-  captionTypography: {
-    color: theme.palette.grey[700],
-    paddingTop: theme.spacing(1),
-  } as CSSProperties,
   submitButtonGrid: {
     marginLeft: 'auto',
   } as CSSProperties,
