@@ -31,7 +31,7 @@ interface OwnProps {
   projectComment: ProjectPeerReviewForm_projectComment$key | null;
 }
 
-type Props = FCProps<OwnProps>;
+type Props = FCProps<OwnProps> & StyleProps;
 
 const fragment = graphql`
   fragment ProjectPeerReviewForm_projectComment on ProjectCommentNode {
