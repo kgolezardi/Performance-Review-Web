@@ -21,7 +21,7 @@ msgstr "Accomplishments"
 
 #: src/pages/dashboard-page/DashboardPage.tsx:51
 #: src/pages/manager-review-page/ManagerReviewContent.tsx:36
-#: src/pages/peer-review-page/PeerReviewPage.tsx:19
+#: src/pages/peer-review-page/PeerReviewPage.tsx:26
 #: src/pages/self-review-page/SelfReviewPage.tsx:22
 msgid "Achievements"
 msgstr "Achievements"
@@ -80,13 +80,14 @@ msgstr "Delete"
 
 #: src/pages/dashboard-page/DashboardPage.tsx:43
 #: src/pages/manager-review-page/ManagerReviewContent.tsx:35
-#: src/pages/peer-review-page/PeerReviewPage.tsx:18
+#: src/pages/peer-review-page/PeerReviewPage.tsx:25
 #: src/pages/self-review-page/SelfReviewPage.tsx:21
 msgid "Dominant Characteristics"
 msgstr "Dominant Characteristics"
 
 #: src/assets/icons/Done.tsx:5
 #: src/pages/peer-review-board-page/PeerReviewBoardPage.tsx:59
+#: src/pages/peer-review-page/PersonInfoCard.tsx:21
 msgid "Done"
 msgstr "Done"
 
@@ -153,6 +154,10 @@ msgstr "Good job!"
 #: src/global-types/Evaluation.ts:16
 msgid "He/She Needs Improvement"
 msgstr "He/She Needs Improvement"
+
+#: src/pages/peer-review-page/PersonInfoCard.tsx:18
+msgid "He/She asked your review on {numberOfProjects} project(s)"
+msgstr "He/She asked your review on {numberOfProjects} project(s)"
 
 #: src/pages/projects-page/ProjectForm.tsx:59
 msgid "How effective were you in this project?"
@@ -244,7 +249,7 @@ msgstr "People who will comment on your accomplishments and write your performan
 
 #: src/pages/dashboard-page/DashboardPage.tsx:35
 #: src/pages/manager-review-page/ManagerReviewContent.tsx:34
-#: src/pages/peer-review-page/PeerReviewPage.tsx:17
+#: src/pages/peer-review-page/PeerReviewPage.tsx:24
 #: src/pages/self-review-page/SelfReviewPage.tsx:20
 msgid "Performance Competencies"
 msgstr "Performance Competencies"
