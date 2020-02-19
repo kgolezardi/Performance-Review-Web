@@ -41,6 +41,7 @@ const userFragment = graphql`
     firstName
     lastName
     username
+    avatarUrl
     personReview {
       state
     }
@@ -59,6 +60,7 @@ const groupByState = groupBy<UserType>((user: UserType) => {
 const generateCardList = (cardList: PeerReviewBoardPage_user) =>
   cardList.map((item: UserType) => (
     <UserCard
+      profilePicture={item.avatarUrl || undefined}
       key={item.id}
       userId={item.id}
       userFullName={getUserLabel({ firstName: item.firstName, lastName: item.lastName, username: item.username })}

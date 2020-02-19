@@ -1,5 +1,5 @@
 # source: http://127.0.0.1:8000/graphql
-# timestamp: Tue Feb 18 2020 15:52:28 GMT+0330 (Iran Standard Time)
+# timestamp: Wed Feb 19 2020 18:29:23 GMT+0330 (Iran Standard Time)
 
 input ChangePasswordMutationInput {
   oldPassword: String!
@@ -229,6 +229,7 @@ type UserNode implements Node {
   username: String!
   firstName: String!
   lastName: String!
+  avatarUrl: String
 
   """The ID of the object."""
   id: ID!
