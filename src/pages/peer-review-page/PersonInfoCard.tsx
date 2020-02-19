@@ -3,7 +3,9 @@ import { Avatar, Button, Card, CardContent, CardHeader, Divider, makeStyles, The
 import { red } from '@material-ui/core/colors';
 import { CSSProperties } from '@material-ui/core/styles/withStyles';
 import graphql from 'babel-plugin-relay/macro';
-import React, { useCallback } from 'react';
+import clsx from 'clsx';
+import React, { Fragment, useCallback } from 'react';
+import { useInView } from 'react-intersection-observer';
 import { useFragment } from 'react-relay/hooks';
 import { LanguageCodes } from 'src/core/locales/types';
 import { FCProps } from 'src/shared/types/FCProps';
@@ -38,6 +40,8 @@ export function PersonInfoCard(props: Props) {
   const { children } = props;
   const classes = useStyles(props);
 
+  const [ref, inView] = useInView();
+
   const user = useFragment<PersonInfoCard_user$key>(fragment, props.user);
 
   const finalSubmitMutation = useFinalSubmitMutation();
@@ -56,33 +60,37 @@ export function PersonInfoCard(props: Props) {
   });
 
   return (
-    <Card classes={{ root: classes.root }}>
-      <CardHeader
-        title={getUserLabel(user)}
-        subheader={i18n._('He/She asked your review on {numberOfProjects} project(s)', {
-          numberOfProjects,
-        })}
-        action={
-          <Button onClick={handleSubmit} variant="contained" color="secondary" disabled={disabled}>
-            {i18n._('Done')}
-          </Button>
-        }
-        avatar={
-          <Avatar
-            // TODO: show random color
-            className={classes.avatar}
-            // TODO: get avatar from server
-            // src={avatar}
-          >
-            {user.firstName[0]}
-          </Avatar>
-        }
-        titleTypographyProps={{ variant: 'h5', gutterBottom: true }}
-        classes={{ root: classes.headerRoot, action: classes.action }}
-      />
-      <Divider variant="middle" />
-      <CardContent classes={{ root: classes.content }}>{children}</CardContent>
-    </Card>
+    <Fragment>
+      {/* TODO: extract inView component */}
+      <div className={classes.inViewSpy} ref={ref} />
+      <Card classes={{ root: classes.root }}>
+        <CardHeader
+          title={getUserLabel(user)}
+          subheader={i18n._('He/She asked your review on {numberOfProjects} project(s)', {
+            numberOfProjects,
+          })}
+          action={
+            <Button onClick={handleSubmit} variant="contained" color="secondary" disabled={disabled}>
+              {i18n._('Done')}
+            </Button>
+          }
+          avatar={
+            <Avatar
+              // TODO: show random color
+              className={clsx(classes.avatar, { [classes.avatarShrink]: !inView })}
+              // TODO: get avatar from server
+              // src={avatar}
+            >
+              {user.firstName[0]}
+            </Avatar>
+          }
+          titleTypographyProps={{ variant: 'h5', gutterBottom: true }}
+          classes={{ root: classes.headerRoot, action: classes.action }}
+        />
+        <Divider variant="middle" />
+        <CardContent classes={{ root: classes.content }}>{children}</CardContent>
+      </Card>
+    </Fragment>
   );
 }
 
@@ -95,6 +103,11 @@ const styles = (theme: Theme) => ({
     backgroundColor: red[500],
     width: 80,
     height: 80,
+    transition: theme.transitions.create(['width', 'height']),
+  } as CSSProperties,
+  avatarShrink: {
+    width: 48,
+    height: 48,
   } as CSSProperties,
   action: {
     margin: 0,
@@ -105,6 +118,11 @@ const styles = (theme: Theme) => ({
     '&:last-child': {
       padding: theme.spacing(),
     },
+  } as CSSProperties,
+  inViewSpy: {
+    height: 1,
+    width: '100%',
+    backgroundColor: 'transparent',
   } as CSSProperties,
 });
 
