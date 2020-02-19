@@ -208,24 +208,6 @@ msgstr "Meets Expectations from Him/Her"
 msgid "Meets Expectations from me"
 msgstr "Meets Expectations from me"
 
-#: src/pages/manager-review-page/DominantCharacteristics.tsx:15
-#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:48
-msgid "Most important characteristics or behaviours I should improve in myself"
-msgstr "Most important characteristics or behaviours I should improve in myself"
-
-#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:49
-msgid "Most important characteristics or behaviours he/she should improve in myself"
-msgstr "Most important characteristics or behaviours he/she should improve in myself"
-
-#: src/pages/manager-review-page/DominantCharacteristics.tsx:12
-#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:39
-msgid "Most important characteristics or effective behaviours that I should maintain"
-msgstr "Most important characteristics or effective behaviours that I should maintain"
-
-#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:40
-msgid "Most important characteristics or effective behaviours that he/she should maintain"
-msgstr "Most important characteristics or effective behaviours that he/she should maintain"
-
 #: src/pages/projects-page/ProjectForm.tsx:64
 msgid "My impact"
 msgstr "My impact"
@@ -378,6 +360,24 @@ msgstr "Successfully saved."
 #: src/global-types/Evaluation.ts:19
 msgid "Superb"
 msgstr "Superb"
+
+#: src/pages/manager-review-page/DominantCharacteristics.tsx:15
+#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:48
+msgid "The most important characteristics or behaviours I should improve in myself"
+msgstr "The most important characteristics or behaviours I should improve in myself"
+
+#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:49
+msgid "The most important characteristics or behaviours he/she should"
+msgstr "The most important characteristics or behaviours he/she should"
+
+#: src/pages/manager-review-page/DominantCharacteristics.tsx:12
+#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:39
+msgid "The most important characteristics or effective behaviours that I should maintain"
+msgstr "The most important characteristics or effective behaviours that I should maintain"
+
+#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:40
+msgid "The most important characteristics or effective behaviours that he/she should maintain"
+msgstr "The most important characteristics or effective behaviours that he/she should maintain"
 
 #: src/pages/criteria-page/CriteriaForm.tsx:57
 #: src/shared/criteria-manager-review/CriteriaManagerReview.tsx:20
