@@ -24,6 +24,7 @@ const useStrengthsWeaknessesPageMutation = () =>
       savePersonReview(input: $input) {
         personReview {
           id
+          state
           ...DominantCharacteristicsCircularIndicator_review
         }
       }

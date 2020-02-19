@@ -24,6 +24,7 @@ const useCriteriaPageMutation = () =>
       savePersonReview(input: $input) {
         personReview {
           id
+          state
           ...PerformanceCompetenciesCircularIndicator_review
           ...DominantCharacteristicsCircularIndicator_review
         }
