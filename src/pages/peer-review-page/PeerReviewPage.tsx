@@ -50,23 +50,21 @@ export default function PeerReviewPage(props: Props) {
 
   return (
     <Container maxWidth="md">
-      <Box marginTop={5}>
-        <PersonInfoCard user={data.viewer.user} classes={{ root: classes.personInfoCardRoot }}>
-          <Tabs value={tab ?? 'performance-competencies'} indicatorColor="primary" textColor="primary" centered>
-            <TabLink
-              label={i18n._('Performance Competencies')}
-              value="performance-competencies"
-              to={toPrefix + '/performance-competencies'}
-            />
-            <TabLink
-              label={i18n._('Dominant Characteristics')}
-              value="dominant-characteristics"
-              to={toPrefix + '/dominant-characteristics'}
-            />
-            <TabLink label={i18n._('Achievements')} value="achievements" to={toPrefix + '/achievements'} />
-          </Tabs>
-        </PersonInfoCard>
-      </Box>
+      <PersonInfoCard user={data.viewer.user} classes={{ root: classes.personInfoCardRoot }}>
+        <Tabs value={tab ?? 'performance-competencies'} indicatorColor="primary" textColor="primary" centered>
+          <TabLink
+            label={i18n._('Performance Competencies')}
+            value="performance-competencies"
+            to={toPrefix + '/performance-competencies'}
+          />
+          <TabLink
+            label={i18n._('Dominant Characteristics')}
+            value="dominant-characteristics"
+            to={toPrefix + '/dominant-characteristics'}
+          />
+          <TabLink label={i18n._('Achievements')} value="achievements" to={toPrefix + '/achievements'} />
+        </Tabs>
+      </PersonInfoCard>
       <Box marginY={2}>
         <Paper>
           <Suspense
@@ -100,6 +98,7 @@ const styles = (theme: Theme) => ({
     position: 'sticky',
     top: 0,
     zIndex: theme.zIndex.appBar - 25,
+    marginTop: theme.spacing(5),
     marginLeft: -theme.spacing(3),
     marginRight: -theme.spacing(3),
   } as CSSProperties,
