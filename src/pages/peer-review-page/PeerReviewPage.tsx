@@ -15,6 +15,7 @@ import { Styles } from 'src/shared/types/Styles';
 import { unescape } from 'src/shared/utils/base64.util';
 import { PeerReviewPageQuery } from './__generated__/PeerReviewPageQuery.graphql';
 import { PersonInfoCard } from './PersonInfoCard';
+import { InView } from 'src/shared/in-view';
 
 const peerReviewPageQuery = graphql`
   query PeerReviewPageQuery($id: ID!) {
@@ -50,21 +51,23 @@ export default function PeerReviewPage(props: Props) {
 
   return (
     <Container maxWidth="md">
-      <PersonInfoCard user={data.viewer.user} classes={{ root: classes.personInfoCardRoot }}>
-        <Tabs value={tab ?? 'performance-competencies'} indicatorColor="primary" textColor="primary" centered>
-          <TabLink
-            label={i18n._('Performance Competencies')}
-            value="performance-competencies"
-            to={toPrefix + '/performance-competencies'}
-          />
-          <TabLink
-            label={i18n._('Dominant Characteristics')}
-            value="dominant-characteristics"
-            to={toPrefix + '/dominant-characteristics'}
-          />
-          <TabLink label={i18n._('Achievements')} value="achievements" to={toPrefix + '/achievements'} />
-        </Tabs>
-      </PersonInfoCard>
+      <InView>
+        <PersonInfoCard user={data.viewer.user} classes={{ root: classes.personInfoCardRoot }}>
+          <Tabs value={tab ?? 'performance-competencies'} indicatorColor="primary" textColor="primary" centered>
+            <TabLink
+              label={i18n._('Performance Competencies')}
+              value="performance-competencies"
+              to={toPrefix + '/performance-competencies'}
+            />
+            <TabLink
+              label={i18n._('Dominant Characteristics')}
+              value="dominant-characteristics"
+              to={toPrefix + '/dominant-characteristics'}
+            />
+            <TabLink label={i18n._('Achievements')} value="achievements" to={toPrefix + '/achievements'} />
+          </Tabs>
+        </PersonInfoCard>
+      </InView>
       <Box marginY={2}>
         <Paper>
           <Suspense

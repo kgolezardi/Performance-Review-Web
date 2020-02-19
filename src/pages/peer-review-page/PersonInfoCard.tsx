@@ -4,10 +4,10 @@ import { red } from '@material-ui/core/colors';
 import { CSSProperties } from '@material-ui/core/styles/withStyles';
 import graphql from 'babel-plugin-relay/macro';
 import clsx from 'clsx';
-import React, { Fragment, useCallback } from 'react';
-import { useInView } from 'react-intersection-observer';
+import React, { useCallback } from 'react';
 import { useFragment } from 'react-relay/hooks';
 import { LanguageCodes } from 'src/core/locales/types';
+import { useInViewContext } from 'src/shared/in-view';
 import { FCProps } from 'src/shared/types/FCProps';
 import { Styles } from 'src/shared/types/Styles';
 import { getUserLabel } from 'src/shared/utils/getUserLabel';
@@ -40,7 +40,7 @@ export function PersonInfoCard(props: Props) {
   const { children } = props;
   const classes = useStyles(props);
 
-  const [ref, inView] = useInView();
+  const { topInView } = useInViewContext();
 
   const user = useFragment<PersonInfoCard_user$key>(fragment, props.user);
 
@@ -60,37 +60,33 @@ export function PersonInfoCard(props: Props) {
   });
 
   return (
-    <Fragment>
-      {/* TODO: extract inView component */}
-      <div className={classes.inViewSpy} ref={ref} />
-      <Card classes={{ root: classes.root }}>
-        <CardHeader
-          title={getUserLabel(user)}
-          subheader={i18n._('He/She asked your review on {numberOfProjects} project(s)', {
-            numberOfProjects,
-          })}
-          action={
-            <Button onClick={handleSubmit} variant="contained" color="secondary" disabled={disabled}>
-              {i18n._('Done')}
-            </Button>
-          }
-          avatar={
-            <Avatar
-              // TODO: show random color
-              className={clsx(classes.avatar, { [classes.avatarShrink]: !inView })}
-              // TODO: get avatar from server
-              // src={avatar}
-            >
-              {user.firstName[0]}
-            </Avatar>
-          }
-          titleTypographyProps={{ variant: 'h5', gutterBottom: true }}
-          classes={{ root: classes.headerRoot, action: classes.action }}
-        />
-        <Divider variant="middle" />
-        <CardContent classes={{ root: classes.content }}>{children}</CardContent>
-      </Card>
-    </Fragment>
+    <Card classes={{ root: classes.root }}>
+      <CardHeader
+        title={getUserLabel(user)}
+        subheader={i18n._('He/She asked your review on {numberOfProjects} project(s)', {
+          numberOfProjects,
+        })}
+        action={
+          <Button onClick={handleSubmit} variant="contained" color="secondary" disabled={disabled}>
+            {i18n._('Done')}
+          </Button>
+        }
+        avatar={
+          <Avatar
+            // TODO: show random color
+            className={clsx(classes.avatar, { [classes.avatarShrink]: !topInView })}
+            // TODO: get avatar from server
+            // src={avatar}
+          >
+            {user.firstName[0]}
+          </Avatar>
+        }
+        titleTypographyProps={{ variant: 'h5', gutterBottom: true }}
+        classes={{ root: classes.headerRoot, action: classes.action }}
+      />
+      <Divider variant="middle" />
+      <CardContent classes={{ root: classes.content }}>{children}</CardContent>
+    </Card>
   );
 }
 
@@ -118,11 +114,6 @@ const styles = (theme: Theme) => ({
     '&:last-child': {
       padding: theme.spacing(),
     },
-  } as CSSProperties,
-  inViewSpy: {
-    height: 1,
-    width: '100%',
-    backgroundColor: 'transparent',
   } as CSSProperties,
 });
 
