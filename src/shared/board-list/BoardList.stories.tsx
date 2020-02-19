@@ -1,8 +1,12 @@
 import { Box, Grid } from '@material-ui/core';
 import { storiesOf } from '@storybook/react';
+import graphql from 'babel-plugin-relay/macro';
 import React from 'react';
-import { UserCard } from 'src/shared/user-card/UserCard';
-import { routerDecorator, themeDecorator } from 'src/stories/decorators';
+import { useLazyLoadQuery } from 'react-relay/hooks';
+import { UserCard } from 'src/shared/user-card';
+import { mockRelayDecorator, routerDecorator, themeDecorator } from 'src/stories/decorators';
+import { ID, UserNodeResolver, ViewerNodeResolver } from 'src/stories/mock-resolvers';
+import { BoardListStoriesQuery } from './__generated__/BoardListStoriesQuery.graphql';
 import { BoardList } from './BoardList';
 import { PlaceHolder } from './PlaceHolder';
 
@@ -27,6 +31,7 @@ const CustomBoardListWithChild = ({ title, count = 0 }: { title: string; count?:
 storiesOf('Board List', module)
   .addDecorator(themeDecorator())
   .addDecorator(routerDecorator())
+  .addDecorator(mockRelayDecorator({ ...ViewerNodeResolver(), ...UserNodeResolver() }))
   .add('default', () => {
     return (
       <Box padding={2}>
@@ -39,27 +44,29 @@ storiesOf('Board List', module)
     );
   })
   .add('with user card', () => {
+    const data = useLazyLoadQuery<BoardListStoriesQuery>(
+      graphql`
+        query BoardListStoriesQuery($id: ID!) {
+          viewer {
+            user(id: $id) {
+              ...UserCard_user
+            }
+          }
+        }
+      `,
+      { id: ID('UserNode:1') },
+    );
+    const user = data.viewer.user;
+    if (!user) {
+      return <div />;
+    }
     return (
       <Box padding={2}>
         <Grid container spacing={2}>
-          <BoardList listTitle="انجام نشده">
-            <UserCard userId="my-id" userFullName="SomeOne" description="Foo is good because!" />
-          </BoardList>
           <BoardList listTitle="انجام شده">
-            <UserCard userId="my-id" userFullName="SomeOne" description="Foo is good because!" />
-            <UserCard userId="my-id" userFullName="SomeOne" description="Foo is good because!" />
-            <UserCard userId="my-id" userFullName="SomeOne" description="Foo is good because!" />
-            <UserCard userId="my-id" userFullName="SomeOne" description="Foo is good because!" />
-            <UserCard userId="my-id" userFullName="SomeOne" description="Foo is good because!" />
-            <UserCard userId="my-id" userFullName="SomeOne" description="Foo is good because!" />
-            <UserCard userId="my-id" userFullName="SomeOne" description="Foo is good because!" />
-            <UserCard userId="my-id" userFullName="SomeOne" description="Foo is good because!" />
-            <UserCard userId="my-id" userFullName="SomeOne" description="Foo is good because!" />
-            <UserCard userId="my-id" userFullName="SomeOne" description="Foo is good because!" />
-            <UserCard userId="my-id" userFullName="SomeOne" description="Foo is good because!" />
-            <UserCard userId="my-id" userFullName="SomeOne" description="Foo is good because!" />
-            <UserCard userId="my-id" userFullName="SomeOne" description="Foo is good because!" />
-            <UserCard userId="my-id" userFullName="SomeOne" description="Foo is good because!" />
+            {Array.from(Array(20)).map((o, index) => (
+              <UserCard user={user} key={index} />
+            ))}
           </BoardList>
         </Grid>
       </Box>
