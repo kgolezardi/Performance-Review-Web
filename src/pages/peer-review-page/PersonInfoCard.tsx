@@ -21,6 +21,7 @@ const fragment = graphql`
     username
     firstName
     lastName
+    avatarUrl
     projectReviews {
       comments {
         text
@@ -75,8 +76,7 @@ export function PersonInfoCard(props: Props) {
           <Avatar
             // TODO: show random color
             className={clsx(classes.avatar, { [classes.avatarShrink]: !topInView })}
-            // TODO: get avatar from server
-            // src={avatar}
+            src={user.avatarUrl || undefined}
           >
             {user.firstName[0]}
           </Avatar>
