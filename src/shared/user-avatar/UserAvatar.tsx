@@ -14,9 +14,7 @@ type Props = FCProps<OwnProps>;
 const fragment = graphql`
   fragment UserAvatar_user on UserNode {
     avatarUrl
-    firstName
-    lastName
-    username
+    ...getUserLabel_user
   }
 `;
 

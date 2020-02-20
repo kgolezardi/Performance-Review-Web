@@ -21,9 +21,7 @@ type Props = FCProps<UserCardProps> & StyleProps;
 const fragment = graphql`
   fragment UserCard_user on UserNode {
     id
-    firstName
-    lastName
-    username
+    ...getUserLabel_user
     ...UserAvatar_user
     projectReviews {
       id

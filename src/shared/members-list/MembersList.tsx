@@ -48,8 +48,6 @@ export function MembersList(props: Props) {
 const fragment = graphql`
   fragment MembersList_user on UserNode @relay(plural: true) {
     id
-    username
-    firstName
-    lastName
+    ...getUserLabel_user
   }
 `;

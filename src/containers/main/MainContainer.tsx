@@ -1,5 +1,5 @@
 import { i18n } from '@lingui/core';
-import React, { Suspense } from 'react';
+import React, { Suspense, useMemo } from 'react';
 import logo from 'src/assets/logo.png';
 import { useAuthGuardUser } from 'src/core/auth';
 import { useAppSettings } from 'src/core/settings';
@@ -25,9 +25,15 @@ interface OwnProps {}
 type Props = FCProps<OwnProps>;
 
 export function MainContainer(props: Props) {
-  const user = useAuthGuardUser();
+  const { hasStarted, isManager } = useAuthGuardUser();
 
   const { phase } = useAppSettings();
+
+  const items = useMemo(() => getMenuItems(phase, { isManager, hasStarted: hasStarted || false }), [
+    isManager,
+    hasStarted,
+    phase,
+  ]);
 
   return (
     <DashboardLayout>
@@ -35,7 +41,7 @@ export function MainContainer(props: Props) {
         <Brand label={i18n._('Performance Review')} logo={logo} />
       </BrandRegion>
       <NavbarRegion>
-        <NavBarMenu items={getMenuItems(phase, user)} />
+        <NavBarMenu items={items} />
       </NavbarRegion>
       <ContentRegion>
         <ErrorBoundary fallback={<FullPageError />}>

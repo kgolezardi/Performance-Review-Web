@@ -18,9 +18,7 @@ import { useFinalSubmitMutation } from './finalSubmit.mutation';
 const fragment = graphql`
   fragment PersonInfoCard_user on UserNode {
     id
-    username
-    firstName
-    lastName
+    ...getUserLabel_user
     ...UserAvatar_user
     projectReviews {
       comment {

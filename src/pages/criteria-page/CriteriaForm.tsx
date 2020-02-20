@@ -169,8 +169,6 @@ export function CriteriaForm(props: Props) {
 const fragmentUserNode = graphql`
   fragment CriteriaForm_user on UserNode {
     id
-    username
-    firstName
-    lastName
+    ...getUserLabel_user
   }
 `;
