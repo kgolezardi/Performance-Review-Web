@@ -23,7 +23,7 @@ const fragment = graphql`
     lastName
     avatarUrl
     projectReviews {
-      comments {
+      comment {
         text
         rating
       }
@@ -53,12 +53,7 @@ export function PersonInfoCard(props: Props) {
 
   const numberOfProjects = localizeNumber(user.projectReviews.length, i18n.language as LanguageCodes);
 
-  const disabled = !user.projectReviews.every(({ comments }) => {
-    if (!comments.length) {
-      return false;
-    }
-    return comments.map(comment => !!(comment?.text && comment?.rating));
-  });
+  const disabled = !user.projectReviews.every(({ comment }) => !!(comment && comment.text && comment.rating));
 
   return (
     <Card classes={{ root: classes.root }}>
