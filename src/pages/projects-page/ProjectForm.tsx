@@ -1,7 +1,5 @@
 import { i18n } from '@lingui/core';
-import { Box, Grid, Theme, Typography } from '@material-ui/core';
-import { makeStyles } from '@material-ui/styles';
-import { CSSProperties } from '@material-ui/styles/withStyles';
+import { Box, Grid, Typography } from '@material-ui/core';
 import graphql from 'babel-plugin-relay/macro';
 import { equals, identity, prop, sortBy } from 'ramda';
 import React, { useCallback, useMemo } from 'react';
@@ -24,7 +22,6 @@ import { ReviewersInput } from 'src/shared/reviewers-input';
 import { ReviewersInputProps } from 'src/shared/reviewers-input/types';
 import { StickyActionBar } from 'src/shared/sticky-action-bar';
 import { FCProps } from 'src/shared/types/FCProps';
-import { Styles } from 'src/shared/types/Styles';
 import { DeleteProjectReviewMutationInput } from './__generated__/deleteProjectReviewMutation.graphql';
 import { ProjectForm_projectReview$key } from './__generated__/ProjectForm_projectReview.graphql';
 import { Evaluation } from './__generated__/saveProjectReviewMutation.graphql';
@@ -42,7 +39,7 @@ interface OwnProps {
   users: ReviewersInputProps['users'];
 }
 
-type Props = FCProps<OwnProps> & StyleProps;
+type Props = FCProps<OwnProps>;
 
 const arrayEqual = (v1: string[] | undefined, v2: string[] | undefined) => {
   return equals(sortBy(identity, v1 || []), sortBy(identity, v2 || []));
@@ -85,77 +82,65 @@ export function ProjectForm(props: Props) {
   }, [onDelete, projectReview]);
 
   const [ref, inView] = useInView();
-  const classes = useStyles(props);
 
   return (
-    <div ref={ref} className={classes.wrapper}>
-      <Forminator onSubmit={onSubmit} initialValue={initialValue}>
-        <Grid container spacing={2}>
-          <DictInput>
-            <DictInputItem field="projectId">
-              <ConstantInput />
-            </DictInputItem>
+    <Forminator onSubmit={onSubmit} initialValue={initialValue}>
+      <Grid container spacing={2} ref={ref}>
+        <DictInput>
+          <DictInputItem field="projectId">
+            <ConstantInput />
+          </DictInputItem>
 
-            <Grid item xs={12}>
-              <Typography>{i18n._('How effective were you in this project?')}</Typography>
-            </Grid>
-            <Grid item xs={12}>
-              <DictInputItem field="rating">
-                <Box width={240}>
-                  <Rating inputLabel={i18n._('My impact')} type="self" />
-                  <FragmentPrompt value={initialValue.rating || null} />
-                </Box>
-              </DictInputItem>
-            </Grid>
-            <Grid item xs={12}>
-              <DictInputItem field="text">
-                <LimitedTextAreaInput
-                  label={i18n._('Accomplishments')}
-                  maxChars={512}
-                  variant="outlined"
-                  fullWidth
-                  helperText={i18n._('For instance, your personal key-results may be your accomplishments.')}
-                />
-                <FragmentPrompt value={initialValue.text || ''} />
-              </DictInputItem>
-            </Grid>
-            <Grid item xs={12}>
-              <DictInputItem field="reviewersId">
-                <ReviewersInput
-                  label={i18n._('Reviewers')}
-                  users={props.users}
-                  excludes={userIds}
-                  helperText={i18n._(
-                    'People who will comment on your accomplishments and write your performance competencies and dominant characteristics from their own point of view.',
-                  )}
-                />
-                <FragmentPrompt value={initialValue.reviewersId || []} equal={arrayEqual} />
-              </DictInputItem>
-            </Grid>
-          </DictInput>
-          <StickyActionBar noSticky={!inView}>
-            <ConfirmButton
-              buttonText={i18n._('Delete')}
-              onConfirm={handleDelete}
-              text={i18n._('Are you sure you want to delete this project review?')}
-              ConfirmComponent={DangerButton}
-              confirmProps={{ variant: 'contained' }}
-            />
-            <SubmitButton variant="contained" color="primary">
-              {i18n._('Save')}
-            </SubmitButton>
-          </StickyActionBar>
-        </Grid>
-      </Forminator>
-    </div>
+          <Grid item xs={12}>
+            <Typography>{i18n._('How effective were you in this project?')}</Typography>
+          </Grid>
+          <Grid item xs={12}>
+            <DictInputItem field="rating">
+              <Box width={240}>
+                <Rating inputLabel={i18n._('My impact')} type="self" />
+                <FragmentPrompt value={initialValue.rating || null} />
+              </Box>
+            </DictInputItem>
+          </Grid>
+          <Grid item xs={12}>
+            <DictInputItem field="text">
+              <LimitedTextAreaInput
+                label={i18n._('Accomplishments')}
+                maxChars={512}
+                variant="outlined"
+                fullWidth
+                helperText={i18n._('For instance, your personal key-results may be your accomplishments.')}
+              />
+              <FragmentPrompt value={initialValue.text || ''} />
+            </DictInputItem>
+          </Grid>
+          <Grid item xs={12}>
+            <DictInputItem field="reviewersId">
+              <ReviewersInput
+                label={i18n._('Reviewers')}
+                users={props.users}
+                excludes={userIds}
+                helperText={i18n._(
+                  'People who will comment on your accomplishments and write your performance competencies and dominant characteristics from their own point of view.',
+                )}
+              />
+              <FragmentPrompt value={initialValue.reviewersId || []} equal={arrayEqual} />
+            </DictInputItem>
+          </Grid>
+        </DictInput>
+        <StickyActionBar noSticky={!inView}>
+          <ConfirmButton
+            buttonText={i18n._('Delete')}
+            onConfirm={handleDelete}
+            text={i18n._('Are you sure you want to delete this project review?')}
+            ConfirmComponent={DangerButton}
+            confirmProps={{ variant: 'contained' }}
+          />
+          <SubmitButton variant="contained" color="primary">
+            {i18n._('Save')}
+          </SubmitButton>
+        </StickyActionBar>
+      </Grid>
+    </Forminator>
   );
 }
-
-const styles = (theme: Theme) => ({
-  wrapper: {
-    width: '100%',
-  } as CSSProperties,
-});
-
-const useStyles = makeStyles(styles, { name: 'ProjectForm' });
-type StyleProps = Styles<typeof styles>;
