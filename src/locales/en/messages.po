@@ -88,9 +88,12 @@ msgstr "Dominant Characteristics"
 
 #: src/assets/icons/Done.tsx:5
 #: src/pages/peer-review-board-page/PeerReviewBoardPage.tsx:53
-#: src/pages/peer-review-page/PersonInfoCard.tsx:42
 msgid "Done"
 msgstr "Done"
+
+#: src/pages/peer-review-page/PersonInfoCard.tsx:53
+msgid "End {name}'s evaluation"
+msgstr "End {name}'s evaluation"
 
 #: src/core/locales/languages.ts:5
 msgid "English"
@@ -150,7 +153,7 @@ msgstr "Good job!"
 msgid "He/She Needs Improvement"
 msgstr "He/She Needs Improvement"
 
-#: src/pages/peer-review-page/PersonInfoCard.tsx:39
+#: src/pages/peer-review-page/PersonInfoCard.tsx:50
 msgid "He/She asked your review on {numberOfProjects} project(s)"
 msgstr "He/She asked your review on {numberOfProjects} project(s)"
 
@@ -328,6 +331,10 @@ msgstr "Select team a member please"
 msgid "Self Review"
 msgstr "Self Review"
 
+#: src/pages/peer-review-page/PersonInfoCard.tsx:44
+msgid "Some error occurred.Try again!"
+msgstr "Some error occurred.Try again!"
+
 #: src/core/snackbar/Snackbar.stories.tsx:24
 #: src/pages/criteria-page/CriteriaPage.tsx:60
 #: src/pages/projects-page/ProjectsPage.tsx:50
@@ -470,3 +477,7 @@ msgstr "Your team members"
 #: src/shared/project-peer-review-item/ProjectPeerReviewItem.tsx:43
 msgid "{name}'s comment about his/her performance compared to initial expectation"
 msgstr "{name}'s comment about his/her performance compared to initial expectation"
+
+#: src/pages/peer-review-page/PersonInfoCard.tsx:40
+msgid "{name}'s evaluation has been ended successfully."
+msgstr "{name}'s evaluation has been ended successfully."

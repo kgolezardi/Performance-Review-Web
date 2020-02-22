@@ -92,6 +92,10 @@ msgstr "ویژگی‌های بارز"
 msgid "Done"
 msgstr "انجام شد"
 
+#: src/pages/peer-review-page/PersonInfoCard.tsx:53
+msgid "End {name}'s evaluation"
+msgstr "اتمام ارزیابی {name}"
+
 #: src/core/locales/languages.ts:5
 msgid "English"
 msgstr "English"
@@ -150,7 +154,7 @@ msgstr "باریکلا! چه خوب که همه رو داری انجام مید�
 msgid "He/She Needs Improvement"
 msgstr "کمتر از حد انتظاری که ازش میره"
 
-#: src/pages/peer-review-page/PersonInfoCard.tsx:39
+#: src/pages/peer-review-page/PersonInfoCard.tsx:50
 msgid "He/She asked your review on {numberOfProjects} project(s)"
 msgstr "در {numberOfProjects} پروژه از شما نظر خواسته است"
 
@@ -328,6 +332,10 @@ msgstr "لطفا یک عضو تیم را انتخاب نمایید"
 msgid "Self Review"
 msgstr "ارزیابی من"
 
+#: src/pages/peer-review-page/PersonInfoCard.tsx:44
+msgid "Some error occurred.Try again!"
+msgstr "خطایی رخ داده. دوباره تلاش کنید."
+
 #: src/core/snackbar/Snackbar.stories.tsx:24
 #: src/pages/criteria-page/CriteriaPage.tsx:60
 #: src/pages/projects-page/ProjectsPage.tsx:50
@@ -470,3 +478,7 @@ msgstr "اعضای تیم شما"
 #: src/shared/project-peer-review-item/ProjectPeerReviewItem.tsx:43
 msgid "{name}'s comment about his/her performance compared to initial expectation"
 msgstr "نظر {name} در مورد سطح عملکردش نسبت به انتظاری که ازش میره"
+
+#: src/pages/peer-review-page/PersonInfoCard.tsx:40
+msgid "{name}'s evaluation has been ended successfully."
+msgstr "ارزیابی {name} با موفقیت تمام شد."

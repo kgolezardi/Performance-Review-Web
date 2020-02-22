@@ -5,15 +5,17 @@ import graphql from 'babel-plugin-relay/macro';
 import clsx from 'clsx';
 import React, { useCallback } from 'react';
 import { useFragment } from 'react-relay/hooks';
+import { useHistory } from 'react-router-dom';
 import { LanguageCodes } from 'src/core/locales/types';
 import { useInViewContext } from 'src/shared/in-view';
+import { useBiDiSnackbar } from 'src/shared/snackbar';
 import { FCProps } from 'src/shared/types/FCProps';
 import { Styles } from 'src/shared/types/Styles';
 import { UserAvatar } from 'src/shared/user-avatar';
 import { getUserLabel } from 'src/shared/utils/getUserLabel';
 import { localizeNumber } from 'src/shared/utils/localizeNumber.util';
-import { PersonInfoCard_user$key } from './__generated__/PersonInfoCard_user.graphql';
 import { useFinalSubmitMutation } from './finalSubmit.mutation';
+import { PersonInfoCard_user$key } from './__generated__/PersonInfoCard_user.graphql';
 
 const fragment = graphql`
   fragment PersonInfoCard_user on UserNode {
@@ -44,10 +46,21 @@ export function PersonInfoCard(props: Props) {
   const user = useFragment<PersonInfoCard_user$key>(fragment, props.user);
 
   const finalSubmitMutation = useFinalSubmitMutation();
+  const { enqueueSnackbar } = useBiDiSnackbar();
+  const history = useHistory();
 
   const handleSubmit = useCallback(() => {
-    finalSubmitMutation({ input: { revieweeId: user.id, state: 'DONE' } });
-  }, [user, finalSubmitMutation]);
+    finalSubmitMutation({ input: { revieweeId: user.id, state: 'DONE' } })
+      .then(() => {
+        enqueueSnackbar(i18n._("{name}'s evaluation has been ended successfully.", { name: user.firstName }), {
+          variant: 'success',
+        });
+        history.push('/peer-review');
+      })
+      .catch(() => {
+        enqueueSnackbar(i18n._('Some error occurred.Try again!'), { variant: 'error' });
+      });
+  }, [user, finalSubmitMutation, history, enqueueSnackbar]);
 
   const numberOfProjects = localizeNumber(user.projectReviews.length, i18n.language as LanguageCodes);
 
@@ -62,7 +75,7 @@ export function PersonInfoCard(props: Props) {
         })}
         action={
           <Button onClick={handleSubmit} variant="contained" color="secondary" disabled={disabled}>
-            {i18n._('Done')}
+            {i18n._("End {name}'s evaluation", { name: user.firstName })}
           </Button>
         }
         avatar={<UserAvatar user={user} className={clsx(classes.avatar, { [classes.avatarShrink]: !topInView })} />}
