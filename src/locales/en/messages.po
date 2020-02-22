@@ -88,7 +88,7 @@ msgstr "Dominant Characteristics"
 
 #: src/assets/icons/Done.tsx:5
 #: src/pages/peer-review-board-page/PeerReviewBoardPage.tsx:53
-#: src/pages/peer-review-page/PersonInfoCard.tsx:43
+#: src/pages/peer-review-page/PersonInfoCard.tsx:42
 msgid "Done"
 msgstr "Done"
 
@@ -106,10 +106,6 @@ msgstr "Error"
 #: src/shared/project-peer-review-output/ProjectPeerReviewOutput.tsx:21
 msgid "Evaluation"
 msgstr "Evaluation"
-
-#: src/containers/main/getMenuItems.ts:29
-msgid "Evaluation Board"
-msgstr "Evaluation Board"
 
 #: src/pages/start-review-page/StartReviewPage.tsx:36
 msgid "Evaluation due date: {formattedDueDate}"
@@ -134,13 +130,11 @@ msgid "Execution"
 msgstr "Execution"
 
 #: src/containers/main/getMenuItems.ts:19
-#: src/containers/main/getMenuItems.ts:35
 #: src/pages/guide-page/GuidePage.tsx:14
 msgid "FAQ"
 msgstr "FAQ"
 
 #: src/pages/projects-page/ProjectForm.tsx:68
-#: src/shared/project-peer-review-form/ProjectPeerReviewForm.tsx:40
 msgid "For instance, your personal key-results may be your accomplishments."
 msgstr "For instance, your personal key-results may be your accomplishments."
 
@@ -156,7 +150,7 @@ msgstr "Good job!"
 msgid "He/She Needs Improvement"
 msgstr "He/She Needs Improvement"
 
-#: src/pages/peer-review-page/PersonInfoCard.tsx:40
+#: src/pages/peer-review-page/PersonInfoCard.tsx:39
 msgid "He/She asked your review on {numberOfProjects} project(s)"
 msgstr "He/She asked your review on {numberOfProjects} project(s)"
 
@@ -212,6 +206,10 @@ msgstr "Meets Expectations from me"
 msgid "My impact"
 msgstr "My impact"
 
+#: src/containers/main/getMenuItems.ts:35
+msgid "NVC Guide"
+msgstr "NVC Guide"
+
 #: src/shared/confirm-button/ConfirmButton.tsx:8
 msgid "No"
 msgstr "No"
@@ -225,6 +223,10 @@ msgstr "No Options"
 msgid "No! Wait"
 msgstr "No! Wait"
 
+#: src/shared/project-peer-review-form/ProjectPeerReviewForm.tsx:40
+msgid "Observation"
+msgstr "Observation"
+
 #: src/pages/criteria-page/CriteriaForm.tsx:48
 #: src/shared/criteria-manager-review/CriteriaManagerReview.tsx:11
 msgid "Organization Culture Adoption"
@@ -233,6 +235,10 @@ msgstr "Organization Culture Adoption"
 #: src/shared/auth/LoginForm.tsx:15
 msgid "Password"
 msgstr "Password"
+
+#: src/containers/main/getMenuItems.ts:29
+msgid "Peer Review"
+msgstr "Peer Review"
 
 #: src/pages/projects-page/ProjectForm.tsx:74
 msgid "People who will comment on your accomplishments and write your performance competencies and dominant characteristics from their own point of view."
@@ -363,21 +369,21 @@ msgstr "Superb"
 
 #: src/pages/manager-review-page/DominantCharacteristics.tsx:15
 #: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:48
-msgid "The most important characteristics or behaviours I should improve in myself"
-msgstr "The most important characteristics or behaviours I should improve in myself"
+msgid "The most important characteristics or behaviors I should improve in myself"
+msgstr "The most important characteristics or behaviors I should improve in myself"
 
 #: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:49
-msgid "The most important characteristics or behaviours he/she should"
-msgstr "The most important characteristics or behaviours he/she should"
+msgid "The most important characteristics or behaviors he/she should improve"
+msgstr "The most important characteristics or behaviors he/she should improve"
 
 #: src/pages/manager-review-page/DominantCharacteristics.tsx:12
 #: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:39
-msgid "The most important characteristics or effective behaviours that I should maintain"
-msgstr "The most important characteristics or effective behaviours that I should maintain"
+msgid "The most important characteristics or effective behaviors that I should maintain"
+msgstr "The most important characteristics or effective behaviors that I should maintain"
 
 #: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:40
-msgid "The most important characteristics or effective behaviours that he/she should maintain"
-msgstr "The most important characteristics or effective behaviours that he/she should maintain"
+msgid "The most important characteristics or effective behaviors that he/she should maintain"
+msgstr "The most important characteristics or effective behaviors that he/she should maintain"
 
 #: src/pages/criteria-page/CriteriaForm.tsx:57
 #: src/shared/criteria-manager-review/CriteriaManagerReview.tsx:20
@@ -452,10 +458,6 @@ msgstr "You haven't started evaluating yet!"
 #: src/pages/dashboard-page/PerformanceCompetenciesCircularIndicator.tsx:78
 msgid "You're almost there!"
 msgstr "You're almost there!"
-
-#: src/shared/project-peer-review-form/ProjectPeerReviewForm.tsx:40
-msgid "Your comment"
-msgstr "Your comment"
 
 #: src/shared/project-peer-review-item/ProjectPeerReviewItem.tsx:52
 msgid "Your comment about {name}'s performance in this project"

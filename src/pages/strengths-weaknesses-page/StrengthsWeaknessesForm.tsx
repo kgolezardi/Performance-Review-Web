@@ -60,8 +60,8 @@ export function StrengthsWeaknessesForm(props: Props) {
                 maxLength={3}
                 title={
                   isSelfReview
-                    ? i18n._('The most important characteristics or effective behaviours that I should maintain')
-                    : i18n._('The most important characteristics or effective behaviours that he/she should maintain')
+                    ? i18n._('The most important characteristics or effective behaviors that I should maintain')
+                    : i18n._('The most important characteristics or effective behaviors that he/she should maintain')
                 }
                 label={isSelfReview ? i18n._('What to continue doing') : i18n._('What should he/she continue doing')}
               />
@@ -75,8 +75,8 @@ export function StrengthsWeaknessesForm(props: Props) {
                 maxLength={3}
                 title={
                   isSelfReview
-                    ? i18n._('The most important characteristics or behaviours I should improve in myself')
-                    : i18n._('The most important characteristics or behaviours he/she should')
+                    ? i18n._('The most important characteristics or behaviors I should improve in myself')
+                    : i18n._('The most important characteristics or behaviors he/she should improve')
                 }
                 label={isSelfReview ? i18n._('What to improve') : i18n._('What should he/she improve')}
               />

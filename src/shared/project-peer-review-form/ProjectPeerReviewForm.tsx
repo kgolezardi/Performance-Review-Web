@@ -66,13 +66,7 @@ export function ProjectPeerReviewForm(props: Props) {
           </Grid>
           <Grid item xs={12}>
             <DictInputItem field="text">
-              <LimitedTextAreaInput
-                label={i18n._('Your comment')}
-                variant="outlined"
-                maxChars={512}
-                fullWidth
-                helperText={i18n._('For instance, your personal key-results may be your accomplishments.')}
-              />
+              <LimitedTextAreaInput label={i18n._('Observation')} variant="outlined" maxChars={512} fullWidth />
               <FragmentPrompt value={projectComment?.text || ''} />
             </DictInputItem>
           </Grid>

@@ -29,20 +29,24 @@ const GuidePage = React.lazy(() =>
     'src/pages/guide-page/GuidePage'
   ),
 );
+const NvcGuidePage = React.lazy(() =>
+  import(
+    /* webpackChunkName: "nvc-guide-page" */
+    'src/pages/guide-page/NvcGuidePage'
+  ),
+);
 const IdlePage = React.lazy(() =>
   import(
     /* webpackChunkName: "idle-page" */
     'src/pages/idle-page/IdlePage'
   ),
 );
-
 const ManagerReviewPage = React.lazy(() =>
   import(
     /* webpackChunkName: "manager-review-page" */
     'src/pages/manager-review-page/ManagerReviewPage'
   ),
 );
-
 const PeerReviewBoardPage = React.lazy(() =>
   import(
     /* webpackChunkName: "peer-review-board-page" */
@@ -79,7 +83,7 @@ export function MainRoutes(props: FCProps<Props>) {
         <Redirect exact path="/" to="/peer-review" />
         <Route path="/peer-review/:uid/:tab?" children={<PeerReviewPage />} />
         <Route path="/peer-review/" children={<PeerReviewBoardPage />} />
-        <Route path="/faq" children={<GuidePage />} />
+        <Route path="/nvc" children={<NvcGuidePage />} />
       </Switch>
     );
   }
