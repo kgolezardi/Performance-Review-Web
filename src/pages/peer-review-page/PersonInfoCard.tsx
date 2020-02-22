@@ -52,9 +52,12 @@ export function PersonInfoCard(props: Props) {
   const handleSubmit = useCallback(() => {
     finalSubmitMutation({ input: { revieweeId: user.id, state: 'DONE' } })
       .then(() => {
-        enqueueSnackbar(i18n._("{name}'s evaluation has been ended successfully.", { name: user.firstName }), {
-          variant: 'success',
-        });
+        enqueueSnackbar(
+          i18n._("{name}'s evaluation has been ended successfully.", { name: getUserLabel(user, { short: true }) }),
+          {
+            variant: 'success',
+          },
+        );
         history.push('/peer-review');
       })
       .catch(() => {
@@ -75,7 +78,7 @@ export function PersonInfoCard(props: Props) {
         })}
         action={
           <Button onClick={handleSubmit} variant="contained" color="secondary" disabled={disabled}>
-            {i18n._("End {name}'s evaluation", { name: user.firstName })}
+            {i18n._("End {name}'s evaluation", { name: getUserLabel(user, { short: true }) })}
           </Button>
         }
         avatar={<UserAvatar user={user} className={clsx(classes.avatar, { [classes.avatarShrink]: !topInView })} />}
