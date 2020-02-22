@@ -2,7 +2,6 @@ import React from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
 import { useAuthGuardUser } from 'src/core/auth';
 import { useAppSettings } from 'src/core/settings';
-import { StartReviewPage } from 'src/pages/start-review-page/StartReviewPage';
 import { FCProps } from 'src/shared/types/FCProps';
 
 const DashboardPage = React.lazy(() =>
@@ -54,6 +53,20 @@ const PeerReviewBoardPage = React.lazy(() =>
   ),
 );
 
+const SelfStartReviewPage = React.lazy(() =>
+  import(
+    /* webpackChunkName: "self-start-review-page" */
+    'src/pages/start-review-page/SelfStartReviewPage'
+  ),
+);
+
+const PeerStartReviewPage = React.lazy(() =>
+  import(
+    /* webpackChunkName: "peer-start-review-page" */
+    'src/pages/start-review-page/PeerStartReviewPage'
+  ),
+);
+
 interface Props {}
 
 export function MainRoutes(props: FCProps<Props>) {
@@ -63,7 +76,7 @@ export function MainRoutes(props: FCProps<Props>) {
 
   if (phase === 'SELF_REVIEW') {
     if (!user.hasStarted) {
-      return <StartReviewPage />;
+      return <SelfStartReviewPage />;
     }
     return (
       <Switch>
@@ -76,7 +89,7 @@ export function MainRoutes(props: FCProps<Props>) {
 
   if (phase === 'PEER_REVIEW') {
     if (!user.hasStarted) {
-      return <StartReviewPage />;
+      return <PeerStartReviewPage />;
     }
     return (
       <Switch>
