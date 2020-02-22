@@ -5,11 +5,13 @@ import graphql from 'babel-plugin-relay/macro';
 import React, { useMemo } from 'react';
 import { useFragment } from 'react-relay/hooks';
 import { Link } from 'react-router-dom';
+import { LanguageCodes } from 'src/core/locales/types';
 import { FCProps } from 'src/shared/types/FCProps';
 import { Styles } from 'src/shared/types/Styles';
 import { UserAvatar } from 'src/shared/user-avatar';
 import { escape } from 'src/shared/utils/base64.util';
 import { getUserLabel } from 'src/shared/utils/getUserLabel';
+import { localizeNumber } from 'src/shared/utils/localizeNumber.util';
 import { UserCard_user$key } from './__generated__/UserCard_user.graphql';
 
 export interface UserCardProps {
@@ -50,7 +52,9 @@ export const UserCard = (props: Props) => {
                   {getUserLabel(user)}
                 </Typography>
                 <Typography variant="body2" className={classes.textSecondary}>
-                  {i18n._('Requested for {count} project(s) to review.', { count: user.projectReviews.length })}
+                  {i18n._('He/She asked your review on {numberOfProjects} project(s)', {
+                    numberOfProjects: localizeNumber(user.projectReviews.length, i18n.language as LanguageCodes),
+                  })}
                 </Typography>
               </Grid>
             </Grid>
