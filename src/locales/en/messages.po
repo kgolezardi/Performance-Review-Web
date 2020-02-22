@@ -479,5 +479,5 @@ msgid "{name}'s comment about his/her performance compared to initial expectatio
 msgstr "{name}'s comment about his/her performance compared to initial expectation"
 
 #: src/pages/peer-review-page/PersonInfoCard.tsx:38
-msgid "{name}'s evaluation has been ended successfully."
-msgstr "{name}'s evaluation has been ended successfully."
+msgid "{name}'s evaluation completed successfully."
+msgstr "{name}'s evaluation completed successfully."

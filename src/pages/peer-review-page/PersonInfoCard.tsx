@@ -53,7 +53,7 @@ export function PersonInfoCard(props: Props) {
     finalSubmitMutation({ input: { revieweeId: user.id, state: 'DONE' } })
       .then(() => {
         enqueueSnackbar(
-          i18n._("{name}'s evaluation has been ended successfully.", { name: getUserLabel(user, { short: true }) }),
+          i18n._("{name}'s evaluation completed successfully.", { name: getUserLabel(user, { short: true }) }),
           {
             variant: 'success',
           },
