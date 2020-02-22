@@ -4,17 +4,17 @@ import { CSSProperties } from '@material-ui/core/styles/withStyles';
 import graphql from 'babel-plugin-relay/macro';
 import React, { Fragment, useCallback, useState } from 'react';
 import { useFragment } from 'react-relay/hooks';
-import { CriteriaManagerReview } from 'src/shared/criteria-manager-review';
+import { CriteriaOutput } from 'src/shared/criteria-output';
 import { useMemberListContext } from 'src/shared/members-list';
 import { ProjectManagerReview } from 'src/shared/project-manager-review';
 import { TabPanel, TabPanelsProvider } from 'src/shared/tab';
 import { FCProps } from 'src/shared/types/FCProps';
 import { Styles } from 'src/shared/types/Styles';
-import { ManagerReviewContent_personReviews$key } from './__generated__/ManagerReviewContent_personReviews.graphql';
-import { ManagerReviewContent_projectReviews$key } from './__generated__/ManagerReviewContent_projectReviews.graphql';
 import { DominantCharacteristicsManagerReview } from './DominantCharacteristics';
 import { useCurrentPersonReview } from './useCurrentPersonReview';
 import { useCurrentProjectReviews } from './useCurrentProjectReviews';
+import { ManagerReviewContent_personReviews$key } from './__generated__/ManagerReviewContent_personReviews.graphql';
+import { ManagerReviewContent_projectReviews$key } from './__generated__/ManagerReviewContent_projectReviews.graphql';
 
 interface OwnProps {
   personReviews: ManagerReviewContent_personReviews$key;
@@ -69,7 +69,7 @@ export function ManagerReviewContent(props: Props) {
       </Paper>
       <Paper classes={{ root: classes.tabPanelPaper }}>
         <TabPanelsProvider value={{ value: tab }}>
-          <TabPanel value={0}>{currentPersonReview && <CriteriaManagerReview review={currentPersonReview} />}</TabPanel>
+          <TabPanel value={0}>{currentPersonReview && <CriteriaOutput review={currentPersonReview} />}</TabPanel>
           <TabPanel value={1}>
             {currentPersonReview && <DominantCharacteristicsManagerReview review={currentPersonReview} />}
           </TabPanel>
@@ -116,7 +116,7 @@ const personReviewsFragment = graphql`
       id
     }
     ...DominantCharacteristicsManagerReview_review
-    ...CriteriaManagerReview_review
+    ...CriteriaOutput_review
   }
 `;
 

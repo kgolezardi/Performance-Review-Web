@@ -10,14 +10,21 @@ interface OwnProps extends Omit<TypographyProps, 'children'> {
 type Props = FCProps<OwnProps>;
 
 export function MultilineOutput(props: Props) {
-  const { value, ...typographyProps } = props;
-
+  const { value, defaultValue = '---', ...typographyProps } = props;
   const splitString = (value || NON_BREAKING_SPACE).split('\n');
+
+  if (!value) {
+    return (
+      <Typography color="textSecondary" {...typographyProps}>
+        {defaultValue}
+      </Typography>
+    );
+  }
 
   return (
     <Fragment>
       {splitString.map((str, index) => (
-        <Typography {...typographyProps} key={index}>
+        <Typography color="textPrimary" {...typographyProps} key={index}>
           {str}
         </Typography>
       ))}

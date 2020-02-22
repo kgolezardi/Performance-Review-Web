@@ -5,14 +5,14 @@ import React from 'react';
 import { useLazyLoadQuery } from 'react-relay/hooks';
 import { relayDecorator } from 'src/stories/decorators';
 import { themeDecorator } from 'src/stories/decorators/themeDecorator';
-import { CriteriaManagerReview } from './CriteriaManagerReview';
-import { CriteriaManagerReviewQuery } from './__generated__/CriteriaManagerReviewQuery.graphql';
+import { CriteriaOutput } from './CriteriaOutput';
+import { CriteriaOutputQuery } from './__generated__/CriteriaOutputQuery.graphql';
 
 const query = graphql`
-  query CriteriaManagerReviewQuery {
+  query CriteriaOutputQuery {
     viewer {
       personReviews {
-        ...CriteriaManagerReview_review
+        ...CriteriaOutput_review
       }
     }
   }
@@ -22,10 +22,11 @@ storiesOf('Criterion Manager Review', module)
   .addDecorator(themeDecorator())
   .addDecorator(relayDecorator())
   .add('simple', () => {
-    const data = useLazyLoadQuery<CriteriaManagerReviewQuery>(query, {});
+    // TODO: use mockResolvers
+    const data = useLazyLoadQuery<CriteriaOutputQuery>(query, {});
     return (
       <Container>
-        <CriteriaManagerReview review={data.viewer.personReviews[0]} />
+        <CriteriaOutput review={data.viewer.personReviews[0]} />
       </Container>
     );
   });

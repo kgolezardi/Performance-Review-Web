@@ -1,1 +1,0 @@
-export { CriteriaManagerReviewProps } from './CriteriaManagerReview';

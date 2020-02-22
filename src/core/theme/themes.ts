@@ -32,6 +32,14 @@ export function getThemeOptions(base: ThemeOptions, direction: Direction, palett
     },
     typography,
     overrides: {
+      MuiTypography: {
+        colorTextPrimary: {
+          color: '#212121',
+        },
+        colorTextSecondary: {
+          color: '#616161',
+        },
+      },
       MuiOutlinedInput: {
         notchedOutline: {
           '.MuiFormLabel-filled:not(.Mui-focused) + .MuiInputBase-root:not(:hover) > &': {
