@@ -39,6 +39,10 @@ msgstr "هر ارزیابی که تکمیل شد رو به اینجا اضافه
 msgid "Adding Projects"
 msgstr "افزودن پروژه"
 
+#: src/pages/peer-review-page/PersonInfoCard.tsx:44
+msgid "An error occurred.Try again!"
+msgstr "خطایی رخ داده. دوباره تلاش کنید."
+
 #: src/pages/projects-page/ProjectForm.tsx:80
 msgid "Are you sure you want to delete this project review?"
 msgstr "آیا از حذف  این پروژه مطمین هستید؟"
@@ -255,7 +259,7 @@ msgstr "کسانی هستن که روی دستاوردهاتون کامنت می
 msgid "Performance Competencies"
 msgstr "شایستگی‌های عملکردی"
 
-#: src/containers/main/MainContainer.tsx:18
+#: src/containers/main/MainContainer.tsx:23
 #: src/shared/full-page-error/FullPageError.stories.tsx:34
 #: src/shared/layouts/dashboard-layouts/DashboardLayout.stories.tsx:27
 msgid "Performance Review"
@@ -291,7 +295,7 @@ msgstr "برنامه‌نویسان در حال تایپند...‌"
 msgid "Projects"
 msgstr "پروژه‌ها"
 
-#: src/shared/user-card/UserCard.tsx:40
+#: src/shared/user-card/UserCard.tsx:38
 msgid "Requested for {count} project(s) to review."
 msgstr "در {count} پروژه از شما نظر خواسته است."
 
@@ -331,10 +335,6 @@ msgstr "لطفا یک عضو تیم را انتخاب نمایید"
 #: src/containers/main/getMenuItems.ts:13
 msgid "Self Review"
 msgstr "ارزیابی من"
-
-#: src/pages/peer-review-page/PersonInfoCard.tsx:44
-msgid "Some error occurred.Try again!"
-msgstr "خطایی رخ داده. دوباره تلاش کنید."
 
 #: src/core/snackbar/Snackbar.stories.tsx:24
 #: src/pages/criteria-page/CriteriaPage.tsx:60
@@ -479,6 +479,6 @@ msgstr "اعضای تیم شما"
 msgid "{name}'s comment about his/her performance compared to initial expectation"
 msgstr "نظر {name} در مورد سطح عملکردش نسبت به انتظاری که ازش میره"
 
-#: src/pages/peer-review-page/PersonInfoCard.tsx:40
+#: src/pages/peer-review-page/PersonInfoCard.tsx:38
 msgid "{name}'s evaluation has been ended successfully."
 msgstr "ارزیابی {name} با موفقیت تمام شد."

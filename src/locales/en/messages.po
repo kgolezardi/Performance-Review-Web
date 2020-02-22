@@ -39,6 +39,10 @@ msgstr "Add here after completing any evaluation"
 msgid "Adding Projects"
 msgstr "Adding Projects"
 
+#: src/pages/peer-review-page/PersonInfoCard.tsx:44
+msgid "An error occurred.Try again!"
+msgstr "An error occurred.Try again!"
+
 #: src/pages/projects-page/ProjectForm.tsx:80
 msgid "Are you sure you want to delete this project review?"
 msgstr "Are you sure you want to delete this project review?"
@@ -254,7 +258,7 @@ msgstr "People who will comment on your accomplishments and write your performan
 msgid "Performance Competencies"
 msgstr "Performance Competencies"
 
-#: src/containers/main/MainContainer.tsx:18
+#: src/containers/main/MainContainer.tsx:23
 #: src/shared/full-page-error/FullPageError.stories.tsx:34
 #: src/shared/layouts/dashboard-layouts/DashboardLayout.stories.tsx:27
 msgid "Performance Review"
@@ -290,7 +294,7 @@ msgstr "Programmers are typing..."
 msgid "Projects"
 msgstr "Projects"
 
-#: src/shared/user-card/UserCard.tsx:40
+#: src/shared/user-card/UserCard.tsx:38
 msgid "Requested for {count} project(s) to review."
 msgstr "Requested for {count} project(s) to review."
 
@@ -330,10 +334,6 @@ msgstr "Select team a member please"
 #: src/containers/main/getMenuItems.ts:13
 msgid "Self Review"
 msgstr "Self Review"
-
-#: src/pages/peer-review-page/PersonInfoCard.tsx:44
-msgid "Some error occurred.Try again!"
-msgstr "Some error occurred.Try again!"
 
 #: src/core/snackbar/Snackbar.stories.tsx:24
 #: src/pages/criteria-page/CriteriaPage.tsx:60
@@ -478,6 +478,6 @@ msgstr "Your team members"
 msgid "{name}'s comment about his/her performance compared to initial expectation"
 msgstr "{name}'s comment about his/her performance compared to initial expectation"
 
-#: src/pages/peer-review-page/PersonInfoCard.tsx:40
+#: src/pages/peer-review-page/PersonInfoCard.tsx:38
 msgid "{name}'s evaluation has been ended successfully."
 msgstr "{name}'s evaluation has been ended successfully."
