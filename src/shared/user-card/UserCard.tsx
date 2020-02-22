@@ -1,24 +1,41 @@
-import { Avatar, Grid, makeStyles, Paper, Theme, Typography } from '@material-ui/core';
+import { i18n } from '@lingui/core';
+import { Grid, makeStyles, Paper, Theme, Typography } from '@material-ui/core';
 import { CSSProperties } from '@material-ui/core/styles/withStyles';
+import graphql from 'babel-plugin-relay/macro';
 import React, { useMemo } from 'react';
+import { useFragment } from 'react-relay/hooks';
 import { Link } from 'react-router-dom';
-import avatarPlaceholder from 'src/assets/avatar-placeholder.png';
 import { FCProps } from 'src/shared/types/FCProps';
 import { Styles } from 'src/shared/types/Styles';
+import { UserAvatar } from 'src/shared/user-avatar';
 import { escape } from 'src/shared/utils/base64.util';
+import { getUserLabel } from 'src/shared/utils/getUserLabel';
+import { UserCard_user$key } from './__generated__/UserCard_user.graphql';
 
 export interface UserCardProps {
-  profilePicture?: string;
-  userFullName: string;
-  description: string;
-  userId: string;
+  user: UserCard_user$key;
 }
 
 type Props = FCProps<UserCardProps> & StyleProps;
 
+const fragment = graphql`
+  fragment UserCard_user on UserNode {
+    id
+    firstName
+    lastName
+    username
+    ...UserAvatar_user
+    projectReviews {
+      id
+    }
+  }
+`;
+
 export const UserCard = (props: Props) => {
-  const { userId, profilePicture = avatarPlaceholder, userFullName, description } = props;
   const classes = useStyles(props);
+  const user = useFragment(fragment, props.user);
+
+  const userId = user.id;
   const escapeUid = useMemo(() => escape(userId), [userId]);
 
   return (
@@ -26,16 +43,16 @@ export const UserCard = (props: Props) => {
       <Link to={`/peer-review/${escapeUid}`} className={classes.link}>
         <Grid container spacing={2}>
           <Grid xs={4} className={classes.imageWrapper} item>
-            <Avatar alt={userFullName} src={profilePicture} className={classes.profilePicture} />
+            <UserAvatar user={user} className={classes.profilePicture} />
           </Grid>
           <Grid xs={8} item container>
             <Grid className={classes.textSection} item xs container direction="column">
               <Grid className={classes.textWrapper} item xs>
                 <Typography gutterBottom variant="h6">
-                  {userFullName}
+                  {getUserLabel(user)}
                 </Typography>
                 <Typography variant="body2" className={classes.textSecondary}>
-                  {description}
+                  {i18n._('Requested for {count} project(s) to review.', { count: user.projectReviews.length })}
                 </Typography>
               </Grid>
             </Grid>

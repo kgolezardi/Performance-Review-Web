@@ -1,6 +1,5 @@
 import { i18n } from '@lingui/core';
-import { Avatar, Button, Card, CardContent, CardHeader, Divider, makeStyles, Theme } from '@material-ui/core';
-import { red } from '@material-ui/core/colors';
+import { Button, Card, CardContent, CardHeader, Divider, makeStyles, Theme } from '@material-ui/core';
 import { CSSProperties } from '@material-ui/core/styles/withStyles';
 import graphql from 'babel-plugin-relay/macro';
 import clsx from 'clsx';
@@ -10,10 +9,11 @@ import { LanguageCodes } from 'src/core/locales/types';
 import { useInViewContext } from 'src/shared/in-view';
 import { FCProps } from 'src/shared/types/FCProps';
 import { Styles } from 'src/shared/types/Styles';
+import { UserAvatar } from 'src/shared/user-avatar';
 import { getUserLabel } from 'src/shared/utils/getUserLabel';
 import { localizeNumber } from 'src/shared/utils/localizeNumber.util';
-import { useFinalSubmitMutation } from './finalSubmit.mutation';
 import { PersonInfoCard_user$key } from './__generated__/PersonInfoCard_user.graphql';
+import { useFinalSubmitMutation } from './finalSubmit.mutation';
 
 const fragment = graphql`
   fragment PersonInfoCard_user on UserNode {
@@ -21,7 +21,7 @@ const fragment = graphql`
     username
     firstName
     lastName
-    avatarUrl
+    ...UserAvatar_user
     projectReviews {
       comment {
         text
@@ -67,15 +67,7 @@ export function PersonInfoCard(props: Props) {
             {i18n._('Done')}
           </Button>
         }
-        avatar={
-          <Avatar
-            // TODO: show random color
-            className={clsx(classes.avatar, { [classes.avatarShrink]: !topInView })}
-            src={user.avatarUrl || undefined}
-          >
-            {user.firstName[0]}
-          </Avatar>
-        }
+        avatar={<UserAvatar user={user} className={clsx(classes.avatar, { [classes.avatarShrink]: !topInView })} />}
         titleTypographyProps={{ variant: 'h5', gutterBottom: true }}
         classes={{ root: classes.headerRoot, action: classes.action }}
       />
@@ -91,7 +83,6 @@ const styles = (theme: Theme) => ({
     padding: theme.spacing(3, 6),
   } as CSSProperties,
   avatar: {
-    backgroundColor: red[500],
     width: 80,
     height: 80,
     transition: theme.transitions.create(['width', 'height']),

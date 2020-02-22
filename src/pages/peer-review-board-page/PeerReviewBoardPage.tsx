@@ -13,13 +13,12 @@ import { ElementType } from 'src/shared/types/ElementType';
 import { FCProps } from 'src/shared/types/FCProps';
 import { Styles } from 'src/shared/types/Styles';
 import { UserCard } from 'src/shared/user-card';
-import { getUserLabel } from 'src/shared/utils/getUserLabel';
-import { EmptyList } from './EmptyList';
-import { PeerReviewBoardPageQuery } from './__generated__/PeerReviewBoardPageQuery.graphql';
 import {
   PeerReviewBoardPage_user,
   PeerReviewBoardPage_user$key,
 } from './__generated__/PeerReviewBoardPage_user.graphql';
+import { PeerReviewBoardPageQuery } from './__generated__/PeerReviewBoardPageQuery.graphql';
+import { EmptyList } from './EmptyList';
 
 interface OwnProps {}
 
@@ -38,16 +37,10 @@ const query = graphql`
 const userFragment = graphql`
   fragment PeerReviewBoardPage_user on UserNode @relay(plural: true) {
     id
-    firstName
-    lastName
-    username
-    avatarUrl
     personReview {
       state
     }
-    projectReviews {
-      id
-    }
+    ...UserCard_user
   }
 `;
 
@@ -58,15 +51,7 @@ const groupByState = groupBy<UserType>((user: UserType) => {
 });
 
 const generateCardList = (cardList: PeerReviewBoardPage_user) =>
-  cardList.map((item: UserType) => (
-    <UserCard
-      profilePicture={item.avatarUrl || undefined}
-      key={item.id}
-      userId={item.id}
-      userFullName={getUserLabel({ firstName: item.firstName, lastName: item.lastName, username: item.username })}
-      description={i18n._('Requested for {count} project(s) to reivew.', { count: item.projectReviews.length })}
-    />
-  ));
+  cardList.map((user: UserType) => <UserCard user={user} key={user.id} />);
 
 export default function PeerReviewBoardPage(props: Props) {
   const classes = useStyles(props);
