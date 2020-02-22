@@ -1,27 +1,24 @@
 import { FormControl, InputLabel } from '@material-ui/core';
-import React from 'react';
+import React, { ComponentProps } from 'react';
 import { SelectInput } from 'src/shared/forminator';
-import { Option } from 'src/shared/forminator/types';
 import { useLabelWidth } from 'src/shared/hooks';
 import { FCProps } from 'src/shared/types/FCProps';
 
-interface OwnProps {
+interface OwnProps extends Omit<ComponentProps<typeof SelectInput>, 'labelWidth'> {
   inputLabel: string;
-  options: Option[];
-  initialValue?: string;
 }
 
 type Props = FCProps<OwnProps>;
 
 export function Select(props: Props) {
-  const { inputLabel, options, initialValue } = props;
+  const { inputLabel, ...selectInputProps } = props;
 
   const { labelWidth, labelRef } = useLabelWidth();
 
   return (
     <FormControl variant="outlined" margin="dense" fullWidth>
       <InputLabel ref={labelRef}>{inputLabel}</InputLabel>
-      <SelectInput options={options} initialValue={initialValue} labelWidth={labelWidth} />
+      <SelectInput {...selectInputProps} labelWidth={labelWidth} />
     </FormControl>
   );
 }
