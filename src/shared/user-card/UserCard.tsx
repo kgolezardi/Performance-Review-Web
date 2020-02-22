@@ -52,8 +52,8 @@ export const UserCard = (props: Props) => {
                   {getUserLabel(user)}
                 </Typography>
                 <Typography variant="body2" className={classes.textSecondary}>
-                  {i18n._('Requested for {count} project(s) to review.', {
-                    count: localizeNumber(user.projectReviews.length, i18n.language as LanguageCodes),
+                  {i18n._('He/She asked your review on {numberOfProjects} project(s)', {
+                    numberOfProjects: localizeNumber(user.projectReviews.length, i18n.language as LanguageCodes),
                   })}
                 </Typography>
               </Grid>
