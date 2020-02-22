@@ -2,6 +2,7 @@ import { i18n } from '@lingui/core';
 import { Box, Grid, InputAdornment, Typography } from '@material-ui/core';
 import AddIcon from '@material-ui/icons/Add';
 import React, { useCallback } from 'react';
+import { usePeerReviewContext } from 'src/pages/peer-review-page/PeerReviewContext';
 import { ConditionalSection, FragmentRef } from 'src/shared/forminator';
 import { useFragmentLens } from 'src/shared/forminator/core/fragment-lens/useFragmentLens';
 import ArrayAppendButton from 'src/shared/forminator/inputs/array-input/ArrayAppendButton';
@@ -21,11 +22,12 @@ type Props = FCProps<OwnProps>;
 
 export function StrengthsOrWeaknesses({ title, maxLength, label, ...props }: Props) {
   const lens = useFragmentLens();
+  const disabled = usePeerReviewContext()?.state === 'DONE' ?? false;
   const addButtonCondition = useCallback(
     (value: unknown[] | undefined) => {
-      return !value || value.length < maxLength;
+      return (!value || value.length < maxLength) && !disabled;
     },
-    [maxLength],
+    [maxLength, disabled],
   );
   const clearIconCondition = useCallback((value: unknown[] | undefined) => {
     return !(value && value.length === 1);
@@ -59,6 +61,7 @@ export function StrengthsOrWeaknesses({ title, maxLength, label, ...props }: Pro
                       </ConditionalSection>
                     ),
                   }}
+                  disabled={disabled}
                 />
               </Box>
             </Grid>

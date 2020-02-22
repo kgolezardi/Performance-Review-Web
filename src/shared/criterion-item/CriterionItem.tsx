@@ -1,6 +1,7 @@
 import { i18n } from '@lingui/core';
 import { Box, Grid, Typography } from '@material-ui/core';
 import React, { ReactNode } from 'react';
+import { usePeerReviewContext } from 'src/pages/peer-review-page/PeerReviewContext';
 import { DictInputItem, FragmentPrompt, LimitedTextAreaInput } from 'src/shared/forminator';
 import { Rating } from 'src/shared/rating';
 import { useServerValueContext } from 'src/shared/server-value';
@@ -19,6 +20,7 @@ export function CriterionItem({ title, details, prefix, type }: Props) {
   const serverValue = useServerValueContext<any>();
   const rating = (serverValue && serverValue[prefix + 'Rating']) || null;
   const comment = (serverValue && serverValue[prefix + 'Comment']) || '';
+  const disabled = usePeerReviewContext()?.state === 'DONE' ?? false;
 
   return (
     <Box paddingTop={5}>
@@ -32,14 +34,20 @@ export function CriterionItem({ title, details, prefix, type }: Props) {
         <Grid item xs={12}>
           <DictInputItem field={prefix + 'Rating'}>
             <Box width={240}>
-              <Rating inputLabel={i18n._('Evaluation')} type={type} />
+              <Rating inputLabel={i18n._('Evaluation')} type={type} disabled={disabled} />
             </Box>
             <FragmentPrompt value={rating} />
           </DictInputItem>
         </Grid>
         <Grid item xs={12}>
           <DictInputItem field={prefix + 'Comment'}>
-            <LimitedTextAreaInput label={i18n._('Evidence')} variant="outlined" maxChars={280} fullWidth />
+            <LimitedTextAreaInput
+              label={i18n._('Evidence')}
+              variant="outlined"
+              maxChars={280}
+              fullWidth
+              disabled={disabled}
+            />
             <FragmentPrompt value={comment} />
           </DictInputItem>
         </Grid>

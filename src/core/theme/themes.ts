@@ -33,8 +33,15 @@ export function getThemeOptions(base: ThemeOptions, direction: Direction, palett
     typography,
     overrides: {
       MuiOutlinedInput: {
+        root: {
+          '.Mui-disabled&': {
+            backgroundColor: '#FAFAFA',
+            borderColor: '#EEEEEE',
+            color: '#212121',
+          },
+        },
         notchedOutline: {
-          '.MuiFormLabel-filled:not(.Mui-focused) + .MuiInputBase-root:not(:hover) > &': {
+          '.MuiFormLabel-filled:not(.Mui-focused) + .MuiInputBase-root:not(:hover):not(.Mui-disabled) > &': {
             borderColor: 'rgba(0, 0, 0, 0.40)',
           },
         },

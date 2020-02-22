@@ -16,6 +16,7 @@ import { FCProps } from 'src/shared/types/FCProps';
 import { UserType } from 'src/shared/utils/getUserLabel';
 import { CriteriaForm_user$key } from './__generated__/CriteriaForm_user.graphql';
 import { CriteriaFormData } from './CriteriaFormData';
+import { usePeerReviewContext } from 'src/pages/peer-review-page/PeerReviewContext';
 
 // self review helper texts
 const OrganizationCultureAdoptionContentSelfReview = importMDX.sync(
@@ -53,6 +54,7 @@ export function CriteriaForm(props: Props) {
   const components = useContext(MDXContext);
   const user = useFragment(fragmentUserNode, props.user);
   const reviewType = isSelfReview ? 'self' : 'peer';
+  const showSaveButton = usePeerReviewContext()?.state !== 'DONE' ?? true;
 
   return (
     <ServerValueProvider value={props.initialValue}>
@@ -155,11 +157,13 @@ export function CriteriaForm(props: Props) {
               />
             </Grid>
           </DictInput>
-          <StickyActionBar>
-            <SubmitButton variant="contained" color="primary">
-              {i18n._('Save')}
-            </SubmitButton>
-          </StickyActionBar>
+          {showSaveButton && (
+            <StickyActionBar>
+              <SubmitButton variant="contained" color="primary">
+                {i18n._('Save')}
+              </SubmitButton>
+            </StickyActionBar>
+          )}
         </Grid>
       </Forminator>
     </ServerValueProvider>

@@ -7,6 +7,7 @@ import { importMDX } from 'mdx.macro';
 import { equals, filter } from 'ramda';
 import React, { useContext } from 'react';
 import { useFragment } from 'react-relay/hooks';
+import { usePeerReviewContext } from 'src/pages/peer-review-page/PeerReviewContext';
 import { DictInput, DictInputItem, Forminator, SubmitButton } from 'src/shared/forminator';
 import { MDXPropsProvider } from 'src/shared/mdx-provider/MDXPropsProvider';
 import { SectionGuide } from 'src/shared/section-guide';
@@ -14,9 +15,9 @@ import { StickyActionBar } from 'src/shared/sticky-action-bar';
 import { StrengthsOrWeaknesses } from 'src/shared/strengths-weaknesses';
 import { FCProps } from 'src/shared/types/FCProps';
 import { UserType } from 'src/shared/utils/getUserLabel';
-import { StrengthsWeaknessesForm_user$key } from './__generated__/StrengthsWeaknessesForm_user.graphql';
 import { ArrayValuePrompt, Equal } from './ArrayValuePrompt';
 import { StrengthsWeaknessesFormData } from './StrengthsWeaknessesPage';
+import { StrengthsWeaknessesForm_user$key } from './__generated__/StrengthsWeaknessesForm_user.graphql';
 
 const DescriptionContentSelfReview = importMDX.sync('./DescriptionContentSelfReview.mdx');
 const DescriptionContentPeerReview = importMDX.sync('./DescriptionContentPeerReview.mdx');
@@ -38,6 +39,7 @@ export function StrengthsWeaknessesForm(props: Props) {
   const { onSubmit, isSelfReview } = props;
   const components = useContext(MDXContext);
   const user = useFragment(fragmentUserNode, props.user);
+  const showSaveButton = usePeerReviewContext()?.state !== 'DONE' ?? true;
 
   return (
     <Forminator onSubmit={onSubmit} initialValue={props.initialValue}>
@@ -84,11 +86,13 @@ export function StrengthsWeaknessesForm(props: Props) {
             </Grid>
           </DictInputItem>
         </DictInput>
-        <StickyActionBar>
-          <SubmitButton variant="contained" color="primary">
-            {i18n._('Save')}
-          </SubmitButton>
-        </StickyActionBar>
+        {showSaveButton && (
+          <StickyActionBar>
+            <SubmitButton variant="contained" color="primary">
+              {i18n._('Save')}
+            </SubmitButton>
+          </StickyActionBar>
+        )}
       </Grid>
     </Forminator>
   );
@@ -100,21 +104,3 @@ const fragmentUserNode = graphql`
     ...getUserLabel_user
   }
 `;
-
-// #: src/pages/manager-review-page/DominantCharacteristics.tsx:15
-// #: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:48
-// msgid "Most important characteristics or behaviours I should improve in myself"
-// msgstr "مهمترین ویژگی‌ها یا رفتارهایی که باید توی خودم بهبود بدم"
-//
-// #: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:49
-// msgid "Most important characteristics or behaviours he/she should improve in myself"
-// msgstr "مهمترین ویژگی‌ها یا رفتارهایی که باید خودش را بهبود بدهد"
-//
-// #: src/pages/manager-review-page/DominantCharacteristics.tsx:12
-// #: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:39
-// msgid "Most important characteristics or effective behaviours that I should maintain"
-// msgstr "مهمترین ویژگی ها یا رفتارهای مؤثری که باید ادامه شون بدم"
-//
-// #: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:40
-// msgid "Most important characteristics or effective behaviours that he/she should maintain"
-// msgstr "مهمترین ویژگی ها یا رفتارهای مؤثری که باید ادامه شون بدهد"
