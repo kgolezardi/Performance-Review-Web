@@ -40,6 +40,7 @@ msgid "Adding Projects"
 msgstr "Adding Projects"
 
 #: src/pages/peer-review-page/PersonInfoCard.tsx:44
+#: src/pages/peer-review-page/PersonInfoCard.tsx:56
 msgid "An error occurred. Try again!"
 msgstr "An error occurred. Try again!"
 
@@ -47,7 +48,7 @@ msgstr "An error occurred. Try again!"
 msgid "Are you sure you want to delete this project review?"
 msgstr "Are you sure you want to delete this project review?"
 
-#: src/pages/start-review-page/StartReviewPage.tsx:41
+#: src/pages/start-review-page/StartReviewCard.tsx:40
 msgid "Begin my review"
 msgstr "Begin my review"
 
@@ -56,8 +57,8 @@ msgid "Cancel"
 msgstr "Cancel"
 
 #: src/pages/criteria-page/CriteriaPage.tsx:65
-#: src/pages/project-comment-page/ProjectCommentPage.tsx:53
-#: src/pages/projects-page/ProjectsPage.tsx:79
+#: src/pages/project-comment-page/ProjectCommentPage.tsx:52
+#: src/pages/projects-page/ProjectsPage.tsx:78
 #: src/pages/strengths-weaknesses-page/StrengthsWeaknessesPage.tsx:64
 #: src/stories/decorators/promptDecorator.tsx:5
 msgid "Changes you made may not be saved."
@@ -75,7 +76,8 @@ msgstr "Criteria"
 msgid "Dashboard"
 msgstr "Dashboard"
 
-#: src/pages/start-review-page/StartReviewPage.tsx:32
+#: src/pages/start-review-page/NoPeerReview.tsx:10
+#: src/pages/start-review-page/StartReviewCard.tsx:28
 msgid "Dear {name}, Hello"
 msgstr "Dear {name}, Hello"
 
@@ -95,7 +97,11 @@ msgstr "Dominant Characteristics"
 msgid "Done"
 msgstr "Done"
 
-#: src/pages/peer-review-page/PersonInfoCard.tsx:53
+#: src/pages/peer-review-page/PersonInfoCard.tsx:63
+msgid "Edit"
+msgstr "Edit"
+
+#: src/pages/peer-review-page/PersonInfoCard.tsx:64
 msgid "End {name}'s evaluation"
 msgstr "End {name}'s evaluation"
 
@@ -114,7 +120,7 @@ msgstr "Error"
 msgid "Evaluation"
 msgstr "Evaluation"
 
-#: src/pages/start-review-page/StartReviewPage.tsx:36
+#: src/pages/start-review-page/StartReviewCard.tsx:33
 msgid "Evaluation due date: {formattedDueDate}"
 msgstr "Evaluation due date: {formattedDueDate}"
 
@@ -131,7 +137,7 @@ msgstr "Exceeds Expectations from Him/Her"
 msgid "Exceeds Expectations from me"
 msgstr "Exceeds Expectations from me"
 
-#: src/pages/criteria-page/CriteriaForm.tsx:54
+#: src/pages/criteria-page/CriteriaForm.tsx:53
 #: src/shared/criteria-manager-review/CriteriaManagerReview.tsx:17
 msgid "Execution"
 msgstr "Execution"
@@ -157,7 +163,7 @@ msgstr "Good job!"
 msgid "He/She Needs Improvement"
 msgstr "He/She Needs Improvement"
 
-#: src/pages/peer-review-page/PersonInfoCard.tsx:50
+#: src/pages/peer-review-page/PersonInfoCard.tsx:66
 #: src/shared/user-card/UserCard.tsx:39
 msgid "He/She asked your review on {numberOfProjects} project(s)"
 msgstr "He/She asked your review on {numberOfProjects} project(s)"
@@ -193,7 +199,7 @@ msgstr "It'd be good if u wrote more!"
 msgid "It's complete!"
 msgstr "It's complete!"
 
-#: src/pages/criteria-page/CriteriaForm.tsx:60
+#: src/pages/criteria-page/CriteriaForm.tsx:59
 #: src/shared/criteria-manager-review/CriteriaManagerReview.tsx:23
 msgid "Leadership"
 msgstr "Leadership"
@@ -236,7 +242,7 @@ msgstr "No! Wait"
 msgid "Observation"
 msgstr "Observation"
 
-#: src/pages/criteria-page/CriteriaForm.tsx:48
+#: src/pages/criteria-page/CriteriaForm.tsx:47
 #: src/shared/criteria-manager-review/CriteriaManagerReview.tsx:11
 msgid "Organization Culture Adoption"
 msgstr "Organization Culture Adoption"
@@ -278,12 +284,12 @@ msgstr "Performance to initial expectation"
 msgid "Persian"
 msgstr "فارسی"
 
-#: src/pages/criteria-page/CriteriaForm.tsx:63
+#: src/pages/criteria-page/CriteriaForm.tsx:62
 #: src/shared/criteria-manager-review/CriteriaManagerReview.tsx:26
 msgid "Presence"
 msgstr "Presence"
 
-#: src/pages/criteria-page/CriteriaForm.tsx:51
+#: src/pages/criteria-page/CriteriaForm.tsx:50
 #: src/shared/criteria-manager-review/CriteriaManagerReview.tsx:14
 msgid "Problem Solving"
 msgstr "Problem Solving"
@@ -305,9 +311,9 @@ msgstr "Reviewers"
 msgid "Role Expertise and Self Development"
 msgstr "Role Expertise and Self Development"
 
-#: src/pages/criteria-page/CriteriaForm.tsx:68
+#: src/pages/criteria-page/CriteriaForm.tsx:67
 #: src/pages/projects-page/ProjectForm.tsx:82
-#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:56
+#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:55
 #: src/shared/project-peer-review-form/ProjectPeerReviewForm.tsx:47
 msgid "Save"
 msgstr "Save"
@@ -335,7 +341,7 @@ msgstr "Self Review"
 
 #: src/core/snackbar/Snackbar.stories.tsx:24
 #: src/pages/criteria-page/CriteriaPage.tsx:60
-#: src/pages/projects-page/ProjectsPage.tsx:50
+#: src/pages/projects-page/ProjectsPage.tsx:49
 #: src/pages/strengths-weaknesses-page/StrengthsWeaknessesPage.tsx:60
 msgid "Something went wrong."
 msgstr "Something went wrong."
@@ -362,7 +368,7 @@ msgstr "Submit"
 
 #: src/core/snackbar/Snackbar.stories.tsx:14
 #: src/pages/criteria-page/CriteriaPage.tsx:57
-#: src/pages/projects-page/ProjectsPage.tsx:47
+#: src/pages/projects-page/ProjectsPage.tsx:46
 #: src/pages/strengths-weaknesses-page/StrengthsWeaknessesPage.tsx:57
 msgid "Successfully saved."
 msgstr "Successfully saved."
@@ -373,24 +379,24 @@ msgid "Superb"
 msgstr "Superb"
 
 #: src/pages/manager-review-page/DominantCharacteristics.tsx:15
-#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:48
+#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:47
 msgid "The most important characteristics or behaviors I should improve in myself"
 msgstr "The most important characteristics or behaviors I should improve in myself"
 
-#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:49
+#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:48
 msgid "The most important characteristics or behaviors he/she should improve"
 msgstr "The most important characteristics or behaviors he/she should improve"
 
 #: src/pages/manager-review-page/DominantCharacteristics.tsx:12
-#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:39
+#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:38
 msgid "The most important characteristics or effective behaviors that I should maintain"
 msgstr "The most important characteristics or effective behaviors that I should maintain"
 
-#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:40
+#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:39
 msgid "The most important characteristics or effective behaviors that he/she should maintain"
 msgstr "The most important characteristics or effective behaviors that he/she should maintain"
 
-#: src/pages/criteria-page/CriteriaForm.tsx:57
+#: src/pages/criteria-page/CriteriaForm.tsx:56
 #: src/shared/criteria-manager-review/CriteriaManagerReview.tsx:20
 msgid "Thought Leadership"
 msgstr "Thought Leadership"
@@ -421,19 +427,19 @@ msgstr "Username or Password is incorrect."
 msgid "View"
 msgstr "View"
 
-#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:40
+#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:39
 msgid "What should he/she continue doing"
 msgstr "What should he/she continue doing"
 
-#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:49
+#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:48
 msgid "What should he/she improve"
 msgstr "What should he/she improve"
 
-#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:40
+#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:39
 msgid "What to continue doing"
 msgstr "What to continue doing"
 
-#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:49
+#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:48
 msgid "What to improve"
 msgstr "What to improve"
 
@@ -476,6 +482,6 @@ msgstr "Your team members"
 msgid "{name}'s comment about his/her performance compared to initial expectation"
 msgstr "{name}'s comment about his/her performance compared to initial expectation"
 
-#: src/pages/peer-review-page/PersonInfoCard.tsx:38
+#: src/pages/peer-review-page/PersonInfoCard.tsx:50
 msgid "{name}'s evaluation completed successfully."
 msgstr "{name}'s evaluation completed successfully."

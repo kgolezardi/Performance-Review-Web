@@ -14,7 +14,7 @@ import { Styles } from 'src/shared/types/Styles';
 import { UserAvatar } from 'src/shared/user-avatar';
 import { getUserLabel } from 'src/shared/utils/getUserLabel';
 import { localizeNumber } from 'src/shared/utils/localizeNumber.util';
-import { useFinalSubmitMutation } from './finalSubmit.mutation';
+import { useSavePersonReviewMutation } from './savePersonReview.mutation';
 import { PersonInfoCard_user$key } from './__generated__/PersonInfoCard_user.graphql';
 
 const fragment = graphql`
@@ -22,6 +22,9 @@ const fragment = graphql`
     id
     ...getUserLabel_user
     ...UserAvatar_user
+    personReview {
+      state
+    }
     projectReviews {
       comment {
         text
@@ -45,29 +48,43 @@ export function PersonInfoCard(props: Props) {
 
   const user = useFragment<PersonInfoCard_user$key>(fragment, props.user);
 
-  const finalSubmitMutation = useFinalSubmitMutation();
+  const savePersonReviewMutation = useSavePersonReviewMutation();
   const { enqueueSnackbar } = useBiDiSnackbar();
   const history = useHistory();
 
-  const handleSubmit = useCallback(() => {
-    finalSubmitMutation({ input: { revieweeId: user.id, state: 'DONE' } })
-      .then(() => {
-        enqueueSnackbar(
-          i18n._("{name}'s evaluation completed successfully.", { name: getUserLabel(user, { short: true }) }),
-          {
-            variant: 'success',
-          },
-        );
-        history.push('/peer-review');
-      })
-      .catch(() => {
+  const state = user.personReview?.state;
+
+  const handleClick = useCallback(() => {
+    console.log(state);
+    if (state === 'DONE') {
+      savePersonReviewMutation({ input: { revieweeId: user.id, state: 'DOING' } }).catch(() => {
         enqueueSnackbar(i18n._('An error occurred. Try again!'), { variant: 'error' });
       });
-  }, [user, finalSubmitMutation, history, enqueueSnackbar]);
+    } else {
+      savePersonReviewMutation({ input: { revieweeId: user.id, state: 'DONE' } })
+        .then(() => {
+          enqueueSnackbar(
+            i18n._("{name}'s evaluation completed successfully.", { name: getUserLabel(user, { short: true }) }),
+            {
+              variant: 'success',
+            },
+          );
+          history.push('/peer-review');
+        })
+        .catch(() => {
+          enqueueSnackbar(i18n._('An error occurred. Try again!'), { variant: 'error' });
+        });
+    }
+  }, [user, savePersonReviewMutation, history, enqueueSnackbar, state]);
 
   const numberOfProjects = localizeNumber(user.projectReviews.length, i18n.language as LanguageCodes);
 
   const disabled = !user.projectReviews.every(({ comment }) => !!(comment && comment.text && comment.rating));
+
+  const actionButtonText =
+    state === 'DONE'
+      ? i18n._('Edit')
+      : i18n._("End {name}'s evaluation", { name: getUserLabel(user, { short: true }) });
 
   return (
     <Card classes={{ root: classes.root }}>
@@ -77,8 +94,8 @@ export function PersonInfoCard(props: Props) {
           numberOfProjects,
         })}
         action={
-          <Button onClick={handleSubmit} variant="contained" color="secondary" disabled={disabled}>
-            {i18n._("End {name}'s evaluation", { name: getUserLabel(user, { short: true }) })}
+          <Button onClick={handleClick} variant="contained" color="secondary" disabled={disabled}>
+            {actionButtonText}
           </Button>
         }
         avatar={<UserAvatar user={user} className={clsx(classes.avatar, { [classes.avatarShrink]: !topInView })} />}
