@@ -39,6 +39,10 @@ msgstr "Add here after completing any evaluation"
 msgid "Adding Projects"
 msgstr "Adding Projects"
 
+#: src/pages/peer-review-page/PersonInfoCard.tsx:44
+msgid "An error occurred. Try again!"
+msgstr "An error occurred. Try again!"
+
 #: src/pages/projects-page/ProjectForm.tsx:80
 msgid "Are you sure you want to delete this project review?"
 msgstr "Are you sure you want to delete this project review?"
@@ -52,7 +56,7 @@ msgid "Cancel"
 msgstr "Cancel"
 
 #: src/pages/criteria-page/CriteriaPage.tsx:65
-#: src/pages/project-comment-page/ProjectCommentPage.tsx:42
+#: src/pages/project-comment-page/ProjectCommentPage.tsx:53
 #: src/pages/projects-page/ProjectsPage.tsx:79
 #: src/pages/strengths-weaknesses-page/StrengthsWeaknessesPage.tsx:64
 #: src/stories/decorators/promptDecorator.tsx:5
@@ -88,9 +92,12 @@ msgstr "Dominant Characteristics"
 
 #: src/assets/icons/Done.tsx:5
 #: src/pages/peer-review-board-page/PeerReviewBoardPage.tsx:53
-#: src/pages/peer-review-page/PersonInfoCard.tsx:42
 msgid "Done"
 msgstr "Done"
+
+#: src/pages/peer-review-page/PersonInfoCard.tsx:53
+msgid "End {name}'s evaluation"
+msgstr "End {name}'s evaluation"
 
 #: src/core/locales/languages.ts:5
 msgid "English"
@@ -130,7 +137,7 @@ msgid "Execution"
 msgstr "Execution"
 
 #: src/containers/main/getMenuItems.ts:19
-#: src/pages/guide-page/GuidePage.tsx:14
+#: src/pages/guide-page/GuidePage.tsx:10
 msgid "FAQ"
 msgstr "FAQ"
 
@@ -150,7 +157,7 @@ msgstr "Good job!"
 msgid "He/She Needs Improvement"
 msgstr "He/She Needs Improvement"
 
-#: src/pages/peer-review-page/PersonInfoCard.tsx:39
+#: src/pages/peer-review-page/PersonInfoCard.tsx:50
 msgid "He/She asked your review on {numberOfProjects} project(s)"
 msgstr "He/She asked your review on {numberOfProjects} project(s)"
 
@@ -207,6 +214,7 @@ msgid "My impact"
 msgstr "My impact"
 
 #: src/containers/main/getMenuItems.ts:35
+#: src/pages/guide-page/NvcGuidePage.tsx:10
 msgid "NVC Guide"
 msgstr "NVC Guide"
 
@@ -251,7 +259,7 @@ msgstr "People who will comment on your accomplishments and write your performan
 msgid "Performance Competencies"
 msgstr "Performance Competencies"
 
-#: src/containers/main/MainContainer.tsx:18
+#: src/containers/main/MainContainer.tsx:23
 #: src/shared/full-page-error/FullPageError.stories.tsx:34
 #: src/shared/layouts/dashboard-layouts/DashboardLayout.stories.tsx:27
 msgid "Performance Review"
@@ -287,7 +295,7 @@ msgstr "Programmers are typing..."
 msgid "Projects"
 msgstr "Projects"
 
-#: src/shared/user-card/UserCard.tsx:40
+#: src/shared/user-card/UserCard.tsx:38
 msgid "Requested for {count} project(s) to review."
 msgstr "Requested for {count} project(s) to review."
 
@@ -459,7 +467,7 @@ msgstr "You haven't started evaluating yet!"
 msgid "You're almost there!"
 msgstr "You're almost there!"
 
-#: src/shared/project-peer-review-item/ProjectPeerReviewItem.tsx:52
+#: src/shared/project-peer-review-item/ProjectPeerReviewItem.tsx:55
 msgid "Your comment about {name}'s performance in this project"
 msgstr "Your comment about {name}'s performance in this project"
 
@@ -467,6 +475,10 @@ msgstr "Your comment about {name}'s performance in this project"
 msgid "Your team members"
 msgstr "Your team members"
 
-#: src/shared/project-peer-review-item/ProjectPeerReviewItem.tsx:43
+#: src/shared/project-peer-review-item/ProjectPeerReviewItem.tsx:46
 msgid "{name}'s comment about his/her performance compared to initial expectation"
 msgstr "{name}'s comment about his/her performance compared to initial expectation"
+
+#: src/pages/peer-review-page/PersonInfoCard.tsx:38
+msgid "{name}'s evaluation completed successfully."
+msgstr "{name}'s evaluation completed successfully."
