@@ -61,7 +61,7 @@ export function PersonInfoCard(props: Props) {
         history.push('/peer-review');
       })
       .catch(() => {
-        enqueueSnackbar(i18n._('An error occurred.Try again!'), { variant: 'error' });
+        enqueueSnackbar(i18n._('An error occurred. Try again!'), { variant: 'error' });
       });
   }, [user, finalSubmitMutation, history, enqueueSnackbar]);
 

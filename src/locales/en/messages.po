@@ -40,8 +40,8 @@ msgid "Adding Projects"
 msgstr "Adding Projects"
 
 #: src/pages/peer-review-page/PersonInfoCard.tsx:44
-msgid "An error occurred.Try again!"
-msgstr "An error occurred.Try again!"
+msgid "An error occurred. Try again!"
+msgstr "An error occurred. Try again!"
 
 #: src/pages/projects-page/ProjectForm.tsx:80
 msgid "Are you sure you want to delete this project review?"
