@@ -97,9 +97,7 @@ export function StrengthsWeaknessesForm(props: Props) {
 const fragmentUserNode = graphql`
   fragment StrengthsWeaknessesForm_user on UserNode {
     id
-    username
-    firstName
-    lastName
+    ...getUserLabel_user
   }
 `;
 

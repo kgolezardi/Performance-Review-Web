@@ -1,13 +1,7 @@
 import React, { useContext } from 'react';
+import { AuthGuard_user } from './__generated__/AuthGuard_user.graphql';
 
-export interface UserContextValue {
-  id: string;
-  username: string;
-  firstName: string;
-  lastName: string;
-  hasStarted: boolean;
-  isManager: boolean;
-}
+export type UserContextValue = AuthGuard_user;
 export const UserContext = React.createContext<UserContextValue | null>(null);
 
 export function useUser(): UserContextValue | null {

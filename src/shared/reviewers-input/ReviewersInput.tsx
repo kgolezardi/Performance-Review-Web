@@ -28,9 +28,7 @@ export function ReviewersInput(props: Props) {
     graphql`
       fragment ReviewersInput_Reviewers on UserNode @relay(plural: true) {
         id
-        firstName
-        lastName
-        username
+        ...getUserLabel_user
       }
     `,
     props.users,

@@ -1,11 +1,11 @@
 import graphql from 'babel-plugin-relay/macro';
-import React, { useMemo } from 'react';
-import { useLazyLoadQuery, useFragment } from 'react-relay/hooks';
+import React from 'react';
+import { useFragment, useLazyLoadQuery } from 'react-relay/hooks';
 import { AuthPage } from 'src/shared/auth';
 import { FCProps } from 'src/shared/types/FCProps';
-import { UserContext } from './UserContext';
-import { AuthGuardQuery } from './__generated__/AuthGuardQuery.graphql';
 import { AuthGuard_user$key } from './__generated__/AuthGuard_user.graphql';
+import { AuthGuardQuery } from './__generated__/AuthGuardQuery.graphql';
+import { UserContext } from './UserContext';
 
 interface OwnProps {}
 
@@ -15,23 +15,8 @@ export function AuthGuard(props: Props) {
   const data = useLazyLoadQuery<AuthGuardQuery>(authGuardQuery, {});
   const me = useFragment<AuthGuard_user$key>(fragment, data.viewer.me);
 
-  const user = useMemo(
-    () =>
-      me
-        ? {
-            username: me.username,
-            id: me.id,
-            firstName: me.firstName,
-            lastName: me.lastName,
-            hasStarted: me.hasStarted || false,
-            isManager: me.isManager,
-          }
-        : null,
-    [me],
-  );
-
-  if (user) {
-    return <UserContext.Provider value={user}>{props.children}</UserContext.Provider>;
+  if (me) {
+    return <UserContext.Provider value={me}>{props.children}</UserContext.Provider>;
   } else {
     return <AuthPage />;
   }
@@ -50,9 +35,7 @@ const authGuardQuery = graphql`
 const fragment = graphql`
   fragment AuthGuard_user on UserNode {
     id
-    username
-    firstName
-    lastName
+    ...getUserLabel_user
     hasStarted
     isManager
   }
