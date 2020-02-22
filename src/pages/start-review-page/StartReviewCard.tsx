@@ -1,8 +1,7 @@
 import { i18n } from '@lingui/core';
 import { Box, Button, Card, CardContent, CardHeader, Grid, makeStyles, Theme, Typography } from '@material-ui/core';
 import { CSSProperties } from '@material-ui/core/styles/withStyles';
-// @ts-ignore
-import { Components, MDXContext } from '@mdx-js/react';
+import { MDXComponentProps, MDXContext } from '@mdx-js/react';
 import { DateTime } from 'luxon';
 import React, { useCallback, useContext } from 'react';
 import { useAuthGuardUser } from 'src/core/auth';
@@ -14,7 +13,7 @@ import { BlackQuote } from './BlackQuote';
 import { useStartReviewMutation } from './start-review.mutation';
 
 interface OwnProps {
-  Content: any;
+  Content: React.ComponentType<MDXComponentProps>;
 }
 
 type Props = FCProps<OwnProps> & StyleProps;
@@ -23,7 +22,7 @@ export function StartReviewCard(props: Props) {
   const { Content } = props;
   const classes = useStyles(props);
   const settings = useAppSettings();
-  const components = useContext<Components>(MDXContext);
+  const components = useContext(MDXContext);
   const user = useAuthGuardUser();
   const startReviewMutation = useStartReviewMutation();
 

@@ -35,5 +35,18 @@ declare module '@mdx-js/react' {
     children: React.ReactNode;
     components: Components;
   }
+
+  export interface MDXComponentProps {
+    components: Components;
+  }
+
   export class MDXProvider extends React.Component<MDXProviderProps> {}
+
+  export function useMDXComponents(components: Components | ((components: Components) => Components)): Components;
+
+  export function withMDXComponents<T extends MDXComponentProps>(
+    Component: React.ComponentType<T>,
+  ): React.ComponentType<T>;
+
+  export const MDXContext: React.Context<Components>;
 }
