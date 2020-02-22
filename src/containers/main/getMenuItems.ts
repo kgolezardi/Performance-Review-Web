@@ -33,15 +33,15 @@ export function getMenuItems(phase: Phase, user: User): MenuItem[] {
   if (phase === 'PEER_REVIEW' && user.hasStarted) {
     return [
       {
-        text: i18n._('Evaluation Board'),
+        text: i18n._('Peer Review'),
         link: {
           to: '/peer-review',
         },
       },
       {
-        text: i18n._('FAQ'),
+        text: i18n._('NVC Guide'),
         link: {
-          to: '/faq',
+          to: '/nvc',
         },
       },
     ];

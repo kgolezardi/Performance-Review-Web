@@ -18,6 +18,7 @@ import { ProjectCommentFormData } from 'src/shared/project-peer-review-form/type
 import { ProjectPeerReviewOutput } from 'src/shared/project-peer-review-output';
 import { FCProps } from 'src/shared/types/FCProps';
 import { Styles } from 'src/shared/types/Styles';
+import { getUserLabel } from 'src/shared/utils/getUserLabel';
 import { useSaveProjectComment } from './saveProjectComment.mutation';
 import { ProjectPeerReviewItem_projectReview$key } from './__generated__/ProjectPeerReviewItem_projectReview.graphql';
 interface OwnProps {
@@ -32,6 +33,7 @@ const fragment = graphql`
     reviewee {
       id
       firstName
+      ...getUserLabel_user
     }
     project {
       name
@@ -55,7 +57,8 @@ export function ProjectPeerReviewItem(props: Props) {
     [saveProjectComment, projectReviewId],
   );
 
-  const name = projectReview.project.name;
+  const projectName = projectReview.project.name;
+  const name = getUserLabel(projectReview.reviewee);
 
   return (
     <ExpansionPanel
@@ -64,7 +67,7 @@ export function ProjectPeerReviewItem(props: Props) {
       classes={{ root: classes.expansionPanelRoot, expanded: classes.expansionPanelExpanded }}
     >
       <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
-        <Typography variant="h5">{name}</Typography>
+        <Typography variant="h5">{projectName}</Typography>
       </ExpansionPanelSummary>
       <ExpansionPanelDetails>
         <Grid container spacing={2}>
