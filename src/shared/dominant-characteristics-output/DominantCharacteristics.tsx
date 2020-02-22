@@ -4,31 +4,31 @@ import graphql from 'babel-plugin-relay/macro';
 import React from 'react';
 import { useFragment } from 'react-relay/hooks';
 import { FCProps } from 'src/shared/types/FCProps';
-import { DominantCharacteristicsManagerReview_review$key } from './__generated__/DominantCharacteristicsManagerReview_review.graphql';
-import { CharacteristicsOutput } from './CharacteristicsOutput';
+import { CharacteristicsList } from './CharacteristicsList';
+import { DominantCharacteristicsOutput_review$key } from './__generated__/DominantCharacteristicsOutput_review.graphql';
 
 interface OwnProps {
-  review: DominantCharacteristicsManagerReview_review$key;
+  review: DominantCharacteristicsOutput_review$key | null;
 }
 
 type Props = FCProps<OwnProps>;
 
-export function DominantCharacteristicsManagerReview(props: Props) {
+export function DominantCharacteristicsOutput(props: Props) {
   const review = useFragment(fragment, props.review);
 
   return (
     <Box padding={3}>
       <Grid container spacing={2}>
         <Grid item xs={12}>
-          <CharacteristicsOutput
+          <CharacteristicsList
             title={i18n._('The most important characteristics or effective behaviors that I should maintain')}
-            characteristics={review.strengths}
+            characteristics={review?.strengths ?? null}
           />
         </Grid>
         <Grid item xs={12}>
-          <CharacteristicsOutput
+          <CharacteristicsList
             title={i18n._('The most important characteristics or behaviors I should improve in myself')}
-            characteristics={review.weaknesses}
+            characteristics={review?.weaknesses ?? null}
           />
         </Grid>
       </Grid>
@@ -37,7 +37,7 @@ export function DominantCharacteristicsManagerReview(props: Props) {
 }
 
 export const fragment = graphql`
-  fragment DominantCharacteristicsManagerReview_review on PersonReviewNode {
+  fragment DominantCharacteristicsOutput_review on PersonReviewNode {
     strengths
     weaknesses
   }

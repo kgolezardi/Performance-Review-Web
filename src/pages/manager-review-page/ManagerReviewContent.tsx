@@ -5,12 +5,12 @@ import graphql from 'babel-plugin-relay/macro';
 import React, { Fragment, useCallback, useState } from 'react';
 import { useFragment } from 'react-relay/hooks';
 import { CriteriaOutput } from 'src/shared/criteria-output';
+import { DominantCharacteristicsOutput } from 'src/shared/dominant-characteristics-output';
 import { useMemberListContext } from 'src/shared/members-list';
 import { ProjectManagerReview } from 'src/shared/project-manager-review';
 import { TabPanel, TabPanelsProvider } from 'src/shared/tab';
 import { FCProps } from 'src/shared/types/FCProps';
 import { Styles } from 'src/shared/types/Styles';
-import { DominantCharacteristicsManagerReview } from './DominantCharacteristics';
 import { useCurrentPersonReview } from './useCurrentPersonReview';
 import { useCurrentProjectReviews } from './useCurrentProjectReviews';
 import { ManagerReviewContent_personReviews$key } from './__generated__/ManagerReviewContent_personReviews.graphql';
@@ -69,10 +69,8 @@ export function ManagerReviewContent(props: Props) {
       </Paper>
       <Paper classes={{ root: classes.tabPanelPaper }}>
         <TabPanelsProvider value={{ value: tab }}>
-          <TabPanel value={0}>{currentPersonReview && <CriteriaOutput review={currentPersonReview} />}</TabPanel>
-          <TabPanel value={1}>
-            {currentPersonReview && <DominantCharacteristicsManagerReview review={currentPersonReview} />}
-          </TabPanel>
+          <TabPanel value={0}>{<CriteriaOutput review={currentPersonReview} />}</TabPanel>
+          <TabPanel value={1}>{<DominantCharacteristicsOutput review={currentPersonReview} />}</TabPanel>
           <TabPanel value={2}>
             <Box paddingTop={4}>
               {currentProjectReviews.map((review, index) => (
@@ -115,7 +113,7 @@ const personReviewsFragment = graphql`
     reviewee {
       id
     }
-    ...DominantCharacteristicsManagerReview_review
+    ...DominantCharacteristicsOutput_review
     ...CriteriaOutput_review
   }
 `;
