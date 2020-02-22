@@ -1,6 +1,5 @@
 import { i18n } from '@lingui/core';
 import { Grid } from '@material-ui/core';
-// @ts-ignore
 import { MDXContext } from '@mdx-js/react';
 import graphql from 'babel-plugin-relay/macro';
 import { importMDX } from 'mdx.macro';

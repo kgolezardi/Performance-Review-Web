@@ -1,14 +1,13 @@
 import { Box, Card, CardContent, CardHeader, Container, makeStyles, Theme } from '@material-ui/core';
 import { CSSProperties } from '@material-ui/core/styles/withStyles';
-// @ts-ignore
-import { MDXContext } from '@mdx-js/react';
+import { MDXComponentProps, MDXContext } from '@mdx-js/react';
 import React, { useContext } from 'react';
 import { FCProps } from 'src/shared/types/FCProps';
 import { Styles } from 'src/shared/types/Styles';
 
 interface OwnProps {
   title: React.ReactNode;
-  Content: any;
+  Content: React.ComponentType<MDXComponentProps>;
 }
 
 type Props = FCProps<OwnProps> & StyleProps;
