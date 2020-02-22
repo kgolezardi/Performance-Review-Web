@@ -56,7 +56,7 @@ msgid "Cancel"
 msgstr "لغو"
 
 #: src/pages/criteria-page/CriteriaPage.tsx:65
-#: src/pages/project-comment-page/ProjectCommentPage.tsx:42
+#: src/pages/project-comment-page/ProjectCommentPage.tsx:53
 #: src/pages/projects-page/ProjectsPage.tsx:79
 #: src/pages/strengths-weaknesses-page/StrengthsWeaknessesPage.tsx:64
 #: src/stories/decorators/promptDecorator.tsx:5
@@ -92,7 +92,6 @@ msgstr "ویژگی‌های بارز"
 
 #: src/assets/icons/Done.tsx:5
 #: src/pages/peer-review-board-page/PeerReviewBoardPage.tsx:53
-#: src/pages/peer-review-page/PersonInfoCard.tsx:42
 msgid "Done"
 msgstr "انجام شد"
 
@@ -138,7 +137,7 @@ msgid "Execution"
 msgstr "اجرا"
 
 #: src/containers/main/getMenuItems.ts:19
-#: src/pages/guide-page/GuidePage.tsx:14
+#: src/pages/guide-page/GuidePage.tsx:10
 msgid "FAQ"
 msgstr "‌سؤالات متداول"
 
@@ -215,6 +214,7 @@ msgid "My impact"
 msgstr "تأثیر من"
 
 #: src/containers/main/getMenuItems.ts:35
+#: src/pages/guide-page/NvcGuidePage.tsx:10
 msgid "NVC Guide"
 msgstr "راهنمای مدل NVC"
 
@@ -467,7 +467,7 @@ msgstr "هنوز شروع به ارزیابی نکردی!"
 msgid "You're almost there!"
 msgstr "یه کم مونده!"
 
-#: src/shared/project-peer-review-item/ProjectPeerReviewItem.tsx:52
+#: src/shared/project-peer-review-item/ProjectPeerReviewItem.tsx:55
 msgid "Your comment about {name}'s performance in this project"
 msgstr "نظر شما در مورد عملکرد {name} در این پروژه"
 
@@ -475,7 +475,7 @@ msgstr "نظر شما در مورد عملکرد {name} در این پروژه"
 msgid "Your team members"
 msgstr "اعضای تیم شما"
 
-#: src/shared/project-peer-review-item/ProjectPeerReviewItem.tsx:43
+#: src/shared/project-peer-review-item/ProjectPeerReviewItem.tsx:46
 msgid "{name}'s comment about his/her performance compared to initial expectation"
 msgstr "نظر {name} در مورد سطح عملکردش نسبت به انتظاری که ازش میره"
 

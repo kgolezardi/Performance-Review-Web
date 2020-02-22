@@ -56,7 +56,7 @@ msgid "Cancel"
 msgstr "Cancel"
 
 #: src/pages/criteria-page/CriteriaPage.tsx:65
-#: src/pages/project-comment-page/ProjectCommentPage.tsx:42
+#: src/pages/project-comment-page/ProjectCommentPage.tsx:53
 #: src/pages/projects-page/ProjectsPage.tsx:79
 #: src/pages/strengths-weaknesses-page/StrengthsWeaknessesPage.tsx:64
 #: src/stories/decorators/promptDecorator.tsx:5
@@ -137,7 +137,7 @@ msgid "Execution"
 msgstr "Execution"
 
 #: src/containers/main/getMenuItems.ts:19
-#: src/pages/guide-page/GuidePage.tsx:14
+#: src/pages/guide-page/GuidePage.tsx:10
 msgid "FAQ"
 msgstr "FAQ"
 
@@ -214,6 +214,7 @@ msgid "My impact"
 msgstr "My impact"
 
 #: src/containers/main/getMenuItems.ts:35
+#: src/pages/guide-page/NvcGuidePage.tsx:10
 msgid "NVC Guide"
 msgstr "NVC Guide"
 
@@ -466,7 +467,7 @@ msgstr "You haven't started evaluating yet!"
 msgid "You're almost there!"
 msgstr "You're almost there!"
 
-#: src/shared/project-peer-review-item/ProjectPeerReviewItem.tsx:52
+#: src/shared/project-peer-review-item/ProjectPeerReviewItem.tsx:55
 msgid "Your comment about {name}'s performance in this project"
 msgstr "Your comment about {name}'s performance in this project"
 
@@ -474,7 +475,7 @@ msgstr "Your comment about {name}'s performance in this project"
 msgid "Your team members"
 msgstr "Your team members"
 
-#: src/shared/project-peer-review-item/ProjectPeerReviewItem.tsx:43
+#: src/shared/project-peer-review-item/ProjectPeerReviewItem.tsx:46
 msgid "{name}'s comment about his/her performance compared to initial expectation"
 msgstr "{name}'s comment about his/her performance compared to initial expectation"
 
