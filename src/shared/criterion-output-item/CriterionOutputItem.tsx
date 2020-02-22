@@ -2,10 +2,8 @@ import { i18n } from '@lingui/core';
 import { Box, Grid, Typography } from '@material-ui/core';
 import React from 'react';
 import { Evaluation } from 'src/global-types';
-import { NON_BREAKING_SPACE } from 'src/shared/constants';
 import { EvaluationOutput } from 'src/shared/evaluation-output';
 import { MultilineOutput } from 'src/shared/multiline-output';
-import { OutputBorder } from 'src/shared/output-border';
 import { FCProps } from 'src/shared/types/FCProps';
 
 interface OwnProps {
@@ -24,22 +22,18 @@ export function CriterionOutputItem({ title, evaluation, evidence }: Props) {
           <Typography variant="h5">{title}</Typography>
         </Grid>
         <Grid item xs={12}>
-          <Typography variant="body1" gutterBottom>
+          <Typography variant="body1" color="textSecondary" gutterBottom>
             {i18n._('Evaluation')}:
           </Typography>
           <Box width={240}>
-            <OutputBorder>
-              <EvaluationOutput value={evaluation} type="self" />
-            </OutputBorder>
+            <EvaluationOutput value={evaluation} type="self" />
           </Box>
         </Grid>
         <Grid item xs={12}>
-          <Typography variant="body1" gutterBottom>
+          <Typography variant="body1" color="textSecondary" gutterBottom>
             {i18n._('Evidence')}:
           </Typography>
-          <OutputBorder>
-            <MultilineOutput value={evidence || NON_BREAKING_SPACE} />
-          </OutputBorder>
+          <MultilineOutput value={evidence} />
         </Grid>
       </Grid>
     </Box>

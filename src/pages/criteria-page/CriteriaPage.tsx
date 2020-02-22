@@ -3,14 +3,15 @@ import { Box } from '@material-ui/core';
 import graphql from 'babel-plugin-relay/macro';
 import React, { useCallback } from 'react';
 import { useLazyLoadQuery } from 'react-relay/hooks';
-import { CriteriaPageQuery } from 'src/pages/criteria-page/__generated__/CriteriaPageQuery.graphql';
 import { useMutation } from 'src/relay';
+import { CriteriaOutput } from 'src/shared/criteria-output';
 import { PromptProvider } from 'src/shared/prompt';
 import { useBiDiSnackbar } from 'src/shared/snackbar';
 import { FCProps } from 'src/shared/types/FCProps';
 import { CriteriaForm } from './CriteriaForm';
 import { CriteriaFormData } from './CriteriaFormData';
 import { CriteriaPageMutation } from './__generated__/CriteriaPageMutation.graphql';
+import { CriteriaPageQuery } from './__generated__/CriteriaPageQuery.graphql';
 
 interface OwnProps {
   revieweeId: string;
@@ -40,6 +41,7 @@ const query = graphql`
           id
           ...CriteriaForm_user
         }
+        ...CriteriaOutput_review
         sahabinessComment
         problemSolvingComment
         executionComment
@@ -53,6 +55,7 @@ const query = graphql`
         leadershipRating
         presenceRating
         isSelfReview
+        state
       }
     }
   }
@@ -83,27 +86,32 @@ export default function CriteriaPage(props: Props) {
 
   return (
     <Box padding={3} paddingTop={4}>
-      <PromptProvider message={i18n._('Changes you made may not be saved.')}>
-        <CriteriaForm
-          onSubmit={handleSubmit}
-          user={review?.reviewee ?? null}
-          initialValue={{
-            executionComment: review?.executionComment || undefined,
-            executionRating: review?.executionRating || undefined,
-            leadershipComment: review?.leadershipComment || undefined,
-            leadershipRating: review?.leadershipRating || undefined,
-            presenceComment: review?.presenceComment || undefined,
-            presenceRating: review?.presenceRating || undefined,
-            problemSolvingComment: review?.problemSolvingComment || undefined,
-            problemSolvingRating: review?.problemSolvingRating || undefined,
-            sahabinessComment: review?.sahabinessComment || undefined,
-            sahabinessRating: review?.sahabinessRating || undefined,
-            thoughtLeadershipComment: review?.thoughtLeadershipComment || undefined,
-            thoughtLeadershipRating: review?.thoughtLeadershipRating || undefined,
-          }}
-          isSelfReview={review?.isSelfReview || false}
-        />
-      </PromptProvider>
+      {review?.state === 'DONE' ? (
+        <CriteriaOutput review={review} />
+      ) : (
+        <PromptProvider message={i18n._('Changes you made may not be saved.')}>
+          <CriteriaForm
+            onSubmit={handleSubmit}
+            user={review?.reviewee ?? null}
+            initialValue={{
+              // TODO: use fragment
+              executionComment: review?.executionComment || undefined,
+              executionRating: review?.executionRating || undefined,
+              leadershipComment: review?.leadershipComment || undefined,
+              leadershipRating: review?.leadershipRating || undefined,
+              presenceComment: review?.presenceComment || undefined,
+              presenceRating: review?.presenceRating || undefined,
+              problemSolvingComment: review?.problemSolvingComment || undefined,
+              problemSolvingRating: review?.problemSolvingRating || undefined,
+              sahabinessComment: review?.sahabinessComment || undefined,
+              sahabinessRating: review?.sahabinessRating || undefined,
+              thoughtLeadershipComment: review?.thoughtLeadershipComment || undefined,
+              thoughtLeadershipRating: review?.thoughtLeadershipRating || undefined,
+            }}
+            isSelfReview={review?.isSelfReview || false}
+          />
+        </PromptProvider>
+      )}
     </Box>
   );
 }

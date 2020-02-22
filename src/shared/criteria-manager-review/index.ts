@@ -1,1 +1,0 @@
-export { CriteriaManagerReview } from './CriteriaManagerReview';
