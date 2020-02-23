@@ -5,6 +5,7 @@ import React, { useCallback } from 'react';
 import { useLazyLoadQuery } from 'react-relay/hooks';
 import { StrengthsWeaknessesPageQuery } from 'src/pages/strengths-weaknesses-page/__generated__/StrengthsWeaknessesPageQuery.graphql';
 import { useMutation } from 'src/relay';
+import { DominantCharacteristicsOutput } from 'src/shared/dominant-characteristics-output';
 import { PromptProvider } from 'src/shared/prompt';
 import { useBiDiSnackbar } from 'src/shared/snackbar';
 import { FCProps } from 'src/shared/types/FCProps';
@@ -38,6 +39,8 @@ const query = graphql`
         reviewee {
           ...StrengthsWeaknessesForm_user
         }
+        ...DominantCharacteristicsOutput_review
+        state
         strengths
         weaknesses
         isSelfReview
@@ -81,17 +84,21 @@ export default function StrengthsWeaknessesPage(props: Props) {
 
   return (
     <Box padding={3} paddingTop={4}>
-      <PromptProvider message={i18n._('Changes you made may not be saved.')}>
-        <StrengthsWeaknessesForm
-          user={review?.reviewee ?? null}
-          onSubmit={handleSubmit}
-          initialValue={{
-            strengths: normalizeArray(review?.strengths),
-            weaknesses: normalizeArray(review?.weaknesses),
-          }}
-          isSelfReview={review?.isSelfReview || false}
-        />
-      </PromptProvider>
+      {review?.state === 'DONE' ? (
+        <DominantCharacteristicsOutput review={review} />
+      ) : (
+        <PromptProvider message={i18n._('Changes you made may not be saved.')}>
+          <StrengthsWeaknessesForm
+            user={review?.reviewee ?? null}
+            onSubmit={handleSubmit}
+            initialValue={{
+              strengths: normalizeArray(review?.strengths),
+              weaknesses: normalizeArray(review?.weaknesses),
+            }}
+            isSelfReview={review?.isSelfReview || false}
+          />
+        </PromptProvider>
+      )}
     </Box>
   );
 }
