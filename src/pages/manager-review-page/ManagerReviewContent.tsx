@@ -1,5 +1,5 @@
 import { i18n } from '@lingui/core';
-import { Box, makeStyles, Paper, Tab, Tabs, Theme, Typography } from '@material-ui/core';
+import { Box, makeStyles, Paper, Tab, Theme, Typography } from '@material-ui/core';
 import { CSSProperties } from '@material-ui/core/styles/withStyles';
 import graphql from 'babel-plugin-relay/macro';
 import React, { Fragment, useCallback, useState } from 'react';
@@ -8,6 +8,8 @@ import { CriteriaOutput } from 'src/shared/criteria-output';
 import { useMemberListContext } from 'src/shared/members-list';
 import { ProjectManagerReview } from 'src/shared/project-manager-review';
 import { TabPanel, TabPanelsProvider } from 'src/shared/tab';
+import { Tabs } from 'src/shared/tabs';
+import { TabsProps } from 'src/shared/tabs/types';
 import { FCProps } from 'src/shared/types/FCProps';
 import { Styles } from 'src/shared/types/Styles';
 import { DominantCharacteristicsManagerReview } from './DominantCharacteristics';
@@ -27,7 +29,7 @@ export function ManagerReviewContent(props: Props) {
   const classes = useStyles(props);
   const [tab, setTab] = useState(0);
 
-  const handleTabChange = useCallback((event: React.ChangeEvent<{}>, value: any) => {
+  const handleTabChange: TabsProps['onChange'] = useCallback((event, value) => {
     setTab(value);
   }, []);
 
@@ -54,14 +56,7 @@ export function ManagerReviewContent(props: Props) {
   return (
     <Fragment>
       <Paper classes={{ root: classes.tabsPaper }}>
-        <Tabs
-          value={tab}
-          indicatorColor="primary"
-          textColor="primary"
-          centered
-          onChange={handleTabChange}
-          classes={{ scroller: classes.tabsScroller, indicator: classes.indicator }}
-        >
+        <Tabs value={tab} onChange={handleTabChange}>
           <Tab label={i18n._('Performance Competencies')} value={0} />
           <Tab label={i18n._('Dominant Characteristics')} value={1} />
           <Tab label={i18n._('Achievements')} value={2} />
@@ -97,13 +92,6 @@ const styles = (theme: Theme) => ({
   tabPanelPaper: {
     borderTopLeftRadius: 0,
     borderTopRightRadius: 0,
-  } as CSSProperties,
-  tabsScroller: {
-    display: 'block',
-  } as CSSProperties,
-  indicator: {
-    height: theme.spacing(0.5),
-    borderRadius: theme.spacing(0.5),
   } as CSSProperties,
 });
 

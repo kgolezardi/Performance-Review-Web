@@ -1,5 +1,5 @@
 import { i18n } from '@lingui/core';
-import { Box, Container, makeStyles, Paper, Tabs, Theme } from '@material-ui/core';
+import { Box, Container, makeStyles, Paper, Theme } from '@material-ui/core';
 import { CSSProperties } from '@material-ui/core/styles/withStyles';
 import React, { Suspense } from 'react';
 import { Redirect, Route, Switch, useParams } from 'react-router-dom';
@@ -9,6 +9,7 @@ import ProjectsPage from 'src/pages/projects-page/ProjectsPage';
 import StrengthsWeaknessesPage from 'src/pages/strengths-weaknesses-page/StrengthsWeaknessesPage';
 import { FullPageSpinner } from 'src/shared/loading';
 import { TabLink } from 'src/shared/tab';
+import { Tabs } from 'src/shared/tabs';
 import { FCProps } from 'src/shared/types/FCProps';
 import { Styles } from 'src/shared/types/Styles';
 
@@ -30,13 +31,7 @@ export default function SelfReviewPage(props: Props) {
     <Container maxWidth="md">
       <Box marginY={5}>
         <Paper classes={{ root: classes.tabsPaper }}>
-          <Tabs
-            value={tab ?? 'performance-competencies'}
-            indicatorColor="primary"
-            textColor="primary"
-            centered
-            classes={{ scroller: classes.tabsScroller, indicator: classes.indicator }}
-          >
+          <Tabs value={tab ?? 'performance-competencies'}>
             <TabLink
               label={i18n._('Performance Competencies')}
               value="performance-competencies"
@@ -87,13 +82,6 @@ const styles = (theme: Theme) => ({
   tabPanelPaper: {
     borderTopLeftRadius: 0,
     borderTopRightRadius: 0,
-  } as CSSProperties,
-  tabsScroller: {
-    display: 'block',
-  } as CSSProperties,
-  indicator: {
-    height: theme.spacing(0.5),
-    borderRadius: theme.spacing(0.5),
   } as CSSProperties,
 });
 
