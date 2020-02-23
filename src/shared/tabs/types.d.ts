@@ -1,0 +1,1 @@
+export { TabsProps } from './Tabs';
