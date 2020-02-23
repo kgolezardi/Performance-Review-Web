@@ -1,16 +1,14 @@
 import { i18n } from '@lingui/core';
 import { Box, Container, Drawer, makeStyles, Theme, Typography } from '@material-ui/core';
 import { CSSProperties } from '@material-ui/core/styles/withStyles';
-import graphql from 'babel-plugin-relay/macro';
-import React from 'react';
-import { useLazyLoadQuery } from 'react-relay/hooks';
-import { MemberListContextProvider, MembersList } from 'src/shared/members-list';
+import React, { useMemo, useState } from 'react';
+import { MemberListContextProvider } from 'src/shared/members-list';
 import { Overlayscrollbars } from 'src/shared/overlayscrollbars';
 import { FCProps } from 'src/shared/types/FCProps';
 import { Styles } from 'src/shared/types/Styles';
-import { ManagerReviewPageQuery } from './__generated__/ManagerReviewPageQuery.graphql';
 import { ManagerReviewContent } from './ManagerReviewContent';
-import { useMembers } from './useMembers';
+import { ManagerReviewMemberList } from './ManagerReviewMemberList';
+import { ManagerReviewNoUserContent } from './ManagerReviewNoUserContent';
 
 interface OwnProps {}
 
@@ -18,13 +16,10 @@ type Props = FCProps<OwnProps> & StyleProps;
 
 export default function ManagerReviewPage(props: Props) {
   const classes = useStyles(props);
-
-  const data = useLazyLoadQuery<ManagerReviewPageQuery>(query, {});
-
-  const members = useMembers(data.viewer.projectReviews, data.viewer.personReviews);
-
+  const [userId, setUserId] = useState<string | null>(null);
+  const memberListContextValue = useMemo(() => ({ userId, setUserId }), [userId]);
   return (
-    <MemberListContextProvider>
+    <MemberListContextProvider value={memberListContextValue}>
       <Drawer
         variant="permanent"
         classes={{
@@ -36,17 +31,12 @@ export default function ManagerReviewPage(props: Props) {
           <Box p={2}>
             <Typography variant="h6">{i18n._('Your team members')}</Typography>
           </Box>
-          <MembersList members={members} />
+          <ManagerReviewMemberList />
         </Overlayscrollbars>
       </Drawer>
       <div className={classes.content}>
         <Container maxWidth="md">
-          <Box marginY={5}>
-            <ManagerReviewContent
-              personReviews={data.viewer.personReviews}
-              projectReviews={data.viewer.projectReviews}
-            />
-          </Box>
+          <Box marginY={5}>{userId ? <ManagerReviewContent userId={userId} /> : <ManagerReviewNoUserContent />}</Box>
         </Container>
       </div>
     </MemberListContextProvider>
@@ -68,18 +58,3 @@ const styles = (theme: Theme) => ({
 
 const useStyles = makeStyles(styles, { name: 'ManagerReviewPage' });
 type StyleProps = Styles<typeof styles>;
-
-const query = graphql`
-  query ManagerReviewPageQuery {
-    viewer {
-      personReviews {
-        ...useMembers_personReviews
-        ...ManagerReviewContent_personReviews
-      }
-      projectReviews {
-        ...useMembers_projectReviews
-        ...ManagerReviewContent_projectReviews
-      }
-    }
-  }
-`;
