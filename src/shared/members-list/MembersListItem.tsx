@@ -1,6 +1,6 @@
 import { lighten, ListItem, ListItemIcon, ListItemText, makeStyles, Theme } from '@material-ui/core';
 import { CSSProperties } from '@material-ui/core/styles/withStyles';
-import { Person as PersonIcon } from '@material-ui/icons';
+import PersonIcon from '@material-ui/icons/Person';
 import React, { useCallback } from 'react';
 import { FCProps } from 'src/shared/types/FCProps';
 import { Styles } from 'src/shared/types/Styles';
