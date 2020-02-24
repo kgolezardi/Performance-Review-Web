@@ -1,18 +1,10 @@
 import { i18n } from '@lingui/core';
-import {
-  ExpansionPanel,
-  ExpansionPanelDetails,
-  ExpansionPanelSummary,
-  Grid,
-  makeStyles,
-  Theme,
-  Typography,
-} from '@material-ui/core';
+import { Grid, makeStyles, Theme, Typography } from '@material-ui/core';
 import { CSSProperties } from '@material-ui/core/styles/withStyles';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import graphql from 'babel-plugin-relay/macro';
 import React, { useCallback } from 'react';
 import { useFragment } from 'react-relay/hooks';
+import { ExpansionPanel, ExpansionPanelDetails, ExpansionPanelSummary } from 'src/shared/expansion-panel';
 import { ProjectPeerReviewForm } from 'src/shared/project-peer-review-form';
 import { ProjectCommentFormData } from 'src/shared/project-peer-review-form/types';
 import { ProjectPeerReviewOutput } from 'src/shared/project-peer-review-output';
@@ -61,12 +53,8 @@ export function ProjectPeerReviewItem(props: Props) {
   const name = getUserLabel(projectReview.reviewee);
 
   return (
-    <ExpansionPanel
-      defaultExpanded={true}
-      elevation={0}
-      classes={{ root: classes.expansionPanelRoot, expanded: classes.expansionPanelExpanded }}
-    >
-      <ExpansionPanelSummary expandIcon={<ExpandMoreIcon />}>
+    <ExpansionPanel>
+      <ExpansionPanelSummary>
         <Typography variant="h5">{projectName}</Typography>
       </ExpansionPanelSummary>
       <ExpansionPanelDetails>
@@ -101,19 +89,6 @@ const styles = (theme: Theme) => ({
   detailTypography: {
     color: theme.palette.grey[700],
   } as CSSProperties,
-  expansionPanelRoot: {
-    '&:first-child:before': {
-      display: 'none',
-    },
-    '&:not(:first-child):before': {
-      display: 'block !important',
-      opacity: '100% !important',
-    },
-    '&$expansionPanelExpanded': {
-      margin: 0,
-    },
-  } as CSSProperties,
-  expansionPanelExpanded: {} as CSSProperties,
 });
 
 const useStyles = makeStyles(styles, { name: 'ProjectPeerReviewItem' });
