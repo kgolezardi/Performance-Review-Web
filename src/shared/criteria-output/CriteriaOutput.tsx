@@ -36,47 +36,49 @@ export function CriteriaOutput(props: Props) {
 
   return (
     <Box padding={3}>
-      <Grid item xs={12}>
-        <CriterionOutputItem
-          title={i18n._('Organization Culture Adoption')}
-          evaluation={review?.sahabinessRating as Evaluation}
-          evidence={review?.sahabinessComment ?? null}
-        />
-      </Grid>
-      <Grid item xs={12}>
-        <CriterionOutputItem
-          title={i18n._('Problem Solving')}
-          evaluation={review?.problemSolvingRating as Evaluation}
-          evidence={review?.problemSolvingComment ?? null}
-        />
-      </Grid>
-      <Grid item xs={12}>
-        <CriterionOutputItem
-          title={i18n._('Execution')}
-          evaluation={review?.executionRating as Evaluation}
-          evidence={review?.executionComment ?? null}
-        />
-      </Grid>
-      <Grid item xs={12}>
-        <CriterionOutputItem
-          title={i18n._('Thought Leadership')}
-          evaluation={review?.thoughtLeadershipRating as Evaluation}
-          evidence={review?.thoughtLeadershipComment ?? null}
-        />
-      </Grid>
-      <Grid item xs={12}>
-        <CriterionOutputItem
-          title={i18n._('Leadership')}
-          evaluation={review?.leadershipRating as Evaluation}
-          evidence={review?.leadershipComment ?? null}
-        />
-      </Grid>
-      <Grid item xs={12}>
-        <CriterionOutputItem
-          title={i18n._('Presence')}
-          evaluation={review?.presenceRating as Evaluation}
-          evidence={review?.presenceComment ?? null}
-        />
+      <Grid container spacing={2}>
+        <Grid item xs={12}>
+          <CriterionOutputItem
+            title={i18n._('Organization Culture Adoption')}
+            evaluation={review?.sahabinessRating as Evaluation}
+            evidence={review?.sahabinessComment ?? null}
+          />
+        </Grid>
+        <Grid item xs={12}>
+          <CriterionOutputItem
+            title={i18n._('Problem Solving')}
+            evaluation={review?.problemSolvingRating as Evaluation}
+            evidence={review?.problemSolvingComment ?? null}
+          />
+        </Grid>
+        <Grid item xs={12}>
+          <CriterionOutputItem
+            title={i18n._('Execution')}
+            evaluation={review?.executionRating as Evaluation}
+            evidence={review?.executionComment ?? null}
+          />
+        </Grid>
+        <Grid item xs={12}>
+          <CriterionOutputItem
+            title={i18n._('Thought Leadership')}
+            evaluation={review?.thoughtLeadershipRating as Evaluation}
+            evidence={review?.thoughtLeadershipComment ?? null}
+          />
+        </Grid>
+        <Grid item xs={12}>
+          <CriterionOutputItem
+            title={i18n._('Leadership')}
+            evaluation={review?.leadershipRating as Evaluation}
+            evidence={review?.leadershipComment ?? null}
+          />
+        </Grid>
+        <Grid item xs={12}>
+          <CriterionOutputItem
+            title={i18n._('Presence')}
+            evaluation={review?.presenceRating as Evaluation}
+            evidence={review?.presenceComment ?? null}
+          />
+        </Grid>
       </Grid>
     </Box>
   );

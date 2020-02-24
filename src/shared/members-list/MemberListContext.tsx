@@ -1,9 +1,9 @@
-import React, { useContext, useMemo, useState } from 'react';
+import React, { useContext } from 'react';
 import { FCProps } from 'src/shared/types/FCProps';
 
 export interface MemberListContextType {
-  selectedId: string | null;
-  setSelectedId: (id: string | null) => void;
+  userId: string | null;
+  setUserId: (id: string | null) => void;
 }
 
 export const MemberListContext = React.createContext<MemberListContextType | null>(null);
@@ -15,13 +15,12 @@ export function useMemberListContext(): MemberListContextType {
   return context;
 }
 
-interface OwnProps {}
+interface OwnProps {
+  value: MemberListContextType;
+}
 
 type Props = FCProps<OwnProps>;
 
 export function MemberListContextProvider(props: Props) {
-  const [selectedId, setSelectedId] = useState<string | null>(null);
-  const value = useMemo(() => ({ selectedId, setSelectedId }), [selectedId]);
-
-  return <MemberListContext.Provider value={value}>{props.children}</MemberListContext.Provider>;
+  return <MemberListContext.Provider value={props.value}>{props.children}</MemberListContext.Provider>;
 }
