@@ -1,7 +1,7 @@
 import { AppBar, Theme, Toolbar } from '@material-ui/core';
 import { makeStyles } from '@material-ui/styles';
 import { CSSProperties } from '@material-ui/styles/withStyles';
-import React from 'react';
+import React, { ComponentType } from 'react';
 import { Overlayscrollbars } from 'src/shared/overlayscrollbars';
 import { FCProps } from 'src/shared/types/FCProps';
 import { Styles } from 'src/shared/types/Styles';
@@ -9,10 +9,10 @@ import { groupChildrenByType } from 'src/shared/utils/groupChildrenByType.utils'
 import { brandWidth, headerHeight } from './constants';
 
 // typescript only allows string when it defined at `JSX.IntrinsicElements`
-export const ContentRegion = 'ContentRegion' as any;
-export const NavbarRegion = 'NavbarRegion' as any;
-export const BrandRegion = 'BrandRegion' as any;
-export const UserRegion = 'UserRegion' as any;
+export const ContentRegion = ('ContentRegion' as unknown) as ComponentType<{}>;
+export const NavbarRegion = ('NavbarRegion' as unknown) as ComponentType<{}>;
+export const BrandRegion = ('BrandRegion' as unknown) as ComponentType<{}>;
+export const UserRegion = ('UserRegion' as unknown) as ComponentType<{}>;
 
 const regions = [NavbarRegion, ContentRegion, BrandRegion, UserRegion];
 

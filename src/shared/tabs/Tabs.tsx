@@ -4,7 +4,7 @@ import React from 'react';
 import { FCProps } from 'src/shared/types/FCProps';
 
 interface OwnProps extends Omit<MuiTabsProps, 'onChange'> {
-  onChange?: (event: React.ChangeEvent<{}>, value: any) => void;
+  onChange?: (event: React.ChangeEvent<{}>, value: number) => void;
 }
 
 type Props = FCProps<OwnProps>;

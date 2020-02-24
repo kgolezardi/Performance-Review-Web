@@ -1,5 +1,5 @@
 import { Typography } from '@material-ui/core';
-import { MDXProvider as BaseMDXProvider } from '@mdx-js/react';
+import { MDXProvider as BaseMDXProvider, Components } from '@mdx-js/react';
 import React from 'react';
 import { FCProps } from 'src/shared/types/FCProps';
 import { withProps } from 'src/shared/utils/withProps';
@@ -16,7 +16,7 @@ const PTypography = withProps(Typography, {
   style: { textAlign: 'justify', lineHeight: '1.5em' },
 });
 
-const components = {
+const components: Components = {
   h1: H1Typography,
   h2: H2Typography,
   h3: H3Typography,
