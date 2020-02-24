@@ -5,39 +5,38 @@ import graphql from 'babel-plugin-relay/macro';
 import React, { useCallback } from 'react';
 import { useFragment } from 'react-relay/hooks';
 import { ExpansionPanel, ExpansionPanelDetails, ExpansionPanelSummary } from 'src/shared/expansion-panel';
-import { ProjectPeerReviewForm } from 'src/shared/project-peer-review-form';
-import { ProjectCommentFormData } from 'src/shared/project-peer-review-form/types';
-import { ProjectPeerReviewOutput } from 'src/shared/project-peer-review-output';
+import { ProjectOutput } from 'src/shared/project-output';
+import { QuoteBox } from 'src/shared/quote-box';
 import { FCProps } from 'src/shared/types/FCProps';
 import { Styles } from 'src/shared/types/Styles';
 import { getUserLabel } from 'src/shared/utils/getUserLabel';
+import { PeerReviewProjectsForm, ProjectCommentFormData } from '../projects-form/PeerReviewProjectsForm';
 import { useSaveProjectComment } from './saveProjectComment.mutation';
-import { ProjectPeerReviewItem_projectReview$key } from './__generated__/ProjectPeerReviewItem_projectReview.graphql';
-interface OwnProps {
-  projectReview: ProjectPeerReviewItem_projectReview$key;
-}
-
-type Props = FCProps<OwnProps> & StyleProps;
+import { PeerReviewProjectExpansionPanel_projectReview$key } from './__generated__/PeerReviewProjectExpansionPanel_projectReview.graphql';
 
 const fragment = graphql`
-  fragment ProjectPeerReviewItem_projectReview on ProjectReviewNode {
+  fragment PeerReviewProjectExpansionPanel_projectReview on ProjectReviewNode {
     id
     reviewee {
-      id
-      firstName
       ...getUserLabel_user
     }
     project {
       name
     }
-    ...ProjectPeerReviewOutput_projectReview
+    ...ProjectOutput_review
     comment {
-      ...ProjectPeerReviewForm_projectComment
+      ...PeerReviewProjectsForm_projectComment
     }
   }
 `;
 
-export function ProjectPeerReviewItem(props: Props) {
+interface OwnProps {
+  projectReview: PeerReviewProjectExpansionPanel_projectReview$key;
+}
+
+type Props = FCProps<OwnProps> & StyleProps;
+
+export function PeerReviewProjectExpansionPanel(props: Props) {
   const projectReview = useFragment(fragment, props.projectReview);
   const classes = useStyles(props);
   const saveProjectComment = useSaveProjectComment();
@@ -65,7 +64,9 @@ export function ProjectPeerReviewItem(props: Props) {
             </Typography>
           </Grid>
           <Grid item xs={12}>
-            <ProjectPeerReviewOutput projectReview={projectReview} />
+            <QuoteBox>
+              <ProjectOutput review={projectReview} type="self" />
+            </QuoteBox>
           </Grid>
           {projectReview.comment && (
             <>
@@ -75,7 +76,7 @@ export function ProjectPeerReviewItem(props: Props) {
                 </Typography>
               </Grid>
               <Grid item xs={12}>
-                <ProjectPeerReviewForm onSubmit={onSubmit} projectComment={projectReview.comment} />
+                <PeerReviewProjectsForm onSubmit={onSubmit} projectComment={projectReview.comment} />
               </Grid>
             </>
           )}
@@ -91,5 +92,5 @@ const styles = (theme: Theme) => ({
   } as CSSProperties,
 });
 
-const useStyles = makeStyles(styles, { name: 'ProjectPeerReviewItem' });
+const useStyles = makeStyles(styles, { name: 'PeerReviewProjectPeerReviewItem' });
 type StyleProps = Styles<typeof styles>;

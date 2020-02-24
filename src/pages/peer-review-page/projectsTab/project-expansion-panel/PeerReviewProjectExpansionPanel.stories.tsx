@@ -3,14 +3,14 @@ import graphql from 'babel-plugin-relay/macro';
 import React, { Fragment } from 'react';
 import { useLazyLoadQuery } from 'react-relay/hooks';
 import { promptDecorator, relayDecorator, routerDecorator, themeDecorator } from 'src/stories/decorators';
-import { ProjectPeerReviewItem } from './ProjectPeerReviewItem';
-import { ProjectPeerReviewItemQuery } from './__generated__/ProjectPeerReviewItemQuery.graphql';
+import { PeerReviewProjectExpansionPanel } from './PeerReviewProjectExpansionPanel';
+import { PeerReviewProjectExpansionPanelQuery } from './__generated__/PeerReviewProjectExpansionPanelQuery.graphql';
 
 const query = graphql`
-  query ProjectPeerReviewItemQuery {
+  query PeerReviewProjectExpansionPanelQuery {
     viewer {
       projectReviews {
-        ...ProjectPeerReviewItem_projectReview
+        ...PeerReviewProjectExpansionPanel_projectReview
       }
     }
   }
@@ -22,11 +22,11 @@ storiesOf('Project Peer Review Item', module)
   .addDecorator(promptDecorator())
   .addDecorator(routerDecorator())
   .add('Peer Review', () => {
-    const data = useLazyLoadQuery<ProjectPeerReviewItemQuery>(query, {});
+    const data = useLazyLoadQuery<PeerReviewProjectExpansionPanelQuery>(query, {});
     return (
       <Fragment>
         {data.viewer.projectReviews.map((review, index) => (
-          <ProjectPeerReviewItem projectReview={review} key={index} />
+          <PeerReviewProjectExpansionPanel projectReview={review} key={index} />
         ))}
       </Fragment>
     );

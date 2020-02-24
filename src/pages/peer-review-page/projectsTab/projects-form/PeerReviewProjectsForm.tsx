@@ -15,10 +15,8 @@ import {
 import { Rating } from 'src/shared/rating';
 import { StickyActionBar } from 'src/shared/sticky-action-bar';
 import { FCProps } from 'src/shared/types/FCProps';
-import {
-  Evaluation,
-  ProjectPeerReviewForm_projectComment$key,
-} from './__generated__/ProjectPeerReviewForm_projectComment.graphql';
+import { Evaluation } from '../../__generated__/savePersonReviewMutation.graphql';
+import { PeerReviewProjectsForm_projectComment$key } from './__generated__/PeerReviewProjectsForm_projectComment.graphql';
 
 export interface ProjectCommentFormData {
   id: string;
@@ -28,20 +26,20 @@ export interface ProjectCommentFormData {
 
 interface OwnProps {
   onSubmit: (data: ProjectCommentFormData) => void;
-  projectComment: ProjectPeerReviewForm_projectComment$key;
+  projectComment: PeerReviewProjectsForm_projectComment$key;
 }
 
 type Props = FCProps<OwnProps>;
 
 const fragment = graphql`
-  fragment ProjectPeerReviewForm_projectComment on ProjectCommentNode {
+  fragment PeerReviewProjectsForm_projectComment on ProjectCommentNode {
     id
     text
     rating
   }
 `;
 
-export function ProjectPeerReviewForm(props: Props) {
+export function PeerReviewProjectsForm(props: Props) {
   const { onSubmit } = props;
   const projectCommentObj = useFragment(fragment, props.projectComment);
   const projectComment = {

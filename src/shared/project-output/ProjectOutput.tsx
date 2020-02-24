@@ -42,7 +42,7 @@ export function ProjectOutput(props: Props) {
       )}
       <Grid item xs={12}>
         <Typography color="textSecondary" gutterBottom>
-          {i18n._('Performance to initial expectation')}:
+          {i18n._('Evaluation')}
         </Typography>
         <EvaluationOutput value={review.rating as Evaluation} type={type} />
       </Grid>

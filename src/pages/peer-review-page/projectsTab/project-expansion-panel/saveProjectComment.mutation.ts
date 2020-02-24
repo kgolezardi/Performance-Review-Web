@@ -14,7 +14,7 @@ export const useSaveProjectComment = () =>
               }
             }
           }
-          ...ProjectPeerReviewForm_projectComment
+          ...PeerReviewProjectsForm_projectComment
         }
       }
     }

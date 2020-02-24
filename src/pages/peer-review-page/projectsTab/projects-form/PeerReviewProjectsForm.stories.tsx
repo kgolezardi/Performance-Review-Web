@@ -6,8 +6,20 @@ import React from 'react';
 import { useLazyLoadQuery } from 'react-relay/hooks';
 import { promptDecorator, relayDecorator, routerDecorator } from 'src/stories/decorators';
 import { themeDecorator } from 'src/stories/decorators/themeDecorator';
-import { ProjectPeerReviewForm } from './ProjectPeerReviewForm';
-import { ProjectPeerReviewFormQuery } from './__generated__/ProjectPeerReviewFormQuery.graphql';
+import { PeerReviewProjectsForm } from './PeerReviewProjectsForm';
+import { PeerReviewProjectsFormQuery } from './__generated__/PeerReviewProjectsFormQuery.graphql';
+
+const query = graphql`
+  query PeerReviewProjectsFormQuery {
+    viewer {
+      projectReviews {
+        comment {
+          ...PeerReviewProjectsForm_projectComment
+        }
+      }
+    }
+  }
+`;
 
 storiesOf('Project Peer Review Form', module)
   .addDecorator(themeDecorator())
@@ -15,18 +27,7 @@ storiesOf('Project Peer Review Form', module)
   .addDecorator(promptDecorator())
   .addDecorator(routerDecorator())
   .add('Peer Review', () => {
-    const query = graphql`
-      query ProjectPeerReviewFormQuery {
-        viewer {
-          projectReviews {
-            comment {
-              ...ProjectPeerReviewForm_projectComment
-            }
-          }
-        }
-      }
-    `;
-    const data = useLazyLoadQuery<ProjectPeerReviewFormQuery>(query, {});
+    const data = useLazyLoadQuery<PeerReviewProjectsFormQuery>(query, {});
     return (
       <Container>
         {data.viewer.projectReviews.map(
@@ -34,7 +35,7 @@ storiesOf('Project Peer Review Form', module)
             review.comment && (
               <Grid container spacing={2} key={index}>
                 <Grid item xs={12}>
-                  <ProjectPeerReviewForm projectComment={review.comment} onSubmit={action('submit')} />
+                  <PeerReviewProjectsForm projectComment={review.comment} onSubmit={action('submit')} />
                 </Grid>
               </Grid>
             ),
