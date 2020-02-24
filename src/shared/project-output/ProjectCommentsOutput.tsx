@@ -1,8 +1,8 @@
 import graphql from 'babel-plugin-relay/macro';
 import React, { Fragment } from 'react';
 import { useFragment } from 'react-relay/hooks';
-import { ProjectCommentOutput } from 'src/shared/project-output/ProjectCommentOutput';
 import { FCProps } from 'src/shared/types/FCProps';
+import { ProjectCommentOutput } from './ProjectCommentOutput';
 import { ProjectCommentsOutput_comments$key } from './__generated__/ProjectCommentsOutput_comments.graphql';
 
 interface OwnProps {

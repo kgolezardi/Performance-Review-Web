@@ -1,6 +1,5 @@
 import { i18n } from '@lingui/core';
-import { Button, Dialog, DialogActions, DialogContent, DialogContentText } from '@material-ui/core';
-import { DialogProps } from '@material-ui/core/Dialog/Dialog';
+import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogProps } from '@material-ui/core';
 import React from 'react';
 import { DangerButton } from 'src/shared/danger-button';
 import { FCProps } from 'src/shared/types/FCProps';

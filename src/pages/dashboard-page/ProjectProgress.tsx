@@ -1,5 +1,5 @@
 import { Box, makeStyles, Theme, Typography } from '@material-ui/core';
-import { CSSProperties } from '@material-ui/styles/withStyles';
+import { CSSProperties } from '@material-ui/core/styles/withStyles';
 import React from 'react';
 import { LinearProgress } from 'src/shared/progress';
 import { FCProps } from 'src/shared/types/FCProps';

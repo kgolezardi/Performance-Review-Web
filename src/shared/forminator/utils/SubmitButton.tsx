@@ -1,5 +1,4 @@
-import { Button, Omit } from '@material-ui/core';
-import { ButtonProps } from '@material-ui/core/Button';
+import { Button, ButtonProps, Omit } from '@material-ui/core';
 import React from 'react';
 import { FCProps } from 'src/shared/types/FCProps';
 import { useSubmitContext } from '../core/submit/SubmitContext';

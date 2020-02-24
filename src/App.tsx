@@ -1,14 +1,14 @@
 import { CssBaseline, ThemeProvider } from '@material-ui/core';
 import React from 'react';
 import { RelayEnvironmentProvider } from 'react-relay/hooks';
-import { AppRouter } from 'src/AppRouter';
 import { RtlSupportProvider } from 'src/core/rtl/RtlSupportProvider';
 import { SnackbarProvider } from 'src/core/snackbar';
 import { GlobalStyles } from 'src/core/styles/GlobalStyles';
 import { rtlTheme } from 'src/core/theme';
 import { environment } from 'src/relay';
+import { ConfirmProvider } from 'src/shared/confirm-provider';
 import { MDXProvider } from 'src/shared/mdx-provider/MDXProvider';
-import { ConfirmProvider } from './shared/confirm-provider';
+import { AppRouter } from './AppRouter';
 
 const App: React.FC = () => {
   return (

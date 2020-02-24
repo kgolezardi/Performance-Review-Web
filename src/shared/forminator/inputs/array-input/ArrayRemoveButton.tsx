@@ -1,5 +1,4 @@
-import { Button } from '@material-ui/core';
-import { ButtonProps } from '@material-ui/core/Button';
+import { Button, ButtonProps } from '@material-ui/core';
 import React, { useCallback } from 'react';
 import { FCProps } from 'src/shared/types/FCProps';
 import { useFragmentContext } from '../../core/fragment/FragmentContext';

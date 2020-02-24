@@ -3,7 +3,6 @@ import { Box } from '@material-ui/core';
 import graphql from 'babel-plugin-relay/macro';
 import React, { useCallback } from 'react';
 import { useLazyLoadQuery } from 'react-relay/hooks';
-import { StrengthsWeaknessesPageQuery } from 'src/pages/strengths-weaknesses-page/__generated__/StrengthsWeaknessesPageQuery.graphql';
 import { useMutation } from 'src/relay';
 import { DominantCharacteristicsOutput } from 'src/shared/dominant-characteristics-output';
 import { PromptProvider } from 'src/shared/prompt';
@@ -12,6 +11,7 @@ import { FCProps } from 'src/shared/types/FCProps';
 import { StrengthsWeaknessesForm } from './StrengthsWeaknessesForm';
 import { normalizeArray } from './utils';
 import { StrengthsWeaknessesPageMutation } from './__generated__/StrengthsWeaknessesPageMutation.graphql';
+import { StrengthsWeaknessesPageQuery } from './__generated__/StrengthsWeaknessesPageQuery.graphql';
 
 interface OwnProps {
   revieweeId: string;

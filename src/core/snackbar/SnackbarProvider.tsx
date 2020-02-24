@@ -1,5 +1,5 @@
-import { Theme } from '@material-ui/core';
-import { createStyles, CSSProperties, makeStyles } from '@material-ui/styles';
+import { createStyles, makeStyles, Theme } from '@material-ui/core';
+import { CSSProperties } from '@material-ui/core/styles/withStyles';
 import { SnackbarProvider as Snackbar, SnackbarProviderProps } from 'notistack';
 import React from 'react';
 import { FCProps } from 'src/shared/types/FCProps';

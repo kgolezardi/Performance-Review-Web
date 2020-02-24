@@ -6,8 +6,8 @@ import { useFragment } from 'react-relay/hooks';
 import { Evaluation } from 'src/global-types';
 import { EvaluationOutput } from 'src/shared/evaluation-output';
 import { MultilineOutput } from 'src/shared/multiline-output';
-import { ProjectOutput_review$key } from 'src/shared/project-output/__generated__/ProjectOutput_review.graphql';
 import { FCProps } from 'src/shared/types/FCProps';
+import { ProjectOutput_review$key } from './__generated__/ProjectOutput_review.graphql';
 
 const fragment = graphql`
   fragment ProjectOutput_review on ProjectReviewNode {

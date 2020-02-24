@@ -1,7 +1,6 @@
 import { i18n } from '@lingui/core';
-import { Card, Container, Typography } from '@material-ui/core';
-import { makeStyles, Theme } from '@material-ui/core/styles';
-import { CSSProperties } from '@material-ui/styles';
+import { Card, Container, makeStyles, Theme, Typography } from '@material-ui/core';
+import { CSSProperties } from '@material-ui/core/styles/withStyles';
 import React, { useState } from 'react';
 import defaultLoginBackgroundImage from 'src/assets/login-background.png';
 import logo from 'src/assets/logo-light.png';

@@ -1,8 +1,8 @@
 import { Box, Container } from '@material-ui/core';
 import { importMDX } from 'mdx.macro';
 import React from 'react';
-import { StartReviewCard } from 'src/pages/start-review-page/StartReviewCard';
 import { FCProps } from 'src/shared/types/FCProps';
+import { StartReviewCard } from './StartReviewCard';
 
 const Content = importMDX.sync('./SelfStartReviewContent.mdx');
 

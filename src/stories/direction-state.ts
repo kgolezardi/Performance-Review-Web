@@ -1,3 +1,3 @@
-import { DirectionState } from 'src/stories/helpers';
+import { DirectionState } from './helpers';
 
 export const directionState = new DirectionState();

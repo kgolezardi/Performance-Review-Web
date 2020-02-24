@@ -5,8 +5,8 @@ import { storiesOf } from '@storybook/react';
 import React from 'react';
 import { Forminator, SubmitButton } from 'src/shared/forminator';
 import { Option } from 'src/shared/forminator/types';
-import { Select } from 'src/shared/select/Select';
 import { themeDecorator } from 'src/stories/decorators/themeDecorator';
+import { Select } from './Select';
 
 const options: Option[] = [
   { value: '0', label: 'عالی' },

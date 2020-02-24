@@ -1,6 +1,5 @@
-import { Theme, useTheme } from '@material-ui/core';
-import { createStyles, makeStyles } from '@material-ui/styles';
-import { CSSProperties } from '@material-ui/styles/withStyles';
+import { createStyles, makeStyles, Theme, useTheme } from '@material-ui/core';
+import { CSSProperties } from '@material-ui/core/styles/withStyles';
 import { useEffect } from 'react';
 import { FCProps } from 'src/shared/types/FCProps';
 import { Styles } from 'src/shared/types/Styles';

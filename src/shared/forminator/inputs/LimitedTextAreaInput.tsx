@@ -1,6 +1,5 @@
-import { FormHelperText, makeStyles, Omit, TextField, Theme } from '@material-ui/core';
+import { FormHelperText, makeStyles, Omit, TextField, TextFieldProps, Theme } from '@material-ui/core';
 import { CSSProperties } from '@material-ui/core/styles/withStyles';
-import { TextFieldProps } from '@material-ui/core/TextField';
 import React, { Fragment, useCallback } from 'react';
 import { Counter } from 'src/shared/counter';
 import { FCProps } from 'src/shared/types/FCProps';

@@ -1,5 +1,5 @@
 import { i18n } from '@lingui/core';
-import { Direction } from '@material-ui/core/styles';
+import { Direction } from '@material-ui/core';
 
 export type LanguageCodes = 'fa' | 'en';
 
