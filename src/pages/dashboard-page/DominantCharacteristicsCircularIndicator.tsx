@@ -46,8 +46,8 @@ const getNumberOfFilledFields = (review: DominantCharacteristicsCircularIndicato
   if (review === null) {
     return { numberOfStrengths: 0, numberOfWeaknesses: 0 };
   }
-  const strengths: ReadonlyArray<any> = review.strengths || [];
-  const weaknesses: ReadonlyArray<any> = review.weaknesses || [];
+  const strengths: ReadonlyArray<string | null> = review.strengths || [];
+  const weaknesses: ReadonlyArray<string | null> = review.weaknesses || [];
 
   const numberOfStrengths = strengths.filter(Boolean).length;
   const numberOfWeaknesses = weaknesses.filter(Boolean).length;

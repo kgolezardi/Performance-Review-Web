@@ -3,7 +3,7 @@ import { FCProps } from 'src/shared/types/FCProps';
 import { useTabPanelsContext } from './TabPanels';
 
 interface OwnProps {
-  value: any;
+  value: number;
 }
 
 type Props = FCProps<OwnProps>;

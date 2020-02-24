@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React, { ReactNode, ErrorInfo } from 'react';
 import { ErrorContext } from './ErrorContext';
 
 interface Props {
@@ -23,7 +23,7 @@ export class ErrorBoundary extends React.Component<Props, State> {
     this.setState({ error: null });
   };
 
-  componentDidCatch(error: Error, errorInfo: any) {
+  componentDidCatch(error: Error, errorInfo: ErrorInfo) {
     console.error(error, errorInfo);
   }
 

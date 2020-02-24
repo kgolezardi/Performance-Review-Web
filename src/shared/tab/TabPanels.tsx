@@ -2,7 +2,7 @@ import React, { createContext, useContext } from 'react';
 import { FCProps } from 'src/shared/types/FCProps';
 
 export interface TabPanelsContextType {
-  value: any;
+  value: number;
 }
 export const TabPanelsContext = createContext<TabPanelsContextType | null>(null);
 

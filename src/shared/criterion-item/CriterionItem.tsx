@@ -6,6 +6,10 @@ import { Rating } from 'src/shared/rating';
 import { useServerValueContext } from 'src/shared/server-value';
 import { FCProps } from 'src/shared/types/FCProps';
 
+interface ServerValue {
+  [key: string]: string | null;
+}
+
 interface OwnProps {
   title: string;
   prefix: string;
@@ -16,7 +20,7 @@ interface OwnProps {
 type Props = FCProps<OwnProps>;
 
 export function CriterionItem({ title, details, prefix, type }: Props) {
-  const serverValue = useServerValueContext<any>();
+  const serverValue = useServerValueContext<ServerValue>();
   const rating = (serverValue && serverValue[prefix + 'Rating']) || null;
   const comment = (serverValue && serverValue[prefix + 'Comment']) || '';
 

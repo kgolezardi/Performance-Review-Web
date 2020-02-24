@@ -29,7 +29,7 @@ export function ManagerReviewContent(props: Props) {
   const classes = useStyles(props);
   const [tab, setTab] = useState(0);
 
-  const handleTabChange: TabsProps['onChange'] = useCallback((event, value) => {
+  const handleTabChange: TabsProps['onChange'] = useCallback((event, value: number) => {
     setTab(value);
   }, []);
 

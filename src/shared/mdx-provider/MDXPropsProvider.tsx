@@ -5,7 +5,7 @@ type MDXPropsProviderContextType<Props> = Props;
 export const MDXPropsContext = createContext<MDXPropsProviderContextType<any> | null>(null);
 
 export function useMDXPropsContext<Props>(): MDXPropsProviderContextType<Props> {
-  const context = useContext(MDXPropsContext);
+  const context = useContext<MDXPropsProviderContextType<Props> | null>(MDXPropsContext);
   if (context === null) {
     throw new Error('useMDXPropsContext must be used inside the <MDXPropsProvider/>');
   }
