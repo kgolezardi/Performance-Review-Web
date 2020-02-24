@@ -3,9 +3,9 @@ import { storiesOf } from '@storybook/react';
 import graphql from 'babel-plugin-relay/macro';
 import React from 'react';
 import { useLazyLoadQuery } from 'react-relay/hooks';
-import { ProjectPeerReviewOutput } from 'src/shared/project-peer-review-output/ProjectPeerReviewOutput';
 import { relayDecorator } from 'src/stories/decorators';
 import { themeDecorator } from 'src/stories/decorators/themeDecorator';
+import { ProjectPeerReviewOutput } from './ProjectPeerReviewOutput';
 import { ProjectPeerReviewOutputQuery } from './__generated__/ProjectPeerReviewOutputQuery.graphql';
 
 const query = graphql`

@@ -1,6 +1,5 @@
-import { AppBar, Theme, Toolbar } from '@material-ui/core';
-import { makeStyles } from '@material-ui/styles';
-import { CSSProperties } from '@material-ui/styles/withStyles';
+import { AppBar, makeStyles, Theme, Toolbar } from '@material-ui/core';
+import { CSSProperties } from '@material-ui/core/styles/withStyles';
 import React, { ComponentType } from 'react';
 import { Overlayscrollbars } from 'src/shared/overlayscrollbars';
 import { FCProps } from 'src/shared/types/FCProps';

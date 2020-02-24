@@ -1,6 +1,4 @@
-import { CssBaseline } from '@material-ui/core';
-import { Direction } from '@material-ui/core/styles/createMuiTheme';
-import { ThemeProvider } from '@material-ui/styles';
+import { CssBaseline, Direction, ThemeProvider } from '@material-ui/core';
 import { DecoratorFunction, StoryFn } from '@storybook/addons';
 import { StoryFnReactReturnType } from '@storybook/react/dist/client/preview/types';
 import React from 'react';

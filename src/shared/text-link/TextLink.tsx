@@ -1,5 +1,5 @@
 import { makeStyles, Theme } from '@material-ui/core';
-import { CSSProperties } from '@material-ui/styles/withStyles';
+import { CSSProperties } from '@material-ui/core/styles/withStyles';
 import React from 'react';
 import { Link, LinkProps } from 'react-router-dom';
 import { FCProps } from 'src/shared/types/FCProps';

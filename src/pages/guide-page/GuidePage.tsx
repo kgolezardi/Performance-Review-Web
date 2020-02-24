@@ -2,8 +2,8 @@ import { i18n } from '@lingui/core';
 import { Box, Container } from '@material-ui/core';
 import { importMDX } from 'mdx.macro';
 import React from 'react';
-import { GuideCard } from 'src/pages/guide-page/GuideCard';
 import { FCProps } from 'src/shared/types/FCProps';
+import { GuideCard } from './GuideCard';
 
 const Content = importMDX.sync('./FAQ.mdx');
 

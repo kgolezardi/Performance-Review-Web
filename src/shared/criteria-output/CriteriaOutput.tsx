@@ -4,9 +4,9 @@ import graphql from 'babel-plugin-relay/macro';
 import React from 'react';
 import { useFragment } from 'react-relay/hooks';
 import { Evaluation } from 'src/global-types';
-import { CriteriaOutput_review$key } from 'src/shared/criteria-output/__generated__/CriteriaOutput_review.graphql';
 import { CriterionOutputItem } from 'src/shared/criterion-output-item';
 import { FCProps } from 'src/shared/types/FCProps';
+import { CriteriaOutput_review$key } from './__generated__/CriteriaOutput_review.graphql';
 
 const fragment = graphql`
   fragment CriteriaOutput_review on PersonReviewNode {

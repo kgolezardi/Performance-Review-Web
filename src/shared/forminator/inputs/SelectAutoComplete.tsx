@@ -1,9 +1,8 @@
 import { i18n } from '@lingui/core';
-import { OutlinedTextFieldProps, Paper, TextField, Theme } from '@material-ui/core';
+import { makeStyles, OutlinedTextFieldProps, Paper, TextField, Theme } from '@material-ui/core';
+import { CSSProperties } from '@material-ui/core/styles/withStyles';
 import Autocomplete, { AutocompleteProps } from '@material-ui/lab/Autocomplete';
 import { AutocompleteClassKey } from '@material-ui/lab/Autocomplete/Autocomplete';
-import { makeStyles } from '@material-ui/styles';
-import { CSSProperties } from '@material-ui/styles/withStyles';
 import { indexBy, prop } from 'ramda';
 import React, { ComponentType, useCallback, useMemo } from 'react';
 import { FCProps } from 'src/shared/types/FCProps';

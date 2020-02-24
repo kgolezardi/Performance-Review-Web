@@ -1,7 +1,5 @@
-import { Theme } from '@material-ui/core';
-import CircularProgress from '@material-ui/core/CircularProgress';
-import { makeStyles } from '@material-ui/styles';
-import { CSSProperties } from '@material-ui/styles/withStyles';
+import { CircularProgress, makeStyles, Theme } from '@material-ui/core';
+import { CSSProperties } from '@material-ui/core/styles/withStyles';
 import clsx from 'clsx';
 import React from 'react';
 import { FCProps } from 'src/shared/types/FCProps';

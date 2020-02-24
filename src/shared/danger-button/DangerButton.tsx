@@ -1,7 +1,5 @@
-import { Button, createMuiTheme } from '@material-ui/core';
-import { ButtonProps } from '@material-ui/core/Button';
+import { Button, ButtonProps, createMuiTheme, Theme, ThemeProvider } from '@material-ui/core';
 import { red } from '@material-ui/core/colors';
-import { Theme, ThemeProvider } from '@material-ui/core/styles';
 import React from 'react';
 import { FCProps } from 'src/shared/types/FCProps';
 

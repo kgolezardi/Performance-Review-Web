@@ -1,4 +1,4 @@
-import { Direction } from '@material-ui/core/styles/createMuiTheme';
+import { Direction } from '@material-ui/core';
 
 export class DirectionState {
   constructor(private direction: Direction = 'rtl') {}

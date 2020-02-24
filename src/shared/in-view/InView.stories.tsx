@@ -2,10 +2,10 @@ import { Box, Typography } from '@material-ui/core';
 import { storiesOf } from '@storybook/react';
 import { LoremIpsum } from 'lorem-ipsum';
 import React, { Fragment } from 'react';
-import { InView } from 'src/shared/in-view/InView';
-import { useInViewContext } from 'src/shared/in-view/InViewContext';
 import { Overlayscrollbars } from 'src/shared/overlayscrollbars';
 import { storyWrapperDecorator, themeDecorator } from 'src/stories/decorators';
+import { InView } from './InView';
+import { useInViewContext } from './InViewContext';
 
 const Component = () => {
   const { topInView, bottomInView } = useInViewContext();

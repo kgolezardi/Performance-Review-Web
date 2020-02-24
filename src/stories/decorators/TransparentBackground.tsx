@@ -1,6 +1,5 @@
-import { Theme } from '@material-ui/core';
-import { createStyles, makeStyles } from '@material-ui/styles';
-import { CSSProperties } from '@material-ui/styles/withStyles';
+import { createStyles, makeStyles, Theme } from '@material-ui/core';
+import { CSSProperties } from '@material-ui/core/styles/withStyles';
 import { FCProps } from 'src/shared/types/FCProps';
 import { Styles } from 'src/shared/types/Styles';
 

@@ -1,5 +1,5 @@
 import { makeStyles, Paper, Theme } from '@material-ui/core';
-import { CSSProperties } from '@material-ui/styles';
+import { CSSProperties } from '@material-ui/core/styles/withStyles';
 import clsx from 'clsx';
 import React from 'react';
 import { useInViewContext } from 'src/shared/in-view';

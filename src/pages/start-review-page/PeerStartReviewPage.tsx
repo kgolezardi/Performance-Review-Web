@@ -3,9 +3,9 @@ import graphql from 'babel-plugin-relay/macro';
 import { importMDX } from 'mdx.macro';
 import React from 'react';
 import { useLazyLoadQuery } from 'react-relay/hooks';
-import { NoPeerReview } from 'src/pages/start-review-page/NoPeerReview';
-import { StartReviewCard } from 'src/pages/start-review-page/StartReviewCard';
 import { FCProps } from 'src/shared/types/FCProps';
+import { NoPeerReview } from './NoPeerReview';
+import { StartReviewCard } from './StartReviewCard';
 import { PeerStartReviewPageQuery } from './__generated__/PeerStartReviewPageQuery.graphql';
 
 const Content = importMDX.sync('./PeerStartReviewContent.mdx');

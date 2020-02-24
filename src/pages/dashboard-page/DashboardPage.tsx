@@ -6,7 +6,6 @@ import clsx from 'clsx';
 import React from 'react';
 import { useLazyLoadQuery } from 'react-relay/hooks';
 import { useAuthGuardUser } from 'src/core/auth';
-import { DashboardPageQuery } from 'src/pages/dashboard-page/__generated__/DashboardPageQuery.graphql';
 import { Overlayscrollbars } from 'src/shared/overlayscrollbars/Overlayscrollbars';
 import { FCProps } from 'src/shared/types/FCProps';
 import { Styles } from 'src/shared/types/Styles';
@@ -14,6 +13,7 @@ import { AchievementsIndicators } from './AchievementsIndicators';
 import { DominantCharacteristicsCircularIndicator } from './DominantCharacteristicsCircularIndicator';
 import { LinkButton } from './LinkButton';
 import { PerformanceCompetenciesCircularIndicator } from './PerformanceCompetenciesCircularIndicator';
+import { DashboardPageQuery } from './__generated__/DashboardPageQuery.graphql';
 
 interface OwnProps {}
 
