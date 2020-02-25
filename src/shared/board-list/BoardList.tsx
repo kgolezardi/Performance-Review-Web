@@ -39,6 +39,7 @@ const styles = (theme: Theme) => ({
     padding: theme.spacing(3),
     position: 'relative',
     height: '100%',
+    overflowX: 'hidden',
   } as CSSProperties,
   cardHeaderRoot: {
     padding: theme.spacing(3, 2),

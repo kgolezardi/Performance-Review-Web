@@ -4,6 +4,7 @@ import { CSSProperties } from '@material-ui/core/styles/withStyles';
 import graphql from 'babel-plugin-relay/macro';
 import clsx from 'clsx';
 import React, { useCallback } from 'react';
+import { Flipped } from 'react-flip-toolkit';
 import { useFragment } from 'react-relay/hooks';
 import { useHistory } from 'react-router-dom';
 import { LanguageCodes } from 'src/core/locales/types';
@@ -88,20 +89,36 @@ export function PersonInfoCard(props: Props) {
 
   return (
     <Card classes={{ root: classes.root }}>
-      <CardHeader
-        title={getUserLabel(user)}
-        subheader={i18n._('He/She asked your review on {numberOfProjects} project(s)', {
-          numberOfProjects,
-        })}
-        action={
-          <Button onClick={handleClick} variant="contained" color="secondary" disabled={disabled}>
-            {actionButtonText}
-          </Button>
-        }
-        avatar={<UserAvatar user={user} className={clsx(classes.avatar, { [classes.avatarShrink]: !topInView })} />}
-        titleTypographyProps={{ variant: 'h5', gutterBottom: true }}
-        classes={{ root: classes.headerRoot, action: classes.action }}
-      />
+      <Flipped flipId={'card' + user.id}>
+        <CardHeader
+          title={
+            <Flipped inverseFlipId={'card' + user.id} scale>
+              <span>{getUserLabel(user)}</span>
+            </Flipped>
+          }
+          subheader={
+            <Flipped inverseFlipId={'card' + user.id} scale>
+              <span>
+                {i18n._('He/She asked your review on {numberOfProjects} project(s)', {
+                  numberOfProjects,
+                })}
+              </span>
+            </Flipped>
+          }
+          action={
+            <Button onClick={handleClick} variant="contained" color="secondary" disabled={disabled}>
+              {actionButtonText}
+            </Button>
+          }
+          avatar={
+            <Flipped flipId={'avatar' + user.id} scale={false}>
+              <UserAvatar user={user} className={clsx(classes.avatar, { [classes.avatarShrink]: !topInView })} />
+            </Flipped>
+          }
+          titleTypographyProps={{ variant: 'h5', gutterBottom: true }}
+          classes={{ root: classes.headerRoot, action: classes.action }}
+        />
+      </Flipped>
       <Divider variant="middle" />
       <CardContent classes={{ root: classes.content }}>{children}</CardContent>
     </Card>

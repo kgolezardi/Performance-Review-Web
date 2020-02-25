@@ -3,6 +3,7 @@ import { Redirect, Route, Switch } from 'react-router-dom';
 import { useAuthGuardUser } from 'src/core/auth';
 import { useAppSettings } from 'src/core/settings';
 import { FCProps } from 'src/shared/types/FCProps';
+import { Flipper } from 'react-flip-toolkit';
 
 const DashboardPage = React.lazy(() =>
   import(
@@ -94,9 +95,26 @@ export function MainRoutes(props: FCProps<Props>) {
     return (
       <Switch>
         <Redirect exact path="/" to="/peer-review" />
-        <Route path="/peer-review/:uid/:tab?" children={<PeerReviewPage />} />
-        <Route path="/peer-review/" children={<PeerReviewBoardPage />} />
-        <Route path="/nvc" children={<NvcGuidePage />} />
+        <Route
+          render={({ location, match }) => {
+            return (
+              <Flipper
+                spring="noWobble"
+                flipKey={`${location.pathname}-${location.search}`}
+                decisionData={{
+                  location,
+                  match,
+                }}
+              >
+                <Switch>
+                  <Route path="/peer-review/:uid/:tab?" children={<PeerReviewPage />} />
+                  <Route path="/peer-review/" children={<PeerReviewBoardPage />} />
+                  <Route path="/nvc" children={<NvcGuidePage />} />
+                </Switch>
+              </Flipper>
+            );
+          }}
+        />
       </Switch>
     );
   }
