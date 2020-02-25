@@ -21,14 +21,13 @@ const fragment = graphql`
 
 interface OwnProps {
   review: ProjectOutput_review$key;
-  type: 'self' | 'peer';
   showProjectName?: boolean;
 }
 
 type Props = FCProps<OwnProps>;
 
 export function ProjectOutput(props: Props) {
-  const { type, showProjectName = false } = props;
+  const { showProjectName = false } = props;
   const review = useFragment(fragment, props.review);
 
   return (
@@ -42,9 +41,9 @@ export function ProjectOutput(props: Props) {
       )}
       <Grid item xs={12}>
         <Typography color="textSecondary" gutterBottom>
-          {i18n._('Performance to initial expectation')}:
+          {i18n._('Evaluation')}
         </Typography>
-        <EvaluationOutput value={review.rating as Evaluation} type={type} />
+        <EvaluationOutput value={review.rating as Evaluation} type="self" />
       </Grid>
       <Grid item xs={12}>
         <Typography color="textSecondary" gutterBottom>

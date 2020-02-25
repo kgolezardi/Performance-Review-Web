@@ -6,7 +6,6 @@ import React, { Suspense } from 'react';
 import { useLazyLoadQuery } from 'react-relay/hooks';
 import { Redirect, Route, Switch, useParams } from 'react-router-dom';
 import CriteriaPage from 'src/pages/criteria-page/CriteriaPage';
-import { ProjectCommentPage } from 'src/pages/project-comment-page';
 import StrengthsWeaknessesPage from 'src/pages/strengths-weaknesses-page/StrengthsWeaknessesPage';
 import { InView } from 'src/shared/in-view';
 import { FullPageSpinner } from 'src/shared/loading';
@@ -16,6 +15,7 @@ import { FCProps } from 'src/shared/types/FCProps';
 import { Styles } from 'src/shared/types/Styles';
 import { unescape } from 'src/shared/utils/base64.util';
 import { PersonInfoCard } from './PersonInfoCard';
+import { PeerReviewProjectsTab } from './projectsTab/PeerReviewProjectsTab';
 import { PeerReviewPageQuery } from './__generated__/PeerReviewPageQuery.graphql';
 
 const peerReviewPageQuery = graphql`
@@ -87,7 +87,7 @@ export default function PeerReviewPage(props: Props) {
                 path={toPrefix + '/dominant-characteristics'}
                 children={<StrengthsWeaknessesPage revieweeId={revieweeId} />}
               />
-              <Route path={toPrefix + '/achievements'} children={<ProjectCommentPage revieweeId={revieweeId} />} />
+              <Route path={toPrefix + '/achievements'} children={<PeerReviewProjectsTab revieweeId={revieweeId} />} />
               <Redirect to={toPrefix + '/performance-competencies'} />
             </Switch>
           </Suspense>

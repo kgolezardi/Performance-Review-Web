@@ -25,7 +25,7 @@ export function ManagerReviewProjects(props: Props) {
     <Box padding={3} paddingTop={4}>
       {reviews?.map(review => (
         <Box paddingY={3} key={review.id}>
-          <ProjectOutput review={review} type="self" showProjectName />
+          <ProjectOutput review={review} showProjectName />
         </Box>
       ))}
     </Box>

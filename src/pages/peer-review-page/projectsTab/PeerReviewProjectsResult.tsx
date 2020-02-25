@@ -2,25 +2,24 @@ import { i18n } from '@lingui/core';
 import { Grid, makeStyles, Theme, Typography } from '@material-ui/core';
 import { CSSProperties } from '@material-ui/core/styles/withStyles';
 import graphql from 'babel-plugin-relay/macro';
-import React, { useCallback } from 'react';
+import React from 'react';
 import { useFragment } from 'react-relay/hooks';
 import { ExpansionPanel, ExpansionPanelDetails, ExpansionPanelSummary } from 'src/shared/expansion-panel';
-import { ProjectPeerReviewForm } from 'src/shared/project-peer-review-form';
-import { ProjectCommentFormData } from 'src/shared/project-peer-review-form/types';
-import { ProjectPeerReviewOutput } from 'src/shared/project-peer-review-output';
+import { ProjectCommentsOutput, ProjectOutput } from 'src/shared/project-output';
+import { QuoteBox } from 'src/shared/quote-box';
 import { FCProps } from 'src/shared/types/FCProps';
 import { Styles } from 'src/shared/types/Styles';
 import { getUserLabel } from 'src/shared/utils/getUserLabel';
-import { useSaveProjectComment } from './saveProjectComment.mutation';
-import { ProjectPeerReviewItem_projectReview$key } from './__generated__/ProjectPeerReviewItem_projectReview.graphql';
+import { PeerReviewProjectsResult_projectReview$key } from './__generated__/PeerReviewProjectsResult_projectReview.graphql';
+
 interface OwnProps {
-  projectReview: ProjectPeerReviewItem_projectReview$key;
+  projectReview: PeerReviewProjectsResult_projectReview$key;
 }
 
 type Props = FCProps<OwnProps> & StyleProps;
 
 const fragment = graphql`
-  fragment ProjectPeerReviewItem_projectReview on ProjectReviewNode {
+  fragment PeerReviewProjectsResult_projectReview on ProjectReviewNode {
     id
     reviewee {
       id
@@ -30,24 +29,16 @@ const fragment = graphql`
     project {
       name
     }
-    ...ProjectPeerReviewOutput_projectReview
-    comment {
-      ...ProjectPeerReviewForm_projectComment
+    ...ProjectOutput_review
+    comments {
+      ...ProjectCommentsOutput_comments
     }
   }
 `;
 
-export function ProjectPeerReviewItem(props: Props) {
+export function PeerReviewProjectsResult(props: Props) {
   const projectReview = useFragment(fragment, props.projectReview);
   const classes = useStyles(props);
-  const saveProjectComment = useSaveProjectComment();
-  const projectReviewId = projectReview.id;
-  const onSubmit = useCallback(
-    (input: ProjectCommentFormData) => {
-      saveProjectComment({ input: { ...input, projectReviewId } });
-    },
-    [saveProjectComment, projectReviewId],
-  );
 
   const projectName = projectReview.project.name;
   const name = getUserLabel(projectReview.reviewee);
@@ -65,20 +56,18 @@ export function ProjectPeerReviewItem(props: Props) {
             </Typography>
           </Grid>
           <Grid item xs={12}>
-            <ProjectPeerReviewOutput projectReview={projectReview} />
+            <QuoteBox>
+              <ProjectOutput review={projectReview} />
+            </QuoteBox>
           </Grid>
-          {projectReview.comment && (
-            <>
-              <Grid item xs={12}>
-                <Typography variant="button" className={classes.detailTypography}>
-                  {i18n._("Your comment about {name}'s performance in this project", { name })}
-                </Typography>
-              </Grid>
-              <Grid item xs={12}>
-                <ProjectPeerReviewForm onSubmit={onSubmit} projectComment={projectReview.comment} />
-              </Grid>
-            </>
-          )}
+          <Grid item xs={12}>
+            <Typography variant="button" className={classes.detailTypography}>
+              {i18n._("Your comment about {name}'s performance in this project", { name })}
+            </Typography>
+          </Grid>
+          <Grid item xs={12}>
+            <ProjectCommentsOutput comments={projectReview.comments} />
+          </Grid>
         </Grid>
       </ExpansionPanelDetails>
     </ExpansionPanel>
@@ -91,5 +80,5 @@ const styles = (theme: Theme) => ({
   } as CSSProperties,
 });
 
-const useStyles = makeStyles(styles, { name: 'ProjectPeerReviewItem' });
+const useStyles = makeStyles(styles, { name: 'ProjectResult' });
 type StyleProps = Styles<typeof styles>;
