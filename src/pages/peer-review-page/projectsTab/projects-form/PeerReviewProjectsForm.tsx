@@ -18,19 +18,6 @@ import { FCProps } from 'src/shared/types/FCProps';
 import { Evaluation } from '../../__generated__/savePersonReviewMutation.graphql';
 import { PeerReviewProjectsForm_projectComment$key } from './__generated__/PeerReviewProjectsForm_projectComment.graphql';
 
-export interface ProjectCommentFormData {
-  id: string;
-  text: string;
-  rating: Evaluation | null;
-}
-
-interface OwnProps {
-  onSubmit: (data: ProjectCommentFormData) => void;
-  projectComment: PeerReviewProjectsForm_projectComment$key;
-}
-
-type Props = FCProps<OwnProps>;
-
 const fragment = graphql`
   fragment PeerReviewProjectsForm_projectComment on ProjectCommentNode {
     id
@@ -39,19 +26,29 @@ const fragment = graphql`
   }
 `;
 
+export interface PeerReviewProjectsFormValue {
+  text: string;
+  rating: Evaluation | null;
+}
+
+interface OwnProps {
+  onSubmit: (data: PeerReviewProjectsFormValue) => void;
+  projectComment: PeerReviewProjectsForm_projectComment$key;
+}
+
+type Props = FCProps<OwnProps>;
+
 export function PeerReviewProjectsForm(props: Props) {
   const { onSubmit } = props;
-  const projectCommentObj = useFragment(fragment, props.projectComment);
-  const projectComment = {
-    text: projectCommentObj.text || '',
-    rating: projectCommentObj.rating || null,
-    id: projectCommentObj.id || '',
+  const [ref, inView] = useInView();
+  const projectComment = useFragment(fragment, props.projectComment);
+  const initialValue: PeerReviewProjectsFormValue = {
+    text: projectComment.text ?? '',
+    rating: projectComment.rating,
   };
 
-  const [ref, inView] = useInView();
-
   return (
-    <Forminator onSubmit={onSubmit} initialValue={projectComment}>
+    <Forminator onSubmit={onSubmit} initialValue={initialValue}>
       <Grid container spacing={2} ref={ref}>
         <DictInput>
           <Grid item xs={12}>
@@ -59,13 +56,13 @@ export function PeerReviewProjectsForm(props: Props) {
               <Box width={240} paddingBottom={4}>
                 <Rating inputLabel={i18n._('Evaluation')} type="peer" />
               </Box>
-              <FragmentPrompt value={projectComment?.rating || null} />
+              <FragmentPrompt value={initialValue.rating} />
             </DictInputItem>
           </Grid>
           <Grid item xs={12}>
             <DictInputItem field="text">
               <LimitedTextAreaInput label={i18n._('Observation')} variant="outlined" maxChars={512} fullWidth />
-              <FragmentPrompt value={projectComment?.text || ''} />
+              <FragmentPrompt value={initialValue.text} />
             </DictInputItem>
           </Grid>
         </DictInput>

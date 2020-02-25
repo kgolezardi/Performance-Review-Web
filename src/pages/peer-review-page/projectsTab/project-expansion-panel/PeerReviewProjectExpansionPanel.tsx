@@ -10,7 +10,7 @@ import { QuoteBox } from 'src/shared/quote-box';
 import { FCProps } from 'src/shared/types/FCProps';
 import { Styles } from 'src/shared/types/Styles';
 import { getUserLabel } from 'src/shared/utils/getUserLabel';
-import { PeerReviewProjectsForm, ProjectCommentFormData } from '../projects-form/PeerReviewProjectsForm';
+import { PeerReviewProjectsForm, PeerReviewProjectsFormValue } from '../projects-form/PeerReviewProjectsForm';
 import { useSaveProjectComment } from './saveProjectComment.mutation';
 import { PeerReviewProjectExpansionPanel_projectReview$key } from './__generated__/PeerReviewProjectExpansionPanel_projectReview.graphql';
 
@@ -42,7 +42,7 @@ export function PeerReviewProjectExpansionPanel(props: Props) {
   const saveProjectComment = useSaveProjectComment();
   const projectReviewId = projectReview.id;
   const onSubmit = useCallback(
-    (input: ProjectCommentFormData) => {
+    (input: PeerReviewProjectsFormValue) => {
       saveProjectComment({ input: { ...input, projectReviewId } });
     },
     [saveProjectComment, projectReviewId],
@@ -92,5 +92,5 @@ const styles = (theme: Theme) => ({
   } as CSSProperties,
 });
 
-const useStyles = makeStyles(styles, { name: 'PeerReviewProjectPeerReviewItem' });
+const useStyles = makeStyles(styles, { name: 'PeerReviewProjectExpansionPanel' });
 type StyleProps = Styles<typeof styles>;
