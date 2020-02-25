@@ -1,10 +1,10 @@
-import { i18n } from '@lingui/core';
-import { Box, Grid, Typography } from '@material-ui/core';
 import React from 'react';
+import { Box, Grid, Typography } from '@material-ui/core';
 import { Evaluation } from 'src/global-types';
 import { EvaluationOutput } from 'src/shared/evaluation-output';
-import { MultilineOutput } from 'src/shared/multiline-output';
 import { FCProps } from 'src/shared/types/FCProps';
+import { MultilineOutput } from 'src/shared/multiline-output';
+import { i18n } from '@lingui/core';
 
 interface OwnProps {
   title: string;

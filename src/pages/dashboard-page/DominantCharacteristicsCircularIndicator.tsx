@@ -1,14 +1,15 @@
-import { i18n } from '@lingui/core';
-import { Typography } from '@material-ui/core';
-import graphql from 'babel-plugin-relay/macro';
 import React from 'react';
-import { useFragment } from 'react-relay/hooks';
+import graphql from 'babel-plugin-relay/macro';
 import { FCProps } from 'src/shared/types/FCProps';
+import { Typography } from '@material-ui/core';
+import { i18n } from '@lingui/core';
+import { useFragment } from 'react-relay/hooks';
+
+import { DashboardPageCircularIndicator } from './DashboardPageCircularIndicator';
 import {
   DominantCharacteristicsCircularIndicator_review,
   DominantCharacteristicsCircularIndicator_review$key,
 } from './__generated__/DominantCharacteristicsCircularIndicator_review.graphql';
-import { DashboardPageCircularIndicator } from './DashboardPageCircularIndicator';
 
 interface OwnProps {
   review: DominantCharacteristicsCircularIndicator_review$key | null;

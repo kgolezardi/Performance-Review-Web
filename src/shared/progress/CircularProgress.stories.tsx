@@ -1,8 +1,9 @@
+import React from 'react';
 import { Typography } from '@material-ui/core';
 import { storiesOf } from '@storybook/react';
-import React from 'react';
 import { storyWrapperDecorator } from 'src/stories/decorators';
 import { themeDecorator } from 'src/stories/decorators/themeDecorator';
+
 import { CircularProgress } from './CircularProgress';
 
 storiesOf('CircularProgress', module)

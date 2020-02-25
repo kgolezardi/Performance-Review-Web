@@ -1,7 +1,7 @@
-import { i18n } from '@lingui/core';
-import { Box, Paper, Typography } from '@material-ui/core';
 import React from 'react';
+import { Box, Paper, Typography } from '@material-ui/core';
 import { FCProps } from 'src/shared/types/FCProps';
+import { i18n } from '@lingui/core';
 
 interface OwnProps {}
 

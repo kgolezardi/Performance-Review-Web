@@ -1,8 +1,8 @@
-import { Box, makeStyles, Theme, Typography } from '@material-ui/core';
-import { CSSProperties } from '@material-ui/core/styles/withStyles';
 import React from 'react';
-import { LinearProgress } from 'src/shared/progress';
+import { Box, Theme, Typography, makeStyles } from '@material-ui/core';
+import { CSSProperties } from '@material-ui/core/styles/withStyles';
 import { FCProps } from 'src/shared/types/FCProps';
+import { LinearProgress } from 'src/shared/progress';
 import { Styles } from 'src/shared/types/Styles';
 
 interface OwnProps {

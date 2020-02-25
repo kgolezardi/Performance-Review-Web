@@ -1,11 +1,11 @@
-import { i18n } from '@lingui/core';
-import { Button, makeStyles, Theme } from '@material-ui/core';
-import { CSSProperties } from '@material-ui/core/styles/withStyles';
 import React from 'react';
-import { NON_BREAKING_SPACE } from 'src/shared/constants';
+import { Button, Theme, makeStyles } from '@material-ui/core';
+import { CSSProperties } from '@material-ui/core/styles/withStyles';
 import { DictInput, DictInputItem, Form, Forminator, StringInput } from 'src/shared/forminator';
 import { FCProps } from 'src/shared/types/FCProps';
+import { NON_BREAKING_SPACE } from 'src/shared/constants';
 import { Styles } from 'src/shared/types/Styles';
+import { i18n } from '@lingui/core';
 
 export interface LoginFormProps {
   onSubmit: (data: { username: string; password: string }) => Promise<void> | void;

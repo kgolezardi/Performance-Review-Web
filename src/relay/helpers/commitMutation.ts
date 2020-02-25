@@ -1,9 +1,9 @@
 import {
-  commitMutation as relayCommitMutation,
   Environment,
   GraphQLTaggedNode,
   MutationConfig,
   MutationParameters,
+  commitMutation as relayCommitMutation,
 } from 'relay-runtime';
 
 export function commitMutation<TOperation extends MutationParameters = MutationParameters>(

@@ -1,10 +1,11 @@
+import React, { Suspense, useEffect, useMemo } from 'react';
+import { FullPageSpinner } from 'src/shared/loading';
+import { MockPayloadGenerator, createMockEnvironment } from 'relay-test-utils';
+import { MockResolvers } from 'relay-test-utils/lib/RelayMockPayloadGenerator';
+import { RelayEnvironmentProvider } from 'react-relay/hooks';
 import { StoryFn } from '@storybook/addons';
 import { StoryFnReactReturnType } from '@storybook/react/dist/client/preview/types';
-import React, { Suspense, useEffect, useMemo } from 'react';
-import { RelayEnvironmentProvider } from 'react-relay/hooks';
-import { createMockEnvironment, MockPayloadGenerator } from 'relay-test-utils';
-import { MockResolvers } from 'relay-test-utils/lib/RelayMockPayloadGenerator';
-import { FullPageSpinner } from 'src/shared/loading';
+
 import { StoryDummy } from './StoryDummy';
 
 interface MockRelayDecoratorOptions {

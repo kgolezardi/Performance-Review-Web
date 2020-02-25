@@ -1,8 +1,9 @@
+import React from 'react';
+import { Lorem } from 'src/stories/helpers';
 import { Paper } from '@material-ui/core';
 import { storiesOf } from '@storybook/react';
-import React from 'react';
 import { themeDecorator } from 'src/stories/decorators';
-import { Lorem } from 'src/stories/helpers';
+
 import { OverlayError } from './OverlayError';
 
 const retry = () => {

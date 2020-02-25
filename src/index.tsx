@@ -1,8 +1,10 @@
+import './_config/install';
+
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './_config/install';
-import App from './App';
+
 import * as serviceWorker from './serviceWorker';
+import App from './App';
 
 const rootElement = document.getElementById('root');
 // @ts-ignore

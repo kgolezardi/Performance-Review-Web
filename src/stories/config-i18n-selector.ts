@@ -1,8 +1,9 @@
-import { i18n } from '@lingui/core';
-import { Direction } from '@material-ui/core';
 import addons from '@storybook/addons';
+import { Direction } from '@material-ui/core';
 import { addParameters, forceReRender } from '@storybook/react';
 import { getLanguages } from 'src/core/locales';
+import { i18n } from '@lingui/core';
+
 import { directionState } from './direction-state';
 
 const setLanguage = (language?: { value: string; direction: Direction }) => {

@@ -1,21 +1,22 @@
-import { i18n } from '@lingui/core';
+import graphql from 'babel-plugin-relay/macro';
+import React, { useContext } from 'react';
+import { DictInput, DictInputItem, Forminator, SubmitButton } from 'src/shared/forminator';
+import { FCProps } from 'src/shared/types/FCProps';
 import { Grid } from '@material-ui/core';
 import { MDXContext } from '@mdx-js/react';
-import graphql from 'babel-plugin-relay/macro';
-import { importMDX } from 'mdx.macro';
-import { equals, filter } from 'ramda';
-import React, { useContext } from 'react';
-import { useFragment } from 'react-relay/hooks';
-import { DictInput, DictInputItem, Forminator, SubmitButton } from 'src/shared/forminator';
 import { MDXPropsProvider } from 'src/shared/mdx-provider/MDXPropsProvider';
 import { SectionGuide } from 'src/shared/section-guide';
 import { StickyActionBar } from 'src/shared/sticky-action-bar';
 import { StrengthsOrWeaknesses } from 'src/shared/strengths-weaknesses';
-import { FCProps } from 'src/shared/types/FCProps';
 import { UserType } from 'src/shared/utils/getUserLabel';
-import { StrengthsWeaknessesForm_user$key } from './__generated__/StrengthsWeaknessesForm_user.graphql';
+import { equals, filter } from 'ramda';
+import { i18n } from '@lingui/core';
+import { importMDX } from 'mdx.macro';
+import { useFragment } from 'react-relay/hooks';
+
 import { ArrayValuePrompt, Equal } from './ArrayValuePrompt';
 import { StrengthsWeaknessesFormData } from './StrengthsWeaknessesPage';
+import { StrengthsWeaknessesForm_user$key } from './__generated__/StrengthsWeaknessesForm_user.graphql';
 
 const DescriptionContentSelfReview = importMDX.sync('./DescriptionContentSelfReview.mdx');
 const DescriptionContentPeerReview = importMDX.sync('./DescriptionContentPeerReview.mdx');

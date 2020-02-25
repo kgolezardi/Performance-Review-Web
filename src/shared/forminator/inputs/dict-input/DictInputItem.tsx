@@ -1,11 +1,12 @@
-import { path } from 'ramda';
 import React, { useEffect } from 'react';
 import { FCProps } from 'src/shared/types/FCProps';
+import { path } from 'ramda';
+
 import FragmentProvider from '../../core/fragment/FragmentProvider';
-import { useInitialValue } from '../../core/useInitialValue';
-import { useFragmentValue } from '../../core/utils/useFragmentValue';
-import { useDictContext } from './DictContext';
 import { DictActionType, DictState } from './dictReducer';
+import { useDictContext } from './DictContext';
+import { useFragmentValue } from '../../core/utils/useFragmentValue';
+import { useInitialValue } from '../../core/useInitialValue';
 
 interface OwnProps<V> {
   field: string;

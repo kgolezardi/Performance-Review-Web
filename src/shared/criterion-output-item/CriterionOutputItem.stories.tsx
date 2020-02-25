@@ -1,10 +1,11 @@
-import { i18n } from '@lingui/core';
-import { Container, Grid } from '@material-ui/core';
-import { storiesOf } from '@storybook/react';
-import { LoremIpsum } from 'lorem-ipsum';
 import React from 'react';
+import { Container, Grid } from '@material-ui/core';
 import { Evaluation } from 'src/global-types';
+import { LoremIpsum } from 'lorem-ipsum';
+import { i18n } from '@lingui/core';
+import { storiesOf } from '@storybook/react';
 import { themeDecorator } from 'src/stories/decorators/themeDecorator';
+
 import { CriterionOutputItem } from './CriterionOutputItem';
 
 storiesOf('Criterion Output Item', module)

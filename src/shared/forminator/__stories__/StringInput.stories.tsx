@@ -1,9 +1,10 @@
+import React from 'react';
 import { action } from '@storybook/addon-actions';
 import { storiesOf } from '@storybook/react';
-import React from 'react';
 import { themeDecorator } from 'src/stories/decorators';
-import { Forminator, StringInput } from '..';
+
 import SubmitButton from '../utils/SubmitButton';
+import { Forminator, StringInput } from '..';
 
 storiesOf('Forminator|String input', module)
   .addDecorator(themeDecorator({ direction: 'ltr' }))

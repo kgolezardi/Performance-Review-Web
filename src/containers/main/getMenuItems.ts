@@ -1,6 +1,6 @@
-import { i18n } from '@lingui/core';
-import { Phase } from 'src/core/settings/__generated__/SettingsProviderQuery.graphql';
 import { MenuItem } from 'src/shared/layouts/dashboard-layouts/menu/types';
+import { Phase } from 'src/core/settings/__generated__/SettingsProviderQuery.graphql';
+import { i18n } from '@lingui/core';
 interface User {
   hasStarted: boolean;
   isManager: boolean;

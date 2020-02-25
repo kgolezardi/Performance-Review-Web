@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+
 import { AuthGuard_user } from './__generated__/AuthGuard_user.graphql';
 
 export type UserContextValue = AuthGuard_user;

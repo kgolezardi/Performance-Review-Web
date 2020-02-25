@@ -1,5 +1,6 @@
-import { i18n } from '@lingui/core';
 import React from 'react';
+import { i18n } from '@lingui/core';
+
 import InProgressIcon from './in-progress.png';
 
 interface OwnProps {}

@@ -1,10 +1,11 @@
-import { AppBar, makeStyles, Theme, Toolbar } from '@material-ui/core';
-import { CSSProperties } from '@material-ui/core/styles/withStyles';
 import React, { ComponentType } from 'react';
-import { Overlayscrollbars } from 'src/shared/overlayscrollbars';
+import { AppBar, Theme, Toolbar, makeStyles } from '@material-ui/core';
+import { CSSProperties } from '@material-ui/core/styles/withStyles';
 import { FCProps } from 'src/shared/types/FCProps';
+import { Overlayscrollbars } from 'src/shared/overlayscrollbars';
 import { Styles } from 'src/shared/types/Styles';
 import { groupChildrenByType } from 'src/shared/utils/groupChildrenByType.utils';
+
 import { brandWidth, headerHeight } from './constants';
 
 // typescript only allows string when it defined at `JSX.IntrinsicElements`

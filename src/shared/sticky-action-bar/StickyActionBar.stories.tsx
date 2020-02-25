@@ -1,10 +1,11 @@
-import { i18n } from '@lingui/core';
-import { Button, Container } from '@material-ui/core';
-import { storiesOf } from '@storybook/react';
 import React from 'react';
-import { StickyActionBar } from './StickyActionBar';
-import { themeDecorator } from 'src/stories/decorators';
+import { Button, Container } from '@material-ui/core';
 import { Lorem } from 'src/stories/helpers';
+import { i18n } from '@lingui/core';
+import { storiesOf } from '@storybook/react';
+import { themeDecorator } from 'src/stories/decorators';
+
+import { StickyActionBar } from './StickyActionBar';
 
 storiesOf('Sticky Action Bar', module)
   .addDecorator(themeDecorator())

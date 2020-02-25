@@ -1,12 +1,13 @@
-import { i18n } from '@lingui/core';
-import { Box, Grid, Typography } from '@material-ui/core';
-import graphql from 'babel-plugin-relay/macro';
 import React from 'react';
-import { useFragment } from 'react-relay/hooks';
+import graphql from 'babel-plugin-relay/macro';
+import { Box, Grid, Typography } from '@material-ui/core';
 import { Evaluation } from 'src/global-types';
 import { EvaluationOutput } from 'src/shared/evaluation-output';
-import { MultilineOutput } from 'src/shared/multiline-output';
 import { FCProps } from 'src/shared/types/FCProps';
+import { MultilineOutput } from 'src/shared/multiline-output';
+import { i18n } from '@lingui/core';
+import { useFragment } from 'react-relay/hooks';
+
 import { ProjectCommentOutput_comment$key } from './__generated__/ProjectCommentOutput_comment.graphql';
 
 const fragment = graphql`

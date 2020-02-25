@@ -1,8 +1,9 @@
 import graphql from 'babel-plugin-relay/macro';
 import React, { Fragment } from 'react';
-import { useFragment } from 'react-relay/hooks';
 import { ElementType } from 'src/shared/types/ElementType';
 import { FCProps } from 'src/shared/types/FCProps';
+import { useFragment } from 'react-relay/hooks';
+
 import {
   AchievementsIndicators_projects,
   AchievementsIndicators_projects$key,

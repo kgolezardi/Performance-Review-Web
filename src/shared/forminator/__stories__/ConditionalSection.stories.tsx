@@ -1,16 +1,17 @@
+import React from 'react';
 import { FormControl, InputLabel } from '@material-ui/core';
 import { action } from '@storybook/addon-actions';
 import { storiesOf } from '@storybook/react';
-import React from 'react';
 import { themeDecorator } from 'src/stories/decorators';
-import FragmentRef from '../core/fragment-lens/FragmentRef';
-import { useFragmentLens } from '../core/fragment-lens/useFragmentLens';
-import { Forminator, StringInput } from '../index';
+
+import ConditionalSection from '../utils/ConditionalSection';
 import DictInput from '../inputs/dict-input/DictInput';
 import DictInputItem from '../inputs/dict-input/DictInputItem';
+import FragmentRef from '../core/fragment-lens/FragmentRef';
 import SelectInput from '../inputs/SelectInput';
-import ConditionalSection from '../utils/ConditionalSection';
 import SubmitButton from '../utils/SubmitButton';
+import { Forminator, StringInput } from '../index';
+import { useFragmentLens } from '../core/fragment-lens/useFragmentLens';
 
 storiesOf('Forminator|Conditional Section', module)
   .addDecorator(themeDecorator({ direction: 'ltr' }))

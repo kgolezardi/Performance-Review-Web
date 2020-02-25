@@ -1,13 +1,12 @@
-import { equals } from 'ramda';
-import { useEffect, useState } from 'react';
-import { ForminatorFragment } from 'src/shared/forminator/core/fragment/ForminatorFragment';
-import { useFragmentContext } from 'src/shared/forminator/core/fragment/FragmentContext';
-import { useStoreContext } from 'src/shared/forminator/core/store/StoreContext';
-import { useReadonlySubscribableValue } from 'src/shared/forminator/core/subscribable/useReadonlySubscribableValue';
-import { getFragmentsValues, subscribeFragments } from 'src/shared/forminator/core/utils/subscribeFragments';
-import { usePrompt } from 'src/shared/prompt';
-
 import { FCProps } from 'src/shared/types/FCProps';
+import { ForminatorFragment } from 'src/shared/forminator/core/fragment/ForminatorFragment';
+import { equals } from 'ramda';
+import { getFragmentsValues, subscribeFragments } from 'src/shared/forminator/core/utils/subscribeFragments';
+import { useEffect, useState } from 'react';
+import { useFragmentContext } from 'src/shared/forminator/core/fragment/FragmentContext';
+import { usePrompt } from 'src/shared/prompt';
+import { useReadonlySubscribableValue } from 'src/shared/forminator/core/subscribable/useReadonlySubscribableValue';
+import { useStoreContext } from 'src/shared/forminator/core/store/StoreContext';
 
 export type Equal = (
   fragmentValue: ReadonlyArray<string | undefined>,

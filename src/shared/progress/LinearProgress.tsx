@@ -1,16 +1,16 @@
-import {
-  lighten,
-  LinearProgress as MuiLinearProgress,
-  LinearProgressProps,
-  makeStyles,
-  Theme,
-} from '@material-ui/core';
-import { amber, deepOrange, green, lightBlue } from '@material-ui/core/colors';
-import { CreateCSSProperties, CSSProperties } from '@material-ui/core/styles/withStyles';
 import clsx from 'clsx';
 import React, { useEffect, useState } from 'react';
+import { CSSProperties, CreateCSSProperties } from '@material-ui/core/styles/withStyles';
 import { FCProps } from 'src/shared/types/FCProps';
+import {
+  LinearProgress as MuiLinearProgress,
+  LinearProgressProps,
+  Theme,
+  lighten,
+  makeStyles,
+} from '@material-ui/core';
 import { Styles } from 'src/shared/types/Styles';
+import { amber, deepOrange, green, lightBlue } from '@material-ui/core/colors';
 
 interface OwnProps extends Omit<LinearProgressProps, 'color' | 'variant'> {
   color?: 'low' | 'medium' | 'high' | 'complete';

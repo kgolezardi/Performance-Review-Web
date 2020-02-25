@@ -1,4 +1,5 @@
-import React, { ReactNode, ErrorInfo } from 'react';
+import React, { ErrorInfo, ReactNode } from 'react';
+
 import { ErrorContext } from './ErrorContext';
 
 interface Props {

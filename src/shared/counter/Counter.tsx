@@ -1,11 +1,11 @@
-import { makeStyles, Theme, Typography } from '@material-ui/core';
-import { CSSProperties } from '@material-ui/core/styles/withStyles';
-import clsx from 'clsx';
 import React from 'react';
-import { NumberOutput } from 'src/shared/number-output';
+import clsx from 'clsx';
+import { CSSProperties } from '@material-ui/core/styles/withStyles';
 import { CircularProgress } from 'src/shared/progress';
 import { FCProps } from 'src/shared/types/FCProps';
+import { NumberOutput } from 'src/shared/number-output';
 import { Styles } from 'src/shared/types/Styles';
+import { Theme, Typography, makeStyles } from '@material-ui/core';
 
 interface OwnProps {
   count: number;

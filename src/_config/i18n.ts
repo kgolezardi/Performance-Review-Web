@@ -1,6 +1,6 @@
-import { i18n } from '@lingui/core';
-import fa from 'src/locales/fa/messages';
 import en from 'src/locales/en/messages';
+import fa from 'src/locales/fa/messages';
+import { i18n } from '@lingui/core';
 
 const catalogs = { fa, en };
 

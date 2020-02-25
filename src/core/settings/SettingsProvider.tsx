@@ -1,9 +1,10 @@
 import graphql from 'babel-plugin-relay/macro';
 import React, { useMemo } from 'react';
-import { useLazyLoadQuery } from 'react-relay/hooks';
 import { FCProps } from 'src/shared/types/FCProps';
-import { SettingsProviderQuery } from './__generated__/SettingsProviderQuery.graphql';
+import { useLazyLoadQuery } from 'react-relay/hooks';
+
 import { SettingsContext } from './SettingsContext';
+import { SettingsProviderQuery } from './__generated__/SettingsProviderQuery.graphql';
 
 interface OwnProps {}
 

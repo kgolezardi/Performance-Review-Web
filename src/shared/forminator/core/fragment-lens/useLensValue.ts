@@ -1,6 +1,6 @@
-import { useReadonlySubscribableValue } from '../subscribable/useReadonlySubscribableValue';
 import { FragmentLens } from './FragmentLens';
 import { SubStore } from './types';
+import { useReadonlySubscribableValue } from '../subscribable/useReadonlySubscribableValue';
 
 export function useLensValue<V>(lens: FragmentLens<V> | null = null): V | undefined {
   const subStore = useReadonlySubscribableValue<SubStore<V> | null>(lens && lens.getSubscribable());

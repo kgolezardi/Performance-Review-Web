@@ -1,9 +1,10 @@
-import { Box } from '@material-ui/core';
-import graphql from 'babel-plugin-relay/macro';
 import React from 'react';
-import { useFragment } from 'react-relay/hooks';
-import { ProjectOutput } from 'src/shared/project-output';
+import graphql from 'babel-plugin-relay/macro';
+import { Box } from '@material-ui/core';
 import { FCProps } from 'src/shared/types/FCProps';
+import { ProjectOutput } from 'src/shared/project-output';
+import { useFragment } from 'react-relay/hooks';
+
 import { ManagerReviewProjects_reviews$key } from './__generated__/ManagerReviewProjects_reviews.graphql';
 
 const fragment = graphql`

@@ -1,8 +1,9 @@
-import { storiesOf } from '@storybook/react';
 import graphql from 'babel-plugin-relay/macro';
 import React, { Fragment } from 'react';
-import { useLazyLoadQuery } from 'react-relay/hooks';
 import { promptDecorator, relayDecorator, routerDecorator, themeDecorator } from 'src/stories/decorators';
+import { storiesOf } from '@storybook/react';
+import { useLazyLoadQuery } from 'react-relay/hooks';
+
 import { PeerReviewProjectExpansionPanel } from './PeerReviewProjectExpansionPanel';
 import { PeerReviewProjectExpansionPanelQuery } from './__generated__/PeerReviewProjectExpansionPanelQuery.graphql';
 

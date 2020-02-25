@@ -1,10 +1,5 @@
-import { i18n } from '@lingui/core';
-import React, { Suspense, useMemo } from 'react';
 import logo from 'src/assets/logo.png';
-import { useAuthGuardUser } from 'src/core/auth';
-import { useAppSettings } from 'src/core/settings';
-import { ErrorBoundary } from 'src/shared/error-boundary';
-import { FullPageError } from 'src/shared/full-page-error';
+import React, { Suspense, useMemo } from 'react';
 import {
   Brand,
   BrandRegion,
@@ -14,11 +9,17 @@ import {
   NavbarRegion,
   UserRegion,
 } from 'src/shared/layouts/dashboard-layouts';
-import { FullPageSpinner } from 'src/shared/loading';
+import { ErrorBoundary } from 'src/shared/error-boundary';
 import { FCProps } from 'src/shared/types/FCProps';
-import { getMenuItems } from './getMenuItems';
+import { FullPageError } from 'src/shared/full-page-error';
+import { FullPageSpinner } from 'src/shared/loading';
+import { i18n } from '@lingui/core';
+import { useAppSettings } from 'src/core/settings';
+import { useAuthGuardUser } from 'src/core/auth';
+
 import { MainRoutes } from './MainRoutes';
 import { NavbarUser } from './NavbarUser';
+import { getMenuItems } from './getMenuItems';
 
 interface OwnProps {}
 

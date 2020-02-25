@@ -1,7 +1,7 @@
-import { History } from 'history';
 import React, { SuspenseConfig, useDeferredValue, useEffect, useState } from 'react';
-import { __RouterContext as RouterContext } from 'react-router';
 import { FCProps } from 'src/shared/types/FCProps';
+import { History } from 'history';
+import { __RouterContext as RouterContext } from 'react-router';
 
 interface OwnProps {
   suspenseConfig?: SuspenseConfig | null;

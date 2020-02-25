@@ -1,11 +1,12 @@
+import LimitedTextAreaInput from 'src/shared/forminator/inputs/LimitedTextAreaInput';
+import React from 'react';
 import { action } from '@storybook/addon-actions';
 import { storiesOf } from '@storybook/react';
-import React from 'react';
-import LimitedTextAreaInput from 'src/shared/forminator/inputs/LimitedTextAreaInput';
-import { themeDecorator } from 'src/stories/decorators';
 import { storyWrapperDecorator } from 'src/stories/decorators/StoryWrapperDecorator';
-import { Forminator } from '..';
+import { themeDecorator } from 'src/stories/decorators';
+
 import SubmitButton from '../utils/SubmitButton';
+import { Forminator } from '..';
 
 storiesOf('Forminator|Limited Text Area Input', module)
   .addDecorator(themeDecorator({ direction: 'ltr' }))

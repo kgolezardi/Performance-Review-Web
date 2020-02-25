@@ -1,10 +1,11 @@
 import React, { useCallback, useState } from 'react';
 import { FCProps } from 'src/shared/types/FCProps';
+
 import FragmentProvider from './core/fragment/FragmentProvider';
-import { getFragmentFinalValue } from './core/fragment/getFragmentFinalValue';
-import { ForminatorStore } from './core/store/ForminatorStore';
 import StoreProvider from './core/store/StoreProvider';
 import SubmitProvider from './core/submit/SubmitProvider';
+import { ForminatorStore } from './core/store/ForminatorStore';
+import { getFragmentFinalValue } from './core/fragment/getFragmentFinalValue';
 
 interface OwnProps<Value> {
   initialValue?: Value;

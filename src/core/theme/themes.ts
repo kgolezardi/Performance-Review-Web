@@ -1,7 +1,7 @@
-import { Direction, PaletteType } from '@material-ui/core';
-import { deepOrange, grey, red } from '@material-ui/core/colors';
 import createMuiTheme, { ThemeOptions } from '@material-ui/core/styles/createMuiTheme';
+import { Direction, PaletteType } from '@material-ui/core';
 import { TypographyOptions } from '@material-ui/core/styles/createTypography';
+import { deepOrange, grey, red } from '@material-ui/core/colors';
 
 export function getThemeOptions(base: ThemeOptions, direction: Direction, paletteType: PaletteType): ThemeOptions {
   const typography: TypographyOptions = {

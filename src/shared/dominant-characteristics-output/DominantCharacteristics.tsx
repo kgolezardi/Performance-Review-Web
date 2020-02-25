@@ -1,9 +1,10 @@
-import { i18n } from '@lingui/core';
-import { Box, Grid } from '@material-ui/core';
-import graphql from 'babel-plugin-relay/macro';
 import React from 'react';
-import { useFragment } from 'react-relay/hooks';
+import graphql from 'babel-plugin-relay/macro';
+import { Box, Grid } from '@material-ui/core';
 import { FCProps } from 'src/shared/types/FCProps';
+import { i18n } from '@lingui/core';
+import { useFragment } from 'react-relay/hooks';
+
 import { CharacteristicsList } from './CharacteristicsList';
 import { DominantCharacteristicsOutput_review$key } from './__generated__/DominantCharacteristicsOutput_review.graphql';
 

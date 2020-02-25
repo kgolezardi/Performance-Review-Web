@@ -1,6 +1,7 @@
 import * as React from 'react';
-import { Fragment } from 'react';
 import { FCProps } from 'src/shared/types/FCProps';
+import { Fragment } from 'react';
+
 import { FragmentLens } from '../core/fragment-lens/FragmentLens';
 import { useLensValue } from '../core/fragment-lens/useLensValue';
 

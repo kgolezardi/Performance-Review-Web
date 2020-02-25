@@ -1,7 +1,8 @@
 import React, { Dispatch } from 'react';
 import { FCProps } from 'src/shared/types/FCProps';
-import { DictContext } from './DictContext';
+
 import { DictAction } from './dictReducer';
+import { DictContext } from './DictContext';
 
 interface OwnProps<V> {
   dispatch: Dispatch<DictAction>;

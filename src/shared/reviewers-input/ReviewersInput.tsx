@@ -1,10 +1,11 @@
-import { FormHelperText } from '@material-ui/core';
-import graphql from 'babel-plugin-relay/macro';
 import React from 'react';
-import { useFragment } from 'react-relay/hooks';
-import { SelectMultiAutoComplete } from 'src/shared/forminator';
+import graphql from 'babel-plugin-relay/macro';
 import { FCProps } from 'src/shared/types/FCProps';
+import { FormHelperText } from '@material-ui/core';
+import { SelectMultiAutoComplete } from 'src/shared/forminator';
 import { getUserLabel } from 'src/shared/utils/getUserLabel';
+import { useFragment } from 'react-relay/hooks';
+
 import { ReviewersInput_Reviewers$key } from './__generated__/ReviewersInput_Reviewers.graphql';
 
 interface OwnProps {

@@ -1,9 +1,9 @@
-import { makeStyles, Tab, TabClassKey, TabProps, Theme } from '@material-ui/core';
-import { CSSProperties } from '@material-ui/core/styles/withStyles';
 import React from 'react';
-import { Link, LinkProps } from 'react-router-dom';
+import { CSSProperties } from '@material-ui/core/styles/withStyles';
 import { FCProps } from 'src/shared/types/FCProps';
+import { Link, LinkProps } from 'react-router-dom';
 import { Styles } from 'src/shared/types/Styles';
+import { Tab, TabClassKey, TabProps, Theme, makeStyles } from '@material-ui/core';
 
 interface OwnProps extends TabProps<'a', LinkProps> {}
 

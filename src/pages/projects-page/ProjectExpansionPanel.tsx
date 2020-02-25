@@ -1,13 +1,14 @@
-import { Typography } from '@material-ui/core';
-import graphql from 'babel-plugin-relay/macro';
 import React from 'react';
-import { useFragment } from 'react-relay/hooks';
+import graphql from 'babel-plugin-relay/macro';
 import { ExpansionPanel, ExpansionPanelDetails, ExpansionPanelSummary } from 'src/shared/expansion-panel';
-import { ReviewersInputProps } from 'src/shared/reviewers-input/ReviewersInput';
 import { FCProps } from 'src/shared/types/FCProps';
-import { ProjectForm, ProjectFormData } from './ProjectForm';
+import { ReviewersInputProps } from 'src/shared/reviewers-input/ReviewersInput';
+import { Typography } from '@material-ui/core';
+import { useFragment } from 'react-relay/hooks';
+
 import { DeleteProjectReviewMutationInput } from './__generated__/deleteProjectReviewMutation.graphql';
 import { ProjectExpansionPanel_projectReview$key } from './__generated__/ProjectExpansionPanel_projectReview.graphql';
+import { ProjectForm, ProjectFormData } from './ProjectForm';
 
 interface OwnProps {
   projectReview: ProjectExpansionPanel_projectReview$key;

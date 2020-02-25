@@ -1,6 +1,7 @@
-import { storiesOf } from '@storybook/react';
 import React from 'react';
+import { storiesOf } from '@storybook/react';
 import { storyWrapperDecorator, themeDecorator } from 'src/stories/decorators';
+
 import { OutputBorder } from './OutputBorder';
 
 storiesOf('Output Border', module)

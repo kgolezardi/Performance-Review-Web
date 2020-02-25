@@ -1,17 +1,18 @@
-import { i18n } from '@lingui/core';
-import { Box } from '@material-ui/core';
 import graphql from 'babel-plugin-relay/macro';
 import React, { useCallback } from 'react';
+import { Box } from '@material-ui/core';
+import { DominantCharacteristicsOutput } from 'src/shared/dominant-characteristics-output';
+import { FCProps } from 'src/shared/types/FCProps';
+import { PromptProvider } from 'src/shared/prompt';
+import { i18n } from '@lingui/core';
+import { useBiDiSnackbar } from 'src/shared/snackbar';
 import { useLazyLoadQuery } from 'react-relay/hooks';
 import { useMutation } from 'src/relay';
-import { DominantCharacteristicsOutput } from 'src/shared/dominant-characteristics-output';
-import { PromptProvider } from 'src/shared/prompt';
-import { useBiDiSnackbar } from 'src/shared/snackbar';
-import { FCProps } from 'src/shared/types/FCProps';
+
 import { StrengthsWeaknessesForm } from './StrengthsWeaknessesForm';
-import { normalizeArray } from './utils';
 import { StrengthsWeaknessesPageMutation } from './__generated__/StrengthsWeaknessesPageMutation.graphql';
 import { StrengthsWeaknessesPageQuery } from './__generated__/StrengthsWeaknessesPageQuery.graphql';
+import { normalizeArray } from './utils';
 
 interface OwnProps {
   revieweeId: string;

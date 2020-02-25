@@ -1,7 +1,7 @@
-import { ExpansionPanelSummary as MuiExpansionPanelSummary, ExpansionPanelSummaryProps } from '@material-ui/core';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import React from 'react';
 import { FCProps } from 'src/shared/types/FCProps';
+import { ExpansionPanelSummary as MuiExpansionPanelSummary, ExpansionPanelSummaryProps } from '@material-ui/core';
 
 interface OwnProps extends ExpansionPanelSummaryProps {}
 

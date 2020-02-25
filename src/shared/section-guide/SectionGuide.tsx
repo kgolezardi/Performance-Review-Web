@@ -1,9 +1,9 @@
-import { Box, Grid, lighten, makeStyles, Theme } from '@material-ui/core';
-import { CSSProperties } from '@material-ui/core/styles/withStyles';
+import HelpIcon from '@material-ui/icons/HelpOutline';
 import React from 'react';
+import { Box, Grid, Theme, lighten, makeStyles } from '@material-ui/core';
+import { CSSProperties } from '@material-ui/core/styles/withStyles';
 import { FCProps } from 'src/shared/types/FCProps';
 import { Styles } from 'src/shared/types/Styles';
-import HelpIcon from '@material-ui/icons/HelpOutline';
 
 interface OwnProps {}
 

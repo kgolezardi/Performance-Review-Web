@@ -1,11 +1,12 @@
+import React from 'react';
 import { CssBaseline, Direction, ThemeProvider } from '@material-ui/core';
 import { DecoratorFunction, StoryFn } from '@storybook/addons';
-import { StoryFnReactReturnType } from '@storybook/react/dist/client/preview/types';
-import React from 'react';
-import { RtlSupportProvider } from 'src/core/rtl/RtlSupportProvider';
 import { GlobalStyles } from 'src/core/styles/GlobalStyles';
-import { ltrTheme, rtlTheme } from 'src/core/theme';
+import { RtlSupportProvider } from 'src/core/rtl/RtlSupportProvider';
+import { StoryFnReactReturnType } from '@storybook/react/dist/client/preview/types';
 import { directionState } from 'src/stories/direction-state';
+import { ltrTheme, rtlTheme } from 'src/core/theme';
+
 import { StoryDummy } from './StoryDummy';
 import { TransparentBackground } from './TransparentBackground';
 

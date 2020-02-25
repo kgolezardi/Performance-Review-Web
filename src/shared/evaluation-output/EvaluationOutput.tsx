@@ -1,11 +1,11 @@
-import { i18n } from '@lingui/core';
-import { makeStyles, Theme, Typography, TypographyProps } from '@material-ui/core';
-import { CSSProperties } from '@material-ui/core/styles/withStyles';
 import React from 'react';
+import { CSSProperties } from '@material-ui/core/styles/withStyles';
 import { Evaluation, peerReviewEvaluationDictionary, selfReviewEvaluationDictionary } from 'src/global-types';
-import { getEnumLabel } from 'src/shared/enum-utils';
 import { FCProps } from 'src/shared/types/FCProps';
 import { Styles } from 'src/shared/types/Styles';
+import { Theme, Typography, TypographyProps, makeStyles } from '@material-ui/core';
+import { getEnumLabel } from 'src/shared/enum-utils';
+import { i18n } from '@lingui/core';
 
 interface OwnProps {
   value: Evaluation | '%future added value' | null;

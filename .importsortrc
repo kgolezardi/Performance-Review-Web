@@ -1,0 +1,12 @@
+{
+  ".js, .jsx": {
+    "parser": "babylon",
+    "style": "renke",
+    "options": {}
+  },
+  ".ts, .tsx": {
+    "parser": "typescript",
+    "style": "renke",
+    "options": {}
+  }
+}

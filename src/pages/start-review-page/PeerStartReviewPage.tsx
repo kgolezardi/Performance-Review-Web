@@ -1,12 +1,13 @@
-import { Box, Container } from '@material-ui/core';
-import graphql from 'babel-plugin-relay/macro';
-import { importMDX } from 'mdx.macro';
 import React from 'react';
-import { useLazyLoadQuery } from 'react-relay/hooks';
+import graphql from 'babel-plugin-relay/macro';
+import { Box, Container } from '@material-ui/core';
 import { FCProps } from 'src/shared/types/FCProps';
+import { importMDX } from 'mdx.macro';
+import { useLazyLoadQuery } from 'react-relay/hooks';
+
 import { NoPeerReview } from './NoPeerReview';
-import { StartReviewCard } from './StartReviewCard';
 import { PeerStartReviewPageQuery } from './__generated__/PeerStartReviewPageQuery.graphql';
+import { StartReviewCard } from './StartReviewCard';
 
 const Content = importMDX.sync('./PeerStartReviewContent.mdx');
 

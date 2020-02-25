@@ -1,9 +1,6 @@
-import { i18n } from '@lingui/core';
-import { Box, Grid } from '@material-ui/core';
-import graphql from 'babel-plugin-relay/macro';
 import React from 'react';
-import { useInView } from 'react-intersection-observer';
-import { useFragment } from 'react-relay/hooks';
+import graphql from 'babel-plugin-relay/macro';
+import { Box, Grid } from '@material-ui/core';
 import {
   DictInput,
   DictInputItem,
@@ -12,9 +9,13 @@ import {
   LimitedTextAreaInput,
   SubmitButton,
 } from 'src/shared/forminator';
+import { FCProps } from 'src/shared/types/FCProps';
 import { Rating } from 'src/shared/rating';
 import { StickyActionBar } from 'src/shared/sticky-action-bar';
-import { FCProps } from 'src/shared/types/FCProps';
+import { i18n } from '@lingui/core';
+import { useFragment } from 'react-relay/hooks';
+import { useInView } from 'react-intersection-observer';
+
 import { Evaluation } from '../../__generated__/savePersonReviewMutation.graphql';
 import { PeerReviewProjectsForm_projectComment$key } from './__generated__/PeerReviewProjectsForm_projectComment.graphql';
 

@@ -1,19 +1,20 @@
-import { i18n } from '@lingui/core';
-import { makeStyles, Paper, Tab, Theme } from '@material-ui/core';
-import { CSSProperties } from '@material-ui/core/styles/withStyles';
 import graphql from 'babel-plugin-relay/macro';
 import React, { Fragment, useCallback, useState } from 'react';
-import { useFragment, useLazyLoadQuery } from 'react-relay/hooks';
+import { CSSProperties } from '@material-ui/core/styles/withStyles';
 import { CriteriaOutput } from 'src/shared/criteria-output';
 import { DominantCharacteristicsOutput } from 'src/shared/dominant-characteristics-output';
+import { FCProps } from 'src/shared/types/FCProps';
+import { Paper, Tab, Theme, makeStyles } from '@material-ui/core';
+import { Styles } from 'src/shared/types/Styles';
 import { TabPanel, TabPanelsProvider } from 'src/shared/tab';
 import { Tabs } from 'src/shared/tabs';
 import { TabsProps } from 'src/shared/tabs/types';
-import { FCProps } from 'src/shared/types/FCProps';
-import { Styles } from 'src/shared/types/Styles';
-import { ManagerReviewProjects } from './ManagerReviewProjects';
+import { i18n } from '@lingui/core';
+import { useFragment, useLazyLoadQuery } from 'react-relay/hooks';
+
 import { ManagerReviewContentQuery } from './__generated__/ManagerReviewContentQuery.graphql';
 import { ManagerReviewContent_user$key } from './__generated__/ManagerReviewContent_user.graphql';
+import { ManagerReviewProjects } from './ManagerReviewProjects';
 
 const query = graphql`
   query ManagerReviewContentQuery($id: ID!) {

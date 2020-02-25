@@ -1,10 +1,10 @@
-import { i18n } from '@lingui/core';
-import { Card, makeStyles, Theme, Typography } from '@material-ui/core';
-import { CSSProperties } from '@material-ui/core/styles/withStyles';
 import React from 'react';
-import { useAppSettings } from 'src/core/settings';
+import { CSSProperties } from '@material-ui/core/styles/withStyles';
+import { Card, Theme, Typography, makeStyles } from '@material-ui/core';
 import { FCProps } from 'src/shared/types/FCProps';
 import { Styles } from 'src/shared/types/Styles';
+import { i18n } from '@lingui/core';
+import { useAppSettings } from 'src/core/settings';
 
 interface OwnProps {}
 

@@ -1,10 +1,11 @@
-import { makeStyles, Theme } from '@material-ui/core';
-import { CSSProperties } from '@material-ui/core/styles/withStyles';
 import React from 'react';
+import { CSSProperties } from '@material-ui/core/styles/withStyles';
 import { FCProps } from 'src/shared/types/FCProps';
 import { Styles } from 'src/shared/types/Styles';
-import { NavBarMenuItem } from './NavBarMenuItem';
+import { Theme, makeStyles } from '@material-ui/core';
+
 import { MenuItem } from './types';
+import { NavBarMenuItem } from './NavBarMenuItem';
 
 interface OwnProps {
   items: MenuItem[];

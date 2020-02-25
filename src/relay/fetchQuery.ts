@@ -1,4 +1,5 @@
 import { RequestParameters, Variables } from 'relay-runtime';
+
 import { GRAPHQL_API } from './constants';
 
 export function fetchQuery(operation: RequestParameters, variables: Variables = {}) {

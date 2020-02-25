@@ -1,6 +1,6 @@
-import { useTheme } from '@material-ui/core';
-import { OptionsObject, useSnackbar, WithSnackbarProps } from 'notistack';
+import { OptionsObject, WithSnackbarProps, useSnackbar } from 'notistack';
 import { ReactNode, useCallback, useMemo } from 'react';
+import { useTheme } from '@material-ui/core';
 
 export const useBiDiSnackbar = (): WithSnackbarProps => {
   const { enqueueSnackbar, closeSnackbar } = useSnackbar();

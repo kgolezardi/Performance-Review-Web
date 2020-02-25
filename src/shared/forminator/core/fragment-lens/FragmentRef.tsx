@@ -1,8 +1,9 @@
-import { useImperativeHandle } from 'react';
 import { FCProps } from 'src/shared/types/FCProps';
+import { useImperativeHandle } from 'react';
+
+import { FragmentLens } from './FragmentLens';
 import { useFragmentContext } from '../fragment/FragmentContext';
 import { useStoreContext } from '../store/StoreContext';
-import { FragmentLens } from './FragmentLens';
 
 interface OwnProps<V> {
   lens: FragmentLens<V>;

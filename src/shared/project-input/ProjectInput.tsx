@@ -1,8 +1,9 @@
-import graphql from 'babel-plugin-relay/macro';
 import React from 'react';
-import { useFragment } from 'react-relay/hooks';
-import { SelectAutoComplete } from 'src/shared/forminator';
+import graphql from 'babel-plugin-relay/macro';
 import { FCProps } from 'src/shared/types/FCProps';
+import { SelectAutoComplete } from 'src/shared/forminator';
+import { useFragment } from 'react-relay/hooks';
+
 import { ProjectInput_projects$key } from './__generated__/ProjectInput_projects.graphql';
 
 interface OwnProps {

@@ -1,8 +1,8 @@
-import { lighten, ListItem, ListItemIcon, ListItemText, makeStyles, Theme } from '@material-ui/core';
-import { CSSProperties } from '@material-ui/core/styles/withStyles';
 import PersonIcon from '@material-ui/icons/Person';
 import React, { useCallback } from 'react';
+import { CSSProperties } from '@material-ui/core/styles/withStyles';
 import { FCProps } from 'src/shared/types/FCProps';
+import { ListItem, ListItemIcon, ListItemText, Theme, lighten, makeStyles } from '@material-ui/core';
 import { Styles } from 'src/shared/types/Styles';
 
 interface OwnProps {

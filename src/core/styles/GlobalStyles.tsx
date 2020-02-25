@@ -1,8 +1,8 @@
-import { createStyles, makeStyles, Theme, useTheme } from '@material-ui/core';
 import { CSSProperties } from '@material-ui/core/styles/withStyles';
-import { useEffect } from 'react';
 import { FCProps } from 'src/shared/types/FCProps';
 import { Styles } from 'src/shared/types/Styles';
+import { Theme, createStyles, makeStyles, useTheme } from '@material-ui/core';
+import { useEffect } from 'react';
 
 interface OwnProps {}
 

@@ -1,14 +1,15 @@
-import { i18n } from '@lingui/core';
-import { Typography } from '@material-ui/core';
-import graphql from 'babel-plugin-relay/macro';
 import React from 'react';
-import { useFragment } from 'react-relay/hooks';
+import graphql from 'babel-plugin-relay/macro';
 import { FCProps } from 'src/shared/types/FCProps';
+import { Typography } from '@material-ui/core';
+import { i18n } from '@lingui/core';
+import { useFragment } from 'react-relay/hooks';
+
+import { DashboardPageCircularIndicator } from './DashboardPageCircularIndicator';
 import {
   PerformanceCompetenciesCircularIndicator_review,
   PerformanceCompetenciesCircularIndicator_review$key,
 } from './__generated__/PerformanceCompetenciesCircularIndicator_review.graphql';
-import { DashboardPageCircularIndicator } from './DashboardPageCircularIndicator';
 
 interface OwnProps {
   review: PerformanceCompetenciesCircularIndicator_review$key | null;

@@ -1,10 +1,10 @@
-import { i18n } from '@lingui/core';
-import { Box, Grid, Typography } from '@material-ui/core';
 import React, { ReactNode } from 'react';
+import { Box, Grid, Typography } from '@material-ui/core';
 import { DictInputItem, FragmentPrompt, LimitedTextAreaInput } from 'src/shared/forminator';
-import { Rating } from 'src/shared/rating';
-import { useServerValueContext } from 'src/shared/server-value';
 import { FCProps } from 'src/shared/types/FCProps';
+import { Rating } from 'src/shared/rating';
+import { i18n } from '@lingui/core';
+import { useServerValueContext } from 'src/shared/server-value';
 
 interface ServerValue {
   [key: string]: string | null;
