@@ -31,7 +31,7 @@ const styles = (theme: Theme) => ({
     },
     fontSize: theme.typography.h6.fontSize,
     padding: theme.spacing(2),
-    color: lighten(theme.palette.primary.main, 0.7),
+    color: theme.palette.common.white,
     textDecoration: 'none',
     display: 'flex',
     alignItems: 'center',
