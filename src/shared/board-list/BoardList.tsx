@@ -42,6 +42,7 @@ const styles = (theme: Theme) => ({
   } as CSSProperties,
   cardHeaderRoot: {
     padding: theme.spacing(3, 2),
+    color: theme.palette.grey[700],
   } as CSSProperties,
   overlayscrollbars: {
     flex: 1,

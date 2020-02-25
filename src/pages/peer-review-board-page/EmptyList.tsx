@@ -14,17 +14,21 @@ type Props = FCProps<EmptyListProps> & StyleProps;
 export function EmptyList(props: Props) {
   const classes = useStyles(props);
   return (
-    <PlaceHolder>
-      <div className={classes.root}>
-        {props.children}
-        <Typography variant="body1">{props.text}</Typography>
-      </div>
+    <PlaceHolder classes={{ root: classes.root }}>
+      {props.children}
+      <Typography variant="body1" className={classes.typography}>
+        {props.text}
+      </Typography>
     </PlaceHolder>
   );
 }
 const styles = (theme: Theme) => ({
   root: {
     textAlign: 'center',
+    width: '80%',
+  } as CSSProperties,
+  typography: {
+    color: theme.palette.grey[700],
   } as CSSProperties,
 });
 
