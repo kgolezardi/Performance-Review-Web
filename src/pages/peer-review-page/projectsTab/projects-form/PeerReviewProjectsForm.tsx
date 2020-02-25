@@ -54,7 +54,7 @@ export function PeerReviewProjectsForm(props: Props) {
         <DictInput>
           <Grid item xs={12}>
             <DictInputItem field="rating">
-              <Box width={240} paddingBottom={4}>
+              <Box width={240}>
                 <Rating inputLabel={i18n._('Evaluation')} type="peer" />
               </Box>
               <FragmentPrompt value={initialValue.rating} />

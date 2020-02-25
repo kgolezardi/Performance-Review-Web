@@ -63,13 +63,15 @@ export function PeerReviewProjectsTab(props: Props) {
   return (
     <Fragment>
       {state === 'DONE' ? (
-        projectReviews?.map(projectReview => (
-          <PeerReviewProjectsResult projectReview={projectReview} key={projectReview.id} />
-        ))
+        <Box paddingY={2}>
+          {projectReviews?.map(projectReview => (
+            <PeerReviewProjectsResult projectReview={projectReview} key={projectReview.id} />
+          ))}
+        </Box>
       ) : (
         <Fragment>
-          <Box padding={3} paddingTop={4}>
-            <Grid container spacing={7}>
+          <Box padding={4}>
+            <Grid container spacing={2}>
               <Grid item xs={12}>
                 <SectionGuide>
                   <MDXPropsProvider<UserType | null> value={user}>
@@ -79,7 +81,7 @@ export function PeerReviewProjectsTab(props: Props) {
               </Grid>
             </Grid>
           </Box>
-          <Box paddingY={2}>
+          <Box>
             <PromptProvider message={i18n._('Changes you made may not be saved.')}>
               {projectReviews?.map(projectReview => (
                 <PeerReviewProjectExpansionPanel projectReview={projectReview} key={projectReview.id} />

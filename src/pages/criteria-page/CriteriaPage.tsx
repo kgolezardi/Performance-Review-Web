@@ -86,7 +86,7 @@ export default function CriteriaPage(props: Props) {
   const review = data.viewer.review;
 
   return (
-    <Box padding={3} paddingTop={4}>
+    <Box padding={4}>
       {review?.state === 'DONE' ? (
         <CriteriaOutput review={review} />
       ) : (

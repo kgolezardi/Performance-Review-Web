@@ -57,7 +57,7 @@ export function CriteriaForm(props: Props) {
   return (
     <ServerValueProvider value={props.initialValue}>
       <Forminator onSubmit={onSubmit} initialValue={props.initialValue}>
-        <Grid container spacing={2}>
+        <Grid container spacing={4}>
           <DictInput>
             <Grid item xs={12}>
               <SectionGuide>

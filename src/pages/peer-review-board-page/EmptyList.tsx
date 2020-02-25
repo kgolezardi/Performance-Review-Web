@@ -7,17 +7,19 @@ import { Theme, Typography, makeStyles } from '@material-ui/core';
 
 interface EmptyListProps {
   text: string;
+  icon: React.ReactNode;
 }
 
 type Props = FCProps<EmptyListProps> & StyleProps;
 
 export function EmptyList(props: Props) {
+  const { text, icon } = props;
   const classes = useStyles(props);
   return (
     <PlaceHolder classes={{ root: classes.root }}>
-      {props.children}
+      {icon}
       <Typography variant="body1" className={classes.typography}>
-        {props.text}
+        {text}
       </Typography>
     </PlaceHolder>
   );
@@ -25,7 +27,7 @@ export function EmptyList(props: Props) {
 const styles = (theme: Theme) => ({
   root: {
     textAlign: 'center',
-    width: '80%',
+    width: '75%',
   } as CSSProperties,
   typography: {
     color: theme.palette.grey[700],

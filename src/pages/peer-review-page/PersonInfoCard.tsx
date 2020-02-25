@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import graphql from 'babel-plugin-relay/macro';
 import React, { useCallback } from 'react';
-import { Button, Card, CardContent, CardHeader, Divider, Theme, makeStyles } from '@material-ui/core';
+import { Button, Card, CardHeader, Divider, Theme, makeStyles } from '@material-ui/core';
 import { CSSProperties } from '@material-ui/core/styles/withStyles';
 import { FCProps } from 'src/shared/types/FCProps';
 import { LanguageCodes } from 'src/core/locales/types';
@@ -97,8 +97,8 @@ export function PersonInfoCard(props: Props) {
         titleTypographyProps={{ variant: 'h5', gutterBottom: true }}
         classes={{ root: classes.headerRoot, action: classes.action }}
       />
-      <Divider variant="middle" />
-      <CardContent classes={{ root: classes.content }}>{children}</CardContent>
+      <Divider />
+      {children}
     </Card>
   );
 }
