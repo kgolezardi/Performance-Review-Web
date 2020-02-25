@@ -1,13 +1,14 @@
+import React from 'react';
 import { action } from '@storybook/addon-actions';
 import { storiesOf } from '@storybook/react';
-import React from 'react';
 import { themeDecorator } from 'src/stories/decorators';
-import { Forminator } from '../index';
+
 import DictInput from '../inputs/dict-input/DictInput';
 import DictInputItem from '../inputs/dict-input/DictInputItem';
 import SelectAutoComplete from '../inputs/SelectAutoComplete';
 import SelectMultiAutoComplete from '../inputs/SelectMultiAutoComplete';
 import SubmitButton from '../utils/SubmitButton';
+import { Forminator } from '../index';
 
 const SUGGESTIONS = [
   { value: '1', label: 'مصطفی' },

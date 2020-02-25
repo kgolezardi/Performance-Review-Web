@@ -1,11 +1,12 @@
-import { i18n } from '@lingui/core';
-import { Box, Container, Drawer, makeStyles, Theme, Typography } from '@material-ui/core';
-import { CSSProperties } from '@material-ui/core/styles/withStyles';
 import React, { useMemo, useState } from 'react';
+import { Box, Container, Drawer, Theme, Typography, makeStyles } from '@material-ui/core';
+import { CSSProperties } from '@material-ui/core/styles/withStyles';
+import { FCProps } from 'src/shared/types/FCProps';
 import { MemberListContextProvider } from 'src/shared/members-list';
 import { Overlayscrollbars } from 'src/shared/overlayscrollbars';
-import { FCProps } from 'src/shared/types/FCProps';
 import { Styles } from 'src/shared/types/Styles';
+import { i18n } from '@lingui/core';
+
 import { ManagerReviewContent } from './ManagerReviewContent';
 import { ManagerReviewMemberList } from './ManagerReviewMemberList';
 import { ManagerReviewNoUserContent } from './ManagerReviewNoUserContent';

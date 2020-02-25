@@ -1,6 +1,6 @@
-import { lighten, styled, Theme } from '@material-ui/core';
 import React from 'react';
 import { FCProps } from 'src/shared/types/FCProps';
+import { Theme, lighten, styled } from '@material-ui/core';
 
 const StyledBlackQuote = styled('blockquote' as 'blockquote')(({ theme }: { theme: Theme }) => ({
   backgroundColor: lighten(theme.palette.primary.main, 0.85),

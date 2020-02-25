@@ -1,20 +1,21 @@
-import { i18n } from '@lingui/core';
-import { Grid } from '@material-ui/core';
-import { MDXContext } from '@mdx-js/react';
 import graphql from 'babel-plugin-relay/macro';
-import { importMDX } from 'mdx.macro';
 import React, { useContext } from 'react';
-import { useFragment } from 'react-relay/hooks';
 import { CriterionItem } from 'src/shared/criterion-item';
 import { DictInput, Forminator, SubmitButton } from 'src/shared/forminator';
+import { FCProps } from 'src/shared/types/FCProps';
+import { Grid } from '@material-ui/core';
+import { MDXContext } from '@mdx-js/react';
 import { MDXPropsProvider } from 'src/shared/mdx-provider/MDXPropsProvider';
 import { SectionGuide } from 'src/shared/section-guide';
 import { ServerValueProvider } from 'src/shared/server-value';
 import { StickyActionBar } from 'src/shared/sticky-action-bar/StickyActionBar';
-import { FCProps } from 'src/shared/types/FCProps';
 import { UserType } from 'src/shared/utils/getUserLabel';
-import { CriteriaForm_user$key } from './__generated__/CriteriaForm_user.graphql';
+import { i18n } from '@lingui/core';
+import { importMDX } from 'mdx.macro';
+import { useFragment } from 'react-relay/hooks';
+
 import { CriteriaFormData } from './CriteriaFormData';
+import { CriteriaForm_user$key } from './__generated__/CriteriaForm_user.graphql';
 
 // self review helper texts
 const OrganizationCultureAdoptionContentSelfReview = importMDX.sync(

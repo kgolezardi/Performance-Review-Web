@@ -1,9 +1,9 @@
-import { i18n } from '@lingui/core';
-import { Button, Container } from '@material-ui/core';
-import { storiesOf } from '@storybook/react';
 import React from 'react';
-import { useBiDiSnackbar } from 'src/shared/snackbar';
+import { Button, Container } from '@material-ui/core';
+import { i18n } from '@lingui/core';
 import { snackbarDecorator, themeDecorator } from 'src/stories/decorators';
+import { storiesOf } from '@storybook/react';
+import { useBiDiSnackbar } from 'src/shared/snackbar';
 
 storiesOf('Snackbar', module)
   .addDecorator(snackbarDecorator())

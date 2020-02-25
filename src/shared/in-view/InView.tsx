@@ -1,9 +1,10 @@
-import { makeStyles, Theme } from '@material-ui/core';
-import { CSSProperties } from '@material-ui/core/styles/withStyles';
 import React, { Fragment, useMemo } from 'react';
-import { useInView } from 'react-intersection-observer';
+import { CSSProperties } from '@material-ui/core/styles/withStyles';
 import { FCProps } from 'src/shared/types/FCProps';
 import { Styles } from 'src/shared/types/Styles';
+import { Theme, makeStyles } from '@material-ui/core';
+import { useInView } from 'react-intersection-observer';
+
 import { InViewContextProvider } from './InViewContext';
 
 interface OwnProps {}

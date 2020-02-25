@@ -1,10 +1,10 @@
-import { makeStyles, Paper, Theme } from '@material-ui/core';
-import { CSSProperties } from '@material-ui/core/styles/withStyles';
-import clsx from 'clsx';
 import React from 'react';
-import { useInViewContext } from 'src/shared/in-view';
+import clsx from 'clsx';
+import { CSSProperties } from '@material-ui/core/styles/withStyles';
 import { FCProps } from 'src/shared/types/FCProps';
+import { Paper, Theme, makeStyles } from '@material-ui/core';
 import { Styles } from 'src/shared/types/Styles';
+import { useInViewContext } from 'src/shared/in-view';
 
 interface OwnProps {
   noSticky?: boolean;

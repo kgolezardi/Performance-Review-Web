@@ -1,4 +1,5 @@
 import graphql from 'babel-plugin-relay/macro';
+
 import { ID, OmitRefType } from '../utils';
 import { ViewerNode$data } from './__generated__/ViewerNode.graphql';
 

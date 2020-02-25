@@ -1,5 +1,5 @@
-import { useEffect, useRef } from 'react';
 import { FCProps } from 'src/shared/types/FCProps';
+import { useEffect, useRef } from 'react';
 
 interface OwnProps {
   message: string;

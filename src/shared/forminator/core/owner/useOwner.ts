@@ -1,7 +1,8 @@
 import { useEffect } from 'react';
+
+import { FragmentOwner } from './FragmentOwner';
 import { useFragmentContext } from '../fragment/FragmentContext';
 import { useStoreContext } from '../store/StoreContext';
-import { FragmentOwner } from './FragmentOwner';
 
 export function useOwner<V, Value>(owner: FragmentOwner<V, Value> | null) {
   const store = useStoreContext();

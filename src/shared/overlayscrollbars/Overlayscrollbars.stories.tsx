@@ -1,9 +1,10 @@
-import { storiesOf } from '@storybook/react';
 import React, { useRef } from 'react';
-import { storyWrapperDecorator, themeDecorator } from 'src/stories/decorators';
 import { Lorem } from 'src/stories/helpers';
-import { Overlayscrollbars } from './Overlayscrollbars';
+import { storiesOf } from '@storybook/react';
+import { storyWrapperDecorator, themeDecorator } from 'src/stories/decorators';
+
 import { ImperativeHandles } from './useOverlayscrollbars';
+import { Overlayscrollbars } from './Overlayscrollbars';
 
 storiesOf('Overlayscrollbars', module)
   .addDecorator(themeDecorator())

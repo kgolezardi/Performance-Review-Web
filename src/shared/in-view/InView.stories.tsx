@@ -1,9 +1,10 @@
-import { Box, Typography } from '@material-ui/core';
-import { storiesOf } from '@storybook/react';
-import { LoremIpsum } from 'lorem-ipsum';
 import React, { Fragment } from 'react';
+import { Box, Typography } from '@material-ui/core';
+import { LoremIpsum } from 'lorem-ipsum';
 import { Overlayscrollbars } from 'src/shared/overlayscrollbars';
+import { storiesOf } from '@storybook/react';
 import { storyWrapperDecorator, themeDecorator } from 'src/stories/decorators';
+
 import { InView } from './InView';
 import { useInViewContext } from './InViewContext';
 

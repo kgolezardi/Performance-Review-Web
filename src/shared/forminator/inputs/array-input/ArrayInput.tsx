@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { FCProps } from 'src/shared/types/FCProps';
-import { useOwner } from '../../core/owner/useOwner';
-import { useForminatorReducer } from '../../core/useForminatorReducer';
-import { ArrayOwner } from './ArrayOwner';
+
 import ArrayProvider from './ArrayProvider';
+import { ArrayOwner } from './ArrayOwner';
 import { arrayInitializer, arrayReducer } from './arrayReducer';
+import { useForminatorReducer } from '../../core/useForminatorReducer';
+import { useOwner } from '../../core/owner/useOwner';
 
 interface OwnProps<V> {
   initialValue?: (V | undefined)[] | undefined;

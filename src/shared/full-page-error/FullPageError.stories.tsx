@@ -1,5 +1,3 @@
-import { i18n } from '@lingui/core';
-import { storiesOf } from '@storybook/react';
 import React from 'react';
 import {
   Brand,
@@ -10,7 +8,10 @@ import {
   NavbarRegion,
 } from 'src/shared/layouts/dashboard-layouts';
 import { MenuItem } from 'src/shared/layouts/dashboard-layouts/menu/types';
-import { themeDecorator, routerDecorator } from 'src/stories/decorators';
+import { i18n } from '@lingui/core';
+import { routerDecorator, themeDecorator } from 'src/stories/decorators';
+import { storiesOf } from '@storybook/react';
+
 import { FullPageError } from './FullPageError';
 
 const items: MenuItem[] = [

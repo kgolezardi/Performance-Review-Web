@@ -1,13 +1,7 @@
-import { i18n } from '@lingui/core';
-import { Box, Grid, Typography } from '@material-ui/core';
 import graphql from 'babel-plugin-relay/macro';
-import { equals, identity, prop, sortBy } from 'ramda';
 import React, { useCallback, useMemo } from 'react';
-import { useInView } from 'react-intersection-observer';
-import { useFragment } from 'react-relay/hooks';
-import { useAuthGuardUser } from 'src/core/auth';
+import { Box, Grid, Typography } from '@material-ui/core';
 import { ConfirmButton } from 'src/shared/confirm-button';
-import { DangerButton } from 'src/shared/danger-button';
 import {
   ConstantInput,
   DictInput,
@@ -17,14 +11,21 @@ import {
   LimitedTextAreaInput,
   SubmitButton,
 } from 'src/shared/forminator';
+import { DangerButton } from 'src/shared/danger-button';
+import { FCProps } from 'src/shared/types/FCProps';
 import { Rating } from 'src/shared/rating';
 import { ReviewersInput } from 'src/shared/reviewers-input';
 import { ReviewersInputProps } from 'src/shared/reviewers-input/types';
 import { StickyActionBar } from 'src/shared/sticky-action-bar';
-import { FCProps } from 'src/shared/types/FCProps';
+import { equals, identity, prop, sortBy } from 'ramda';
+import { i18n } from '@lingui/core';
+import { useAuthGuardUser } from 'src/core/auth';
+import { useFragment } from 'react-relay/hooks';
+import { useInView } from 'react-intersection-observer';
+
 import { DeleteProjectReviewMutationInput } from './__generated__/deleteProjectReviewMutation.graphql';
-import { ProjectForm_projectReview$key } from './__generated__/ProjectForm_projectReview.graphql';
 import { Evaluation } from './__generated__/saveProjectReviewMutation.graphql';
+import { ProjectForm_projectReview$key } from './__generated__/ProjectForm_projectReview.graphql';
 
 export interface ProjectFormData {
   projectId: string;

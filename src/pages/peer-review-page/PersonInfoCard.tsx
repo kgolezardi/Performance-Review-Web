@@ -1,21 +1,22 @@
-import { i18n } from '@lingui/core';
-import { Button, Card, CardContent, CardHeader, Divider, makeStyles, Theme } from '@material-ui/core';
-import { CSSProperties } from '@material-ui/core/styles/withStyles';
-import graphql from 'babel-plugin-relay/macro';
 import clsx from 'clsx';
+import graphql from 'babel-plugin-relay/macro';
 import React, { useCallback } from 'react';
-import { useFragment } from 'react-relay/hooks';
-import { useHistory } from 'react-router-dom';
-import { LanguageCodes } from 'src/core/locales/types';
-import { useInViewContext } from 'src/shared/in-view';
-import { useBiDiSnackbar } from 'src/shared/snackbar';
+import { Button, Card, CardContent, CardHeader, Divider, Theme, makeStyles } from '@material-ui/core';
+import { CSSProperties } from '@material-ui/core/styles/withStyles';
 import { FCProps } from 'src/shared/types/FCProps';
+import { LanguageCodes } from 'src/core/locales/types';
 import { Styles } from 'src/shared/types/Styles';
 import { UserAvatar } from 'src/shared/user-avatar';
 import { getUserLabel } from 'src/shared/utils/getUserLabel';
+import { i18n } from '@lingui/core';
 import { localizeNumber } from 'src/shared/utils/localizeNumber.util';
-import { useSavePersonReviewMutation } from './savePersonReview.mutation';
+import { useBiDiSnackbar } from 'src/shared/snackbar';
+import { useFragment } from 'react-relay/hooks';
+import { useHistory } from 'react-router-dom';
+import { useInViewContext } from 'src/shared/in-view';
+
 import { PersonInfoCard_user$key } from './__generated__/PersonInfoCard_user.graphql';
+import { useSavePersonReviewMutation } from './savePersonReview.mutation';
 
 const fragment = graphql`
   fragment PersonInfoCard_user on UserNode {

@@ -1,8 +1,8 @@
 import React from 'react';
-import { Redirect, Route, Switch } from 'react-router-dom';
-import { useAuthGuardUser } from 'src/core/auth';
-import { useAppSettings } from 'src/core/settings';
 import { FCProps } from 'src/shared/types/FCProps';
+import { Redirect, Route, Switch } from 'react-router-dom';
+import { useAppSettings } from 'src/core/settings';
+import { useAuthGuardUser } from 'src/core/auth';
 
 const DashboardPage = React.lazy(() =>
   import(

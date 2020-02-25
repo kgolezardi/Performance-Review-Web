@@ -1,10 +1,12 @@
-import { storiesOf } from '@storybook/react';
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { routerDecorator } from 'src/stories/decorators';
-import { Prompt } from './Prompt';
+import { storiesOf } from '@storybook/react';
 import { useLocation } from 'react-router';
+
+import { Prompt } from './Prompt';
 import { PromptProvider, usePrompt } from './PromptProvider';
+
 const Links = () => {
   const location = useLocation();
   return (

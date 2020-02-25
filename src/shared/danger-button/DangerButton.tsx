@@ -1,7 +1,7 @@
-import { Button, ButtonProps, createMuiTheme, Theme, ThemeProvider } from '@material-ui/core';
-import { red } from '@material-ui/core/colors';
 import React from 'react';
+import { Button, ButtonProps, Theme, ThemeProvider, createMuiTheme } from '@material-ui/core';
 import { FCProps } from 'src/shared/types/FCProps';
+import { red } from '@material-ui/core/colors';
 
 interface OwnProps extends ButtonProps {}
 

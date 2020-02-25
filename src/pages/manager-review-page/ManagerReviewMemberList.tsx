@@ -1,8 +1,9 @@
-import graphql from 'babel-plugin-relay/macro';
 import React from 'react';
-import { useLazyLoadQuery } from 'react-relay/hooks';
-import { MembersList } from 'src/shared/members-list';
+import graphql from 'babel-plugin-relay/macro';
 import { FCProps } from 'src/shared/types/FCProps';
+import { MembersList } from 'src/shared/members-list';
+import { useLazyLoadQuery } from 'react-relay/hooks';
+
 import { ManagerReviewMemberListQuery } from './__generated__/ManagerReviewMemberListQuery.graphql';
 
 const query = graphql`

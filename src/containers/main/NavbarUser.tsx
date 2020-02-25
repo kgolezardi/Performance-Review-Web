@@ -1,11 +1,12 @@
-import { IconButton, makeStyles, Theme, Typography } from '@material-ui/core';
-import { CSSProperties } from '@material-ui/core/styles/withStyles';
 import LogoutIcon from '@material-ui/icons/PowerSettingsNew';
 import React, { useCallback } from 'react';
-import { useAuthGuardUser } from 'src/core/auth';
+import { CSSProperties } from '@material-ui/core/styles/withStyles';
 import { FCProps } from 'src/shared/types/FCProps';
+import { IconButton, Theme, Typography, makeStyles } from '@material-ui/core';
 import { Styles } from 'src/shared/types/Styles';
 import { getUserLabel } from 'src/shared/utils/getUserLabel';
+import { useAuthGuardUser } from 'src/core/auth';
+
 import { useLogoutMutation } from './logout.mutation';
 
 interface OwnProps {}

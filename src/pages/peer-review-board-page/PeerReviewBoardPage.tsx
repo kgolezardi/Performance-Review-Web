@@ -1,24 +1,25 @@
-import { i18n } from '@lingui/core';
-import { Container, Grid, makeStyles, Theme } from '@material-ui/core';
-import { CSSProperties } from '@material-ui/core/styles/withStyles';
-import graphql from 'babel-plugin-relay/macro';
-import { groupBy } from 'ramda';
 import React from 'react';
-import { useFragment, useLazyLoadQuery } from 'react-relay/hooks';
-import { Done } from 'src/assets/icons/Done';
-import { InProgress } from 'src/assets/icons/InProgress';
-import { Todo } from 'src/assets/icons/Todo';
+import graphql from 'babel-plugin-relay/macro';
 import { BoardList } from 'src/shared/board-list';
+import { CSSProperties } from '@material-ui/core/styles/withStyles';
+import { Container, Grid, Theme, makeStyles } from '@material-ui/core';
+import { Done } from 'src/assets/icons/Done';
 import { ElementType } from 'src/shared/types/ElementType';
 import { FCProps } from 'src/shared/types/FCProps';
+import { InProgress } from 'src/assets/icons/InProgress';
 import { Styles } from 'src/shared/types/Styles';
+import { Todo } from 'src/assets/icons/Todo';
 import { UserCard } from 'src/shared/user-card';
+import { groupBy } from 'ramda';
+import { i18n } from '@lingui/core';
+import { useFragment, useLazyLoadQuery } from 'react-relay/hooks';
+
+import { EmptyList } from './EmptyList';
+import { PeerReviewBoardPageQuery } from './__generated__/PeerReviewBoardPageQuery.graphql';
 import {
   PeerReviewBoardPage_user,
   PeerReviewBoardPage_user$key,
 } from './__generated__/PeerReviewBoardPage_user.graphql';
-import { PeerReviewBoardPageQuery } from './__generated__/PeerReviewBoardPageQuery.graphql';
-import { EmptyList } from './EmptyList';
 
 interface OwnProps {}
 

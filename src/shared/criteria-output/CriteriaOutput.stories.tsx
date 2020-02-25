@@ -1,10 +1,11 @@
-import { Container } from '@material-ui/core';
-import { storiesOf } from '@storybook/react';
-import graphql from 'babel-plugin-relay/macro';
 import React from 'react';
-import { useLazyLoadQuery } from 'react-relay/hooks';
+import graphql from 'babel-plugin-relay/macro';
+import { Container } from '@material-ui/core';
 import { relayDecorator } from 'src/stories/decorators';
+import { storiesOf } from '@storybook/react';
 import { themeDecorator } from 'src/stories/decorators/themeDecorator';
+import { useLazyLoadQuery } from 'react-relay/hooks';
+
 import { CriteriaOutput } from './CriteriaOutput';
 import { CriteriaOutputQuery } from './__generated__/CriteriaOutputQuery.graphql';
 

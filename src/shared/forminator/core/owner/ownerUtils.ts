@@ -1,7 +1,7 @@
-import { UndefinedOwnerError } from '../errors/UndefinedOwnerError';
 import { ForminatorFragment } from '../fragment/ForminatorFragment';
 import { ForminatorStore } from '../store/ForminatorStore';
 import { FragmentOwner } from './FragmentOwner';
+import { UndefinedOwnerError } from '../errors/UndefinedOwnerError';
 
 export async function getFragmentOwner<V, Value>(
   fragment: ForminatorFragment<V>,

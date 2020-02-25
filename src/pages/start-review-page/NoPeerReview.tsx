@@ -1,11 +1,11 @@
-import { i18n } from '@lingui/core';
-import { Card, CardContent, CardHeader, makeStyles, Theme } from '@material-ui/core';
-import { CSSProperties } from '@material-ui/core/styles/withStyles';
 import React from 'react';
-import { useAuthGuardUser } from 'src/core/auth';
+import { CSSProperties } from '@material-ui/core/styles/withStyles';
+import { Card, CardContent, CardHeader, Theme, makeStyles } from '@material-ui/core';
 import { FCProps } from 'src/shared/types/FCProps';
 import { Styles } from 'src/shared/types/Styles';
 import { getUserLabel } from 'src/shared/utils/getUserLabel';
+import { i18n } from '@lingui/core';
+import { useAuthGuardUser } from 'src/core/auth';
 
 interface OwnProps {}
 

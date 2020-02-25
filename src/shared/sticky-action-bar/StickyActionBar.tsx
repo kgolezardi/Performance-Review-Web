@@ -1,6 +1,7 @@
 import React from 'react';
-import { InView } from 'src/shared/in-view';
 import { FCProps } from 'src/shared/types/FCProps';
+import { InView } from 'src/shared/in-view';
+
 import { ActionBar, ActionBarProps } from './ActionBar';
 
 interface OwnProps extends ActionBarProps {}

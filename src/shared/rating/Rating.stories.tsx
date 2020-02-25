@@ -1,11 +1,12 @@
-import { i18n } from '@lingui/core';
-import { Box } from '@material-ui/core';
-import { action } from '@storybook/addon-actions';
-import { storiesOf } from '@storybook/react';
 import React from 'react';
+import { Box } from '@material-ui/core';
 import { Evaluation } from 'src/global-types';
 import { Forminator, SubmitButton } from 'src/shared/forminator';
+import { action } from '@storybook/addon-actions';
+import { i18n } from '@lingui/core';
+import { storiesOf } from '@storybook/react';
 import { themeDecorator } from 'src/stories/decorators/themeDecorator';
+
 import { Rating } from './Rating';
 
 storiesOf('Rating', module)

@@ -1,13 +1,14 @@
-import { i18n } from '@lingui/core';
-import { Box, Grid, Typography } from '@material-ui/core';
 import AddIcon from '@material-ui/icons/Add';
 import graphql from 'babel-plugin-relay/macro';
 import React, { useMemo } from 'react';
-import { useFragment } from 'react-relay/hooks';
+import { Box, Grid, Typography } from '@material-ui/core';
 import { DictInput, DictInputItem, Forminator, SubmitButton } from 'src/shared/forminator';
+import { FCProps } from 'src/shared/types/FCProps';
 import { ProjectInput } from 'src/shared/project-input';
 import { ProjectInputProps } from 'src/shared/project-input/types';
-import { FCProps } from 'src/shared/types/FCProps';
+import { i18n } from '@lingui/core';
+import { useFragment } from 'react-relay/hooks';
+
 import { AddProjectForm_projectReview$key } from './__generated__/AddProjectForm_projectReview.graphql';
 
 export interface AddProjectFormData {

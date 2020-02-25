@@ -1,14 +1,15 @@
-import { i18n } from '@lingui/core';
-import { Box, Grid, InputAdornment, Typography } from '@material-ui/core';
 import AddIcon from '@material-ui/icons/Add';
-import React, { useCallback } from 'react';
-import { ConditionalSection, FragmentRef } from 'src/shared/forminator';
-import { useFragmentLens } from 'src/shared/forminator/core/fragment-lens/useFragmentLens';
 import ArrayAppendButton from 'src/shared/forminator/inputs/array-input/ArrayAppendButton';
 import ArrayInput from 'src/shared/forminator/inputs/array-input/ArrayInput';
 import ArrayOutput from 'src/shared/forminator/inputs/array-input/ArrayOutput';
 import LimitedTextAreaInput from 'src/shared/forminator/inputs/LimitedTextAreaInput';
+import React, { useCallback } from 'react';
+import { Box, Grid, InputAdornment, Typography } from '@material-ui/core';
+import { ConditionalSection, FragmentRef } from 'src/shared/forminator';
 import { FCProps } from 'src/shared/types/FCProps';
+import { i18n } from '@lingui/core';
+import { useFragmentLens } from 'src/shared/forminator/core/fragment-lens/useFragmentLens';
+
 import { ClearIcon } from './ClearIcon';
 
 interface OwnProps {

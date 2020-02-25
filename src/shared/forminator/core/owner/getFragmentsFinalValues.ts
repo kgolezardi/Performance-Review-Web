@@ -1,7 +1,8 @@
 import { prop, zipObj } from 'ramda';
+
 import { ForminatorFragment } from '../fragment/ForminatorFragment';
-import { getFragmentFinalValue } from '../fragment/getFragmentFinalValue';
 import { ForminatorStore } from '../store/ForminatorStore';
+import { getFragmentFinalValue } from '../fragment/getFragmentFinalValue';
 
 export async function getFragmentsFinalValues(
   fragments: ForminatorFragment[],

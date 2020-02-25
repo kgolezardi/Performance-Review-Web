@@ -1,7 +1,7 @@
-import { Typography, TypographyProps } from '@material-ui/core';
 import React, { Fragment } from 'react';
-import { NON_BREAKING_SPACE } from 'src/shared/constants';
 import { FCProps } from 'src/shared/types/FCProps';
+import { NON_BREAKING_SPACE } from 'src/shared/constants';
+import { Typography, TypographyProps } from '@material-ui/core';
 
 interface OwnProps extends Omit<TypographyProps, 'children'> {
   value: string | null;

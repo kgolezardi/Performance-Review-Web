@@ -1,11 +1,12 @@
-import { i18n } from '@lingui/core';
-import { Box, Grid } from '@material-ui/core';
-import graphql from 'babel-plugin-relay/macro';
 import React from 'react';
-import { useFragment } from 'react-relay/hooks';
-import { Evaluation } from 'src/global-types';
+import graphql from 'babel-plugin-relay/macro';
+import { Box, Grid } from '@material-ui/core';
 import { CriterionOutputItem } from 'src/shared/criterion-output-item';
+import { Evaluation } from 'src/global-types';
 import { FCProps } from 'src/shared/types/FCProps';
+import { i18n } from '@lingui/core';
+import { useFragment } from 'react-relay/hooks';
+
 import { CriteriaOutput_review$key } from './__generated__/CriteriaOutput_review.graphql';
 
 const fragment = graphql`

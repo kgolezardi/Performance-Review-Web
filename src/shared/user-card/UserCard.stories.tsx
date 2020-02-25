@@ -1,11 +1,12 @@
-import { storiesOf } from '@storybook/react';
-import graphql from 'babel-plugin-relay/macro';
 import React from 'react';
-import { useLazyLoadQuery } from 'react-relay/hooks';
-import { mockRelayDecorator, routerDecorator, storyWrapperDecorator, themeDecorator } from 'src/stories/decorators';
+import graphql from 'babel-plugin-relay/macro';
 import { ID, UserNodeResolver, ViewerNodeResolver } from 'src/stories/mock-resolvers';
-import { UserCardStoriesQuery } from './__generated__/UserCardStoriesQuery.graphql';
+import { mockRelayDecorator, routerDecorator, storyWrapperDecorator, themeDecorator } from 'src/stories/decorators';
+import { storiesOf } from '@storybook/react';
+import { useLazyLoadQuery } from 'react-relay/hooks';
+
 import { UserCard } from './UserCard';
+import { UserCardStoriesQuery } from './__generated__/UserCardStoriesQuery.graphql';
 
 // TODO: add tests when relay mock is available
 storiesOf('User Card', module)

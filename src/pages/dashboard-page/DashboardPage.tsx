@@ -1,19 +1,20 @@
-import { i18n } from '@lingui/core';
-import { Box, Card, CardContent, CardHeader, Container, Grid, makeStyles, Theme } from '@material-ui/core';
-import { CSSProperties } from '@material-ui/core/styles/withStyles';
-import graphql from 'babel-plugin-relay/macro';
-import clsx from 'clsx';
 import React from 'react';
-import { useLazyLoadQuery } from 'react-relay/hooks';
-import { useAuthGuardUser } from 'src/core/auth';
-import { Overlayscrollbars } from 'src/shared/overlayscrollbars/Overlayscrollbars';
+import clsx from 'clsx';
+import graphql from 'babel-plugin-relay/macro';
+import { Box, Card, CardContent, CardHeader, Container, Grid, Theme, makeStyles } from '@material-ui/core';
+import { CSSProperties } from '@material-ui/core/styles/withStyles';
 import { FCProps } from 'src/shared/types/FCProps';
+import { Overlayscrollbars } from 'src/shared/overlayscrollbars/Overlayscrollbars';
 import { Styles } from 'src/shared/types/Styles';
+import { i18n } from '@lingui/core';
+import { useAuthGuardUser } from 'src/core/auth';
+import { useLazyLoadQuery } from 'react-relay/hooks';
+
 import { AchievementsIndicators } from './AchievementsIndicators';
+import { DashboardPageQuery } from './__generated__/DashboardPageQuery.graphql';
 import { DominantCharacteristicsCircularIndicator } from './DominantCharacteristicsCircularIndicator';
 import { LinkButton } from './LinkButton';
 import { PerformanceCompetenciesCircularIndicator } from './PerformanceCompetenciesCircularIndicator';
-import { DashboardPageQuery } from './__generated__/DashboardPageQuery.graphql';
 
 interface OwnProps {}
 

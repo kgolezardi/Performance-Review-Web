@@ -1,9 +1,9 @@
-import { i18n } from '@lingui/core';
-import { Box, Grid, Typography } from '@material-ui/core';
 import React from 'react';
+import { Box, Grid, Typography } from '@material-ui/core';
+import { FCProps } from 'src/shared/types/FCProps';
 import { LanguageCodes } from 'src/core/locales/types';
 import { MultilineOutput } from 'src/shared/multiline-output';
-import { FCProps } from 'src/shared/types/FCProps';
+import { i18n } from '@lingui/core';
 import { isNotNil } from 'src/shared/utils/general.util';
 import { localizeNumber } from 'src/shared/utils/localizeNumber.util';
 

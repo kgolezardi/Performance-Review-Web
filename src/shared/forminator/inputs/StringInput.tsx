@@ -1,6 +1,7 @@
-import { Omit, TextField, TextFieldProps } from '@material-ui/core';
 import React, { useCallback } from 'react';
 import { FCProps } from 'src/shared/types/FCProps';
+import { Omit, TextField, TextFieldProps } from '@material-ui/core';
+
 import { useForminatorState } from '../core/useForminatorState';
 
 interface OwnProps {

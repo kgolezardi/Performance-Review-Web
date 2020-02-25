@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { FCProps } from 'src/shared/types/FCProps';
-import { useOwner } from '../../core/owner/useOwner';
-import { useForminatorReducer } from '../../core/useForminatorReducer';
-import { DictOwner } from './DictOwner';
+
 import DictProvider from './DictProvider';
+import { DictOwner } from './DictOwner';
 import { dictInitializer, dictReducer } from './dictReducer';
+import { useForminatorReducer } from '../../core/useForminatorReducer';
+import { useOwner } from '../../core/owner/useOwner';
 
 interface OwnProps {}
 

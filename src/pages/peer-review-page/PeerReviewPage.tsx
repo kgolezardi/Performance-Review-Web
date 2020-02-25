@@ -1,22 +1,23 @@
-import { i18n } from '@lingui/core';
-import { Box, Container, makeStyles, Paper, Theme } from '@material-ui/core';
-import { CSSProperties } from '@material-ui/core/styles/withStyles';
-import graphql from 'babel-plugin-relay/macro';
-import React, { Suspense } from 'react';
-import { useLazyLoadQuery } from 'react-relay/hooks';
-import { Redirect, Route, Switch, useParams } from 'react-router-dom';
 import CriteriaPage from 'src/pages/criteria-page/CriteriaPage';
 import StrengthsWeaknessesPage from 'src/pages/strengths-weaknesses-page/StrengthsWeaknessesPage';
-import { InView } from 'src/shared/in-view';
+import graphql from 'babel-plugin-relay/macro';
+import React, { Suspense } from 'react';
+import { Box, Container, Paper, Theme, makeStyles } from '@material-ui/core';
+import { CSSProperties } from '@material-ui/core/styles/withStyles';
+import { FCProps } from 'src/shared/types/FCProps';
 import { FullPageSpinner } from 'src/shared/loading';
+import { InView } from 'src/shared/in-view';
+import { Redirect, Route, Switch, useParams } from 'react-router-dom';
+import { Styles } from 'src/shared/types/Styles';
 import { TabLink } from 'src/shared/tab';
 import { Tabs } from 'src/shared/tabs';
-import { FCProps } from 'src/shared/types/FCProps';
-import { Styles } from 'src/shared/types/Styles';
+import { i18n } from '@lingui/core';
 import { unescape } from 'src/shared/utils/base64.util';
-import { PersonInfoCard } from './PersonInfoCard';
-import { PeerReviewProjectsTab } from './projectsTab/PeerReviewProjectsTab';
+import { useLazyLoadQuery } from 'react-relay/hooks';
+
 import { PeerReviewPageQuery } from './__generated__/PeerReviewPageQuery.graphql';
+import { PeerReviewProjectsTab } from './projectsTab/PeerReviewProjectsTab';
+import { PersonInfoCard } from './PersonInfoCard';
 
 const peerReviewPageQuery = graphql`
   query PeerReviewPageQuery($id: ID!) {

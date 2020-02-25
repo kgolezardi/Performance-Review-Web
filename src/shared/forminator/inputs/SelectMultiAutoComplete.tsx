@@ -1,13 +1,14 @@
-import { i18n } from '@lingui/core';
-import { makeStyles, OutlinedTextFieldProps, Paper, TextField, Theme } from '@material-ui/core';
-import { CSSProperties } from '@material-ui/core/styles/withStyles';
 import Autocomplete, { AutocompleteProps } from '@material-ui/lab/Autocomplete';
-import { AutocompleteClassKey } from '@material-ui/lab/Autocomplete/Autocomplete';
-import { indexBy, map, prop } from 'ramda';
 import React, { ComponentType, useCallback, useMemo } from 'react';
+import { AutocompleteClassKey } from '@material-ui/lab/Autocomplete/Autocomplete';
+import { CSSProperties } from '@material-ui/core/styles/withStyles';
 import { FCProps } from 'src/shared/types/FCProps';
+import { OutlinedTextFieldProps, Paper, TextField, Theme, makeStyles } from '@material-ui/core';
 import { Styles } from 'src/shared/types/Styles';
+import { i18n } from '@lingui/core';
+import { indexBy, map, prop } from 'ramda';
 import { withProps } from 'src/shared/utils/withProps';
+
 import { useForminatorState } from '../core/useForminatorState';
 
 interface BaseSuggestion {

@@ -1,13 +1,13 @@
 import React, { Suspense, useMemo } from 'react';
-import { MainContainer } from 'src/containers/main';
 import { AuthGuard } from 'src/core/auth';
-import { SettingsProvider } from 'src/core/settings';
-import { useConfirmContext } from 'src/shared/confirm-provider';
 import { ErrorBoundary } from 'src/shared/error-boundary';
+import { FCProps } from 'src/shared/types/FCProps';
 import { FullPageError } from 'src/shared/full-page-error';
 import { FullPageSpinner } from 'src/shared/loading';
+import { MainContainer } from 'src/containers/main';
 import { BrowserRouter as Router } from 'src/shared/router';
-import { FCProps } from 'src/shared/types/FCProps';
+import { SettingsProvider } from 'src/core/settings';
+import { useConfirmContext } from 'src/shared/confirm-provider';
 
 interface OwnProps {}
 

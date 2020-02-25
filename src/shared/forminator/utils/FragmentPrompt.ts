@@ -1,5 +1,6 @@
-import { usePrompt } from 'src/shared/prompt';
 import { FCProps } from 'src/shared/types/FCProps';
+import { usePrompt } from 'src/shared/prompt';
+
 import { useFragmentContext } from '../core/fragment/FragmentContext';
 import { useFragmentValue } from '../core/utils/useFragmentValue';
 

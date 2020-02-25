@@ -1,7 +1,8 @@
-import { createBrowserHistory as createHistory } from 'history';
-import { BrowserHistoryBuildOptions } from 'history/createBrowserHistory';
 import React, { useState } from 'react';
+import { BrowserHistoryBuildOptions } from 'history/createBrowserHistory';
 import { FCProps } from 'src/shared/types/FCProps';
+import { createBrowserHistory as createHistory } from 'history';
+
 import { Router, RouterProps } from './Router';
 
 interface OwnProps extends Omit<RouterProps, 'history'> {

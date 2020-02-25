@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+
 import { Phase } from './__generated__/SettingsProviderQuery.graphql';
 
 export interface SettingsContextValue {

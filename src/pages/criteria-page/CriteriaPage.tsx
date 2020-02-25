@@ -1,13 +1,14 @@
-import { i18n } from '@lingui/core';
-import { Box } from '@material-ui/core';
 import graphql from 'babel-plugin-relay/macro';
 import React, { useCallback } from 'react';
+import { Box } from '@material-ui/core';
+import { CriteriaOutput } from 'src/shared/criteria-output';
+import { FCProps } from 'src/shared/types/FCProps';
+import { PromptProvider } from 'src/shared/prompt';
+import { i18n } from '@lingui/core';
+import { useBiDiSnackbar } from 'src/shared/snackbar';
 import { useLazyLoadQuery } from 'react-relay/hooks';
 import { useMutation } from 'src/relay';
-import { CriteriaOutput } from 'src/shared/criteria-output';
-import { PromptProvider } from 'src/shared/prompt';
-import { useBiDiSnackbar } from 'src/shared/snackbar';
-import { FCProps } from 'src/shared/types/FCProps';
+
 import { CriteriaForm } from './CriteriaForm';
 import { CriteriaFormData } from './CriteriaFormData';
 import { CriteriaPageMutation } from './__generated__/CriteriaPageMutation.graphql';

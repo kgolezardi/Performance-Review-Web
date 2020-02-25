@@ -1,6 +1,7 @@
-import { MenuItem, Select, SelectProps } from '@material-ui/core';
 import React, { ReactNode, useCallback } from 'react';
 import { FCProps } from 'src/shared/types/FCProps';
+import { MenuItem, Select, SelectProps } from '@material-ui/core';
+
 import { useForminatorState } from '../core/useForminatorState';
 
 export interface Option {
