@@ -65,7 +65,7 @@ export function PeerReviewProjectExpansionPanel(props: Props) {
           </Grid>
           <Grid item xs={12}>
             <QuoteBox>
-              <ProjectOutput review={projectReview} type="self" />
+              <ProjectOutput review={projectReview} />
             </QuoteBox>
           </Grid>
           {projectReview.comment && (

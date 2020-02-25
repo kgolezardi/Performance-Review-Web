@@ -9,6 +9,13 @@ import { MultilineOutput } from 'src/shared/multiline-output';
 import { FCProps } from 'src/shared/types/FCProps';
 import { ProjectCommentOutput_comment$key } from './__generated__/ProjectCommentOutput_comment.graphql';
 
+const fragment = graphql`
+  fragment ProjectCommentOutput_comment on ProjectCommentNode {
+    text
+    rating
+  }
+`;
+
 interface OwnProps {
   comment: ProjectCommentOutput_comment$key;
 }
@@ -22,10 +29,10 @@ export function ProjectCommentOutput(props: Props) {
     <Grid container spacing={2}>
       <Grid item xs={12}>
         <Typography color="textSecondary" gutterBottom>
-          {i18n._('Performance to initial expectation')}:
+          {i18n._('Evaluation')}:
         </Typography>
         <Box width={240}>
-          <EvaluationOutput value={comment.rating as Evaluation} type="self" />
+          <EvaluationOutput value={comment.rating as Evaluation} type="peer" />
         </Box>
       </Grid>
       <Grid item xs={12}>
@@ -37,10 +44,3 @@ export function ProjectCommentOutput(props: Props) {
     </Grid>
   );
 }
-
-const fragment = graphql`
-  fragment ProjectCommentOutput_comment on ProjectCommentNode {
-    text
-    rating
-  }
-`;

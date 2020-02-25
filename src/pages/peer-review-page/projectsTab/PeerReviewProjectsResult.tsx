@@ -57,7 +57,7 @@ export function PeerReviewProjectsResult(props: Props) {
           </Grid>
           <Grid item xs={12}>
             <QuoteBox>
-              <ProjectOutput review={projectReview} type="self" />
+              <ProjectOutput review={projectReview} />
             </QuoteBox>
           </Grid>
           <Grid item xs={12}>

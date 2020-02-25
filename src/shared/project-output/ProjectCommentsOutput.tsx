@@ -5,6 +5,13 @@ import { FCProps } from 'src/shared/types/FCProps';
 import { ProjectCommentOutput } from './ProjectCommentOutput';
 import { ProjectCommentsOutput_comments$key } from './__generated__/ProjectCommentsOutput_comments.graphql';
 
+const fragment = graphql`
+  fragment ProjectCommentsOutput_comments on ProjectCommentNode @relay(plural: true) {
+    id
+    ...ProjectCommentOutput_comment
+  }
+`;
+
 interface OwnProps {
   comments: ProjectCommentsOutput_comments$key;
 }
@@ -22,10 +29,3 @@ export function ProjectCommentsOutput(props: Props) {
     </Fragment>
   );
 }
-
-const fragment = graphql`
-  fragment ProjectCommentsOutput_comments on ProjectCommentNode @relay(plural: true) {
-    id
-    ...ProjectCommentOutput_comment
-  }
-`;

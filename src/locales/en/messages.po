@@ -14,14 +14,13 @@ msgstr ""
 "Plural-Forms: \n"
 
 #: src/pages/projects-page/ProjectForm.tsx:68
-#: src/shared/project-output/ProjectCommentOutput.tsx:21
+#: src/shared/project-output/ProjectCommentOutput.tsx:27
 #: src/shared/project-output/ProjectOutput.tsx:34
-#: src/shared/project-peer-review-output/ProjectPeerReviewOutput.tsx:27
 msgid "Accomplishments"
 msgstr "Accomplishments"
 
 #: src/pages/dashboard-page/DashboardPage.tsx:51
-#: src/pages/manager-review-page/ManagerReviewContent.tsx:51
+#: src/pages/manager-review-page/ManagerReviewContent.tsx:46
 #: src/pages/peer-review-page/PeerReviewPage.tsx:41
 #: src/pages/self-review-page/SelfReviewPage.tsx:23
 msgid "Achievements"
@@ -58,7 +57,7 @@ msgid "Cancel"
 msgstr "Cancel"
 
 #: src/pages/criteria-page/CriteriaPage.tsx:68
-#: src/pages/project-comment-page/ProjectCommentPage.tsx:52
+#: src/pages/peer-review-page/projectsTab/PeerReviewProjectsTab.tsx:62
 #: src/pages/projects-page/ProjectsPage.tsx:78
 #: src/pages/strengths-weaknesses-page/StrengthsWeaknessesPage.tsx:67
 #: src/stories/decorators/promptDecorator.tsx:5
@@ -87,7 +86,7 @@ msgid "Delete"
 msgstr "Delete"
 
 #: src/pages/dashboard-page/DashboardPage.tsx:43
-#: src/pages/manager-review-page/ManagerReviewContent.tsx:50
+#: src/pages/manager-review-page/ManagerReviewContent.tsx:45
 #: src/pages/peer-review-page/PeerReviewPage.tsx:40
 #: src/pages/self-review-page/SelfReviewPage.tsx:22
 msgid "Dominant Characteristics"
@@ -114,10 +113,11 @@ msgstr "English"
 msgid "Error"
 msgstr "Error"
 
+#: src/pages/peer-review-page/projectsTab/projects-form/PeerReviewProjectsForm.tsx:32
 #: src/shared/criterion-item/CriterionItem.tsx:22
 #: src/shared/criterion-output-item/CriterionOutputItem.tsx:13
-#: src/shared/project-peer-review-form/ProjectPeerReviewForm.tsx:33
-#: src/shared/project-peer-review-output/ProjectPeerReviewOutput.tsx:21
+#: src/shared/project-output/ProjectCommentOutput.tsx:19
+#: src/shared/project-output/ProjectOutput.tsx:28
 msgid "Evaluation"
 msgstr "Evaluation"
 
@@ -230,8 +230,8 @@ msgstr "NVC Guide"
 msgid "No"
 msgstr "No"
 
-#: src/shared/forminator/inputs/SelectAutoComplete.tsx:34
-#: src/shared/forminator/inputs/SelectMultiAutoComplete.tsx:34
+#: src/shared/forminator/inputs/SelectAutoComplete.tsx:33
+#: src/shared/forminator/inputs/SelectMultiAutoComplete.tsx:33
 msgid "No Options"
 msgstr "No Options"
 
@@ -239,7 +239,7 @@ msgstr "No Options"
 msgid "No! Wait"
 msgstr "No! Wait"
 
-#: src/shared/project-peer-review-form/ProjectPeerReviewForm.tsx:40
+#: src/pages/peer-review-page/projectsTab/projects-form/PeerReviewProjectsForm.tsx:39
 msgid "Observation"
 msgstr "Observation"
 
@@ -261,7 +261,7 @@ msgid "People who will comment on your accomplishments and write your performanc
 msgstr "People who will comment on your accomplishments and write your performance competencies and dominant characteristics from their own point of view."
 
 #: src/pages/dashboard-page/DashboardPage.tsx:35
-#: src/pages/manager-review-page/ManagerReviewContent.tsx:49
+#: src/pages/manager-review-page/ManagerReviewContent.tsx:44
 #: src/pages/peer-review-page/PeerReviewPage.tsx:39
 #: src/pages/self-review-page/SelfReviewPage.tsx:21
 msgid "Performance Competencies"
@@ -273,14 +273,9 @@ msgstr "Performance Competencies"
 msgid "Performance Review"
 msgstr "Performance Review"
 
-#: src/shared/auth/Login.tsx:35
+#: src/shared/auth/Login.tsx:34
 msgid "Performance Review System"
 msgstr "Performance Review System"
-
-#: src/shared/project-output/ProjectCommentOutput.tsx:13
-#: src/shared/project-output/ProjectOutput.tsx:28
-msgid "Performance to initial expectation"
-msgstr "Performance to initial expectation"
 
 #: src/core/locales/languages.ts:4
 msgid "Persian"
@@ -314,9 +309,9 @@ msgid "Role Expertise and Self Development"
 msgstr "Role Expertise and Self Development"
 
 #: src/pages/criteria-page/CriteriaForm.tsx:67
+#: src/pages/peer-review-page/projectsTab/projects-form/PeerReviewProjectsForm.tsx:46
 #: src/pages/projects-page/ProjectForm.tsx:82
 #: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:55
-#: src/shared/project-peer-review-form/ProjectPeerReviewForm.tsx:47
 msgid "Save"
 msgstr "Save"
 
@@ -421,7 +416,7 @@ msgstr "Unknown"
 msgid "Username"
 msgstr "Username"
 
-#: src/shared/auth/Login.tsx:22
+#: src/shared/auth/Login.tsx:21
 msgid "Username or Password is incorrect."
 msgstr "Username or Password is incorrect."
 
@@ -472,15 +467,17 @@ msgstr "You haven't started evaluating yet!"
 msgid "You're almost there!"
 msgstr "You're almost there!"
 
-#: src/shared/project-peer-review-item/ProjectPeerReviewItem.tsx:55
+#: src/pages/peer-review-page/projectsTab/PeerReviewProjectsResult.tsx:50
+#: src/pages/peer-review-page/projectsTab/project-expansion-panel/PeerReviewProjectExpansionPanel.tsx:56
 msgid "Your comment about {name}'s performance in this project"
 msgstr "Your comment about {name}'s performance in this project"
 
-#: src/pages/manager-review-page/ManagerReviewPage.tsx:16
+#: src/pages/manager-review-page/ManagerReviewPage.tsx:19
 msgid "Your team members"
 msgstr "Your team members"
 
-#: src/shared/project-peer-review-item/ProjectPeerReviewItem.tsx:46
+#: src/pages/peer-review-page/projectsTab/PeerReviewProjectsResult.tsx:40
+#: src/pages/peer-review-page/projectsTab/project-expansion-panel/PeerReviewProjectExpansionPanel.tsx:45
 msgid "{name}'s comment about his/her performance compared to initial expectation"
 msgstr "{name}'s comment about his/her performance compared to initial expectation"
 
