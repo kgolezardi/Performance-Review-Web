@@ -84,7 +84,7 @@ export default function StrengthsWeaknessesPage(props: Props) {
   );
 
   return (
-    <Box padding={3} paddingTop={4}>
+    <Box padding={4}>
       {review?.state === 'DONE' ? (
         <DominantCharacteristicsOutput review={review} />
       ) : (

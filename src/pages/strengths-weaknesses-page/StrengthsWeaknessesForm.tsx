@@ -21,6 +21,13 @@ import { StrengthsWeaknessesForm_user$key } from './__generated__/StrengthsWeakn
 const DescriptionContentSelfReview = importMDX.sync('./DescriptionContentSelfReview.mdx');
 const DescriptionContentPeerReview = importMDX.sync('./DescriptionContentPeerReview.mdx');
 
+const fragmentUserNode = graphql`
+  fragment StrengthsWeaknessesForm_user on UserNode {
+    id
+    ...getUserLabel_user
+  }
+`;
+
 interface OwnProps {
   initialValue?: StrengthsWeaknessesFormData;
   onSubmit: (data: StrengthsWeaknessesFormData) => void;
@@ -41,7 +48,7 @@ export function StrengthsWeaknessesForm(props: Props) {
 
   return (
     <Forminator onSubmit={onSubmit} initialValue={props.initialValue}>
-      <Grid container spacing={2}>
+      <Grid container spacing={4}>
         <DictInput>
           <Grid item xs={12}>
             <SectionGuide>
@@ -93,28 +100,3 @@ export function StrengthsWeaknessesForm(props: Props) {
     </Forminator>
   );
 }
-
-const fragmentUserNode = graphql`
-  fragment StrengthsWeaknessesForm_user on UserNode {
-    id
-    ...getUserLabel_user
-  }
-`;
-
-// #: src/pages/manager-review-page/DominantCharacteristics.tsx:15
-// #: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:48
-// msgid "Most important characteristics or behaviours I should improve in myself"
-// msgstr "مهمترین ویژگی‌ها یا رفتارهایی که باید توی خودم بهبود بدم"
-//
-// #: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:49
-// msgid "Most important characteristics or behaviours he/she should improve in myself"
-// msgstr "مهمترین ویژگی‌ها یا رفتارهایی که باید خودش را بهبود بدهد"
-//
-// #: src/pages/manager-review-page/DominantCharacteristics.tsx:12
-// #: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:39
-// msgid "Most important characteristics or effective behaviours that I should maintain"
-// msgstr "مهمترین ویژگی ها یا رفتارهای مؤثری که باید ادامه شون بدم"
-//
-// #: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:40
-// msgid "Most important characteristics or effective behaviours that he/she should maintain"
-// msgstr "مهمترین ویژگی ها یا رفتارهای مؤثری که باید ادامه شون بدهد"

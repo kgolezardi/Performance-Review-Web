@@ -25,29 +25,27 @@ export function CriterionItem({ title, details, prefix, type }: Props) {
   const comment = (serverValue && serverValue[prefix + 'Comment']) || '';
 
   return (
-    <Box paddingTop={5}>
-      <Grid container spacing={2}>
-        <Grid item xs={12}>
-          <Typography variant="h5">{title}</Typography>
-        </Grid>
-        <Grid item xs={12}>
-          {details}
-        </Grid>
-        <Grid item xs={12}>
-          <DictInputItem field={prefix + 'Rating'}>
-            <Box width={240}>
-              <Rating inputLabel={i18n._('Evaluation')} type={type} />
-            </Box>
-            <FragmentPrompt value={rating} />
-          </DictInputItem>
-        </Grid>
-        <Grid item xs={12}>
-          <DictInputItem field={prefix + 'Comment'}>
-            <LimitedTextAreaInput label={i18n._('Evidence')} variant="outlined" maxChars={280} fullWidth />
-            <FragmentPrompt value={comment} />
-          </DictInputItem>
-        </Grid>
+    <Grid container spacing={2}>
+      <Grid item xs={12}>
+        <Typography variant="h5">{title}</Typography>
       </Grid>
-    </Box>
+      <Grid item xs={12}>
+        {details}
+      </Grid>
+      <Grid item xs={12}>
+        <DictInputItem field={prefix + 'Rating'}>
+          <Box width={240}>
+            <Rating inputLabel={i18n._('Evaluation')} type={type} />
+          </Box>
+          <FragmentPrompt value={rating} />
+        </DictInputItem>
+      </Grid>
+      <Grid item xs={12}>
+        <DictInputItem field={prefix + 'Comment'}>
+          <LimitedTextAreaInput label={i18n._('Evidence')} variant="outlined" maxChars={280} fullWidth />
+          <FragmentPrompt value={comment} />
+        </DictInputItem>
+      </Grid>
+    </Grid>
   );
 }

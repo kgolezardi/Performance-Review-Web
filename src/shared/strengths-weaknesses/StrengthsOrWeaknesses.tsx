@@ -33,47 +33,45 @@ export function StrengthsOrWeaknesses({ title, maxLength, label, ...props }: Pro
   }, []);
 
   return (
-    <Box paddingTop={5}>
-      <Grid container spacing={2}>
-        <Grid item xs={12}>
-          <Typography variant="h5" gutterBottom>
-            {title}
-          </Typography>
-        </Grid>
-        <ArrayInput initialValue={[undefined]}>
-          <FragmentRef lens={lens} />
-          <ArrayOutput>
-            <Grid item xs={12}>
-              <Box position="relative">
-                <LimitedTextAreaInput
-                  variant="outlined"
-                  maxChars={280}
-                  label={label}
-                  fullWidth
-                  inputProps={{ dir: 'auto' }}
-                  InputProps={{
-                    endAdornment: (
-                      <ConditionalSection lens={lens} condition={clearIconCondition}>
-                        <InputAdornment position="end">
-                          <ClearIcon />
-                        </InputAdornment>
-                      </ConditionalSection>
-                    ),
-                  }}
-                />
-              </Box>
-            </Grid>
-          </ArrayOutput>
-          <ConditionalSection condition={addButtonCondition} lens={lens}>
-            <Grid item xs />
-            <Grid item>
-              <ArrayAppendButton variant="outlined" color="primary" startIcon={<AddIcon />}>
-                {i18n._('Add')}
-              </ArrayAppendButton>
-            </Grid>
-          </ConditionalSection>
-        </ArrayInput>
+    <Grid container spacing={2}>
+      <Grid item xs={12}>
+        <Typography variant="h5" gutterBottom>
+          {title}
+        </Typography>
       </Grid>
-    </Box>
+      <ArrayInput initialValue={[undefined]}>
+        <FragmentRef lens={lens} />
+        <ArrayOutput>
+          <Grid item xs={12}>
+            <Box position="relative">
+              <LimitedTextAreaInput
+                variant="outlined"
+                maxChars={280}
+                label={label}
+                fullWidth
+                inputProps={{ dir: 'auto' }}
+                InputProps={{
+                  endAdornment: (
+                    <ConditionalSection lens={lens} condition={clearIconCondition}>
+                      <InputAdornment position="end">
+                        <ClearIcon />
+                      </InputAdornment>
+                    </ConditionalSection>
+                  ),
+                }}
+              />
+            </Box>
+          </Grid>
+        </ArrayOutput>
+        <ConditionalSection condition={addButtonCondition} lens={lens}>
+          <Grid item xs />
+          <Grid item>
+            <ArrayAppendButton variant="outlined" color="primary" startIcon={<AddIcon />}>
+              {i18n._('Add')}
+            </ArrayAppendButton>
+          </Grid>
+        </ConditionalSection>
+      </ArrayInput>
+    </Grid>
   );
 }

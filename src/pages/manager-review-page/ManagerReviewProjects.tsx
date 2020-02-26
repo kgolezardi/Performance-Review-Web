@@ -23,9 +23,9 @@ type Props = FCProps<OwnProps>;
 export function ManagerReviewProjects(props: Props) {
   const reviews = useFragment(fragment, props.reviews);
   return (
-    <Box padding={3} paddingTop={4}>
+    <Box padding={4}>
       {reviews?.map(review => (
-        <Box paddingY={3} key={review.id}>
+        <Box paddingY={4} key={review.id}>
           <ProjectOutput review={review} showProjectName />
         </Box>
       ))}

@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import graphql from 'babel-plugin-relay/macro';
 import React, { useCallback } from 'react';
-import { Button, Card, CardContent, CardHeader, Divider, Theme, makeStyles } from '@material-ui/core';
+import { Button, Card, CardHeader, Divider, Theme, makeStyles } from '@material-ui/core';
 import { CSSProperties } from '@material-ui/core/styles/withStyles';
 import { FCProps } from 'src/shared/types/FCProps';
 import { LanguageCodes } from 'src/core/locales/types';
@@ -44,48 +44,36 @@ type Props = FCProps<OwnProps> & StyleProps;
 export function PersonInfoCard(props: Props) {
   const { children } = props;
   const classes = useStyles(props);
-
   const { topInView } = useInViewContext();
-
   const user = useFragment<PersonInfoCard_user$key>(fragment, props.user);
-
   const savePersonReviewMutation = useSavePersonReviewMutation();
   const { enqueueSnackbar } = useBiDiSnackbar();
   const history = useHistory();
 
   const state = user.personReview?.state;
+  const name = getUserLabel(user, { short: true });
 
-  const handleClick = useCallback(() => {
-    console.log(state);
-    if (state === 'DONE') {
-      savePersonReviewMutation({ input: { revieweeId: user.id, state: 'DOING' } }).catch(() => {
+  const handleEndEvaluationClick = useCallback(() => {
+    savePersonReviewMutation({ input: { revieweeId: user.id, state: 'DONE' } })
+      .then(() => {
+        enqueueSnackbar(i18n._("{name}'s evaluation completed successfully.", { name }), {
+          variant: 'success',
+        });
+        history.push('/peer-review');
+      })
+      .catch(() => {
         enqueueSnackbar(i18n._('An error occurred. Try again!'), { variant: 'error' });
       });
-    } else {
-      savePersonReviewMutation({ input: { revieweeId: user.id, state: 'DONE' } })
-        .then(() => {
-          enqueueSnackbar(
-            i18n._("{name}'s evaluation completed successfully.", { name: getUserLabel(user, { short: true }) }),
-            {
-              variant: 'success',
-            },
-          );
-          history.push('/peer-review');
-        })
-        .catch(() => {
-          enqueueSnackbar(i18n._('An error occurred. Try again!'), { variant: 'error' });
-        });
-    }
-  }, [user, savePersonReviewMutation, history, enqueueSnackbar, state]);
+  }, [user, savePersonReviewMutation, history, enqueueSnackbar, name]);
+
+  const handleEditClick = useCallback(() => {
+    savePersonReviewMutation({ input: { revieweeId: user.id, state: 'DOING' } }).catch(() => {
+      enqueueSnackbar(i18n._('An error occurred. Try again!'), { variant: 'error' });
+    });
+  }, [user, savePersonReviewMutation, enqueueSnackbar]);
 
   const numberOfProjects = localizeNumber(user.projectReviews.length, i18n.language as LanguageCodes);
-
   const disabled = !user.projectReviews.every(({ comment }) => !!(comment && comment.text && comment.rating));
-
-  const actionButtonText =
-    state === 'DONE'
-      ? i18n._('Edit')
-      : i18n._("End {name}'s evaluation", { name: getUserLabel(user, { short: true }) });
 
   return (
     <Card classes={{ root: classes.root }}>
@@ -95,16 +83,22 @@ export function PersonInfoCard(props: Props) {
           numberOfProjects,
         })}
         action={
-          <Button onClick={handleClick} variant="contained" color="secondary" disabled={disabled}>
-            {actionButtonText}
-          </Button>
+          state === 'DONE' ? (
+            <Button onClick={handleEditClick} variant="outlined" color="default">
+              {i18n._('Edit')}
+            </Button>
+          ) : (
+            <Button onClick={handleEndEvaluationClick} variant="contained" color="secondary" disabled={disabled}>
+              {i18n._("End {name}'s evaluation", { name })}
+            </Button>
+          )
         }
         avatar={<UserAvatar user={user} className={clsx(classes.avatar, { [classes.avatarShrink]: !topInView })} />}
         titleTypographyProps={{ variant: 'h5', gutterBottom: true }}
         classes={{ root: classes.headerRoot, action: classes.action }}
       />
-      <Divider variant="middle" />
-      <CardContent classes={{ root: classes.content }}>{children}</CardContent>
+      <Divider />
+      {children}
     </Card>
   );
 }

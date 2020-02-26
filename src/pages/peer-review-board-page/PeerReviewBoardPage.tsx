@@ -1,14 +1,12 @@
 import React from 'react';
 import graphql from 'babel-plugin-relay/macro';
 import { BoardList } from 'src/shared/board-list';
-import { CSSProperties } from '@material-ui/core/styles/withStyles';
-import { Container, Grid, Theme, makeStyles } from '@material-ui/core';
-import { Done } from 'src/assets/icons/Done';
+import { Container, Grid } from '@material-ui/core';
+import { Done as DoneIcon } from 'src/assets/icons/Done';
 import { ElementType } from 'src/shared/types/ElementType';
 import { FCProps } from 'src/shared/types/FCProps';
-import { InProgress } from 'src/assets/icons/InProgress';
-import { Styles } from 'src/shared/types/Styles';
-import { Todo } from 'src/assets/icons/Todo';
+import { InProgress as InProgressIcon } from 'src/assets/icons/InProgress';
+import { Todo as TodoIcon } from 'src/assets/icons/Todo';
 import { UserCard } from 'src/shared/user-card';
 import { groupBy } from 'ramda';
 import { i18n } from '@lingui/core';
@@ -23,7 +21,7 @@ import {
 
 interface OwnProps {}
 
-type Props = FCProps<OwnProps> & StyleProps;
+type Props = FCProps<OwnProps>;
 
 const query = graphql`
   query PeerReviewBoardPageQuery {
@@ -55,48 +53,34 @@ const generateCardList = (cardList: PeerReviewBoardPage_user) =>
   cardList.map((user: UserType) => <UserCard user={user} key={user.id} />);
 
 export default function PeerReviewBoardPage(props: Props) {
-  const classes = useStyles(props);
   const data = useLazyLoadQuery<PeerReviewBoardPageQuery>(query, {});
   const users = useFragment<PeerReviewBoardPage_user$key>(userFragment, data.viewer.usersToReview);
   const boards = groupByState(users);
   return (
-    <Container className={classes.root}>
+    <Container>
       <Grid container spacing={2}>
         <BoardList listTitle={i18n._('Todo')}>
           {boards['TODO'] ? (
             generateCardList(boards['TODO'])
           ) : (
-            <EmptyList text={i18n._('Good job!')}>
-              <Todo />
-            </EmptyList>
+            <EmptyList text={i18n._('Good job!')} icon={<TodoIcon />} />
           )}
         </BoardList>
         <BoardList listTitle={i18n._('In Progress')}>
           {boards['DOING'] ? (
             generateCardList(boards['DOING'])
           ) : (
-            <EmptyList text={i18n._("You haven't started evaluating yet!")}>
-              <InProgress />
-            </EmptyList>
+            <EmptyList text={i18n._("You haven't started evaluating yet!")} icon={<InProgressIcon />} />
           )}
         </BoardList>
         <BoardList listTitle={i18n._('Done')}>
           {boards['DONE'] ? (
             generateCardList(boards['DONE'])
           ) : (
-            <EmptyList text={i18n._('Add here after completing any evaluation')}>
-              <Done />
-            </EmptyList>
+            <EmptyList text={i18n._('Add here after completing any evaluation')} icon={<DoneIcon />} />
           )}
         </BoardList>
       </Grid>
     </Container>
   );
 }
-
-const styles = (theme: Theme) => ({
-  root: {} as CSSProperties,
-});
-
-const useStyles = makeStyles(styles, { name: 'PeerReviewBoardPage' });
-type StyleProps = Styles<typeof styles>;
