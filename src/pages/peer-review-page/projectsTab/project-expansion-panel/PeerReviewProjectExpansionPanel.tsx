@@ -9,6 +9,7 @@ import { QuoteBox } from 'src/shared/quote-box';
 import { Styles } from 'src/shared/types/Styles';
 import { getUserLabel } from 'src/shared/utils/getUserLabel';
 import { i18n } from '@lingui/core';
+import { useBiDiSnackbar } from 'src/shared/snackbar';
 import { useFragment } from 'react-relay/hooks';
 
 import { PeerReviewProjectExpansionPanel_projectReview$key } from './__generated__/PeerReviewProjectExpansionPanel_projectReview.graphql';
@@ -42,11 +43,19 @@ export function PeerReviewProjectExpansionPanel(props: Props) {
   const classes = useStyles(props);
   const saveProjectComment = useSaveProjectComment();
   const projectReviewId = projectReview.id;
-  const onSubmit = useCallback(
+  const { enqueueSnackbar } = useBiDiSnackbar();
+
+  const handleSubmit = useCallback(
     (input: PeerReviewProjectsFormValue) => {
-      saveProjectComment({ input: { ...input, projectReviewId } });
+      saveProjectComment({ input: { ...input, projectReviewId } })
+        .then(res => {
+          enqueueSnackbar(i18n._('Successfully saved.'), { variant: 'success' });
+        })
+        .catch(error => {
+          enqueueSnackbar(i18n._('Something went wrong.'), { variant: 'error' });
+        });
     },
-    [saveProjectComment, projectReviewId],
+    [saveProjectComment, projectReviewId, enqueueSnackbar],
   );
 
   const projectName = projectReview.project.name;
@@ -77,7 +86,7 @@ export function PeerReviewProjectExpansionPanel(props: Props) {
                 </Typography>
               </Grid>
               <Grid item xs={12}>
-                <PeerReviewProjectsForm onSubmit={onSubmit} projectComment={projectReview.comment} />
+                <PeerReviewProjectsForm onSubmit={handleSubmit} projectComment={projectReview.comment} />
               </Grid>
             </>
           )}
