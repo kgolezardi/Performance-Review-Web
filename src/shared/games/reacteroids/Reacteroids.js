@@ -2,6 +2,7 @@ import React, { Component, createRef } from 'react';
 import Asteroid from './Asteroid';
 import { randomNumBetweenExcluding } from './helpers';
 import Ship from './Ship';
+import { styled } from '@material-ui/core';
 
 const KEY = {
   LEFT: 37,
@@ -20,7 +21,6 @@ export class Reacteroids extends Component {
       screen: {
         width: 400,
         height: 400,
-        ratio: 1,
       },
       context: null,
       keys: {
@@ -40,6 +40,7 @@ export class Reacteroids extends Component {
     this.bullets = [];
     this.particles = [];
     this.canvas = createRef();
+    this.containerRef = createRef();
   }
 
   handleKeys(value, e) {
@@ -57,8 +58,11 @@ export class Reacteroids extends Component {
     window.addEventListener('keyup', this.handleKeys.bind(this, false));
     window.addEventListener('keydown', this.handleKeys.bind(this, true));
 
+    const width = this.containerRef.current.offsetWidth;
+    const height = this.containerRef.current.offsetHeight;
+
     const context = this.canvas.current.getContext('2d');
-    this.setState({ context: context });
+    this.setState({ screen: { width, height }, context });
     this.startGame();
     requestAnimationFrame(() => {
       this.update();
@@ -74,7 +78,7 @@ export class Reacteroids extends Component {
     const context = this.state.context;
 
     context.save();
-    context.scale(this.state.screen.ratio, this.state.screen.ratio);
+    // context.scale(this.state.screen.ratio, this.state.screen.ratio);
 
     // Motion trail
     context.fillStyle = '#000';
@@ -152,7 +156,6 @@ export class Reacteroids extends Component {
   }
 
   generateAsteroids(howMany) {
-    let asteroids = [];
     let ship = this.ship[0];
     for (let i = 0; i < howMany; i++) {
       let asteroid = new Asteroid({
@@ -210,44 +213,94 @@ export class Reacteroids extends Component {
     return false;
   }
 
-  render() {
-    let endgame;
-    let message;
-
+  getEndGameMessage() {
     if (this.state.currentScore <= 0) {
-      message = '0 points... So sad.';
+      return '0 points... So sad.';
     } else if (this.state.currentScore >= this.state.topScore) {
-      message = 'Top score with ' + this.state.currentScore + ' points. Woo!';
+      return 'Top score with ' + this.state.currentScore + ' points. Woo!';
     } else {
-      message = this.state.currentScore + ' Points though :)';
+      return this.state.currentScore + ' Points though :)';
     }
+  }
 
-    if (!this.state.inGame) {
-      endgame = (
-        <div className="endgame">
-          <p>Game over, man!</p>
-          <p>{message}</p>
-          <button onClick={this.startGame.bind(this)}>try again?</button>
-        </div>
-      );
-    }
-
+  render() {
     return (
-      <div>
-        {endgame}
-        <span className="score current-score">Score: {this.state.currentScore}</span>
-        <span className="score top-score">Top Score: {this.state.topScore}</span>
-        <span className="controls">
+      <Container ref={this.containerRef}>
+        {!this.state.inGame && (
+          <EndGame>
+            <p>Game over, man!</p>
+            <p>{this.getEndGameMessage()}</p>
+            <Button onClick={this.startGame.bind(this)}>try again?</Button>
+          </EndGame>
+        )}
+        <CurrentScoreSpan>Score: {this.state.currentScore}</CurrentScoreSpan>
+        <TopScoreSpan>Top Score: {this.state.topScore}</TopScoreSpan>
+        <Controls>
           Use [A][S][W][D] or [←][↑][↓][→] to MOVE
           <br />
           Use [SPACE] to SHOOT
-        </span>
-        <canvas
-          ref={this.canvas}
-          width={this.state.screen.width * this.state.screen.ratio}
-          height={this.state.screen.height * this.state.screen.ratio}
-        />
-      </div>
+        </Controls>
+        <canvas ref={this.canvas} width={this.state.screen.width} height={this.state.screen.height} />
+      </Container>
     );
   }
 }
+
+const Container = styled('div')({
+  width: '100%',
+  height: '100%',
+  position: 'relative',
+  color: 'white',
+  direction: 'rtl',
+  fontFamily: 'PT Mono',
+});
+
+const Controls = styled('span')({
+  display: 'block',
+  position: 'absolute',
+  top: '15px',
+  left: ' 50%',
+  transform: 'translate(-50%, 0)',
+  zIndex: 1,
+  fontSize: '11px',
+  textAlign: 'center',
+  lineHeight: 1.6,
+});
+
+const CurrentScoreSpan = styled('span')({
+  position: 'absolute',
+  top: '15px',
+  left: 20,
+});
+
+const TopScoreSpan = styled('span')({
+  position: 'absolute',
+  top: '15px',
+  right: 20,
+});
+
+const EndGame = styled('div')({
+  position: 'absolute',
+  top: '50%',
+  left: ' 50%',
+  transform: 'translate(-50%, -50%)',
+  zIndex: 1,
+  textAlign: 'center',
+  lineHeight: 1.6,
+  fontSize: 12,
+});
+
+const Button = styled('button')({
+  borderWidth: 4,
+  borderColor: 'white',
+  borderStyle: 'solid',
+  color: 'white',
+  fontSize: 16,
+  padding: '8px 16px',
+  backgroundColor: 'transparent',
+  fontFamily: 'PT Mono',
+  '&:hover': {
+    backgroundColor: 'white',
+    color: 'black',
+  },
+});

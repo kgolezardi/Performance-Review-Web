@@ -1,1 +1,1 @@
-export * from './reacteroids';
+export { Reacteroids } from './reacteroids';

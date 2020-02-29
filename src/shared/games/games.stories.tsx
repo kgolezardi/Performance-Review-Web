@@ -10,9 +10,10 @@ storiesOf('Games', module)
       <div
         style={{
           display: 'flex',
-          height: '100vh',
           justifyContent: 'center',
           alignItems: 'center',
+          width: 800,
+          height: 600,
         }}
       >
         <Reacteroids />
