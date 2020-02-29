@@ -1,1 +1,1 @@
-export { Reacteroids } from './reacteroids';
+export { ReacteroidsWrapper } from './ReacteroidsWrapper';

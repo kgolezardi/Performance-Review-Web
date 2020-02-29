@@ -1,27 +1,18 @@
-import React from 'react';
 import graphql from 'babel-plugin-relay/macro';
-import { BoardList } from 'src/shared/board-list';
-import { Container, Grid } from '@material-ui/core';
-import { Done as DoneIcon } from 'src/assets/icons/Done';
+import React, { useCallback, useState } from 'react';
+import { Container } from '@material-ui/core';
 import { ElementType } from 'src/shared/types/ElementType';
 import { FCProps } from 'src/shared/types/FCProps';
-import { InProgress as InProgressIcon } from 'src/assets/icons/InProgress';
-import { Todo as TodoIcon } from 'src/assets/icons/Todo';
-import { UserCard } from 'src/shared/user-card';
 import { groupBy } from 'ramda';
-import { i18n } from '@lingui/core';
 import { useFragment, useLazyLoadQuery } from 'react-relay/hooks';
 
-import { EmptyList } from './EmptyList';
 import { PeerReviewBoardPageQuery } from './__generated__/PeerReviewBoardPageQuery.graphql';
 import {
   PeerReviewBoardPage_user,
   PeerReviewBoardPage_user$key,
 } from './__generated__/PeerReviewBoardPage_user.graphql';
-
-interface OwnProps {}
-
-type Props = FCProps<OwnProps>;
+import { PeerReviewBoards } from './PeerReviewBoards';
+import { PeerReviewCompleted } from './PeerReviewCompleted';
 
 const query = graphql`
   query PeerReviewBoardPageQuery {
@@ -33,15 +24,18 @@ const query = graphql`
   }
 `;
 
-const userFragment = graphql`
+const fragment = graphql`
   fragment PeerReviewBoardPage_user on UserNode @relay(plural: true) {
-    id
     personReview {
       state
     }
-    ...UserCard_user
+    ...PeerReviewBoards_user
   }
 `;
+
+interface OwnProps {}
+
+type Props = FCProps<OwnProps>;
 
 type UserType = ElementType<PeerReviewBoardPage_user>;
 
@@ -49,38 +43,20 @@ const groupByState = groupBy<UserType>((user: UserType) => {
   return user.personReview?.state || '';
 });
 
-const generateCardList = (cardList: PeerReviewBoardPage_user) =>
-  cardList.map((user: UserType) => <UserCard user={user} key={user.id} />);
-
 export default function PeerReviewBoardPage(props: Props) {
   const data = useLazyLoadQuery<PeerReviewBoardPageQuery>(query, {});
-  const users = useFragment<PeerReviewBoardPage_user$key>(userFragment, data.viewer.usersToReview);
-  const boards = groupByState(users);
+  const usersToReview = useFragment<PeerReviewBoardPage_user$key>(fragment, data.viewer.usersToReview);
+  const boards = groupByState(usersToReview);
+
+  const [complete, setComplete] = useState(!(boards['TODO'] || boards['DOING']));
+
+  const handleContinueEditingClick = useCallback(() => {
+    setComplete(false);
+  }, []);
+
   return (
     <Container>
-      <Grid container spacing={2}>
-        <BoardList listTitle={i18n._('Todo')}>
-          {boards['TODO'] ? (
-            generateCardList(boards['TODO'])
-          ) : (
-            <EmptyList text={i18n._('Good job!')} icon={<TodoIcon />} />
-          )}
-        </BoardList>
-        <BoardList listTitle={i18n._('In Progress')}>
-          {boards['DOING'] ? (
-            generateCardList(boards['DOING'])
-          ) : (
-            <EmptyList text={i18n._("You haven't started evaluating yet!")} icon={<InProgressIcon />} />
-          )}
-        </BoardList>
-        <BoardList listTitle={i18n._('Done')}>
-          {boards['DONE'] ? (
-            generateCardList(boards['DONE'])
-          ) : (
-            <EmptyList text={i18n._('Add here after completing any evaluation')} icon={<DoneIcon />} />
-          )}
-        </BoardList>
-      </Grid>
+      {complete ? <PeerReviewCompleted onClick={handleContinueEditingClick} /> : <PeerReviewBoards boards={boards} />}
     </Container>
   );
 }

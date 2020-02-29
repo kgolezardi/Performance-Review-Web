@@ -32,7 +32,9 @@ export default function PeerStartReviewPage(props: Props) {
 
   return (
     <Container maxWidth="md">
-      <Box marginTop={15}>{hasSomethingToReview ? <StartReviewCard Content={Content} /> : <NoPeerReview />}</Box>
+      <Box marginTop={15} marginBottom={15}>
+        {hasSomethingToReview ? <StartReviewCard Content={Content} /> : <NoPeerReview />}
+      </Box>
     </Container>
   );
 }

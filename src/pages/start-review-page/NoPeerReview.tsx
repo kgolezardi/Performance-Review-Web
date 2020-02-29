@@ -2,6 +2,7 @@ import React from 'react';
 import { CSSProperties } from '@material-ui/core/styles/withStyles';
 import { Card, CardContent, CardHeader, Theme, makeStyles } from '@material-ui/core';
 import { FCProps } from 'src/shared/types/FCProps';
+import { ReacteroidsWrapper } from 'src/shared/games';
 import { Styles } from 'src/shared/types/Styles';
 import { getUserLabel } from 'src/shared/utils/getUserLabel';
 import { i18n } from '@lingui/core';
@@ -21,6 +22,7 @@ export function NoPeerReview(props: Props) {
       <CardContent>
         {/* TODO: add text here */}
         No Review for you
+        <ReacteroidsWrapper />
       </CardContent>
     </Card>
   );
