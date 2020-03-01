@@ -1,6 +1,6 @@
 import Bullet from './Bullet';
 import Particle from './Particle';
-import { rotatePoint, randomNumBetween } from './helpers';
+import { randomNumBetween, rotatePoint } from './helpers';
 
 export default class Ship {
   position: any;

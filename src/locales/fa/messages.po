@@ -27,11 +27,11 @@ msgid "Achievements"
 msgstr "دستاوردها"
 
 #: src/pages/projects-page/AddProjectForm.tsx:41
-#: src/shared/strengths-weaknesses/StrengthsOrWeaknesses.tsx:58
+#: src/shared/strengths-weaknesses/StrengthsOrWeaknesses.tsx:57
 msgid "Add"
 msgstr "افزودن"
 
-#: src/pages/peer-review-board-page/PeerReviewBoardPage.tsx:54
+#: src/pages/peer-review-board-page/PeerReviewBoardPage.tsx:49
 msgid "Add here after completing any evaluation"
 msgstr "هر ارزیابی که تکمیل شد رو به اینجا اضافه کن"
 
@@ -39,8 +39,8 @@ msgstr "هر ارزیابی که تکمیل شد رو به اینجا اضافه
 msgid "Adding Projects"
 msgstr "افزودن پروژه"
 
-#: src/pages/peer-review-page/PersonInfoCard.tsx:44
-#: src/pages/peer-review-page/PersonInfoCard.tsx:56
+#: src/pages/peer-review-page/PersonInfoCard.tsx:50
+#: src/pages/peer-review-page/PersonInfoCard.tsx:55
 msgid "An error occurred. Try again!"
 msgstr "خطایی رخ داده. دوباره تلاش کنید."
 
@@ -57,7 +57,7 @@ msgid "Cancel"
 msgstr "لغو"
 
 #: src/pages/criteria-page/CriteriaPage.tsx:68
-#: src/pages/peer-review-page/projectsTab/PeerReviewProjectsTab.tsx:62
+#: src/pages/peer-review-page/projectsTab/PeerReviewProjectsTab.tsx:64
 #: src/pages/projects-page/ProjectsPage.tsx:78
 #: src/pages/strengths-weaknesses-page/StrengthsWeaknessesPage.tsx:67
 #: src/stories/decorators/promptDecorator.tsx:5
@@ -93,15 +93,15 @@ msgid "Dominant Characteristics"
 msgstr "ویژگی‌های بارز"
 
 #: src/assets/icons/Done.tsx:5
-#: src/pages/peer-review-board-page/PeerReviewBoardPage.tsx:53
+#: src/pages/peer-review-board-page/PeerReviewBoardPage.tsx:48
 msgid "Done"
-msgstr "انجام شد"
+msgstr "انجام شده"
 
-#: src/pages/peer-review-page/PersonInfoCard.tsx:63
+#: src/pages/peer-review-page/PersonInfoCard.tsx:64
 msgid "Edit"
 msgstr "ویرایش"
 
-#: src/pages/peer-review-page/PersonInfoCard.tsx:64
+#: src/pages/peer-review-page/PersonInfoCard.tsx:66
 msgid "End {name}'s evaluation"
 msgstr "اتمام ارزیابی {name}"
 
@@ -114,7 +114,7 @@ msgid "Error"
 msgstr "خطا"
 
 #: src/pages/peer-review-page/projectsTab/projects-form/PeerReviewProjectsForm.tsx:32
-#: src/shared/criterion-item/CriterionItem.tsx:22
+#: src/shared/criterion-item/CriterionItem.tsx:21
 #: src/shared/criterion-output-item/CriterionOutputItem.tsx:13
 #: src/shared/project-output/ProjectCommentOutput.tsx:19
 #: src/shared/project-output/ProjectOutput.tsx:28
@@ -125,7 +125,7 @@ msgstr "ارزیابی"
 msgid "Evaluation due date: {formattedDueDate}"
 msgstr "پایان مهلت ارزیابی: {formattedDueDate}"
 
-#: src/shared/criterion-item/CriterionItem.tsx:29
+#: src/shared/criterion-item/CriterionItem.tsx:28
 #: src/shared/criterion-output-item/CriterionOutputItem.tsx:21
 msgid "Evidence"
 msgstr "شواهد"
@@ -139,7 +139,7 @@ msgid "Exceeds Expectations from me"
 msgstr "فراتر از انتظاری که از من میره"
 
 #: src/pages/criteria-page/CriteriaForm.tsx:53
-#: src/shared/criteria-output/CriteriaOutput.tsx:35
+#: src/shared/criteria-output/CriteriaOutput.tsx:34
 msgid "Execution"
 msgstr "اجرا"
 
@@ -156,7 +156,7 @@ msgstr "مثلاً ممکنه Key Result های شخصیتون، دستاورد�
 msgid "Go to Achievements page and add projects you have participated in"
 msgstr "به صفحه‌ی دستاوردها برو و پروژه‌هایی که در آن‌ها شرکت داشتی را وارد کن"
 
-#: src/pages/peer-review-board-page/PeerReviewBoardPage.tsx:44
+#: src/pages/peer-review-board-page/PeerReviewBoardPage.tsx:43
 msgid "Good job!"
 msgstr "باریکلا! چه خوب که همه رو داری انجام میدی یا شایدم تمومشون کردی"
 
@@ -164,7 +164,7 @@ msgstr "باریکلا! چه خوب که همه رو داری انجام مید�
 msgid "He/She Needs Improvement"
 msgstr "کمتر از حد انتظاری که ازش میره"
 
-#: src/pages/peer-review-page/PersonInfoCard.tsx:66
+#: src/pages/peer-review-page/PersonInfoCard.tsx:61
 #: src/shared/user-card/UserCard.tsx:39
 msgid "He/She asked your review on {numberOfProjects} project(s)"
 msgstr "در {numberOfProjects} پروژه از شما نظر خواسته است"
@@ -182,7 +182,7 @@ msgid "I thought you forgot to write your strengths!"
 msgstr "کاش یه نقطه‌ی قوت هم بنویسی!"
 
 #: src/assets/icons/InProgress.tsx:5
-#: src/pages/peer-review-board-page/PeerReviewBoardPage.tsx:48
+#: src/pages/peer-review-board-page/PeerReviewBoardPage.tsx:45
 msgid "In Progress"
 msgstr "در حال انجام"
 
@@ -201,7 +201,7 @@ msgid "It's complete!"
 msgstr "تکمیل شد!"
 
 #: src/pages/criteria-page/CriteriaForm.tsx:59
-#: src/shared/criteria-output/CriteriaOutput.tsx:41
+#: src/shared/criteria-output/CriteriaOutput.tsx:40
 msgid "Leadership"
 msgstr "رهبری خودظهور"
 
@@ -244,7 +244,7 @@ msgid "Observation"
 msgstr "مشاهده"
 
 #: src/pages/criteria-page/CriteriaForm.tsx:47
-#: src/shared/criteria-output/CriteriaOutput.tsx:29
+#: src/shared/criteria-output/CriteriaOutput.tsx:28
 msgid "Organization Culture Adoption"
 msgstr "انطباق با فرهنگ سازمانی"
 
@@ -282,12 +282,12 @@ msgid "Persian"
 msgstr "فارسی"
 
 #: src/pages/criteria-page/CriteriaForm.tsx:62
-#: src/shared/criteria-output/CriteriaOutput.tsx:44
+#: src/shared/criteria-output/CriteriaOutput.tsx:43
 msgid "Presence"
 msgstr "اثر حضور"
 
 #: src/pages/criteria-page/CriteriaForm.tsx:50
-#: src/shared/criteria-output/CriteriaOutput.tsx:32
+#: src/shared/criteria-output/CriteriaOutput.tsx:31
 msgid "Problem Solving"
 msgstr "حل مسئله"
 
@@ -311,7 +311,7 @@ msgstr "مرجعیت تخصصی"
 #: src/pages/criteria-page/CriteriaForm.tsx:67
 #: src/pages/peer-review-page/projectsTab/projects-form/PeerReviewProjectsForm.tsx:46
 #: src/pages/projects-page/ProjectForm.tsx:82
-#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:55
+#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:61
 msgid "Save"
 msgstr "ذخیره"
 
@@ -338,6 +338,7 @@ msgstr "ارزیابی من"
 
 #: src/core/snackbar/Snackbar.stories.tsx:24
 #: src/pages/criteria-page/CriteriaPage.tsx:63
+#: src/pages/peer-review-page/projectsTab/project-expansion-panel/PeerReviewProjectExpansionPanel.tsx:40
 #: src/pages/projects-page/ProjectsPage.tsx:49
 #: src/pages/strengths-weaknesses-page/StrengthsWeaknessesPage.tsx:63
 msgid "Something went wrong."
@@ -365,6 +366,7 @@ msgstr "ثبت"
 
 #: src/core/snackbar/Snackbar.stories.tsx:14
 #: src/pages/criteria-page/CriteriaPage.tsx:60
+#: src/pages/peer-review-page/projectsTab/project-expansion-panel/PeerReviewProjectExpansionPanel.tsx:37
 #: src/pages/projects-page/ProjectsPage.tsx:46
 #: src/pages/strengths-weaknesses-page/StrengthsWeaknessesPage.tsx:60
 msgid "Successfully saved."
@@ -375,31 +377,31 @@ msgstr "با موفقیت ثبت گردید."
 msgid "Superb"
 msgstr "فوق‌العاده"
 
-#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:47
-#: src/shared/dominant-characteristics-output/DominantCharacteristics.tsx:16
+#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:53
+#: src/shared/dominant-characteristics-output/DominantCharacteristics.tsx:21
 msgid "The most important characteristics or behaviors I should improve in myself"
 msgstr "مهمترین ویژگی‌ها یا رفتارهایی که باید بهبودشون بدم"
 
-#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:48
+#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:54
 msgid "The most important characteristics or behaviors he/she should improve"
 msgstr "مهمترین ویژگی‌ها یا رفتارهایی که باید بهبودشون بده"
 
-#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:38
-#: src/shared/dominant-characteristics-output/DominantCharacteristics.tsx:13
+#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:44
+#: src/shared/dominant-characteristics-output/DominantCharacteristics.tsx:18
 msgid "The most important characteristics or effective behaviors that I should maintain"
 msgstr "مهمترین ویژگی‌ها یا رفتارهای مؤثری که باید ادامه‌شون بدم"
 
-#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:39
+#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:45
 msgid "The most important characteristics or effective behaviors that he/she should maintain"
 msgstr "مهمترین ویژگی‌ها یا رفتارهای مؤثری که باید ادامه‌شون بده"
 
 #: src/pages/criteria-page/CriteriaForm.tsx:56
-#: src/shared/criteria-output/CriteriaOutput.tsx:38
+#: src/shared/criteria-output/CriteriaOutput.tsx:37
 msgid "Thought Leadership"
 msgstr "مرجعیت تخصصی"
 
 #: src/assets/icons/Todo.tsx:5
-#: src/pages/peer-review-board-page/PeerReviewBoardPage.tsx:43
+#: src/pages/peer-review-board-page/PeerReviewBoardPage.tsx:42
 msgid "Todo"
 msgstr "انجام نشده"
 
@@ -424,19 +426,19 @@ msgstr "نام کاربری یا گذرواژه اشتباه است."
 msgid "View"
 msgstr "مشاهده"
 
-#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:39
+#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:45
 msgid "What should he/she continue doing"
 msgstr "چی رو ادامه بده"
 
-#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:48
+#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:54
 msgid "What should he/she improve"
 msgstr "چی رو بهبود بده"
 
-#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:39
+#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:45
 msgid "What to continue doing"
 msgstr "چی رو ادامه بدم"
 
-#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:48
+#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:54
 msgid "What to improve"
 msgstr "چی رو بهبود بدم"
 
@@ -457,7 +459,7 @@ msgstr "هنوز هیچ پروژه‌ای را اضافه نکردی!"
 msgid "You haven't entered anything yet!"
 msgstr "هنوز چیزی ننوشتی!"
 
-#: src/pages/peer-review-board-page/PeerReviewBoardPage.tsx:49
+#: src/pages/peer-review-board-page/PeerReviewBoardPage.tsx:46
 msgid "You haven't started evaluating yet!"
 msgstr "هنوز شروع به ارزیابی نکردی!"
 
@@ -468,7 +470,7 @@ msgid "You're almost there!"
 msgstr "یه کم مونده!"
 
 #: src/pages/peer-review-page/projectsTab/PeerReviewProjectsResult.tsx:50
-#: src/pages/peer-review-page/projectsTab/project-expansion-panel/PeerReviewProjectExpansionPanel.tsx:56
+#: src/pages/peer-review-page/projectsTab/project-expansion-panel/PeerReviewProjectExpansionPanel.tsx:64
 msgid "Your comment about {name}'s performance in this project"
 msgstr "نظر شما در مورد عملکرد {name} در این پروژه"
 
@@ -477,10 +479,10 @@ msgid "Your team members"
 msgstr "اعضای تیم شما"
 
 #: src/pages/peer-review-page/projectsTab/PeerReviewProjectsResult.tsx:40
-#: src/pages/peer-review-page/projectsTab/project-expansion-panel/PeerReviewProjectExpansionPanel.tsx:45
+#: src/pages/peer-review-page/projectsTab/project-expansion-panel/PeerReviewProjectExpansionPanel.tsx:53
 msgid "{name}'s comment about his/her performance compared to initial expectation"
 msgstr "نظر {name} در مورد سطح عملکردش نسبت به انتظاری که ازش میره"
 
-#: src/pages/peer-review-page/PersonInfoCard.tsx:50
+#: src/pages/peer-review-page/PersonInfoCard.tsx:44
 msgid "{name}'s evaluation completed successfully."
 msgstr "ارزیابی {name} با موفقیت تمام شد."
