@@ -39,6 +39,10 @@ msgstr "هر ارزیابی که تکمیل شد رو به اینجا اضافه
 msgid "Adding Projects"
 msgstr "افزودن پروژه"
 
+#: src/shared/gift-dialog/GiftDialog.tsx:15
+msgid "All reviews were successfully done"
+msgstr "تمامی ارزیابی‌ها با موفقیت انجام شد"
+
 #: src/pages/peer-review-page/PersonInfoCard.tsx:50
 #: src/pages/peer-review-page/PersonInfoCard.tsx:55
 msgid "An error occurred. Try again!"
@@ -299,6 +303,10 @@ msgstr "برنامه‌نویسان در حال تایپند...‌"
 msgid "Projects"
 msgstr "پروژه‌ها"
 
+#: src/shared/gift-dialog/GiftDialog.tsx:27
+msgid "Recieve the gift"
+msgstr "دریافت جایزه"
+
 #: src/pages/projects-page/ProjectForm.tsx:74
 msgid "Reviewers"
 msgstr "مرورکننده‌ها"
@@ -376,6 +384,10 @@ msgstr "با موفقیت ثبت گردید."
 #: src/global-types/Evaluation.ts:19
 msgid "Superb"
 msgstr "فوق‌العاده"
+
+#: src/shared/gift-dialog/GiftDialog.tsx:29
+msgid "Thanks, I take it later"
+msgstr "ممنون، بعدا می‌گیرم جایزمو"
 
 #: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:53
 #: src/shared/dominant-characteristics-output/DominantCharacteristics.tsx:21
