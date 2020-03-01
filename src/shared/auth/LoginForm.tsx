@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Theme, makeStyles } from '@material-ui/core';
+import { Box, Button, Theme, makeStyles } from '@material-ui/core';
 import { CSSProperties } from '@material-ui/core/styles/withStyles';
 import { DictInput, DictInputItem, Form, Forminator, StringInput } from 'src/shared/forminator';
 import { FCProps } from 'src/shared/types/FCProps';
@@ -24,6 +24,7 @@ export const LoginForm = (props: Props) => {
             <StringInput
               className={classes.stringInput}
               variant="outlined"
+              autoComplete="username"
               margin="dense"
               label={i18n._('Username')}
               fullWidth
@@ -34,6 +35,7 @@ export const LoginForm = (props: Props) => {
             <StringInput
               className={classes.stringInput}
               type="password"
+              autoComplete="current-password"
               variant="outlined"
               margin="dense"
               label={i18n._('Password')}
@@ -43,10 +45,11 @@ export const LoginForm = (props: Props) => {
             />
           </DictInputItem>
         </DictInput>
-        <br /> {/* TODO: PLEASE FIX THIS */}
-        <Button variant="contained" fullWidth type="submit" color="primary" size="large">
-          {i18n._('Login')}
-        </Button>
+        <Box marginTop={2}>
+          <Button variant="contained" fullWidth type="submit" color="primary" size="large">
+            {i18n._('Login')}
+          </Button>
+        </Box>
       </Form>
     </Forminator>
   );
