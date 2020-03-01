@@ -55,11 +55,14 @@ export function PersonInfoCard(props: Props) {
 
   const handleEndEvaluationClick = useCallback(() => {
     savePersonReviewMutation({ input: { revieweeId: user.id, state: 'DONE' } })
-      .then(() => {
+      .then(data => {
         enqueueSnackbar(i18n._("{name}'s evaluation completed successfully.", { name }), {
           variant: 'success',
         });
-        history.push('/peer-review');
+        // check if all reviews assigned to the reviewee are in the state of 'DONE'
+        const usersState = data.savePersonReview.viewer.usersToReview.map(user => user.personReview?.state);
+        const showDialog = usersState.every(state => state === 'DONE');
+        history.push('/peer-review', { showDialog });
       })
       .catch(() => {
         enqueueSnackbar(i18n._('An error occurred. Try again!'), { variant: 'error' });
