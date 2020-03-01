@@ -5,6 +5,7 @@ import { Button, Card, CardHeader, Divider, Theme, makeStyles } from '@material-
 import { CSSProperties } from '@material-ui/core/styles/withStyles';
 import { FCProps } from 'src/shared/types/FCProps';
 import { LanguageCodes } from 'src/core/locales/types';
+import { LocationState } from 'src/pages/peer-review-board-page/PeerReviewBoardPage';
 import { Styles } from 'src/shared/types/Styles';
 import { UserAvatar } from 'src/shared/user-avatar';
 import { getUserLabel } from 'src/shared/utils/getUserLabel';
@@ -48,7 +49,7 @@ export function PersonInfoCard(props: Props) {
   const user = useFragment<PersonInfoCard_user$key>(fragment, props.user);
   const savePersonReviewMutation = useSavePersonReviewMutation();
   const { enqueueSnackbar } = useBiDiSnackbar();
-  const history = useHistory();
+  const history = useHistory<LocationState>();
 
   const state = user.personReview?.state;
   const name = getUserLabel(user, { short: true });

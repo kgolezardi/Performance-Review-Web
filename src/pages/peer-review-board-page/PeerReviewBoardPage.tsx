@@ -1,12 +1,15 @@
 import graphql from 'babel-plugin-relay/macro';
 import React, { useCallback } from 'react';
 import { BoardList } from 'src/shared/board-list';
-import { Container, Grid } from '@material-ui/core';
+import { CSSProperties } from '@material-ui/core/styles/withStyles';
+import { Container, Fab, Grid, Theme, makeStyles } from '@material-ui/core';
 import { Done as DoneIcon } from 'src/assets/icons/Done';
 import { ElementType } from 'src/shared/types/ElementType';
 import { FCProps } from 'src/shared/types/FCProps';
 import { GiftDialog } from 'src/shared/gift-dialog/GiftDialog';
+import { GiftIcon } from 'src/assets/icons/GiftIcon';
 import { InProgress as InProgressIcon } from 'src/assets/icons/InProgress';
+import { Styles } from 'src/shared/types/Styles';
 import { Todo as TodoIcon } from 'src/assets/icons/Todo';
 import { UserCard } from 'src/shared/user-card';
 import { groupBy } from 'ramda';
@@ -23,7 +26,7 @@ import {
 
 interface OwnProps {}
 
-type Props = FCProps<OwnProps>;
+type Props = FCProps<OwnProps> & StyleProps;
 
 const query = graphql`
   query PeerReviewBoardPageQuery {
@@ -45,7 +48,7 @@ const userFragment = graphql`
   }
 `;
 
-interface LocationState {
+export interface LocationState {
   showDialog?: boolean;
 }
 
@@ -59,17 +62,18 @@ const generateCardList = (cardList: PeerReviewBoardPage_user) =>
   cardList.map((user: UserType) => <UserCard user={user} key={user.id} />);
 
 export default function PeerReviewBoardPage(props: Props) {
+  const classes = useStyles(props);
+
   const { state } = useLocation<LocationState>();
   const history = useHistory<LocationState>();
-  const open = state?.showDialog ?? false;
 
   const data = useLazyLoadQuery<PeerReviewBoardPageQuery>(query, {});
   const users = useFragment<PeerReviewBoardPage_user$key>(userFragment, data.viewer.usersToReview);
   const boards = groupByState(users);
 
   const handleDialogClose = useCallback(() => {
-    history.replace({ state: { showDialog: false } });
-  }, [history]);
+    history.replace({ state: { ...state, showDialog: false } });
+  }, [history, state]);
 
   const handleRecieveClick = useCallback(() => {
     handleDialogClose();
@@ -78,6 +82,10 @@ export default function PeerReviewBoardPage(props: Props) {
   const handleLaterClick = useCallback(() => {
     handleDialogClose();
   }, [handleDialogClose]);
+
+  const open = state?.showDialog ?? false;
+  // show fab if there is no review left in TODO and DOING section
+  const showFab = !boards['TODO'] && !boards['DOING'];
 
   return (
     <Container>
@@ -105,6 +113,23 @@ export default function PeerReviewBoardPage(props: Props) {
           )}
         </BoardList>
       </Grid>
+      {showFab && (
+        <Fab size="large" color="secondary" classes={{ root: classes.fab }}>
+          <GiftIcon />
+        </Fab>
+      )}
     </Container>
   );
 }
+
+const styles = (theme: Theme) => ({
+  fab: {
+    position: 'fixed',
+    bottom: 48,
+    left: 48,
+    zIndex: theme.zIndex.snackbar - 10,
+  } as CSSProperties,
+});
+
+const useStyles = makeStyles(styles, { name: 'PeerReviewBoardPage' });
+type StyleProps = Styles<typeof styles>;
