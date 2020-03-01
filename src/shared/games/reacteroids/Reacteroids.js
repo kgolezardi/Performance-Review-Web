@@ -1,8 +1,9 @@
 import React, { Component, createRef } from 'react';
-import Asteroid from './Asteroid';
-import { randomNumBetweenExcluding } from './helpers';
-import Ship from './Ship';
 import { styled } from '@material-ui/core';
+
+import Asteroid from './Asteroid';
+import Ship from './Ship';
+import { randomNumBetweenExcluding } from './helpers';
 
 const KEY = {
   LEFT: 37,
