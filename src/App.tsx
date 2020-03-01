@@ -3,17 +3,16 @@ import { ConfirmProvider } from 'src/shared/confirm-provider';
 import { CssBaseline, ThemeProvider } from '@material-ui/core';
 import { GlobalStyles } from 'src/core/styles/GlobalStyles';
 import { MDXProvider } from 'src/shared/mdx-provider/MDXProvider';
-import { RelayEnvironmentProvider } from 'react-relay/hooks';
 import { RtlSupportProvider } from 'src/core/rtl/RtlSupportProvider';
 import { SnackbarProvider } from 'src/core/snackbar';
-import { environment } from 'src/relay';
 import { rtlTheme } from 'src/core/theme';
 
 import { AppRouter } from './AppRouter';
+import { RelayEnvironmnetContextProvider } from './relay/RelayEnvironmentContext';
 
 const App: React.FC = () => {
   return (
-    <RelayEnvironmentProvider environment={environment}>
+    <RelayEnvironmnetContextProvider>
       <RtlSupportProvider>
         <ThemeProvider theme={rtlTheme}>
           <GlobalStyles />
@@ -27,7 +26,7 @@ const App: React.FC = () => {
           </SnackbarProvider>
         </ThemeProvider>
       </RtlSupportProvider>
-    </RelayEnvironmentProvider>
+    </RelayEnvironmnetContextProvider>
   );
 };
 

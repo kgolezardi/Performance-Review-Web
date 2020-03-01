@@ -1,6 +1,5 @@
 import { Environment, Network, RecordSource, Store } from 'relay-runtime';
-
-import { fetchQuery } from './fetchQuery';
+import { fetchQuery } from 'src/relay/fetchQuery';
 
 export const environment = new Environment({
   network: Network.create(fetchQuery),
