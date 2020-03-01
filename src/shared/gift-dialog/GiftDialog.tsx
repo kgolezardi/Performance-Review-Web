@@ -1,5 +1,8 @@
+import GiftDialogHeader from 'src/assets/gift-dialog-elements.png';
+import GiftInCircle from 'src/assets/gift-in-cirlce.png';
 import React, { useCallback } from 'react';
 import {
+  Box,
   Button,
   Dialog,
   DialogContent,
@@ -35,7 +38,11 @@ export function GiftDialog(props: Props) {
   }, [onLaterClick]);
 
   return (
-    <Dialog maxWidth="sm" fullWidth open={open}>
+    <Dialog open={open} classes={{ paper: classes.dialogPaper }}>
+      <img src={GiftInCircle} className={classes.giftInCirlceImage} alt="gift circle" />
+      <Box padding={3} paddingBottom={5}>
+        <img src={GiftDialogHeader} className={classes.headerImage} alt="gift dialog header" />
+      </Box>
       <MuiDialogTitle disableTypography classes={{ root: classes.dialogTitle }}>
         <Typography variant="h5">{i18n._('All reviews were successfully done')}</Typography>
       </MuiDialogTitle>
@@ -58,6 +65,21 @@ export function GiftDialog(props: Props) {
 }
 
 const styles = (theme: Theme) => ({
+  dialogPaper: {
+    overflowY: 'visible',
+    width: 512,
+  } as CSSProperties,
+  giftInCirlceImage: {
+    width: 168,
+    height: 168,
+    position: 'absolute',
+    top: 0,
+    right: '50%',
+    transform: 'translate(50%,-50%)',
+  } as CSSProperties,
+  headerImage: {
+    width: '100%',
+  } as CSSProperties,
   dialogTitle: {
     textAlign: 'center',
   } as CSSProperties,
