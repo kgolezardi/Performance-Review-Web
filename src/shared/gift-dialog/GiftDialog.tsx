@@ -1,6 +1,7 @@
 import GiftDialogHeader from 'src/assets/gift-dialog-elements.png';
 import GiftInCircle from 'src/assets/gift-in-cirlce.png';
-import React, { useCallback } from 'react';
+import graphql from 'babel-plugin-relay/macro';
+import React, { useCallback, useContext } from 'react';
 import {
   Box,
   Button,
@@ -14,13 +15,31 @@ import {
 } from '@material-ui/core';
 import { CSSProperties } from '@material-ui/core/styles/withStyles';
 import { FCProps } from 'src/shared/types/FCProps';
+import { MDXContext } from '@mdx-js/react';
+import { MDXPropsProvider } from 'src/shared/mdx-provider/MDXPropsProvider';
 import { Styles } from 'src/shared/types/Styles';
+import { UserType } from 'src/shared/utils/getUserLabel';
 import { i18n } from '@lingui/core';
+import { importMDX } from 'mdx.macro';
+import { useFragment } from 'react-relay/hooks';
+
+import { GiftDialog_user$key } from './__generated__/GiftDialog_user.graphql';
+import { withProps } from '../utils/withProps';
+
+const Content = importMDX.sync('./Content.mdx');
+
+const fragment = graphql`
+  fragment GiftDialog_user on UserNode {
+    id
+    ...getUserLabel_user
+  }
+`;
 
 interface OwnProps {
   open: boolean;
   onRecieveClick: () => void;
   onLaterClick: () => void;
+  user: GiftDialog_user$key | null;
 }
 
 type Props = FCProps<OwnProps> & StyleProps;
@@ -28,6 +47,8 @@ type Props = FCProps<OwnProps> & StyleProps;
 export function GiftDialog(props: Props) {
   const { open, onRecieveClick, onLaterClick } = props;
   const classes = useStyles(props);
+  const components = useContext(MDXContext);
+  const user = useFragment(fragment, props.user);
 
   const handleRecieveClick = useCallback(() => {
     onRecieveClick();
@@ -47,12 +68,9 @@ export function GiftDialog(props: Props) {
         <Typography variant="h5">{i18n._('All reviews were successfully done')}</Typography>
       </MuiDialogTitle>
       <DialogContent>
-        {/* TODO: use MDX */}
-        خسته نباشی. شما بصورت کامل ارزیابی‌ها رو انجام دادی. تا قبل از پایان مهلت ارزیابی‌ها، هر وقت تمایل داشتی می‌تونی
-        به ارزیابی هر کدوم از همکارانت که خواستی مراجعه و اون رو ویرایش کنی. برای رفع خستگی یه جایزه در نظر گرفتیم که
-        تقدیمت می‌کنیم.
-        <br />
-        امیدواریم خوشت بیاد.
+        <MDXPropsProvider<UserType | null> value={user}>
+          <Content components={{ ...components, p: PTypography }} />
+        </MDXPropsProvider>
       </DialogContent>
       <DialogActions>
         <Button onClick={handleRecieveClick} variant="contained" color="primary">
@@ -94,3 +112,9 @@ const DialogActions = styled('div')(({ theme }: { theme: Theme }) => ({
   gridGap: theme.spacing(),
   padding: theme.spacing(2),
 }));
+
+const PTypography = withProps(Typography, {
+  variant: 'body1',
+  gutterBottom: true,
+  style: { textAlign: 'center', lineHeight: '1.5em' },
+});

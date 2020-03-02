@@ -34,6 +34,9 @@ const query = graphql`
       usersToReview {
         ...PeerReviewBoardPage_user
       }
+      me {
+        ...GiftDialog_user
+      }
     }
   }
 `;
@@ -89,7 +92,12 @@ export default function PeerReviewBoardPage(props: Props) {
 
   return (
     <Container>
-      <GiftDialog open={open} onRecieveClick={handleRecieveClick} onLaterClick={handleLaterClick} />
+      <GiftDialog
+        open={open}
+        onRecieveClick={handleRecieveClick}
+        onLaterClick={handleLaterClick}
+        user={data.viewer.me}
+      />
       <Grid container spacing={2}>
         <BoardList listTitle={i18n._('Todo')}>
           {boards['TODO'] ? (
