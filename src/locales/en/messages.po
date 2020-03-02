@@ -39,6 +39,10 @@ msgstr "Add here after completing any evaluation"
 msgid "Adding Projects"
 msgstr "Adding Projects"
 
+#: src/shared/gift-dialog/GiftDialog.tsx:15
+msgid "All reviews were successfully done"
+msgstr "All reviews were successfully done"
+
 #: src/pages/peer-review-page/PersonInfoCard.tsx:50
 #: src/pages/peer-review-page/PersonInfoCard.tsx:55
 msgid "An error occurred. Try again!"
@@ -299,6 +303,10 @@ msgstr "Programmers are typing..."
 msgid "Projects"
 msgstr "Projects"
 
+#: src/shared/gift-dialog/GiftDialog.tsx:27
+msgid "Recieve the gift"
+msgstr "Recieve the gift"
+
 #: src/pages/projects-page/ProjectForm.tsx:74
 msgid "Reviewers"
 msgstr "Reviewers"
@@ -376,6 +384,10 @@ msgstr "Successfully saved."
 #: src/global-types/Evaluation.ts:19
 msgid "Superb"
 msgstr "Superb"
+
+#: src/shared/gift-dialog/GiftDialog.tsx:29
+msgid "Thanks, I take it later"
+msgstr "Thanks, I take it later"
 
 #: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:53
 #: src/shared/dominant-characteristics-output/DominantCharacteristics.tsx:21

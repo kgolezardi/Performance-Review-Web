@@ -10,6 +10,13 @@ export const useSavePersonReviewMutation = () =>
         personReview {
           state
         }
+        viewer {
+          usersToReview {
+            personReview {
+              state
+            }
+          }
+        }
       }
     }
   `);
