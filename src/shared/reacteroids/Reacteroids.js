@@ -13,15 +13,16 @@ const KEY = {
   D: 68,
   W: 87,
   SPACE: 32,
+  ESC: 27,
 };
 
-export class Reacteroids extends Component {
+export default class Reacteroids extends Component {
   constructor() {
     super();
     this.state = {
       screen: {
-        width: 400,
-        height: 400,
+        width: window.innerWidth,
+        height: window.innerHeight,
       },
       context: null,
       keys: {
@@ -42,6 +43,22 @@ export class Reacteroids extends Component {
     this.particles = [];
     this.canvas = createRef();
     this.containerRef = createRef();
+
+    this.handleKeysUp = this.handleKeysUp.bind(this);
+    this.handleKeysDown = this.handleKeysDown.bind(this);
+    this.handleResize = this.handleResize.bind(this);
+  }
+
+  handleResize(value, e) {
+    const width = this.containerRef.current.offsetWidth;
+    const height = this.containerRef.current.offsetHeight;
+    this.setState({
+      screen: {
+        ...this.state.screen,
+        width,
+        height,
+      },
+    });
   }
 
   handleKeys(value, e) {
@@ -53,11 +70,22 @@ export class Reacteroids extends Component {
     this.setState({
       keys: keys,
     });
+    // exit game
+    if (e.keyCode === KEY.ESC) this.props.onExit();
+  }
+
+  handleKeysUp(e) {
+    this.handleKeys(false, e);
+  }
+
+  handleKeysDown(e) {
+    this.handleKeys(true, e);
   }
 
   componentDidMount() {
-    window.addEventListener('keyup', this.handleKeys.bind(this, false));
-    window.addEventListener('keydown', this.handleKeys.bind(this, true));
+    window.addEventListener('keyup', this.handleKeysUp);
+    window.addEventListener('keydown', this.handleKeysDown);
+    window.addEventListener('resize', this.handleResize);
 
     const width = this.containerRef.current.offsetWidth;
     const height = this.containerRef.current.offsetHeight;
@@ -71,15 +99,16 @@ export class Reacteroids extends Component {
   }
 
   componentWillUnmount() {
-    window.removeEventListener('keyup', this.handleKeys);
-    window.removeEventListener('keydown', this.handleKeys);
+    window.removeEventListener('keyup', this.handleKeysUp);
+    window.removeEventListener('keydown', this.handleKeysDown);
+    window.removeEventListener('resize', this.handleResize);
   }
 
   update() {
     const context = this.state.context;
 
     context.save();
-    // context.scale(this.state.screen.ratio, this.state.screen.ratio);
+    context.scale(this.state.screen.ratio, this.state.screen.ratio);
 
     // Motion trail
     context.fillStyle = '#000';
@@ -240,6 +269,8 @@ export class Reacteroids extends Component {
           Use [A][S][W][D] or [←][↑][↓][→] to MOVE
           <br />
           Use [SPACE] to SHOOT
+          <br />
+          Press [ESC] to EXIT
         </Controls>
         <canvas ref={this.canvas} width={this.state.screen.width} height={this.state.screen.height} />
       </Container>
