@@ -1,5 +1,5 @@
 import graphql from 'babel-plugin-relay/macro';
-import React, { useCallback } from 'react';
+import React, { useCallback, useState } from 'react';
 import { BoardList } from 'src/shared/board-list';
 import { CSSProperties } from '@material-ui/core/styles/withStyles';
 import { Container, Fab, Grid, Theme, makeStyles } from '@material-ui/core';
@@ -9,6 +9,7 @@ import { FCProps } from 'src/shared/types/FCProps';
 import { GiftDialog } from 'src/shared/gift-dialog/GiftDialog';
 import { GiftIcon } from 'src/assets/icons/GiftIcon';
 import { InProgress as InProgressIcon } from 'src/assets/icons/InProgress';
+import { ReacteroidsPortal } from 'src/shared/reacteroids';
 import { Styles } from 'src/shared/types/Styles';
 import { Todo as TodoIcon } from 'src/assets/icons/Todo';
 import { UserCard } from 'src/shared/user-card';
@@ -69,6 +70,7 @@ export default function PeerReviewBoardPage(props: Props) {
 
   const { state } = useLocation<LocationState>();
   const history = useHistory<LocationState>();
+  const [showGame, setShowGame] = useState(false);
 
   const data = useLazyLoadQuery<PeerReviewBoardPageQuery>(query, {});
   const users = useFragment<PeerReviewBoardPage_user$key>(userFragment, data.viewer.usersToReview);
@@ -78,7 +80,12 @@ export default function PeerReviewBoardPage(props: Props) {
     history.replace({ state: { ...state, showDialog: false } });
   }, [history, state]);
 
-  const handleRecieveClick = useCallback(() => {
+  const handleFabClick = useCallback(() => {
+    setShowGame(true);
+  }, []);
+
+  const handleClaimClick = useCallback(() => {
+    setShowGame(true);
     handleDialogClose();
   }, [handleDialogClose]);
 
@@ -86,18 +93,21 @@ export default function PeerReviewBoardPage(props: Props) {
     handleDialogClose();
   }, [handleDialogClose]);
 
+  const handleExit = useCallback(() => {
+    setShowGame(false);
+  }, []);
+
   const open = state?.showDialog ?? false;
   // show fab if there is no review left in TODO and DOING section
   const showFab = !boards['TODO'] && !boards['DOING'];
 
+  if (showGame) {
+    return <ReacteroidsPortal onExit={handleExit} />;
+  }
+
   return (
     <Container maxWidth="xl">
-      <GiftDialog
-        open={open}
-        onRecieveClick={handleRecieveClick}
-        onLaterClick={handleLaterClick}
-        user={data.viewer.me}
-      />
+      <GiftDialog open={open} onClaimClick={handleClaimClick} onLaterClick={handleLaterClick} user={data.viewer.me} />
       <Grid container spacing={2}>
         <BoardList listTitle={i18n._('Todo')}>
           {boards['TODO'] ? (
@@ -122,7 +132,7 @@ export default function PeerReviewBoardPage(props: Props) {
         </BoardList>
       </Grid>
       {showFab && (
-        <Fab size="large" classes={{ root: classes.fab }}>
+        <Fab onClick={handleFabClick} size="large" classes={{ root: classes.fab }}>
           <GiftIcon />
         </Fab>
       )}

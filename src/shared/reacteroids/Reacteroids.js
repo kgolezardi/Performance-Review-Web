@@ -1,4 +1,4 @@
-import React, { Component, createRef } from 'react';
+import React, { Component, Fragment, createRef } from 'react';
 import { styled } from '@material-ui/core';
 
 import Asteroid from './Asteroid';
@@ -189,7 +189,7 @@ export default class Reacteroids extends Component {
     let ship = this.ship[0];
     for (let i = 0; i < howMany; i++) {
       let asteroid = new Asteroid({
-        size: 40,
+        size: 50,
         position: {
           x: randomNumBetweenExcluding(0, this.state.screen.width, ship.position.x - 60, ship.position.x + 60),
           y: randomNumBetweenExcluding(0, this.state.screen.height, ship.position.y - 60, ship.position.y + 60),
@@ -269,8 +269,12 @@ export default class Reacteroids extends Component {
           Use [A][S][W][D] or [←][↑][↓][→] to MOVE
           <br />
           Use [SPACE] to SHOOT
-          <br />
-          Press [ESC] to EXIT
+          {this.props.onExit && (
+            <Fragment>
+              <br />
+              Press [ESC] to EXIT
+            </Fragment>
+          )}
         </Controls>
         <canvas ref={this.canvas} width={this.state.screen.width} height={this.state.screen.height} />
       </Container>

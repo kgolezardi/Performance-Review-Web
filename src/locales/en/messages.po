@@ -31,7 +31,7 @@ msgstr "Achievements"
 msgid "Add"
 msgstr "Add"
 
-#: src/pages/peer-review-board-page/PeerReviewBoardPage.tsx:49
+#: src/pages/peer-review-board-page/PeerReviewBoardPage.tsx:81
 msgid "Add here after completing any evaluation"
 msgstr "Add here after completing any evaluation"
 
@@ -39,12 +39,12 @@ msgstr "Add here after completing any evaluation"
 msgid "Adding Projects"
 msgstr "Adding Projects"
 
-#: src/shared/gift-dialog/GiftDialog.tsx:15
+#: src/shared/gift-dialog/GiftDialog.tsx:36
 msgid "All reviews were successfully done"
 msgstr "All reviews were successfully done"
 
-#: src/pages/peer-review-page/PersonInfoCard.tsx:50
-#: src/pages/peer-review-page/PersonInfoCard.tsx:55
+#: src/pages/peer-review-page/PersonInfoCard.tsx:53
+#: src/pages/peer-review-page/PersonInfoCard.tsx:58
 msgid "An error occurred. Try again!"
 msgstr "An error occurred. Try again!"
 
@@ -97,15 +97,15 @@ msgid "Dominant Characteristics"
 msgstr "Dominant Characteristics"
 
 #: src/assets/icons/Done.tsx:5
-#: src/pages/peer-review-board-page/PeerReviewBoardPage.tsx:48
+#: src/pages/peer-review-board-page/PeerReviewBoardPage.tsx:80
 msgid "Done"
 msgstr "Done"
 
-#: src/pages/peer-review-page/PersonInfoCard.tsx:64
+#: src/pages/peer-review-page/PersonInfoCard.tsx:67
 msgid "Edit"
 msgstr "Edit"
 
-#: src/pages/peer-review-page/PersonInfoCard.tsx:66
+#: src/pages/peer-review-page/PersonInfoCard.tsx:69
 msgid "End {name}'s evaluation"
 msgstr "End {name}'s evaluation"
 
@@ -160,7 +160,7 @@ msgstr "For instance, your personal key-results may be your accomplishments."
 msgid "Go to Achievements page and add projects you have participated in"
 msgstr "Go to Achievements page and add projects you have participated in"
 
-#: src/pages/peer-review-board-page/PeerReviewBoardPage.tsx:43
+#: src/pages/peer-review-board-page/PeerReviewBoardPage.tsx:75
 msgid "Good job!"
 msgstr "Good job!"
 
@@ -168,7 +168,7 @@ msgstr "Good job!"
 msgid "He/She Needs Improvement"
 msgstr "He/She Needs Improvement"
 
-#: src/pages/peer-review-page/PersonInfoCard.tsx:61
+#: src/pages/peer-review-page/PersonInfoCard.tsx:64
 #: src/shared/user-card/UserCard.tsx:39
 msgid "He/She asked your review on {numberOfProjects} project(s)"
 msgstr "He/She asked your review on {numberOfProjects} project(s)"
@@ -186,7 +186,7 @@ msgid "I thought you forgot to write your strengths!"
 msgstr "I thought you forgot to write your strengths!"
 
 #: src/assets/icons/InProgress.tsx:5
-#: src/pages/peer-review-board-page/PeerReviewBoardPage.tsx:45
+#: src/pages/peer-review-board-page/PeerReviewBoardPage.tsx:77
 msgid "In Progress"
 msgstr "In Progress"
 
@@ -303,10 +303,6 @@ msgstr "Programmers are typing..."
 msgid "Projects"
 msgstr "Projects"
 
-#: src/shared/gift-dialog/GiftDialog.tsx:27
-msgid "Recieve the gift"
-msgstr "Recieve the gift"
-
 #: src/pages/projects-page/ProjectForm.tsx:74
 msgid "Reviewers"
 msgstr "Reviewers"
@@ -343,6 +339,10 @@ msgstr "Select project"
 #: src/containers/main/getMenuItems.ts:13
 msgid "Self Review"
 msgstr "Self Review"
+
+#: src/shared/gift-dialog/GiftDialog.tsx:45
+msgid "Show and claim reward"
+msgstr "Show and claim reward"
 
 #: src/core/snackbar/Snackbar.stories.tsx:24
 #: src/pages/criteria-page/CriteriaPage.tsx:63
@@ -385,9 +385,9 @@ msgstr "Successfully saved."
 msgid "Superb"
 msgstr "Superb"
 
-#: src/shared/gift-dialog/GiftDialog.tsx:29
-msgid "Thanks, I take it later"
-msgstr "Thanks, I take it later"
+#: src/shared/gift-dialog/GiftDialog.tsx:47
+msgid "Thanks, I claim it later"
+msgstr "Thanks, I claim it later"
 
 #: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:53
 #: src/shared/dominant-characteristics-output/DominantCharacteristics.tsx:21
@@ -413,7 +413,7 @@ msgid "Thought Leadership"
 msgstr "Thought Leadership"
 
 #: src/assets/icons/Todo.tsx:5
-#: src/pages/peer-review-board-page/PeerReviewBoardPage.tsx:42
+#: src/pages/peer-review-board-page/PeerReviewBoardPage.tsx:74
 msgid "Todo"
 msgstr "Todo"
 
@@ -471,7 +471,7 @@ msgstr "You haven't added any project."
 msgid "You haven't entered anything yet!"
 msgstr "You haven't entered anything yet!"
 
-#: src/pages/peer-review-board-page/PeerReviewBoardPage.tsx:46
+#: src/pages/peer-review-board-page/PeerReviewBoardPage.tsx:78
 msgid "You haven't started evaluating yet!"
 msgstr "You haven't started evaluating yet!"
 

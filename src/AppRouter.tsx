@@ -22,6 +22,7 @@ export function AppRouter(props: Props) {
         <Router historyOptions={routerOptions}>
           <SettingsProvider>
             <AuthGuard>
+              <div id="game-container" />
               <MainContainer />
             </AuthGuard>
           </SettingsProvider>

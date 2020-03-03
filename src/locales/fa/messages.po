@@ -31,7 +31,7 @@ msgstr "دستاوردها"
 msgid "Add"
 msgstr "افزودن"
 
-#: src/pages/peer-review-board-page/PeerReviewBoardPage.tsx:49
+#: src/pages/peer-review-board-page/PeerReviewBoardPage.tsx:81
 msgid "Add here after completing any evaluation"
 msgstr "هر ارزیابی که تکمیل شد رو به اینجا اضافه کن"
 
@@ -39,12 +39,12 @@ msgstr "هر ارزیابی که تکمیل شد رو به اینجا اضافه
 msgid "Adding Projects"
 msgstr "افزودن پروژه"
 
-#: src/shared/gift-dialog/GiftDialog.tsx:15
+#: src/shared/gift-dialog/GiftDialog.tsx:36
 msgid "All reviews were successfully done"
 msgstr "تمامی ارزیابی‌ها با موفقیت انجام شد"
 
-#: src/pages/peer-review-page/PersonInfoCard.tsx:50
-#: src/pages/peer-review-page/PersonInfoCard.tsx:55
+#: src/pages/peer-review-page/PersonInfoCard.tsx:53
+#: src/pages/peer-review-page/PersonInfoCard.tsx:58
 msgid "An error occurred. Try again!"
 msgstr "خطایی رخ داده. دوباره تلاش کنید."
 
@@ -97,15 +97,15 @@ msgid "Dominant Characteristics"
 msgstr "ویژگی‌های بارز"
 
 #: src/assets/icons/Done.tsx:5
-#: src/pages/peer-review-board-page/PeerReviewBoardPage.tsx:48
+#: src/pages/peer-review-board-page/PeerReviewBoardPage.tsx:80
 msgid "Done"
 msgstr "انجام شده"
 
-#: src/pages/peer-review-page/PersonInfoCard.tsx:64
+#: src/pages/peer-review-page/PersonInfoCard.tsx:67
 msgid "Edit"
 msgstr "ویرایش"
 
-#: src/pages/peer-review-page/PersonInfoCard.tsx:66
+#: src/pages/peer-review-page/PersonInfoCard.tsx:69
 msgid "End {name}'s evaluation"
 msgstr "اتمام ارزیابی {name}"
 
@@ -160,7 +160,7 @@ msgstr "مثلاً ممکنه Key Result های شخصیتون، دستاورد�
 msgid "Go to Achievements page and add projects you have participated in"
 msgstr "به صفحه‌ی دستاوردها برو و پروژه‌هایی که در آن‌ها شرکت داشتی را وارد کن"
 
-#: src/pages/peer-review-board-page/PeerReviewBoardPage.tsx:43
+#: src/pages/peer-review-board-page/PeerReviewBoardPage.tsx:75
 msgid "Good job!"
 msgstr "باریکلا! چه خوب که همه رو داری انجام میدی یا شایدم تمومشون کردی"
 
@@ -168,7 +168,7 @@ msgstr "باریکلا! چه خوب که همه رو داری انجام مید�
 msgid "He/She Needs Improvement"
 msgstr "کمتر از حد انتظاری که ازش میره"
 
-#: src/pages/peer-review-page/PersonInfoCard.tsx:61
+#: src/pages/peer-review-page/PersonInfoCard.tsx:64
 #: src/shared/user-card/UserCard.tsx:39
 msgid "He/She asked your review on {numberOfProjects} project(s)"
 msgstr "در {numberOfProjects} پروژه از شما نظر خواسته است"
@@ -186,7 +186,7 @@ msgid "I thought you forgot to write your strengths!"
 msgstr "کاش یه نقطه‌ی قوت هم بنویسی!"
 
 #: src/assets/icons/InProgress.tsx:5
-#: src/pages/peer-review-board-page/PeerReviewBoardPage.tsx:45
+#: src/pages/peer-review-board-page/PeerReviewBoardPage.tsx:77
 msgid "In Progress"
 msgstr "در حال انجام"
 
@@ -303,10 +303,6 @@ msgstr "برنامه‌نویسان در حال تایپند...‌"
 msgid "Projects"
 msgstr "پروژه‌ها"
 
-#: src/shared/gift-dialog/GiftDialog.tsx:27
-msgid "Recieve the gift"
-msgstr "دریافت جایزه"
-
 #: src/pages/projects-page/ProjectForm.tsx:74
 msgid "Reviewers"
 msgstr "مرورکننده‌ها"
@@ -343,6 +339,10 @@ msgstr "انتخاب پروژه"
 #: src/containers/main/getMenuItems.ts:13
 msgid "Self Review"
 msgstr "ارزیابی من"
+
+#: src/shared/gift-dialog/GiftDialog.tsx:45
+msgid "Show and claim reward"
+msgstr "مشاهده و دریافت جایزه"
 
 #: src/core/snackbar/Snackbar.stories.tsx:24
 #: src/pages/criteria-page/CriteriaPage.tsx:63
@@ -385,8 +385,8 @@ msgstr "با موفقیت ثبت گردید."
 msgid "Superb"
 msgstr "فوق‌العاده"
 
-#: src/shared/gift-dialog/GiftDialog.tsx:29
-msgid "Thanks, I take it later"
+#: src/shared/gift-dialog/GiftDialog.tsx:47
+msgid "Thanks, I claim it later"
 msgstr "ممنون، بعدا می‌گیرم جایزمو"
 
 #: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:53
@@ -413,7 +413,7 @@ msgid "Thought Leadership"
 msgstr "مرجعیت تخصصی"
 
 #: src/assets/icons/Todo.tsx:5
-#: src/pages/peer-review-board-page/PeerReviewBoardPage.tsx:42
+#: src/pages/peer-review-board-page/PeerReviewBoardPage.tsx:74
 msgid "Todo"
 msgstr "انجام نشده"
 
@@ -471,7 +471,7 @@ msgstr "هنوز هیچ پروژه‌ای را اضافه نکردی!"
 msgid "You haven't entered anything yet!"
 msgstr "هنوز چیزی ننوشتی!"
 
-#: src/pages/peer-review-board-page/PeerReviewBoardPage.tsx:46
+#: src/pages/peer-review-board-page/PeerReviewBoardPage.tsx:78
 msgid "You haven't started evaluating yet!"
 msgstr "هنوز شروع به ارزیابی نکردی!"
 
