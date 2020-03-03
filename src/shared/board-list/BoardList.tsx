@@ -28,7 +28,7 @@ export const BoardList = (props: Props) => {
 const styles = (theme: Theme) => ({
   root: {
     marginTop: theme.spacing(7),
-    height: '70vh',
+    height: '75vh',
   } as CSSProperties,
   card: {
     height: '100%',
