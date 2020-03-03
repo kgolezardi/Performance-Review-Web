@@ -1,4 +1,4 @@
-import React, { Component, createRef } from 'react';
+import React, { Component, Fragment, createRef } from 'react';
 import { styled } from '@material-ui/core';
 
 import Asteroid from './Asteroid';
@@ -269,8 +269,12 @@ export default class Reacteroids extends Component {
           Use [A][S][W][D] or [←][↑][↓][→] to MOVE
           <br />
           Use [SPACE] to SHOOT
-          <br />
-          Press [ESC] to EXIT
+          {this.props.onExit && (
+            <Fragment>
+              <br />
+              Press [ESC] to EXIT
+            </Fragment>
+          )}
         </Controls>
         <canvas ref={this.canvas} width={this.state.screen.width} height={this.state.screen.height} />
       </Container>
