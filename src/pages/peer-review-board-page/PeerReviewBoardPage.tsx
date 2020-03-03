@@ -1,5 +1,5 @@
 import graphql from 'babel-plugin-relay/macro';
-import React, { useCallback } from 'react';
+import React, { useCallback, useState } from 'react';
 import { BoardList } from 'src/shared/board-list';
 import { CSSProperties } from '@material-ui/core/styles/withStyles';
 import { Container, Fab, Grid, Theme, makeStyles } from '@material-ui/core';
@@ -23,6 +23,8 @@ import {
   PeerReviewBoardPage_user,
   PeerReviewBoardPage_user$key,
 } from './__generated__/PeerReviewBoardPage_user.graphql';
+
+const Reacteroids = React.lazy(() => import('src/shared/reacteroids'));
 
 interface OwnProps {}
 
@@ -69,6 +71,7 @@ export default function PeerReviewBoardPage(props: Props) {
 
   const { state } = useLocation<LocationState>();
   const history = useHistory<LocationState>();
+  const [showGame, setShowGame] = useState(false);
 
   const data = useLazyLoadQuery<PeerReviewBoardPageQuery>(query, {});
   const users = useFragment<PeerReviewBoardPage_user$key>(userFragment, data.viewer.usersToReview);
@@ -78,7 +81,8 @@ export default function PeerReviewBoardPage(props: Props) {
     history.replace({ state: { ...state, showDialog: false } });
   }, [history, state]);
 
-  const handleRecieveClick = useCallback(() => {
+  const handleReclaimClick = useCallback(() => {
+    setShowGame(true);
     handleDialogClose();
   }, [handleDialogClose]);
 
@@ -86,15 +90,23 @@ export default function PeerReviewBoardPage(props: Props) {
     handleDialogClose();
   }, [handleDialogClose]);
 
+  const handleExit = useCallback(() => {
+    setShowGame(false);
+  }, []);
+
   const open = state?.showDialog ?? false;
   // show fab if there is no review left in TODO and DOING section
   const showFab = !boards['TODO'] && !boards['DOING'];
+
+  if (showGame) {
+    return <Reacteroids onExit={handleExit} />;
+  }
 
   return (
     <Container maxWidth="xl">
       <GiftDialog
         open={open}
-        onRecieveClick={handleRecieveClick}
+        onReclaimClick={handleReclaimClick}
         onLaterClick={handleLaterClick}
         user={data.viewer.me}
       />
