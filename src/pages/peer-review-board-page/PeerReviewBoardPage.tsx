@@ -9,6 +9,7 @@ import { FCProps } from 'src/shared/types/FCProps';
 import { GiftDialog } from 'src/shared/gift-dialog/GiftDialog';
 import { GiftIcon } from 'src/assets/icons/GiftIcon';
 import { InProgress as InProgressIcon } from 'src/assets/icons/InProgress';
+import { ReacteroidsPortal } from 'src/shared/reacteroids';
 import { Styles } from 'src/shared/types/Styles';
 import { Todo as TodoIcon } from 'src/assets/icons/Todo';
 import { UserCard } from 'src/shared/user-card';
@@ -23,8 +24,6 @@ import {
   PeerReviewBoardPage_user,
   PeerReviewBoardPage_user$key,
 } from './__generated__/PeerReviewBoardPage_user.graphql';
-
-const Reacteroids = React.lazy(() => import('src/shared/reacteroids'));
 
 interface OwnProps {}
 
@@ -81,7 +80,11 @@ export default function PeerReviewBoardPage(props: Props) {
     history.replace({ state: { ...state, showDialog: false } });
   }, [history, state]);
 
-  const handleReclaimClick = useCallback(() => {
+  const handleFabClick = useCallback(() => {
+    setShowGame(true);
+  }, []);
+
+  const handleClaimClick = useCallback(() => {
     setShowGame(true);
     handleDialogClose();
   }, [handleDialogClose]);
@@ -99,17 +102,12 @@ export default function PeerReviewBoardPage(props: Props) {
   const showFab = !boards['TODO'] && !boards['DOING'];
 
   if (showGame) {
-    return <Reacteroids onExit={handleExit} />;
+    return <ReacteroidsPortal onExit={handleExit} />;
   }
 
   return (
     <Container maxWidth="xl">
-      <GiftDialog
-        open={open}
-        onReclaimClick={handleReclaimClick}
-        onLaterClick={handleLaterClick}
-        user={data.viewer.me}
-      />
+      <GiftDialog open={open} onClaimClick={handleClaimClick} onLaterClick={handleLaterClick} user={data.viewer.me} />
       <Grid container spacing={2}>
         <BoardList listTitle={i18n._('Todo')}>
           {boards['TODO'] ? (
@@ -134,7 +132,7 @@ export default function PeerReviewBoardPage(props: Props) {
         </BoardList>
       </Grid>
       {showFab && (
-        <Fab size="large" classes={{ root: classes.fab }}>
+        <Fab onClick={handleFabClick} size="large" classes={{ root: classes.fab }}>
           <GiftIcon />
         </Fab>
       )}

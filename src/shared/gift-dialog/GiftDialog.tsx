@@ -37,7 +37,7 @@ const fragment = graphql`
 
 interface OwnProps {
   open: boolean;
-  onReclaimClick: () => void;
+  onClaimClick: () => void;
   onLaterClick: () => void;
   user: GiftDialog_user$key | null;
 }
@@ -45,14 +45,14 @@ interface OwnProps {
 type Props = FCProps<OwnProps> & StyleProps;
 
 export function GiftDialog(props: Props) {
-  const { open, onReclaimClick, onLaterClick } = props;
+  const { open, onClaimClick, onLaterClick } = props;
   const classes = useStyles(props);
   const components = useContext(MDXContext);
   const user = useFragment(fragment, props.user);
 
-  const handleReclaimClick = useCallback(() => {
-    onReclaimClick();
-  }, [onReclaimClick]);
+  const handleClaimClick = useCallback(() => {
+    onClaimClick();
+  }, [onClaimClick]);
 
   const handleLaterClick = useCallback(() => {
     onLaterClick();
@@ -73,7 +73,7 @@ export function GiftDialog(props: Props) {
         </MDXPropsProvider>
       </DialogContent>
       <DialogActions>
-        <Button onClick={handleReclaimClick} variant="contained" color="primary">
+        <Button onClick={handleClaimClick} variant="contained" color="primary">
           {i18n._('Show and claim reward')}
         </Button>
         <Button onClick={handleLaterClick}>{i18n._('Thanks, I claim it later')}</Button>
