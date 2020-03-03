@@ -91,7 +91,7 @@ export default function PeerReviewBoardPage(props: Props) {
   const showFab = !boards['TODO'] && !boards['DOING'];
 
   return (
-    <Container>
+    <Container maxWidth="xl">
       <GiftDialog
         open={open}
         onRecieveClick={handleRecieveClick}
@@ -122,7 +122,7 @@ export default function PeerReviewBoardPage(props: Props) {
         </BoardList>
       </Grid>
       {showFab && (
-        <Fab size="large" color="secondary" classes={{ root: classes.fab }}>
+        <Fab size="large" classes={{ root: classes.fab }}>
           <GiftIcon />
         </Fab>
       )}
@@ -134,8 +134,9 @@ const styles = (theme: Theme) => ({
   fab: {
     position: 'fixed',
     bottom: 48,
-    left: 48,
+    left: 40,
     zIndex: theme.zIndex.snackbar - 10,
+    backgroundImage: `linear-gradient(212deg, #ffa978, ${theme.palette.secondary.main} 85%, ${theme.palette.secondary.main} 90%)`,
   } as CSSProperties,
 });
 
