@@ -5,17 +5,15 @@ import { DictInput, Forminator, SubmitButton } from 'src/shared/forminator';
 import { FCProps } from 'src/shared/types/FCProps';
 import { Grid } from '@material-ui/core';
 import { MDXContext } from '@mdx-js/react';
-import { MDXPropsProvider } from 'src/shared/mdx-provider/MDXPropsProvider';
 import { SectionGuide } from 'src/shared/section-guide';
 import { ServerValueProvider } from 'src/shared/server-value';
 import { StickyActionBar } from 'src/shared/sticky-action-bar/StickyActionBar';
-import { UserType } from 'src/shared/utils/getUserLabel';
 import { i18n } from '@lingui/core';
 import { importMDX } from 'mdx.macro';
 import { useFragment } from 'react-relay/hooks';
 
-import { CriteriaFormData } from './CriteriaFormData';
-import { CriteriaForm_user$key } from './__generated__/CriteriaForm_user.graphql';
+import { CriteriaFormValue } from './CriteriaFormValue';
+import { CriteriaForm_review$key } from './__generated__/CriteriaForm_review.graphql';
 
 // self review helper texts
 const OrganizationCultureAdoptionContentSelfReview = importMDX.sync(
@@ -39,11 +37,27 @@ const ThoughtLeadershipContentPeerReview = importMDX.sync('./help-texts/peer-rev
 const PresenceContentPeerReview = importMDX.sync('./help-texts/peer-review/PresenceContent.mdx');
 const DescriptionContentPeerReview = importMDX.sync('./help-texts/peer-review/DescriptionContent.mdx');
 
+const fragment = graphql`
+  fragment CriteriaForm_review on PersonReviewNode {
+    sahabinessComment
+    sahabinessRating
+    problemSolvingComment
+    problemSolvingRating
+    executionComment
+    executionRating
+    thoughtLeadershipComment
+    thoughtLeadershipRating
+    leadershipComment
+    leadershipRating
+    presenceComment
+    presenceRating
+  }
+`;
+
 interface OwnProps {
-  initialValue?: CriteriaFormData;
+  review: CriteriaForm_review$key | null;
   isSelfReview: boolean;
-  onSubmit: (data: CriteriaFormData) => void;
-  user: CriteriaForm_user$key | null;
+  onSubmit: (data: CriteriaFormValue) => void;
 }
 
 type Props = FCProps<OwnProps>;
@@ -51,12 +65,18 @@ type Props = FCProps<OwnProps>;
 export function CriteriaForm(props: Props) {
   const { onSubmit, isSelfReview } = props;
   const components = useContext(MDXContext);
-  const user = useFragment(fragmentUserNode, props.user);
+  const review = useFragment(fragment, props.review);
   const reviewType = isSelfReview ? 'self' : 'peer';
 
+  // if review properties are null, replace it with undefined
+  let value: CriteriaFormValue = {};
+  for (const key in review) {
+    Object.assign(value, { [key]: review?.[key as keyof CriteriaFormValue] ?? undefined });
+  }
+
   return (
-    <ServerValueProvider value={props.initialValue}>
-      <Forminator onSubmit={onSubmit} initialValue={props.initialValue}>
+    <ServerValueProvider value={value}>
+      <Forminator onSubmit={onSubmit} initialValue={value}>
         <Grid container spacing={4}>
           <DictInput>
             <Grid item xs={12}>
@@ -64,9 +84,7 @@ export function CriteriaForm(props: Props) {
                 {isSelfReview ? (
                   <DescriptionContentSelfReview components={components} />
                 ) : (
-                  <MDXPropsProvider<UserType | null> value={user}>
-                    <DescriptionContentPeerReview components={components} />
-                  </MDXPropsProvider>
+                  <DescriptionContentPeerReview components={components} />
                 )}
               </SectionGuide>
             </Grid>
@@ -165,10 +183,3 @@ export function CriteriaForm(props: Props) {
     </ServerValueProvider>
   );
 }
-
-const fragmentUserNode = graphql`
-  fragment CriteriaForm_user on UserNode {
-    id
-    ...getUserLabel_user
-  }
-`;
