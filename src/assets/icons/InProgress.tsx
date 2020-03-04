@@ -6,5 +6,7 @@ import InProgressIcon from './in-progress.png';
 interface OwnProps {}
 
 export function InProgress(props: OwnProps) {
-  return <img {...props} alt={i18n._('In Progress')} src={InProgressIcon} />;
+  return (
+    <img style={{ width: '100px', height: '128px' }} {...props} alt={i18n._('In Progress')} src={InProgressIcon} />
+  );
 }
