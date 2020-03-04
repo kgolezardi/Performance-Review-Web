@@ -6,6 +6,7 @@ import { Box, Container, Paper, Theme, makeStyles } from '@material-ui/core';
 import { CSSProperties } from '@material-ui/core/styles/withStyles';
 import { FCProps } from 'src/shared/types/FCProps';
 import { FullPageSpinner } from 'src/shared/loading';
+import { PromptProvider } from 'src/shared/prompt';
 import { Redirect, Route, Switch, useParams } from 'react-router-dom';
 import { Styles } from 'src/shared/types/Styles';
 import { TabLink } from 'src/shared/tab';
@@ -53,18 +54,20 @@ export default function SelfReviewPage(props: Props) {
               </Box>
             }
           >
-            <Switch>
-              <Route
-                path={toPrefix + '/performance-competencies'}
-                children={<CriteriaPage revieweeId={revieweeId} />}
-              />
-              <Route
-                path={toPrefix + '/dominant-characteristics'}
-                children={<StrengthsWeaknessesPage revieweeId={revieweeId} />}
-              />
-              <Route path={toPrefix + '/achievements'} children={<ProjectsPage />} />
-              <Redirect to={toPrefix + '/performance-competencies'} />
-            </Switch>
+            <PromptProvider message={i18n._('Changes you made may not be saved.')}>
+              <Switch>
+                <Route
+                  path={toPrefix + '/performance-competencies'}
+                  children={<CriteriaPage revieweeId={revieweeId} />}
+                />
+                <Route
+                  path={toPrefix + '/dominant-characteristics'}
+                  children={<StrengthsWeaknessesPage revieweeId={revieweeId} />}
+                />
+                <Route path={toPrefix + '/achievements'} children={<ProjectsPage />} />
+                <Redirect to={toPrefix + '/performance-competencies'} />
+              </Switch>
+            </PromptProvider>
           </Suspense>
         </Paper>
       </Box>

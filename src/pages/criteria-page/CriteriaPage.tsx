@@ -3,7 +3,6 @@ import React, { useCallback } from 'react';
 import { Box } from '@material-ui/core';
 import { CriteriaOutput } from 'src/shared/criteria-output';
 import { FCProps } from 'src/shared/types/FCProps';
-import { PromptProvider } from 'src/shared/prompt';
 import { i18n } from '@lingui/core';
 import { useBiDiSnackbar } from 'src/shared/snackbar';
 import { useLazyLoadQuery } from 'react-relay/hooks';
@@ -90,28 +89,26 @@ export default function CriteriaPage(props: Props) {
       {review?.state === 'DONE' ? (
         <CriteriaOutput review={review} />
       ) : (
-        <PromptProvider message={i18n._('Changes you made may not be saved.')}>
-          <CriteriaForm
-            onSubmit={handleSubmit}
-            user={review?.reviewee ?? null}
-            initialValue={{
-              // TODO: use fragment
-              executionComment: review?.executionComment || undefined,
-              executionRating: review?.executionRating || undefined,
-              leadershipComment: review?.leadershipComment || undefined,
-              leadershipRating: review?.leadershipRating || undefined,
-              presenceComment: review?.presenceComment || undefined,
-              presenceRating: review?.presenceRating || undefined,
-              problemSolvingComment: review?.problemSolvingComment || undefined,
-              problemSolvingRating: review?.problemSolvingRating || undefined,
-              sahabinessComment: review?.sahabinessComment || undefined,
-              sahabinessRating: review?.sahabinessRating || undefined,
-              thoughtLeadershipComment: review?.thoughtLeadershipComment || undefined,
-              thoughtLeadershipRating: review?.thoughtLeadershipRating || undefined,
-            }}
-            isSelfReview={review?.isSelfReview || false}
-          />
-        </PromptProvider>
+        <CriteriaForm
+          onSubmit={handleSubmit}
+          user={review?.reviewee ?? null}
+          initialValue={{
+            // TODO: use fragment
+            executionComment: review?.executionComment || undefined,
+            executionRating: review?.executionRating || undefined,
+            leadershipComment: review?.leadershipComment || undefined,
+            leadershipRating: review?.leadershipRating || undefined,
+            presenceComment: review?.presenceComment || undefined,
+            presenceRating: review?.presenceRating || undefined,
+            problemSolvingComment: review?.problemSolvingComment || undefined,
+            problemSolvingRating: review?.problemSolvingRating || undefined,
+            sahabinessComment: review?.sahabinessComment || undefined,
+            sahabinessRating: review?.sahabinessRating || undefined,
+            thoughtLeadershipComment: review?.thoughtLeadershipComment || undefined,
+            thoughtLeadershipRating: review?.thoughtLeadershipRating || undefined,
+          }}
+          isSelfReview={review?.isSelfReview || false}
+        />
       )}
     </Box>
   );

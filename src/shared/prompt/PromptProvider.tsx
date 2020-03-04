@@ -8,12 +8,23 @@ import { Prompt as UnloadPrompt } from './Prompt';
 export interface PromptContextType {
   (id: string, state: boolean): void;
 }
+export interface PromptStateContextType {
+  changed: boolean;
+}
 export const PromptContext = createContext<PromptContextType | null>(null);
+export const PromptStateContext = createContext<PromptStateContextType | null>(null);
 
 export function usePromptContext(): PromptContextType {
   const context = useContext(PromptContext);
   if (context === null) {
     throw new Error('usePromptContext must be used inside the <PromptProvider/>');
+  }
+  return context;
+}
+export function usePromptStateContext(): PromptStateContextType {
+  const context = useContext(PromptStateContext);
+  if (context === null) {
+    throw new Error('usePromptStateContext must be used inside the <PromptProvider/>');
   }
   return context;
 }
@@ -41,15 +52,17 @@ export function PromptProvider(props: Props) {
   const setPrompt = useCallback((id: string, state: boolean) => {
     setPrompts(w => ({ ...w, [id]: state }));
   }, []);
-  const when = useMemo(() => {
+  const changed = useMemo(() => {
     return values(prompts).filter(Boolean).length > 0;
   }, [prompts]);
-
+  const state = useMemo(() => ({ changed }), [changed]);
   return (
-    <PromptContext.Provider value={setPrompt}>
-      <RouterPrompt message={props.message} when={when} />
-      <UnloadPrompt message={props.message} when={when} />
-      {props.children}
-    </PromptContext.Provider>
+    <PromptStateContext.Provider value={state}>
+      <PromptContext.Provider value={setPrompt}>
+        <RouterPrompt message={props.message} when={changed} />
+        <UnloadPrompt message={props.message} when={changed} />
+        {props.children}
+      </PromptContext.Provider>
+    </PromptStateContext.Provider>
   );
 }
