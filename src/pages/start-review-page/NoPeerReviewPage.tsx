@@ -11,7 +11,7 @@ interface OwnProps {}
 
 type Props = FCProps<OwnProps> & StyleProps;
 
-export function NoPeerReview(props: Props) {
+export default function NoPeerReviewPage(props: Props) {
   const classes = useStyles(props);
   const user = useAuthGuardUser();
 

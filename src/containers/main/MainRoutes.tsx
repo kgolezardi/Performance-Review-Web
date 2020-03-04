@@ -1,7 +1,6 @@
 import React from 'react';
 import graphql from 'babel-plugin-relay/macro';
 import { FCProps } from 'src/shared/types/FCProps';
-import { NoPeerReview } from 'src/pages/start-review-page/NoPeerReview';
 import { Redirect, Route, Switch } from 'react-router-dom';
 import { useAppSettings } from 'src/core/settings';
 import { useAuthGuardUser } from 'src/core/auth';
@@ -72,6 +71,13 @@ const PeerStartReviewPage = React.lazy(() =>
   ),
 );
 
+const NoPeerReviewPage = React.lazy(() =>
+  import(
+    /* webpackChunkName: "peer-no-review-page" */
+    'src/pages/start-review-page/NoPeerReviewPage'
+  ),
+);
+
 interface Props {}
 
 const query = graphql`
@@ -108,7 +114,7 @@ export function MainRoutes(props: FCProps<Props>) {
     const hasSomethingToReview = !!data.viewer.usersToReview.length;
 
     if (!hasSomethingToReview) {
-      return <NoPeerReview />;
+      return <NoPeerReviewPage />;
     }
     if (!user.hasStarted) {
       return <PeerStartReviewPage />;
