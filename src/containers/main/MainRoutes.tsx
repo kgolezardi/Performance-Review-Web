@@ -1,8 +1,13 @@
 import React from 'react';
+import graphql from 'babel-plugin-relay/macro';
 import { FCProps } from 'src/shared/types/FCProps';
+import { NoPeerReview } from 'src/pages/start-review-page/NoPeerReview';
 import { Redirect, Route, Switch } from 'react-router-dom';
 import { useAppSettings } from 'src/core/settings';
 import { useAuthGuardUser } from 'src/core/auth';
+import { useLazyLoadQuery } from 'react-relay/hooks';
+
+import { MainRoutesQuery } from './__generated__/MainRoutesQuery.graphql';
 
 const DashboardPage = React.lazy(() =>
   import(
@@ -69,10 +74,22 @@ const PeerStartReviewPage = React.lazy(() =>
 
 interface Props {}
 
+const query = graphql`
+  query MainRoutesQuery {
+    viewer {
+      usersToReview {
+        id
+      }
+    }
+  }
+`;
+
 export function MainRoutes(props: FCProps<Props>) {
   const user = useAuthGuardUser();
 
   const { phase } = useAppSettings();
+
+  const data = useLazyLoadQuery<MainRoutesQuery>(query, {});
 
   if (phase === 'SELF_REVIEW') {
     if (!user.hasStarted) {
@@ -88,6 +105,11 @@ export function MainRoutes(props: FCProps<Props>) {
   }
 
   if (phase === 'PEER_REVIEW') {
+    const hasSomethingToReview = !!data.viewer.usersToReview.length;
+
+    if (!hasSomethingToReview) {
+      return <NoPeerReview />;
+    }
     if (!user.hasStarted) {
       return <PeerStartReviewPage />;
     }
