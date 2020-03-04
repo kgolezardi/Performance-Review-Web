@@ -1,11 +1,6 @@
 {
-  ".js, .jsx": {
+  ".js, .jsx, .ts, .tsx": {
     "parser": "babylon",
-    "style": "renke",
-    "options": {}
-  },
-  ".ts, .tsx": {
-    "parser": "typescript",
     "style": "renke",
     "options": {}
   }
