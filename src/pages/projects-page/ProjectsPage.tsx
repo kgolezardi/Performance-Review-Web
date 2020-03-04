@@ -3,7 +3,6 @@ import React, { Fragment, useCallback, useContext, useState } from 'react';
 import { Box, Grid } from '@material-ui/core';
 import { FCProps } from 'src/shared/types/FCProps';
 import { MDXContext } from '@mdx-js/react';
-import { PromptProvider } from 'src/shared/prompt';
 import { SectionGuide } from 'src/shared/section-guide';
 import { i18n } from '@lingui/core';
 import { importMDX } from 'mdx.macro';
@@ -110,20 +109,18 @@ export default function ProjectsPage(props: Props) {
         </Grid>
       </Box>
       <Box paddingY={2}>
-        <PromptProvider message={i18n._('Changes you made may not be saved.')}>
-          {projectReviews.map(projectReview => {
-            return (
-              <ProjectExpansionPanel
-                key={projectReview.id}
-                projectReview={projectReview}
-                initialProjectIds={initialProjectIds}
-                saveProject={saveProject}
-                deleteProject={deleteProject}
-                users={data.viewer.users}
-              />
-            );
-          })}
-        </PromptProvider>
+        {projectReviews.map(projectReview => {
+          return (
+            <ProjectExpansionPanel
+              key={projectReview.id}
+              projectReview={projectReview}
+              initialProjectIds={initialProjectIds}
+              saveProject={saveProject}
+              deleteProject={deleteProject}
+              users={data.viewer.users}
+            />
+          );
+        })}
       </Box>
     </Fragment>
   );

@@ -7,6 +7,7 @@ import { CSSProperties } from '@material-ui/core/styles/withStyles';
 import { FCProps } from 'src/shared/types/FCProps';
 import { FullPageSpinner } from 'src/shared/loading';
 import { InView } from 'src/shared/in-view';
+import { PromptProvider } from 'src/shared/prompt';
 import { Redirect, Route, Switch, useParams } from 'react-router-dom';
 import { Styles } from 'src/shared/types/Styles';
 import { TabLink } from 'src/shared/tab';
@@ -52,49 +53,51 @@ export default function PeerReviewPage(props: Props) {
   }
 
   return (
-    <Container maxWidth="md">
-      <InView>
-        <PersonInfoCard user={data.viewer.user} classes={{ root: classes.personInfoCardRoot }}>
-          <Tabs value={tab ?? 'performance-competencies'}>
-            <TabLink
-              label={i18n._('Performance Competencies')}
-              value="performance-competencies"
-              to={toPrefix + '/performance-competencies'}
-            />
-            <TabLink
-              label={i18n._('Dominant Characteristics')}
-              value="dominant-characteristics"
-              to={toPrefix + '/dominant-characteristics'}
-            />
-            <TabLink label={i18n._('Achievements')} value="achievements" to={toPrefix + '/achievements'} />
-          </Tabs>
-        </PersonInfoCard>
-      </InView>
-      <Box marginY={2}>
-        <Paper>
-          <Suspense
-            fallback={
-              <Box height={200}>
-                <FullPageSpinner />
-              </Box>
-            }
-          >
-            <Switch>
-              <Route
-                path={toPrefix + '/performance-competencies'}
-                children={<CriteriaPage revieweeId={revieweeId} />}
+    <PromptProvider message={i18n._('Changes you made may not be saved.')}>
+      <Container maxWidth="md">
+        <InView>
+          <PersonInfoCard user={data.viewer.user} classes={{ root: classes.personInfoCardRoot }}>
+            <Tabs value={tab ?? 'performance-competencies'}>
+              <TabLink
+                label={i18n._('Performance Competencies')}
+                value="performance-competencies"
+                to={toPrefix + '/performance-competencies'}
               />
-              <Route
-                path={toPrefix + '/dominant-characteristics'}
-                children={<StrengthsWeaknessesPage revieweeId={revieweeId} />}
+              <TabLink
+                label={i18n._('Dominant Characteristics')}
+                value="dominant-characteristics"
+                to={toPrefix + '/dominant-characteristics'}
               />
-              <Route path={toPrefix + '/achievements'} children={<PeerReviewProjectsTab revieweeId={revieweeId} />} />
-              <Redirect to={toPrefix + '/performance-competencies'} />
-            </Switch>
-          </Suspense>
-        </Paper>
-      </Box>
-    </Container>
+              <TabLink label={i18n._('Achievements')} value="achievements" to={toPrefix + '/achievements'} />
+            </Tabs>
+          </PersonInfoCard>
+        </InView>
+        <Box marginY={2}>
+          <Paper>
+            <Suspense
+              fallback={
+                <Box height={200}>
+                  <FullPageSpinner />
+                </Box>
+              }
+            >
+              <Switch>
+                <Route
+                  path={toPrefix + '/performance-competencies'}
+                  children={<CriteriaPage revieweeId={revieweeId} />}
+                />
+                <Route
+                  path={toPrefix + '/dominant-characteristics'}
+                  children={<StrengthsWeaknessesPage revieweeId={revieweeId} />}
+                />
+                <Route path={toPrefix + '/achievements'} children={<PeerReviewProjectsTab revieweeId={revieweeId} />} />
+                <Redirect to={toPrefix + '/performance-competencies'} />
+              </Switch>
+            </Suspense>
+          </Paper>
+        </Box>
+      </Container>
+    </PromptProvider>
   );
 }
 

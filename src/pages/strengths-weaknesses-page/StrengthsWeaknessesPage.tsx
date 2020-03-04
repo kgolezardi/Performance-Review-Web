@@ -3,7 +3,6 @@ import React, { useCallback } from 'react';
 import { Box } from '@material-ui/core';
 import { DominantCharacteristicsOutput } from 'src/shared/dominant-characteristics-output';
 import { FCProps } from 'src/shared/types/FCProps';
-import { PromptProvider } from 'src/shared/prompt';
 import { i18n } from '@lingui/core';
 import { useBiDiSnackbar } from 'src/shared/snackbar';
 import { useLazyLoadQuery } from 'react-relay/hooks';
@@ -88,17 +87,15 @@ export default function StrengthsWeaknessesPage(props: Props) {
       {review?.state === 'DONE' ? (
         <DominantCharacteristicsOutput review={review} />
       ) : (
-        <PromptProvider message={i18n._('Changes you made may not be saved.')}>
-          <StrengthsWeaknessesForm
-            user={review?.reviewee ?? null}
-            onSubmit={handleSubmit}
-            initialValue={{
-              strengths: normalizeArray(review?.strengths),
-              weaknesses: normalizeArray(review?.weaknesses),
-            }}
-            isSelfReview={review?.isSelfReview || false}
-          />
-        </PromptProvider>
+        <StrengthsWeaknessesForm
+          user={review?.reviewee ?? null}
+          onSubmit={handleSubmit}
+          initialValue={{
+            strengths: normalizeArray(review?.strengths),
+            weaknesses: normalizeArray(review?.weaknesses),
+          }}
+          isSelfReview={review?.isSelfReview || false}
+        />
       )}
     </Box>
   );

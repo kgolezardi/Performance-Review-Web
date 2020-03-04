@@ -4,10 +4,8 @@ import { Box, Grid } from '@material-ui/core';
 import { FCProps } from 'src/shared/types/FCProps';
 import { MDXContext } from '@mdx-js/react';
 import { MDXPropsProvider } from 'src/shared/mdx-provider/MDXPropsProvider';
-import { PromptProvider } from 'src/shared/prompt';
 import { SectionGuide } from 'src/shared/section-guide';
 import { UserType } from 'src/shared/utils/getUserLabel';
-import { i18n } from '@lingui/core';
 import { importMDX } from 'mdx.macro';
 import { useFragment, useLazyLoadQuery } from 'react-relay/hooks';
 
@@ -82,11 +80,9 @@ export function PeerReviewProjectsTab(props: Props) {
             </Grid>
           </Box>
           <Box>
-            <PromptProvider message={i18n._('Changes you made may not be saved.')}>
-              {projectReviews?.map(projectReview => (
-                <PeerReviewProjectExpansionPanel projectReview={projectReview} key={projectReview.id} />
-              ))}
-            </PromptProvider>
+            {projectReviews?.map(projectReview => (
+              <PeerReviewProjectExpansionPanel projectReview={projectReview} key={projectReview.id} />
+            ))}
           </Box>
         </Fragment>
       )}

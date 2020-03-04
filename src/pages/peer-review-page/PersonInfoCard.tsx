@@ -15,6 +15,7 @@ import { useBiDiSnackbar } from 'src/shared/snackbar';
 import { useFragment } from 'react-relay/hooks';
 import { useHistory } from 'react-router-dom';
 import { useInViewContext } from 'src/shared/in-view';
+import { usePromptStateContext } from 'src/shared/prompt/PromptProvider';
 
 import { PersonInfoCard_user$key } from './__generated__/PersonInfoCard_user.graphql';
 import { useSavePersonReviewMutation } from './savePersonReview.mutation';
@@ -77,7 +78,11 @@ export function PersonInfoCard(props: Props) {
   }, [user, savePersonReviewMutation, enqueueSnackbar]);
 
   const numberOfProjects = localizeNumber(user.projectReviews.length, i18n.language as LanguageCodes);
-  const disabled = !user.projectReviews.every(({ comment }) => !!(comment && comment.text && comment.rating));
+  const { changed } = usePromptStateContext();
+  const allProjectCommentFilled = !user.projectReviews.every(
+    ({ comment }) => !!(comment && comment.text && comment.rating),
+  );
+  const disabled = changed || allProjectCommentFilled;
 
   return (
     <Card classes={{ root: classes.root }}>
