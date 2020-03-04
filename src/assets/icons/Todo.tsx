@@ -6,5 +6,5 @@ import TodoIcon from './to-do.png';
 interface OwnProps {}
 
 export function Todo(props: OwnProps) {
-  return <img {...props} alt={i18n._('Todo')} src={TodoIcon} />;
+  return <img style={{ width: '121px', height: '144' }} {...props} alt={i18n._('Todo')} src={TodoIcon} />;
 }
