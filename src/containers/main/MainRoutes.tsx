@@ -114,7 +114,13 @@ export function MainRoutes(props: FCProps<Props>) {
     const hasSomethingToReview = !!data.viewer.usersToReview.length;
 
     if (!hasSomethingToReview) {
-      return <NoPeerReviewPage />;
+      return (
+        <Switch>
+          <Redirect exact path="/" to="/peer-review" />
+          <Route path="/peer-review/" children={<NoPeerReviewPage />} />
+          <Route path="/nvc" children={<NvcGuidePage />} />
+        </Switch>
+      );
     }
     if (!user.hasStarted) {
       return <PeerStartReviewPage />;
