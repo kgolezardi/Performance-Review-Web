@@ -3,13 +3,15 @@ import React, { useCallback } from 'react';
 import { Box } from '@material-ui/core';
 import { CriteriaOutput } from 'src/shared/criteria-output';
 import { FCProps } from 'src/shared/types/FCProps';
+import { MDXPropsProvider } from 'src/shared/mdx-provider/MDXPropsProvider';
+import { UserType } from 'src/shared/utils/getUserLabel';
 import { i18n } from '@lingui/core';
 import { useBiDiSnackbar } from 'src/shared/snackbar';
 import { useLazyLoadQuery } from 'react-relay/hooks';
 import { useMutation } from 'src/relay';
 
 import { CriteriaForm } from './CriteriaForm';
-import { CriteriaFormData } from './CriteriaFormData';
+import { CriteriaFormValue } from './CriteriaFormValue';
 import { CriteriaPageMutation } from './__generated__/CriteriaPageMutation.graphql';
 import { CriteriaPageQuery } from './__generated__/CriteriaPageQuery.graphql';
 
@@ -39,21 +41,10 @@ const query = graphql`
       review: findPersonReview(revieweeId: $id) {
         reviewee {
           id
-          ...CriteriaForm_user
+          ...getUserLabel_user
         }
         ...CriteriaOutput_review
-        sahabinessComment
-        problemSolvingComment
-        executionComment
-        thoughtLeadershipComment
-        leadershipComment
-        presenceComment
-        sahabinessRating
-        problemSolvingRating
-        executionRating
-        thoughtLeadershipRating
-        leadershipRating
-        presenceRating
+        ...CriteriaForm_review
         isSelfReview
         state
       }
@@ -69,13 +60,13 @@ export default function CriteriaPage(props: Props) {
   const data = useLazyLoadQuery<CriteriaPageQuery>(query, { id: revieweeId });
 
   const handleSubmit = useCallback(
-    (data: CriteriaFormData) => {
+    (data: CriteriaFormValue) => {
       const input = { input: { revieweeId, ...data } };
       criteriaPageMutation(input)
-        .then(res => {
+        .then(() => {
           enqueueSnackbar(i18n._('Successfully saved.'), { variant: 'success' });
         })
-        .catch(error => {
+        .catch(() => {
           enqueueSnackbar(i18n._('Something went wrong.'), { variant: 'error' });
         });
     },
@@ -83,32 +74,20 @@ export default function CriteriaPage(props: Props) {
   );
 
   const review = data.viewer.review;
+  const user = review?.reviewee;
 
   return (
     <Box padding={4}>
       {review?.state === 'DONE' ? (
         <CriteriaOutput review={review} />
       ) : (
-        <CriteriaForm
-          onSubmit={handleSubmit}
-          user={review?.reviewee ?? null}
-          initialValue={{
-            // TODO: use fragment
-            executionComment: review?.executionComment || undefined,
-            executionRating: review?.executionRating || undefined,
-            leadershipComment: review?.leadershipComment || undefined,
-            leadershipRating: review?.leadershipRating || undefined,
-            presenceComment: review?.presenceComment || undefined,
-            presenceRating: review?.presenceRating || undefined,
-            problemSolvingComment: review?.problemSolvingComment || undefined,
-            problemSolvingRating: review?.problemSolvingRating || undefined,
-            sahabinessComment: review?.sahabinessComment || undefined,
-            sahabinessRating: review?.sahabinessRating || undefined,
-            thoughtLeadershipComment: review?.thoughtLeadershipComment || undefined,
-            thoughtLeadershipRating: review?.thoughtLeadershipRating || undefined,
-          }}
-          isSelfReview={review?.isSelfReview || false}
-        />
+        <MDXPropsProvider<UserType | null> value={user || null}>
+          <CriteriaForm
+            review={data.viewer.review}
+            onSubmit={handleSubmit}
+            isSelfReview={review?.isSelfReview || false}
+          />
+        </MDXPropsProvider>
       )}
     </Box>
   );
