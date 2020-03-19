@@ -15,7 +15,7 @@ interface OwnProps {
 type Props = FCProps<OwnProps> & Omit<TextFieldProps, 'value' | 'onChange' | 'defaultValue'> & StyleProps;
 
 function LimitedTextAreaInput(props: Props) {
-  const { initialValue = '', maxChars, error, helperText, InputProps = {}, ...rest } = props;
+  const { initialValue = '', maxChars, error, helperText, InputProps = {}, FormHelperTextProps, ...rest } = props;
   const classes = useStyles(props);
 
   const [value, setValue] = useForminatorState(initialValue);
@@ -35,18 +35,16 @@ function LimitedTextAreaInput(props: Props) {
         <TextField
           multiline
           {...rest}
-          className={classes.textField}
+          classes={{ root: classes.textField }}
           InputProps={{ ...InputProps, classes: { multiline: classes.multiline, ...InputProps.classes } }}
           value={value}
           onChange={onChange}
           error={error}
         />
-        <div className={classes.counterWrapper}>
-          <Counter count={value.length} max={maxChars} />
-        </div>
+        <Counter count={value.length} max={maxChars} classes={{ root: classes.counter }} />
       </div>
       {helperText && (
-        <FormHelperText error={error} classes={{ root: classes.formHelperTextRoot }}>
+        <FormHelperText {...FormHelperTextProps} error={error}>
           {helperText}
         </FormHelperText>
       )}
@@ -64,13 +62,10 @@ const styles = (theme: Theme) => ({
   multiline: {
     paddingBottom: theme.spacing(3),
   } as CSSProperties,
-  counterWrapper: {
+  counter: {
     position: 'absolute',
     right: theme.spacing(),
     bottom: 0,
-  } as CSSProperties,
-  formHelperTextRoot: {
-    fontFamily: 'Shabnam FD',
   } as CSSProperties,
 });
 
