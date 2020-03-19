@@ -36,7 +36,7 @@
     "notistack": "^0.9.7",
     "overlayscrollbars": "^1.10.2",
     "ramda": "^0.27.0",
-    "react": "^0.0.0-experimental-241c4467e",
+    "react": "0.0.0-experimental-aae83a4b9",
     "react-dom": "^0.0.0-experimental-241c4467e",
     "react-intersection-observer": "^8.25.2",
     "react-relay": "^0.0.0-experimental-5f1cb628",

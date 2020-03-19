@@ -13404,14 +13404,13 @@ react-transition-group@^4.3.0:
     loose-envify "^1.4.0"
     prop-types "^15.6.2"
 
-react@^0.0.0-experimental-241c4467e:
-  version "0.0.0-experimental-241c4467e"
-  resolved "https://registry.yarnpkg.com/react/-/react-0.0.0-experimental-241c4467e.tgz#08b4213aaada61b0eac7d10a7cc947cb9a150b36"
-  integrity sha512-aLS3k3Y/HVGE3dg/csk1XYXiOx6U4nE8EoVZMz7gIk/esopM888c+6jgNNHcC0U+5rNddLFUbHtEAFGl/qJS4Q==
+react@0.0.0-experimental-aae83a4b9:
+  version "0.0.0-experimental-aae83a4b9"
+  resolved "https://registry.yarnpkg.com/react/-/react-0.0.0-experimental-aae83a4b9.tgz#9b2063ddb2dc9a3d347e7a0a4233462c78800ba0"
+  integrity sha512-PuabEUXkXk9E4FrB3FoHY6GwvkqBpN7Od2V91TQgwJcgfErMIXQQm1n9GxzQBJ/RfgkTBCoaV4zEC/B8cNJWjw==
   dependencies:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
-    prop-types "^15.6.2"
 
 react@^16.8.3:
   version "16.12.0"
