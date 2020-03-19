@@ -3,7 +3,6 @@ import clsx from 'clsx';
 import { CSSProperties } from '@material-ui/core/styles/withStyles';
 import { CircularProgress } from 'src/shared/progress';
 import { FCProps } from 'src/shared/types/FCProps';
-import { NumberOutput } from 'src/shared/number-output';
 import { Styles } from 'src/shared/types/Styles';
 import { Theme, Typography, makeStyles } from '@material-ui/core';
 
@@ -31,7 +30,7 @@ export function Counter(props: Props) {
           [classes.warningColor]: color === 'medium',
         })}
       >
-        <NumberOutput value={remaining} />
+        {remaining}
       </Typography>
       <CircularProgress
         className={classes.circularProgress}
