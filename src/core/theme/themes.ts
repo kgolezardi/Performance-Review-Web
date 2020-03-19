@@ -4,8 +4,13 @@ import { TypographyOptions } from '@material-ui/core/styles/createTypography';
 import { deepOrange, grey, red } from '@material-ui/core/colors';
 
 export function getThemeOptions(base: ThemeOptions, direction: Direction, paletteType: PaletteType): ThemeOptions {
+  const fontFamily =
+    direction === 'ltr'
+      ? 'Shabnam, "Roboto", "Helvetica", "Arial", sans-serif'
+      : '"Shabnam FD", "Roboto", "Helvetica", "Arial", sans-serif';
+
   const typography: TypographyOptions = {
-    fontFamily: 'Shabnam, "Roboto", "Helvetica", "Arial", sans-serif',
+    fontFamily,
     h1: { fontSize: '36px', fontWeight: 'bold' },
     h2: { fontSize: '30px', fontWeight: 'bold' },
     h3: { fontSize: '24px', fontWeight: 'bold' },
