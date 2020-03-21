@@ -8,10 +8,10 @@ import { themeDecorator } from 'src/stories/decorators/themeDecorator';
 import { useLazyLoadQuery } from 'react-relay/hooks';
 
 import { PeerReviewProjectsForm } from './PeerReviewProjectsForm';
-import { PeerReviewProjectsFormQuery } from './__generated__/PeerReviewProjectsFormQuery.graphql';
+import { PeerReviewProjectsFormStoriesQuery } from './__generated__/PeerReviewProjectsFormStoriesQuery.graphql';
 
 const query = graphql`
-  query PeerReviewProjectsFormQuery {
+  query PeerReviewProjectsFormStoriesQuery {
     viewer {
       projectReviews {
         comment {
@@ -28,7 +28,7 @@ storiesOf('Project Peer Review Form', module)
   .addDecorator(promptDecorator())
   .addDecorator(routerDecorator())
   .add('Peer Review', () => {
-    const data = useLazyLoadQuery<PeerReviewProjectsFormQuery>(query, {});
+    const data = useLazyLoadQuery<PeerReviewProjectsFormStoriesQuery>(query, {});
     return (
       <Container>
         {data.viewer.projectReviews.map(
