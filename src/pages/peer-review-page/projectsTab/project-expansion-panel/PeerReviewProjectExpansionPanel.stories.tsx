@@ -5,10 +5,10 @@ import { storiesOf } from '@storybook/react';
 import { useLazyLoadQuery } from 'react-relay/hooks';
 
 import { PeerReviewProjectExpansionPanel } from './PeerReviewProjectExpansionPanel';
-import { PeerReviewProjectExpansionPanelQuery } from './__generated__/PeerReviewProjectExpansionPanelQuery.graphql';
+import { PeerReviewProjectExpansionPanelStoriesQuery } from './__generated__/PeerReviewProjectExpansionPanelStoriesQuery.graphql';
 
 const query = graphql`
-  query PeerReviewProjectExpansionPanelQuery {
+  query PeerReviewProjectExpansionPanelStoriesQuery {
     viewer {
       projectReviews {
         ...PeerReviewProjectExpansionPanel_projectReview
@@ -23,7 +23,7 @@ storiesOf('Project Peer Review Item', module)
   .addDecorator(promptDecorator())
   .addDecorator(routerDecorator())
   .add('Peer Review', () => {
-    const data = useLazyLoadQuery<PeerReviewProjectExpansionPanelQuery>(query, {});
+    const data = useLazyLoadQuery<PeerReviewProjectExpansionPanelStoriesQuery>(query, {});
     return (
       <Fragment>
         {data.viewer.projectReviews.map((review, index) => (
