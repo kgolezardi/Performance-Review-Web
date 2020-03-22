@@ -41,7 +41,7 @@
     "react-intersection-observer": "^8.25.2",
     "react-relay": "^0.0.0-experimental-5f1cb628",
     "react-router-dom": "^5.1.2",
-    "react-scripts": "3.3.1",
+    "react-scripts": "3.4.1",
     "relay-runtime": "^9.0.0",
     "relay-test-utils": "^9.0.0",
     "shabnam-font": "^5.0.0",
