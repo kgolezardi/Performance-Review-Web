@@ -45,7 +45,7 @@
     "relay-runtime": "^9.0.0",
     "relay-test-utils": "^9.0.0",
     "shabnam-font": "^5.0.0",
-    "typescript": "~3.7.2"
+    "typescript": "~3.8.3"
   },
   "scripts": {
     "i18n:extract": "lingui extract --clean",
