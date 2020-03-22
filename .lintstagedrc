@@ -2,4 +2,4 @@
   - 'import-sort --write'
 
 '**/*.{js,jsx,ts,tsx,json,css,scss,md}':
-  - 'prettier --write format'
+  - 'prettier --write'
