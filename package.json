@@ -64,7 +64,7 @@
     "format:check": "prettier --check '**/*.{js,jsx,ts,tsx,json,css,scss,md}'",
     "storybook": "start-storybook -p 9009 -s public",
     "build-storybook": "build-storybook -s public",
-    "relay": "relay-compiler --src ./src --schema ./schema.graphql --extensions ts tsx --language typescript",
+    "relay": "relay-compiler --src ./src --schema ./schema.graphql --extensions ts tsx --language typescript && relay-enum-generator",
     "get-schema": "graphql get-schema -e default"
   },
   "eslintConfig": {
