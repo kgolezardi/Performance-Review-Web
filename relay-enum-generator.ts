@@ -1,10 +1,9 @@
 import * as fs from 'fs';
-import * as mkdir from 'mkdirp';
 import * as path from 'path';
 import {
   ExecutionResult,
   IntrospectionEnumType,
-  IntrospectionSchema,
+  IntrospectionQuery,
   IntrospectionType,
   buildSchema,
   graphql,
@@ -18,22 +17,26 @@ function findRelayConfigOption(option: string) {
 }
 
 const schemaPath = findRelayConfigOption('schema');
-// TODO: get this from cli
-const writePath = './src/__generated__';
-// TODO: get this from cli
-const filename = 'enums.ts';
 
-async function parseSchema(rawSchemaContent: string, schemaPath: string) {
-  const schemaType = schemaPath.split('.').pop()?.toLowerCase();
-  let schema: ExecutionResult<IntrospectionSchema>;
+/**
+ *
+ * Parses schema file basedd on its extension.
+ * .json and .graphql are supported.
+ *
+ * @param rawSchema schema file read from filesystem
+ * @param schemaPath full path of schema file, found in relay.config file
+ */
+async function parseSchema(rawSchema: string, schemaPath: string) {
+  const schemaExtname = path.extname(schemaPath);
+  let schema: ExecutionResult<IntrospectionQuery>;
 
-  switch (schemaType) {
-    case 'graphql':
-      const graphqlSchema = buildSchema(rawSchemaContent);
-      schema = await graphql<IntrospectionSchema>(graphqlSchema, introspectionQuery, {});
+  switch (schemaExtname) {
+    case '.graphql':
+      const graphqlSchema = buildSchema(rawSchema);
+      schema = await graphql(graphqlSchema, introspectionQuery, {});
       break;
-    case 'json':
-      schema = JSON.parse(rawSchemaContent);
+    case '.json':
+      schema = JSON.parse(rawSchema);
       break;
     default:
       schema = undefined;
@@ -48,22 +51,38 @@ function isIntrospectionEnumType(type: IntrospectionType): type is Introspection
   return type.kind === 'ENUM';
 }
 
-function writeFromSchema(schemaJson: ExecutionResult<IntrospectionSchema>) {
-  let enums = schemaJson.data.types
+function schemaJsonToEnums(schema: ExecutionResult<IntrospectionQuery>) {
+  return schema.data.__schema.types
     .filter(isIntrospectionEnumType)
     .filter(({ name }) => !name.startsWith('_'))
     .map((e) => {
       const { name, enumValues } = e;
-      // get only values, not things like descriptions ...
       const values = enumValues.map((enumValue) => enumValue.name).concat('%future added value');
 
       return `export type ${name} =\n  | '` + values.join("'\n  | '") + "'" + '\n';
     })
     .join('\n\n');
-
-  mkdir(writePath);
-  fs.writeFileSync(path.resolve(writePath, filename), enums);
-  // TODO: fromat file
 }
 
-parseSchema(schemaFile, schemaPath).then(writeFromSchema);
+function writeFromSchema(schemaJson: any, config: Config) {
+  const enums = schemaJsonToEnums(schemaJson);
+  if (!fs.existsSync(config.path)) {
+    fs.mkdirSync(config.path);
+  }
+  fs.writeFileSync(path.resolve(config.path, config.name), enums);
+}
+
+interface Config {
+  name: string;
+  path: string;
+}
+
+async function main(config: Config) {
+  await parseSchema(schemaFile, schemaPath).then((schemaJson) => {
+    writeFromSchema(schemaJson, config);
+  });
+}
+
+const config: Config = { name: 'enums.ts', path: './src/__generated__' };
+
+main(config);
