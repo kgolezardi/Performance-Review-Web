@@ -2,6 +2,7 @@ import React, { ReactNode } from 'react';
 import { Box, Grid, Typography } from '@material-ui/core';
 import { DictInputItem, FragmentPrompt, LimitedTextAreaInput } from 'src/shared/forminator';
 import { FCProps } from 'src/shared/types/FCProps';
+import { LIMITED_TEXT_AREA_COUNTER_DISPLAY_THRESHOLD, LIMITED_TEXT_AREA_MAX_CHARS } from 'src/shared/constants';
 import { Rating } from 'src/shared/rating';
 import { i18n } from '@lingui/core';
 import { useServerValueContext } from 'src/shared/server-value';
@@ -42,7 +43,13 @@ export function CriterionItem({ title, details, prefix, type }: Props) {
       </Grid>
       <Grid item xs={12}>
         <DictInputItem field={prefix + 'Comment'}>
-          <LimitedTextAreaInput label={i18n._('Evidence')} variant="outlined" maxChars={280} fullWidth />
+          <LimitedTextAreaInput
+            label={i18n._('Evidence')}
+            variant="outlined"
+            maxChars={LIMITED_TEXT_AREA_MAX_CHARS}
+            counterDisplayThreshold={LIMITED_TEXT_AREA_COUNTER_DISPLAY_THRESHOLD}
+            fullWidth
+          />
           <FragmentPrompt value={comment} />
         </DictInputItem>
       </Grid>

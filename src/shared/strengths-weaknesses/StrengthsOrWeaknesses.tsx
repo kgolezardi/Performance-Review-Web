@@ -7,6 +7,7 @@ import React, { useCallback } from 'react';
 import { Box, Grid, InputAdornment, Typography } from '@material-ui/core';
 import { ConditionalSection, FragmentRef } from 'src/shared/forminator';
 import { FCProps } from 'src/shared/types/FCProps';
+import { LIMITED_TEXT_AREA_COUNTER_DISPLAY_THRESHOLD, LIMITED_TEXT_AREA_MAX_CHARS } from 'src/shared/constants';
 import { i18n } from '@lingui/core';
 import { useFragmentLens } from 'src/shared/forminator/core/fragment-lens/useFragmentLens';
 
@@ -46,7 +47,8 @@ export function StrengthsOrWeaknesses({ title, maxLength, label, ...props }: Pro
             <Box position="relative">
               <LimitedTextAreaInput
                 variant="outlined"
-                maxChars={280}
+                maxChars={LIMITED_TEXT_AREA_MAX_CHARS}
+                counterDisplayThreshold={LIMITED_TEXT_AREA_COUNTER_DISPLAY_THRESHOLD}
                 label={label}
                 fullWidth
                 inputProps={{ dir: 'auto' }}
