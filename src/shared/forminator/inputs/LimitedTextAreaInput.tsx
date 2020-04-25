@@ -10,17 +10,30 @@ import { useForminatorState } from '../core/useForminatorState';
 interface OwnProps {
   initialValue?: string;
   maxChars: number;
+  /**
+   * Indicates after how many characters, the `Counter` component will be displayed
+   */
+  counterDisplayThreshold?: number;
 }
 
 type Props = FCProps<OwnProps> & Omit<TextFieldProps, 'value' | 'onChange' | 'defaultValue'> & StyleProps;
 
 function LimitedTextAreaInput(props: Props) {
-  const { initialValue = '', maxChars, error, helperText, InputProps = {}, FormHelperTextProps, ...rest } = props;
+  const {
+    initialValue = '',
+    maxChars,
+    counterDisplayThreshold = 0,
+    error,
+    helperText,
+    InputProps = {},
+    FormHelperTextProps,
+    ...rest
+  } = props;
   const classes = useStyles(props);
 
   const [value, setValue] = useForminatorState(initialValue);
   const onChange = useCallback(
-    event => {
+    (event) => {
       const value = event.target.value;
       if (value.length <= maxChars) {
         setValue(value);
@@ -28,6 +41,8 @@ function LimitedTextAreaInput(props: Props) {
     },
     [setValue, maxChars],
   );
+
+  const showCounter = value.length >= counterDisplayThreshold;
 
   return (
     <Fragment>
@@ -41,7 +56,7 @@ function LimitedTextAreaInput(props: Props) {
           onChange={onChange}
           error={error}
         />
-        <Counter count={value.length} max={maxChars} classes={{ root: classes.counter }} />
+        {showCounter && <Counter count={value.length} max={maxChars} classes={{ root: classes.counter }} />}
       </div>
       {helperText && (
         <FormHelperText {...FormHelperTextProps} error={error}>
