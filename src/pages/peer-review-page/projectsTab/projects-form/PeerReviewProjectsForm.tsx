@@ -10,6 +10,7 @@ import {
   SubmitButton,
 } from 'src/shared/forminator';
 import { FCProps } from 'src/shared/types/FCProps';
+import { LIMITED_TEXT_AREA_COUNTER_DISPLAY_THRESHOLD, LIMITED_TEXT_AREA_MAX_CHARS } from 'src/shared/constants';
 import { Rating } from 'src/shared/rating';
 import { StickyActionBar } from 'src/shared/sticky-action-bar';
 import { i18n } from '@lingui/core';
@@ -62,7 +63,13 @@ export function PeerReviewProjectsForm(props: Props) {
           </Grid>
           <Grid item xs={12}>
             <DictInputItem field="text">
-              <LimitedTextAreaInput label={i18n._('Observation')} variant="outlined" maxChars={512} fullWidth />
+              <LimitedTextAreaInput
+                label={i18n._('Observation')}
+                variant="outlined"
+                maxChars={LIMITED_TEXT_AREA_MAX_CHARS}
+                counterDisplayThreshold={LIMITED_TEXT_AREA_COUNTER_DISPLAY_THRESHOLD}
+                fullWidth
+              />
               <FragmentPrompt value={initialValue.text} />
             </DictInputItem>
           </Grid>

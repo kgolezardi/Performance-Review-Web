@@ -13,6 +13,7 @@ import {
 } from 'src/shared/forminator';
 import { DangerButton } from 'src/shared/danger-button';
 import { FCProps } from 'src/shared/types/FCProps';
+import { LIMITED_TEXT_AREA_COUNTER_DISPLAY_THRESHOLD, LIMITED_TEXT_AREA_MAX_CHARS } from 'src/shared/constants';
 import { Rating } from 'src/shared/rating';
 import { ReviewersInput } from 'src/shared/reviewers-input';
 import { ReviewersInputProps } from 'src/shared/reviewers-input/types';
@@ -107,7 +108,8 @@ export function ProjectForm(props: Props) {
             <DictInputItem field="text">
               <LimitedTextAreaInput
                 label={i18n._('Accomplishments')}
-                maxChars={512}
+                maxChars={LIMITED_TEXT_AREA_MAX_CHARS}
+                counterDisplayThreshold={LIMITED_TEXT_AREA_COUNTER_DISPLAY_THRESHOLD}
                 variant="outlined"
                 fullWidth
                 helperText={i18n._('For instance, your personal key-results may be your accomplishments.')}
