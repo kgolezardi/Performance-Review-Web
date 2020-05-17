@@ -6,7 +6,6 @@ import { IconButton, Theme, Typography, makeStyles } from '@material-ui/core';
 import { Styles } from 'src/shared/types/Styles';
 import { getUserLabel } from 'src/shared/utils/getUserLabel';
 import { useAuthGuardUser } from 'src/core/auth';
-import { useRelayEnvironmentReset } from 'src/relay';
 
 import { useLogoutMutation } from './logout.mutation';
 
@@ -18,13 +17,10 @@ export function NavbarUser(props: Props) {
   const classes = useStyles(props);
 
   const logoutMutation = useLogoutMutation();
-  const resetEnvironment = useRelayEnvironmentReset();
 
   const handleLogout = useCallback(() => {
-    return logoutMutation({ input: {} }).then(() => {
-      resetEnvironment();
-    });
-  }, [logoutMutation, resetEnvironment]);
+    return logoutMutation();
+  }, [logoutMutation]);
 
   const user = useAuthGuardUser();
 

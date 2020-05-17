@@ -3,9 +3,9 @@ import { FullPageSpinner } from 'src/shared/loading';
 import { RelayEnvironmentProvider } from 'react-relay/hooks';
 import { StoryFn } from '@storybook/addons';
 import { StoryFnReactReturnType } from '@storybook/react/dist/client/preview/types';
+import { environment } from 'src/relay';
 
 import { StoryDummy } from './StoryDummy';
-import { environment } from '../environment';
 
 export const relayDecorator = () => (storyFn: StoryFn<StoryFnReactReturnType>) => (
   <RelayEnvironmentProvider environment={environment}>
