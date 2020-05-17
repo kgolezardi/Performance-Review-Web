@@ -1,5 +1,5 @@
 import graphql from 'babel-plugin-relay/macro';
-import React, { useCallback, useTransition } from 'react';
+import React, { unstable_useTransition as useTransition, useCallback } from 'react';
 import { FCProps } from 'src/shared/types/FCProps';
 import { List } from '@material-ui/core';
 import { getUserLabel } from 'src/shared/utils/getUserLabel';
@@ -41,7 +41,7 @@ export function MembersList(props: Props) {
 
   return (
     <List component="nav">
-      {members.map(member => (
+      {members.map((member) => (
         <MembersListItem
           key={member.id}
           id={member.id}

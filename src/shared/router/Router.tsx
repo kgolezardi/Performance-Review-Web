@@ -1,4 +1,4 @@
-import React, { SuspenseConfig, useDeferredValue, useEffect, useState } from 'react';
+import React, { SuspenseConfig, unstable_useDeferredValue as useDeferredValue, useEffect, useState } from 'react';
 import { FCProps } from 'src/shared/types/FCProps';
 import { History } from 'history';
 import { __HistoryContext as HistoryContext } from 'react-router';
