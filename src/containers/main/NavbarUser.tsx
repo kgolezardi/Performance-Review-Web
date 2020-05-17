@@ -19,7 +19,7 @@ export function NavbarUser(props: Props) {
   const logoutMutation = useLogoutMutation();
 
   const handleLogout = useCallback(() => {
-    return logoutMutation({ input: {} }, { updater: (store) => store.invalidateStore() });
+    return logoutMutation();
   }, [logoutMutation]);
 
   const user = useAuthGuardUser();
