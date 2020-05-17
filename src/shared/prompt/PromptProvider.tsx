@@ -50,7 +50,7 @@ type Props = FCProps<OwnProps>;
 export function PromptProvider(props: Props) {
   const [prompts, setPrompts] = useState(() => ({}));
   const setPrompt = useCallback((id: string, state: boolean) => {
-    setPrompts(w => ({ ...w, [id]: state }));
+    setPrompts((w) => ({ ...w, [id]: state }));
   }, []);
   const changed = useMemo(() => {
     return values(prompts).filter(Boolean).length > 0;

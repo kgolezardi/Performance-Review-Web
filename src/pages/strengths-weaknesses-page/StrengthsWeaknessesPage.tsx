@@ -50,8 +50,8 @@ const query = graphql`
 `;
 
 const transformData = (data: StrengthsWeaknessesFormData) => {
-  const strengths = data.strengths?.filter(val => !!val);
-  const weaknesses = data.weaknesses?.filter(val => !!val);
+  const strengths = data.strengths?.filter((val) => !!val);
+  const weaknesses = data.weaknesses?.filter((val) => !!val);
 
   return {
     strengths: strengths ? strengths : [],
@@ -72,10 +72,10 @@ export default function StrengthsWeaknessesPage(props: Props) {
 
       const input = { input: { revieweeId, ...transformedData } };
       strengthsWeaknessesPageMutation(input)
-        .then(res => {
+        .then((res) => {
           enqueueSnackbar(i18n._('Successfully saved.'), { variant: 'success' });
         })
-        .catch(error => {
+        .catch((error) => {
           enqueueSnackbar(i18n._('Something went wrong.'), { variant: 'error' });
         });
     },

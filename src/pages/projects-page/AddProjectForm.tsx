@@ -35,7 +35,7 @@ export function AddProjectForm(props: Props) {
     props.projectReviews,
   );
 
-  const selectedProjectIds = useMemo(() => projectReviews.map(projectReview => projectReview.project.id), [
+  const selectedProjectIds = useMemo(() => projectReviews.map((projectReview) => projectReview.project.id), [
     projectReviews,
   ]);
 

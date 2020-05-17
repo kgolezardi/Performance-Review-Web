@@ -31,7 +31,7 @@ export function ProjectInput(props: Props) {
     `,
     props.projects,
   );
-  const options: Option[] = projects.map(project => ({
+  const options: Option[] = projects.map((project) => ({
     value: project.id,
     label: project.name,
   }));

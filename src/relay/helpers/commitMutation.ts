@@ -26,7 +26,7 @@ export function commitMutation<TOperation extends MutationParameters = MutationP
           resolve(response);
         }
       },
-      onError: error => {
+      onError: (error) => {
         config.onError && config.onError(error);
         reject(reject);
       },

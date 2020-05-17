@@ -5,8 +5,8 @@ export async function getSubscribableValue<V>(subscribable: Subscribable<V>): Pr
   if (value !== undefined) {
     return value;
   }
-  return new Promise<V>(resolve => {
-    const unsubscribe = subscribable.subscribe(value => {
+  return new Promise<V>((resolve) => {
+    const unsubscribe = subscribable.subscribe((value) => {
       unsubscribe();
       resolve(value);
     });

@@ -49,16 +49,18 @@ function SelectAutoComplete<Suggestion extends BaseSuggestion = BaseSuggestion>(
   );
   const options = useMemo(() => {
     const excludesSet = new Set(excludes || []);
-    return allOptions.filter(o => !excludesSet.has(o.value));
+    return allOptions.filter((o) => !excludesSet.has(o.value));
   }, [allOptions, excludes]);
   const indexedOptions = useMemo(() => indexBy<Suggestion>(prop('value'), options), [options]);
   const renderInput: AutocompleteProps<Suggestion>['renderInput'] = useCallback(
-    params => <TextField margin="dense" variant="outlined" label={label} fullWidth {...textFieldOptions} {...params} />,
+    (params) => (
+      <TextField margin="dense" variant="outlined" label={label} fullWidth {...textFieldOptions} {...params} />
+    ),
     [textFieldOptions, label],
   );
   return (
     <Autocomplete
-      getOptionLabel={option => option.label}
+      getOptionLabel={(option) => option.label}
       renderInput={renderInput}
       PaperComponent={OptionsPaper}
       noOptionsText={i18n._('No Options')}

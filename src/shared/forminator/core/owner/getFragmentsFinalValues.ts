@@ -9,6 +9,6 @@ export async function getFragmentsFinalValues(
   store: ForminatorStore,
 ): Promise<Record<string, any>> {
   const ids = fragments.map(prop('id'));
-  const values = await Promise.all(fragments.map(fragment => getFragmentFinalValue(fragment, store)));
+  const values = await Promise.all(fragments.map((fragment) => getFragmentFinalValue(fragment, store)));
   return zipObj(ids, values);
 }

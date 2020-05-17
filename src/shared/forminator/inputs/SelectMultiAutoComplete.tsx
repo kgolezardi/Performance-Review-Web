@@ -43,7 +43,7 @@ function SelectMultiAutoComplete<Suggestion extends BaseSuggestion = BaseSuggest
 
   const options = useMemo(() => {
     const excludesSet = new Set(excludes || []);
-    return allOptions.filter(o => !excludesSet.has(o.value));
+    return allOptions.filter((o) => !excludesSet.has(o.value));
   }, [allOptions, excludes]);
   const indexedOptions = useMemo(() => indexBy<Suggestion>(prop('value'), options), [options]);
   const onChange = useCallback(
@@ -53,20 +53,20 @@ function SelectMultiAutoComplete<Suggestion extends BaseSuggestion = BaseSuggest
     [setValues],
   );
   const renderInput: AutocompleteProps<Suggestion>['renderInput'] = useCallback(
-    params => <TextField variant="outlined" label={label} fullWidth {...textFieldOptions} {...params} />,
+    (params) => <TextField variant="outlined" label={label} fullWidth {...textFieldOptions} {...params} />,
     [textFieldOptions, label],
   );
 
   return (
     <Autocomplete
-      getOptionLabel={option => option.label}
+      getOptionLabel={(option) => option.label}
       renderInput={renderInput}
       PaperComponent={OptionsPaper}
       noOptionsText={i18n._('No Options')}
       {...props}
       multiple
       options={options}
-      value={values.map(v => indexedOptions[v]).filter(o => o !== undefined)}
+      value={values.map((v) => indexedOptions[v]).filter((o) => o !== undefined)}
       onChange={onChange}
       classes={classes}
     />

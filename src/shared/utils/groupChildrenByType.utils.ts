@@ -11,7 +11,7 @@ export function groupChildrenByType(
 ): Map<string | ComponentType, ReactNode> {
   const componentsSet = new Set(components);
   const map = new Map();
-  React.Children.forEach(children, child => {
+  React.Children.forEach(children, (child) => {
     if (React.isValidElement<{ children?: ReactNode }>(child)) {
       if (componentsSet.has(child.type)) {
         map.set(child.type, child.props.children);

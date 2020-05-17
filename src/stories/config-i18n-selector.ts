@@ -30,12 +30,12 @@ export default function configI18nSelector(defaultLang: string) {
     ],
   });
 
-  addons.getChannel().on('storybook/selector/language/update', selected => {
+  addons.getChannel().on('storybook/selector/language/update', (selected) => {
     setLanguage(selected);
     forceReRender();
   });
 
-  addons.getChannel().on('storybook/selector/language/rendered', selected => {
+  addons.getChannel().on('storybook/selector/language/rendered', (selected) => {
     setLanguage(selected);
   });
 }

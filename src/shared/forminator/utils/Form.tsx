@@ -11,7 +11,7 @@ type Props = FCProps<OwnProps>;
 function Form(props: Props) {
   const submit = useSubmitContext();
   const onSubmit: FormEventHandler = useCallback(
-    e => {
+    (e) => {
       e.preventDefault();
       submit();
     },

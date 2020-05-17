@@ -13,7 +13,7 @@ type Props = FCProps<OwnProps> & Omit<TextFieldProps, 'value' | 'onChange' | 'de
 function StringInput({ initialValue, ...props }: Props) {
   const [value, setValue] = useForminatorState(initialValue);
   const onChange = useCallback(
-    event => {
+    (event) => {
       setValue(event.target.value);
     },
     [setValue],

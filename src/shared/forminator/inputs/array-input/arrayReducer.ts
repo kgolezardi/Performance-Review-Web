@@ -52,7 +52,7 @@ export function arrayReducer<V>(state: ArrayState<V>, action: ArrayAction<V>, st
     }
     case ArrayActionType.remove: {
       // TODO remove fragment from store
-      return state.filter(fragment => fragment.id !== action.fragment.id);
+      return state.filter((fragment) => fragment.id !== action.fragment.id);
     }
     default: {
       return state;
@@ -64,5 +64,5 @@ export function arrayInitializer<V>(
   initialValue: (V | undefined)[] | undefined,
   store: ForminatorStore,
 ): ArrayState<V> {
-  return initialValue === undefined ? [] : initialValue.map(value => store.createFragment(value));
+  return initialValue === undefined ? [] : initialValue.map((value) => store.createFragment(value));
 }

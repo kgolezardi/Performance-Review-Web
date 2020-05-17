@@ -34,7 +34,7 @@ export function ReviewersInput(props: Props) {
     `,
     props.users,
   );
-  const options: Option[] = users.map(user => ({
+  const options: Option[] = users.map((user) => ({
     value: user.id,
     label: getUserLabel(user),
   }));

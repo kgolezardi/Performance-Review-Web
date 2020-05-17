@@ -62,7 +62,7 @@ export function PeerReviewProjectsTab(props: Props) {
     <Fragment>
       {state === 'DONE' ? (
         <Box paddingY={2}>
-          {projectReviews?.map(projectReview => (
+          {projectReviews?.map((projectReview) => (
             <PeerReviewProjectsResult projectReview={projectReview} key={projectReview.id} />
           ))}
         </Box>
@@ -80,7 +80,7 @@ export function PeerReviewProjectsTab(props: Props) {
             </Grid>
           </Box>
           <Box>
-            {projectReviews?.map(projectReview => (
+            {projectReviews?.map((projectReview) => (
               <PeerReviewProjectExpansionPanel projectReview={projectReview} key={projectReview.id} />
             ))}
           </Box>
