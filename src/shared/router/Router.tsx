@@ -1,6 +1,7 @@
 import React, { SuspenseConfig, useDeferredValue, useEffect, useState } from 'react';
 import { FCProps } from 'src/shared/types/FCProps';
 import { History } from 'history';
+import { __HistoryContext as HistoryContext } from 'react-router';
 import { __RouterContext as RouterContext } from 'react-router';
 
 interface OwnProps {
@@ -24,7 +25,7 @@ export function Router(props: Props) {
       // https://github.com/ReactTraining/react-router/blob/a1b96d5085053d1e3d67831a75d9a6c76e8dca70/packages/react-router/modules/Router.js#L22-L26
       setLocation(history.location);
     }
-    return history.listen(location => {
+    return history.listen((location) => {
       setLocation(location);
     });
     // `location` variable only used on initial value, because between render and useEffect if location has been
@@ -34,13 +35,14 @@ export function Router(props: Props) {
   const deferredLocation = useDeferredValue(location, suspenseConfig);
   return (
     <RouterContext.Provider
-      children={children}
       value={{
         history: props.history,
         location: deferredLocation,
         match: computeRootMatch(location.pathname),
       }}
-    />
+    >
+      <HistoryContext.Provider children={children} value={history} />
+    </RouterContext.Provider>
   );
 }
 
