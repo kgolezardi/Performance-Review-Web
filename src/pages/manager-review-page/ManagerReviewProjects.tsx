@@ -24,7 +24,7 @@ export function ManagerReviewProjects(props: Props) {
   const reviews = useFragment(fragment, props.reviews);
   return (
     <Box padding={4}>
-      {reviews?.map(review => (
+      {reviews?.map((review) => (
         <Box paddingY={4} key={review.id}>
           <ProjectOutput review={review} showProjectName />
         </Box>

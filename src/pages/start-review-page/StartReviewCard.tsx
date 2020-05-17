@@ -35,10 +35,7 @@ export function StartReviewCard(props: Props) {
 
   const formattedDueDate =
     dueDate &&
-    DateTime.fromISO(dueDate)
-      .reconfigure({ outputCalendar: 'persian' })
-      .setLocale('fa')
-      .toFormat('EEEE، d MMMM');
+    DateTime.fromISO(dueDate).reconfigure({ outputCalendar: 'persian' }).setLocale('fa').toFormat('EEEE، d MMMM');
 
   return (
     <Card classes={{ root: classes.root }}>

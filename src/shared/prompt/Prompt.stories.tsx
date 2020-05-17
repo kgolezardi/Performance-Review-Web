@@ -25,7 +25,7 @@ const PromptButton = (props: { id: string }) => {
     <div>
       <button
         onClick={() => {
-          setWhen(w => !w);
+          setWhen((w) => !w);
         }}
       >
         toggle
@@ -40,7 +40,7 @@ storiesOf('Prompt', module)
     routerDecorator({
       initialEntries: ['/one', '/two', { pathname: '/three' }],
       initialIndex: 1,
-      getUserConfirmation: message => {
+      getUserConfirmation: (message) => {
         window.confirm(message);
       },
     }),
@@ -63,7 +63,7 @@ storiesOf('Prompt', module)
       <div>
         <button
           onClick={() => {
-            setWhen(w => !w);
+            setWhen((w) => !w);
           }}
         >
           toggle

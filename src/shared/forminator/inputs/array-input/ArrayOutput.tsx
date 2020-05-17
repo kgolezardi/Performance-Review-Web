@@ -16,7 +16,7 @@ function ArrayOutput<V>(props: Props) {
   }
   return (
     <Fragment>
-      {fragments.map(fragment => (
+      {fragments.map((fragment) => (
         <FragmentProvider value={fragment} key={fragment.id}>
           {props.children}
         </FragmentProvider>

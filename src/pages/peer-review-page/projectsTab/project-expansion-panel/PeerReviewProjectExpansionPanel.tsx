@@ -48,10 +48,10 @@ export function PeerReviewProjectExpansionPanel(props: Props) {
   const handleSubmit = useCallback(
     (input: PeerReviewProjectsFormValue) => {
       saveProjectComment({ input: { ...input, projectReviewId } })
-        .then(res => {
+        .then((res) => {
           enqueueSnackbar(i18n._('Successfully saved.'), { variant: 'success' });
         })
-        .catch(error => {
+        .catch((error) => {
           enqueueSnackbar(i18n._('Something went wrong.'), { variant: 'error' });
         });
     },

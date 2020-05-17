@@ -23,10 +23,10 @@ export function Login(props: Props) {
   // const [submitButtonLoading, setSubmitButtonLoading] = useState(false);
   const loginMutation = useLoginMutation();
 
-  const submitHandler: LoginFormProps['onSubmit'] = data => {
+  const submitHandler: LoginFormProps['onSubmit'] = (data) => {
     // setSubmitButtonLoading(true);
     const input = { input: { username: data.username, password: data.password } };
-    loginMutation(input).then(res => {
+    loginMutation(input).then((res) => {
       if (!res.login.viewer.me) {
         setError(i18n._('Username or Password is incorrect.'));
         // setSubmitButtonLoading(false);

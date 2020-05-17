@@ -11,7 +11,7 @@ interface OwnProps extends HTMLAttributes<HTMLDivElement> {
 
 type Props = FCProps<OwnProps>;
 
-export const Overlayscrollbars = forwardRef(function(props: Props, instanceRef: React.Ref<ImperativeHandles>) {
+export const Overlayscrollbars = forwardRef(function (props: Props, instanceRef: React.Ref<ImperativeHandles>) {
   const { options, ...divProps } = props;
   const [ref, instance] = useOverlayscrollbars(options);
 

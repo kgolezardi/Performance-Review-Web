@@ -7,7 +7,7 @@ export function useReadonlySubscribableValue<V>(subscribable: ReadOnlySubscribab
   useEffect(() => {
     if (subscribable) {
       setStateValue(subscribable.getValue());
-      return subscribable.subscribe(value => {
+      return subscribable.subscribe((value) => {
         setStateValue(value);
       });
     }

@@ -18,7 +18,9 @@ export const mockRelayDecorator = (mockResolvers?: MockResolvers, { delay = 500 
   const environment = useMemo(() => createMockEnvironment(), []);
   useEffect(() => {
     setTimeout(() => {
-      environment.mock.resolveMostRecentOperation(operation => MockPayloadGenerator.generate(operation, mockResolvers));
+      environment.mock.resolveMostRecentOperation((operation) =>
+        MockPayloadGenerator.generate(operation, mockResolvers),
+      );
     }, delay);
   }, [environment]);
   return (

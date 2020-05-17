@@ -37,7 +37,7 @@ const useFragmentsValue = () => {
     resubscribe: () => {},
   }));
   useEffect(() => {
-    const resubscribe = subscribeFragments<string>([], store, values => {
+    const resubscribe = subscribeFragments<string>([], store, (values) => {
       setValue(values);
     });
     setSubscribe({ resubscribe });

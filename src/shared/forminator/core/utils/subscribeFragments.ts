@@ -25,9 +25,9 @@ export function subscribeFragments<V>(
     try {
       values[fragment.id] = subscribable.getValue();
     } catch (e) {}
-    const unsubscribe = subscribable.subscribe(newValue => {
+    const unsubscribe = subscribable.subscribe((newValue) => {
       values = { ...values, [fragment.id]: newValue };
-      callback(fragments.map(fragment => values[fragment.id]));
+      callback(fragments.map((fragment) => values[fragment.id]));
     });
     unsubscribes.set(fragment.id, () => {
       unsubscribe();
@@ -40,7 +40,7 @@ export function subscribeFragments<V>(
     unsubscribes.get(fragment.id)();
   };
 
-  fragments.forEach(fragment => {
+  fragments.forEach((fragment) => {
     subscribeFragment(fragment);
   });
 
@@ -48,15 +48,15 @@ export function subscribeFragments<V>(
     const fragmentsToUnsubscribe = differenceWith(eqProps('id'), fragments, newFragments);
     const fragmentsToSubscribe = differenceWith(eqProps('id'), newFragments, fragments);
     fragments = newFragments;
-    fragmentsToUnsubscribe.forEach(fragment => {
+    fragmentsToUnsubscribe.forEach((fragment) => {
       unsubscribeFragment(fragment);
     });
-    fragmentsToSubscribe.forEach(fragment => {
+    fragmentsToSubscribe.forEach((fragment) => {
       subscribeFragment(fragment);
     });
   };
 }
 
 export function getFragmentsValues<V>(fragments: ForminatorFragment[], store: ForminatorStore): Array<V | undefined> {
-  return fragments.map(fragment => store.getValueSubscribable(fragment).getValue());
+  return fragments.map((fragment) => store.getValueSubscribable(fragment).getValue());
 }

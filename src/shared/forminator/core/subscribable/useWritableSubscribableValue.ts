@@ -15,7 +15,7 @@ export function useWritableSubscribableValue<V>(
     } else {
       subscribable.setValue(stateValue);
     }
-    return subscribable.subscribe(value => {
+    return subscribable.subscribe((value) => {
       setStateValue(value);
     });
     // `stateValue` variable only used as initial value

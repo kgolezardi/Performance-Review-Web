@@ -63,7 +63,7 @@ const getNumberOfFilledFields = (review: PerformanceCompetenciesCircularIndicato
   }
 
   const keys = Object.keys(review) as [keyof PerformanceCompetenciesCircularIndicator_review];
-  const items = keys.map(key => Boolean(review[key]));
+  const items = keys.map((key) => Boolean(review[key]));
   return items.filter(Boolean).length;
 };
 

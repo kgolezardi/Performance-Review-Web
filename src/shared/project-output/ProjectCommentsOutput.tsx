@@ -24,7 +24,7 @@ export function ProjectCommentsOutput(props: Props) {
 
   return (
     <Fragment>
-      {comments.map(comment => (
+      {comments.map((comment) => (
         <ProjectCommentOutput comment={comment} key={comment.id} />
       ))}
     </Fragment>

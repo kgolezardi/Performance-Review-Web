@@ -13,7 +13,7 @@ export function fetchQuery(operation: RequestParameters, variables: Variables = 
       query: operation.text,
       variables,
     }),
-  }).then(response => {
+  }).then((response) => {
     return response.json();
   });
 }

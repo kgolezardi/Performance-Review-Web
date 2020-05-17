@@ -19,7 +19,7 @@ type Props = FCProps<OwnProps>;
 function SelectInput({ initialValue = null, options, ...props }: Props) {
   const [value, setValue] = useForminatorState(initialValue);
   const onChange = useCallback(
-    event => {
+    (event) => {
       setValue(event.target.value || null);
     },
     [setValue],

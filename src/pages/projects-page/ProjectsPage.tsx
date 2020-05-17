@@ -55,10 +55,10 @@ export default function ProjectsPage(props: Props) {
   const saveProject = useCallback(
     (input: ProjectFormData) => {
       return saveProjectReview({ input })
-        .then(res => {
+        .then((res) => {
           enqueueSnackbar(i18n._('Successfully saved.'), { variant: 'success' });
         })
-        .catch(error => {
+        .catch((error) => {
           enqueueSnackbar(i18n._('Something went wrong.'), { variant: 'error' });
         });
     },
@@ -85,7 +85,7 @@ export default function ProjectsPage(props: Props) {
   const data = useLazyLoadQuery<ProjectsPageQuery>(query, {});
 
   const [initialProjectIds] = useState(
-    () => new Set(data.viewer.projectReviews.map(projectReview => projectReview.project.id)),
+    () => new Set(data.viewer.projectReviews.map((projectReview) => projectReview.project.id)),
   );
 
   const projectReviews = reverse(data.viewer.projectReviews);
@@ -109,7 +109,7 @@ export default function ProjectsPage(props: Props) {
         </Grid>
       </Box>
       <Box paddingY={2}>
-        {projectReviews.map(projectReview => {
+        {projectReviews.map((projectReview) => {
           return (
             <ProjectExpansionPanel
               key={projectReview.id}
