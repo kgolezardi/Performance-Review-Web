@@ -22,7 +22,7 @@ msgstr "Accomplishments"
 #: src/pages/dashboard-page/DashboardPage.tsx:51
 #: src/pages/manager-review-page/ManagerReviewContent.tsx:46
 #: src/pages/peer-review-page/PeerReviewPage.tsx:43
-#: src/pages/result-page/ResultPage.tsx:24
+#: src/pages/result-page/ResultPage.tsx:23
 #: src/pages/self-review-page/SelfReviewPage.tsx:24
 msgid "Achievements"
 msgstr "Achievements"
@@ -62,7 +62,6 @@ msgid "Cancel"
 msgstr "Cancel"
 
 #: src/pages/peer-review-page/PeerReviewPage.tsx:36
-#: src/pages/result-page/ResultPage.tsx:31
 #: src/pages/self-review-page/SelfReviewPage.tsx:31
 #: src/stories/decorators/promptDecorator.tsx:5
 msgid "Changes you made may not be saved."
@@ -92,7 +91,7 @@ msgstr "Delete"
 #: src/pages/dashboard-page/DashboardPage.tsx:43
 #: src/pages/manager-review-page/ManagerReviewContent.tsx:45
 #: src/pages/peer-review-page/PeerReviewPage.tsx:42
-#: src/pages/result-page/ResultPage.tsx:23
+#: src/pages/result-page/ResultPage.tsx:22
 #: src/pages/self-review-page/SelfReviewPage.tsx:23
 msgid "Dominant Characteristics"
 msgstr "Dominant Characteristics"
@@ -144,7 +143,7 @@ msgid "Exceeds Expectations from me"
 msgstr "Exceeds Expectations from me"
 
 #: src/pages/criteria-page/CriteriaForm.tsx:61
-#: src/pages/result-page/criteria-result-page/CriteriaResult.tsx:37
+#: src/pages/result-page/criteria-result-page/CriteriaResult.tsx:18
 #: src/shared/criteria-output/CriteriaOutput.tsx:34
 msgid "Execution"
 msgstr "Execution"
@@ -207,7 +206,7 @@ msgid "It's complete!"
 msgstr "It's complete!"
 
 #: src/pages/criteria-page/CriteriaForm.tsx:67
-#: src/pages/result-page/criteria-result-page/CriteriaResult.tsx:39
+#: src/pages/result-page/criteria-result-page/CriteriaResult.tsx:20
 #: src/shared/criteria-output/CriteriaOutput.tsx:40
 msgid "Leadership"
 msgstr "Leadership"
@@ -251,7 +250,7 @@ msgid "Observation"
 msgstr "Observation"
 
 #: src/pages/criteria-page/CriteriaForm.tsx:55
-#: src/pages/result-page/criteria-result-page/CriteriaResult.tsx:35
+#: src/pages/result-page/criteria-result-page/CriteriaResult.tsx:16
 #: src/shared/criteria-output/CriteriaOutput.tsx:28
 msgid "Organization Culture Adoption"
 msgstr "Organization Culture Adoption"
@@ -271,7 +270,7 @@ msgstr "People who will comment on your accomplishments and write your performan
 #: src/pages/dashboard-page/DashboardPage.tsx:35
 #: src/pages/manager-review-page/ManagerReviewContent.tsx:44
 #: src/pages/peer-review-page/PeerReviewPage.tsx:41
-#: src/pages/result-page/ResultPage.tsx:22
+#: src/pages/result-page/ResultPage.tsx:21
 #: src/pages/self-review-page/SelfReviewPage.tsx:22
 msgid "Performance Competencies"
 msgstr "Performance Competencies"
@@ -291,13 +290,13 @@ msgid "Persian"
 msgstr "فارسی"
 
 #: src/pages/criteria-page/CriteriaForm.tsx:70
-#: src/pages/result-page/criteria-result-page/CriteriaResult.tsx:40
+#: src/pages/result-page/criteria-result-page/CriteriaResult.tsx:21
 #: src/shared/criteria-output/CriteriaOutput.tsx:43
 msgid "Presence"
 msgstr "Presence"
 
 #: src/pages/criteria-page/CriteriaForm.tsx:58
-#: src/pages/result-page/criteria-result-page/CriteriaResult.tsx:36
+#: src/pages/result-page/criteria-result-page/CriteriaResult.tsx:17
 #: src/shared/criteria-output/CriteriaOutput.tsx:31
 msgid "Problem Solving"
 msgstr "Problem Solving"
@@ -426,7 +425,7 @@ msgid "The most important characteristics or effective behaviors that he/she sho
 msgstr "The most important characteristics or effective behaviors that he/she should maintain"
 
 #: src/pages/criteria-page/CriteriaForm.tsx:64
-#: src/pages/result-page/criteria-result-page/CriteriaResult.tsx:38
+#: src/pages/result-page/criteria-result-page/CriteriaResult.tsx:19
 #: src/shared/criteria-output/CriteriaOutput.tsx:37
 msgid "Thought Leadership"
 msgstr "Thought Leadership"
@@ -440,7 +439,7 @@ msgstr "Todo"
 msgid "Try Again"
 msgstr "Try Again"
 
-#: src/pages/result-page/criteria-result-page/CriterionResultRatingGroup.tsx:17
+#: src/pages/result-page/criteria-result-page/CriterionResultRatingGroup.tsx:38
 #: src/shared/evaluation-output/EvaluationOutput.tsx:23
 #: src/shared/evaluation-output/EvaluationOutput.tsx:24
 msgid "Unknown"
@@ -513,6 +512,10 @@ msgstr "Your comment about {name}'s performance in this project"
 #: src/pages/manager-review-page/ManagerReviewPage.tsx:19
 msgid "Your team members"
 msgstr "Your team members"
+
+#: src/pages/result-page/criteria-result-page/CriterionResultRatingGroup.tsx:47
+msgid "{evaluationsCount} evaluations / {commentsCount} comments"
+msgstr "{evaluationsCount} evaluations / {commentsCount} comments"
 
 #: src/pages/peer-review-page/projectsTab/PeerReviewProjectsResult.tsx:40
 #: src/pages/peer-review-page/projectsTab/project-expansion-panel/PeerReviewProjectExpansionPanel.tsx:53

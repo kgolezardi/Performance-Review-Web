@@ -42,7 +42,7 @@ export function MultilineOutput(props: Props) {
             <Fragment>
               {truncated && <span>...</span>}
               <TruncationButton onClick={handleClick}>
-                {truncated ? i18n._('See More') : i18n._('See Less')}
+                <Fragment> {truncated ? i18n._('See More') : i18n._('See Less')}</Fragment>
               </TruncationButton>
             </Fragment>
           )}

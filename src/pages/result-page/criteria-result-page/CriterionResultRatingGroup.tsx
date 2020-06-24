@@ -1,46 +1,100 @@
-import React, { useMemo } from 'react';
-import { Box, Divider, Paper } from '@material-ui/core';
+import React from 'react';
+import graphql from 'babel-plugin-relay/macro';
+import { Box, Typography } from '@material-ui/core';
+import { Evaluation } from 'src/__generated__/enums';
+import { ExcludeUnknown } from 'src/shared/enum-utils/types';
 import { FCProps } from 'src/shared/types/FCProps';
-import { MultilineOutput } from 'src/shared/multiline-output';
-import { sortBy } from 'ramda';
+import { ResultCommentOutput } from 'src/pages/result-page/ResultCommentOutput';
+import { i18n } from '@lingui/core';
+import { selfReviewEvaluationDictionary } from 'src/global-types';
+import { useFragment } from 'react-relay/hooks';
 
-import { CriteriaResult_reviews$data } from './__generated__/CriteriaResult_reviews.graphql';
-import { selfReviewEvaluationDictionary } from '../../../global-types';
+import { CriterionResultRatingGroup_reviews$key } from './__generated__/CriterionResultRatingGroup_reviews.graphql';
+
+const fragment = graphql`
+  fragment CriterionResultRatingGroup_reviews on PersonReviewNode @relay(plural: true) {
+    id
+    isSelfReview
+    sahabinessRating
+    sahabinessComment
+    problemSolvingRating
+    problemSolvingComment
+    executionRating
+    executionComment
+    thoughtLeadershipRating
+    thoughtLeadershipComment
+    leadershipRating
+    leadershipComment
+    presenceRating
+    presenceComment
+  }
+`;
 
 interface OwnProps {
-  reviews: CriteriaResult_reviews$data;
-  rating: 'EXCEEDS_EXPECTATIONS' | 'MEETS_EXPECTATIONS' | 'NEEDS_IMPROVEMENT' | 'SUPERB';
+  reviews: CriterionResultRatingGroup_reviews$key;
+  rating: ExcludeUnknown<Evaluation> | null;
   prefix: 'sahabiness' | 'problemSolving' | 'execution' | 'thoughtLeadership' | 'leadership' | 'presence';
 }
 
 export type Props = FCProps<OwnProps>;
 
-export function CriterionResultRatingGroup(props: Props) {
+export const CriterionResultRatingGroup = React.memo(function CriterionResultRatingGroup(props: Props) {
   const { rating, prefix } = props;
-  const reviews = useMemo((): CriteriaResult_reviews$data => {
-    const ratingReviews = props.reviews.filter(
-      (review: any) => review[prefix + 'Rating'] === rating && review[prefix + 'Comment'],
-    );
-    return sortBy((review: any) => review[prefix + 'Comment'] ?? '', ratingReviews);
-  }, [props.reviews, rating, prefix]);
-  if (reviews.length === 0) {
+
+  const reviews = useFragment(fragment, props.reviews);
+
+  const criteriaRating = (prefix + 'Rating') as
+    | 'executionRating'
+    | 'leadershipRating'
+    | 'presenceRating'
+    | 'problemSolvingRating'
+    | 'sahabinessRating'
+    | 'thoughtLeadershipRating';
+
+  const criteriaComment = (prefix + 'Comment') as
+    | 'executionComment'
+    | 'leadershipComment'
+    | 'presenceComment'
+    | 'problemSolvingComment'
+    | 'sahabinessComment'
+    | 'thoughtLeadershipComment';
+
+  const filteredByRating =
+    rating !== null
+      ? reviews.filter((review) => review[criteriaRating] === rating)
+      : reviews.filter((review) => review[criteriaRating] === rating && review[criteriaComment]);
+  const sortedReviews = filteredByRating.filter((review) => review[criteriaComment]).sort();
+
+  if (filteredByRating.length === 0) {
     return null;
   }
-  const title = selfReviewEvaluationDictionary[rating];
+
+  const selfReview = sortedReviews.find((review) => review.isSelfReview);
+  const peerReviews = sortedReviews.filter((review) => !review.isSelfReview);
+  const currentEvaluation = rating ? selfReviewEvaluationDictionary[rating] : i18n._('Unknown');
+  const evaluationsCount = filteredByRating.length;
+  const commentsCount = peerReviews.length;
 
   return (
-    <Box mt={4}>
-      <h2>{title}</h2>
-
-      {reviews.map((review: any) => (
-        <Box mt={2} key={review.id}>
-          <Paper style={{ backgroundColor: review.isSelfReview ? '#F0F0C0' : '#F0F0F0', padding: 8 }}>
-            <MultilineOutput value={review[prefix + 'Comment']} />
-          </Paper>
+    <Box marginTop={3}>
+      <Box display="flex" alignItems="baseline">
+        <Typography variant="h5">{currentEvaluation}</Typography>
+        <Box marginLeft={2} color="grey.700">
+          <Typography variant="caption">
+            {i18n._('{evaluationsCount} evaluations / {commentsCount} comments', { evaluationsCount, commentsCount })}
+          </Typography>
+        </Box>
+      </Box>
+      {selfReview && (
+        <Box marginTop={2}>
+          <ResultCommentOutput value={selfReview[criteriaComment]} type="self" />
+        </Box>
+      )}
+      {peerReviews.map((review) => (
+        <Box marginTop={2} key={review.id}>
+          <ResultCommentOutput value={review[criteriaComment]} type="peer" />
         </Box>
       ))}
-
-      <Divider />
     </Box>
   );
-}
+});
