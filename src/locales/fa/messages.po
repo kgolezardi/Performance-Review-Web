@@ -255,6 +255,10 @@ msgstr "مشاهده"
 msgid "Organization Culture Adoption"
 msgstr "انطباق با فرهنگ سازمانی"
 
+#: src/pages/result-page/project-result-page/ProjectResultExpansionPanel.tsx:52
+msgid "Other people comments about your performance compared to initial expectation"
+msgstr "نظرات دیگران در مورد سطج عمکرد شما در این پروژه"
+
 #: src/shared/auth/LoginForm.tsx:15
 msgid "Password"
 msgstr "گذرواژه"
@@ -409,7 +413,7 @@ msgstr "ممنون، بعدا می‌گیرم جایزمو"
 msgid "The most important characteristics or behaviors I should improve in myself"
 msgstr "مهمترین ویژگی‌ها یا رفتارهایی که باید بهبودشون بدم"
 
-#: src/pages/result-page/strength-weaknesses-result-page/StrengthsWeaknessesResult.tsx:39
+#: src/pages/result-page/strengths-weaknesses-result-page/StrengthsWeaknessesResult.tsx:33
 #: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:54
 msgid "The most important characteristics or behaviors he/she should improve"
 msgstr "مهمترین ویژگی‌ها یا رفتارهایی که باید بهبودشون بده"
@@ -419,7 +423,7 @@ msgstr "مهمترین ویژگی‌ها یا رفتارهایی که باید �
 msgid "The most important characteristics or effective behaviors that I should maintain"
 msgstr "مهمترین ویژگی‌ها یا رفتارهای مؤثری که باید ادامه‌شون بدم"
 
-#: src/pages/result-page/strength-weaknesses-result-page/StrengthsWeaknessesResult.tsx:33
+#: src/pages/result-page/strengths-weaknesses-result-page/StrengthsWeaknessesResult.tsx:32
 #: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:45
 msgid "The most important characteristics or effective behaviors that he/she should maintain"
 msgstr "مهمترین ویژگی‌ها یا رفتارهای مؤثری که باید ادامه‌شون بده"
@@ -439,7 +443,8 @@ msgstr "انجام نشده"
 msgid "Try Again"
 msgstr "تلاش مجدد"
 
-#: src/pages/result-page/criteria-result-page/CriterionResultRatingGroup.tsx:38
+#: src/pages/result-page/criteria-result-page/CriterionResultRatingGroup.tsx:40
+#: src/pages/result-page/project-result-page/ProjectResultRatingGroup.tsx:23
 #: src/shared/evaluation-output/EvaluationOutput.tsx:23
 #: src/shared/evaluation-output/EvaluationOutput.tsx:24
 msgid "Unknown"
@@ -509,17 +514,20 @@ msgstr "نظر شما"
 msgid "Your comment about {name}'s performance in this project"
 msgstr "نظر شما در مورد عملکرد {name} در این پروژه"
 
+#: src/pages/result-page/project-result-page/ProjectResultExpansionPanel.tsx:41
+msgid "Your comments about your performance compared to initial expectation"
+msgstr "نظر شما در مورد سطح عملکردتان در این پروژه"
+
 #: src/pages/manager-review-page/ManagerReviewPage.tsx:19
 msgid "Your team members"
 msgstr "اعضای تیم شما"
 
-#: src/pages/result-page/criteria-result-page/CriterionResultRatingGroup.tsx:47
+#: src/pages/result-page/criteria-result-page/CriterionResultRatingGroup.tsx:48
 msgid "{evaluationsCount} evaluations / {commentsCount} comments"
 msgstr "{evaluationsCount} ارزیابی / {commentsCount} نظر"
 
 #: src/pages/peer-review-page/projectsTab/PeerReviewProjectsResult.tsx:40
 #: src/pages/peer-review-page/projectsTab/project-expansion-panel/PeerReviewProjectExpansionPanel.tsx:53
-#: src/pages/result-page/project-result-page/ProjectsResult.tsx:41
 msgid "{name}'s comment about his/her performance compared to initial expectation"
 msgstr "نظر {name} در مورد سطح عملکردش نسبت به انتظاری که ازش میره"
 

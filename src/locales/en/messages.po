@@ -255,6 +255,10 @@ msgstr "Observation"
 msgid "Organization Culture Adoption"
 msgstr "Organization Culture Adoption"
 
+#: src/pages/result-page/project-result-page/ProjectResultExpansionPanel.tsx:52
+msgid "Other people comments about your performance compared to initial expectation"
+msgstr "Other people comments about your performance compared to initial expectation"
+
 #: src/shared/auth/LoginForm.tsx:15
 msgid "Password"
 msgstr "Password"
@@ -409,7 +413,7 @@ msgstr "Thanks, I claim it later"
 msgid "The most important characteristics or behaviors I should improve in myself"
 msgstr "The most important characteristics or behaviors I should improve in myself"
 
-#: src/pages/result-page/strength-weaknesses-result-page/StrengthsWeaknessesResult.tsx:39
+#: src/pages/result-page/strengths-weaknesses-result-page/StrengthsWeaknessesResult.tsx:33
 #: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:54
 msgid "The most important characteristics or behaviors he/she should improve"
 msgstr "The most important characteristics or behaviors he/she should improve"
@@ -419,7 +423,7 @@ msgstr "The most important characteristics or behaviors he/she should improve"
 msgid "The most important characteristics or effective behaviors that I should maintain"
 msgstr "The most important characteristics or effective behaviors that I should maintain"
 
-#: src/pages/result-page/strength-weaknesses-result-page/StrengthsWeaknessesResult.tsx:33
+#: src/pages/result-page/strengths-weaknesses-result-page/StrengthsWeaknessesResult.tsx:32
 #: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:45
 msgid "The most important characteristics or effective behaviors that he/she should maintain"
 msgstr "The most important characteristics or effective behaviors that he/she should maintain"
@@ -439,7 +443,8 @@ msgstr "Todo"
 msgid "Try Again"
 msgstr "Try Again"
 
-#: src/pages/result-page/criteria-result-page/CriterionResultRatingGroup.tsx:38
+#: src/pages/result-page/criteria-result-page/CriterionResultRatingGroup.tsx:40
+#: src/pages/result-page/project-result-page/ProjectResultRatingGroup.tsx:23
 #: src/shared/evaluation-output/EvaluationOutput.tsx:23
 #: src/shared/evaluation-output/EvaluationOutput.tsx:24
 msgid "Unknown"
@@ -509,17 +514,20 @@ msgstr "Your comment"
 msgid "Your comment about {name}'s performance in this project"
 msgstr "Your comment about {name}'s performance in this project"
 
+#: src/pages/result-page/project-result-page/ProjectResultExpansionPanel.tsx:41
+msgid "Your comments about your performance compared to initial expectation"
+msgstr "Your comments about your performance compared to initial expectation"
+
 #: src/pages/manager-review-page/ManagerReviewPage.tsx:19
 msgid "Your team members"
 msgstr "Your team members"
 
-#: src/pages/result-page/criteria-result-page/CriterionResultRatingGroup.tsx:47
+#: src/pages/result-page/criteria-result-page/CriterionResultRatingGroup.tsx:48
 msgid "{evaluationsCount} evaluations / {commentsCount} comments"
 msgstr "{evaluationsCount} evaluations / {commentsCount} comments"
 
 #: src/pages/peer-review-page/projectsTab/PeerReviewProjectsResult.tsx:40
 #: src/pages/peer-review-page/projectsTab/project-expansion-panel/PeerReviewProjectExpansionPanel.tsx:53
-#: src/pages/result-page/project-result-page/ProjectsResult.tsx:41
 msgid "{name}'s comment about his/her performance compared to initial expectation"
 msgstr "{name}'s comment about his/her performance compared to initial expectation"
 

@@ -4,7 +4,7 @@ import { Box } from '@material-ui/core';
 import { FCProps } from 'src/shared/types/FCProps';
 import { useLazyLoadQuery } from 'react-relay/hooks';
 
-import { ProjectsResult } from './ProjectsResult';
+import { ProjectResultExpansionPanel } from './ProjectResultExpansionPanel';
 import { ProjectsResultPageQuery } from './__generated__/ProjectsResultPageQuery.graphql';
 
 interface OwnProps {
@@ -19,7 +19,7 @@ const query = graphql`
       user(id: $id) {
         projectReviews {
           id
-          ...ProjectsResult_projectReview
+          ...ProjectResultExpansionPanel_projectReview
         }
       }
     }
@@ -32,7 +32,7 @@ export function ProjectsResultPage(props: Props) {
   return (
     <Box paddingY={2}>
       {projectReviews?.map((projectReview) => (
-        <ProjectsResult projectReview={projectReview} key={projectReview.id} />
+        <ProjectResultExpansionPanel projectReview={projectReview} key={projectReview.id} />
       ))}
     </Box>
   );
