@@ -11,8 +11,8 @@ import { i18n } from '@lingui/core';
 import { useAuthGuardUser } from 'src/core/auth';
 
 import CriteriaResultPage from './criteria-result-page/CriteriaResultPage';
+import StrengthsWeaknessesResultPage from './strengths-weaknesses-result-page/StrengthsWeaknessesResultPage';
 import { ProjectsResultPage } from './project-result-page/ProjectsResultPage';
-import { StrengthsWeaknessesResultPage } from './strength-weaknesses-result-page/StrengthsWeaknessesResultPage';
 
 interface Params {
   tab?: string;

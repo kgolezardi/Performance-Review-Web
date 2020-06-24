@@ -25,7 +25,7 @@ const query = graphql`
   }
 `;
 
-export function StrengthsWeaknessesResultPage(props: Props) {
+export default function StrengthsWeaknessesResultPage(props: Props) {
   const { revieweeId } = props;
 
   const data = useLazyLoadQuery<StrengthsWeaknessesResultPageQuery>(query, { id: revieweeId });
