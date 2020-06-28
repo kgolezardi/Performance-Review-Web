@@ -6,7 +6,7 @@ import { Styles } from 'src/shared/types/Styles';
 
 interface OwnProps extends ExpansionPanelProps {}
 
-type Props = FCProps<OwnProps>;
+type Props = FCProps<OwnProps> & StyleProps;
 
 export function ExpansionPanel(props: Props) {
   const classes = useStyles(props);
