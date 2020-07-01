@@ -5,6 +5,7 @@ import { FCProps } from 'src/shared/types/FCProps';
 import { Overlayscrollbars } from 'src/shared/overlayscrollbars';
 import { Styles } from 'src/shared/types/Styles';
 import { groupChildrenByType } from 'src/shared/utils/groupChildrenByType.utils';
+import { useResetScroll } from 'src/shared/utils/useResetScroll';
 
 import { brandWidth, headerHeight } from './constants';
 
@@ -40,9 +41,9 @@ type Props = FCProps<OwnProps> & StyleProps;
  */
 export function DashboardLayout(props: Props) {
   const classes = useStyles(props);
+  const overlayScrollbarRef = useResetScroll();
 
   const map = groupChildrenByType(props.children, regions);
-
   const contentChild = map.get(ContentRegion);
   const navbarChild = map.get(NavbarRegion);
   const brandChild = map.get(BrandRegion);
@@ -58,7 +59,9 @@ export function DashboardLayout(props: Props) {
         </Toolbar>
       </AppBar>
       <main className={classes.content}>
-        <Overlayscrollbars className={classes.overlayscrollbars}>{contentChild}</Overlayscrollbars>
+        <Overlayscrollbars ref={overlayScrollbarRef} className={classes.overlayscrollbars}>
+          {contentChild}
+        </Overlayscrollbars>
       </main>
     </div>
   );
