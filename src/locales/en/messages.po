@@ -53,7 +53,7 @@ msgstr "An error occurred. Try again!"
 msgid "Are you sure you want to delete this project review?"
 msgstr "Are you sure you want to delete this project review?"
 
-#: src/pages/start-review-page/StartReviewCard.tsx:37
+#: src/pages/start-page/StartReviewCard.tsx:37
 msgid "Begin my review"
 msgstr "Begin my review"
 
@@ -79,8 +79,9 @@ msgstr "Criteria"
 msgid "Dashboard"
 msgstr "Dashboard"
 
-#: src/pages/start-review-page/NoPeerReviewPage.tsx:31
-#: src/pages/start-review-page/StartReviewCard.tsx:25
+#: src/pages/start-page/NoPeerReviewPage.tsx:31
+#: src/pages/start-page/ResultStartCard.tsx:18
+#: src/pages/start-page/StartReviewCard.tsx:25
 msgid "Dear {name}, Hello"
 msgstr "Dear {name}, Hello"
 
@@ -125,7 +126,7 @@ msgstr "Error"
 msgid "Evaluation"
 msgstr "Evaluation"
 
-#: src/pages/start-review-page/StartReviewCard.tsx:30
+#: src/pages/start-page/StartReviewCard.tsx:30
 msgid "Evaluation due date: {formattedDueDate}"
 msgstr "Evaluation due date: {formattedDueDate}"
 
@@ -337,6 +338,10 @@ msgstr "See Less"
 msgid "See More"
 msgstr "See More"
 
+#: src/pages/start-page/ResultStartCard.tsx:25
+msgid "See Review Result"
+msgstr "See Review Result"
+
 #: src/shared/rating/Rating.stories.tsx:15
 #: src/shared/rating/Rating.stories.tsx:25
 #: src/shared/rating/Rating.stories.tsx:35
@@ -358,7 +363,7 @@ msgstr "Select project"
 msgid "Self Review"
 msgstr "Self Review"
 
-#: src/pages/start-review-page/NoPeerReviewPage.tsx:37
+#: src/pages/start-page/NoPeerReviewPage.tsx:37
 #: src/shared/gift-dialog/GiftDialog.tsx:45
 msgid "Show and claim reward"
 msgstr "Show and claim reward"
@@ -444,7 +449,7 @@ msgid "Try Again"
 msgstr "Try Again"
 
 #: src/pages/result-page/criteria-result-page/CriterionResultRatingGroup.tsx:40
-#: src/pages/result-page/project-result-page/ProjectResultRatingGroup.tsx:23
+#: src/pages/result-page/project-result-page/ProjectResultRatingGroup.tsx:25
 #: src/shared/evaluation-output/EvaluationOutput.tsx:23
 #: src/shared/evaluation-output/EvaluationOutput.tsx:24
 msgid "Unknown"
@@ -523,6 +528,7 @@ msgid "Your team members"
 msgstr "Your team members"
 
 #: src/pages/result-page/criteria-result-page/CriterionResultRatingGroup.tsx:48
+#: src/pages/result-page/project-result-page/ProjectResultRatingGroup.tsx:33
 msgid "{evaluationsCount} evaluations / {commentsCount} comments"
 msgstr "{evaluationsCount} evaluations / {commentsCount} comments"
 
