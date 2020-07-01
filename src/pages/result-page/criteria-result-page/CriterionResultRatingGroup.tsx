@@ -73,7 +73,7 @@ export const CriterionResultRatingGroup = React.memo(function CriterionResultRat
   const peerReviews = sortedReviews.filter((review) => !review.isSelfReview);
   const currentEvaluation = rating ? selfReviewEvaluationDictionary[rating] : i18n._('Unknown');
   const evaluationsCount = filteredByRating.length;
-  const commentsCount = peerReviews.length;
+  const commentsCount = sortedReviews.length;
 
   return (
     <Box marginTop={3}>
