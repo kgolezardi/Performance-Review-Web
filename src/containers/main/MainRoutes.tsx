@@ -60,21 +60,28 @@ const PeerReviewBoardPage = React.lazy(() =>
 const SelfStartReviewPage = React.lazy(() =>
   import(
     /* webpackChunkName: "self-start-review-page" */
-    'src/pages/start-review-page/SelfStartReviewPage'
+    'src/pages/start-page/SelfStartReviewPage'
   ),
 );
 
 const PeerStartReviewPage = React.lazy(() =>
   import(
     /* webpackChunkName: "peer-start-review-page" */
-    'src/pages/start-review-page/PeerStartReviewPage'
+    'src/pages/start-page/PeerStartReviewPage'
   ),
 );
 
 const NoPeerReviewPage = React.lazy(() =>
   import(
     /* webpackChunkName: "peer-no-review-page" */
-    'src/pages/start-review-page/NoPeerReviewPage'
+    'src/pages/start-page/NoPeerReviewPage'
+  ),
+);
+
+const ResultStartPage = React.lazy(() =>
+  import(
+    /* webpackChunkName: "result-start-page" */
+    'src/pages/start-page/ResultStartPage'
   ),
 );
 
@@ -151,6 +158,9 @@ export function MainRoutes(props: FCProps<Props>) {
   }
 
   if (phase === 'RESULTS') {
+    if (!user.hasStarted) {
+      return <ResultStartPage />;
+    }
     return (
       <Switch>
         <Route path="/:tab?" children={<ResultPage />} />;
