@@ -258,7 +258,7 @@ msgstr "انطباق با فرهنگ سازمانی"
 
 #: src/pages/result-page/project-result-page/ProjectResultExpansionPanel.tsx:52
 msgid "Other people comments about your performance compared to initial expectation"
-msgstr "نظرات دیگران در مورد سطج عمکرد شما در این پروژه"
+msgstr "نظرات دیگران در مورد سطح عمکرد شما در این پروژه"
 
 #: src/shared/auth/LoginForm.tsx:15
 msgid "Password"
