@@ -1,9 +1,9 @@
-import HelpIcon from '@material-ui/icons/Help';
 import graphql from 'babel-plugin-relay/macro';
 import React, { ReactNode } from 'react';
-import { Box, Tooltip, Typography } from '@material-ui/core';
+import { Box, Typography } from '@material-ui/core';
 import { ExpansionPanel, ExpansionPanelDetails, ExpansionPanelSummary } from 'src/shared/expansion-panel';
 import { FCProps } from 'src/shared/types/FCProps';
+import { HelperText } from 'src/shared/helper-text/HelperText';
 import { useFragment } from 'react-relay/hooks';
 
 import { CriterionResultExpansionPanel_reviews$key } from './__generated__/CriterionResultExpansionPanel_reviews.graphql';
@@ -33,11 +33,7 @@ export function CriterionResultExpansionPanel(props: Props) {
     <ExpansionPanel>
       <ExpansionPanelSummary>
         <Typography variant="h3">{title}</Typography>
-        <Tooltip title={details}>
-          <Box display="flex" paddingLeft={1} alignItems="center">
-            <HelpIcon fontSize="small" color="action" />
-          </Box>
-        </Tooltip>
+        <HelperText text={details} />
       </ExpansionPanelSummary>
       <ExpansionPanelDetails>
         <Box width="100%">

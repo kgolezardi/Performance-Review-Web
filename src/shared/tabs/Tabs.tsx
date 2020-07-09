@@ -21,6 +21,9 @@ const styles = (theme: Theme) => ({
   indicator: {
     height: theme.spacing(0.5),
     borderRadius: theme.spacing(0.5),
+    '@media print': {
+      display: 'none',
+    },
   } as CSSProperties,
 });
 

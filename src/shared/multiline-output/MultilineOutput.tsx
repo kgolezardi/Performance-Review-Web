@@ -1,8 +1,9 @@
 import React, { Fragment, useState } from 'react';
+import { Box, Theme, Typography, TypographyProps, styled } from '@material-ui/core';
 import { FCProps } from 'src/shared/types/FCProps';
 import { NON_BREAKING_SPACE } from 'src/shared/constants';
-import { Theme, Typography, TypographyProps, styled } from '@material-ui/core';
 import { i18n } from '@lingui/core';
+import { usePrintingContext } from 'src/shared/layouts/dashboard-layouts/PrintingContext';
 
 interface OwnProps extends Omit<TypographyProps, 'children'> {
   value: string | null;
@@ -15,10 +16,12 @@ type Props = FCProps<OwnProps>;
 export function MultilineOutput(props: Props) {
   const { value, defaultValue = '---', enableTruncating = false, maxLength = 500, ...typographyProps } = props;
 
+  const printing = usePrintingContext();
   const [truncated, setTruncated] = useState(enableTruncating);
 
   const canBeTruncated = value !== null && value.length > maxLength && enableTruncating;
-  const truncatedValue = truncated ? value?.substring(0, maxLength) : value;
+  const shouldBeTruncated = truncated && !printing;
+  const truncatedValue = shouldBeTruncated ? value?.substring(0, maxLength) : value;
   const splitString = (truncatedValue || NON_BREAKING_SPACE).split('\n');
 
   const handleClick = () => {
@@ -39,12 +42,14 @@ export function MultilineOutput(props: Props) {
         <WrappedTypography color="textPrimary" {...typographyProps} key={index}>
           {str}
           {index === splitString.length - 1 && canBeTruncated && (
-            <Fragment>
+            <Box display="inline-block" displayPrint="none">
               {truncated && <span>...</span>}
               <TruncationButton onClick={handleClick}>
-                <Fragment> {truncated ? i18n._('See More') : i18n._('See Less')}</Fragment>
+                <Box display="inline-block" paddingLeft="4px">
+                  {truncated ? i18n._('See More') : i18n._('See Less')}
+                </Box>
               </TruncationButton>
-            </Fragment>
+            </Box>
           )}
         </WrappedTypography>
       ))}
