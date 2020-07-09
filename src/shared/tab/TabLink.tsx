@@ -16,8 +16,22 @@ export function TabLink(props: Props) {
 }
 
 const styles = (theme: Theme) => ({
+  root: {},
+  labelIcon: {},
+  textColorInherit: {},
+  textColorPrimary: {},
+  textColorSecondary: {},
+  selected: {},
+  disabled: {},
+  fullWidth: {},
+  wrapped: {},
   wrapper: {
     fontSize: theme.typography.h6.fontSize,
+    '@media print': {
+      '$selected &': {
+        fontSize: theme.typography.h4.fontSize,
+      },
+    },
   } as CSSProperties,
 });
 

@@ -14,7 +14,7 @@ export function SectionGuide(props: Props) {
   const classes = useStyles(props);
 
   return (
-    <Box className={classes.root}>
+    <Box className={classes.root} displayPrint="none">
       <Grid container spacing={2} alignItems="center">
         <Grid item>
           <HelpIcon color="primary" fontSize="large" />
