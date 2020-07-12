@@ -32,6 +32,9 @@ const styles = (theme: Theme) => ({
     backgroundColor: lighten(theme.palette.primary.main, 0.85),
     borderRadius: theme.spacing(0.5),
     padding: theme.spacing(2),
+    '@media print': {
+      pageBreakInside: 'avoid',
+    },
   } as CSSProperties,
 });
 

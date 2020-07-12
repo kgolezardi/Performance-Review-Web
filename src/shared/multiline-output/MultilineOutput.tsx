@@ -41,8 +41,8 @@ export function MultilineOutput(props: Props) {
       {splitString.map((str, index, splitString) => (
         <WrappedTypography color="textPrimary" {...typographyProps} key={index}>
           {str}
-          {index === splitString.length - 1 && canBeTruncated && (
-            <Box display="inline-block" displayPrint="none">
+          {index === splitString.length - 1 && canBeTruncated && !printing && (
+            <Box display="inline-block" displayPrint="none" component="span">
               {truncated && <span>...</span>}
               <TruncationButton onClick={handleClick}>
                 <Box display="inline-block" paddingLeft="4px">
@@ -60,6 +60,9 @@ export function MultilineOutput(props: Props) {
 const WrappedTypography = styled(Typography)({
   overflowWrap: 'break-word',
   wordWrap: 'break-word',
+  '@media print': {
+    pageBreakInside: 'avoid',
+  },
 });
 
 const TruncationButton = styled('span')(({ theme }: { theme: Theme }) => ({

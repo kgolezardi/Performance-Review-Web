@@ -1,5 +1,6 @@
+import PrintIcon from '@material-ui/icons/Print';
 import React, { Suspense } from 'react';
-import { Box, Container, Paper, Theme, makeStyles } from '@material-ui/core';
+import { Box, Container, Fab, Paper, Theme, makeStyles } from '@material-ui/core';
 import { CSSProperties } from '@material-ui/core/styles/withStyles';
 import { FCProps } from 'src/shared/types/FCProps';
 import { FullPageSpinner } from 'src/shared/loading';
@@ -68,6 +69,9 @@ export default function ResultPage(props: Props) {
             </Switch>
           </Suspense>
         </Paper>
+        <Fab color="primary" className={classes.print} href={'/print'} target="_blank">
+          <PrintIcon />
+        </Fab>
       </Box>
     </Container>
   );
@@ -95,6 +99,12 @@ const styles = (theme: Theme) => ({
     '@media print': {
       boxShadow: 'none',
     },
+  } as CSSProperties,
+  print: {
+    position: 'fixed',
+    bottom: 48,
+    left: 40,
+    zIndex: theme.zIndex.snackbar - 10,
   } as CSSProperties,
 });
 
