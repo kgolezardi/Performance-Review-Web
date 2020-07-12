@@ -4,21 +4,20 @@ import { Box } from '@material-ui/core';
 import { FCProps } from 'src/shared/types/FCProps';
 import { PageBreak } from 'src/shared/page-break';
 import { PrintingContext } from 'src/shared/layouts/dashboard-layouts/PrintingContext';
+import { useAuthGuardUser } from 'src/core/auth';
 import { useLazyLoadQuery } from 'react-relay/hooks';
 
 import { CriteriaResult } from './criteria-result-page/CriteriaResult';
-import { PrintableResultQuery } from './__generated__/PrintableResultQuery.graphql';
 import { ProjectResultExpansionPanel } from './project-result-page/ProjectResultExpansionPanel';
+import { ResultPrintPageQuery } from './__generated__/ResultPrintPageQuery.graphql';
 import { StrengthsWeaknessesResult } from './strengths-weaknesses-result-page/StrengthsWeaknessesResult';
 
-interface OwnProps {
-  revieweeId: string;
-}
+interface OwnProps {}
 
 export type Props = FCProps<OwnProps>;
 
 const query = graphql`
-  query PrintableResultQuery($id: ID!) {
+  query ResultPrintPageQuery($id: ID!) {
     viewer {
       user(id: $id) {
         personReviews {
@@ -34,15 +33,15 @@ const query = graphql`
   }
 `;
 
-export function PrintableResult(props: Props) {
-  const { revieweeId } = props;
+export function ResultPrintPage(props: Props) {
+  const { id } = useAuthGuardUser();
 
-  const data = useLazyLoadQuery<PrintableResultQuery>(query, { id: revieweeId });
+  const data = useLazyLoadQuery<ResultPrintPageQuery>(query, { id });
   const reviews = data.viewer.user?.personReviews ?? [];
   const projectReviews = data.viewer.user?.projectReviews ?? [];
 
   useEffect(() => {
-    window.print();
+    window.parent.postMessage({ action: 'print-result' }, '*');
   }, []);
 
   return (

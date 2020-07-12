@@ -45,7 +45,7 @@ export function MultilineOutput(props: Props) {
             <Box display="inline-block" displayPrint="none" component="span">
               {truncated && <span>...</span>}
               <TruncationButton onClick={handleClick}>
-                <Box display="inline-block" paddingLeft="4px">
+                <Box display="inline-block" paddingLeft="4px" component="span">
                   {truncated ? i18n._('See More') : i18n._('See Less')}
                 </Box>
               </TruncationButton>

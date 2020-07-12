@@ -1,6 +1,5 @@
-import PrintIcon from '@material-ui/icons/Print';
 import React, { Suspense } from 'react';
-import { Box, Container, Fab, Paper, Theme, makeStyles } from '@material-ui/core';
+import { Box, Container, Paper, Theme, makeStyles } from '@material-ui/core';
 import { CSSProperties } from '@material-ui/core/styles/withStyles';
 import { FCProps } from 'src/shared/types/FCProps';
 import { FullPageSpinner } from 'src/shared/loading';
@@ -13,6 +12,7 @@ import { useAuthGuardUser } from 'src/core/auth';
 
 import CriteriaResultPage from './criteria-result-page/CriteriaResultPage';
 import StrengthsWeaknessesResultPage from './strengths-weaknesses-result-page/StrengthsWeaknessesResultPage';
+import { PrintResultButton } from './PrintResultButton';
 import { ProjectsResultPage } from './project-result-page/ProjectsResultPage';
 
 interface Params {
@@ -69,20 +69,19 @@ export default function ResultPage(props: Props) {
             </Switch>
           </Suspense>
         </Paper>
-        <Fab color="primary" className={classes.print} href={'/print'} target="_blank">
-          <PrintIcon />
-        </Fab>
       </Box>
+      <PrintResultButton />
     </Container>
   );
 }
+
 const styles = (theme: Theme) => ({
   container: {
     '@media print': {
       paddingLeft: 0,
       paddingRight: 0,
     },
-  },
+  } as CSSProperties,
   tabsPaper: {
     position: 'sticky',
     top: 0,
@@ -100,7 +99,7 @@ const styles = (theme: Theme) => ({
       boxShadow: 'none',
     },
   } as CSSProperties,
-  print: {
+  printButton: {
     position: 'fixed',
     bottom: 48,
     left: 40,

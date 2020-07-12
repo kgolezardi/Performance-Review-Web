@@ -22,9 +22,6 @@ const styles = (theme: Theme) => ({
       display: 'block !important',
       opacity: '100% !important',
     },
-    '&$expansionPanelExpanded': {
-      margin: 0,
-    },
   } as CSSProperties,
 });
 
