@@ -1,4 +1,5 @@
 import PrintIcon from '@material-ui/icons/Print';
+import clsx from 'clsx';
 import React, { Fragment, useEffect, useRef, useState } from 'react';
 import { CSSProperties } from '@material-ui/core/styles/withStyles';
 import { FCProps } from 'src/shared/types/FCProps';
@@ -14,23 +15,23 @@ type Props = FCProps<OwnProps> & StyleProps;
 export function PrintResultButton(props: Props) {
   const classes = useStyles(props);
 
-  const [disabled, setDisabled] = useState(true);
+  const [show, setShow] = useState(false);
   const iframeRef = useRef<HTMLIFrameElement | null>(null);
 
   const handleClick = () => {
-    if (!disabled) {
+    if (show) {
       iframeRef.current?.contentWindow?.focus();
       iframeRef.current?.contentWindow?.print();
     }
   };
 
-  const handleMessage = (event: MessageEvent) => {
-    if (event.data.action === iframeId) {
-      setDisabled(false);
-    }
-  };
-
   useEffect(() => {
+    const handleMessage = (event: MessageEvent) => {
+      if (event.data.action === iframeId) {
+        setShow(true);
+      }
+    };
+
     window.addEventListener('message', handleMessage);
 
     return () => {
@@ -40,8 +41,8 @@ export function PrintResultButton(props: Props) {
 
   return (
     <Fragment>
-      <iframe ref={iframeRef} id={iframeId} src="/print" className={classes.iframe} title="Print Result" />
-      <Fab onClick={handleClick} disabled={disabled} color="primary" className={classes.fab}>
+      <iframe ref={iframeRef} id={iframeId} src="/print" className={classes.noDisplay} title="Print Result" />
+      <Fab onClick={handleClick} color="primary" className={clsx(classes.fab, { [classes.noDisplay]: !show })}>
         <PrintIcon />
       </Fab>
     </Fragment>
@@ -49,7 +50,7 @@ export function PrintResultButton(props: Props) {
 }
 
 const styles = (theme: Theme) => ({
-  iframe: {
+  noDisplay: {
     display: 'none',
   } as CSSProperties,
   fab: {

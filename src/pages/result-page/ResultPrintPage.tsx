@@ -41,7 +41,9 @@ export function ResultPrintPage(props: Props) {
   const projectReviews = data.viewer.user?.projectReviews ?? [];
 
   useEffect(() => {
-    window.parent.postMessage({ action: 'print-result' }, '*');
+    setTimeout(() => {
+      window.parent.postMessage({ action: 'print-result' }, '*');
+    }, 5000);
   }, []);
 
   return (
