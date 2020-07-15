@@ -3,7 +3,6 @@ import { ConfirmProvider } from 'src/shared/confirm-provider';
 import { CssBaseline, ThemeProvider } from '@material-ui/core';
 import { GlobalStyles } from 'src/core/styles/GlobalStyles';
 import { MDXProvider } from 'src/shared/mdx-provider/MDXProvider';
-import { PrintingContextProvider } from 'src/shared/layouts/dashboard-layouts/PrintingContext';
 import { RelayEnvironmentProvider } from 'react-relay/hooks';
 import { RtlSupportProvider } from 'src/core/rtl/RtlSupportProvider';
 import { SnackbarProvider } from 'src/core/snackbar';
@@ -15,21 +14,19 @@ import { environment } from './relay';
 const App: React.FC = () => {
   return (
     <RelayEnvironmentProvider environment={environment}>
-      <PrintingContextProvider>
-        <RtlSupportProvider>
-          <ThemeProvider theme={rtlTheme}>
-            <GlobalStyles />
-            <CssBaseline />
-            <SnackbarProvider>
-              <ConfirmProvider>
-                <MDXProvider>
-                  <AppRouter />
-                </MDXProvider>
-              </ConfirmProvider>
-            </SnackbarProvider>
-          </ThemeProvider>
-        </RtlSupportProvider>
-      </PrintingContextProvider>
+      <RtlSupportProvider>
+        <ThemeProvider theme={rtlTheme}>
+          <GlobalStyles />
+          <CssBaseline />
+          <SnackbarProvider>
+            <ConfirmProvider>
+              <MDXProvider>
+                <AppRouter />
+              </MDXProvider>
+            </ConfirmProvider>
+          </SnackbarProvider>
+        </ThemeProvider>
+      </RtlSupportProvider>
     </RelayEnvironmentProvider>
   );
 };

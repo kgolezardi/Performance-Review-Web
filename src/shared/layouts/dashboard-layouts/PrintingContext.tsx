@@ -4,14 +4,10 @@ import { usePrinting } from 'src/shared/utils/usePrinting';
 
 export type PrintingContextType = boolean;
 
-export const PrintingContext = React.createContext<PrintingContextType | null>(null);
+export const PrintingContext = React.createContext<PrintingContextType>(false);
 
 export function usePrintingContext(): PrintingContextType {
-  const context = useContext(PrintingContext);
-  if (context === null) {
-    throw new Error('usePrintingContext must be used inside the <PrintingContextProvider />');
-  }
-  return context;
+  return useContext(PrintingContext);
 }
 
 interface OwnProps {}
