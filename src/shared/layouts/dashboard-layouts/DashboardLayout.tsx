@@ -1,4 +1,4 @@
-import React, { ComponentType } from 'react';
+import React, { ComponentType, Fragment } from 'react';
 import { AppBar, Theme, Toolbar, makeStyles } from '@material-ui/core';
 import { CSSProperties } from '@material-ui/core/styles/withStyles';
 import { FCProps } from 'src/shared/types/FCProps';
@@ -8,6 +8,7 @@ import { groupChildrenByType } from 'src/shared/utils/groupChildrenByType.utils'
 import { useResetScroll } from 'src/shared/utils/useResetScroll';
 
 import { brandWidth, headerHeight } from './constants';
+import { usePrintingContext } from './PrintingContext';
 
 // typescript only allows string when it defined at `JSX.IntrinsicElements`
 export const ContentRegion = ('ContentRegion' as unknown) as ComponentType<{}>;
@@ -49,6 +50,8 @@ export function DashboardLayout(props: Props) {
   const brandChild = map.get(BrandRegion);
   const userChild = map.get(UserRegion);
 
+  const printing = usePrintingContext();
+
   return (
     <div className={classes.root}>
       <AppBar position="fixed" className={classes.appBar}>
@@ -59,9 +62,13 @@ export function DashboardLayout(props: Props) {
         </Toolbar>
       </AppBar>
       <main className={classes.content}>
-        <Overlayscrollbars ref={overlayScrollbarRef} className={classes.overlayscrollbars}>
-          {contentChild}
-        </Overlayscrollbars>
+        {printing ? (
+          <Fragment>{contentChild}</Fragment>
+        ) : (
+          <Overlayscrollbars ref={overlayScrollbarRef} className={classes.overlayscrollbars}>
+            {contentChild}
+          </Overlayscrollbars>
+        )}
       </main>
     </div>
   );
@@ -72,9 +79,15 @@ const styles = (theme: Theme) => ({
     display: 'flex',
     flexDirection: 'column',
     height: '100vh',
+    '@media print': {
+      height: 'auto',
+    },
   } as CSSProperties,
   appBar: {
     height: headerHeight,
+    '@media print': {
+      display: 'none',
+    },
   } as CSSProperties,
   toolbar: {
     paddingLeft: 0,
@@ -93,6 +106,10 @@ const styles = (theme: Theme) => ({
     overflow: 'auto',
     maxHeight: `calc(100vh - ${headerHeight}px)`,
     position: 'relative',
+    '@media print': {
+      maxHeight: 'none',
+      marginTop: 0,
+    },
   } as CSSProperties,
   userRegion: {
     marginRight: theme.spacing(8),

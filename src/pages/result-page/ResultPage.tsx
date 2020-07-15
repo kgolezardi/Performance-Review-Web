@@ -12,6 +12,7 @@ import { useAuthGuardUser } from 'src/core/auth';
 
 import CriteriaResultPage from './criteria-result-page/CriteriaResultPage';
 import StrengthsWeaknessesResultPage from './strengths-weaknesses-result-page/StrengthsWeaknessesResultPage';
+import { PrintResultButton } from './PrintResultButton';
 import { ProjectsResultPage } from './project-result-page/ProjectsResultPage';
 
 interface Params {
@@ -29,7 +30,7 @@ export default function ResultPage(props: Props) {
   const toPrefix = '';
 
   return (
-    <Container maxWidth="md">
+    <Container maxWidth="md" className={classes.container}>
       <Box marginY={5}>
         <Paper classes={{ root: classes.tabsPaper }}>
           <Tabs value={tab ?? 'performance-competencies'}>
@@ -69,20 +70,40 @@ export default function ResultPage(props: Props) {
           </Suspense>
         </Paper>
       </Box>
+      <PrintResultButton />
     </Container>
   );
 }
+
 const styles = (theme: Theme) => ({
+  container: {
+    '@media print': {
+      paddingLeft: 0,
+      paddingRight: 0,
+    },
+  } as CSSProperties,
   tabsPaper: {
     position: 'sticky',
     top: 0,
     zIndex: theme.zIndex.appBar - 25,
     borderBottomLeftRadius: 0,
     borderBottomRightRadius: 0,
+    '@media print': {
+      boxShadow: 'none',
+    },
   } as CSSProperties,
   tabPanelPaper: {
     borderTopLeftRadius: 0,
     borderTopRightRadius: 0,
+    '@media print': {
+      boxShadow: 'none',
+    },
+  } as CSSProperties,
+  printButton: {
+    position: 'fixed',
+    bottom: 48,
+    left: 40,
+    zIndex: theme.zIndex.snackbar - 10,
   } as CSSProperties,
 });
 

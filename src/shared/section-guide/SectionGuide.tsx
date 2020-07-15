@@ -14,7 +14,7 @@ export function SectionGuide(props: Props) {
   const classes = useStyles(props);
 
   return (
-    <Box className={classes.root}>
+    <Box className={classes.root} displayPrint="none">
       <Grid container spacing={2} alignItems="center">
         <Grid item>
           <HelpIcon color="primary" fontSize="large" />
@@ -32,6 +32,9 @@ const styles = (theme: Theme) => ({
     backgroundColor: lighten(theme.palette.primary.main, 0.85),
     borderRadius: theme.spacing(0.5),
     padding: theme.spacing(2),
+    '@media print': {
+      pageBreakInside: 'avoid',
+    },
   } as CSSProperties,
 });
 
