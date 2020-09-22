@@ -3,7 +3,6 @@ import graphql from 'babel-plugin-relay/macro';
 import { Container } from '@material-ui/core';
 import { relayDecorator } from 'src/stories/decorators';
 import { storiesOf } from '@storybook/react';
-import { themeDecorator } from 'src/stories/decorators/themeDecorator';
 import { useLazyLoadQuery } from 'react-relay/hooks';
 
 import { CriteriaOutput } from './CriteriaOutput';
@@ -20,7 +19,6 @@ const query = graphql`
 `;
 
 storiesOf('Criterion Manager Review', module)
-  .addDecorator(themeDecorator())
   .addDecorator(relayDecorator())
   .add('simple', () => {
     // TODO: use mockResolvers

@@ -2,12 +2,10 @@ import React from 'react';
 import { Container, Grid, Typography } from '@material-ui/core';
 import { Evaluation } from 'src/global-types';
 import { storiesOf } from '@storybook/react';
-import { themeDecorator } from 'src/stories/decorators/themeDecorator';
 
 import { EvaluationOutput } from './EvaluationOutput';
 
 storiesOf('Evaluation Output', module)
-  .addDecorator(themeDecorator())
   .add('Self', () => {
     return (
       <Container>

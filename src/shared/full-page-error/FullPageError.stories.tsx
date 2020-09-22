@@ -9,7 +9,7 @@ import {
 } from 'src/shared/layouts/dashboard-layouts';
 import { MenuItem } from 'src/shared/layouts/dashboard-layouts/menu/types';
 import { i18n } from '@lingui/core';
-import { routerDecorator, themeDecorator } from 'src/stories/decorators';
+import { routerDecorator } from 'src/stories/decorators';
 import { storiesOf } from '@storybook/react';
 
 import { FullPageError } from './FullPageError';
@@ -36,7 +36,6 @@ const items: MenuItem[] = [
 ];
 
 storiesOf('Full Page Error', module)
-  .addDecorator(themeDecorator())
   .addDecorator(routerDecorator())
   .add('default', () => <FullPageError />)
   .add('with navbar', () => (

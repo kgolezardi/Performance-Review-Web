@@ -4,7 +4,6 @@ import { Container, Grid } from '@material-ui/core';
 import { action } from '@storybook/addon-actions';
 import { promptDecorator, relayDecorator, routerDecorator } from 'src/stories/decorators';
 import { storiesOf } from '@storybook/react';
-import { themeDecorator } from 'src/stories/decorators/themeDecorator';
 import { useLazyLoadQuery } from 'react-relay/hooks';
 
 import { PeerReviewProjectsForm } from './PeerReviewProjectsForm';
@@ -23,7 +22,6 @@ const query = graphql`
 `;
 
 storiesOf('Project Peer Review Form', module)
-  .addDecorator(themeDecorator())
   .addDecorator(relayDecorator())
   .addDecorator(promptDecorator())
   .addDecorator(routerDecorator())

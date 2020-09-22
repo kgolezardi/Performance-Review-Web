@@ -2,7 +2,6 @@ import React from 'react';
 import { Grid, Paper } from '@material-ui/core';
 import { action } from '@storybook/addon-actions';
 import { storiesOf } from '@storybook/react';
-import { themeDecorator } from 'src/stories/decorators';
 
 import ArrayAppendButton from '../inputs/array-input/ArrayAppendButton';
 import ArrayInput from '../inputs/array-input/ArrayInput';
@@ -46,8 +45,7 @@ function PolygonInput() {
   );
 }
 
-storiesOf('Forminator|complex', module)
-  .addDecorator(themeDecorator({ direction: 'ltr' }))
+storiesOf('Forminator/complex', module)
   .add('array of dict', () => {
     return (
       <Forminator onSubmit={action('submit')}>

@@ -1,7 +1,6 @@
 import React from 'react';
 import { action } from '@storybook/addon-actions';
 import { storiesOf } from '@storybook/react';
-import { themeDecorator } from 'src/stories/decorators';
 
 import DictInput from '../inputs/dict-input/DictInput';
 import DictInputItem from '../inputs/dict-input/DictInputItem';
@@ -23,8 +22,7 @@ const SUGGESTIONS_WITH_COLOR = [
   { value: '4', color: 'green', label: 'رضا' },
 ];
 
-storiesOf('Forminator|Auto Complete', module)
-  .addDecorator(themeDecorator())
+storiesOf('Forminator/Auto Complete', module)
   .add('simple', () => {
     return (
       <Forminator onSubmit={action('submit')}>

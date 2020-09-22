@@ -3,7 +3,7 @@ import graphql from 'babel-plugin-relay/macro';
 import { Box, Grid } from '@material-ui/core';
 import { ID, UserNodeResolver, ViewerNodeResolver } from 'src/stories/mock-resolvers';
 import { UserCard } from 'src/shared/user-card';
-import { mockRelayDecorator, routerDecorator, themeDecorator } from 'src/stories/decorators';
+import { mockRelayDecorator, routerDecorator } from 'src/stories/decorators';
 import { storiesOf } from '@storybook/react';
 import { useLazyLoadQuery } from 'react-relay/hooks';
 
@@ -30,7 +30,6 @@ const CustomBoardListWithChild = ({ title, count = 0 }: { title: string; count?:
   );
 };
 storiesOf('Board List', module)
-  .addDecorator(themeDecorator())
   .addDecorator(routerDecorator())
   .addDecorator(mockRelayDecorator({ ...ViewerNodeResolver(), ...UserNodeResolver() }))
   .add('default', () => {
