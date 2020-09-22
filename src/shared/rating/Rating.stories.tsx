@@ -5,12 +5,10 @@ import { Forminator, SubmitButton } from 'src/shared/forminator';
 import { action } from '@storybook/addon-actions';
 import { i18n } from '@lingui/core';
 import { storiesOf } from '@storybook/react';
-import { themeDecorator } from 'src/stories/decorators/themeDecorator';
 
 import { Rating } from './Rating';
 
 storiesOf('Rating', module)
-  .addDecorator(themeDecorator())
   .add('self', () => {
     return (
       <Forminator onSubmit={action('submit')}>

@@ -3,12 +3,10 @@ import { DictInput, DictInputItem, Forminator } from 'src/shared/forminator';
 import { action } from '@storybook/addon-actions';
 import { storiesOf } from '@storybook/react';
 import { storyWrapperDecorator } from 'src/stories/decorators/StoryWrapperDecorator';
-import { themeDecorator } from 'src/stories/decorators';
 
 import { StrengthsOrWeaknesses } from './StrengthsOrWeaknesses';
 
-storiesOf('Form|Strengths and Weaknesses', module)
-  .addDecorator(themeDecorator())
+storiesOf('Strengths and Weaknesses', module)
   .addDecorator(storyWrapperDecorator({ width: 800, height: 'auto' }))
   .add('Strengths', () => {
     return (

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Lorem } from 'src/stories/helpers';
 import { i18n } from '@lingui/core';
-import { routerDecorator, themeDecorator } from 'src/stories/decorators';
+import { routerDecorator } from 'src/stories/decorators';
 import { storiesOf } from '@storybook/react';
 
 import { Brand, BrandRegion, ContentRegion, DashboardLayout, NavBarMenu, NavbarRegion } from '.';
@@ -24,7 +24,6 @@ const items: MenuItem[] = [
 
 storiesOf('Dashboard Layout', module)
   .addDecorator(routerDecorator({ initialEntries: ['/home'] }))
-  .addDecorator(themeDecorator())
   .add('simple', () => (
     <DashboardLayout>
       <BrandRegion>

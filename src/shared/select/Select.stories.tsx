@@ -5,7 +5,6 @@ import { Option } from 'src/shared/forminator/types';
 import { action } from '@storybook/addon-actions';
 import { i18n } from '@lingui/core';
 import { storiesOf } from '@storybook/react';
-import { themeDecorator } from 'src/stories/decorators/themeDecorator';
 
 import { Select } from './Select';
 
@@ -17,7 +16,6 @@ const options: Option[] = [
 ];
 
 storiesOf('Select', module)
-  .addDecorator(themeDecorator())
   .add('simple', () => {
     return (
       <Forminator onSubmit={action('submit')}>

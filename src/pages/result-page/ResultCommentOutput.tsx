@@ -1,12 +1,12 @@
 import PeerCommnentIcon from '@material-ui/icons/SpeakerNotes';
 import React from 'react';
 import SelfCommentIcon from '@material-ui/icons/RateReview';
-import { Box, Grid, Typography, TypographyProps, lighten, useTheme } from '@material-ui/core';
+import { Box, Grid, Typography, lighten, useTheme } from '@material-ui/core';
 import { FCProps } from 'src/shared/types/FCProps';
 import { MultilineOutput } from 'src/shared/multiline-output';
 import { i18n } from '@lingui/core';
 
-interface OwnProps extends Omit<TypographyProps, 'children'> {
+interface OwnProps {
   value: string | null;
   type: 'self' | 'peer';
   disableTruncating?: boolean;

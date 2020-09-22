@@ -1,13 +1,12 @@
 import React, { useRef } from 'react';
 import { Lorem } from 'src/stories/helpers';
 import { storiesOf } from '@storybook/react';
-import { storyWrapperDecorator, themeDecorator } from 'src/stories/decorators';
+import { storyWrapperDecorator } from 'src/stories/decorators';
 
 import { ImperativeHandles } from './useOverlayscrollbars';
 import { Overlayscrollbars } from './Overlayscrollbars';
 
 storiesOf('Overlayscrollbars', module)
-  .addDecorator(themeDecorator())
   .addDecorator(storyWrapperDecorator({ height: 600 }))
   .add('Default', () => (
     <Overlayscrollbars style={{ maxHeight: 500, maxWidth: 300 }}>

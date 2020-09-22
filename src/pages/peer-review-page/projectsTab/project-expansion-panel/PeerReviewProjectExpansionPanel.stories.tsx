@@ -1,6 +1,6 @@
 import graphql from 'babel-plugin-relay/macro';
 import React, { Fragment } from 'react';
-import { promptDecorator, relayDecorator, routerDecorator, themeDecorator } from 'src/stories/decorators';
+import { promptDecorator, relayDecorator, routerDecorator } from 'src/stories/decorators';
 import { storiesOf } from '@storybook/react';
 import { useLazyLoadQuery } from 'react-relay/hooks';
 
@@ -18,7 +18,6 @@ const query = graphql`
 `;
 
 storiesOf('Project Peer Review Item', module)
-  .addDecorator(themeDecorator())
   .addDecorator(relayDecorator())
   .addDecorator(promptDecorator())
   .addDecorator(routerDecorator())

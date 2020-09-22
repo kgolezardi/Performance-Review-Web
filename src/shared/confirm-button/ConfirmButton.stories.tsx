@@ -2,12 +2,11 @@ import React from 'react';
 import { DangerButton } from 'src/shared/danger-button';
 import { action } from '@storybook/addon-actions';
 import { storiesOf } from '@storybook/react';
-import { storyWrapperDecorator, themeDecorator } from 'src/stories/decorators';
+import { storyWrapperDecorator } from 'src/stories/decorators';
 
 import { ConfirmButton } from './ConfirmButton';
 
 storiesOf('Confirm Button', module)
-  .addDecorator(themeDecorator())
   .addDecorator(storyWrapperDecorator())
   .add('default', () => {
     return <ConfirmButton buttonText="Button" text="Are you sure of this action?" onConfirm={action('confirm')} />;

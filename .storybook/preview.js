@@ -1,13 +1,35 @@
-import { addParameters } from '@storybook/react';
-import configI18nSelector from 'src/stories/config-i18n-selector';
 import 'src/_config/install';
 
-addParameters({
-  backgrounds: [
-    // material ui default
-    { name: 'default', value: '#fafafa', default: true },
-    { name: 'white', value: '#ffffff' },
-  ],
-});
+import { themeDecorator } from 'src/stories/global-decorators';
 
-configI18nSelector('fa');
+export const parameters = {
+  actions: { argTypesRegex: '^on[A-Z].*' },
+
+  backgrounds: {
+    default: 'material-ui',
+    values: [
+      {
+        name: 'material-ui',
+        value: '#fafafa',
+      },
+      {
+        name: 'white',
+        value: '#ffffff',
+      },
+    ],
+  },
+};
+
+export const globalTypes = {
+  locale: {
+    name: 'Locale',
+    description: 'Internationalization locale',
+    defaultValue: 'fa',
+    toolbar: {
+      icon: 'globe',
+      items: ['fa', 'en'],
+    },
+  },
+};
+
+export const decorators = [themeDecorator];

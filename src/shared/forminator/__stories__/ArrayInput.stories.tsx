@@ -2,7 +2,6 @@ import React from 'react';
 import { Grid, Paper } from '@material-ui/core';
 import { action } from '@storybook/addon-actions';
 import { storiesOf } from '@storybook/react';
-import { themeDecorator } from 'src/stories/decorators';
 
 import ArrayAppendButton from '../inputs/array-input/ArrayAppendButton';
 import ArrayInput from '../inputs/array-input/ArrayInput';
@@ -11,8 +10,7 @@ import ArrayRemoveButton from '../inputs/array-input/ArrayRemoveButton';
 import SubmitButton from '../utils/SubmitButton';
 import { Forminator, StringInput } from '..';
 
-storiesOf('Forminator|Array input', module)
-  .addDecorator(themeDecorator({ direction: 'ltr' }))
+storiesOf('Forminator/Array input', module)
   .add('simple', () => {
     return (
       <Forminator onSubmit={action('submit')}>
@@ -65,8 +63,7 @@ storiesOf('Forminator|Array input', module)
       </Forminator>
     );
   });
-storiesOf('Forminator|Array input/with initial value', module)
-  .addDecorator(themeDecorator({ direction: 'ltr' }))
+storiesOf('Forminator/Array input/with initial value', module)
   .add('on append button', () => {
     return (
       <Forminator onSubmit={action('submit')}>

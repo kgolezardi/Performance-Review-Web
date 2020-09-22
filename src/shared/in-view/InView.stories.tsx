@@ -3,7 +3,7 @@ import { Box, Typography } from '@material-ui/core';
 import { LoremIpsum } from 'lorem-ipsum';
 import { Overlayscrollbars } from 'src/shared/overlayscrollbars';
 import { storiesOf } from '@storybook/react';
-import { storyWrapperDecorator, themeDecorator } from 'src/stories/decorators';
+import { storyWrapperDecorator } from 'src/stories/decorators';
 
 import { InView } from './InView';
 import { useInViewContext } from './InViewContext';
@@ -23,7 +23,6 @@ const Component = () => {
 };
 
 storiesOf('In View', module)
-  .addDecorator(themeDecorator())
   .addDecorator(storyWrapperDecorator({}))
   .add('default', () => (
     <Overlayscrollbars style={{ height: '100%' }}>

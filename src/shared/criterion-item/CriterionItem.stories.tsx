@@ -3,13 +3,12 @@ import { Container, Grid } from '@material-ui/core';
 import { DictInput, Forminator, SubmitButton } from 'src/shared/forminator';
 import { action } from '@storybook/addon-actions';
 import { i18n } from '@lingui/core';
-import { promptDecorator, routerDecorator, themeDecorator } from 'src/stories/decorators';
+import { promptDecorator, routerDecorator } from 'src/stories/decorators';
 import { storiesOf } from '@storybook/react';
 
 import { CriterionItem } from './CriterionItem';
 
 storiesOf('Criterion Item', module)
-  .addDecorator(themeDecorator())
   .addDecorator(promptDecorator())
   .addDecorator(routerDecorator())
   .add('simple', () => {

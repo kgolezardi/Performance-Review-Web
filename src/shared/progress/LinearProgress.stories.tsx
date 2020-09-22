@@ -1,13 +1,11 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { storyWrapperDecorator } from 'src/stories/decorators';
-import { themeDecorator } from 'src/stories/decorators/themeDecorator';
 
 import { LinearProgress } from './LinearProgress';
 
 storiesOf('Linear Progress', module)
   .addDecorator(storyWrapperDecorator({}))
-  .addDecorator(themeDecorator())
   .add('default color', () => {
     return <LinearProgress value={50} />;
   })

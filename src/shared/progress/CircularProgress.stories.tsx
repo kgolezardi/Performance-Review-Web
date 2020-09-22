@@ -2,13 +2,11 @@ import React from 'react';
 import { Typography } from '@material-ui/core';
 import { storiesOf } from '@storybook/react';
 import { storyWrapperDecorator } from 'src/stories/decorators';
-import { themeDecorator } from 'src/stories/decorators/themeDecorator';
 
 import { CircularProgress } from './CircularProgress';
 
 storiesOf('CircularProgress', module)
   .addDecorator(storyWrapperDecorator({ display: 'flex', justifyContent: 'center', alignItems: 'center' }))
-  .addDecorator(themeDecorator())
   .add('default color', () => {
     return (
       <CircularProgress value={30} size={180} thickness={3}>

@@ -1,15 +1,13 @@
 import React from 'react';
 import { action } from '@storybook/addon-actions';
 import { storiesOf } from '@storybook/react';
-import { themeDecorator } from 'src/stories/decorators';
 
 import DictInput from '../inputs/dict-input/DictInput';
 import DictInputItem from '../inputs/dict-input/DictInputItem';
 import SubmitButton from '../utils/SubmitButton';
 import { Forminator, StringInput } from '..';
 
-storiesOf('Forminator|Dict input', module)
-  .addDecorator(themeDecorator({ direction: 'ltr' }))
+storiesOf('Forminator/Dict input', module)
   .add('simple', () => {
     return (
       <Forminator onSubmit={action('submit')}>
@@ -70,8 +68,7 @@ storiesOf('Forminator|Dict input', module)
     );
   });
 
-storiesOf('Forminator|Dict input/with initial value', module)
-  .addDecorator(themeDecorator({ direction: 'ltr' }))
+storiesOf('Forminator/Dict input/with initial value', module)
   .add('on field', () => {
     return (
       <Forminator onSubmit={action('submit')}>

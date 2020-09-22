@@ -1,7 +1,6 @@
 import React from 'react';
 import { action } from '@storybook/addon-actions';
 import { storiesOf } from '@storybook/react';
-import { themeDecorator } from 'src/stories/decorators';
 
 import DictInput from '../inputs/dict-input/DictInput';
 import DictInputItem from '../inputs/dict-input/DictInputItem';
@@ -23,25 +22,23 @@ const Spy = ({ lens, name }: { lens?: FragmentLens<any>; name: string }) => {
   );
 };
 
-storiesOf('Forminator|Internal / Fragment lens', module)
-  .addDecorator(themeDecorator({ direction: 'ltr' }))
-  .add('spy value', () => {
-    const lens = useFragmentLens();
+storiesOf('Forminator/Internal / Fragment lens', module).add('spy value', () => {
+  const lens = useFragmentLens();
 
-    return (
-      <div>
-        <Forminator onSubmit={action('submit')}>
-          <DictInput>
-            <DictInputItem field="name">
-              <StringInput label="Name" />
-              <FragmentRef lens={lens} />
-            </DictInputItem>
-          </DictInput>
-          <SubmitButton color="primary" variant="contained">
-            Submit
-          </SubmitButton>
-        </Forminator>
-        <Spy name="by lens" lens={lens} />
-      </div>
-    );
-  });
+  return (
+    <div>
+      <Forminator onSubmit={action('submit')}>
+        <DictInput>
+          <DictInputItem field="name">
+            <StringInput label="Name" />
+            <FragmentRef lens={lens} />
+          </DictInputItem>
+        </DictInput>
+        <SubmitButton color="primary" variant="contained">
+          Submit
+        </SubmitButton>
+      </Forminator>
+      <Spy name="by lens" lens={lens} />
+    </div>
+  );
+});

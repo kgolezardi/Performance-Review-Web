@@ -2,7 +2,6 @@ import React from 'react';
 import { FormControl, InputLabel } from '@material-ui/core';
 import { action } from '@storybook/addon-actions';
 import { storiesOf } from '@storybook/react';
-import { themeDecorator } from 'src/stories/decorators';
 
 import SelectInput from '../inputs/SelectInput';
 import SubmitButton from '../utils/SubmitButton';
@@ -13,8 +12,7 @@ const options = [
   { value: '2', label: 'Two' },
 ];
 
-storiesOf('Forminator|Select input', module)
-  .addDecorator(themeDecorator({ direction: 'ltr' }))
+storiesOf('Forminator/Select input', module)
   .add('simple', () => {
     return (
       <Forminator onSubmit={action('submit')}>

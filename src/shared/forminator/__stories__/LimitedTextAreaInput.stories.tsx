@@ -3,13 +3,11 @@ import React from 'react';
 import { action } from '@storybook/addon-actions';
 import { storiesOf } from '@storybook/react';
 import { storyWrapperDecorator } from 'src/stories/decorators/StoryWrapperDecorator';
-import { themeDecorator } from 'src/stories/decorators';
 
 import SubmitButton from '../utils/SubmitButton';
 import { Forminator } from '..';
 
-storiesOf('Forminator|Limited Text Area Input', module)
-  .addDecorator(themeDecorator({ direction: 'ltr' }))
+storiesOf('Forminator/Limited Text Area Input', module)
   .addDecorator(storyWrapperDecorator())
   .add('simple', () => {
     return (
