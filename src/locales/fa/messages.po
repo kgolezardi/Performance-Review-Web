@@ -22,7 +22,7 @@ msgstr "دستاوردها"
 #: src/pages/dashboard-page/DashboardPage.tsx:51
 #: src/pages/manager-review-page/ManagerReviewContent.tsx:46
 #: src/pages/peer-review-page/PeerReviewPage.tsx:43
-#: src/pages/result-page/ResultPage.tsx:23
+#: src/pages/result-page/ResultPage.tsx:24
 #: src/pages/self-review-page/SelfReviewPage.tsx:24
 msgid "Achievements"
 msgstr "دستاوردها"
@@ -57,7 +57,7 @@ msgstr "آیا از حذف  این پروژه مطمین هستید؟"
 msgid "Begin my review"
 msgstr "شروع ارزیابی من"
 
-#: src/shared/sticky-action-bar/StickyActionBar.stories.tsx:14
+#: src/shared/sticky-action-bar/StickyActionBar.stories.tsx:11
 msgid "Cancel"
 msgstr "لغو"
 
@@ -92,7 +92,7 @@ msgstr "حذف"
 #: src/pages/dashboard-page/DashboardPage.tsx:43
 #: src/pages/manager-review-page/ManagerReviewContent.tsx:45
 #: src/pages/peer-review-page/PeerReviewPage.tsx:42
-#: src/pages/result-page/ResultPage.tsx:22
+#: src/pages/result-page/ResultPage.tsx:23
 #: src/pages/self-review-page/SelfReviewPage.tsx:23
 msgid "Dominant Characteristics"
 msgstr "ویژگی‌های بارز"
@@ -275,14 +275,14 @@ msgstr "کسانی هستن که روی دستاوردهاتون کامنت می
 #: src/pages/dashboard-page/DashboardPage.tsx:35
 #: src/pages/manager-review-page/ManagerReviewContent.tsx:44
 #: src/pages/peer-review-page/PeerReviewPage.tsx:41
-#: src/pages/result-page/ResultPage.tsx:21
+#: src/pages/result-page/ResultPage.tsx:22
 #: src/pages/self-review-page/SelfReviewPage.tsx:22
 msgid "Performance Competencies"
 msgstr "شایستگی‌های عملکردی"
 
 #: src/containers/main/MainContainer.tsx:23
-#: src/shared/full-page-error/FullPageError.stories.tsx:34
-#: src/shared/layouts/dashboard-layouts/DashboardLayout.stories.tsx:27
+#: src/shared/full-page-error/FullPageError.stories.tsx:33
+#: src/shared/layouts/dashboard-layouts/DashboardLayout.stories.tsx:26
 msgid "Performance Review"
 msgstr "ارزیابی عملکرد"
 
@@ -314,12 +314,16 @@ msgstr "برنامه‌نویسان در حال تایپند...‌"
 msgid "Projects"
 msgstr "پروژه‌ها"
 
+#: src/shared/review-item-output/ReviewItemOutput.tsx:22
+msgid "Reviewee"
+msgstr "ارزیابی‌شونده"
+
 #: src/pages/projects-page/ProjectForm.tsx:75
 msgid "Reviewers"
 msgstr "مرورکننده‌ها"
 
-#: src/shared/criterion-item/CriterionItem.stories.tsx:19
-#: src/shared/criterion-output-item/CriterionOutputItem.stories.tsx:15
+#: src/shared/criterion-item/CriterionItem.stories.tsx:18
+#: src/shared/criterion-output-item/CriterionOutputItem.stories.tsx:12
 msgid "Role Expertise and Self Development"
 msgstr "مرجعیت تخصصی"
 
@@ -330,11 +334,11 @@ msgstr "مرجعیت تخصصی"
 msgid "Save"
 msgstr "ذخیره"
 
-#: src/shared/multiline-output/MultilineOutput.tsx:36
+#: src/shared/multiline-output/MultilineOutput.tsx:40
 msgid "See Less"
 msgstr "مشاهده کمتر"
 
-#: src/shared/multiline-output/MultilineOutput.tsx:36
+#: src/shared/multiline-output/MultilineOutput.tsx:40
 msgid "See More"
 msgstr "مشاهده بیشتر"
 
@@ -342,12 +346,12 @@ msgstr "مشاهده بیشتر"
 msgid "See Review Result"
 msgstr "مشاهده نتایج ارزیابی"
 
-#: src/shared/rating/Rating.stories.tsx:15
-#: src/shared/rating/Rating.stories.tsx:25
-#: src/shared/rating/Rating.stories.tsx:35
-#: src/shared/rating/Rating.stories.tsx:45
-#: src/shared/select/Select.stories.tsx:20
-#: src/shared/select/Select.stories.tsx:30
+#: src/shared/rating/Rating.stories.tsx:13
+#: src/shared/rating/Rating.stories.tsx:23
+#: src/shared/rating/Rating.stories.tsx:33
+#: src/shared/rating/Rating.stories.tsx:43
+#: src/shared/select/Select.stories.tsx:18
+#: src/shared/select/Select.stories.tsx:28
 msgid "Select"
 msgstr "انتخاب کنید"
 
@@ -368,7 +372,7 @@ msgstr "ارزیابی من"
 msgid "Show and claim reward"
 msgstr "مشاهده و دریافت جایزه"
 
-#: src/core/snackbar/Snackbar.stories.tsx:24
+#: src/core/snackbar/Snackbar.stories.tsx:23
 #: src/pages/criteria-page/CriteriaPage.tsx:51
 #: src/pages/peer-review-page/projectsTab/project-expansion-panel/PeerReviewProjectExpansionPanel.tsx:40
 #: src/pages/projects-page/ProjectsPage.tsx:48
@@ -384,19 +388,19 @@ msgstr "خطایی رخ داد. لطفا مجددا تلاش نمایید"
 msgid "Strengths and Weaknesses"
 msgstr "نقاط قوت و ضعف"
 
-#: src/core/snackbar/Snackbar.stories.tsx:16
-#: src/core/snackbar/Snackbar.stories.tsx:26
-#: src/shared/rating/Rating.stories.tsx:18
-#: src/shared/rating/Rating.stories.tsx:28
-#: src/shared/rating/Rating.stories.tsx:38
-#: src/shared/rating/Rating.stories.tsx:48
-#: src/shared/select/Select.stories.tsx:23
-#: src/shared/select/Select.stories.tsx:33
-#: src/shared/sticky-action-bar/StickyActionBar.stories.tsx:16
+#: src/core/snackbar/Snackbar.stories.tsx:15
+#: src/core/snackbar/Snackbar.stories.tsx:25
+#: src/shared/rating/Rating.stories.tsx:16
+#: src/shared/rating/Rating.stories.tsx:26
+#: src/shared/rating/Rating.stories.tsx:36
+#: src/shared/rating/Rating.stories.tsx:46
+#: src/shared/select/Select.stories.tsx:21
+#: src/shared/select/Select.stories.tsx:31
+#: src/shared/sticky-action-bar/StickyActionBar.stories.tsx:13
 msgid "Submit"
 msgstr "ثبت"
 
-#: src/core/snackbar/Snackbar.stories.tsx:14
+#: src/core/snackbar/Snackbar.stories.tsx:13
 #: src/pages/criteria-page/CriteriaPage.tsx:48
 #: src/pages/peer-review-page/projectsTab/project-expansion-panel/PeerReviewProjectExpansionPanel.tsx:37
 #: src/pages/projects-page/ProjectsPage.tsx:45
