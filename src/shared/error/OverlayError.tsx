@@ -30,7 +30,7 @@ export function OverlayError(props: Props) {
       <Typography variant="h3">{i18n._('Error')}</Typography>
       <Typography className={classes.label}>{errorText}</Typography>
       {!!retry && (
-        <Button onClick={retry} variant="outlined" color="primary">
+        <Button onClick={retry} variant="outlined">
           {buttonText}
         </Button>
       )}

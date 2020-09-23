@@ -30,7 +30,7 @@ export function ResultStartCard(props: Props) {
         <CardHeader title={i18n._('Dear {name}, Hello', { name: getUserLabel(user) })} />
         <CardContent>
           <Content components={components} />
-          <Grid container justify="center">
+          <Grid container justifyContent="center">
             <Grid item>
               <Box marginTop={3}>
                 <Button variant="contained" color="secondary" size="large" onClick={startReview}>

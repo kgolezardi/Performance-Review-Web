@@ -1,10 +1,11 @@
 import React from 'react';
-import { Button, ButtonProps, Omit } from '@material-ui/core';
+import { Button } from 'src/shared/button';
 import { FCProps } from 'src/shared/types/FCProps';
+import { Omit } from '@material-ui/core';
 
 import { useSubmitContext } from '../core/submit/SubmitContext';
 
-interface OwnProps extends Omit<ButtonProps, 'onclick'> {}
+interface OwnProps extends Omit<React.ComponentProps<typeof Button>, 'onclick'> {}
 
 type Props = FCProps<OwnProps>;
 

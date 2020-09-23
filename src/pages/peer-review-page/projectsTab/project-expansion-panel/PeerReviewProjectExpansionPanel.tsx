@@ -1,7 +1,7 @@
 import graphql from 'babel-plugin-relay/macro';
 import React, { useCallback } from 'react';
+import { Accordion, AccordionDetails, AccordionSummary } from 'src/shared/expansion-panel';
 import { CSSProperties } from '@material-ui/core/styles/withStyles';
-import { ExpansionPanel, ExpansionPanelDetails, ExpansionPanelSummary } from 'src/shared/expansion-panel';
 import { FCProps } from 'src/shared/types/FCProps';
 import { Grid, Theme, Typography, makeStyles } from '@material-ui/core';
 import { ProjectOutput } from 'src/shared/project-output';
@@ -62,11 +62,11 @@ export function PeerReviewProjectExpansionPanel(props: Props) {
   const name = getUserLabel(projectReview.reviewee);
 
   return (
-    <ExpansionPanel>
-      <ExpansionPanelSummary>
+    <Accordion>
+      <AccordionSummary>
         <Typography variant="h5">{projectName}</Typography>
-      </ExpansionPanelSummary>
-      <ExpansionPanelDetails>
+      </AccordionSummary>
+      <AccordionDetails>
         <Grid container spacing={2}>
           <Grid item xs={12}>
             <Typography variant="button" className={classes.detailTypography}>
@@ -91,8 +91,8 @@ export function PeerReviewProjectExpansionPanel(props: Props) {
             </>
           )}
         </Grid>
-      </ExpansionPanelDetails>
-    </ExpansionPanel>
+      </AccordionDetails>
+    </Accordion>
   );
 }
 

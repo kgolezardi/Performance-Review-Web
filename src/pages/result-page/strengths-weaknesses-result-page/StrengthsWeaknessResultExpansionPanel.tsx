@@ -1,6 +1,6 @@
 import React from 'react';
+import { Accordion, AccordionDetails, AccordionSummary } from 'src/shared/expansion-panel';
 import { Box, Typography } from '@material-ui/core';
-import { ExpansionPanel, ExpansionPanelDetails, ExpansionPanelSummary } from 'src/shared/expansion-panel';
 import { FCProps } from 'src/shared/types/FCProps';
 import { ResultCommentOutput } from 'src/pages/result-page/ResultCommentOutput';
 
@@ -16,11 +16,11 @@ export function StrengthsWeaknessResultExpansionPanel(props: Props) {
   const { title, ownReviews, reviews } = props;
 
   return (
-    <ExpansionPanel>
-      <ExpansionPanelSummary>
+    <Accordion>
+      <AccordionSummary>
         <Typography variant="h3">{title}</Typography>
-      </ExpansionPanelSummary>
-      <ExpansionPanelDetails>
+      </AccordionSummary>
+      <AccordionDetails>
         <Box>
           {ownReviews?.map((review, index) => (
             <Box marginTop={2} key={index}>
@@ -33,7 +33,7 @@ export function StrengthsWeaknessResultExpansionPanel(props: Props) {
             </Box>
           ))}
         </Box>
-      </ExpansionPanelDetails>
-    </ExpansionPanel>
+      </AccordionDetails>
+    </Accordion>
   );
 }

@@ -1,13 +1,6 @@
 import React, { Fragment, useCallback } from 'react';
-import {
-  Button,
-  ButtonProps,
-  Dialog,
-  DialogActions,
-  DialogContent,
-  DialogContentText,
-  DialogTitle,
-} from '@material-ui/core';
+import { Button, ButtonProps } from 'src/shared/button';
+import { Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle } from '@material-ui/core';
 import { i18n } from '@lingui/core';
 
 interface OwnProps {

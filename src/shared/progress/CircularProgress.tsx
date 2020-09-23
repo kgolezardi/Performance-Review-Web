@@ -32,7 +32,7 @@ export function CircularProgress(props: Props) {
     <div className={classes.root}>
       <MuiCircularProgress
         {...rest}
-        variant="static"
+        variant="determinate"
         value={100}
         classes={{
           root: classes.backgroundCircularProgressRoot,
@@ -41,7 +41,7 @@ export function CircularProgress(props: Props) {
       />
       <MuiCircularProgress
         {...rest}
-        variant="static"
+        variant="determinate"
         value={value}
         classes={{
           root: classes.circularProgressRoot,

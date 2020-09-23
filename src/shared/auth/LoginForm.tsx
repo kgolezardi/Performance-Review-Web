@@ -46,7 +46,7 @@ export const LoginForm = (props: Props) => {
           </DictInputItem>
         </DictInput>
         <Box marginTop={2}>
-          <Button variant="contained" fullWidth type="submit" color="primary" size="large">
+          <Button variant="contained" fullWidth type="submit" size="large">
             {i18n._('Login')}
           </Button>
         </Box>

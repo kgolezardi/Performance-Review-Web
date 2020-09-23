@@ -21,11 +21,14 @@ interface OwnProps<Suggestion extends BaseSuggestion = BaseSuggestion> {
   options: Array<Suggestion>;
   label: string;
   textFieldOptions?: OutlinedTextFieldProps;
-  renderInput?: AutocompleteProps<Suggestion>['renderInput'];
+  renderInput?: AutocompleteProps<Suggestion, true, false, false>['renderInput'];
   excludes?: string[]; // ids // TODO rethink about this prop
 }
 type Props<Suggestion extends BaseSuggestion = BaseSuggestion> = FCProps<OwnProps<Suggestion>> &
-  Omit<AutocompleteProps<Suggestion>, 'value' | 'onChange' | 'defaultValue' | 'renderInput' | 'multiple'> &
+  Omit<
+    AutocompleteProps<Suggestion, true, false, false>,
+    'value' | 'onChange' | 'defaultValue' | 'renderInput' | 'multiple'
+  > &
   StyleProps;
 
 const OptionsPaper: ComponentType = withProps(Paper, { elevation: 4 }) as any;
@@ -52,7 +55,7 @@ function SelectMultiAutoComplete<Suggestion extends BaseSuggestion = BaseSuggest
     },
     [setValues],
   );
-  const renderInput: AutocompleteProps<Suggestion>['renderInput'] = useCallback(
+  const renderInput: AutocompleteProps<Suggestion, true, false, false>['renderInput'] = useCallback(
     (params) => <TextField variant="outlined" label={label} fullWidth {...textFieldOptions} {...params} />,
     [textFieldOptions, label],
   );

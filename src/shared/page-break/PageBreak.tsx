@@ -21,5 +21,5 @@ const styles = (theme: Theme) => ({
   } as CSSProperties,
 });
 
-const useStyles = makeStyles(styles, { name: 'ExpansionPanelSummary' });
+const useStyles = makeStyles(styles, { name: 'PageBreak' });
 type StyleProps = Styles<typeof styles>;

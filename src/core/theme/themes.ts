@@ -1,9 +1,25 @@
-import createMuiTheme, { ThemeOptions } from '@material-ui/core/styles/createMuiTheme';
-import { Direction, PaletteType } from '@material-ui/core';
+import { Direction, PaletteType, ThemeOptions, createMuiTheme } from '@material-ui/core';
+import { PaletteOptions } from '@material-ui/core/styles/createPalette';
 import { TypographyOptions } from '@material-ui/core/styles/createTypography';
 import { deepOrange, grey, red } from '@material-ui/core/colors';
 
-export function getThemeOptions(base: ThemeOptions, direction: Direction, paletteType: PaletteType): ThemeOptions {
+export function getThemeOptions(direction: Direction, paletteType: PaletteType): ThemeOptions {
+  const palette: PaletteOptions = {
+    primary: {
+      dark: '#0F7DAA',
+      main: '#1297CE',
+      light: '#27B2EC',
+    },
+    secondary: {
+      dark: deepOrange[600],
+      main: deepOrange[500],
+      light: deepOrange[300],
+    },
+    error: red,
+    type: paletteType,
+    background: { default: grey[100] },
+  };
+
   const fontFamily =
     direction === 'ltr'
       ? 'Shabnam, "Roboto", "Helvetica", "Arial", sans-serif'
@@ -25,61 +41,47 @@ export function getThemeOptions(base: ThemeOptions, direction: Direction, palett
     caption: { fontSize: '12px', fontWeight: 'lighter' },
     overline: { fontSize: '13px', fontWeight: 'lighter' },
   };
+
   return {
-    ...base,
     direction,
-    palette: {
-      ...base.palette,
-      type: paletteType,
-      background: { default: grey[100] },
-    },
+    palette,
     typography,
-    overrides: {
+    components: {
       MuiTypography: {
-        colorTextPrimary: {
-          color: '#212121',
-        },
-        colorTextSecondary: {
-          color: '#616161',
+        styleOverrides: {
+          colorTextPrimary: {
+            color: '#212121',
+          },
+          colorTextSecondary: {
+            color: '#616161',
+          },
         },
       },
       MuiOutlinedInput: {
-        notchedOutline: {
-          '.MuiFormLabel-filled:not(.Mui-focused) + .MuiInputBase-root:not(:hover) > &': {
-            borderColor: 'rgba(0, 0, 0, 0.40)',
+        styleOverrides: {
+          notchedOutline: {
+            '.MuiFormLabel-filled:not(.Mui-focused) + .MuiInputBase-root:not(:hover) > &': {
+              borderColor: 'rgba(0, 0, 0, 0.40)',
+            },
           },
         },
       },
       MuiInputBase: {
-        root: {
-          fontSize: typography?.body1?.fontSize,
-        },
-        multiline: {
-          lineHeight: '1.5em',
+        styleOverrides: {
+          root: {
+            fontSize: typography?.body1?.fontSize,
+          },
+          multiline: {
+            lineHeight: '1.5em',
+          },
         },
       },
     },
   };
 }
 
-export const baseThemeOptions: ThemeOptions = {
-  palette: {
-    primary: {
-      dark: '#0F7DAA',
-      main: '#1297CE',
-      light: '#27B2EC',
-    },
-    secondary: {
-      dark: deepOrange[600],
-      main: deepOrange[500],
-      light: deepOrange[300],
-    },
-    error: red,
-  },
-};
+export const rtlTheme = createMuiTheme(getThemeOptions('rtl', 'light'));
+export const ltrTheme = createMuiTheme(getThemeOptions('ltr', 'light'));
 
-export const rtlTheme = createMuiTheme(getThemeOptions(baseThemeOptions, 'rtl', 'light'));
-export const ltrTheme = createMuiTheme(getThemeOptions(baseThemeOptions, 'ltr', 'light'));
-
-export const darkRtlTheme = createMuiTheme(getThemeOptions(baseThemeOptions, 'rtl', 'dark'));
-export const darkLtrTheme = createMuiTheme(getThemeOptions(baseThemeOptions, 'ltr', 'dark'));
+export const darkRtlTheme = createMuiTheme(getThemeOptions('rtl', 'dark'));
+export const darkLtrTheme = createMuiTheme(getThemeOptions('ltr', 'dark'));

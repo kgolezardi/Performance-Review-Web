@@ -1,3 +1,3 @@
-export { ExpansionPanel } from './ExpansionPanel';
-export { ExpansionPanelDetails } from './ExpansionPanelDetails';
-export { ExpansionPanelSummary } from './ExpansionPanelSummary';
+export { Accordion } from './Accordion';
+export { AccordionDetails } from './AccordionDetails';
+export { AccordionSummary } from './AccordionSummary';

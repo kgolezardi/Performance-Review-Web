@@ -58,7 +58,7 @@ export default function NoPeerReviewPage(props: Props) {
             <Content components={components} />
           </CardContent>
           <CardActions classes={{ root: classes.cardActions }}>
-            <Button onClick={handleClick} variant="contained" color="primary">
+            <Button onClick={handleClick} variant="contained">
               {i18n._('Show and claim reward')}
             </Button>
           </CardActions>

@@ -13,7 +13,6 @@ storiesOf('Snackbar', module)
       <Container>
         <Button
           variant="contained"
-          color="primary"
           onClick={() => {
             enqueueSnackbar(i18n._('Successfully saved.'), { variant: 'success' });
           }}
@@ -29,7 +28,6 @@ storiesOf('Snackbar', module)
       <Container>
         <Button
           variant="contained"
-          color="primary"
           onClick={() => {
             enqueueSnackbar(i18n._('Something went wrong.'), { variant: 'error' });
           }}

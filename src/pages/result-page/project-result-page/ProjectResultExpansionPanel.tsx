@@ -1,8 +1,8 @@
 import React from 'react';
 import graphql from 'babel-plugin-relay/macro';
+import { Accordion, AccordionDetails, AccordionSummary } from 'src/shared/expansion-panel';
 import { Box, Grid, Theme, Typography, lighten, makeStyles, useTheme } from '@material-ui/core';
 import { CSSProperties } from '@material-ui/core/styles/withStyles';
-import { ExpansionPanel, ExpansionPanelDetails, ExpansionPanelSummary } from 'src/shared/expansion-panel';
 import { FCProps } from 'src/shared/types/FCProps';
 import { ProjectOutput } from 'src/shared/project-output';
 import { QuoteBox } from 'src/shared/quote-box';
@@ -46,11 +46,11 @@ export function ProjectResultExpansionPanel(props: Props) {
   const projectName = projectReview.project.name;
 
   return (
-    <ExpansionPanel>
-      <ExpansionPanelSummary>
+    <Accordion>
+      <AccordionSummary>
         <Typography variant="h3">{projectName}</Typography>
-      </ExpansionPanelSummary>
-      <ExpansionPanelDetails>
+      </AccordionSummary>
+      <AccordionDetails>
         <Grid container spacing={2}>
           <Grid item xs={12}>
             <Typography variant="button" className={classes.detailTypography}>
@@ -75,8 +75,8 @@ export function ProjectResultExpansionPanel(props: Props) {
             <ProjectResultRatingGroup rating={null} comments={projectReview.comments} />
           </Grid>
         </Grid>
-      </ExpansionPanelDetails>
-    </ExpansionPanel>
+      </AccordionDetails>
+    </Accordion>
   );
 }
 

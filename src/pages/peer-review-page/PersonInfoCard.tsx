@@ -1,8 +1,9 @@
 import clsx from 'clsx';
 import graphql from 'babel-plugin-relay/macro';
 import React, { useCallback } from 'react';
-import { Button, Card, CardHeader, Divider, Theme, makeStyles } from '@material-ui/core';
+import { Button } from 'src/shared/button';
 import { CSSProperties } from '@material-ui/core/styles/withStyles';
+import { Card, CardHeader, Divider, Theme, makeStyles } from '@material-ui/core';
 import { FCProps } from 'src/shared/types/FCProps';
 import { LanguageCodes } from 'src/core/locales/types';
 import { LocationState } from 'src/pages/peer-review-board-page/PeerReviewBoardPage';
@@ -93,7 +94,7 @@ export function PersonInfoCard(props: Props) {
         })}
         action={
           state === 'DONE' ? (
-            <Button onClick={handleEditClick} variant="outlined" color="default">
+            <Button onClick={handleEditClick} variant="outlined" color="grey">
               {i18n._('Edit')}
             </Button>
           ) : (

@@ -1,16 +1,16 @@
 import React from 'react';
 import { CSSProperties } from '@material-ui/core/styles/withStyles';
 import { FCProps } from 'src/shared/types/FCProps';
-import { ExpansionPanel as MuiExpansionPanel, ExpansionPanelProps, Theme, makeStyles } from '@material-ui/core';
+import { Accordion as MuiAccordion, AccordionProps, Theme, makeStyles } from '@material-ui/core';
 import { Styles } from 'src/shared/types/Styles';
 
-interface OwnProps extends ExpansionPanelProps {}
+interface OwnProps extends AccordionProps {}
 
 type Props = FCProps<OwnProps> & StyleProps;
 
-export function ExpansionPanel(props: Props) {
+export function Accordion(props: Props) {
   const classes = useStyles(props);
-  return <MuiExpansionPanel defaultExpanded elevation={0} {...props} classes={classes} />;
+  return <MuiAccordion defaultExpanded elevation={0} {...props} classes={classes} />;
 }
 
 const styles = (theme: Theme) => ({
@@ -25,5 +25,5 @@ const styles = (theme: Theme) => ({
   } as CSSProperties,
 });
 
-const useStyles = makeStyles(styles, { name: 'ExpansionPanel' });
+const useStyles = makeStyles(styles, { name: 'Accordion' });
 type StyleProps = Styles<typeof styles>;

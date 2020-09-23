@@ -49,7 +49,7 @@ export function StartReviewCard(props: Props) {
             </Typography>
           </Box>
         )}
-        <Grid container justify="center">
+        <Grid container justifyContent="center">
           <Grid item>
             <Box marginTop={3}>
               <Button variant="contained" color="secondary" size="large" onClick={startReview}>

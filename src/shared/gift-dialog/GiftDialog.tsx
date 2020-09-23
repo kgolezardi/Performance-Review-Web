@@ -4,7 +4,6 @@ import graphql from 'babel-plugin-relay/macro';
 import React, { useCallback, useContext } from 'react';
 import {
   Box,
-  Button,
   Dialog,
   DialogContent,
   DialogTitle as MuiDialogTitle,
@@ -13,6 +12,7 @@ import {
   makeStyles,
   styled,
 } from '@material-ui/core';
+import { Button } from 'src/shared/button';
 import { CSSProperties } from '@material-ui/core/styles/withStyles';
 import { FCProps } from 'src/shared/types/FCProps';
 import { MDXContext } from '@mdx-js/react';
@@ -73,10 +73,12 @@ export function GiftDialog(props: Props) {
         </MDXPropsProvider>
       </DialogContent>
       <DialogActions>
-        <Button onClick={handleClaimClick} variant="contained" color="primary">
+        <Button onClick={handleClaimClick} variant="contained">
           {i18n._('Show and claim reward')}
         </Button>
-        <Button onClick={handleLaterClick}>{i18n._('Thanks, I claim it later')}</Button>
+        <Button color="grey" onClick={handleLaterClick}>
+          {i18n._('Thanks, I claim it later')}
+        </Button>
       </DialogActions>
     </Dialog>
   );
