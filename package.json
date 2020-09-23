@@ -105,7 +105,7 @@
     "import-sort-cli": "^6.0.0",
     "import-sort-parser-typescript": "^6.0.0",
     "import-sort-style-renke": "^6.0.0",
-    "lint-staged": "^10.2.2",
+    "lint-staged": "^10.4.0",
     "prettier": "^2.0.5",
     "react-is": "^16.13.1",
     "relay-compiler": "^9.1.0",
