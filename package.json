@@ -101,7 +101,7 @@
     "graphql": "^15.0.0",
     "graphql-cli": "^3.0.14",
     "http-proxy-middleware": "^0.20.0",
-    "husky": "^4.2.5",
+    "husky": "^4.3.0",
     "import-sort-cli": "^6.0.0",
     "import-sort-parser-typescript": "^6.0.0",
     "import-sort-style-renke": "^6.0.0",
