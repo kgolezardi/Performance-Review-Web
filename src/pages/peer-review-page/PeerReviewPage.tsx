@@ -15,14 +15,14 @@ import { unescape } from 'src/shared/utils/base64.util';
 import { useLazyLoadQuery } from 'react-relay/hooks';
 
 import { PeerReviewPageQuery } from './__generated__/PeerReviewPageQuery.graphql';
+import { PeerReviewPersonInfoCard } from './PeerReviewPersonInfoCard';
 import { PeerReviewProjectsTab } from './projectsTab/PeerReviewProjectsTab';
-import { PersonInfoCard } from './PersonInfoCard';
 
 const peerReviewPageQuery = graphql`
   query PeerReviewPageQuery($id: ID!) {
     viewer {
       user(id: $id) {
-        ...PersonInfoCard_user
+        ...PeerReviewPersonInfoCard_user
       }
     }
   }
@@ -53,7 +53,7 @@ export default function PeerReviewPage(props: Props) {
     <PromptProvider message={i18n._('Changes you made may not be saved.')}>
       <Container maxWidth="md">
         <InView>
-          <PersonInfoCard user={data.viewer.user}>
+          <PeerReviewPersonInfoCard user={data.viewer.user}>
             <Tabs value={tab ?? 'performance-competencies'}>
               <TabLink
                 label={i18n._('Performance Competencies')}
@@ -67,7 +67,7 @@ export default function PeerReviewPage(props: Props) {
               />
               <TabLink label={i18n._('Achievements')} value="achievements" to={toPrefix + '/achievements'} />
             </Tabs>
-          </PersonInfoCard>
+          </PeerReviewPersonInfoCard>
         </InView>
         <Box marginY={2}>
           <Paper>
