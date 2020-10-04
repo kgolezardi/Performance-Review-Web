@@ -70,7 +70,12 @@ const PeerStartReviewPage = React.lazy(() =>
     'src/pages/start-page/PeerStartReviewPage'
   ),
 );
-
+const ManagerStartReviewPage = React.lazy(() =>
+  import(
+    /* webpackChunkName: "manager-start-review-page" */
+    'src/pages/start-page/ManagerStartReviewPage'
+  ),
+);
 const NoPeerReviewPage = React.lazy(() =>
   import(
     /* webpackChunkName: "peer-no-review-page" */
@@ -150,6 +155,9 @@ export function MainRoutes(props: FCProps<Props>) {
   }
 
   if (phase === 'MANAGER_REVIEW' && user.isManager) {
+    if (!user.hasStarted) {
+      return <ManagerStartReviewPage />;
+    }
     return (
       <Switch>
         <Redirect exact path="/" to="/manager-review" />

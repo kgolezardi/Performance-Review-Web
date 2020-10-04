@@ -31,18 +31,20 @@ export function StartReviewCard(props: Props) {
     startReviewMutation({ input: {} });
   }, [startReviewMutation]);
 
-  const { dueDate } = settings;
+  const { dueDate, phase } = settings;
 
   const formattedDueDate =
     dueDate &&
     DateTime.fromISO(dueDate).reconfigure({ outputCalendar: 'persian' }).setLocale('fa').toFormat('EEEE، d MMMM');
+
+  const showDueDate = phase !== 'MANAGER_REVIEW' && !!formattedDueDate;
 
   return (
     <Card classes={{ root: classes.root }}>
       <CardHeader title={i18n._('Dear {name}, Hello', { name: getUserLabel(user) })} />
       <CardContent>
         <Content components={{ ...components, blockquote: BlackQuote }} />
-        {!!formattedDueDate && (
+        {showDueDate && (
           <Box marginTop={3}>
             <Typography variant="h6">
               {i18n._('Evaluation due date: {formattedDueDate}', { formattedDueDate })}
