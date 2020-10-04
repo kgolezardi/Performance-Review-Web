@@ -1,7 +1,8 @@
 import graphql from 'babel-plugin-relay/macro';
 import React, { useCallback } from 'react';
-import { Button, Card, Divider, Theme, makeStyles } from '@material-ui/core';
+import { Button, Divider, Theme, makeStyles } from '@material-ui/core';
 import { CSSProperties } from '@material-ui/core/styles/withStyles';
+import { PersonInfoCard as Card } from 'src/shared/person-info-card';
 import { FCProps } from 'src/shared/types/FCProps';
 import { LanguageCodes } from 'src/core/locales/types';
 import { LocationState } from 'src/pages/peer-review-board-page/PeerReviewBoardPage';
