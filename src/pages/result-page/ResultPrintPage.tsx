@@ -1,13 +1,13 @@
 import graphql from 'babel-plugin-relay/macro';
 import React, { useEffect } from 'react';
 import { Box } from '@material-ui/core';
+import { CriteriaResult } from 'src/shared/criteria-result';
 import { FCProps } from 'src/shared/types/FCProps';
 import { PageBreak } from 'src/shared/page-break';
 import { PrintingContext } from 'src/shared/layouts/dashboard-layouts/PrintingContext';
 import { useAuthGuardUser } from 'src/core/auth';
 import { useLazyLoadQuery } from 'react-relay/hooks';
 
-import { CriteriaResult } from './criteria-result-page/CriteriaResult';
 import { ProjectResultExpansionPanel } from './project-result-page/ProjectResultExpansionPanel';
 import { ResultPrintPageQuery } from './__generated__/ResultPrintPageQuery.graphql';
 import { StrengthsWeaknessesResult } from './strengths-weaknesses-result-page/StrengthsWeaknessesResult';

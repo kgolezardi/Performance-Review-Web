@@ -1,13 +1,13 @@
 import graphql from 'babel-plugin-relay/macro';
 import React, { useContext } from 'react';
 import { Box } from '@material-ui/core';
+import { CriteriaResult } from 'src/shared/criteria-result';
 import { FCProps } from 'src/shared/types/FCProps';
 import { MDXContext } from '@mdx-js/react';
 import { SectionGuide } from 'src/shared/section-guide';
 import { importMDX } from 'mdx.macro';
 import { useLazyLoadQuery } from 'react-relay/hooks';
 
-import { CriteriaResult } from './CriteriaResult';
 import { CriteriaResultPageQuery } from './__generated__/CriteriaResultPageQuery.graphql';
 
 const DescriptionCriteriaResultPage = importMDX.sync('./DescriptionCriteriaResultPage.mdx');
