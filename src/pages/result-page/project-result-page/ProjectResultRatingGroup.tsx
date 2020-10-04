@@ -4,7 +4,7 @@ import { Box, Typography } from '@material-ui/core';
 import { Evaluation } from 'src/__generated__/enums';
 import { ExcludeUnknown } from 'src/shared/enum-utils/types';
 import { FCProps } from 'src/shared/types/FCProps';
-import { ResultCommentOutput } from 'src/pages/result-page/ResultCommentOutput';
+import { ReviewItemOutput } from 'src/shared/review-item-output';
 import { i18n } from '@lingui/core';
 import { selfReviewEvaluationDictionary } from 'src/global-types';
 import { useFragment } from 'react-relay/hooks';
@@ -56,7 +56,7 @@ export const ProjectResultRatingGroup = React.memo(function ProjectResultRatingG
       </Box>
       {filteredComments.map((review) => (
         <Box marginTop={2} key={review.id}>
-          <ResultCommentOutput value={review.text} type="peer" />
+          <ReviewItemOutput value={review.text} type="peer" anonymous />
         </Box>
       ))}
     </Box>
