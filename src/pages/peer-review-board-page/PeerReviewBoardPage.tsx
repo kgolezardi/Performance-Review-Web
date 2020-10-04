@@ -1,6 +1,6 @@
 import graphql from 'babel-plugin-relay/macro';
 import React, { useCallback, useState } from 'react';
-import { BoardList } from 'src/shared/board-list';
+import { BoardList, EmptyList } from 'src/shared/board-list';
 import { CSSProperties } from '@material-ui/core/styles/withStyles';
 import { Container, Fab, Grid, Theme, makeStyles } from '@material-ui/core';
 import { Done as DoneIcon } from 'src/assets/icons/Done';
@@ -18,7 +18,6 @@ import { i18n } from '@lingui/core';
 import { useFragment, useLazyLoadQuery } from 'react-relay/hooks';
 import { useHistory, useLocation } from 'react-router-dom';
 
-import { EmptyList } from './EmptyList';
 import { PeerReviewBoardPageQuery } from './__generated__/PeerReviewBoardPageQuery.graphql';
 import {
   PeerReviewBoardPage_user,

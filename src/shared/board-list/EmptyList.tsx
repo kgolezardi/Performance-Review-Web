@@ -1,9 +1,10 @@
 import React from 'react';
 import { CSSProperties } from '@material-ui/core/styles/withStyles';
 import { FCProps } from 'src/shared/types/FCProps';
-import { PlaceHolder } from 'src/shared/board-list';
 import { Styles } from 'src/shared/types/Styles';
 import { Theme, Typography, makeStyles } from '@material-ui/core';
+
+import { PlaceHolder } from './PlaceHolder';
 
 interface EmptyListProps {
   text: string;
