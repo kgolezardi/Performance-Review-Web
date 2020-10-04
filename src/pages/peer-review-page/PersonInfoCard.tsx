@@ -1,12 +1,13 @@
 import graphql from 'babel-plugin-relay/macro';
 import React, { useCallback } from 'react';
-import { Button, Card, Divider, Theme, makeStyles } from '@material-ui/core';
+import { Button, Divider, Theme, makeStyles } from '@material-ui/core';
 import { CSSProperties } from '@material-ui/core/styles/withStyles';
 import { FCProps } from 'src/shared/types/FCProps';
 import { LanguageCodes } from 'src/core/locales/types';
 import { LocationState } from 'src/pages/peer-review-board-page/PeerReviewBoardPage';
 import { PersonInfoCardHeader } from 'src/shared/person-info-card-header';
 import { Styles } from 'src/shared/types/Styles';
+import { TopStickyCard } from 'src/shared/top-sticky-card';
 import { getUserLabel } from 'src/shared/utils/getUserLabel';
 import { i18n } from '@lingui/core';
 import { localizeNumber } from 'src/shared/utils/localizeNumber.util';
@@ -83,7 +84,7 @@ export function PersonInfoCard(props: Props) {
   const disabled = changed || allProjectCommentFilled;
 
   return (
-    <Card classes={{ root: classes.root }}>
+    <TopStickyCard classes={{ root: classes.root }}>
       <PersonInfoCardHeader
         action={
           state === 'DONE' ? (
@@ -103,7 +104,7 @@ export function PersonInfoCard(props: Props) {
       />
       <Divider />
       {children}
-    </Card>
+    </TopStickyCard>
   );
 }
 
