@@ -16,11 +16,11 @@ import { useFragment } from 'react-relay/hooks';
 import { useHistory } from 'react-router-dom';
 import { usePromptStateContext } from 'src/shared/prompt/PromptProvider';
 
-import { PersonInfoCard_user$key } from './__generated__/PersonInfoCard_user.graphql';
+import { PeerReviewPersonInfoCard_user$key } from './__generated__/PeerReviewPersonInfoCard_user.graphql';
 import { useSavePersonReviewMutation } from './savePersonReview.mutation';
 
 const fragment = graphql`
-  fragment PersonInfoCard_user on UserNode {
+  fragment PeerReviewPersonInfoCard_user on UserNode {
     id
     ...getUserLabel_user
     ...PersonInfoCardHeader_user
@@ -37,16 +37,16 @@ const fragment = graphql`
 `;
 
 interface OwnProps {
-  user: PersonInfoCard_user$key;
+  user: PeerReviewPersonInfoCard_user$key;
 }
 
 type Props = FCProps<OwnProps> & StyleProps;
 
-export function PersonInfoCard(props: Props) {
+export function PeerReviewPersonInfoCard(props: Props) {
   const { children } = props;
   const classes = useStyles(props);
 
-  const user = useFragment<PersonInfoCard_user$key>(fragment, props.user);
+  const user = useFragment<PeerReviewPersonInfoCard_user$key>(fragment, props.user);
   const savePersonReviewMutation = useSavePersonReviewMutation();
   const { enqueueSnackbar } = useBiDiSnackbar();
   const history = useHistory<LocationState>();
@@ -112,5 +112,5 @@ const styles = (theme: Theme) => ({
   root: {} as CSSProperties,
 });
 
-const useStyles = makeStyles(styles, { name: 'PersonInfoCard' });
+const useStyles = makeStyles(styles, { name: 'PeerReviewPersonInfoCard' });
 type StyleProps = Styles<typeof styles>;
