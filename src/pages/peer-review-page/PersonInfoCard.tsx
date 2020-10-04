@@ -1,20 +1,18 @@
-import clsx from 'clsx';
 import graphql from 'babel-plugin-relay/macro';
 import React, { useCallback } from 'react';
-import { Button, Card, CardHeader, Divider, Theme, makeStyles } from '@material-ui/core';
+import { Button, Card, Divider, Theme, makeStyles } from '@material-ui/core';
 import { CSSProperties } from '@material-ui/core/styles/withStyles';
 import { FCProps } from 'src/shared/types/FCProps';
 import { LanguageCodes } from 'src/core/locales/types';
 import { LocationState } from 'src/pages/peer-review-board-page/PeerReviewBoardPage';
+import { PersonInfoCardHeader } from 'src/shared/person-info-card-header';
 import { Styles } from 'src/shared/types/Styles';
-import { UserAvatar } from 'src/shared/user-avatar';
 import { getUserLabel } from 'src/shared/utils/getUserLabel';
 import { i18n } from '@lingui/core';
 import { localizeNumber } from 'src/shared/utils/localizeNumber.util';
 import { useBiDiSnackbar } from 'src/shared/snackbar';
 import { useFragment } from 'react-relay/hooks';
 import { useHistory } from 'react-router-dom';
-import { useInViewContext } from 'src/shared/in-view';
 import { usePromptStateContext } from 'src/shared/prompt/PromptProvider';
 
 import { PersonInfoCard_user$key } from './__generated__/PersonInfoCard_user.graphql';
@@ -24,7 +22,7 @@ const fragment = graphql`
   fragment PersonInfoCard_user on UserNode {
     id
     ...getUserLabel_user
-    ...UserAvatar_user
+    ...PersonInfoCardHeader_user
     personReview {
       state
     }
@@ -46,7 +44,7 @@ type Props = FCProps<OwnProps> & StyleProps;
 export function PersonInfoCard(props: Props) {
   const { children } = props;
   const classes = useStyles(props);
-  const { topInView } = useInViewContext();
+
   const user = useFragment<PersonInfoCard_user$key>(fragment, props.user);
   const savePersonReviewMutation = useSavePersonReviewMutation();
   const { enqueueSnackbar } = useBiDiSnackbar();
@@ -86,11 +84,7 @@ export function PersonInfoCard(props: Props) {
 
   return (
     <Card classes={{ root: classes.root }}>
-      <CardHeader
-        title={getUserLabel(user)}
-        subheader={i18n._('He/She asked your review on {numberOfProjects} project(s)', {
-          numberOfProjects,
-        })}
+      <PersonInfoCardHeader
         action={
           state === 'DONE' ? (
             <Button onClick={handleEditClick} variant="outlined" color="default">
@@ -102,9 +96,10 @@ export function PersonInfoCard(props: Props) {
             </Button>
           )
         }
-        avatar={<UserAvatar user={user} className={clsx(classes.avatar, { [classes.avatarShrink]: !topInView })} />}
-        titleTypographyProps={{ variant: 'h5', gutterBottom: true }}
-        classes={{ root: classes.headerRoot, action: classes.action }}
+        subheader={i18n._('He/She asked your review on {numberOfProjects} project(s)', {
+          numberOfProjects,
+        })}
+        user={user}
       />
       <Divider />
       {children}
@@ -114,28 +109,6 @@ export function PersonInfoCard(props: Props) {
 
 const styles = (theme: Theme) => ({
   root: {} as CSSProperties,
-  headerRoot: {
-    padding: theme.spacing(3, 6),
-  } as CSSProperties,
-  avatar: {
-    width: 80,
-    height: 80,
-    transition: theme.transitions.create(['width', 'height']),
-  } as CSSProperties,
-  avatarShrink: {
-    width: 48,
-    height: 48,
-  } as CSSProperties,
-  action: {
-    margin: 0,
-    alignSelf: 'center',
-  } as CSSProperties,
-  content: {
-    padding: theme.spacing(),
-    '&:last-child': {
-      padding: theme.spacing(),
-    },
-  } as CSSProperties,
 });
 
 const useStyles = makeStyles(styles, { name: 'PersonInfoCard' });

@@ -168,7 +168,5 @@ export function MainRoutes(props: FCProps<Props>) {
     );
   }
 
-  // TODO support other phases
-
   return <IdlePage />;
 }
