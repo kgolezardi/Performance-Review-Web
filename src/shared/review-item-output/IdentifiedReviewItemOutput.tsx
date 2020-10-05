@@ -1,5 +1,5 @@
 import React from 'react';
-import { Avatar, Box, Chip, Grid, Typography } from '@material-ui/core';
+import { Avatar, Box, Chip, Grid, Theme, Typography, lighten, styled } from '@material-ui/core';
 import { FCProps } from 'src/shared/types/FCProps';
 import { MultilineOutput } from 'src/shared/multiline-output';
 import { i18n } from '@lingui/core';
@@ -27,7 +27,7 @@ export function IdentifiedReviewItemOutput(props: Props) {
           <Typography variant="button">{name}</Typography>
           {type === 'self' && (
             <Box marginLeft={2} display="inline-block">
-              <Chip label={i18n._('Reviewee')} size="small" color="primary" />
+              <RevieweeChip label={i18n._('Reviewee')} size="small" color="primary" />
             </Box>
           )}
         </Box>
@@ -36,3 +36,9 @@ export function IdentifiedReviewItemOutput(props: Props) {
     </Grid>
   );
 }
+
+const RevieweeChip = styled(Chip)(({ theme }: { theme: Theme }) => ({
+  fontSize: '0.75rem',
+  color: theme.palette.primary.main,
+  backgroundColor: lighten(theme.palette.primary.main, 0.9),
+}));

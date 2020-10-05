@@ -1,5 +1,5 @@
 import createMuiTheme, { ThemeOptions } from '@material-ui/core/styles/createMuiTheme';
-import { Direction, PaletteType, lighten } from '@material-ui/core';
+import { Direction, PaletteType } from '@material-ui/core';
 import { TypographyOptions } from '@material-ui/core/styles/createTypography';
 import { deepOrange, grey, red } from '@material-ui/core/colors';
 
@@ -67,15 +67,6 @@ export function getThemeOptions(direction: Direction, paletteType: PaletteType):
         },
         multiline: {
           lineHeight: '1.5em',
-        },
-      },
-      MuiChip: {
-        root: {
-          fontSize: '0.75rem',
-        },
-        colorPrimary: {
-          color: palette.primary.main,
-          backgroundColor: lighten(palette.primary.main, 0.9),
         },
       },
     },
