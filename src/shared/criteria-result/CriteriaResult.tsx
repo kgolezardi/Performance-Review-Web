@@ -1,5 +1,5 @@
-import React from 'react';
 import graphql from 'babel-plugin-relay/macro';
+import React, { Fragment } from 'react';
 import { CriteriaHelpText } from 'src/shared/criteria-help-text';
 import { FCProps } from 'src/shared/types/FCProps';
 import { i18n } from '@lingui/core';
@@ -27,7 +27,7 @@ export function CriteriaResult(props: Props) {
   const reviews = useFragment(fragment, props.reviews);
 
   return (
-    <div>
+    <Fragment>
       <CriterionResultExpansionPanel
         reviews={reviews}
         details={<CriteriaHelpText criteria="sahabiness" isSelfReview={isSelfReview} />}
@@ -64,6 +64,6 @@ export function CriteriaResult(props: Props) {
         title={i18n._('Presence')}
         prefix="presence"
       />
-    </div>
+    </Fragment>
   );
 }

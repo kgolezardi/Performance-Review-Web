@@ -2,7 +2,7 @@ import React from 'react';
 import { Box, Typography } from '@material-ui/core';
 import { ExpansionPanel, ExpansionPanelDetails, ExpansionPanelSummary } from 'src/shared/expansion-panel';
 import { FCProps } from 'src/shared/types/FCProps';
-import { ResultCommentOutput } from 'src/pages/result-page/ResultCommentOutput';
+import { ReviewItemOutput } from 'src/shared/review-item-output';
 
 interface OwnProps {
   title?: string;
@@ -24,12 +24,12 @@ export function StrengthsWeaknessResultExpansionPanel(props: Props) {
         <Box>
           {ownReviews?.map((review, index) => (
             <Box marginTop={2} key={index}>
-              <ResultCommentOutput value={review} type="self" />
+              <ReviewItemOutput value={review} type="self" anonymous />
             </Box>
           ))}
           {reviews?.map((review, index) => (
             <Box marginTop={2} key={index}>
-              <ResultCommentOutput value={review} type="peer" />
+              <ReviewItemOutput value={review} type="peer" anonymous />
             </Box>
           ))}
         </Box>
