@@ -1,30 +1,26 @@
-import clsx from 'clsx';
 import graphql from 'babel-plugin-relay/macro';
 import React, { useCallback } from 'react';
-import { Button, Card, CardHeader, Divider, Theme, makeStyles } from '@material-ui/core';
-import { CSSProperties } from '@material-ui/core/styles/withStyles';
+import { Button } from '@material-ui/core';
 import { FCProps } from 'src/shared/types/FCProps';
 import { LanguageCodes } from 'src/core/locales/types';
 import { LocationState } from 'src/pages/peer-review-board-page/PeerReviewBoardPage';
-import { Styles } from 'src/shared/types/Styles';
-import { UserAvatar } from 'src/shared/user-avatar';
+import { PersonInfoCardHeader } from 'src/shared/person-info-card-header';
 import { getUserLabel } from 'src/shared/utils/getUserLabel';
 import { i18n } from '@lingui/core';
 import { localizeNumber } from 'src/shared/utils/localizeNumber.util';
 import { useBiDiSnackbar } from 'src/shared/snackbar';
 import { useFragment } from 'react-relay/hooks';
 import { useHistory } from 'react-router-dom';
-import { useInViewContext } from 'src/shared/in-view';
 import { usePromptStateContext } from 'src/shared/prompt/PromptProvider';
 
-import { PersonInfoCard_user$key } from './__generated__/PersonInfoCard_user.graphql';
+import { PeerReviewPersonInfoCard_user$key } from './__generated__/PeerReviewPersonInfoCard_user.graphql';
 import { useSavePersonReviewMutation } from './savePersonReview.mutation';
 
 const fragment = graphql`
-  fragment PersonInfoCard_user on UserNode {
+  fragment PeerReviewPersonInfoCard_user on UserNode {
     id
     ...getUserLabel_user
-    ...UserAvatar_user
+    ...PersonInfoCardHeader_user
     personReview {
       state
     }
@@ -38,16 +34,13 @@ const fragment = graphql`
 `;
 
 interface OwnProps {
-  user: PersonInfoCard_user$key;
+  user: PeerReviewPersonInfoCard_user$key;
 }
 
-type Props = FCProps<OwnProps> & StyleProps;
+type Props = FCProps<OwnProps>;
 
-export function PersonInfoCard(props: Props) {
-  const { children } = props;
-  const classes = useStyles(props);
-  const { topInView } = useInViewContext();
-  const user = useFragment<PersonInfoCard_user$key>(fragment, props.user);
+export function PeerReviewPersonInfoCard(props: Props) {
+  const user = useFragment<PeerReviewPersonInfoCard_user$key>(fragment, props.user);
   const savePersonReviewMutation = useSavePersonReviewMutation();
   const { enqueueSnackbar } = useBiDiSnackbar();
   const history = useHistory<LocationState>();
@@ -85,58 +78,22 @@ export function PersonInfoCard(props: Props) {
   const disabled = changed || allProjectCommentFilled;
 
   return (
-    <Card classes={{ root: classes.root }}>
-      <CardHeader
-        title={getUserLabel(user)}
-        subheader={i18n._('He/She asked your review on {numberOfProjects} project(s)', {
-          numberOfProjects,
-        })}
-        action={
-          state === 'DONE' ? (
-            <Button onClick={handleEditClick} variant="outlined" color="default">
-              {i18n._('Edit')}
-            </Button>
-          ) : (
-            <Button onClick={handleEndEvaluationClick} variant="contained" color="secondary" disabled={disabled}>
-              {i18n._("End {name}'s evaluation", { name })}
-            </Button>
-          )
-        }
-        avatar={<UserAvatar user={user} className={clsx(classes.avatar, { [classes.avatarShrink]: !topInView })} />}
-        titleTypographyProps={{ variant: 'h5', gutterBottom: true }}
-        classes={{ root: classes.headerRoot, action: classes.action }}
-      />
-      <Divider />
-      {children}
-    </Card>
+    <PersonInfoCardHeader
+      action={
+        state === 'DONE' ? (
+          <Button onClick={handleEditClick} variant="outlined" color="default">
+            {i18n._('Edit')}
+          </Button>
+        ) : (
+          <Button onClick={handleEndEvaluationClick} variant="contained" color="secondary" disabled={disabled}>
+            {i18n._("End {name}'s evaluation", { name })}
+          </Button>
+        )
+      }
+      subheader={i18n._('He/She asked your review on {numberOfProjects} project(s)', {
+        numberOfProjects,
+      })}
+      user={user}
+    />
   );
 }
-
-const styles = (theme: Theme) => ({
-  root: {} as CSSProperties,
-  headerRoot: {
-    padding: theme.spacing(3, 6),
-  } as CSSProperties,
-  avatar: {
-    width: 80,
-    height: 80,
-    transition: theme.transitions.create(['width', 'height']),
-  } as CSSProperties,
-  avatarShrink: {
-    width: 48,
-    height: 48,
-  } as CSSProperties,
-  action: {
-    margin: 0,
-    alignSelf: 'center',
-  } as CSSProperties,
-  content: {
-    padding: theme.spacing(),
-    '&:last-child': {
-      padding: theme.spacing(),
-    },
-  } as CSSProperties,
-});
-
-const useStyles = makeStyles(styles, { name: 'PersonInfoCard' });
-type StyleProps = Styles<typeof styles>;

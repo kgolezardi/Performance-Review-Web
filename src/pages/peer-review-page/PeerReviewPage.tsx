@@ -2,29 +2,28 @@ import CriteriaPage from 'src/pages/criteria-page/CriteriaPage';
 import StrengthsWeaknessesPage from 'src/pages/strengths-weaknesses-page/StrengthsWeaknessesPage';
 import graphql from 'babel-plugin-relay/macro';
 import React, { Suspense } from 'react';
-import { Box, Container, Paper, Theme, makeStyles } from '@material-ui/core';
-import { CSSProperties } from '@material-ui/core/styles/withStyles';
+import { Box, Container, Divider, Paper } from '@material-ui/core';
 import { FCProps } from 'src/shared/types/FCProps';
 import { FullPageSpinner } from 'src/shared/loading';
 import { InView } from 'src/shared/in-view';
 import { PromptProvider } from 'src/shared/prompt';
 import { Redirect, Route, Switch, useParams } from 'react-router-dom';
-import { Styles } from 'src/shared/types/Styles';
 import { TabLink } from 'src/shared/tab';
 import { Tabs } from 'src/shared/tabs';
+import { TopStickyCard } from 'src/shared/top-sticky-card';
 import { i18n } from '@lingui/core';
 import { unescape } from 'src/shared/utils/base64.util';
 import { useLazyLoadQuery } from 'react-relay/hooks';
 
 import { PeerReviewPageQuery } from './__generated__/PeerReviewPageQuery.graphql';
+import { PeerReviewPersonInfoCard } from './PeerReviewPersonInfoCard';
 import { PeerReviewProjectsTab } from './projectsTab/PeerReviewProjectsTab';
-import { PersonInfoCard } from './PersonInfoCard';
 
 const peerReviewPageQuery = graphql`
   query PeerReviewPageQuery($id: ID!) {
     viewer {
       user(id: $id) {
-        ...PersonInfoCard_user
+        ...PeerReviewPersonInfoCard_user
       }
     }
   }
@@ -37,10 +36,9 @@ interface Params {
 
 interface OwnProps {}
 
-type Props = FCProps<OwnProps> & StyleProps;
+type Props = FCProps<OwnProps>;
 
 export default function PeerReviewPage(props: Props) {
-  const classes = useStyles(props);
   const { tab, uid } = useParams<Params>();
   const toPrefix = '/peer-review/' + uid;
   const revieweeId = unescape(uid);
@@ -56,7 +54,10 @@ export default function PeerReviewPage(props: Props) {
     <PromptProvider message={i18n._('Changes you made may not be saved.')}>
       <Container maxWidth="md">
         <InView>
-          <PersonInfoCard user={data.viewer.user} classes={{ root: classes.personInfoCardRoot }}>
+          <TopStickyCard>
+            <PeerReviewPersonInfoCard user={data.viewer.user} />
+            <Divider />
+
             <Tabs value={tab ?? 'performance-competencies'}>
               <TabLink
                 label={i18n._('Performance Competencies')}
@@ -70,7 +71,7 @@ export default function PeerReviewPage(props: Props) {
               />
               <TabLink label={i18n._('Achievements')} value="achievements" to={toPrefix + '/achievements'} />
             </Tabs>
-          </PersonInfoCard>
+          </TopStickyCard>
         </InView>
         <Box marginY={2}>
           <Paper>
@@ -100,17 +101,3 @@ export default function PeerReviewPage(props: Props) {
     </PromptProvider>
   );
 }
-
-const styles = (theme: Theme) => ({
-  personInfoCardRoot: {
-    position: 'sticky',
-    top: 0,
-    zIndex: theme.zIndex.appBar - 25,
-    marginTop: theme.spacing(5),
-    marginLeft: -theme.spacing(3),
-    marginRight: -theme.spacing(3),
-  } as CSSProperties,
-});
-
-const useStyles = makeStyles(styles, { name: 'PeerReviewPage' });
-type StyleProps = Styles<typeof styles>;

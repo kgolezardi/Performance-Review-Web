@@ -152,7 +152,8 @@ export function MainRoutes(props: FCProps<Props>) {
   if (phase === 'MANAGER_REVIEW' && user.isManager) {
     return (
       <Switch>
-        <Route path="/" children={<ManagerReviewPage />} />;
+        <Redirect exact path="/" to="/manager-review" />
+        <Route path="/manager-review/:uid/:tab?" children={<ManagerReviewPage />} />
       </Switch>
     );
   }
@@ -167,8 +168,6 @@ export function MainRoutes(props: FCProps<Props>) {
       </Switch>
     );
   }
-
-  // TODO support other phases
 
   return <IdlePage />;
 }

@@ -1,5 +1,5 @@
 # source: http://127.0.0.1:8000/graphql
-# timestamp: Wed Feb 19 2020 18:29:23 GMT+0330 (Iran Standard Time)
+# timestamp: Tue Oct 06 2020 14:23:20 GMT+0330 (Iran Standard Time)
 
 input ChangePasswordMutationInput {
   oldPassword: String!
@@ -60,11 +60,35 @@ type LogoutMutationPayload {
   clientMutationId: String
 }
 
+type ManagerPersonReviewNode implements Node {
+  reviewee: UserNode!
+
+  """The ID of the object."""
+  id: ID!
+  sahabinessRating: Evaluation
+  problemSolvingRating: Evaluation
+  executionRating: Evaluation
+  thoughtLeadershipRating: Evaluation
+  leadershipRating: Evaluation
+  presenceRating: Evaluation
+  overallRating: Evaluation
+}
+
+type ManagerProjectCommentNode implements Node {
+  projectReview: ProjectReviewNode!
+
+  """The ID of the object."""
+  id: ID!
+  rating: Evaluation
+}
+
 type Mutation {
   savePersonReview(input: SavePersonReviewMutationInput!): SavePersonReviewMutationPayload!
   saveProjectReview(input: SaveProjectReviewMutationInput!): SaveProjectReviewMutationPayload!
   deleteProjectReview(input: DeleteProjectReviewMutationInput!): DeleteProjectReviewMutationPayload!
   saveProjectComment(input: SaveProjectCommentMutationInput!): SaveProjectCommentMutationPayload!
+  saveManagerPersonReview(input: SaveManagerPersonReviewMutationInput!): SaveManagerPersonReviewMutationPayload!
+  saveManagerProjectComment(input: SaveManagerProjectCommentMutationInput!): SaveManagerProjectCommentMutationPayload!
   login(input: LoginMutationInput!): LoginMutationPayload!
   logout(input: LogoutMutationInput!): LogoutMutationPayload!
   changePassword(input: ChangePasswordMutationInput!): ChangePasswordMutationPayload!
@@ -97,6 +121,7 @@ type PersonReviewNode implements Node {
   leadershipRating: Evaluation
   presenceRating: Evaluation
   state: State!
+  reviewer: UserNode
   isSelfReview: Boolean!
 }
 
@@ -115,6 +140,7 @@ type ProjectCommentNode implements Node {
 
   """The ID of the object."""
   id: ID!
+  reviewer: UserNode
   rating: Evaluation
 }
 
@@ -135,13 +161,50 @@ type ProjectReviewNode implements Node {
   rating: Evaluation
   reviewers: [UserNode!]!
 
-  """get or create a project comment about this comment from logged in user"""
+  """
+  get or create a project comment about this project review from the logged in user
+  """
   comment: ProjectCommentNode
   comments: [ProjectCommentNode!]!
+
+  """
+  get or create a manager project comment about this project review from the logged in user
+  """
+  managerComment: ManagerProjectCommentNode
 }
 
 type Query {
   viewer: ViewerNode!
+}
+
+input SaveManagerPersonReviewMutationInput {
+  revieweeId: ID!
+  sahabinessRating: Evaluation
+  problemSolvingRating: Evaluation
+  executionRating: Evaluation
+  thoughtLeadershipRating: Evaluation
+  leadershipRating: Evaluation
+  presenceRating: Evaluation
+  overallRating: Evaluation
+  clientMutationId: String
+}
+
+type SaveManagerPersonReviewMutationPayload {
+  viewer: ViewerNode!
+  managerPersonReview: ManagerPersonReviewNode
+  clientMutationId: String
+}
+
+input SaveManagerProjectCommentMutationInput {
+  projectReviewId: ID!
+  rating: Evaluation
+  clientMutationId: String
+}
+
+type SaveManagerProjectCommentMutationPayload {
+  viewer: ViewerNode!
+  managerProjectComment: ManagerProjectCommentNode
+  clientMutationId: String
 }
 
 input SavePersonReviewMutationInput {
@@ -244,6 +307,11 @@ type UserNode implements Node {
 
   """list of project reviews about this user"""
   projectReviews: [ProjectReviewNode!]!
+
+  """
+  get or create a manager person review about this user from logged in user
+  """
+  managerPersonReview: ManagerPersonReviewNode
 }
 
 type ViewerNode implements Node {
@@ -254,6 +322,15 @@ type ViewerNode implements Node {
   """The ID of the object"""
   user(id: ID!): UserNode
   me: UserNode
+
+  """The ID of the object"""
+  managerProjectComment(id: ID!): ManagerProjectCommentNode
+  managerProjectComments: [ManagerProjectCommentNode!]!
+
+  """The ID of the object"""
+  managerPersonReview(id: ID!): ManagerPersonReviewNode
+  managerPersonReviews: [ManagerPersonReviewNode!]!
+  findManagerPersonReview(revieweeId: ID): ManagerPersonReviewNode
 
   """The ID of the object"""
   projectComment(id: ID!): ProjectCommentNode

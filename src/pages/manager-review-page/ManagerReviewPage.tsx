@@ -1,61 +1,111 @@
-import React, { useMemo, useState } from 'react';
-import { Box, Container, Drawer, Theme, Typography, makeStyles } from '@material-ui/core';
-import { CSSProperties } from '@material-ui/core/styles/withStyles';
+import graphql from 'babel-plugin-relay/macro';
+import React, { Suspense } from 'react';
+import { Box, Container, Divider, Paper } from '@material-ui/core';
+import { CriteriaOutput } from 'src/shared/criteria-output';
+import { DominantCharacteristicsOutput } from 'src/shared/dominant-characteristics-output';
 import { FCProps } from 'src/shared/types/FCProps';
-import { MemberListContextProvider } from 'src/shared/members-list';
-import { Overlayscrollbars } from 'src/shared/overlayscrollbars';
-import { Styles } from 'src/shared/types/Styles';
+import { FullPageSpinner } from 'src/shared/loading';
+import { InView } from 'src/shared/in-view';
+import { PersonInfoCardHeader } from 'src/shared/person-info-card-header';
+import { PromptProvider } from 'src/shared/prompt';
+import { Redirect, Route, Switch, useParams } from 'react-router-dom';
+import { TabLink } from 'src/shared/tab';
+import { Tabs } from 'src/shared/tabs';
+import { TopStickyCard } from 'src/shared/top-sticky-card';
 import { i18n } from '@lingui/core';
+import { useLazyLoadQuery } from 'react-relay/hooks';
 
-import { ManagerReviewContent } from './ManagerReviewContent';
-import { ManagerReviewMemberList } from './ManagerReviewMemberList';
-import { ManagerReviewNoUserContent } from './ManagerReviewNoUserContent';
+import { ManagerReviewPageQuery } from './__generated__/ManagerReviewPageQuery.graphql';
+import { ManagerReviewProjects } from './ManagerReviewProjects';
+
+const query = graphql`
+  query ManagerReviewPageQuery($id: ID!) {
+    viewer {
+      user(id: $id) {
+        personReview {
+          ...DominantCharacteristicsOutput_review
+          ...CriteriaOutput_review
+        }
+        projectReviews {
+          ...ManagerReviewProjects_reviews
+        }
+        ...PersonInfoCardHeader_user
+      }
+    }
+  }
+`;
+
+interface Params {
+  uid: string;
+  tab?: string;
+}
 
 interface OwnProps {}
 
-type Props = FCProps<OwnProps> & StyleProps;
+type Props = FCProps<OwnProps>;
 
 export default function ManagerReviewPage(props: Props) {
-  const classes = useStyles(props);
-  const [userId, setUserId] = useState<string | null>(null);
-  const memberListContextValue = useMemo(() => ({ userId, setUserId }), [userId]);
+  const { tab, uid } = useParams<Params>();
+  const toPrefix = '/manager-review/' + uid;
+  const revieweeId = unescape(uid);
+
+  const data = useLazyLoadQuery<ManagerReviewPageQuery>(query, { id: revieweeId });
+
+  if (!data.viewer.user) {
+    // TODO: handle this
+    return <div>No user found</div>;
+  }
+
   return (
-    <MemberListContextProvider value={memberListContextValue}>
-      <Drawer
-        variant="permanent"
-        classes={{
-          paper: classes.drawerPaper,
-        }}
-        anchor="left"
-      >
-        <Overlayscrollbars className={classes.overlayscrollbars}>
-          <Box p={2}>
-            <Typography variant="h6">{i18n._('Your team members')}</Typography>
-          </Box>
-          <ManagerReviewMemberList />
-        </Overlayscrollbars>
-      </Drawer>
-      <div className={classes.content}>
-        <Container maxWidth="md">
-          <Box marginY={5}>{userId ? <ManagerReviewContent userId={userId} /> : <ManagerReviewNoUserContent />}</Box>
-        </Container>
-      </div>
-    </MemberListContextProvider>
+    <PromptProvider message={i18n._('Changes you made may not be saved.')}>
+      <Container maxWidth="md">
+        <InView>
+          <TopStickyCard>
+            <PersonInfoCardHeader user={data.viewer.user} />
+            <Divider />
+            <Tabs value={tab}>
+              <TabLink
+                label={i18n._('Performance Competencies')}
+                value="performance-competencies"
+                to={toPrefix + '/performance-competencies'}
+              />
+              <TabLink
+                label={i18n._('Dominant Characteristics')}
+                value="dominant-characteristics"
+                to={toPrefix + '/dominant-characteristics'}
+              />
+              <TabLink label={i18n._('Achievements')} value="achievements" to={toPrefix + '/achievements'} />
+            </Tabs>
+          </TopStickyCard>
+        </InView>
+        <Box marginY={2}>
+          <Paper>
+            <Suspense
+              fallback={
+                <Box height={200}>
+                  <FullPageSpinner />
+                </Box>
+              }
+            >
+              <Switch>
+                <Route
+                  path={toPrefix + '/performance-competencies'}
+                  children={<CriteriaOutput review={data.viewer.user?.personReview ?? null} />}
+                />
+                <Route
+                  path={toPrefix + '/dominant-characteristics'}
+                  children={<DominantCharacteristicsOutput review={data.viewer.user?.personReview ?? null} />}
+                />
+                <Route
+                  path={toPrefix + '/achievements'}
+                  children={<ManagerReviewProjects reviews={data.viewer.user?.projectReviews ?? null} />}
+                />
+                <Redirect to={toPrefix + '/performance-competencies'} />
+              </Switch>
+            </Suspense>
+          </Paper>
+        </Box>
+      </Container>
+    </PromptProvider>
   );
 }
-
-const styles = (theme: Theme) => ({
-  drawerPaper: {
-    top: 72,
-    width: 192,
-  } as CSSProperties,
-  overlayscrollbars: {
-    height: 'calc(100% - 72px)',
-  } as CSSProperties,
-  content: {
-    paddingLeft: 192,
-  } as CSSProperties,
-});
-
-const useStyles = makeStyles(styles, { name: 'ManagerReviewPage' });
-type StyleProps = Styles<typeof styles>;
