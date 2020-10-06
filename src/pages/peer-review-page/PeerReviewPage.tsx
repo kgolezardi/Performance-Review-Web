@@ -2,7 +2,7 @@ import CriteriaPage from 'src/pages/criteria-page/CriteriaPage';
 import StrengthsWeaknessesPage from 'src/pages/strengths-weaknesses-page/StrengthsWeaknessesPage';
 import graphql from 'babel-plugin-relay/macro';
 import React, { Suspense } from 'react';
-import { Box, Container, Paper } from '@material-ui/core';
+import { Box, Container, Divider, Paper } from '@material-ui/core';
 import { FCProps } from 'src/shared/types/FCProps';
 import { FullPageSpinner } from 'src/shared/loading';
 import { InView } from 'src/shared/in-view';
@@ -10,6 +10,7 @@ import { PromptProvider } from 'src/shared/prompt';
 import { Redirect, Route, Switch, useParams } from 'react-router-dom';
 import { TabLink } from 'src/shared/tab';
 import { Tabs } from 'src/shared/tabs';
+import { TopStickyCard } from 'src/shared/top-sticky-card';
 import { i18n } from '@lingui/core';
 import { unescape } from 'src/shared/utils/base64.util';
 import { useLazyLoadQuery } from 'react-relay/hooks';
@@ -53,7 +54,10 @@ export default function PeerReviewPage(props: Props) {
     <PromptProvider message={i18n._('Changes you made may not be saved.')}>
       <Container maxWidth="md">
         <InView>
-          <PeerReviewPersonInfoCard user={data.viewer.user}>
+          <TopStickyCard>
+            <PeerReviewPersonInfoCard user={data.viewer.user} />
+            <Divider />
+
             <Tabs value={tab ?? 'performance-competencies'}>
               <TabLink
                 label={i18n._('Performance Competencies')}
@@ -67,7 +71,7 @@ export default function PeerReviewPage(props: Props) {
               />
               <TabLink label={i18n._('Achievements')} value="achievements" to={toPrefix + '/achievements'} />
             </Tabs>
-          </PeerReviewPersonInfoCard>
+          </TopStickyCard>
         </InView>
         <Box marginY={2}>
           <Paper>

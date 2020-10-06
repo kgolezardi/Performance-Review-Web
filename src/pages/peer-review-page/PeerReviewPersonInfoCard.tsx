@@ -1,13 +1,10 @@
 import graphql from 'babel-plugin-relay/macro';
 import React, { useCallback } from 'react';
-import { Button, Divider, Theme, makeStyles } from '@material-ui/core';
-import { CSSProperties } from '@material-ui/core/styles/withStyles';
+import { Button } from '@material-ui/core';
 import { FCProps } from 'src/shared/types/FCProps';
 import { LanguageCodes } from 'src/core/locales/types';
 import { LocationState } from 'src/pages/peer-review-board-page/PeerReviewBoardPage';
 import { PersonInfoCardHeader } from 'src/shared/person-info-card-header';
-import { Styles } from 'src/shared/types/Styles';
-import { TopStickyCard } from 'src/shared/top-sticky-card';
 import { getUserLabel } from 'src/shared/utils/getUserLabel';
 import { i18n } from '@lingui/core';
 import { localizeNumber } from 'src/shared/utils/localizeNumber.util';
@@ -40,12 +37,9 @@ interface OwnProps {
   user: PeerReviewPersonInfoCard_user$key;
 }
 
-type Props = FCProps<OwnProps> & StyleProps;
+type Props = FCProps<OwnProps>;
 
 export function PeerReviewPersonInfoCard(props: Props) {
-  const { children } = props;
-  const classes = useStyles(props);
-
   const user = useFragment<PeerReviewPersonInfoCard_user$key>(fragment, props.user);
   const savePersonReviewMutation = useSavePersonReviewMutation();
   const { enqueueSnackbar } = useBiDiSnackbar();
@@ -84,33 +78,22 @@ export function PeerReviewPersonInfoCard(props: Props) {
   const disabled = changed || allProjectCommentFilled;
 
   return (
-    <TopStickyCard classes={{ root: classes.root }}>
-      <PersonInfoCardHeader
-        action={
-          state === 'DONE' ? (
-            <Button onClick={handleEditClick} variant="outlined" color="default">
-              {i18n._('Edit')}
-            </Button>
-          ) : (
-            <Button onClick={handleEndEvaluationClick} variant="contained" color="secondary" disabled={disabled}>
-              {i18n._("End {name}'s evaluation", { name })}
-            </Button>
-          )
-        }
-        subheader={i18n._('He/She asked your review on {numberOfProjects} project(s)', {
-          numberOfProjects,
-        })}
-        user={user}
-      />
-      <Divider />
-      {children}
-    </TopStickyCard>
+    <PersonInfoCardHeader
+      action={
+        state === 'DONE' ? (
+          <Button onClick={handleEditClick} variant="outlined" color="default">
+            {i18n._('Edit')}
+          </Button>
+        ) : (
+          <Button onClick={handleEndEvaluationClick} variant="contained" color="secondary" disabled={disabled}>
+            {i18n._("End {name}'s evaluation", { name })}
+          </Button>
+        )
+      }
+      subheader={i18n._('He/She asked your review on {numberOfProjects} project(s)', {
+        numberOfProjects,
+      })}
+      user={user}
+    />
   );
 }
-
-const styles = (theme: Theme) => ({
-  root: {} as CSSProperties,
-});
-
-const useStyles = makeStyles(styles, { name: 'PeerReviewPersonInfoCard' });
-type StyleProps = Styles<typeof styles>;
