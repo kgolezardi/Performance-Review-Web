@@ -15,9 +15,6 @@ const fragment = graphql`
     id
     ...getUserLabel_user
     ...CardHeaderUserAvatar_user
-    projectReviews {
-      id
-    }
   }
 `;
 
