@@ -44,6 +44,7 @@ msgstr "Adding Projects"
 msgid "All reviews were successfully done"
 msgstr "All reviews were successfully done"
 
+#: src/pages/manager-review-page/performance-competencies/ManagerReviewPerformanceCompetencies.tsx:76
 #: src/pages/peer-review-page/PeerReviewPersonInfoCard.tsx:49
 #: src/pages/peer-review-page/PeerReviewPersonInfoCard.tsx:54
 msgid "An error occurred. Try again!"
@@ -150,7 +151,7 @@ msgid "Exceeds Expectations from me"
 msgstr "Exceeds Expectations from me"
 
 #: src/pages/criteria-page/CriteriaForm.tsx:61
-#: src/pages/manager-review-page/performance-competencies/ManagerReviewPerformanceCompetencies.tsx:63
+#: src/pages/manager-review-page/performance-competencies/ManagerReviewPerformanceCompetencies.tsx:94
 #: src/shared/criteria-output/CriteriaOutput.tsx:34
 #: src/shared/criteria-result/CriteriaResult.tsx:18
 msgid "Execution"
@@ -214,7 +215,7 @@ msgid "It's complete!"
 msgstr "It's complete!"
 
 #: src/pages/criteria-page/CriteriaForm.tsx:67
-#: src/pages/manager-review-page/performance-competencies/ManagerReviewPerformanceCompetencies.tsx:65
+#: src/pages/manager-review-page/performance-competencies/ManagerReviewPerformanceCompetencies.tsx:96
 #: src/shared/criteria-output/CriteriaOutput.tsx:40
 #: src/shared/criteria-result/CriteriaResult.tsx:20
 msgid "Leadership"
@@ -259,7 +260,7 @@ msgid "Observation"
 msgstr "Observation"
 
 #: src/pages/criteria-page/CriteriaForm.tsx:55
-#: src/pages/manager-review-page/performance-competencies/ManagerReviewPerformanceCompetencies.tsx:61
+#: src/pages/manager-review-page/performance-competencies/ManagerReviewPerformanceCompetencies.tsx:92
 #: src/shared/criteria-output/CriteriaOutput.tsx:28
 #: src/shared/criteria-result/CriteriaResult.tsx:16
 msgid "Organization Culture Adoption"
@@ -304,14 +305,14 @@ msgid "Persian"
 msgstr "فارسی"
 
 #: src/pages/criteria-page/CriteriaForm.tsx:70
-#: src/pages/manager-review-page/performance-competencies/ManagerReviewPerformanceCompetencies.tsx:66
+#: src/pages/manager-review-page/performance-competencies/ManagerReviewPerformanceCompetencies.tsx:97
 #: src/shared/criteria-output/CriteriaOutput.tsx:43
 #: src/shared/criteria-result/CriteriaResult.tsx:21
 msgid "Presence"
 msgstr "Presence"
 
 #: src/pages/criteria-page/CriteriaForm.tsx:58
-#: src/pages/manager-review-page/performance-competencies/ManagerReviewPerformanceCompetencies.tsx:62
+#: src/pages/manager-review-page/performance-competencies/ManagerReviewPerformanceCompetencies.tsx:93
 #: src/shared/criteria-output/CriteriaOutput.tsx:31
 #: src/shared/criteria-result/CriteriaResult.tsx:17
 msgid "Problem Solving"
@@ -339,6 +340,7 @@ msgid "Role Expertise and Self Development"
 msgstr "Role Expertise and Self Development"
 
 #: src/pages/criteria-page/CriteriaForm.tsx:75
+#: src/pages/manager-review-page/performance-competencies/ManagerReviewPerformanceCompetencies.tsx:109
 #: src/pages/peer-review-page/projectsTab/projects-form/PeerReviewProjectsForm.tsx:47
 #: src/pages/projects-page/ProjectForm.tsx:83
 #: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:61
@@ -409,6 +411,7 @@ msgstr "Submit"
 
 #: src/core/snackbar/Snackbar.stories.tsx:13
 #: src/pages/criteria-page/CriteriaPage.tsx:48
+#: src/pages/manager-review-page/performance-competencies/ManagerReviewPerformanceCompetencies.tsx:73
 #: src/pages/peer-review-page/projectsTab/project-expansion-panel/PeerReviewProjectExpansionPanel.tsx:37
 #: src/pages/projects-page/ProjectsPage.tsx:45
 #: src/pages/strengths-weaknesses-page/StrengthsWeaknessesPage.tsx:59
@@ -445,7 +448,7 @@ msgid "The most important characteristics or effective behaviors that he/she sho
 msgstr "The most important characteristics or effective behaviors that he/she should maintain"
 
 #: src/pages/criteria-page/CriteriaForm.tsx:64
-#: src/pages/manager-review-page/performance-competencies/ManagerReviewPerformanceCompetencies.tsx:64
+#: src/pages/manager-review-page/performance-competencies/ManagerReviewPerformanceCompetencies.tsx:95
 #: src/shared/criteria-output/CriteriaOutput.tsx:37
 #: src/shared/criteria-result/CriteriaResult.tsx:19
 msgid "Thought Leadership"
@@ -503,6 +506,10 @@ msgstr "Yes"
 #: src/shared/confirm-provider/ConfirmationDialog.tsx:25
 msgid "Yes! Go"
 msgstr "Yes! Go"
+
+#: src/pages/manager-review-page/performance-competencies/ManagerReviewPerformanceCompetencies.tsx:102
+msgid "You have evaluated {number} from {total} performance competencies criteria."
+msgstr "You have evaluated {number} from {total} performance competencies criteria."
 
 #: src/pages/dashboard-page/AchievementsNoProjects.tsx:6
 msgid "You haven't added any project."
