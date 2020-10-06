@@ -1,14 +1,15 @@
 import React from 'react';
 import { CSSProperties } from '@material-ui/core/styles/withStyles';
-import { Evaluation, peerReviewEvaluationDictionary, selfReviewEvaluationDictionary } from 'src/global-types';
+import { Evaluation } from 'src/__generated__/enums';
 import { FCProps } from 'src/shared/types/FCProps';
 import { Styles } from 'src/shared/types/Styles';
 import { Theme, Typography, TypographyProps, makeStyles } from '@material-ui/core';
 import { getEnumLabel } from 'src/shared/enum-utils';
 import { i18n } from '@lingui/core';
+import { peerReviewEvaluationDictionary, selfReviewEvaluationDictionary } from 'src/global-types';
 
 interface OwnProps {
-  value: Evaluation | '%future added value' | null;
+  value: Evaluation | null;
   type: 'self' | 'peer';
   defaultValue?: string;
 }

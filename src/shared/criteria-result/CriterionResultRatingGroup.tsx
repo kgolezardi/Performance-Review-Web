@@ -11,9 +11,7 @@ import {
   selfReviewEvaluationDictionary,
 } from 'src/global-types';
 import { ReviewItemOutput } from 'src/shared/review-item-output';
-import { getUserLabel } from 'src/shared/utils/getUserLabel';
 import { i18n } from '@lingui/core';
-import { useAppSettings } from 'src/core/settings';
 import { useFragment } from 'react-relay/hooks';
 
 import { CriterionResultRatingGroup_reviews$key } from './__generated__/CriterionResultRatingGroup_reviews.graphql';
@@ -34,10 +32,6 @@ const fragment = graphql`
     leadershipComment
     presenceRating
     presenceComment
-    reviewee {
-      avatarUrl
-      ...getUserLabel_user
-    }
   }
 `;
 
@@ -51,8 +45,6 @@ export type Props = FCProps<OwnProps>;
 
 export const CriterionResultRatingGroup = React.memo(function CriterionResultRatingGroup(props: Props) {
   const { rating, prefix } = props;
-
-  const { phase } = useAppSettings();
 
   const reviews = useFragment(fragment, props.reviews);
 
@@ -76,8 +68,6 @@ export const CriterionResultRatingGroup = React.memo(function CriterionResultRat
   const evaluationsCount = filteredByRating.length;
   const commentsCount = sortedReviews.length;
 
-  const anonymous = phase === 'MANAGER_REVIEW' ? false : true;
-
   return (
     <Box marginTop={3}>
       <Box display="flex" alignItems="baseline">
@@ -90,22 +80,12 @@ export const CriterionResultRatingGroup = React.memo(function CriterionResultRat
       </Box>
       {selfReview && (
         <Box marginTop={2}>
-          <ReviewItemOutput
-            anonymous={anonymous}
-            name={getUserLabel(selfReview.reviewee)}
-            type="self"
-            value={selfReview[criteriaComment]}
-          />
+          <ReviewItemOutput anonymous type="self" value={selfReview[criteriaComment]} />
         </Box>
       )}
       {peerReviews.map((review) => (
         <Box marginTop={2} key={review.id}>
-          <ReviewItemOutput
-            anonymous={anonymous}
-            name={getUserLabel(review.reviewee)}
-            type="peer"
-            value={review[criteriaComment]}
-          />
+          <ReviewItemOutput anonymous type="peer" value={review[criteriaComment]} />
         </Box>
       ))}
     </Box>
