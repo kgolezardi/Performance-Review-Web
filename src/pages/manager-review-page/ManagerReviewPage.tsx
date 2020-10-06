@@ -1,7 +1,6 @@
 import graphql from 'babel-plugin-relay/macro';
 import React, { Suspense } from 'react';
 import { Box, Container, Divider, Paper } from '@material-ui/core';
-import { CriteriaOutput } from 'src/shared/criteria-output';
 import { DominantCharacteristicsOutput } from 'src/shared/dominant-characteristics-output';
 import { FCProps } from 'src/shared/types/FCProps';
 import { FullPageSpinner } from 'src/shared/loading';
@@ -16,6 +15,7 @@ import { i18n } from '@lingui/core';
 import { useLazyLoadQuery } from 'react-relay/hooks';
 
 import { ManagerReviewPageQuery } from './__generated__/ManagerReviewPageQuery.graphql';
+import { ManagerReviewPerformanceCompetencies } from './performance-competencies';
 import { ManagerReviewProjects } from './ManagerReviewProjects';
 
 const query = graphql`
@@ -90,7 +90,7 @@ export default function ManagerReviewPage(props: Props) {
               <Switch>
                 <Route
                   path={toPrefix + '/performance-competencies'}
-                  children={<CriteriaOutput review={data.viewer.user?.personReview ?? null} />}
+                  children={<ManagerReviewPerformanceCompetencies revieweeId={revieweeId} />}
                 />
                 <Route
                   path={toPrefix + '/dominant-characteristics'}
