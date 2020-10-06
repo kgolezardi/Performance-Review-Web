@@ -20,8 +20,8 @@ msgid "Accomplishments"
 msgstr "دستاوردها"
 
 #: src/pages/dashboard-page/DashboardPage.tsx:51
-#: src/pages/manager-review-page/ManagerReviewContent.tsx:46
-#: src/pages/peer-review-page/PeerReviewPage.tsx:43
+#: src/pages/manager-review-page/ManagerReviewPage.tsx:52
+#: src/pages/peer-review-page/PeerReviewPage.tsx:46
 #: src/pages/result-page/ResultPage.tsx:24
 #: src/pages/self-review-page/SelfReviewPage.tsx:24
 msgid "Achievements"
@@ -32,7 +32,7 @@ msgstr "دستاوردها"
 msgid "Add"
 msgstr "افزودن"
 
-#: src/pages/peer-review-board-page/PeerReviewBoardPage.tsx:84
+#: src/pages/peer-review-board-page/PeerReviewBoardPage.tsx:83
 msgid "Add here after completing any evaluation"
 msgstr "هر ارزیابی که تکمیل شد رو به اینجا اضافه کن"
 
@@ -44,8 +44,8 @@ msgstr "افزودن پروژه"
 msgid "All reviews were successfully done"
 msgstr "تمامی ارزیابی‌ها با موفقیت انجام شد"
 
-#: src/pages/peer-review-page/PersonInfoCard.tsx:54
-#: src/pages/peer-review-page/PersonInfoCard.tsx:59
+#: src/pages/peer-review-page/PeerReviewPersonInfoCard.tsx:49
+#: src/pages/peer-review-page/PeerReviewPersonInfoCard.tsx:54
 msgid "An error occurred. Try again!"
 msgstr "خطایی رخ داده. دوباره تلاش کنید."
 
@@ -61,6 +61,7 @@ msgstr "شروع ارزیابی من"
 msgid "Cancel"
 msgstr "لغو"
 
+#: src/pages/manager-review-page/ManagerReviewPage.tsx:43
 #: src/pages/peer-review-page/PeerReviewPage.tsx:36
 #: src/pages/self-review-page/SelfReviewPage.tsx:31
 #: src/stories/decorators/promptDecorator.tsx:5
@@ -90,23 +91,23 @@ msgid "Delete"
 msgstr "حذف"
 
 #: src/pages/dashboard-page/DashboardPage.tsx:43
-#: src/pages/manager-review-page/ManagerReviewContent.tsx:45
-#: src/pages/peer-review-page/PeerReviewPage.tsx:42
+#: src/pages/manager-review-page/ManagerReviewPage.tsx:51
+#: src/pages/peer-review-page/PeerReviewPage.tsx:45
 #: src/pages/result-page/ResultPage.tsx:23
 #: src/pages/self-review-page/SelfReviewPage.tsx:23
 msgid "Dominant Characteristics"
 msgstr "ویژگی‌های بارز"
 
 #: src/assets/icons/Done.tsx:5
-#: src/pages/peer-review-board-page/PeerReviewBoardPage.tsx:83
+#: src/pages/peer-review-board-page/PeerReviewBoardPage.tsx:82
 msgid "Done"
 msgstr "انجام شده"
 
-#: src/pages/peer-review-page/PersonInfoCard.tsx:70
+#: src/pages/peer-review-page/PeerReviewPersonInfoCard.tsx:62
 msgid "Edit"
 msgstr "ویرایش"
 
-#: src/pages/peer-review-page/PersonInfoCard.tsx:72
+#: src/pages/peer-review-page/PeerReviewPersonInfoCard.tsx:64
 msgid "End {name}'s evaluation"
 msgstr "اتمام ارزیابی {name}"
 
@@ -118,6 +119,7 @@ msgstr "English"
 msgid "Error"
 msgstr "خطا"
 
+#: src/pages/manager-review-page/performance-competencies/ManagerReviewPerformanceCompetenciesExpansionPanel.tsx:40
 #: src/pages/peer-review-page/projectsTab/projects-form/PeerReviewProjectsForm.tsx:33
 #: src/shared/criterion-item/CriterionItem.tsx:22
 #: src/shared/criterion-output-item/CriterionOutputItem.tsx:13
@@ -144,8 +146,9 @@ msgid "Exceeds Expectations from me"
 msgstr "فراتر از انتظاری که از من میره"
 
 #: src/pages/criteria-page/CriteriaForm.tsx:61
-#: src/pages/result-page/criteria-result-page/CriteriaResult.tsx:18
+#: src/pages/manager-review-page/performance-competencies/ManagerReviewPerformanceCompetencies.tsx:50
 #: src/shared/criteria-output/CriteriaOutput.tsx:34
+#: src/shared/criteria-result/CriteriaResult.tsx:18
 msgid "Execution"
 msgstr "اجرا"
 
@@ -162,7 +165,7 @@ msgstr "مثلاً ممکنه Key Result های شخصیتون، دستاورد�
 msgid "Go to Achievements page and add projects you have participated in"
 msgstr "به صفحه‌ی دستاوردها برو و پروژه‌هایی که در آن‌ها شرکت داشتی را وارد کن"
 
-#: src/pages/peer-review-board-page/PeerReviewBoardPage.tsx:78
+#: src/pages/peer-review-board-page/PeerReviewBoardPage.tsx:77
 msgid "Good job!"
 msgstr "باریکلا! چه خوب که همه رو داری انجام میدی یا شایدم تمومشون کردی"
 
@@ -170,7 +173,7 @@ msgstr "باریکلا! چه خوب که همه رو داری انجام مید�
 msgid "He/She Needs Improvement"
 msgstr "کمتر از حد انتظاری که ازش میره"
 
-#: src/pages/peer-review-page/PersonInfoCard.tsx:67
+#: src/pages/peer-review-page/PeerReviewPersonInfoCard.tsx:65
 #: src/shared/user-card/UserCard.tsx:39
 msgid "He/She asked your review on {numberOfProjects} project(s)"
 msgstr "در {numberOfProjects} پروژه از شما نظر خواسته است"
@@ -188,7 +191,7 @@ msgid "I thought you forgot to write your strengths!"
 msgstr "کاش یه نقطه‌ی قوت هم بنویسی!"
 
 #: src/assets/icons/InProgress.tsx:5
-#: src/pages/peer-review-board-page/PeerReviewBoardPage.tsx:80
+#: src/pages/peer-review-board-page/PeerReviewBoardPage.tsx:79
 msgid "In Progress"
 msgstr "در حال انجام"
 
@@ -207,8 +210,9 @@ msgid "It's complete!"
 msgstr "تکمیل شد!"
 
 #: src/pages/criteria-page/CriteriaForm.tsx:67
-#: src/pages/result-page/criteria-result-page/CriteriaResult.tsx:20
+#: src/pages/manager-review-page/performance-competencies/ManagerReviewPerformanceCompetencies.tsx:52
 #: src/shared/criteria-output/CriteriaOutput.tsx:40
+#: src/shared/criteria-result/CriteriaResult.tsx:20
 msgid "Leadership"
 msgstr "رهبری خودظهور"
 
@@ -251,8 +255,9 @@ msgid "Observation"
 msgstr "مشاهده"
 
 #: src/pages/criteria-page/CriteriaForm.tsx:55
-#: src/pages/result-page/criteria-result-page/CriteriaResult.tsx:16
+#: src/pages/manager-review-page/performance-competencies/ManagerReviewPerformanceCompetencies.tsx:48
 #: src/shared/criteria-output/CriteriaOutput.tsx:28
+#: src/shared/criteria-result/CriteriaResult.tsx:16
 msgid "Organization Culture Adoption"
 msgstr "انطباق با فرهنگ سازمانی"
 
@@ -273,8 +278,8 @@ msgid "People who will comment on your accomplishments and write your performanc
 msgstr "کسانی هستن که روی دستاوردهاتون کامنت میدن و شایستگی‌های عملکردی  و ویژگی‌های بارز شما رو از نگاه خودشون می‌‌نویسن. (حداکثر ۶ نفر)"
 
 #: src/pages/dashboard-page/DashboardPage.tsx:35
-#: src/pages/manager-review-page/ManagerReviewContent.tsx:44
-#: src/pages/peer-review-page/PeerReviewPage.tsx:41
+#: src/pages/manager-review-page/ManagerReviewPage.tsx:50
+#: src/pages/peer-review-page/PeerReviewPage.tsx:44
 #: src/pages/result-page/ResultPage.tsx:22
 #: src/pages/self-review-page/SelfReviewPage.tsx:22
 msgid "Performance Competencies"
@@ -295,14 +300,16 @@ msgid "Persian"
 msgstr "فارسی"
 
 #: src/pages/criteria-page/CriteriaForm.tsx:70
-#: src/pages/result-page/criteria-result-page/CriteriaResult.tsx:21
+#: src/pages/manager-review-page/performance-competencies/ManagerReviewPerformanceCompetencies.tsx:53
 #: src/shared/criteria-output/CriteriaOutput.tsx:43
+#: src/shared/criteria-result/CriteriaResult.tsx:21
 msgid "Presence"
 msgstr "اثر حضور"
 
 #: src/pages/criteria-page/CriteriaForm.tsx:58
-#: src/pages/result-page/criteria-result-page/CriteriaResult.tsx:17
+#: src/pages/manager-review-page/performance-competencies/ManagerReviewPerformanceCompetencies.tsx:49
 #: src/shared/criteria-output/CriteriaOutput.tsx:31
+#: src/shared/criteria-result/CriteriaResult.tsx:17
 msgid "Problem Solving"
 msgstr "حل مسئله"
 
@@ -314,7 +321,7 @@ msgstr "برنامه‌نویسان در حال تایپند...‌"
 msgid "Projects"
 msgstr "پروژه‌ها"
 
-#: src/shared/review-item-output/ReviewItemOutput.tsx:22
+#: src/shared/review-item-output/IdentifiedReviewItemOutput.tsx:15
 msgid "Reviewee"
 msgstr "ارزیابی‌شونده"
 
@@ -354,10 +361,6 @@ msgstr "مشاهده نتایج ارزیابی"
 #: src/shared/select/Select.stories.tsx:28
 msgid "Select"
 msgstr "انتخاب کنید"
-
-#: src/pages/manager-review-page/ManagerReviewNoUserContent.tsx:7
-msgid "Select a team member please"
-msgstr "لطفا یکی از اعضای تیمت را انتخاب کن"
 
 #: src/pages/projects-page/AddProjectForm.tsx:34
 msgid "Select project"
@@ -438,13 +441,14 @@ msgid "The most important characteristics or effective behaviors that he/she sho
 msgstr "مهمترین ویژگی‌ها یا رفتارهای مؤثری که باید ادامه‌شون بده"
 
 #: src/pages/criteria-page/CriteriaForm.tsx:64
-#: src/pages/result-page/criteria-result-page/CriteriaResult.tsx:19
+#: src/pages/manager-review-page/performance-competencies/ManagerReviewPerformanceCompetencies.tsx:51
 #: src/shared/criteria-output/CriteriaOutput.tsx:37
+#: src/shared/criteria-result/CriteriaResult.tsx:19
 msgid "Thought Leadership"
 msgstr "مرجعیت تخصصی"
 
 #: src/assets/icons/Todo.tsx:5
-#: src/pages/peer-review-board-page/PeerReviewBoardPage.tsx:77
+#: src/pages/peer-review-board-page/PeerReviewBoardPage.tsx:76
 msgid "Todo"
 msgstr "انجام نشده"
 
@@ -452,8 +456,9 @@ msgstr "انجام نشده"
 msgid "Try Again"
 msgstr "تلاش مجدد"
 
-#: src/pages/result-page/criteria-result-page/CriterionResultRatingGroup.tsx:40
+#: src/pages/manager-review-page/performance-competencies/ManagerReviewPerformanceCompetenciesRatingGroup.tsx:48
 #: src/pages/result-page/project-result-page/ProjectResultRatingGroup.tsx:25
+#: src/shared/criteria-result/CriterionResultRatingGroup.tsx:40
 #: src/shared/evaluation-output/EvaluationOutput.tsx:23
 #: src/shared/evaluation-output/EvaluationOutput.tsx:24
 msgid "Unknown"
@@ -504,7 +509,7 @@ msgstr "هنوز هیچ پروژه‌ای را اضافه نکردی!"
 msgid "You haven't entered anything yet!"
 msgstr "هنوز چیزی ننوشتی!"
 
-#: src/pages/peer-review-board-page/PeerReviewBoardPage.tsx:81
+#: src/pages/peer-review-board-page/PeerReviewBoardPage.tsx:80
 msgid "You haven't started evaluating yet!"
 msgstr "هنوز شروع به ارزیابی نکردی!"
 
@@ -513,10 +518,6 @@ msgstr "هنوز شروع به ارزیابی نکردی!"
 #: src/pages/dashboard-page/PerformanceCompetenciesCircularIndicator.tsx:78
 msgid "You're almost there!"
 msgstr "یه کم مونده!"
-
-#: src/pages/result-page/ResultCommentOutput.tsx:19
-msgid "Your comment"
-msgstr "نظر شما"
 
 #: src/pages/peer-review-page/projectsTab/PeerReviewProjectsResult.tsx:50
 #: src/pages/peer-review-page/projectsTab/project-expansion-panel/PeerReviewProjectExpansionPanel.tsx:64
@@ -527,12 +528,13 @@ msgstr "نظر شما در مورد عملکرد {name} در این پروژه"
 msgid "Your comments about your performance compared to initial expectation"
 msgstr "نظر شما در مورد سطح عملکردتان در این پروژه"
 
-#: src/pages/manager-review-page/ManagerReviewPage.tsx:19
-msgid "Your team members"
-msgstr "اعضای تیم شما"
+#: src/pages/manager-review-page/performance-competencies/ManagerReviewPerformanceCompetenciesExpansionPanel.tsx:38
+msgid "Your evaluation of {name} on {criteria}"
+msgstr "ارزیابی شما از {name} در {criteria}"
 
-#: src/pages/result-page/criteria-result-page/CriterionResultRatingGroup.tsx:48
+#: src/pages/manager-review-page/performance-competencies/ManagerReviewPerformanceCompetenciesRatingGroup.tsx:65
 #: src/pages/result-page/project-result-page/ProjectResultRatingGroup.tsx:33
+#: src/shared/criteria-result/CriterionResultRatingGroup.tsx:48
 msgid "{evaluationsCount} evaluations / {commentsCount} comments"
 msgstr "{evaluationsCount} ارزیابی / {commentsCount} نظر"
 
@@ -541,6 +543,6 @@ msgstr "{evaluationsCount} ارزیابی / {commentsCount} نظر"
 msgid "{name}'s comment about his/her performance compared to initial expectation"
 msgstr "نظر {name} در مورد سطح عملکردش نسبت به انتظاری که ازش میره"
 
-#: src/pages/peer-review-page/PersonInfoCard.tsx:45
+#: src/pages/peer-review-page/PeerReviewPersonInfoCard.tsx:40
 msgid "{name}'s evaluation completed successfully."
 msgstr "ارزیابی {name} با موفقیت تمام شد."

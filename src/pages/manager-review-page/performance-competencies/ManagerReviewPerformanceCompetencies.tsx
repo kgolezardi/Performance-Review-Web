@@ -2,10 +2,12 @@ import graphql from 'babel-plugin-relay/macro';
 import React, { useContext } from 'react';
 import { Box } from '@material-ui/core';
 import { CriteriaHelpText } from 'src/shared/criteria-help-text';
+import { DictInput, Forminator } from 'src/shared/forminator';
 import { FCProps } from 'src/shared/types/FCProps';
 import { MDXContext } from '@mdx-js/react';
 import { MDXPropsProvider } from 'src/shared/mdx-provider/MDXPropsProvider';
 import { SectionGuide } from 'src/shared/section-guide';
+import { ServerValueProvider } from 'src/shared/server-value';
 import { UserType } from 'src/shared/utils/getUserLabel';
 import { i18n } from '@lingui/core';
 import { importMDX } from 'mdx.macro';
@@ -13,6 +15,7 @@ import { useLazyLoadQuery } from 'react-relay/hooks';
 
 import { ManagerReviewPerformanceCompetenciesExpansionPanel } from './ManagerReviewPerformanceCompetenciesExpansionPanel';
 import { ManagerReviewPerformanceCompetenciesQuery } from './__generated__/ManagerReviewPerformanceCompetenciesQuery.graphql';
+import { ManagerReviewPerformanceCompetenciesValue } from './ManagerReviewPerformanceCompetenciesValue';
 
 const ManagerReviewPerformanceCompetenciesDescription = importMDX.sync(
   './ManagerReviewPerformanceCompetenciesDescription.mdx',
@@ -29,6 +32,14 @@ const query = graphql`
     viewer {
       user(id: $id) {
         ...getUserLabel_user
+        managerPersonReview {
+          sahabinessRating
+          problemSolvingRating
+          executionRating
+          thoughtLeadershipRating
+          leadershipRating
+          presenceRating
+        }
         personReviews {
           ...ManagerReviewPerformanceCompetenciesExpansionPanel_reviews
         }
@@ -43,6 +54,17 @@ export function ManagerReviewPerformanceCompetencies(props: Props) {
   const data = useLazyLoadQuery<ManagerReviewPerformanceCompetenciesQuery>(query, { id: revieweeId });
   const components = useContext(MDXContext);
 
+  const value: ManagerReviewPerformanceCompetenciesValue = {};
+  for (const key in data.viewer.user?.managerPersonReview) {
+    Object.assign(value, {
+      [key]:
+        data.viewer.user?.managerPersonReview?.[key as keyof ManagerReviewPerformanceCompetenciesValue] ?? undefined,
+    });
+  }
+
+  // TODO: Submit mutation
+  const handleSubmit = () => {};
+
   const reviews = data.viewer.user?.personReviews;
   if (!reviews) {
     return <Box padding={4}>no data</Box>;
@@ -54,42 +76,54 @@ export function ManagerReviewPerformanceCompetencies(props: Props) {
           <ManagerReviewPerformanceCompetenciesDescription components={components} />
         </MDXPropsProvider>
       </SectionGuide>
-      <ManagerReviewPerformanceCompetenciesExpansionPanel
-        reviews={reviews}
-        details={<CriteriaHelpText criteria="sahabiness" isSelfReview={false} />}
-        title={i18n._('Organization Culture Adoption')}
-        prefix="sahabiness"
-      />
-      <ManagerReviewPerformanceCompetenciesExpansionPanel
-        reviews={reviews}
-        details={<CriteriaHelpText criteria="problemSolving" isSelfReview={false} />}
-        title={i18n._('Problem Solving')}
-        prefix="problemSolving"
-      />
-      <ManagerReviewPerformanceCompetenciesExpansionPanel
-        reviews={reviews}
-        details={<CriteriaHelpText criteria="execution" isSelfReview={false} />}
-        title={i18n._('Execution')}
-        prefix="execution"
-      />
-      <ManagerReviewPerformanceCompetenciesExpansionPanel
-        reviews={reviews}
-        details={<CriteriaHelpText criteria="thoughtLeadership" isSelfReview={false} />}
-        title={i18n._('Thought Leadership')}
-        prefix="thoughtLeadership"
-      />
-      <ManagerReviewPerformanceCompetenciesExpansionPanel
-        reviews={reviews}
-        details={<CriteriaHelpText criteria="leadership" isSelfReview={false} />}
-        title={i18n._('Leadership')}
-        prefix="leadership"
-      />
-      <ManagerReviewPerformanceCompetenciesExpansionPanel
-        reviews={reviews}
-        details={<CriteriaHelpText criteria="presence" isSelfReview={false} />}
-        title={i18n._('Presence')}
-        prefix="presence"
-      />
+      <ServerValueProvider value={value}>
+        <Forminator onSubmit={handleSubmit} initialValue={value}>
+          <DictInput>
+            <ManagerReviewPerformanceCompetenciesExpansionPanel
+              reviews={reviews}
+              details={<CriteriaHelpText criteria="sahabiness" isSelfReview={false} />}
+              title={i18n._('Organization Culture Adoption')}
+              prefix="sahabiness"
+              reviewee={data.viewer.user}
+            />
+            <ManagerReviewPerformanceCompetenciesExpansionPanel
+              reviews={reviews}
+              details={<CriteriaHelpText criteria="problemSolving" isSelfReview={false} />}
+              title={i18n._('Problem Solving')}
+              prefix="problemSolving"
+              reviewee={data.viewer.user}
+            />
+            <ManagerReviewPerformanceCompetenciesExpansionPanel
+              reviews={reviews}
+              details={<CriteriaHelpText criteria="execution" isSelfReview={false} />}
+              title={i18n._('Execution')}
+              prefix="execution"
+              reviewee={data.viewer.user}
+            />
+            <ManagerReviewPerformanceCompetenciesExpansionPanel
+              reviews={reviews}
+              details={<CriteriaHelpText criteria="thoughtLeadership" isSelfReview={false} />}
+              title={i18n._('Thought Leadership')}
+              prefix="thoughtLeadership"
+              reviewee={data.viewer.user}
+            />
+            <ManagerReviewPerformanceCompetenciesExpansionPanel
+              reviews={reviews}
+              details={<CriteriaHelpText criteria="leadership" isSelfReview={false} />}
+              title={i18n._('Leadership')}
+              prefix="leadership"
+              reviewee={data.viewer.user}
+            />
+            <ManagerReviewPerformanceCompetenciesExpansionPanel
+              reviews={reviews}
+              details={<CriteriaHelpText criteria="presence" isSelfReview={false} />}
+              title={i18n._('Presence')}
+              prefix="presence"
+              reviewee={data.viewer.user}
+            />
+          </DictInput>
+        </Forminator>
+      </ServerValueProvider>
     </Box>
   );
 }
