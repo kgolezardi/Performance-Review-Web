@@ -4,10 +4,15 @@ import { Box, Typography } from '@material-ui/core';
 import { Evaluation } from 'src/__generated__/enums';
 import { ExcludeUnknown } from 'src/shared/enum-utils/types';
 import { FCProps } from 'src/shared/types/FCProps';
+import {
+  PerformanceCompetenciesComment,
+  PerformanceCompetenciesPrefix,
+  PerformanceCompetenciesRating,
+  selfReviewEvaluationDictionary,
+} from 'src/global-types';
 import { ReviewItemOutput } from 'src/shared/review-item-output';
 import { getUserLabel } from 'src/shared/utils/getUserLabel';
 import { i18n } from '@lingui/core';
-import { selfReviewEvaluationDictionary } from 'src/global-types';
 import { useAppSettings } from 'src/core/settings';
 import { useFragment } from 'react-relay/hooks';
 
@@ -39,7 +44,7 @@ const fragment = graphql`
 interface OwnProps {
   reviews: CriterionResultRatingGroup_reviews$key;
   rating: ExcludeUnknown<Evaluation> | null;
-  prefix: 'sahabiness' | 'problemSolving' | 'execution' | 'thoughtLeadership' | 'leadership' | 'presence';
+  prefix: PerformanceCompetenciesPrefix;
 }
 
 export type Props = FCProps<OwnProps>;
@@ -51,21 +56,9 @@ export const CriterionResultRatingGroup = React.memo(function CriterionResultRat
 
   const reviews = useFragment(fragment, props.reviews);
 
-  const criteriaRating = (prefix + 'Rating') as
-    | 'executionRating'
-    | 'leadershipRating'
-    | 'presenceRating'
-    | 'problemSolvingRating'
-    | 'sahabinessRating'
-    | 'thoughtLeadershipRating';
+  const criteriaRating = (prefix + 'Rating') as PerformanceCompetenciesRating;
 
-  const criteriaComment = (prefix + 'Comment') as
-    | 'executionComment'
-    | 'leadershipComment'
-    | 'presenceComment'
-    | 'problemSolvingComment'
-    | 'sahabinessComment'
-    | 'thoughtLeadershipComment';
+  const criteriaComment = (prefix + 'Comment') as PerformanceCompetenciesComment;
 
   const filteredByRating =
     rating !== null

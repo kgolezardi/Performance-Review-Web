@@ -4,6 +4,7 @@ import { Box, Typography } from '@material-ui/core';
 import { ExpansionPanel, ExpansionPanelDetails, ExpansionPanelSummary } from 'src/shared/expansion-panel';
 import { FCProps } from 'src/shared/types/FCProps';
 import { HelperText } from 'src/shared/helper-text/HelperText';
+import { PerformanceCompetenciesPrefix } from 'src/global-types';
 import { useFragment } from 'react-relay/hooks';
 
 import { CriterionResultExpansionPanel_reviews$key } from './__generated__/CriterionResultExpansionPanel_reviews.graphql';
@@ -18,7 +19,7 @@ const fragment = graphql`
 interface OwnProps {
   title: string;
   reviews: CriterionResultExpansionPanel_reviews$key;
-  prefix: 'sahabiness' | 'problemSolving' | 'execution' | 'thoughtLeadership' | 'leadership' | 'presence';
+  prefix: PerformanceCompetenciesPrefix;
   details?: ReactNode;
 }
 
