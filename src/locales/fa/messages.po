@@ -119,7 +119,7 @@ msgstr "English"
 msgid "Error"
 msgstr "خطا"
 
-#: src/pages/manager-review-page/performance-competencies/ManagerReviewPerformanceCompetenciesExpansionPanel.tsx:40
+#: src/pages/manager-review-page/performance-competencies/ManagerReviewPerformanceCompetenciesExpansionPanel.tsx:53
 #: src/pages/peer-review-page/projectsTab/projects-form/PeerReviewProjectsForm.tsx:33
 #: src/shared/criterion-item/CriterionItem.tsx:22
 #: src/shared/criterion-output-item/CriterionOutputItem.tsx:13
@@ -131,6 +131,10 @@ msgstr "ارزیابی"
 #: src/pages/start-page/StartReviewCard.tsx:30
 msgid "Evaluation due date: {formattedDueDate}"
 msgstr "پایان مهلت ارزیابی: {formattedDueDate}"
+
+#: src/pages/manager-review-page/performance-competencies/ManagerReviewPerformanceCompetenciesExpansionPanel.tsx:33
+msgid "Evaluation:"
+msgstr "ارزیابی:"
 
 #: src/shared/criterion-item/CriterionItem.tsx:29
 #: src/shared/criterion-output-item/CriterionOutputItem.tsx:21
@@ -146,7 +150,7 @@ msgid "Exceeds Expectations from me"
 msgstr "فراتر از انتظاری که از من میره"
 
 #: src/pages/criteria-page/CriteriaForm.tsx:61
-#: src/pages/manager-review-page/performance-competencies/ManagerReviewPerformanceCompetencies.tsx:50
+#: src/pages/manager-review-page/performance-competencies/ManagerReviewPerformanceCompetencies.tsx:63
 #: src/shared/criteria-output/CriteriaOutput.tsx:34
 #: src/shared/criteria-result/CriteriaResult.tsx:18
 msgid "Execution"
@@ -210,7 +214,7 @@ msgid "It's complete!"
 msgstr "تکمیل شد!"
 
 #: src/pages/criteria-page/CriteriaForm.tsx:67
-#: src/pages/manager-review-page/performance-competencies/ManagerReviewPerformanceCompetencies.tsx:52
+#: src/pages/manager-review-page/performance-competencies/ManagerReviewPerformanceCompetencies.tsx:65
 #: src/shared/criteria-output/CriteriaOutput.tsx:40
 #: src/shared/criteria-result/CriteriaResult.tsx:20
 msgid "Leadership"
@@ -255,7 +259,7 @@ msgid "Observation"
 msgstr "مشاهده"
 
 #: src/pages/criteria-page/CriteriaForm.tsx:55
-#: src/pages/manager-review-page/performance-competencies/ManagerReviewPerformanceCompetencies.tsx:48
+#: src/pages/manager-review-page/performance-competencies/ManagerReviewPerformanceCompetencies.tsx:61
 #: src/shared/criteria-output/CriteriaOutput.tsx:28
 #: src/shared/criteria-result/CriteriaResult.tsx:16
 msgid "Organization Culture Adoption"
@@ -300,14 +304,14 @@ msgid "Persian"
 msgstr "فارسی"
 
 #: src/pages/criteria-page/CriteriaForm.tsx:70
-#: src/pages/manager-review-page/performance-competencies/ManagerReviewPerformanceCompetencies.tsx:53
+#: src/pages/manager-review-page/performance-competencies/ManagerReviewPerformanceCompetencies.tsx:66
 #: src/shared/criteria-output/CriteriaOutput.tsx:43
 #: src/shared/criteria-result/CriteriaResult.tsx:21
 msgid "Presence"
 msgstr "اثر حضور"
 
 #: src/pages/criteria-page/CriteriaForm.tsx:58
-#: src/pages/manager-review-page/performance-competencies/ManagerReviewPerformanceCompetencies.tsx:49
+#: src/pages/manager-review-page/performance-competencies/ManagerReviewPerformanceCompetencies.tsx:62
 #: src/shared/criteria-output/CriteriaOutput.tsx:31
 #: src/shared/criteria-result/CriteriaResult.tsx:17
 msgid "Problem Solving"
@@ -441,7 +445,7 @@ msgid "The most important characteristics or effective behaviors that he/she sho
 msgstr "مهمترین ویژگی‌ها یا رفتارهای مؤثری که باید ادامه‌شون بده"
 
 #: src/pages/criteria-page/CriteriaForm.tsx:64
-#: src/pages/manager-review-page/performance-competencies/ManagerReviewPerformanceCompetencies.tsx:51
+#: src/pages/manager-review-page/performance-competencies/ManagerReviewPerformanceCompetencies.tsx:64
 #: src/shared/criteria-output/CriteriaOutput.tsx:37
 #: src/shared/criteria-result/CriteriaResult.tsx:19
 msgid "Thought Leadership"
@@ -528,7 +532,7 @@ msgstr "نظر شما در مورد عملکرد {name} در این پروژه"
 msgid "Your comments about your performance compared to initial expectation"
 msgstr "نظر شما در مورد سطح عملکردتان در این پروژه"
 
-#: src/pages/manager-review-page/performance-competencies/ManagerReviewPerformanceCompetenciesExpansionPanel.tsx:38
+#: src/pages/manager-review-page/performance-competencies/ManagerReviewPerformanceCompetenciesExpansionPanel.tsx:49
 msgid "Your evaluation of {name} on {criteria}"
 msgstr "ارزیابی شما از {name} در {criteria}"
 

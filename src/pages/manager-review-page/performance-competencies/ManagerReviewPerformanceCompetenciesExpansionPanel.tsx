@@ -2,6 +2,8 @@ import graphql from 'babel-plugin-relay/macro';
 import React, { ReactNode } from 'react';
 import { Box, Typography } from '@material-ui/core';
 import { DictInputItem, FragmentPrompt } from 'src/shared/forminator';
+import { Evaluation } from 'src/__generated__/enums';
+import { EvaluationOutput } from 'src/shared/evaluation-output';
 import { ExpansionPanel, ExpansionPanelDetails, ExpansionPanelSummary } from 'src/shared/expansion-panel';
 import { FCProps } from 'src/shared/types/FCProps';
 import { HelperText } from 'src/shared/helper-text/HelperText';
@@ -41,14 +43,22 @@ export function ManagerReviewPerformanceCompetenciesExpansionPanel(props: Props)
   const reviews = useFragment(fragment, props.reviews);
 
   const serverValue = useServerValueContext<ServerValue>();
-  const rating = (serverValue && serverValue[prefix + 'Rating']) || null;
+  const rating = (serverValue?.[prefix + 'Rating'] as Evaluation) || null;
   const name = reviewee ? getUserLabel(reviewee) : '';
 
   return (
     <ExpansionPanel>
       <ExpansionPanelSummary>
-        <Typography variant="h3">{title}</Typography>
-        <HelperText text={details} />
+        <Box display="flex" flexBasis="50%">
+          <Typography variant="h3">{title}</Typography>
+          <HelperText text={details} />
+        </Box>
+        <Box alignItems="center" display="flex" flexBasis="50%">
+          <Box color="grey.700" marginRight={2}>
+            <Typography>{i18n._('Evaluation:')}</Typography>
+          </Box>
+          <EvaluationOutput type="peer" value={rating} />
+        </Box>
       </ExpansionPanelSummary>
       <ExpansionPanelDetails>
         <Box width="100%">
