@@ -1,7 +1,6 @@
 import graphql from 'babel-plugin-relay/macro';
 import React, { Suspense } from 'react';
 import { Box, Container, Divider, Paper } from '@material-ui/core';
-import { DominantCharacteristicsOutput } from 'src/shared/dominant-characteristics-output';
 import { FCProps } from 'src/shared/types/FCProps';
 import { FullPageSpinner } from 'src/shared/loading';
 import { InView } from 'src/shared/in-view';
@@ -14,6 +13,7 @@ import { TopStickyCard } from 'src/shared/top-sticky-card';
 import { i18n } from '@lingui/core';
 import { useLazyLoadQuery } from 'react-relay/hooks';
 
+import ManagerReviewDominantCharacteristics from './dominant-characteristics/ManagerReviewDominantCharacteristics';
 import { ManagerReviewPageQuery } from './__generated__/ManagerReviewPageQuery.graphql';
 import { ManagerReviewPerformanceCompetencies } from './performance-competencies';
 import { ManagerReviewProjects } from './ManagerReviewProjects';
@@ -94,7 +94,7 @@ export default function ManagerReviewPage(props: Props) {
                 />
                 <Route
                   path={toPrefix + '/dominant-characteristics'}
-                  children={<DominantCharacteristicsOutput review={data.viewer.user?.personReview ?? null} />}
+                  children={<ManagerReviewDominantCharacteristics revieweeId={revieweeId} />}
                 />
                 <Route
                   path={toPrefix + '/achievements'}
