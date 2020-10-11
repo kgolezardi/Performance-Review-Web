@@ -2,7 +2,8 @@ import React from 'react';
 import { Box, Typography } from '@material-ui/core';
 import { ExpansionPanel, ExpansionPanelDetails, ExpansionPanelSummary } from 'src/shared/expansion-panel';
 import { FCProps } from 'src/shared/types/FCProps';
-import { ReviewItemOutput } from 'src/shared/review-item-output';
+import { MultilineOutput } from 'src/shared/multiline-output';
+import { ReviewItemInfo } from 'src/shared/review-item-info';
 
 interface OwnProps {
   title?: string;
@@ -24,12 +25,16 @@ export function StrengthsWeaknessResultExpansionPanel(props: Props) {
         <Box>
           {ownReviews?.map((review, index) => (
             <Box marginTop={2} key={index}>
-              <ReviewItemOutput value={review} type="self" anonymous />
+              <ReviewItemInfo anonymous type="self">
+                <MultilineOutput enableTruncating value={review} />
+              </ReviewItemInfo>
             </Box>
           ))}
           {reviews?.map((review, index) => (
             <Box marginTop={2} key={index}>
-              <ReviewItemOutput value={review} type="peer" anonymous />
+              <ReviewItemInfo anonymous type="peer">
+                <MultilineOutput enableTruncating value={review} />
+              </ReviewItemInfo>
             </Box>
           ))}
         </Box>

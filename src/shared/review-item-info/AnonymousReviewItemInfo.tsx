@@ -3,18 +3,15 @@ import React from 'react';
 import SelfCommentIcon from '@material-ui/icons/RateReview';
 import { Box, Grid, lighten, useTheme } from '@material-ui/core';
 import { FCProps } from 'src/shared/types/FCProps';
-import { MultilineOutput } from 'src/shared/multiline-output';
 
 interface OwnProps {
-  disableTruncating?: boolean;
   type: 'self' | 'peer';
-  value: string | null;
 }
 
 type Props = FCProps<OwnProps>;
 
-export function AnonymousReviewItemOutput(props: Props) {
-  const { disableTruncating, type, value } = props;
+export function AnonymousReviewItemInfo(props: Props) {
+  const { children, type } = props;
 
   const theme = useTheme();
   const selfBgcolor = lighten(theme.palette.primary.light, 0.85);
@@ -36,7 +33,7 @@ export function AnonymousReviewItemOutput(props: Props) {
         </Box>
       </Grid>
       <Grid item xs>
-        <MultilineOutput value={value} enableTruncating={!disableTruncating} />
+        {children}
       </Grid>
     </Grid>
   );
