@@ -326,7 +326,7 @@ msgstr "Programmers are typing..."
 msgid "Projects"
 msgstr "Projects"
 
-#: src/shared/review-item-output/IdentifiedReviewItemOutput.tsx:15
+#: src/shared/review-item-info/IdentifiedReviewItemInfo.tsx:14
 msgid "Reviewee"
 msgstr "Reviewee"
 
@@ -463,9 +463,9 @@ msgstr "Todo"
 msgid "Try Again"
 msgstr "Try Again"
 
-#: src/pages/manager-review-page/performance-competencies/ManagerReviewPerformanceCompetenciesRatingGroup.tsx:48
-#: src/pages/result-page/project-result-page/ProjectResultRatingGroup.tsx:25
-#: src/shared/criteria-result/CriterionResultRatingGroup.tsx:40
+#: src/pages/manager-review-page/performance-competencies/ManagerReviewPerformanceCompetenciesRatingGroup.tsx:49
+#: src/pages/result-page/project-result-page/ProjectResultRatingGroup.tsx:26
+#: src/shared/criteria-result/CriterionResultRatingGroup.tsx:41
 #: src/shared/evaluation-output/EvaluationOutput.tsx:23
 #: src/shared/evaluation-output/EvaluationOutput.tsx:24
 msgid "Unknown"
@@ -543,9 +543,9 @@ msgstr "Your comments about your performance compared to initial expectation"
 msgid "Your evaluation of {name} on {criteria}"
 msgstr "Your evaluation of {name} on {criteria}"
 
-#: src/pages/manager-review-page/performance-competencies/ManagerReviewPerformanceCompetenciesRatingGroup.tsx:65
-#: src/pages/result-page/project-result-page/ProjectResultRatingGroup.tsx:33
-#: src/shared/criteria-result/CriterionResultRatingGroup.tsx:48
+#: src/pages/manager-review-page/performance-competencies/ManagerReviewPerformanceCompetenciesRatingGroup.tsx:66
+#: src/pages/result-page/project-result-page/ProjectResultRatingGroup.tsx:34
+#: src/shared/criteria-result/CriterionResultRatingGroup.tsx:49
 msgid "{evaluationsCount} evaluations / {commentsCount} comments"
 msgstr "{evaluationsCount} evaluations / {commentsCount} comments"
 
