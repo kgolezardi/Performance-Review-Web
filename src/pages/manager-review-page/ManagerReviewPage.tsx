@@ -14,9 +14,9 @@ import { i18n } from '@lingui/core';
 import { useLazyLoadQuery } from 'react-relay/hooks';
 
 import ManagerReviewDominantCharacteristics from './dominant-characteristics/ManagerReviewDominantCharacteristics';
+import { ManagerReviewAchievements } from './achievements';
 import { ManagerReviewPageQuery } from './__generated__/ManagerReviewPageQuery.graphql';
 import { ManagerReviewPerformanceCompetencies } from './performance-competencies';
-import { ManagerReviewProjects } from './ManagerReviewProjects';
 
 const query = graphql`
   query ManagerReviewPageQuery($id: ID!) {
@@ -24,10 +24,6 @@ const query = graphql`
       user(id: $id) {
         personReview {
           ...DominantCharacteristicsOutput_review
-          ...CriteriaOutput_review
-        }
-        projectReviews {
-          ...ManagerReviewProjects_reviews
         }
         ...PersonInfoCardHeader_user
       }
@@ -98,7 +94,7 @@ export default function ManagerReviewPage(props: Props) {
                 />
                 <Route
                   path={toPrefix + '/achievements'}
-                  children={<ManagerReviewProjects reviews={data.viewer.user?.projectReviews ?? null} />}
+                  children={<ManagerReviewAchievements revieweeId={revieweeId} />}
                 />
                 <Redirect to={toPrefix + '/performance-competencies'} />
               </Switch>
