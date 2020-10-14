@@ -120,6 +120,7 @@ msgstr "English"
 msgid "Error"
 msgstr "خطا"
 
+#: src/pages/manager-review-page/achievements/ManagerReviewAchievementsExpansionPanel.tsx:81
 #: src/pages/manager-review-page/performance-competencies/ManagerReviewPerformanceCompetenciesExpansionPanel.tsx:53
 #: src/pages/peer-review-page/projectsTab/projects-form/PeerReviewProjectsForm.tsx:33
 #: src/shared/criterion-item/CriterionItem.tsx:22
@@ -270,7 +271,7 @@ msgstr "انطباق با فرهنگ سازمانی"
 msgid "Other people comments about your performance compared to initial expectation"
 msgstr "نظرات دیگران در مورد سطح عمکرد شما در این پروژه"
 
-#: src/pages/manager-review-page/achievements/ManagerReviewAchievementsExpansionPanel.tsx:54
+#: src/pages/manager-review-page/achievements/ManagerReviewAchievementsExpansionPanel.tsx:60
 msgid "Other people comments about {name} performance compared to initial expectation"
 msgstr "نظرات دیگران در مورد سطح عملکرد {name} در این پروژه"
 
@@ -544,6 +545,10 @@ msgstr "نظر شما در مورد عملکرد {name} در این پروژه"
 msgid "Your comments about your performance compared to initial expectation"
 msgstr "نظر شما در مورد سطح عملکردتان در این پروژه"
 
+#: src/pages/manager-review-page/achievements/ManagerReviewAchievementsExpansionPanel.tsx:74
+msgid "Your evaluation of {name} on project {projectName}"
+msgstr "ارزیابی شما از {name} در پروژه‌ی {projectName}"
+
 #: src/pages/manager-review-page/performance-competencies/ManagerReviewPerformanceCompetenciesExpansionPanel.tsx:49
 msgid "Your evaluation of {name} on {criteria}"
 msgstr "ارزیابی شما از {name} در {criteria}"
@@ -555,7 +560,7 @@ msgstr "ارزیابی شما از {name} در {criteria}"
 msgid "{evaluationsCount} evaluations / {commentsCount} comments"
 msgstr "{evaluationsCount} ارزیابی / {commentsCount} نظر"
 
-#: src/pages/manager-review-page/achievements/ManagerReviewAchievementsExpansionPanel.tsx:43
+#: src/pages/manager-review-page/achievements/ManagerReviewAchievementsExpansionPanel.tsx:49
 #: src/pages/peer-review-page/projectsTab/PeerReviewProjectsResult.tsx:40
 #: src/pages/peer-review-page/projectsTab/project-expansion-panel/PeerReviewProjectExpansionPanel.tsx:53
 msgid "{name}'s comment about his/her performance compared to initial expectation"
