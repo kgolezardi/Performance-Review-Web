@@ -79,7 +79,7 @@ msgid "Dashboard"
 msgstr "Dashboard"
 
 #: src/pages/start-page/NoPeerReviewPage.tsx:31
-#: src/pages/start-page/StartReviewCard.tsx:26
+#: src/pages/start-page/StartReviewCard.tsx:19
 msgid "Dear {name}, Hello"
 msgstr "Dear {name}, Hello"
 
@@ -116,8 +116,8 @@ msgstr "English"
 msgid "Error"
 msgstr "Error"
 
-#: src/pages/manager-review-page/achievements/ManagerReviewAchievementsExpansionPanel.tsx:85
-#: src/pages/manager-review-page/performance-competencies/ManagerReviewPerformanceCompetenciesExpansionPanel.tsx:53
+#: src/pages/manager-review-page/achievements/ManagerReviewAchievementsExpansionPanel.tsx:86
+#: src/pages/manager-review-page/performance-competencies/ManagerReviewPerformanceCompetenciesExpansionPanel.tsx:45
 #: src/pages/peer-review-page/projectsTab/projects-form/PeerReviewProjectsForm.tsx:33
 #: src/shared/criterion-item/CriterionItem.tsx:22
 #: src/shared/criterion-output-item/CriterionOutputItem.tsx:13
@@ -125,10 +125,6 @@ msgstr "Error"
 #: src/shared/project-output/ProjectOutput.tsx:28
 msgid "Evaluation"
 msgstr "Evaluation"
-
-#: src/pages/manager-review-page/performance-competencies/ManagerReviewPerformanceCompetenciesExpansionPanel.tsx:33
-msgid "Evaluation:"
-msgstr "Evaluation:"
 
 #: src/shared/criterion-item/CriterionItem.tsx:29
 #: src/shared/criterion-output-item/CriterionOutputItem.tsx:21
@@ -263,7 +259,7 @@ msgstr "Organization Culture Adoption"
 msgid "Other people comments about your performance compared to initial expectation"
 msgstr "Other people comments about your performance compared to initial expectation"
 
-#: src/pages/manager-review-page/achievements/ManagerReviewAchievementsExpansionPanel.tsx:64
+#: src/pages/manager-review-page/achievements/ManagerReviewAchievementsExpansionPanel.tsx:65
 msgid "Other people comments about {name} performance compared to initial expectation"
 msgstr "Other people comments about {name} performance compared to initial expectation"
 
@@ -387,7 +383,7 @@ msgstr "Something went wrong."
 msgid "Something went wrong. Please try again"
 msgstr "Something went wrong. Please try again"
 
-#: src/pages/start-page/StartReviewCard.tsx:33
+#: src/pages/start-page/StartReviewCard.tsx:26
 msgid "Start"
 msgstr "Start"
 
@@ -545,13 +541,17 @@ msgstr "Your comment about {name}'s performance in this project"
 msgid "Your comments about your performance compared to initial expectation"
 msgstr "Your comments about your performance compared to initial expectation"
 
-#: src/pages/manager-review-page/achievements/ManagerReviewAchievementsExpansionPanel.tsx:78
+#: src/pages/manager-review-page/achievements/ManagerReviewAchievementsExpansionPanel.tsx:79
 msgid "Your evaluation of {name} on project {projectName}"
 msgstr "Your evaluation of {name} on project {projectName}"
 
-#: src/pages/manager-review-page/performance-competencies/ManagerReviewPerformanceCompetenciesExpansionPanel.tsx:49
+#: src/pages/manager-review-page/performance-competencies/ManagerReviewPerformanceCompetenciesExpansionPanel.tsx:41
 msgid "Your evaluation of {name} on {criteria}"
 msgstr "Your evaluation of {name} on {criteria}"
+
+#: src/pages/manager-review-page/ManagerReviewExpansionPanelSummary.tsx:14
+msgid "Your evaluation:"
+msgstr "Your evaluation:"
 
 #: src/pages/manager-review-page/achievements/ManagerReviewAchievementsRatingGroup.tsx:50
 #: src/pages/manager-review-page/performance-competencies/ManagerReviewPerformanceCompetenciesRatingGroup.tsx:66
@@ -560,7 +560,7 @@ msgstr "Your evaluation of {name} on {criteria}"
 msgid "{evaluationsCount} evaluations / {commentsCount} comments"
 msgstr "{evaluationsCount} evaluations / {commentsCount} comments"
 
-#: src/pages/manager-review-page/achievements/ManagerReviewAchievementsExpansionPanel.tsx:53
+#: src/pages/manager-review-page/achievements/ManagerReviewAchievementsExpansionPanel.tsx:54
 #: src/pages/peer-review-page/projectsTab/PeerReviewProjectsResult.tsx:40
 #: src/pages/peer-review-page/projectsTab/project-expansion-panel/PeerReviewProjectExpansionPanel.tsx:53
 msgid "{name}'s comment about his/her performance compared to initial expectation"

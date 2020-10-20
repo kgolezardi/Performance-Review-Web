@@ -79,7 +79,7 @@ msgid "Dashboard"
 msgstr "پیشخوان"
 
 #: src/pages/start-page/NoPeerReviewPage.tsx:31
-#: src/pages/start-page/StartReviewCard.tsx:26
+#: src/pages/start-page/StartReviewCard.tsx:19
 msgid "Dear {name}, Hello"
 msgstr "{name} عزیز، سلام"
 
@@ -116,8 +116,8 @@ msgstr "English"
 msgid "Error"
 msgstr "خطا"
 
-#: src/pages/manager-review-page/achievements/ManagerReviewAchievementsExpansionPanel.tsx:85
-#: src/pages/manager-review-page/performance-competencies/ManagerReviewPerformanceCompetenciesExpansionPanel.tsx:53
+#: src/pages/manager-review-page/achievements/ManagerReviewAchievementsExpansionPanel.tsx:86
+#: src/pages/manager-review-page/performance-competencies/ManagerReviewPerformanceCompetenciesExpansionPanel.tsx:45
 #: src/pages/peer-review-page/projectsTab/projects-form/PeerReviewProjectsForm.tsx:33
 #: src/shared/criterion-item/CriterionItem.tsx:22
 #: src/shared/criterion-output-item/CriterionOutputItem.tsx:13
@@ -125,10 +125,6 @@ msgstr "خطا"
 #: src/shared/project-output/ProjectOutput.tsx:28
 msgid "Evaluation"
 msgstr "ارزیابی"
-
-#: src/pages/manager-review-page/performance-competencies/ManagerReviewPerformanceCompetenciesExpansionPanel.tsx:33
-msgid "Evaluation:"
-msgstr "ارزیابی:"
 
 #: src/shared/criterion-item/CriterionItem.tsx:29
 #: src/shared/criterion-output-item/CriterionOutputItem.tsx:21
@@ -263,7 +259,7 @@ msgstr "انطباق با فرهنگ سازمانی"
 msgid "Other people comments about your performance compared to initial expectation"
 msgstr "نظرات دیگران در مورد سطح عمکرد شما در این پروژه"
 
-#: src/pages/manager-review-page/achievements/ManagerReviewAchievementsExpansionPanel.tsx:64
+#: src/pages/manager-review-page/achievements/ManagerReviewAchievementsExpansionPanel.tsx:65
 msgid "Other people comments about {name} performance compared to initial expectation"
 msgstr "نظرات دیگران در مورد سطح عملکرد {name} در این پروژه"
 
@@ -387,7 +383,7 @@ msgstr "خطایی رخ داد."
 msgid "Something went wrong. Please try again"
 msgstr "خطایی رخ داد. لطفا مجددا تلاش نمایید"
 
-#: src/pages/start-page/StartReviewCard.tsx:33
+#: src/pages/start-page/StartReviewCard.tsx:26
 msgid "Start"
 msgstr "شروع"
 
@@ -545,13 +541,17 @@ msgstr "نظر شما در مورد عملکرد {name} در این پروژه"
 msgid "Your comments about your performance compared to initial expectation"
 msgstr "نظر شما در مورد سطح عملکردتان در این پروژه"
 
-#: src/pages/manager-review-page/achievements/ManagerReviewAchievementsExpansionPanel.tsx:78
+#: src/pages/manager-review-page/achievements/ManagerReviewAchievementsExpansionPanel.tsx:79
 msgid "Your evaluation of {name} on project {projectName}"
 msgstr "ارزیابی شما از {name} در پروژه‌ی {projectName}"
 
-#: src/pages/manager-review-page/performance-competencies/ManagerReviewPerformanceCompetenciesExpansionPanel.tsx:49
+#: src/pages/manager-review-page/performance-competencies/ManagerReviewPerformanceCompetenciesExpansionPanel.tsx:41
 msgid "Your evaluation of {name} on {criteria}"
 msgstr "ارزیابی شما از {name} در {criteria}"
+
+#: src/pages/manager-review-page/ManagerReviewExpansionPanelSummary.tsx:14
+msgid "Your evaluation:"
+msgstr "ارزیابی شما:"
 
 #: src/pages/manager-review-page/achievements/ManagerReviewAchievementsRatingGroup.tsx:50
 #: src/pages/manager-review-page/performance-competencies/ManagerReviewPerformanceCompetenciesRatingGroup.tsx:66
@@ -560,7 +560,7 @@ msgstr "ارزیابی شما از {name} در {criteria}"
 msgid "{evaluationsCount} evaluations / {commentsCount} comments"
 msgstr "{evaluationsCount} ارزیابی / {commentsCount} نظر"
 
-#: src/pages/manager-review-page/achievements/ManagerReviewAchievementsExpansionPanel.tsx:53
+#: src/pages/manager-review-page/achievements/ManagerReviewAchievementsExpansionPanel.tsx:54
 #: src/pages/peer-review-page/projectsTab/PeerReviewProjectsResult.tsx:40
 #: src/pages/peer-review-page/projectsTab/project-expansion-panel/PeerReviewProjectExpansionPanel.tsx:53
 msgid "{name}'s comment about his/her performance compared to initial expectation"
