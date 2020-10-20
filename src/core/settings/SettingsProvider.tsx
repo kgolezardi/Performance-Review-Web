@@ -13,13 +13,13 @@ type Props = FCProps<OwnProps>;
 export function SettingsProvider(props: Props) {
   const data = useLazyLoadQuery<SettingsProviderQuery>(query, {});
   const {
-    settings: { phase, dueDate, loginBackgroundImage, idlePageUrl },
+    settings: { phase, loginBackgroundImage, idlePageUrl, startText },
   } = data.viewer;
-  const value = useMemo(() => ({ phase, dueDate, loginBackgroundImage, idlePageUrl }), [
+  const value = useMemo(() => ({ phase, loginBackgroundImage, idlePageUrl, startText }), [
     phase,
-    dueDate,
     loginBackgroundImage,
     idlePageUrl,
+    startText,
   ]);
   return <SettingsContext.Provider value={value}>{props.children}</SettingsContext.Provider>;
 }
@@ -29,9 +29,9 @@ const query = graphql`
     viewer {
       settings {
         phase
-        dueDate
         loginBackgroundImage
         idlePageUrl
+        startText
       }
     }
   }

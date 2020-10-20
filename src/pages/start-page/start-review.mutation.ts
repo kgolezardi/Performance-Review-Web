@@ -12,7 +12,6 @@ export const useStartReviewMutation = () =>
             ...AuthGuard_user
           }
         }
-        ok
       }
     }
   `);
