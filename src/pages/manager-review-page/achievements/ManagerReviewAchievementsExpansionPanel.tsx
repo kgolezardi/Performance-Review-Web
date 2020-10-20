@@ -3,7 +3,7 @@ import graphql from 'babel-plugin-relay/macro';
 import { Box, Grid, Theme, Typography, lighten, makeStyles, useTheme } from '@material-ui/core';
 import { CSSProperties } from '@material-ui/core/styles/withStyles';
 import { DictInputItem, FragmentPrompt } from 'src/shared/forminator';
-import { ExpansionPanel, ExpansionPanelDetails, ExpansionPanelSummary } from 'src/shared/expansion-panel';
+import { ExpansionPanel, ExpansionPanelDetails } from 'src/shared/expansion-panel';
 import { FCProps } from 'src/shared/types/FCProps';
 import { ProjectOutput } from 'src/shared/project-output';
 import { QuoteBox } from 'src/shared/quote-box';
@@ -17,6 +17,7 @@ import { useServerValueContext } from 'src/shared/server-value';
 import { ManagerReviewAchievementsExpansionPanel_projectReview$key } from './__generated__/ManagerReviewAchievementsExpansionPanel_projectReview.graphql';
 import { ManagerReviewAchievementsRatingGroup } from './ManagerReviewAchievementsRatingGroup';
 import { ManagerReviewAchievementsValue } from './ManagerReviewAchievementsValue';
+import { ManagerReviewEvaluationExpansionPanelSummary } from '../ManagerReviewExpansionPanelSummary';
 
 const fragment = graphql`
   fragment ManagerReviewAchievementsExpansionPanel_projectReview on ProjectReviewNode {
@@ -60,9 +61,9 @@ export function ManagerReviewAchievementsExpansionPanel(props: Props) {
 
   return (
     <ExpansionPanel>
-      <ExpansionPanelSummary>
+      <ManagerReviewEvaluationExpansionPanelSummary rating={rating}>
         <Typography variant="h3">{projectName}</Typography>
-      </ExpansionPanelSummary>
+      </ManagerReviewEvaluationExpansionPanelSummary>
       <ExpansionPanelDetails>
         <Grid container spacing={2}>
           <Grid item xs={12}>

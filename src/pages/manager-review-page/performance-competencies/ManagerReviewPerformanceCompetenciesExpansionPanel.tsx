@@ -3,8 +3,7 @@ import React, { ReactNode } from 'react';
 import { Box, Typography } from '@material-ui/core';
 import { DictInputItem, FragmentPrompt } from 'src/shared/forminator';
 import { Evaluation } from 'src/__generated__/enums';
-import { EvaluationOutput } from 'src/shared/evaluation-output';
-import { ExpansionPanel, ExpansionPanelDetails, ExpansionPanelSummary } from 'src/shared/expansion-panel';
+import { ExpansionPanel, ExpansionPanelDetails } from 'src/shared/expansion-panel';
 import { FCProps } from 'src/shared/types/FCProps';
 import { HelperText } from 'src/shared/helper-text/HelperText';
 import { Rating } from 'src/shared/rating';
@@ -14,6 +13,7 @@ import { i18n } from '@lingui/core';
 import { useFragment } from 'react-relay/hooks';
 import { useServerValueContext } from 'src/shared/server-value';
 
+import { ManagerReviewEvaluationExpansionPanelSummary } from '../ManagerReviewExpansionPanelSummary';
 import { ManagerReviewPerformanceCompetenciesExpansionPanel_reviews$key } from './__generated__/ManagerReviewPerformanceCompetenciesExpansionPanel_reviews.graphql';
 import { ManagerReviewPerformanceCompetenciesRatingGroup } from './ManagerReviewPerformanceCompetenciesRatingGroup';
 
@@ -48,18 +48,10 @@ export function ManagerReviewPerformanceCompetenciesExpansionPanel(props: Props)
 
   return (
     <ExpansionPanel>
-      <ExpansionPanelSummary>
-        <Box display="flex" flexBasis="50%">
-          <Typography variant="h3">{title}</Typography>
-          <HelperText text={details} />
-        </Box>
-        <Box alignItems="center" display="flex" flexBasis="50%">
-          <Box color="grey.700" marginRight={2}>
-            <Typography>{i18n._('Evaluation:')}</Typography>
-          </Box>
-          <EvaluationOutput type="peer" value={rating} />
-        </Box>
-      </ExpansionPanelSummary>
+      <ManagerReviewEvaluationExpansionPanelSummary rating={rating}>
+        <Typography variant="h3">{title}</Typography>
+        <HelperText text={details} />
+      </ManagerReviewEvaluationExpansionPanelSummary>
       <ExpansionPanelDetails>
         <Box width="100%">
           <ManagerReviewPerformanceCompetenciesRatingGroup rating="SUPERB" prefix={prefix} reviews={reviews} />
