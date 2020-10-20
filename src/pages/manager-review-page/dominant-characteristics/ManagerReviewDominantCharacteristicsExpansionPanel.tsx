@@ -3,7 +3,7 @@ import graphql from 'babel-plugin-relay/macro';
 import { Box, Typography } from '@material-ui/core';
 import { ExpansionPanel, ExpansionPanelDetails, ExpansionPanelSummary } from 'src/shared/expansion-panel';
 import { FCProps } from 'src/shared/types/FCProps';
-import { MultilineOutput } from 'src/shared/multiline-output';
+import { MultilineOutput, NumberedMultilineOutput } from 'src/shared/multiline-output';
 import { ReviewItemInfo } from 'src/shared/review-item-info';
 import { getUserLabel } from 'src/shared/utils/getUserLabel';
 import { isNotNil } from 'src/shared/utils/general.util';
@@ -68,7 +68,7 @@ export function ManagerReviewDominantCharacteristicsExpansionPanel(props: Props)
               >
                 {review[type]?.map((review, index) => (
                   <Box key={index} marginBottom={1}>
-                    <MultilineOutput enableTruncating value={review} />
+                    <NumberedMultilineOutput enableTruncating index={index} value={review} />
                   </Box>
                 ))}
               </ReviewItemInfo>
