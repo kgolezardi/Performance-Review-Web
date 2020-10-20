@@ -4,7 +4,6 @@ import { Phase } from './__generated__/SettingsProviderQuery.graphql';
 
 export interface SettingsContextValue {
   phase: Phase;
-  dueDate: string | null;
   loginBackgroundImage: string | null;
   idlePageUrl: string | null;
 }

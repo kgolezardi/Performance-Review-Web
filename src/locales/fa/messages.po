@@ -55,7 +55,7 @@ msgstr "خطایی رخ داده. دوباره تلاش کنید."
 msgid "Are you sure you want to delete this project review?"
 msgstr "آیا از حذف  این پروژه مطمین هستید؟"
 
-#: src/pages/start-page/StartReviewCard.tsx:37
+#: src/pages/start-page/StartReviewCard.tsx:27
 msgid "Begin my review"
 msgstr "شروع ارزیابی من"
 
@@ -84,7 +84,7 @@ msgstr "پیشخوان"
 
 #: src/pages/start-page/NoPeerReviewPage.tsx:31
 #: src/pages/start-page/ResultStartCard.tsx:18
-#: src/pages/start-page/StartReviewCard.tsx:25
+#: src/pages/start-page/StartReviewCard.tsx:19
 msgid "Dear {name}, Hello"
 msgstr "{name} عزیز، سلام"
 
@@ -130,10 +130,6 @@ msgstr "خطا"
 #: src/shared/project-output/ProjectOutput.tsx:28
 msgid "Evaluation"
 msgstr "ارزیابی"
-
-#: src/pages/start-page/StartReviewCard.tsx:30
-msgid "Evaluation due date: {formattedDueDate}"
-msgstr "پایان مهلت ارزیابی: {formattedDueDate}"
 
 #: src/pages/manager-review-page/performance-competencies/ManagerReviewPerformanceCompetenciesExpansionPanel.tsx:33
 msgid "Evaluation:"
