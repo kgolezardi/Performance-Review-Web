@@ -57,17 +57,10 @@ const PeerReviewBoardPage = React.lazy(() =>
   ),
 );
 
-const SelfStartReviewPage = React.lazy(() =>
+const StartReviewPage = React.lazy(() =>
   import(
-    /* webpackChunkName: "self-start-review-page" */
-    'src/pages/start-page/SelfStartReviewPage'
-  ),
-);
-
-const PeerStartReviewPage = React.lazy(() =>
-  import(
-    /* webpackChunkName: "peer-start-review-page" */
-    'src/pages/start-page/PeerStartReviewPage'
+    /* webpackChunkName: "start-review-page" */
+    'src/pages/start-page/StartReviewPage'
   ),
 );
 
@@ -75,13 +68,6 @@ const NoPeerReviewPage = React.lazy(() =>
   import(
     /* webpackChunkName: "peer-no-review-page" */
     'src/pages/start-page/NoPeerReviewPage'
-  ),
-);
-
-const ResultStartPage = React.lazy(() =>
-  import(
-    /* webpackChunkName: "result-start-page" */
-    'src/pages/start-page/ResultStartPage'
   ),
 );
 
@@ -111,10 +97,11 @@ export function MainRoutes(props: FCProps<Props>) {
 
   const data = useLazyLoadQuery<MainRoutesQuery>(query, {});
 
+  if (!user.hasStarted) {
+    return <StartReviewPage />;
+  }
+
   if (phase === 'SELF_REVIEW') {
-    if (!user.hasStarted) {
-      return <SelfStartReviewPage />;
-    }
     return (
       <Switch>
         <Route path="/" exact children={<DashboardPage />} />
@@ -136,9 +123,7 @@ export function MainRoutes(props: FCProps<Props>) {
         </Switch>
       );
     }
-    if (!user.hasStarted) {
-      return <PeerStartReviewPage />;
-    }
+
     return (
       <Switch>
         <Redirect exact path="/" to="/peer-review" />
@@ -159,9 +144,6 @@ export function MainRoutes(props: FCProps<Props>) {
   }
 
   if (phase === 'RESULTS') {
-    if (!user.hasStarted) {
-      return <ResultStartPage />;
-    }
     return (
       <Switch>
         <Route path="/:tab?" children={<ResultPage />} />;

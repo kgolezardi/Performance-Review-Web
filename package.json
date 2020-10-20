@@ -37,6 +37,7 @@
     "react": "0.0.0-experimental-94c0244ba",
     "react-dom": "0.0.0-experimental-94c0244ba",
     "react-intersection-observer": "^8.25.2",
+    "react-markdown": "^5.0.0",
     "react-relay": "^0.0.0-experimental-895a6fe0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",

@@ -55,10 +55,6 @@ msgstr "An error occurred. Try again!"
 msgid "Are you sure you want to delete this project review?"
 msgstr "Are you sure you want to delete this project review?"
 
-#: src/pages/start-page/StartReviewCard.tsx:27
-msgid "Begin my review"
-msgstr "Begin my review"
-
 #: src/shared/sticky-action-bar/StickyActionBar.stories.tsx:11
 msgid "Cancel"
 msgstr "Cancel"
@@ -83,8 +79,7 @@ msgid "Dashboard"
 msgstr "Dashboard"
 
 #: src/pages/start-page/NoPeerReviewPage.tsx:31
-#: src/pages/start-page/ResultStartCard.tsx:18
-#: src/pages/start-page/StartReviewCard.tsx:19
+#: src/pages/start-page/StartReviewCard.tsx:26
 msgid "Dear {name}, Hello"
 msgstr "Dear {name}, Hello"
 
@@ -358,10 +353,6 @@ msgstr "See Less"
 msgid "See More"
 msgstr "See More"
 
-#: src/pages/start-page/ResultStartCard.tsx:25
-msgid "See Review Result"
-msgstr "See Review Result"
-
 #: src/shared/rating/Rating.stories.tsx:13
 #: src/shared/rating/Rating.stories.tsx:23
 #: src/shared/rating/Rating.stories.tsx:33
@@ -395,6 +386,10 @@ msgstr "Something went wrong."
 #: src/shared/error/OverlayError.tsx:9
 msgid "Something went wrong. Please try again"
 msgstr "Something went wrong. Please try again"
+
+#: src/pages/start-page/StartReviewCard.tsx:33
+msgid "Start"
+msgstr "Start"
 
 #: src/shared/full-page-error/FullPageError.stories.tsx:15
 msgid "Strengths and Weaknesses"

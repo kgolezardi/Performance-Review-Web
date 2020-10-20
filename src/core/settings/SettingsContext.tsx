@@ -6,6 +6,7 @@ export interface SettingsContextValue {
   phase: Phase;
   loginBackgroundImage: string | null;
   idlePageUrl: string | null;
+  startText: string | null;
 }
 export const SettingsContext = React.createContext<SettingsContextValue | null>(null);
 
