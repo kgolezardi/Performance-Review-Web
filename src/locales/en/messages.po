@@ -44,8 +44,8 @@ msgstr "Adding Projects"
 msgid "All reviews were successfully done"
 msgstr "All reviews were successfully done"
 
-#: src/pages/manager-review-page/achievements/ManagerReviewAchievements.tsx:58
-#: src/pages/manager-review-page/performance-competencies/ManagerReviewPerformanceCompetencies.tsx:75
+#: src/pages/manager-review-page/achievements/ManagerReviewAchievements.tsx:59
+#: src/pages/manager-review-page/performance-competencies/ManagerReviewPerformanceCompetencies.tsx:76
 #: src/pages/peer-review-page/PeerReviewPersonInfoCard.tsx:49
 #: src/pages/peer-review-page/PeerReviewPersonInfoCard.tsx:54
 msgid "An error occurred. Try again!"
@@ -140,7 +140,7 @@ msgid "Exceeds Expectations from me"
 msgstr "Exceeds Expectations from me"
 
 #: src/pages/criteria-page/CriteriaForm.tsx:62
-#: src/pages/manager-review-page/performance-competencies/ManagerReviewPerformanceCompetencies.tsx:95
+#: src/pages/manager-review-page/performance-competencies/ManagerReviewPerformanceCompetencies.tsx:96
 #: src/shared/criteria-output/CriteriaOutput.tsx:34
 #: src/shared/criteria-result/CriteriaResult.tsx:18
 msgid "Execution"
@@ -204,7 +204,7 @@ msgid "It's complete!"
 msgstr "It's complete!"
 
 #: src/pages/criteria-page/CriteriaForm.tsx:68
-#: src/pages/manager-review-page/performance-competencies/ManagerReviewPerformanceCompetencies.tsx:97
+#: src/pages/manager-review-page/performance-competencies/ManagerReviewPerformanceCompetencies.tsx:98
 #: src/shared/criteria-output/CriteriaOutput.tsx:40
 #: src/shared/criteria-result/CriteriaResult.tsx:20
 msgid "Leadership"
@@ -249,7 +249,7 @@ msgid "Observation"
 msgstr "Observation"
 
 #: src/pages/criteria-page/CriteriaForm.tsx:56
-#: src/pages/manager-review-page/performance-competencies/ManagerReviewPerformanceCompetencies.tsx:93
+#: src/pages/manager-review-page/performance-competencies/ManagerReviewPerformanceCompetencies.tsx:94
 #: src/shared/criteria-output/CriteriaOutput.tsx:28
 #: src/shared/criteria-result/CriteriaResult.tsx:16
 msgid "Organization Culture Adoption"
@@ -298,14 +298,14 @@ msgid "Persian"
 msgstr "فارسی"
 
 #: src/pages/criteria-page/CriteriaForm.tsx:71
-#: src/pages/manager-review-page/performance-competencies/ManagerReviewPerformanceCompetencies.tsx:98
+#: src/pages/manager-review-page/performance-competencies/ManagerReviewPerformanceCompetencies.tsx:99
 #: src/shared/criteria-output/CriteriaOutput.tsx:43
 #: src/shared/criteria-result/CriteriaResult.tsx:21
 msgid "Presence"
 msgstr "Presence"
 
 #: src/pages/criteria-page/CriteriaForm.tsx:59
-#: src/pages/manager-review-page/performance-competencies/ManagerReviewPerformanceCompetencies.tsx:94
+#: src/pages/manager-review-page/performance-competencies/ManagerReviewPerformanceCompetencies.tsx:95
 #: src/shared/criteria-output/CriteriaOutput.tsx:31
 #: src/shared/criteria-result/CriteriaResult.tsx:17
 msgid "Problem Solving"
@@ -333,8 +333,8 @@ msgid "Role Expertise and Self Development"
 msgstr "Role Expertise and Self Development"
 
 #: src/pages/criteria-page/CriteriaForm.tsx:77
-#: src/pages/manager-review-page/achievements/ManagerReviewAchievements.tsx:77
-#: src/pages/manager-review-page/performance-competencies/ManagerReviewPerformanceCompetencies.tsx:110
+#: src/pages/manager-review-page/achievements/ManagerReviewAchievements.tsx:73
+#: src/pages/manager-review-page/performance-competencies/ManagerReviewPerformanceCompetencies.tsx:106
 #: src/pages/peer-review-page/projectsTab/projects-form/PeerReviewProjectsForm.tsx:49
 #: src/pages/projects-page/ProjectForm.tsx:85
 #: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:63
@@ -405,8 +405,8 @@ msgstr "Submit"
 
 #: src/core/snackbar/Snackbar.stories.tsx:13
 #: src/pages/criteria-page/CriteriaPage.tsx:48
-#: src/pages/manager-review-page/achievements/ManagerReviewAchievements.tsx:55
-#: src/pages/manager-review-page/performance-competencies/ManagerReviewPerformanceCompetencies.tsx:72
+#: src/pages/manager-review-page/achievements/ManagerReviewAchievements.tsx:56
+#: src/pages/manager-review-page/performance-competencies/ManagerReviewPerformanceCompetencies.tsx:73
 #: src/pages/peer-review-page/projectsTab/project-expansion-panel/PeerReviewProjectExpansionPanel.tsx:37
 #: src/pages/projects-page/ProjectsPage.tsx:45
 #: src/pages/strengths-weaknesses-page/StrengthsWeaknessesPage.tsx:59
@@ -445,7 +445,7 @@ msgid "The most important characteristics or effective behaviors that he/she sho
 msgstr "The most important characteristics or effective behaviors that he/she should maintain"
 
 #: src/pages/criteria-page/CriteriaForm.tsx:65
-#: src/pages/manager-review-page/performance-competencies/ManagerReviewPerformanceCompetencies.tsx:96
+#: src/pages/manager-review-page/performance-competencies/ManagerReviewPerformanceCompetencies.tsx:97
 #: src/shared/criteria-output/CriteriaOutput.tsx:37
 #: src/shared/criteria-result/CriteriaResult.tsx:19
 msgid "Thought Leadership"
@@ -505,13 +505,13 @@ msgstr "Yes"
 msgid "Yes! Go"
 msgstr "Yes! Go"
 
-#: src/pages/manager-review-page/performance-competencies/ManagerReviewPerformanceCompetencies.tsx:103
-msgid "You have evaluated {number} from {total} performance competencies criteria."
-msgstr "You have evaluated {number} from {total} performance competencies criteria."
+#: src/pages/manager-review-page/ManagerReviewProgress.tsx:39
+msgid "You have evaluated all {total} achievements. You can change them when you want to."
+msgstr "You have evaluated all {total} achievements. You can change them when you want to."
 
-#: src/pages/manager-review-page/achievements/ManagerReviewAchievements.tsx:70
-msgid "You have evaluated {number} from {total} projects."
-msgstr "You have evaluated {number} from {total} projects."
+#: src/pages/manager-review-page/ManagerReviewProgress.tsx:34
+msgid "You have evaluated all {total} performance competencies. You can change them when you want to."
+msgstr "You have evaluated all {total} performance competencies. You can change them when you want to."
 
 #: src/pages/dashboard-page/AchievementsNoProjects.tsx:6
 msgid "You haven't added any project."
@@ -521,6 +521,14 @@ msgstr "You haven't added any project."
 #: src/pages/dashboard-page/PerformanceCompetenciesCircularIndicator.tsx:67
 msgid "You haven't entered anything yet!"
 msgstr "You haven't entered anything yet!"
+
+#: src/pages/manager-review-page/ManagerReviewProgress.tsx:37
+msgid "You haven't evaluated any achievements yet"
+msgstr "You haven't evaluated any achievements yet"
+
+#: src/pages/manager-review-page/ManagerReviewProgress.tsx:32
+msgid "You haven't evaluated any performance competencies yet"
+msgstr "You haven't evaluated any performance competencies yet"
 
 #: src/pages/peer-review-board-page/PeerReviewBoardPage.tsx:80
 msgid "You haven't started evaluating yet!"
@@ -552,6 +560,14 @@ msgstr "Your evaluation of {name} on {criteria}"
 #: src/pages/manager-review-page/ManagerReviewExpansionPanelSummary.tsx:14
 msgid "Your evaluation:"
 msgstr "Your evaluation:"
+
+#: src/pages/manager-review-page/ManagerReviewProgress.tsx:38
+msgid "{evaluatedItems} of {total} achievements are evaluated"
+msgstr "{evaluatedItems} of {total} achievements are evaluated"
+
+#: src/pages/manager-review-page/ManagerReviewProgress.tsx:33
+msgid "{evaluatedItems} of {total} performance competencies are evaluated"
+msgstr "{evaluatedItems} of {total} performance competencies are evaluated"
 
 #: src/pages/manager-review-page/achievements/ManagerReviewAchievementsRatingGroup.tsx:50
 #: src/pages/manager-review-page/performance-competencies/ManagerReviewPerformanceCompetenciesRatingGroup.tsx:66

@@ -1,6 +1,6 @@
 import React from 'react';
 import graphql from 'babel-plugin-relay/macro';
-import { Box, Typography } from '@material-ui/core';
+import { Box } from '@material-ui/core';
 import { DictInput, Forminator, SubmitButton } from 'src/shared/forminator';
 import { Evaluation } from 'src/pages/dashboard-page/__generated__/AchievementsIndicators_projects.graphql';
 import { FCProps } from 'src/shared/types/FCProps';
@@ -17,6 +17,7 @@ import { ManagerReviewAchievementsExpansionPanel } from './ManagerReviewAchievem
 import { ManagerReviewAchievementsMutation } from './__generated__/ManagerReviewAchievementsMutation.graphql';
 import { ManagerReviewAchievementsQuery } from './__generated__/ManagerReviewAchievementsQuery.graphql';
 import { ManagerReviewAchievementsValue } from './ManagerReviewAchievementsValue';
+import { ManagerReviewProgress } from '../ManagerReviewProgress';
 
 interface OwnProps {
   revieweeId: string;
@@ -92,12 +93,11 @@ export function ManagerReviewAchievements(props: Props) {
             <StickyBottomPaper noSticky={inView}>
               <Box display="flex">
                 <Box flex={1}>
-                  <Typography>
-                    {i18n._('You have evaluated {number} from {total} projects.', {
-                      number: Object.values(value).filter(isNotNil).length,
-                      total: Object.values(value).length,
-                    })}
-                  </Typography>
+                  <ManagerReviewProgress
+                    evaluatedItems={Object.values(value).filter(isNotNil).length}
+                    total={Object.values(value).length}
+                    type="achievements"
+                  />
                 </Box>
                 <SubmitButton variant="contained" color="primary">
                   {i18n._('Save')}
