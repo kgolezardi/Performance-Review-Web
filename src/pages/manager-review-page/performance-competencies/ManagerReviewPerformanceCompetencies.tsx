@@ -1,6 +1,6 @@
 import graphql from 'babel-plugin-relay/macro';
 import React, { useContext } from 'react';
-import { Box, Typography } from '@material-ui/core';
+import { Box } from '@material-ui/core';
 import { CriteriaHelpText } from 'src/shared/criteria-help-text';
 import { DictInput, Forminator, SubmitButton } from 'src/shared/forminator';
 import { FCProps } from 'src/shared/types/FCProps';
@@ -23,6 +23,7 @@ import { ManagerReviewPerformanceCompetenciesExpansionPanel } from './ManagerRev
 import { ManagerReviewPerformanceCompetenciesMutation } from './__generated__/ManagerReviewPerformanceCompetenciesMutation.graphql';
 import { ManagerReviewPerformanceCompetenciesQuery } from './__generated__/ManagerReviewPerformanceCompetenciesQuery.graphql';
 import { ManagerReviewPerformanceCompetenciesValue } from './ManagerReviewPerformanceCompetenciesValue';
+import { ManagerReviewProgress } from '../ManagerReviewProgress';
 
 const ManagerReviewPerformanceCompetenciesDescription = importMDX.sync(
   './ManagerReviewPerformanceCompetenciesDescription.mdx',
@@ -160,12 +161,11 @@ export function ManagerReviewPerformanceCompetencies(props: Props) {
             <StickyBottomPaper noSticky={inView}>
               <Box display="flex">
                 <Box flex={1}>
-                  <Typography>
-                    {i18n._('You have evaluated {number} from {total} performance competencies criteria.', {
-                      number: Object.values(value).filter(isNotNil).length,
-                      total: 6,
-                    })}
-                  </Typography>
+                  <ManagerReviewProgress
+                    evaluatedItems={Object.values(value).filter(isNotNil).length}
+                    max={6}
+                    type="performance-competencies"
+                  />
                 </Box>
                 <SubmitButton variant="contained" color="primary" disabled={disabled}>
                   {i18n._('Save')}
