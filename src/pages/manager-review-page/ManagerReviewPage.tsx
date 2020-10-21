@@ -14,6 +14,7 @@ import { i18n } from '@lingui/core';
 import { useLazyLoadQuery } from 'react-relay/hooks';
 
 import ManagerReviewDominantCharacteristics from './dominant-characteristics/ManagerReviewDominantCharacteristics';
+import ManagerReviewOverallEvaluation from './overall-evaluation';
 import { ManagerReviewAchievements } from './achievements';
 import { ManagerReviewPageQuery } from './__generated__/ManagerReviewPageQuery.graphql';
 import { ManagerReviewPerformanceCompetencies } from './performance-competencies';
@@ -71,6 +72,11 @@ export default function ManagerReviewPage(props: Props) {
                 to={toPrefix + '/dominant-characteristics'}
               />
               <TabLink label={i18n._('Achievements')} value="achievements" to={toPrefix + '/achievements'} />
+              <TabLink
+                label={i18n._('Overall Evaluation')}
+                value="overall-evaluation"
+                to={toPrefix + '/overall-evaluation'}
+              />
             </Tabs>
           </TopStickyCard>
         </InView>
@@ -95,6 +101,10 @@ export default function ManagerReviewPage(props: Props) {
                 <Route
                   path={toPrefix + '/achievements'}
                   children={<ManagerReviewAchievements revieweeId={revieweeId} />}
+                />
+                <Route
+                  path={toPrefix + '/overall-evaluation'}
+                  children={<ManagerReviewOverallEvaluation revieweeId={revieweeId} />}
                 />
                 <Redirect to={toPrefix + '/performance-competencies'} />
               </Switch>
