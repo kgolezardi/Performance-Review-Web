@@ -5,56 +5,75 @@ import { LinearProgress } from 'src/shared/progress';
 import { i18n } from '@lingui/core';
 
 interface OwnProps {
-  /**
-   * Number of evaluated performance-competencies or achievements
-   */
   evaluatedItems: number;
-  max: number;
+  total: number;
   type: 'achievements' | 'performance-competencies';
 }
 
 type Props = FCProps<OwnProps>;
 
 export function ManagerReviewProgress(props: Props) {
-  const { max, type, evaluatedItems } = props;
+  const { evaluatedItems, total, type } = props;
 
-  const color = getColor(evaluatedItems, max);
-  const text = getText(evaluatedItems, max, type);
+  const state = getState(evaluatedItems, total);
+  const color = ManagerReviewColorDictionary[state];
+  const text = ManagerReviewTextDictionary[type][state];
 
   return (
     <Box display="flex" flexDirection="column">
-      <Typography>{text}</Typography>
+      <Typography>{text(evaluatedItems, total)}</Typography>
       <Box width="240px" marginTop={1}>
-        <LinearProgress color={color} value={(evaluatedItems / max) * 100} />
+        <LinearProgress color={color} value={(evaluatedItems / total) * 100} />
       </Box>
     </Box>
   );
 }
 
-const getColor = (evaluatedItems: number, max: number) => {
+type ProgressState = 'not-started' | 'in-progress' | 'completed';
+
+const getState = (evaluatedItems: number, total: number): ProgressState => {
   if (evaluatedItems === 0) {
-    return undefined;
+    return 'not-started';
   }
-  if (evaluatedItems === max) {
-    return 'complete';
+  if (evaluatedItems === total) {
+    return 'completed';
   }
-  return 'medium';
+  return 'in-progress';
 };
 
-const getText = (evaluatedItems: number, max: number, type: 'achievements' | 'performance-competencies') => {
-  if (evaluatedItems === 0) {
-    return type === 'performance-competencies'
-      ? i18n._("You haven't evaluated any performance competencies yet")
-      : i18n._("You haven't evaluated any achievements yet");
-  }
-  if (evaluatedItems === max) {
-    return type === 'performance-competencies'
-      ? i18n._('You have evaluated all {max} performance competencies. You can change them when you want to.', {
-          max,
-        })
-      : i18n._('You have evaluated all {max} achievements. You can change them when you want to.', { max });
-  }
-  return type === 'performance-competencies'
-    ? i18n._('{evaluatedItems} of {max} performance competencies are evaluated', { max, evaluatedItems })
-    : i18n._('{evaluatedItems} of {max} achievements are evaluated', { max, evaluatedItems });
+const ManagerReviewColorDictionary: Record<ProgressState, 'complete' | 'medium' | undefined> = {
+  'not-started': undefined,
+  'in-progress': 'medium',
+  completed: 'complete',
+};
+
+const ManagerReviewPerformanceCompetenciesTextDictionary: Record<
+  ProgressState,
+  (evaluatedItems: number, total: number) => string
+> = {
+  'not-started': (evaluatedItems: number, total: number) =>
+    i18n._("You haven't evaluated any performance competencies yet"),
+  'in-progress': (evaluatedItems: number, total: number) =>
+    i18n._('{evaluatedItems} of {total} performance competencies are evaluated', { evaluatedItems, total }),
+  completed: (evaluatedItems: number, total: number) =>
+    i18n._('You have evaluated all {total} performance competencies. You can change them when you want to.', { total }),
+};
+
+const ManagerReviewAchievementsTextDictionary: Record<
+  ProgressState,
+  (evaluatedItems: number, total: number) => string
+> = {
+  'not-started': (evaluatedItems: number, total: number) => i18n._("You haven't evaluated any achievements yet"),
+  'in-progress': (evaluatedItems: number, total: number) =>
+    i18n._('{evaluatedItems} of {total} achievements are evaluated', { evaluatedItems, total }),
+  completed: (evaluatedItems: number, total: number) =>
+    i18n._('You have evaluated all {total} achievements. You can change them when you want to.', { total }),
+};
+
+const ManagerReviewTextDictionary: Record<
+  'achievements' | 'performance-competencies',
+  Record<ProgressState, (evaluatedItems: number, total: number) => string>
+> = {
+  'performance-competencies': ManagerReviewPerformanceCompetenciesTextDictionary,
+  achievements: ManagerReviewAchievementsTextDictionary,
 };

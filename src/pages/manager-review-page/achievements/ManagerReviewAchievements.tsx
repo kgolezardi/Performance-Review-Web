@@ -95,7 +95,7 @@ export function ManagerReviewAchievements(props: Props) {
                 <Box flex={1}>
                   <ManagerReviewProgress
                     evaluatedItems={Object.values(value).filter(isNotNil).length}
-                    max={Object.values(value).length}
+                    total={Object.values(value).length}
                     type="achievements"
                   />
                 </Box>

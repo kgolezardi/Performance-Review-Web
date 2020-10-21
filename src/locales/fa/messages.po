@@ -44,7 +44,7 @@ msgstr "افزودن پروژه"
 msgid "All reviews were successfully done"
 msgstr "تمامی ارزیابی‌ها با موفقیت انجام شد"
 
-#: src/pages/manager-review-page/achievements/ManagerReviewAchievements.tsx:58
+#: src/pages/manager-review-page/achievements/ManagerReviewAchievements.tsx:59
 #: src/pages/manager-review-page/performance-competencies/ManagerReviewPerformanceCompetencies.tsx:76
 #: src/pages/peer-review-page/PeerReviewPersonInfoCard.tsx:49
 #: src/pages/peer-review-page/PeerReviewPersonInfoCard.tsx:54
@@ -333,7 +333,7 @@ msgid "Role Expertise and Self Development"
 msgstr "مرجعیت تخصصی"
 
 #: src/pages/criteria-page/CriteriaForm.tsx:77
-#: src/pages/manager-review-page/achievements/ManagerReviewAchievements.tsx:77
+#: src/pages/manager-review-page/achievements/ManagerReviewAchievements.tsx:73
 #: src/pages/manager-review-page/performance-competencies/ManagerReviewPerformanceCompetencies.tsx:106
 #: src/pages/peer-review-page/projectsTab/projects-form/PeerReviewProjectsForm.tsx:49
 #: src/pages/projects-page/ProjectForm.tsx:85
@@ -405,7 +405,7 @@ msgstr "ثبت"
 
 #: src/core/snackbar/Snackbar.stories.tsx:13
 #: src/pages/criteria-page/CriteriaPage.tsx:48
-#: src/pages/manager-review-page/achievements/ManagerReviewAchievements.tsx:55
+#: src/pages/manager-review-page/achievements/ManagerReviewAchievements.tsx:56
 #: src/pages/manager-review-page/performance-competencies/ManagerReviewPerformanceCompetencies.tsx:73
 #: src/pages/peer-review-page/projectsTab/project-expansion-panel/PeerReviewProjectExpansionPanel.tsx:37
 #: src/pages/projects-page/ProjectsPage.tsx:45
@@ -505,17 +505,13 @@ msgstr "بله"
 msgid "Yes! Go"
 msgstr "آره! می‌رم"
 
-#: src/pages/manager-review-page/ManagerReviewProgress.tsx:36
-msgid "You have evaluated all {max} achievements. You can change them when you want to."
-msgstr "هر {max} پروژه ارزیابی شد ، هر زمان که خواستی میتونی اونا رو تغییر بدی"
+#: src/pages/manager-review-page/ManagerReviewProgress.tsx:39
+msgid "You have evaluated all {total} achievements. You can change them when you want to."
+msgstr "هر {total} پروژه ارزیابی شد. هر زمان که خواستی می‌تونی اونارو تغییر بدی"
 
-#: src/pages/manager-review-page/ManagerReviewProgress.tsx:33
-msgid "You have evaluated all {max} performance competencies. You can change them when you want to."
-msgstr "هر {max} شایستگی عملکردی ارزیابی شد ، هر زمان که خواستی میتونی اونا رو تغییر بدی"
-
-#: src/pages/manager-review-page/achievements/ManagerReviewAchievements.tsx:70
-msgid "You have evaluated {number} from {total} projects."
-msgstr "شما {number} پروژه از {total} پروژه را ارزیابی کرده‌اید."
+#: src/pages/manager-review-page/ManagerReviewProgress.tsx:34
+msgid "You have evaluated all {total} performance competencies. You can change them when you want to."
+msgstr "هر {total} مورد شایستگی عملکردی ارزیابی شد. هر زمان که خواستی می‌تونی اونارو تغییر بدی"
 
 #: src/pages/dashboard-page/AchievementsNoProjects.tsx:6
 msgid "You haven't added any project."
@@ -526,11 +522,11 @@ msgstr "هنوز هیچ پروژه‌ای را اضافه نکردی!"
 msgid "You haven't entered anything yet!"
 msgstr "هنوز چیزی ننوشتی!"
 
-#: src/pages/manager-review-page/ManagerReviewProgress.tsx:29
+#: src/pages/manager-review-page/ManagerReviewProgress.tsx:37
 msgid "You haven't evaluated any achievements yet"
 msgstr "هنوز هیچ پروژه‌ای را ارزیابی نکردی"
 
-#: src/pages/manager-review-page/ManagerReviewProgress.tsx:28
+#: src/pages/manager-review-page/ManagerReviewProgress.tsx:32
 msgid "You haven't evaluated any performance competencies yet"
 msgstr "هنوز هیچ شایستگی عملکری را ارزیابی نکردی"
 
@@ -565,13 +561,13 @@ msgstr "ارزیابی شما از {name} در {criteria}"
 msgid "Your evaluation:"
 msgstr "ارزیابی شما:"
 
-#: src/pages/manager-review-page/ManagerReviewProgress.tsx:40
-msgid "{evaluatedItems} of {max} achievements are evaluated"
-msgstr "{evaluatedItems} از {max} پروژه ارزیابی شد"
+#: src/pages/manager-review-page/ManagerReviewProgress.tsx:38
+msgid "{evaluatedItems} of {total} achievements are evaluated"
+msgstr "{evaluatedItems} مورد از {total} پروژه ارزیابی شد"
 
-#: src/pages/manager-review-page/ManagerReviewProgress.tsx:39
-msgid "{evaluatedItems} of {max} performance competencies are evaluated"
-msgstr "{evaluatedItems} از {max} شایستگی عملکردی ارزیابی شد"
+#: src/pages/manager-review-page/ManagerReviewProgress.tsx:33
+msgid "{evaluatedItems} of {total} performance competencies are evaluated"
+msgstr "{evaluatedItems} مورد از {total} شایستگی عملکردی ارزیابی شد"
 
 #: src/pages/manager-review-page/achievements/ManagerReviewAchievementsRatingGroup.tsx:50
 #: src/pages/manager-review-page/performance-competencies/ManagerReviewPerformanceCompetenciesRatingGroup.tsx:66
