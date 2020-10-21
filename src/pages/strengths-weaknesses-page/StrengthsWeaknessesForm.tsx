@@ -1,12 +1,13 @@
 import graphql from 'babel-plugin-relay/macro';
 import React, { useContext } from 'react';
+import { ActionBar } from 'src/shared/action-bar';
 import { DictInput, DictInputItem, Forminator, SubmitButton } from 'src/shared/forminator';
 import { FCProps } from 'src/shared/types/FCProps';
 import { Grid } from '@material-ui/core';
 import { MDXContext } from '@mdx-js/react';
 import { MDXPropsProvider } from 'src/shared/mdx-provider/MDXPropsProvider';
 import { SectionGuide } from 'src/shared/section-guide';
-import { StickyActionBar } from 'src/shared/sticky-action-bar';
+import { StickyBottomPaper } from 'src/shared/sticky-bottom-paper';
 import { StrengthsOrWeaknesses } from 'src/shared/strengths-weaknesses';
 import { UserType } from 'src/shared/utils/getUserLabel';
 import { equals, filter } from 'ramda';
@@ -91,11 +92,13 @@ export function StrengthsWeaknessesForm(props: Props) {
             </Grid>
           </DictInputItem>
         </DictInput>
-        <StickyActionBar>
-          <SubmitButton variant="contained" color="primary">
-            {i18n._('Save')}
-          </SubmitButton>
-        </StickyActionBar>
+        <StickyBottomPaper>
+          <ActionBar>
+            <SubmitButton variant="contained" color="primary">
+              {i18n._('Save')}
+            </SubmitButton>
+          </ActionBar>
+        </StickyBottomPaper>
       </Grid>
     </Forminator>
   );

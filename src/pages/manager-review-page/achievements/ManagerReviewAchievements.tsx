@@ -1,13 +1,11 @@
 import React from 'react';
 import graphql from 'babel-plugin-relay/macro';
-import { Box, Theme, Typography, makeStyles } from '@material-ui/core';
-import { CSSProperties } from '@material-ui/core/styles/withStyles';
+import { Box, Typography } from '@material-ui/core';
 import { DictInput, Forminator, SubmitButton } from 'src/shared/forminator';
 import { Evaluation } from 'src/pages/dashboard-page/__generated__/AchievementsIndicators_projects.graphql';
 import { FCProps } from 'src/shared/types/FCProps';
 import { ServerValueProvider } from 'src/shared/server-value';
-import { StickyActionBar } from 'src/shared/sticky-action-bar';
-import { Styles } from 'src/shared/types/Styles';
+import { StickyBottomPaper } from 'src/shared/sticky-bottom-paper';
 import { i18n } from '@lingui/core';
 import { isNotNil } from 'src/shared/utils/general.util';
 import { useBiDiSnackbar } from 'src/shared/snackbar';
@@ -24,7 +22,7 @@ interface OwnProps {
   revieweeId: string;
 }
 
-export type Props = FCProps<OwnProps> & StyleProps;
+export type Props = FCProps<OwnProps>;
 
 const query = graphql`
   query ManagerReviewAchievementsQuery($id: ID!) {
@@ -45,7 +43,6 @@ const query = graphql`
 
 export function ManagerReviewAchievements(props: Props) {
   const { revieweeId } = props;
-  const classes = useStyles(props);
 
   const data = useLazyLoadQuery<ManagerReviewAchievementsQuery>(query, { id: revieweeId });
   const projectReviews = data.viewer.user?.projectReviews;
@@ -92,7 +89,7 @@ export function ManagerReviewAchievements(props: Props) {
             {projectReviews?.map((projectReview) => (
               <ManagerReviewAchievementsExpansionPanel projectReview={projectReview} key={projectReview.id} />
             ))}
-            <StickyActionBar noSticky={inView} classes={{ root: classes.stickyActionBar }}>
+            <StickyBottomPaper noSticky={inView}>
               <Box display="flex">
                 <Box flex={1}>
                   <Typography>
@@ -106,20 +103,10 @@ export function ManagerReviewAchievements(props: Props) {
                   {i18n._('Save')}
                 </SubmitButton>
               </Box>
-            </StickyActionBar>
+            </StickyBottomPaper>
           </DictInput>
         </Forminator>
       </ServerValueProvider>
     </Box>
   );
 }
-
-const styles = (theme: Theme) => ({
-  root: {} as CSSProperties,
-  stickyActionBar: {
-    display: 'block',
-  } as CSSProperties,
-});
-
-const useStyles = makeStyles(styles, { name: 'ManagerReviewAchievements' });
-type StyleProps = Styles<typeof styles>;

@@ -1,5 +1,6 @@
 import React from 'react';
 import graphql from 'babel-plugin-relay/macro';
+import { ActionBar } from 'src/shared/action-bar';
 import { Box, Grid } from '@material-ui/core';
 import {
   DictInput,
@@ -12,7 +13,7 @@ import {
 import { FCProps } from 'src/shared/types/FCProps';
 import { LIMITED_TEXT_AREA_COUNTER_DISPLAY_THRESHOLD, LIMITED_TEXT_AREA_MAX_CHARS } from 'src/shared/constants';
 import { Rating } from 'src/shared/rating';
-import { StickyActionBar } from 'src/shared/sticky-action-bar';
+import { StickyBottomPaper } from 'src/shared/sticky-bottom-paper';
 import { i18n } from '@lingui/core';
 import { useFragment } from 'react-relay/hooks';
 import { useInView } from 'react-intersection-observer';
@@ -74,11 +75,13 @@ export function PeerReviewProjectsForm(props: Props) {
             </DictInputItem>
           </Grid>
         </DictInput>
-        <StickyActionBar noSticky={!inView}>
-          <SubmitButton variant="contained" color="primary">
-            {i18n._('Save')}
-          </SubmitButton>
-        </StickyActionBar>
+        <StickyBottomPaper noSticky={!inView}>
+          <ActionBar>
+            <SubmitButton variant="contained" color="primary">
+              {i18n._('Save')}
+            </SubmitButton>
+          </ActionBar>
+        </StickyBottomPaper>
       </Grid>
     </Forminator>
   );
