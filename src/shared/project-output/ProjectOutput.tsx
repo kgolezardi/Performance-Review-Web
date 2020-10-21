@@ -50,7 +50,7 @@ export function ProjectOutput(props: Props) {
         <Typography color="textSecondary" gutterBottom>
           {i18n._('Accomplishments')}:
         </Typography>
-        <MultilineOutput value={review.text} />
+        <MultilineOutput value={review.text} enableTruncating />
       </Grid>
     </Grid>
   );
