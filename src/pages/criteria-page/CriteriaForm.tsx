@@ -1,5 +1,6 @@
 import graphql from 'babel-plugin-relay/macro';
 import React, { useContext } from 'react';
+import { ActionBar } from 'src/shared/action-bar';
 import { CriteriaHelpText } from 'src/shared/criteria-help-text';
 import { CriterionItem } from 'src/shared/criterion-item';
 import { DictInput, Forminator, SubmitButton } from 'src/shared/forminator';
@@ -8,7 +9,7 @@ import { Grid } from '@material-ui/core';
 import { MDXContext } from '@mdx-js/react';
 import { SectionGuide } from 'src/shared/section-guide';
 import { ServerValueProvider } from 'src/shared/server-value';
-import { StickyActionBar } from 'src/shared/sticky-action-bar/StickyActionBar';
+import { StickyBottomPaper } from 'src/shared/sticky-bottom-paper';
 import { i18n } from '@lingui/core';
 import { importMDX } from 'mdx.macro';
 import { useFragment } from 'react-relay/hooks';
@@ -122,11 +123,13 @@ export function CriteriaForm(props: Props) {
               />
             </Grid>
           </DictInput>
-          <StickyActionBar>
-            <SubmitButton variant="contained" color="primary">
-              {i18n._('Save')}
-            </SubmitButton>
-          </StickyActionBar>
+          <StickyBottomPaper>
+            <ActionBar>
+              <SubmitButton variant="contained" color="primary">
+                {i18n._('Save')}
+              </SubmitButton>
+            </ActionBar>
+          </StickyBottomPaper>
         </Grid>
       </Forminator>
     </ServerValueProvider>

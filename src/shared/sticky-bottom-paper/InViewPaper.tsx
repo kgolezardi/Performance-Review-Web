@@ -12,8 +12,8 @@ interface OwnProps {
 
 type Props = FCProps<OwnProps> & StyleProps;
 
-export function ActionBar(props: Props) {
-  const { noSticky = false } = props;
+export function InViewPaper(props: Props) {
+  const { children, noSticky = false } = props;
   const classes = useStyles(props);
   const { bottomInView } = useInViewContext();
 
@@ -28,7 +28,7 @@ export function ActionBar(props: Props) {
         }),
       }}
     >
-      {props.children}
+      {children}
     </Paper>
   );
 }
@@ -38,19 +38,13 @@ const styles = (theme: Theme) => ({
     marginTop: theme.spacing(2),
     bottom: -4,
     zIndex: theme.zIndex.appBar - 30,
-    width: '100%',
-    display: 'grid',
-    gridAutoFlow: 'column',
-    gridGap: theme.spacing(),
     padding: theme.spacing(2),
-    justifyContent: 'end',
+    width: '100%',
   } as CSSProperties,
   sticky: {
     position: 'sticky',
   } as CSSProperties,
 });
 
-const useStyles = makeStyles(styles, { name: 'ActionBar' });
+const useStyles = makeStyles(styles, { name: 'InViewPaper' });
 type StyleProps = Styles<typeof styles>;
-
-export type ActionBarProps = Props;

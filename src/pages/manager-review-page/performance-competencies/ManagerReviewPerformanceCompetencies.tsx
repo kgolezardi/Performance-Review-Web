@@ -1,7 +1,6 @@
 import graphql from 'babel-plugin-relay/macro';
 import React, { useContext } from 'react';
-import { Box, Theme, Typography, makeStyles } from '@material-ui/core';
-import { CSSProperties } from '@material-ui/core/styles/withStyles';
+import { Box, Typography } from '@material-ui/core';
 import { CriteriaHelpText } from 'src/shared/criteria-help-text';
 import { DictInput, Forminator, SubmitButton } from 'src/shared/forminator';
 import { FCProps } from 'src/shared/types/FCProps';
@@ -9,8 +8,7 @@ import { MDXContext } from '@mdx-js/react';
 import { MDXPropsProvider } from 'src/shared/mdx-provider/MDXPropsProvider';
 import { SectionGuide } from 'src/shared/section-guide';
 import { ServerValueProvider } from 'src/shared/server-value';
-import { StickyActionBar } from 'src/shared/sticky-action-bar';
-import { Styles } from 'src/shared/types/Styles';
+import { StickyBottomPaper } from 'src/shared/sticky-bottom-paper';
 import { UserType } from 'src/shared/utils/getUserLabel';
 import { i18n } from '@lingui/core';
 import { importMDX } from 'mdx.macro';
@@ -19,6 +17,7 @@ import { useBiDiSnackbar } from 'src/shared/snackbar';
 import { useInView } from 'react-intersection-observer';
 import { useLazyLoadQuery } from 'react-relay/hooks';
 import { useMutation } from 'src/relay';
+import { usePromptStateContext } from 'src/shared/prompt/PromptProvider';
 
 import { ManagerReviewPerformanceCompetenciesExpansionPanel } from './ManagerReviewPerformanceCompetenciesExpansionPanel';
 import { ManagerReviewPerformanceCompetenciesMutation } from './__generated__/ManagerReviewPerformanceCompetenciesMutation.graphql';
@@ -54,11 +53,10 @@ interface OwnProps {
   revieweeId: string;
 }
 
-type Props = FCProps<OwnProps> & StyleProps;
+type Props = FCProps<OwnProps>;
 
 export function ManagerReviewPerformanceCompetencies(props: Props) {
   const { revieweeId } = props;
-  const classes = useStyles(props);
 
   const data = useLazyLoadQuery<ManagerReviewPerformanceCompetenciesQuery>(query, { id: revieweeId });
   const savePersonReview = useMutation<ManagerReviewPerformanceCompetenciesMutation>(graphql`
@@ -99,13 +97,16 @@ export function ManagerReviewPerformanceCompetencies(props: Props) {
       });
   };
 
+  const { changed } = usePromptStateContext();
+  const disabled = !changed;
+
   const reviews = data.viewer.user?.personReviews;
   if (!reviews) {
     return <Box padding={4}>no data</Box>;
   }
 
   return (
-    <Box padding={4} className={classes.root}>
+    <Box padding={4}>
       <SectionGuide>
         <MDXPropsProvider<UserType | null> value={data.viewer.user || null}>
           <ManagerReviewPerformanceCompetenciesDescription components={components} />
@@ -156,7 +157,7 @@ export function ManagerReviewPerformanceCompetencies(props: Props) {
               prefix="presence"
               reviewee={data.viewer.user}
             />
-            <StickyActionBar noSticky={inView} classes={{ root: classes.stickyActionBar }}>
+            <StickyBottomPaper noSticky={inView}>
               <Box display="flex">
                 <Box flex={1}>
                   <Typography>
@@ -166,24 +167,14 @@ export function ManagerReviewPerformanceCompetencies(props: Props) {
                     })}
                   </Typography>
                 </Box>
-                <SubmitButton variant="contained" color="primary">
+                <SubmitButton variant="contained" color="primary" disabled={disabled}>
                   {i18n._('Save')}
                 </SubmitButton>
               </Box>
-            </StickyActionBar>
+            </StickyBottomPaper>
           </DictInput>
         </Forminator>
       </ServerValueProvider>
     </Box>
   );
 }
-
-const styles = (theme: Theme) => ({
-  root: {} as CSSProperties,
-  stickyActionBar: {
-    display: 'block',
-  } as CSSProperties,
-});
-
-const useStyles = makeStyles(styles, { name: 'ManagerReviewPerformanceCompetencies' });
-type StyleProps = Styles<typeof styles>;

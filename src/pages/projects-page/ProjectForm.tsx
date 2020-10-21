@@ -1,5 +1,6 @@
 import graphql from 'babel-plugin-relay/macro';
 import React, { useCallback, useMemo } from 'react';
+import { ActionBar } from 'src/shared/action-bar';
 import { Box, Grid, Typography } from '@material-ui/core';
 import { ConfirmButton } from 'src/shared/confirm-button';
 import {
@@ -17,7 +18,7 @@ import { LIMITED_TEXT_AREA_COUNTER_DISPLAY_THRESHOLD, LIMITED_TEXT_AREA_MAX_CHAR
 import { Rating } from 'src/shared/rating';
 import { ReviewersInput } from 'src/shared/reviewers-input';
 import { ReviewersInputProps } from 'src/shared/reviewers-input/types';
-import { StickyActionBar } from 'src/shared/sticky-action-bar';
+import { StickyBottomPaper } from 'src/shared/sticky-bottom-paper';
 import { equals, identity, prop, sortBy } from 'ramda';
 import { i18n } from '@lingui/core';
 import { useAuthGuardUser } from 'src/core/auth';
@@ -131,18 +132,20 @@ export function ProjectForm(props: Props) {
             </DictInputItem>
           </Grid>
         </DictInput>
-        <StickyActionBar noSticky={!inView}>
-          <ConfirmButton
-            buttonText={i18n._('Delete')}
-            onConfirm={handleDelete}
-            text={i18n._('Are you sure you want to delete this project review?')}
-            ConfirmComponent={DangerButton}
-            confirmProps={{ variant: 'contained' }}
-          />
-          <SubmitButton variant="contained" color="primary">
-            {i18n._('Save')}
-          </SubmitButton>
-        </StickyActionBar>
+        <StickyBottomPaper noSticky={!inView}>
+          <ActionBar>
+            <ConfirmButton
+              buttonText={i18n._('Delete')}
+              onConfirm={handleDelete}
+              text={i18n._('Are you sure you want to delete this project review?')}
+              ConfirmComponent={DangerButton}
+              confirmProps={{ variant: 'contained' }}
+            />
+            <SubmitButton variant="contained" color="primary">
+              {i18n._('Save')}
+            </SubmitButton>
+          </ActionBar>
+        </StickyBottomPaper>
       </Grid>
     </Forminator>
   );
