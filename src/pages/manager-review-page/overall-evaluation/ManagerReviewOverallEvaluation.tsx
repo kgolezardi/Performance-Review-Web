@@ -87,7 +87,7 @@ export default function ManagerReviewOverallEvaluation(props: Props) {
                   <Box height="42px" clone>
                     <Rating fullWidth inputLabel={i18n._('Evaluation')} type="peer" margin="none" />
                   </Box>
-                  <FragmentPrompt value={overallRating} />
+                  <FragmentPrompt value={overallRating ?? null} />
                 </DictInputItem>
               </Grid>
               <Grid item>
