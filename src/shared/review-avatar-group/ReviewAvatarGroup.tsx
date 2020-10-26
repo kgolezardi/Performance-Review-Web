@@ -24,13 +24,16 @@ export function ReviewAvatarGroup(props: Props) {
   const classes = useStyles(props);
 
   return (
-    <AvatarGroup max={3} classes={{ root: classes.root, avatar: classes.avatar }}>
+    <AvatarGroup max={3} classes={{ root: classes.root, avatar: classes.avatars }}>
       {users.map((user, index) => (
         <Avatar
           alt={user.name}
           key={index}
           src={user.avatarUrl ?? undefined}
-          className={clsx({ [classes.self]: user.self })}
+          classes={{
+            root: clsx(classes.avatar, { [classes.self]: user.self }),
+            colorDefault: classes.colorDefault,
+          }}
         />
       ))}
     </AvatarGroup>
@@ -39,10 +42,17 @@ export function ReviewAvatarGroup(props: Props) {
 
 const styles = (theme: Theme) => ({
   root: {} as CSSProperties,
-  avatar: {
+  avatars: {
     width: theme.spacing(4),
     height: theme.spacing(4),
   } as CSSProperties,
+  avatar: {
+    // Only apply white background to none fallback avatars
+    '&:not($colorDefault)': {
+      background: theme.palette.common.white,
+    },
+  } as CSSProperties,
+  colorDefault: {} as CSSProperties,
   self: {
     borderWidth: 2,
     borderStyle: 'solid',
