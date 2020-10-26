@@ -46,6 +46,17 @@ export function getMenuItems(phase: Phase, user: User): MenuItem[] {
       },
     ];
   }
+  if (phase === 'MANAGER_REVIEW' && user.hasStarted) {
+    return [
+      {
+        text: i18n._('Dashboard'),
+        link: {
+          exact: true,
+          to: '/manager-review',
+        },
+      },
+    ];
+  }
   // TODO support other phases
   return [];
 }

@@ -76,6 +76,7 @@ msgid "Criteria"
 msgstr "معیارها"
 
 #: src/containers/main/getMenuItems.ts:6
+#: src/containers/main/getMenuItems.ts:45
 msgid "Dashboard"
 msgstr "پیشخوان"
 
@@ -477,7 +478,7 @@ msgstr "تلاش مجدد"
 msgid "Unknown"
 msgstr "نامعین"
 
-#: src/pages/manager-review-dashboard/ManagerReviewDashboard.tsx:25
+#: src/pages/manager-review-dashboard/ManagerReviewDashboard.tsx:26
 msgid "User"
 msgstr "کاربر"
 
@@ -490,6 +491,7 @@ msgid "Username or Password is incorrect."
 msgstr "نام کاربری یا گذرواژه اشتباه است."
 
 #: src/pages/dashboard-page/LinkButton.tsx:10
+#: src/pages/manager-review-dashboard/ManagerReviewDashboard.tsx:34
 msgid "View"
 msgstr "مشاهده"
 
