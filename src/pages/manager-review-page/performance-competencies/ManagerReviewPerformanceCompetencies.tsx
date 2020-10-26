@@ -1,6 +1,6 @@
 import graphql from 'babel-plugin-relay/macro';
 import React, { useContext } from 'react';
-import { Box } from '@material-ui/core';
+import { Box, Grid } from '@material-ui/core';
 import { CriteriaHelpText } from 'src/shared/criteria-help-text';
 import { DictInput, Forminator, SubmitButton } from 'src/shared/forminator';
 import { FCProps } from 'src/shared/types/FCProps';
@@ -115,64 +115,78 @@ export function ManagerReviewPerformanceCompetencies(props: Props) {
       </SectionGuide>
       <ServerValueProvider value={value}>
         <Forminator onSubmit={handleSubmit} initialValue={value}>
-          <DictInput>
-            <ManagerReviewPerformanceCompetenciesExpansionPanel
-              reviews={reviews}
-              details={<CriteriaHelpText criteria="sahabiness" isSelfReview={false} />}
-              title={i18n._('Organization Culture Adoption')}
-              prefix="sahabiness"
-              reviewee={data.viewer.user}
-            />
-            <ManagerReviewPerformanceCompetenciesExpansionPanel
-              reviews={reviews}
-              details={<CriteriaHelpText criteria="problemSolving" isSelfReview={false} />}
-              title={i18n._('Problem Solving')}
-              prefix="problemSolving"
-              reviewee={data.viewer.user}
-            />
-            <ManagerReviewPerformanceCompetenciesExpansionPanel
-              reviews={reviews}
-              details={<CriteriaHelpText criteria="execution" isSelfReview={false} />}
-              title={i18n._('Execution')}
-              prefix="execution"
-              reviewee={data.viewer.user}
-            />
-            <ManagerReviewPerformanceCompetenciesExpansionPanel
-              reviews={reviews}
-              details={<CriteriaHelpText criteria="thoughtLeadership" isSelfReview={false} />}
-              title={i18n._('Thought Leadership')}
-              prefix="thoughtLeadership"
-              reviewee={data.viewer.user}
-            />
-            <ManagerReviewPerformanceCompetenciesExpansionPanel
-              reviews={reviews}
-              details={<CriteriaHelpText criteria="leadership" isSelfReview={false} />}
-              title={i18n._('Leadership')}
-              prefix="leadership"
-              reviewee={data.viewer.user}
-            />
-            <ManagerReviewPerformanceCompetenciesExpansionPanel
-              reviews={reviews}
-              details={<CriteriaHelpText criteria="presence" isSelfReview={false} />}
-              title={i18n._('Presence')}
-              prefix="presence"
-              reviewee={data.viewer.user}
-            />
-            <StickyBottomPaper noSticky={inView}>
-              <Box display="flex">
-                <Box flex={1}>
-                  <ManagerReviewProgress
-                    evaluatedItems={Object.values(value).filter(isNotNil).length}
-                    total={6}
-                    type="performance-competencies"
-                  />
+          <Grid container spacing={4}>
+            <DictInput>
+              <Grid item xs={12}>
+                <ManagerReviewPerformanceCompetenciesExpansionPanel
+                  reviews={reviews}
+                  details={<CriteriaHelpText criteria="sahabiness" isSelfReview={false} />}
+                  title={i18n._('Organization Culture Adoption')}
+                  prefix="sahabiness"
+                  reviewee={data.viewer.user}
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <ManagerReviewPerformanceCompetenciesExpansionPanel
+                  reviews={reviews}
+                  details={<CriteriaHelpText criteria="problemSolving" isSelfReview={false} />}
+                  title={i18n._('Problem Solving')}
+                  prefix="problemSolving"
+                  reviewee={data.viewer.user}
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <ManagerReviewPerformanceCompetenciesExpansionPanel
+                  reviews={reviews}
+                  details={<CriteriaHelpText criteria="execution" isSelfReview={false} />}
+                  title={i18n._('Execution')}
+                  prefix="execution"
+                  reviewee={data.viewer.user}
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <ManagerReviewPerformanceCompetenciesExpansionPanel
+                  reviews={reviews}
+                  details={<CriteriaHelpText criteria="thoughtLeadership" isSelfReview={false} />}
+                  title={i18n._('Thought Leadership')}
+                  prefix="thoughtLeadership"
+                  reviewee={data.viewer.user}
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <ManagerReviewPerformanceCompetenciesExpansionPanel
+                  reviews={reviews}
+                  details={<CriteriaHelpText criteria="leadership" isSelfReview={false} />}
+                  title={i18n._('Leadership')}
+                  prefix="leadership"
+                  reviewee={data.viewer.user}
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <ManagerReviewPerformanceCompetenciesExpansionPanel
+                  reviews={reviews}
+                  details={<CriteriaHelpText criteria="presence" isSelfReview={false} />}
+                  title={i18n._('Presence')}
+                  prefix="presence"
+                  reviewee={data.viewer.user}
+                />
+              </Grid>
+              <StickyBottomPaper noSticky={inView}>
+                <Box display="flex">
+                  <Box flex={1}>
+                    <ManagerReviewProgress
+                      evaluatedItems={Object.values(value).filter(isNotNil).length}
+                      total={6}
+                      type="performance-competencies"
+                    />
+                  </Box>
+                  <SubmitButton variant="contained" color="primary" disabled={disabled}>
+                    {i18n._('Save')}
+                  </SubmitButton>
                 </Box>
-                <SubmitButton variant="contained" color="primary" disabled={disabled}>
-                  {i18n._('Save')}
-                </SubmitButton>
-              </Box>
-            </StickyBottomPaper>
-          </DictInput>
+              </StickyBottomPaper>
+            </DictInput>
+          </Grid>
         </Forminator>
       </ServerValueProvider>
     </Box>
