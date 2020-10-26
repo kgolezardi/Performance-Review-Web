@@ -26,8 +26,8 @@ export function AnonymousReviewItemInfo(props: Props) {
           alignItems="center"
           borderRadius="50%"
           bgcolor={bgcolor}
-          width={40}
-          height={40}
+          width={48}
+          height={48}
         >
           {type === 'self' ? <SelfCommentIcon color="primary" /> : <PeerCommnentIcon color="action" />}
         </Box>
