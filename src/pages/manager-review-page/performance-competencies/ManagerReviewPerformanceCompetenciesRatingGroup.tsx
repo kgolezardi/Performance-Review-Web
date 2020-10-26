@@ -11,6 +11,7 @@ import {
   PerformanceCompetenciesRating,
   selfReviewEvaluationDictionary,
 } from 'src/global-types';
+import type { ReviewAvatar } from 'src/shared/review-avatar-group';
 import { ReviewAvatarGroup } from 'src/shared/review-avatar-group';
 import { ReviewItemInfo } from 'src/shared/review-item-info';
 import { getUserLabel } from 'src/shared/utils/getUserLabel';
@@ -77,11 +78,17 @@ export const ManagerReviewPerformanceCompetenciesRatingGroup = React.memo(
     const evaluationsCount = filteredByRating.length;
     const commentsCount = sortedReviews.length;
 
-    const reviewers = filteredByRating.map((review) => review.reviewer).filter(isNotNil);
-    const reviewAvatars = reviewers.map((reviewer) => ({
-      avatarUrl: reviewer.avatarUrl ?? undefined,
-      name: getUserLabel(reviewer),
-    }));
+    const reviewAvatars: ReadonlyArray<ReviewAvatar> = filteredByRating
+      .map((review) =>
+        review.reviewer
+          ? {
+              self: review.isSelfReview,
+              avatarUrl: review.reviewer.avatarUrl ?? undefined,
+              name: getUserLabel(review.reviewer),
+            }
+          : null,
+      )
+      .filter(isNotNil);
 
     return (
       <Box marginTop={3}>
