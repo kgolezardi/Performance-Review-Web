@@ -78,6 +78,13 @@ const ResultPage = React.lazy(() =>
   ),
 );
 
+const ManagerReviewDashbaord = React.lazy(() =>
+  import(
+    /* webpackChunkName: "manager-review-dashboard-page" */
+    'src/pages/manager-review-dashboard/ManagerReviewDashboard'
+  ),
+);
+
 interface Props {}
 
 const query = graphql`
@@ -139,6 +146,7 @@ export function MainRoutes(props: FCProps<Props>) {
       <Switch>
         <Redirect exact path="/" to="/manager-review" />
         <Route path="/manager-review/:uid/:tab?" children={<ManagerReviewPage />} />
+        <Route path="/manager-review" children={<ManagerReviewDashbaord />} />
       </Switch>
     );
   }

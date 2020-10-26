@@ -118,7 +118,7 @@ msgid "Error"
 msgstr "Error"
 
 #: src/pages/manager-review-page/achievements/ManagerReviewAchievementsExpansionPanel.tsx:86
-#: src/pages/manager-review-page/overall-evaluation/ManagerReviewOverallEvaluation.tsx:62
+#: src/pages/manager-review-page/overall-evaluation/ManagerReviewOverallEvaluation.tsx:63
 #: src/pages/manager-review-page/performance-competencies/ManagerReviewPerformanceCompetenciesExpansionPanel.tsx:45
 #: src/pages/peer-review-page/projectsTab/projects-form/PeerReviewProjectsForm.tsx:34
 #: src/shared/criterion-item/CriterionItem.tsx:22
@@ -340,7 +340,7 @@ msgstr "Role Expertise and Self Development"
 
 #: src/pages/criteria-page/CriteriaForm.tsx:77
 #: src/pages/manager-review-page/achievements/ManagerReviewAchievements.tsx:73
-#: src/pages/manager-review-page/overall-evaluation/ManagerReviewOverallEvaluation.tsx:70
+#: src/pages/manager-review-page/overall-evaluation/ManagerReviewOverallEvaluation.tsx:71
 #: src/pages/manager-review-page/performance-competencies/ManagerReviewPerformanceCompetencies.tsx:106
 #: src/pages/peer-review-page/projectsTab/projects-form/PeerReviewProjectsForm.tsx:49
 #: src/pages/projects-page/ProjectForm.tsx:85
@@ -476,6 +476,10 @@ msgstr "Try Again"
 #: src/shared/evaluation-output/EvaluationOutput.tsx:24
 msgid "Unknown"
 msgstr "Unknown"
+
+#: src/pages/manager-review-dashboard/ManagerReviewDashboard.tsx:25
+msgid "User"
+msgstr "User"
 
 #: src/shared/auth/LoginForm.tsx:12
 msgid "Username"
