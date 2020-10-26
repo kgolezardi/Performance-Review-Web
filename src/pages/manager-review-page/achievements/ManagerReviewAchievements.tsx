@@ -1,6 +1,6 @@
 import React from 'react';
 import graphql from 'babel-plugin-relay/macro';
-import { Box } from '@material-ui/core';
+import { Box, Grid } from '@material-ui/core';
 import { DictInput, Forminator, SubmitButton } from 'src/shared/forminator';
 import { Evaluation } from 'src/pages/dashboard-page/__generated__/AchievementsIndicators_projects.graphql';
 import { FCProps } from 'src/shared/types/FCProps';
@@ -86,25 +86,29 @@ export function ManagerReviewAchievements(props: Props) {
     <Box padding={4}>
       <ServerValueProvider value={value}>
         <Forminator onSubmit={handleSubmit} initialValue={value}>
-          <DictInput>
-            {projectReviews?.map((projectReview) => (
-              <ManagerReviewAchievementsExpansionPanel projectReview={projectReview} key={projectReview.id} />
-            ))}
-            <StickyBottomPaper noSticky={inView}>
-              <Box display="flex">
-                <Box flex={1}>
-                  <ManagerReviewProgress
-                    evaluatedItems={Object.values(value).filter(isNotNil).length}
-                    total={Object.values(value).length}
-                    type="achievements"
-                  />
+          <Grid container spacing={4}>
+            <DictInput>
+              {projectReviews?.map((projectReview) => (
+                <Grid item xs={12} key={projectReview.id}>
+                  <ManagerReviewAchievementsExpansionPanel projectReview={projectReview} />
+                </Grid>
+              ))}
+              <StickyBottomPaper noSticky={inView}>
+                <Box display="flex">
+                  <Box flex={1}>
+                    <ManagerReviewProgress
+                      evaluatedItems={Object.values(value).filter(isNotNil).length}
+                      total={Object.values(value).length}
+                      type="achievements"
+                    />
+                  </Box>
+                  <SubmitButton variant="contained" color="primary">
+                    {i18n._('Save')}
+                  </SubmitButton>
                 </Box>
-                <SubmitButton variant="contained" color="primary">
-                  {i18n._('Save')}
-                </SubmitButton>
-              </Box>
-            </StickyBottomPaper>
-          </DictInput>
+              </StickyBottomPaper>
+            </DictInput>
+          </Grid>
         </Forminator>
       </ServerValueProvider>
     </Box>
