@@ -31,7 +31,7 @@ const styles = (theme: Theme) => ({
   } as CSSProperties,
   expandIcon: {
     '@media print': {
-      display: 'none',
+      display: 'none !important',
     },
   } as CSSProperties,
 });

@@ -17,6 +17,7 @@ import { useServerValueContext } from 'src/shared/server-value';
 import { ManagerReviewAchievementsExpansionPanel_projectReview$key } from './__generated__/ManagerReviewAchievementsExpansionPanel_projectReview.graphql';
 import { ManagerReviewAchievementsRatingGroup } from './ManagerReviewAchievementsRatingGroup';
 import { ManagerReviewAchievementsValue } from './ManagerReviewAchievementsValue';
+import { ManagerReviewEvaluationBox } from '../ManagerReviewEvaluationBox';
 import { ManagerReviewEvaluationExpansionPanelSummary } from '../ManagerReviewExpansionPanelSummary';
 
 const fragment = graphql`
@@ -90,20 +91,15 @@ export function ManagerReviewAchievementsExpansionPanel(props: Props) {
           </Grid>
           <Grid item xs>
             <DictInputItem field={projectReview.id}>
-              <Box bgcolor="grey.100" marginTop={4} padding={2}>
-                <Box color="grey.700">
-                  <Typography gutterBottom>
-                    {i18n._('Your evaluation of {name} on project {projectName}', {
-                      name,
-                      projectName: projectReview.project.name,
-                    })}
-                  </Typography>
-                </Box>
-                <Box width="320px">
-                  <Rating inputLabel={i18n._('Evaluation')} type="peer" />
-                </Box>
-              </Box>
-              <FragmentPrompt value={rating} />
+              <ManagerReviewEvaluationBox
+                text={i18n._('Your evaluation of {name} on project {projectName}', {
+                  name,
+                  projectName: projectReview.project.name,
+                })}
+              >
+                <Rating inputLabel={i18n._('Evaluation')} type="peer" />
+                <FragmentPrompt value={rating} />
+              </ManagerReviewEvaluationBox>
             </DictInputItem>
           </Grid>
         </Grid>

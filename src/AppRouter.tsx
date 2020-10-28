@@ -11,6 +11,8 @@ import { BrowserRouter as Router } from 'src/shared/router';
 import { SettingsProvider } from 'src/core/settings';
 import { useConfirmContext } from 'src/shared/confirm-provider';
 
+import { ManagerReviewPrintPage } from './pages/manager-review-page/ManagerReviewPrintPage';
+
 interface OwnProps {}
 
 type Props = FCProps<OwnProps>;
@@ -27,6 +29,7 @@ export function AppRouter(props: Props) {
               <div id="game-container" />
               <Switch>
                 <Route path="/print" children={<ResultPrintPage />} />
+                <Route path="/print-manager-review/:uid" children={<ManagerReviewPrintPage />} />
                 <Route children={<MainContainer />} />
               </Switch>
             </AuthGuard>

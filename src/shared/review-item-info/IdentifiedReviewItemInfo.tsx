@@ -20,7 +20,7 @@ export function IdentifiedReviewItemInfo(props: Props) {
   return (
     <Grid container spacing={2} className={classes.root}>
       <Grid item>
-        <Avatar src={src} className={classes.avatar}>
+        <Avatar className={classes.avatar} src={src}>
           {name?.[0]}
         </Avatar>
       </Grid>
@@ -48,6 +48,9 @@ const RevieweeChip = styled(Chip)(({ theme }: { theme: Theme }) => ({
 const styles = (theme: Theme) => ({
   root: {} as CSSProperties,
   avatar: {
+    '@media print': {
+      display: 'none !important',
+    },
     width: theme.spacing(6),
     height: theme.spacing(6),
   } as CSSProperties,

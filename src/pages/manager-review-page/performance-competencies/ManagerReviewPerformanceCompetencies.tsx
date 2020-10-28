@@ -180,9 +180,11 @@ export function ManagerReviewPerformanceCompetencies(props: Props) {
                       type="performance-competencies"
                     />
                   </Box>
-                  <SubmitButton variant="contained" color="primary" disabled={disabled}>
-                    {i18n._('Save')}
-                  </SubmitButton>
+                  <Box displayPrint="none !important">
+                    <SubmitButton variant="contained" color="primary" disabled={disabled}>
+                      {i18n._('Save')}
+                    </SubmitButton>
+                  </Box>
                 </Box>
               </StickyBottomPaper>
             </DictInput>

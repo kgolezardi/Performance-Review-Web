@@ -29,6 +29,12 @@ const styles = (theme: Theme) =>
       html: {} as CSSProperties,
       body: {
         direction: 'ltr', // automatically changes to `rtl` based on theme.
+        '@media print': {
+          '& div': {
+            // `display: flex` breaks pageBreakInside behaviour
+            display: 'block !important',
+          },
+        },
       } as CSSProperties,
     },
   });

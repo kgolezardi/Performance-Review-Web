@@ -1,11 +1,10 @@
 import graphql from 'babel-plugin-relay/macro';
 import React, { ReactNode } from 'react';
-import { Box, Typography } from '@material-ui/core';
+import { Box } from '@material-ui/core';
 import { DictInputItem, FragmentPrompt } from 'src/shared/forminator';
 import { Evaluation } from 'src/__generated__/enums';
 import { ExpansionPanel, ExpansionPanelDetails } from 'src/shared/expansion-panel';
 import { FCProps } from 'src/shared/types/FCProps';
-import { HelperText } from 'src/shared/helper-text/HelperText';
 import { Rating } from 'src/shared/rating';
 import { getUserLabel } from 'src/shared/utils/getUserLabel';
 import { getUserLabel_user$key } from 'src/shared/utils/__generated__/getUserLabel_user.graphql';
@@ -13,7 +12,9 @@ import { i18n } from '@lingui/core';
 import { useFragment } from 'react-relay/hooks';
 import { useServerValueContext } from 'src/shared/server-value';
 
+import { ManagerReviewEvaluationBox } from '../ManagerReviewEvaluationBox';
 import { ManagerReviewEvaluationExpansionPanelSummary } from '../ManagerReviewExpansionPanelSummary';
+import { ManagerReviewPerformanceCompetenciesCriteriaHeading } from './ManagerReviewPerformanceCompetenciesCriteriaHeading';
 import { ManagerReviewPerformanceCompetenciesExpansionPanel_reviews$key } from './__generated__/ManagerReviewPerformanceCompetenciesExpansionPanel_reviews.graphql';
 import { ManagerReviewPerformanceCompetenciesRatingGroup } from './ManagerReviewPerformanceCompetenciesRatingGroup';
 
@@ -49,8 +50,7 @@ export function ManagerReviewPerformanceCompetenciesExpansionPanel(props: Props)
   return (
     <ExpansionPanel>
       <ManagerReviewEvaluationExpansionPanelSummary rating={rating}>
-        <Typography variant="h3">{title}</Typography>
-        <HelperText text={details} />
+        <ManagerReviewPerformanceCompetenciesCriteriaHeading title={title} description={details} />
       </ManagerReviewEvaluationExpansionPanelSummary>
       <ExpansionPanelDetails>
         <Box width="100%">
@@ -72,17 +72,12 @@ export function ManagerReviewPerformanceCompetenciesExpansionPanel(props: Props)
           />
           <ManagerReviewPerformanceCompetenciesRatingGroup rating={null} prefix={prefix} reviews={reviews} />
           <DictInputItem field={prefix + 'Rating'}>
-            <Box bgcolor="grey.100" marginTop={4} padding={2}>
-              <Box color="grey.700">
-                <Typography gutterBottom>
-                  {i18n._('Your evaluation of {name} on {criteria}', { name, criteria: title })}
-                </Typography>
-              </Box>
-              <Box width="320px">
-                <Rating inputLabel={i18n._('Evaluation')} type="peer" />
-              </Box>
-            </Box>
-            <FragmentPrompt value={rating} />
+            <ManagerReviewEvaluationBox
+              text={i18n._('Your evaluation of {name} on {criteria}', { name, criteria: title })}
+            >
+              <Rating inputLabel={i18n._('Evaluation')} type="peer" />
+              <FragmentPrompt value={rating} />
+            </ManagerReviewEvaluationBox>
           </DictInputItem>
         </Box>
       </ExpansionPanelDetails>

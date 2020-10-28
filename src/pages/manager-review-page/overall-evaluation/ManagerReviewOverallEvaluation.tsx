@@ -1,5 +1,5 @@
-import React from 'react';
 import graphql from 'babel-plugin-relay/macro';
+import React, { Fragment } from 'react';
 import { Box, Grid, Typography } from '@material-ui/core';
 import {
   ConstantInput,
@@ -9,6 +9,7 @@ import {
   FragmentPrompt,
   SubmitButton,
 } from 'src/shared/forminator';
+import { EvaluationOutput } from 'src/shared/evaluation-output';
 import { FCProps } from 'src/shared/types/FCProps';
 import { Rating } from 'src/shared/rating';
 import { ServerValueProvider } from 'src/shared/server-value';
@@ -72,35 +73,40 @@ export default function ManagerReviewOverallEvaluation(props: Props) {
       });
   };
   return (
-    <Box paddingY={12} paddingX={20}>
-      <ServerValueProvider value={value}>
-        <Forminator onSubmit={handleSubmit} initialValue={value}>
-          {/* TODO: Add overall evaluation text */}
-          <Typography gutterBottom />
-          <DictInput>
-            <DictInputItem field="revieweeId">
-              <ConstantInput />
-            </DictInputItem>
-            <Grid container spacing={3}>
-              <Grid item xs>
-                <DictInputItem field="overallRating">
-                  <Box height="42px" clone>
-                    <Rating fullWidth inputLabel={i18n._('Evaluation')} type="peer" margin="none" />
+    <Fragment>
+      <Box paddingY={12} paddingX={20} displayPrint="none !important">
+        <ServerValueProvider value={value}>
+          <Forminator onSubmit={handleSubmit} initialValue={value}>
+            {/* TODO: Add overall evaluation text */}
+            <Typography gutterBottom />
+            <DictInput>
+              <DictInputItem field="revieweeId">
+                <ConstantInput />
+              </DictInputItem>
+              <Grid container spacing={3}>
+                <Grid item xs>
+                  <DictInputItem field="overallRating">
+                    <Box height="42px" clone>
+                      <Rating fullWidth inputLabel={i18n._('Evaluation')} type="peer" margin="none" />
+                    </Box>
+                    <FragmentPrompt value={overallRating ?? null} />
+                  </DictInputItem>
+                </Grid>
+                <Grid item>
+                  <Box alignItems="center" display="flex" height="100%" marginTop="1px">
+                    <SubmitButton color="primary" size="large" variant="contained">
+                      {i18n._('Save')}
+                    </SubmitButton>
                   </Box>
-                  <FragmentPrompt value={overallRating ?? null} />
-                </DictInputItem>
+                </Grid>
               </Grid>
-              <Grid item>
-                <Box alignItems="center" display="flex" height="100%" marginTop="1px">
-                  <SubmitButton color="primary" size="large" variant="contained">
-                    {i18n._('Save')}
-                  </SubmitButton>
-                </Box>
-              </Grid>
-            </Grid>
-          </DictInput>
-        </Forminator>
-      </ServerValueProvider>
-    </Box>
+            </DictInput>
+          </Forminator>
+        </ServerValueProvider>
+      </Box>
+      <Box display="none">
+        <EvaluationOutput type="peer" value={overallRating ?? null} />
+      </Box>
+    </Fragment>
   );
 }
