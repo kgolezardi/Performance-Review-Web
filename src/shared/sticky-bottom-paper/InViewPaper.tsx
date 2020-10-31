@@ -40,9 +40,15 @@ const styles = (theme: Theme) => ({
     zIndex: theme.zIndex.appBar - 30,
     padding: theme.spacing(2),
     width: '100%',
+    '@media print': {
+      boxShadow: 'none',
+    },
   } as CSSProperties,
   sticky: {
     position: 'sticky',
+    '@media print': {
+      position: 'static',
+    },
   } as CSSProperties,
 });
 

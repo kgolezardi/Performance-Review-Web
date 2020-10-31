@@ -41,7 +41,11 @@ export function ReviewAvatarGroup(props: Props) {
 }
 
 const styles = (theme: Theme) => ({
-  root: {} as CSSProperties,
+  root: {
+    '@media print': {
+      display: 'none !important',
+    },
+  } as CSSProperties,
   avatars: {
     width: theme.spacing(4),
     height: theme.spacing(4),

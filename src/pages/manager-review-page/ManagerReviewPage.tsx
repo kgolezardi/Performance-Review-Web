@@ -18,6 +18,7 @@ import ManagerReviewOverallEvaluation from './overall-evaluation';
 import { ManagerReviewAchievements } from './achievements';
 import { ManagerReviewPageQuery } from './__generated__/ManagerReviewPageQuery.graphql';
 import { ManagerReviewPerformanceCompetencies } from './performance-competencies';
+import { ManagerReviewPrintButton } from './ManagerReviewPrintButton';
 
 const query = graphql`
   query ManagerReviewPageQuery($id: ID!) {
@@ -112,6 +113,7 @@ export default function ManagerReviewPage(props: Props) {
           </Paper>
         </Box>
       </Container>
+      <ManagerReviewPrintButton uid={revieweeId} />
     </PromptProvider>
   );
 }

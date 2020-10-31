@@ -6,13 +6,16 @@ import { FCProps } from 'src/shared/types/FCProps';
 import { Fab, Theme, makeStyles } from '@material-ui/core';
 import { Styles } from 'src/shared/types/Styles';
 
-const iframeId = 'print-result';
+const iframeId = 'print-manager-review';
 
-interface OwnProps {}
+interface OwnProps {
+  uid?: string;
+}
 
 type Props = FCProps<OwnProps> & StyleProps;
 
-export function PrintResultButton(props: Props) {
+export function ManagerReviewPrintButton(props: Props) {
+  const { uid } = props;
   const classes = useStyles(props);
 
   const [show, setShow] = useState(false);
@@ -41,7 +44,13 @@ export function PrintResultButton(props: Props) {
 
   return (
     <Fragment>
-      <iframe ref={iframeRef} id={iframeId} src="/print" className={classes.noDisplay} title="Print Result" />
+      <iframe
+        ref={iframeRef}
+        id={iframeId}
+        src={'/print-manager-review/' + uid}
+        className={classes.noDisplay}
+        title="Print Manager Review"
+      />
       <Fab onClick={handleClick} color="primary" className={clsx(classes.fab, { [classes.noDisplay]: !show })}>
         <PrintIcon />
       </Fab>
@@ -61,5 +70,5 @@ const styles = (theme: Theme) => ({
   } as CSSProperties,
 });
 
-const useStyles = makeStyles(styles, { name: 'PrintResultButton' });
+const useStyles = makeStyles(styles, { name: 'ManagerReviewPrintButton' });
 type StyleProps = Styles<typeof styles>;

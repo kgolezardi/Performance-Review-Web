@@ -102,9 +102,11 @@ export function ManagerReviewAchievements(props: Props) {
                       type="achievements"
                     />
                   </Box>
-                  <SubmitButton variant="contained" color="primary">
-                    {i18n._('Save')}
-                  </SubmitButton>
+                  <Box displayPrint="none !important">
+                    <SubmitButton variant="contained" color="primary">
+                      {i18n._('Save')}
+                    </SubmitButton>
+                  </Box>
                 </Box>
               </StickyBottomPaper>
             </DictInput>
