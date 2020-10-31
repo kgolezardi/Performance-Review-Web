@@ -6,11 +6,11 @@ import { ArrayActionType } from './arrayReducer';
 import { useArrayContext } from './ArrayContext';
 import { useFragmentContext } from '../../core/fragment/FragmentContext';
 
-interface OwnProps<V> extends ButtonProps {}
+interface OwnProps extends ButtonProps {}
 
-type Props<V> = FCProps<OwnProps<V>>;
+type Props = FCProps<OwnProps>;
 
-function ArrayRemoveButton<V>(props: Props<V>) {
+function ArrayRemoveButton(props: Props) {
   const dispatch = useArrayContext();
   const fragment = useFragmentContext();
   const onClick = useCallback(() => {

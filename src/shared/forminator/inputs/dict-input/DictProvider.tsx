@@ -4,13 +4,13 @@ import { FCProps } from 'src/shared/types/FCProps';
 import { DictAction } from './dictReducer';
 import { DictContext } from './DictContext';
 
-interface OwnProps<V> {
+interface OwnProps {
   dispatch: Dispatch<DictAction>;
 }
 
-type Props<T> = FCProps<OwnProps<T>>;
+type Props = FCProps<OwnProps>;
 
-function DictProvider<V = any>(props: Props<V>) {
+function DictProvider(props: Props) {
   return <DictContext.Provider value={props.dispatch}>{props.children}</DictContext.Provider>;
 }
 

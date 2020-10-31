@@ -4,7 +4,7 @@ import { ArrayAction } from './arrayReducer';
 
 export const ArrayContext = React.createContext<Dispatch<ArrayAction> | null>(null);
 
-export function useArrayContext<V = any>(): Dispatch<ArrayAction> {
+export function useArrayContext(): Dispatch<ArrayAction> {
   const fragment = useContext(ArrayContext);
 
   if (fragment === null) throw new Error('useArrayContext only inside ArrayInput is usable');
