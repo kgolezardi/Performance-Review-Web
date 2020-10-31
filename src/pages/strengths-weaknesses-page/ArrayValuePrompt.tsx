@@ -14,6 +14,9 @@ export type Equal = (
 ) => boolean;
 
 const defaultEqual: Equal = (fragmentValue, propValue) => equals(fragmentValue, propValue);
+
+const emptyFragments: ForminatorFragment[] = [];
+
 interface OwnProps {
   value: ReadonlyArray<string | undefined>;
   /**
@@ -31,7 +34,8 @@ const useFragmentsValue = () => {
   const fragment = useFragmentContext();
   const store = useStoreContext();
   const fragmentValue: ForminatorFragment[] =
-    useReadonlySubscribableValue<Array<ForminatorFragment>>(store.getValueSubscribable(fragment)) || [];
+    useReadonlySubscribableValue<Array<ForminatorFragment>>(store.getValueSubscribable(fragment)) || emptyFragments;
+
   const [value, setValue] = useState<Array<string | undefined>>(() => getFragmentsValues<string>(fragmentValue, store));
   const [subscribe, setSubscribe] = useState<Subscribe>(() => ({
     resubscribe: () => {},

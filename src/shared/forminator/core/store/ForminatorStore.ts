@@ -36,6 +36,7 @@ export class ForminatorStore {
   }
 
   getOwnerSubscribable<V, Value>(fragment: ForminatorFragment<V>) {
+    // FIXME:
     return this.getSubscribable<FragmentOwner<V, Value> | null>('owner', fragment);
   }
 
@@ -43,6 +44,7 @@ export class ForminatorStore {
     const fragment = {
       id: nanoid(),
       $$typeof: Symbol.for('forminator.fragment'),
+      $$type: true as any,
     };
     if (initialValue !== undefined) {
       this.initialValues.set(fragment.id, initialValue);

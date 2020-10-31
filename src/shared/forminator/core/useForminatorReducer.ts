@@ -23,6 +23,7 @@ export function useForminatorReducer<R extends Reducer<any, any>, I, Value>(
   const [value, setValue] = useWritableSubscribableValue(
     subscribable,
     (): V => {
+      // FIXME:
       const initialValue = store.getInitialValue<I>(fragment, initializerArg);
       return initializer(initialValue, store);
     },

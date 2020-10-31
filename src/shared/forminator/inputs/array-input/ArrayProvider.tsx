@@ -4,13 +4,13 @@ import { FCProps } from 'src/shared/types/FCProps';
 import { ArrayAction } from './arrayReducer';
 import { ArrayContext } from './ArrayContext';
 
-interface OwnProps<V> {
+interface OwnProps {
   dispatch: Dispatch<ArrayAction>;
 }
 
-type Props<T> = FCProps<OwnProps<T>>;
+type Props = FCProps<OwnProps>;
 
-function ArrayProvider<V = any>(props: Props<V>) {
+function ArrayProvider(props: Props) {
   return <ArrayContext.Provider value={props.dispatch}>{props.children}</ArrayContext.Provider>;
 }
 
