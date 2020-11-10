@@ -7,6 +7,7 @@ import { useAuthGuardUser } from 'src/core/auth';
 import { useLazyLoadQuery } from 'react-relay/hooks';
 
 import { MainRoutesQuery } from './__generated__/MainRoutesQuery.graphql';
+import { shouldRenderStartReviewPage } from './shouldRenderStartReviewPage';
 
 const DashboardPage = React.lazy(() =>
   import(
@@ -104,7 +105,7 @@ export function MainRoutes(props: FCProps<Props>) {
 
   const data = useLazyLoadQuery<MainRoutesQuery>(query, {});
 
-  if (!user.hasStarted) {
+  if (shouldRenderStartReviewPage(user, phase)) {
     return <StartReviewPage />;
   }
 
