@@ -63,9 +63,9 @@ export default function ManagerReviewPage(props: Props) {
             <Divider />
             <Tabs value={tab}>
               <TabLink
-                label={i18n._('Performance Competencies')}
-                value="performance-competencies"
-                to={toPrefix + '/performance-competencies'}
+                label={i18n._('Behavioral Competencies')}
+                value="behavioral-competencies"
+                to={toPrefix + '/behavioral-competencies'}
               />
               <TabLink
                 label={i18n._('Dominant Characteristics')}
@@ -92,7 +92,7 @@ export default function ManagerReviewPage(props: Props) {
             >
               <Switch>
                 <Route
-                  path={toPrefix + '/performance-competencies'}
+                  path={toPrefix + '/behavioral-competencies'}
                   children={<ManagerReviewPerformanceCompetencies revieweeId={revieweeId} />}
                 />
                 <Route
@@ -107,7 +107,7 @@ export default function ManagerReviewPage(props: Props) {
                   path={toPrefix + '/overall-evaluation'}
                   children={<ManagerReviewOverallEvaluation revieweeId={revieweeId} />}
                 />
-                <Redirect to={toPrefix + '/performance-competencies'} />
+                <Redirect to={toPrefix + '/behavioral-competencies'} />
               </Switch>
             </Suspense>
           </Paper>

@@ -177,7 +177,7 @@ export function ManagerReviewPerformanceCompetencies(props: Props) {
                     <ManagerReviewProgress
                       evaluatedItems={Object.values(value).filter(isNotNil).length}
                       total={6}
-                      type="performance-competencies"
+                      type="behavioral-competencies"
                     />
                   </Box>
                   <Box displayPrint="none !important">

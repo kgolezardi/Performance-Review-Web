@@ -32,11 +32,11 @@ export default function SelfReviewPage(props: Props) {
     <Container maxWidth="md">
       <Box marginY={5}>
         <Paper classes={{ root: classes.tabsPaper }}>
-          <Tabs value={tab ?? 'performance-competencies'}>
+          <Tabs value={tab ?? 'behavioral-competencies'}>
             <TabLink
-              label={i18n._('Performance Competencies')}
-              value="performance-competencies"
-              to={toPrefix + '/performance-competencies'}
+              label={i18n._('Behavioral Competencies')}
+              value="behavioral-competencies"
+              to={toPrefix + '/behavioral-competencies'}
             />
             <TabLink
               label={i18n._('Dominant Characteristics')}
@@ -57,7 +57,7 @@ export default function SelfReviewPage(props: Props) {
             <PromptProvider message={i18n._('Changes you made may not be saved.')}>
               <Switch>
                 <Route
-                  path={toPrefix + '/performance-competencies'}
+                  path={toPrefix + '/behavioral-competencies'}
                   children={<CriteriaPage revieweeId={revieweeId} />}
                 />
                 <Route
@@ -65,7 +65,7 @@ export default function SelfReviewPage(props: Props) {
                   children={<StrengthsWeaknessesPage revieweeId={revieweeId} />}
                 />
                 <Route path={toPrefix + '/achievements'} children={<ProjectsPage />} />
-                <Redirect to={toPrefix + '/performance-competencies'} />
+                <Redirect to={toPrefix + '/behavioral-competencies'} />
               </Switch>
             </PromptProvider>
           </Suspense>

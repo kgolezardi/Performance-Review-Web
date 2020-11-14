@@ -61,6 +61,15 @@ msgstr "An error occurred. Try again!"
 msgid "Are you sure you want to delete this project review?"
 msgstr "Are you sure you want to delete this project review?"
 
+#: src/pages/dashboard-page/DashboardPage.tsx:35
+#: src/pages/manager-review-page/ManagerReviewPage.tsx:47
+#: src/pages/manager-review-page/ManagerReviewPrintPage.tsx:54
+#: src/pages/peer-review-page/PeerReviewPage.tsx:44
+#: src/pages/result-page/ResultPage.tsx:22
+#: src/pages/self-review-page/SelfReviewPage.tsx:22
+msgid "Behavioral Competencies"
+msgstr "Behavioral Competencies"
+
 #: src/shared/sticky-bottom-paper/StickyBottomPaper.stories.tsx:11
 msgid "Cancel"
 msgstr "Cancel"
@@ -285,15 +294,6 @@ msgstr "Password"
 #: src/containers/main/getMenuItems.ts:29
 msgid "Peer Review"
 msgstr "Peer Review"
-
-#: src/pages/dashboard-page/DashboardPage.tsx:35
-#: src/pages/manager-review-page/ManagerReviewPage.tsx:47
-#: src/pages/manager-review-page/ManagerReviewPrintPage.tsx:54
-#: src/pages/peer-review-page/PeerReviewPage.tsx:44
-#: src/pages/result-page/ResultPage.tsx:22
-#: src/pages/self-review-page/SelfReviewPage.tsx:22
-msgid "Performance Competencies"
-msgstr "Performance Competencies"
 
 #: src/App.tsx:24
 #: src/containers/main/MainContainer.tsx:23
@@ -534,8 +534,8 @@ msgid "You have evaluated all {total} achievements. You can change them when you
 msgstr "You have evaluated all {total} achievements. You can change them when you want to."
 
 #: src/pages/manager-review-page/ManagerReviewProgress.tsx:34
-msgid "You have evaluated all {total} performance competencies. You can change them when you want to."
-msgstr "You have evaluated all {total} performance competencies. You can change them when you want to."
+msgid "You have evaluated all {total} behavioral competencies. You can change them when you want to."
+msgstr "You have evaluated all {total} behavioral competencies. You can change them when you want to."
 
 #: src/pages/dashboard-page/AchievementsNoProjects.tsx:6
 msgid "You haven't added any project."
@@ -551,8 +551,8 @@ msgid "You haven't evaluated any achievements yet"
 msgstr "You haven't evaluated any achievements yet"
 
 #: src/pages/manager-review-page/ManagerReviewProgress.tsx:32
-msgid "You haven't evaluated any performance competencies yet"
-msgstr "You haven't evaluated any performance competencies yet"
+msgid "You haven't evaluated any behavioral competencies yet"
+msgstr "You haven't evaluated any behavioral competencies yet"
 
 #: src/pages/peer-review-board-page/PeerReviewBoardPage.tsx:80
 msgid "You haven't started evaluating yet!"
@@ -590,8 +590,8 @@ msgid "{evaluatedItems} of {total} achievements are evaluated"
 msgstr "{evaluatedItems} of {total} achievements are evaluated"
 
 #: src/pages/manager-review-page/ManagerReviewProgress.tsx:33
-msgid "{evaluatedItems} of {total} performance competencies are evaluated"
-msgstr "{evaluatedItems} of {total} performance competencies are evaluated"
+msgid "{evaluatedItems} of {total} behavioral competencies are evaluated"
+msgstr "{evaluatedItems} of {total} behavioral competencies are evaluated"
 
 #: src/pages/manager-review-page/achievements/ManagerReviewAchievementsRatingGroup.tsx:50
 #: src/pages/manager-review-page/performance-competencies/ManagerReviewPerformanceCompetenciesRatingGroup.tsx:70

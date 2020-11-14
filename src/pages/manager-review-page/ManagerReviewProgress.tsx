@@ -7,7 +7,7 @@ import { i18n } from '@lingui/core';
 interface OwnProps {
   evaluatedItems: number;
   total: number;
-  type: 'achievements' | 'performance-competencies';
+  type: 'achievements' | 'behavioral-competencies';
 }
 
 type Props = FCProps<OwnProps>;
@@ -52,11 +52,11 @@ const ManagerReviewPerformanceCompetenciesTextDictionary: Record<
   (evaluatedItems: number, total: number) => string
 > = {
   'not-started': (evaluatedItems: number, total: number) =>
-    i18n._("You haven't evaluated any performance competencies yet"),
+    i18n._("You haven't evaluated any behavioral competencies yet"),
   'in-progress': (evaluatedItems: number, total: number) =>
-    i18n._('{evaluatedItems} of {total} performance competencies are evaluated', { evaluatedItems, total }),
+    i18n._('{evaluatedItems} of {total} behavioral competencies are evaluated', { evaluatedItems, total }),
   completed: (evaluatedItems: number, total: number) =>
-    i18n._('You have evaluated all {total} performance competencies. You can change them when you want to.', { total }),
+    i18n._('You have evaluated all {total} behavioral competencies. You can change them when you want to.', { total }),
 };
 
 const ManagerReviewAchievementsTextDictionary: Record<
@@ -71,9 +71,9 @@ const ManagerReviewAchievementsTextDictionary: Record<
 };
 
 const ManagerReviewTextDictionary: Record<
-  'achievements' | 'performance-competencies',
+  'achievements' | 'behavioral-competencies',
   Record<ProgressState, (evaluatedItems: number, total: number) => string>
 > = {
-  'performance-competencies': ManagerReviewPerformanceCompetenciesTextDictionary,
+  'behavioral-competencies': ManagerReviewPerformanceCompetenciesTextDictionary,
   achievements: ManagerReviewAchievementsTextDictionary,
 };

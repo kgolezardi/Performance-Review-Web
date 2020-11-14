@@ -33,11 +33,11 @@ export default function ResultPage(props: Props) {
     <Container maxWidth="md" className={classes.container}>
       <Box marginY={5}>
         <Paper classes={{ root: classes.tabsPaper }}>
-          <Tabs value={tab ?? 'performance-competencies'}>
+          <Tabs value={tab ?? 'behavioral-competencies'}>
             <TabLink
-              label={i18n._('Performance Competencies')}
-              value="performance-competencies"
-              to={toPrefix + '/performance-competencies'}
+              label={i18n._('Behavioral Competencies')}
+              value="behavioral-competencies"
+              to={toPrefix + '/behavioral-competencies'}
             />
             <TabLink
               label={i18n._('Dominant Characteristics')}
@@ -57,7 +57,7 @@ export default function ResultPage(props: Props) {
           >
             <Switch>
               <Route
-                path={toPrefix + '/performance-competencies'}
+                path={toPrefix + '/behavioral-competencies'}
                 children={<CriteriaResultPage revieweeId={revieweeId} />}
               />
               <Route
@@ -65,7 +65,7 @@ export default function ResultPage(props: Props) {
                 children={<StrengthsWeaknessesResultPage revieweeId={revieweeId} />}
               />
               <Route path={toPrefix + '/achievements'} children={<ProjectsResultPage revieweeId={revieweeId} />} />
-              <Redirect to={toPrefix + '/performance-competencies'} />
+              <Redirect to={toPrefix + '/behavioral-competencies'} />
             </Switch>
           </Suspense>
         </Paper>
