@@ -2,11 +2,13 @@ import graphql from 'babel-plugin-relay/macro';
 import React, { useEffect } from 'react';
 import { Box, Divider, Typography } from '@material-ui/core';
 import { FCProps } from 'src/shared/types/FCProps';
+import { Helmet } from 'react-helmet-async';
 import { InView } from 'src/shared/in-view';
 import { PageBreak } from 'src/shared/page-break';
 import { PersonInfoCardHeader } from 'src/shared/person-info-card-header';
 import { PrintingContext } from 'src/shared/layouts/dashboard-layouts/PrintingContext';
 import { PromptProvider } from 'src/shared/prompt';
+import { getUserLabel } from 'src/shared/utils/getUserLabel';
 import { i18n } from '@lingui/core';
 import { useLazyLoadQuery } from 'react-relay/hooks';
 import { useParams } from 'react-router-dom';
@@ -25,6 +27,7 @@ const query = graphql`
           ...DominantCharacteristicsOutput_review
         }
         ...PersonInfoCardHeader_user
+        ...getUserLabel_user
       }
     }
   }
@@ -57,6 +60,9 @@ export function ManagerReviewPrintPage(props: Props) {
 
   return (
     <PromptProvider message={i18n._('Changes you made may not be saved.')}>
+      <Helmet>
+        <title>{getUserLabel(data.viewer.user)}</title>
+      </Helmet>
       <PrintingContext.Provider value={true}>
         <InView>
           <PersonInfoCardHeader user={data.viewer.user} />
