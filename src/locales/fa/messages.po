@@ -440,24 +440,24 @@ msgstr "ممنون، بعدا می‌گیرم جایزمو"
 #: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:54
 #: src/shared/dominant-characteristics-output/DominantCharacteristics.tsx:21
 msgid "The most important characteristics or behaviors I should improve in myself"
-msgstr "مهمترین ویژگی‌ها یا رفتارهایی که باید بهبودشون بدم"
+msgstr "مهم‌ترین ویژگی‌ها یا رفتارهایی که باید بهبودشون بدم"
 
 #: src/pages/manager-review-page/dominant-characteristics/ManagerReviewDominantCharacteristics.tsx:28
 #: src/pages/result-page/strengths-weaknesses-result-page/StrengthsWeaknessesResult.tsx:33
 #: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:55
 msgid "The most important characteristics or behaviors he/she should improve"
-msgstr "مهمترین ویژگی‌ها یا رفتارهایی که باید بهبودشون بده"
+msgstr "مهم‌ترین ویژگی‌ها یا رفتارهایی که باید بهبودشون بده"
 
 #: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:45
 #: src/shared/dominant-characteristics-output/DominantCharacteristics.tsx:18
 msgid "The most important characteristics or effective behaviors that I should maintain"
-msgstr "مهمترین ویژگی‌ها یا رفتارهای مؤثری که باید ادامه‌شون بدم"
+msgstr "مهم‌ترین ویژگی‌ها یا رفتارهای مؤثری که باید ادامه‌شون بدم"
 
 #: src/pages/manager-review-page/dominant-characteristics/ManagerReviewDominantCharacteristics.tsx:27
 #: src/pages/result-page/strengths-weaknesses-result-page/StrengthsWeaknessesResult.tsx:32
 #: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:46
 msgid "The most important characteristics or effective behaviors that he/she should maintain"
-msgstr "مهمترین ویژگی‌ها یا رفتارهای مؤثری که باید ادامه‌شون بده"
+msgstr "مهم‌ترین ویژگی‌ها یا رفتارهای مؤثری که باید ادامه‌شون بده"
 
 #: src/pages/criteria-page/CriteriaForm.tsx:65
 #: src/pages/manager-review-page/performance-competencies/ManagerReviewPerformanceCompetencies.tsx:105
