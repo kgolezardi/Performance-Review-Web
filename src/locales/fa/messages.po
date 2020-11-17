@@ -395,7 +395,7 @@ msgstr "خطایی رخ داد."
 msgid "Something went wrong. Please try again"
 msgstr "خطایی رخ داد. لطفا مجددا تلاش نمایید"
 
-#: src/pages/start-page/StartReviewCard.tsx:26
+#: src/pages/start-page/StartReviewCard.tsx:25
 msgid "Start"
 msgstr "شروع"
 
