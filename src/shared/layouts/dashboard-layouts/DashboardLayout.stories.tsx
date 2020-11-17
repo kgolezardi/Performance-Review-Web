@@ -5,9 +5,9 @@ import { routerDecorator } from 'src/stories/decorators';
 import { storiesOf } from '@storybook/react';
 
 import { Brand, BrandRegion, ContentRegion, DashboardLayout, NavBarMenu, NavbarRegion } from '.';
-import { MenuItem } from './menu/types';
+import type { NavbarMenuItem } from './menu/types';
 
-const items: MenuItem[] = [
+const items: NavbarMenuItem[] = [
   {
     text: 'خانه',
     link: {

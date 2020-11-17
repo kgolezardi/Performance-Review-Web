@@ -1,34 +1,85 @@
-import React from 'react';
+import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
+import clsx from 'clsx';
+import React, { Fragment, useState } from 'react';
 import { CSSProperties } from '@material-ui/core/styles/withStyles';
+import { Divider, List, MenuItem, Paper, Theme, lighten, makeStyles } from '@material-ui/core';
 import { FCProps } from 'src/shared/types/FCProps';
 import { NavLink } from 'react-router-dom';
 import { Styles } from 'src/shared/types/Styles';
-import { Theme, lighten, makeStyles } from '@material-ui/core';
 
-import { MenuItem } from './types';
+import type { NavbarMenuItem } from './types';
 
 interface OwnProps {
-  item: MenuItem;
+  item: NavbarMenuItem;
 }
 
 type Props = FCProps<OwnProps> & StyleProps;
 
 export function NavBarMenuItem(props: Props) {
+  const {
+    item: { children, link, text },
+  } = props;
   const classes = useStyles(props);
 
+  const [hide, setHide] = useState(false);
+
+  const handleClick = (event: React.MouseEvent<HTMLElement>) => {
+    if (children) {
+      event.preventDefault();
+    }
+  };
+
+  const handleMouseEnter = () => {
+    if (children) {
+      setHide(false);
+    }
+  };
+
+  const hideMenu = () => {
+    setHide(true);
+  };
+
   return (
-    <NavLink {...props.item.link} activeClassName={classes.active} className={classes.root}>
-      {props.item.text}
-      <div className={classes.bar} />
-    </NavLink>
+    <div className={clsx(classes.root, { [classes.hide]: hide })}>
+      <NavLink
+        activeClassName={classes.active}
+        className={classes.link}
+        onClick={handleClick}
+        onMouseEnter={handleMouseEnter}
+        {...link}
+      >
+        {text}
+        {children && <ArrowDropDownIcon />}
+        <div className={classes.bar} />
+      </NavLink>
+
+      {children && (
+        <Paper className={classes.menu}>
+          <List>
+            {children.map((item, index) => (
+              <Fragment>
+                <MenuItem className={classes.menuItem} key={index} disableGutters>
+                  <NavLink className={classes.menuItemLink} {...item.link} onClick={hideMenu}>
+                    {item.text}
+                  </NavLink>
+                </MenuItem>
+                {index !== children.length - 1 && <Divider variant="middle" />}
+              </Fragment>
+            ))}
+          </List>
+        </Paper>
+      )}
+    </div>
   );
 }
 
 const styles = (theme: Theme) => ({
   root: {
-    '&:hover': {
-      color: lighten(theme.palette.primary.main, 0.9),
+    '&:hover $menu': {
+      display: 'block',
     },
+  } as CSSProperties,
+  link: {
     fontSize: theme.typography.h6.fontSize,
     padding: theme.spacing(2),
     color: theme.palette.common.white,
@@ -36,6 +87,27 @@ const styles = (theme: Theme) => ({
     display: 'flex',
     alignItems: 'center',
     position: 'relative',
+    height: '100%',
+    '&:hover': {
+      color: lighten(theme.palette.primary.main, 0.9),
+    },
+  } as CSSProperties,
+  hide: {} as CSSProperties,
+  menu: {
+    display: 'none',
+    position: 'absolute',
+    top: 60,
+    '$root$hide &': {
+      display: 'none !important',
+    },
+  } as CSSProperties,
+  menuItem: {} as CSSProperties,
+  menuItemLink: {
+    color: theme.palette.text.primary,
+    height: '100%',
+    width: '100%',
+    textDecoration: 'none',
+    padding: theme.spacing(1.5, 2),
   } as CSSProperties,
   bar: {
     position: 'absolute',

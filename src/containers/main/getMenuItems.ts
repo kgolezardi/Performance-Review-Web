@@ -1,4 +1,4 @@
-import { MenuItem } from 'src/shared/layouts/dashboard-layouts/menu/types';
+import { NavbarMenuItem } from 'src/shared/layouts/dashboard-layouts/menu/types';
 import { Phase } from 'src/core/settings/__generated__/SettingsProviderQuery.graphql';
 import { i18n } from '@lingui/core';
 interface User {
@@ -6,7 +6,7 @@ interface User {
   isManager: boolean;
 }
 
-export function getMenuItems(phase: Phase, user: User): MenuItem[] {
+export function getMenuItems(phase: Phase, user: User): NavbarMenuItem[] {
   if (phase === 'SELF_REVIEW' && user.hasStarted) {
     return [
       {
@@ -21,6 +21,26 @@ export function getMenuItems(phase: Phase, user: User): MenuItem[] {
         link: {
           to: '/self-review',
         },
+        children: [
+          {
+            link: {
+              to: '/self-review/behavioral-competencies',
+            },
+            text: i18n._('Behavioral Competencies'),
+          },
+          {
+            link: {
+              to: '/self-review/dominant-characteristics',
+            },
+            text: i18n._('Dominant Characteristics'),
+          },
+          {
+            link: {
+              to: '/self-review/achievements',
+            },
+            text: i18n._('Achievements'),
+          },
+        ],
       },
     ];
   }

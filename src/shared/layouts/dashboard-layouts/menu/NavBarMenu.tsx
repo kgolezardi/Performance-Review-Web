@@ -4,11 +4,11 @@ import { FCProps } from 'src/shared/types/FCProps';
 import { Styles } from 'src/shared/types/Styles';
 import { Theme, makeStyles } from '@material-ui/core';
 
-import { MenuItem } from './types';
 import { NavBarMenuItem } from './NavBarMenuItem';
+import { NavbarMenuItem } from './types';
 
 interface OwnProps {
-  items: MenuItem[];
+  items: NavbarMenuItem[];
 }
 
 type Props = FCProps<OwnProps> & StyleProps;

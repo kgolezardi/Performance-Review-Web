@@ -5,7 +5,11 @@ export interface LinkType {
   exact?: boolean;
   strict?: boolean;
 }
-export interface MenuItem {
+
+interface LinkItem {
   text: React.ReactNode;
   link: LinkType;
+}
+export interface NavbarMenuItem extends LinkItem {
+  children?: ReadonlyArray<LinkItem>;
 }
