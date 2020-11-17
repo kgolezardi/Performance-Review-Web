@@ -12,6 +12,7 @@ import { ServerValueProvider } from 'src/shared/server-value';
 import { StickyBottomPaper } from 'src/shared/sticky-bottom-paper';
 import { i18n } from '@lingui/core';
 import { importMDX } from 'mdx.macro';
+import { useFormDirty } from 'src/shared/form-change-detector';
 import { useFragment } from 'react-relay/hooks';
 
 import { CriteriaFormValue } from './CriteriaFormValue';
@@ -59,6 +60,8 @@ export function CriteriaForm(props: Props) {
   for (const key in review) {
     Object.assign(value, { [key]: review?.[key as keyof CriteriaFormValue] ?? undefined });
   }
+
+  const dirty = useFormDirty();
 
   return (
     <ServerValueProvider value={value}>
@@ -125,7 +128,7 @@ export function CriteriaForm(props: Props) {
           </DictInput>
           <StickyBottomPaper>
             <ActionBar>
-              <SubmitButton variant="contained" color="primary">
+              <SubmitButton variant="contained" color="primary" disabled={!dirty}>
                 {i18n._('Save')}
               </SubmitButton>
             </ActionBar>

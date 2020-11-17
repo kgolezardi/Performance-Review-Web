@@ -22,6 +22,7 @@ import { StickyBottomPaper } from 'src/shared/sticky-bottom-paper';
 import { equals, identity, prop, sortBy } from 'ramda';
 import { i18n } from '@lingui/core';
 import { useAuthGuardUser } from 'src/core/auth';
+import { useFormDirty } from 'src/shared/form-change-detector';
 import { useFragment } from 'react-relay/hooks';
 
 import { DeleteProjectReviewMutationInput } from './__generated__/deleteProjectReviewMutation.graphql';
@@ -83,6 +84,8 @@ export function ProjectForm(props: Props) {
     onDelete({ projectReviewId: projectReview.id });
   }, [onDelete, projectReview]);
 
+  const dirty = useFormDirty();
+
   return (
     <Forminator onSubmit={onSubmit} initialValue={initialValue}>
       <Grid container spacing={2}>
@@ -138,7 +141,7 @@ export function ProjectForm(props: Props) {
               ConfirmComponent={DangerButton}
               confirmProps={{ variant: 'contained' }}
             />
-            <SubmitButton variant="contained" color="primary">
+            <SubmitButton variant="contained" color="primary" disabled={!dirty}>
               {i18n._('Save')}
             </SubmitButton>
           </ActionBar>

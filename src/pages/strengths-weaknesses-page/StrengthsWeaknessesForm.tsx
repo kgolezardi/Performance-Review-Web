@@ -13,6 +13,7 @@ import { UserType } from 'src/shared/utils/getUserLabel';
 import { equals, filter } from 'ramda';
 import { i18n } from '@lingui/core';
 import { importMDX } from 'mdx.macro';
+import { useFormDirty } from 'src/shared/form-change-detector';
 import { useFragment } from 'react-relay/hooks';
 
 import { ArrayValuePrompt, Equal } from './ArrayValuePrompt';
@@ -46,6 +47,8 @@ export function StrengthsWeaknessesForm(props: Props) {
   const { onSubmit, isSelfReview } = props;
   const components = useContext(MDXContext);
   const user = useFragment(fragmentUserNode, props.user);
+
+  const dirty = useFormDirty();
 
   return (
     <Forminator onSubmit={onSubmit} initialValue={props.initialValue}>
@@ -94,7 +97,7 @@ export function StrengthsWeaknessesForm(props: Props) {
         </DictInput>
         <StickyBottomPaper>
           <ActionBar>
-            <SubmitButton variant="contained" color="primary">
+            <SubmitButton variant="contained" color="primary" disabled={!dirty}>
               {i18n._('Save')}
             </SubmitButton>
           </ActionBar>
