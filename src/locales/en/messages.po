@@ -17,7 +17,7 @@ msgstr ""
 msgid "%s - Performance Review"
 msgstr "%s - Performance Review"
 
-#: src/pages/projects-page/ProjectForm.tsx:70
+#: src/pages/projects-page/ProjectForm.tsx:68
 #: src/shared/project-output/ProjectCommentOutput.tsx:27
 #: src/shared/project-output/ProjectOutput.tsx:34
 msgid "Accomplishments"
@@ -57,7 +57,7 @@ msgstr "All reviews were successfully done"
 msgid "An error occurred. Try again!"
 msgstr "An error occurred. Try again!"
 
-#: src/pages/projects-page/ProjectForm.tsx:83
+#: src/pages/projects-page/ProjectForm.tsx:81
 msgid "Are you sure you want to delete this project review?"
 msgstr "Are you sure you want to delete this project review?"
 
@@ -86,7 +86,7 @@ msgstr "Changes you made may not be saved."
 msgid "Choose projects you have been working on in the past year."
 msgstr "Choose projects you have been working on in the past year."
 
-#: src/pages/projects-page/ProjectForm.tsx:76
+#: src/pages/projects-page/ProjectForm.tsx:74
 msgid "Coordinate reviewers with your manager (maximum 6 reviewers)"
 msgstr "Coordinate reviewers with your manager (maximum 6 reviewers)"
 
@@ -104,7 +104,7 @@ msgstr "Dashboard"
 msgid "Dear {name}, Hello"
 msgstr "Dear {name}, Hello"
 
-#: src/pages/projects-page/ProjectForm.tsx:83
+#: src/pages/projects-page/ProjectForm.tsx:81
 msgid "Delete"
 msgstr "Delete"
 
@@ -141,7 +141,7 @@ msgstr "Error"
 #: src/pages/manager-review-page/achievements/ManagerReviewAchievementsExpansionPanel.tsx:81
 #: src/pages/manager-review-page/overall-evaluation/ManagerReviewOverallEvaluation.tsx:65
 #: src/pages/manager-review-page/performance-competencies/ManagerReviewPerformanceCompetenciesExpansionPanel.tsx:39
-#: src/pages/peer-review-page/projectsTab/projects-form/PeerReviewProjectsForm.tsx:34
+#: src/pages/peer-review-page/projectsTab/projects-form/PeerReviewProjectsForm.tsx:32
 #: src/shared/criterion-item/CriterionItem.tsx:22
 #: src/shared/criterion-output-item/CriterionOutputItem.tsx:13
 #: src/shared/project-output/ProjectCommentOutput.tsx:19
@@ -186,7 +186,7 @@ msgstr "He/She Needs Improvement"
 msgid "He/She asked your review on {numberOfProjects} project(s)"
 msgstr "He/She asked your review on {numberOfProjects} project(s)"
 
-#: src/pages/projects-page/ProjectForm.tsx:58
+#: src/pages/projects-page/ProjectForm.tsx:56
 msgid "How effective were you in this project?"
 msgstr "How effective were you in this project?"
 
@@ -236,7 +236,7 @@ msgstr "Meets Expectations from Him/Her"
 msgid "Meets Expectations from me"
 msgstr "Meets Expectations from me"
 
-#: src/pages/projects-page/ProjectForm.tsx:63
+#: src/pages/projects-page/ProjectForm.tsx:61
 msgid "My impact"
 msgstr "My impact"
 
@@ -258,7 +258,7 @@ msgstr "No Options"
 msgid "No! Wait"
 msgstr "No! Wait"
 
-#: src/pages/peer-review-page/projectsTab/projects-form/PeerReviewProjectsForm.tsx:41
+#: src/pages/peer-review-page/projectsTab/projects-form/PeerReviewProjectsForm.tsx:39
 msgid "Observation"
 msgstr "Observation"
 
@@ -331,7 +331,7 @@ msgstr "Projects"
 msgid "Reviewee"
 msgstr "Reviewee"
 
-#: src/pages/projects-page/ProjectForm.tsx:76
+#: src/pages/projects-page/ProjectForm.tsx:74
 msgid "Reviewers"
 msgstr "Reviewers"
 
@@ -344,8 +344,8 @@ msgstr "Role Expertise and Self Development"
 #: src/pages/manager-review-page/achievements/ManagerReviewAchievements.tsx:77
 #: src/pages/manager-review-page/overall-evaluation/ManagerReviewOverallEvaluation.tsx:73
 #: src/pages/manager-review-page/performance-competencies/ManagerReviewPerformanceCompetencies.tsx:120
-#: src/pages/peer-review-page/projectsTab/projects-form/PeerReviewProjectsForm.tsx:49
-#: src/pages/projects-page/ProjectForm.tsx:85
+#: src/pages/peer-review-page/projectsTab/projects-form/PeerReviewProjectsForm.tsx:47
+#: src/pages/projects-page/ProjectForm.tsx:83
 #: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:63
 msgid "Save"
 msgstr "Save"
@@ -512,7 +512,7 @@ msgstr "What to continue doing"
 msgid "What to improve"
 msgstr "What to improve"
 
-#: src/pages/projects-page/ProjectForm.tsx:70
+#: src/pages/projects-page/ProjectForm.tsx:68
 msgid "Work results and achievemnts reflecting your contributions; For instance, your key-results"
 msgstr "Work results and achievemnts reflecting your contributions; For instance, your key-results"
 

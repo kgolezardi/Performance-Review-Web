@@ -23,7 +23,6 @@ import { equals, identity, prop, sortBy } from 'ramda';
 import { i18n } from '@lingui/core';
 import { useAuthGuardUser } from 'src/core/auth';
 import { useFragment } from 'react-relay/hooks';
-import { useInView } from 'react-intersection-observer';
 
 import { DeleteProjectReviewMutationInput } from './__generated__/deleteProjectReviewMutation.graphql';
 import { Evaluation } from './__generated__/saveProjectReviewMutation.graphql';
@@ -84,11 +83,9 @@ export function ProjectForm(props: Props) {
     onDelete({ projectReviewId: projectReview.id });
   }, [onDelete, projectReview]);
 
-  const [ref, inView] = useInView();
-
   return (
     <Forminator onSubmit={onSubmit} initialValue={initialValue}>
-      <Grid container spacing={2} ref={ref}>
+      <Grid container spacing={2}>
         <DictInput>
           <DictInputItem field="projectId">
             <ConstantInput />
@@ -132,7 +129,7 @@ export function ProjectForm(props: Props) {
             </DictInputItem>
           </Grid>
         </DictInput>
-        <StickyBottomPaper noSticky={!inView}>
+        <StickyBottomPaper noSticky>
           <ActionBar>
             <ConfirmButton
               buttonText={i18n._('Delete')}
