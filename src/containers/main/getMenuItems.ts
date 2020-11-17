@@ -22,12 +22,6 @@ export function getMenuItems(phase: Phase, user: User): MenuItem[] {
           to: '/self-review',
         },
       },
-      {
-        text: i18n._('FAQ'),
-        link: {
-          to: '/faq',
-        },
-      },
     ];
   }
   if (phase === 'PEER_REVIEW' && user.hasStarted) {

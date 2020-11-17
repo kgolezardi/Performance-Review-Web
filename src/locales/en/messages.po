@@ -95,7 +95,7 @@ msgid "Criteria"
 msgstr "Criteria"
 
 #: src/containers/main/getMenuItems.ts:6
-#: src/containers/main/getMenuItems.ts:45
+#: src/containers/main/getMenuItems.ts:39
 msgid "Dashboard"
 msgstr "Dashboard"
 
@@ -169,11 +169,6 @@ msgstr "Exceeds Expectations from me"
 msgid "Execution"
 msgstr "Execution"
 
-#: src/containers/main/getMenuItems.ts:19
-#: src/pages/guide-page/GuidePage.tsx:10
-msgid "FAQ"
-msgstr "FAQ"
-
 #: src/pages/dashboard-page/AchievementsNoProjects.tsx:8
 msgid "Go to Achievements page and add projects you have participated in"
 msgstr "Go to Achievements page and add projects you have participated in"
@@ -245,7 +240,7 @@ msgstr "Meets Expectations from me"
 msgid "My impact"
 msgstr "My impact"
 
-#: src/containers/main/getMenuItems.ts:35
+#: src/containers/main/getMenuItems.ts:29
 #: src/pages/guide-page/NvcGuidePage.tsx:10
 msgid "NVC Guide"
 msgstr "NVC Guide"
@@ -291,7 +286,7 @@ msgstr "Overall Evaluation"
 msgid "Password"
 msgstr "Password"
 
-#: src/containers/main/getMenuItems.ts:29
+#: src/containers/main/getMenuItems.ts:23
 msgid "Peer Review"
 msgstr "Peer Review"
 

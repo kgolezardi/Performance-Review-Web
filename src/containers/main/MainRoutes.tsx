@@ -27,12 +27,6 @@ const PeerReviewPage = React.lazy(() =>
     'src/pages/peer-review-page/PeerReviewPage'
   ),
 );
-const GuidePage = React.lazy(() =>
-  import(
-    /* webpackChunkName: "guide-page" */
-    'src/pages/guide-page/GuidePage'
-  ),
-);
 const NvcGuidePage = React.lazy(() =>
   import(
     /* webpackChunkName: "nvc-guide-page" */
@@ -114,7 +108,6 @@ export function MainRoutes(props: FCProps<Props>) {
       <Switch>
         <Route path="/" exact children={<DashboardPage />} />
         <Route path="/self-review/:tab?" children={<SelfReviewPage />} />
-        <Route path="/faq" children={<GuidePage />} />
       </Switch>
     );
   }
