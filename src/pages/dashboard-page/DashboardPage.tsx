@@ -48,8 +48,8 @@ export default function DashboardPage(props: Props) {
           <Grid item xs={12} sm={6} md={4}>
             <Card classes={{ root: classes.progressCard }}>
               <CardHeader
-                title={i18n._('Performance Competencies')}
-                action={<LinkButton to="/self-review/performance-competencies" />}
+                title={i18n._('Behavioral Competencies')}
+                action={<LinkButton to="/self-review/behavioral-competencies" />}
                 classes={{ action: classes.cardHeaderAction }}
               />
               <CardContent classes={{ root: classes.centerCardContent }}>

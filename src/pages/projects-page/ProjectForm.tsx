@@ -113,7 +113,9 @@ export function ProjectForm(props: Props) {
                 counterDisplayThreshold={LIMITED_TEXT_AREA_COUNTER_DISPLAY_THRESHOLD}
                 variant="outlined"
                 fullWidth
-                helperText={i18n._('For instance, your personal key-results may be your accomplishments.')}
+                helperText={i18n._(
+                  'Work results and achievemnts reflecting your contributions; For instance, your key-results',
+                )}
               />
               <FragmentPrompt value={initialValue.text || ''} />
             </DictInputItem>
@@ -124,9 +126,7 @@ export function ProjectForm(props: Props) {
                 label={i18n._('Reviewers')}
                 users={props.users}
                 excludes={userIds}
-                helperText={i18n._(
-                  'People who will comment on your accomplishments and write your performance competencies and dominant characteristics from their own point of view.',
-                )}
+                helperText={i18n._('Coordinate reviewers with your manager (maximum 6 reviewers)')}
               />
               <FragmentPrompt value={initialValue.reviewersId || []} equal={arrayEqual} />
             </DictInputItem>

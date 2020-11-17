@@ -25,7 +25,7 @@ msgstr "Accomplishments"
 
 #: src/pages/dashboard-page/DashboardPage.tsx:51
 #: src/pages/manager-review-page/ManagerReviewPage.tsx:49
-#: src/pages/manager-review-page/ManagerReviewPrintPage.tsx:65
+#: src/pages/manager-review-page/ManagerReviewPrintPage.tsx:64
 #: src/pages/peer-review-page/PeerReviewPage.tsx:46
 #: src/pages/result-page/ResultPage.tsx:24
 #: src/pages/self-review-page/SelfReviewPage.tsx:24
@@ -61,12 +61,21 @@ msgstr "An error occurred. Try again!"
 msgid "Are you sure you want to delete this project review?"
 msgstr "Are you sure you want to delete this project review?"
 
+#: src/pages/dashboard-page/DashboardPage.tsx:35
+#: src/pages/manager-review-page/ManagerReviewPage.tsx:47
+#: src/pages/manager-review-page/ManagerReviewPrintPage.tsx:54
+#: src/pages/peer-review-page/PeerReviewPage.tsx:44
+#: src/pages/result-page/ResultPage.tsx:22
+#: src/pages/self-review-page/SelfReviewPage.tsx:22
+msgid "Behavioral Competencies"
+msgstr "Behavioral Competencies"
+
 #: src/shared/sticky-bottom-paper/StickyBottomPaper.stories.tsx:11
 msgid "Cancel"
 msgstr "Cancel"
 
 #: src/pages/manager-review-page/ManagerReviewPage.tsx:40
-#: src/pages/manager-review-page/ManagerReviewPrintPage.tsx:45
+#: src/pages/manager-review-page/ManagerReviewPrintPage.tsx:44
 #: src/pages/peer-review-page/PeerReviewPage.tsx:36
 #: src/pages/self-review-page/SelfReviewPage.tsx:31
 #: src/stories/decorators/promptDecorator.tsx:5
@@ -76,6 +85,10 @@ msgstr "Changes you made may not be saved."
 #: src/pages/projects-page/AddProjectForm.tsx:28
 msgid "Choose projects you have been working on in the past year."
 msgstr "Choose projects you have been working on in the past year."
+
+#: src/pages/projects-page/ProjectForm.tsx:76
+msgid "Coordinate reviewers with your manager (maximum 6 reviewers)"
+msgstr "Coordinate reviewers with your manager (maximum 6 reviewers)"
 
 #: src/shared/full-page-error/FullPageError.stories.tsx:9
 msgid "Criteria"
@@ -97,7 +110,7 @@ msgstr "Delete"
 
 #: src/pages/dashboard-page/DashboardPage.tsx:43
 #: src/pages/manager-review-page/ManagerReviewPage.tsx:48
-#: src/pages/manager-review-page/ManagerReviewPrintPage.tsx:60
+#: src/pages/manager-review-page/ManagerReviewPrintPage.tsx:59
 #: src/pages/peer-review-page/PeerReviewPage.tsx:45
 #: src/pages/result-page/ResultPage.tsx:23
 #: src/pages/self-review-page/SelfReviewPage.tsx:23
@@ -160,10 +173,6 @@ msgstr "Execution"
 #: src/pages/guide-page/GuidePage.tsx:10
 msgid "FAQ"
 msgstr "FAQ"
-
-#: src/pages/projects-page/ProjectForm.tsx:70
-msgid "For instance, your personal key-results may be your accomplishments."
-msgstr "For instance, your personal key-results may be your accomplishments."
 
 #: src/pages/dashboard-page/AchievementsNoProjects.tsx:8
 msgid "Go to Achievements page and add projects you have participated in"
@@ -274,7 +283,7 @@ msgid "Other people comments about {name} performance compared to initial expect
 msgstr "Other people comments about {name} performance compared to initial expectation"
 
 #: src/pages/manager-review-page/ManagerReviewPage.tsx:50
-#: src/pages/manager-review-page/ManagerReviewPrintPage.tsx:70
+#: src/pages/manager-review-page/ManagerReviewPrintPage.tsx:69
 msgid "Overall Evaluation"
 msgstr "Overall Evaluation"
 
@@ -285,19 +294,6 @@ msgstr "Password"
 #: src/containers/main/getMenuItems.ts:29
 msgid "Peer Review"
 msgstr "Peer Review"
-
-#: src/pages/projects-page/ProjectForm.tsx:76
-msgid "People who will comment on your accomplishments and write your performance competencies and dominant characteristics from their own point of view."
-msgstr "People who will comment on your accomplishments and write your performance competencies and dominant characteristics from their own point of view."
-
-#: src/pages/dashboard-page/DashboardPage.tsx:35
-#: src/pages/manager-review-page/ManagerReviewPage.tsx:47
-#: src/pages/manager-review-page/ManagerReviewPrintPage.tsx:55
-#: src/pages/peer-review-page/PeerReviewPage.tsx:44
-#: src/pages/result-page/ResultPage.tsx:22
-#: src/pages/self-review-page/SelfReviewPage.tsx:22
-msgid "Performance Competencies"
-msgstr "Performance Competencies"
 
 #: src/App.tsx:24
 #: src/containers/main/MainContainer.tsx:23
@@ -521,6 +517,10 @@ msgstr "What to continue doing"
 msgid "What to improve"
 msgstr "What to improve"
 
+#: src/pages/projects-page/ProjectForm.tsx:70
+msgid "Work results and achievemnts reflecting your contributions; For instance, your key-results"
+msgstr "Work results and achievemnts reflecting your contributions; For instance, your key-results"
+
 #: src/shared/confirm-button/ConfirmButton.tsx:8
 msgid "Yes"
 msgstr "Yes"
@@ -534,8 +534,8 @@ msgid "You have evaluated all {total} achievements. You can change them when you
 msgstr "You have evaluated all {total} achievements. You can change them when you want to."
 
 #: src/pages/manager-review-page/ManagerReviewProgress.tsx:34
-msgid "You have evaluated all {total} performance competencies. You can change them when you want to."
-msgstr "You have evaluated all {total} performance competencies. You can change them when you want to."
+msgid "You have evaluated all {total} behavioral competencies. You can change them when you want to."
+msgstr "You have evaluated all {total} behavioral competencies. You can change them when you want to."
 
 #: src/pages/dashboard-page/AchievementsNoProjects.tsx:6
 msgid "You haven't added any project."
@@ -551,8 +551,8 @@ msgid "You haven't evaluated any achievements yet"
 msgstr "You haven't evaluated any achievements yet"
 
 #: src/pages/manager-review-page/ManagerReviewProgress.tsx:32
-msgid "You haven't evaluated any performance competencies yet"
-msgstr "You haven't evaluated any performance competencies yet"
+msgid "You haven't evaluated any behavioral competencies yet"
+msgstr "You haven't evaluated any behavioral competencies yet"
 
 #: src/pages/peer-review-board-page/PeerReviewBoardPage.tsx:80
 msgid "You haven't started evaluating yet!"
@@ -590,8 +590,8 @@ msgid "{evaluatedItems} of {total} achievements are evaluated"
 msgstr "{evaluatedItems} of {total} achievements are evaluated"
 
 #: src/pages/manager-review-page/ManagerReviewProgress.tsx:33
-msgid "{evaluatedItems} of {total} performance competencies are evaluated"
-msgstr "{evaluatedItems} of {total} performance competencies are evaluated"
+msgid "{evaluatedItems} of {total} behavioral competencies are evaluated"
+msgstr "{evaluatedItems} of {total} behavioral competencies are evaluated"
 
 #: src/pages/manager-review-page/achievements/ManagerReviewAchievementsRatingGroup.tsx:50
 #: src/pages/manager-review-page/performance-competencies/ManagerReviewPerformanceCompetenciesRatingGroup.tsx:70

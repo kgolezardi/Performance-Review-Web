@@ -69,7 +69,7 @@ export function ManagerReviewPrintPage(props: Props) {
           <Divider />
         </InView>
         <Box color="primary.main" marginTop={8} textAlign="center">
-          <Typography variant="h2">{i18n._('Performance Competencies')}</Typography>
+          <Typography variant="h2">{i18n._('Behavioral Competencies')}</Typography>
         </Box>
         <ManagerReviewPerformanceCompetencies revieweeId={revieweeId} />
         <PageBreak />
