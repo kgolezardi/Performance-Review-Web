@@ -17,7 +17,7 @@ export function LinkButton(props: Props) {
   const classes = useStyles(props);
   return (
     <Link to={to} className={classes.root}>
-      <Button color="primary" size="small">
+      <Button color="primary" variant="outlined" fullWidth>
         {i18n._('View')}
       </Button>
     </Link>

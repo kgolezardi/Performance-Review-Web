@@ -46,41 +46,38 @@ export default function DashboardPage(props: Props) {
       <Box marginY={4}>
         <Grid container spacing={2}>
           <Grid item xs={12} sm={6} md={4}>
-            <Card classes={{ root: classes.progressCard }}>
-              <CardHeader
-                title={i18n._('Behavioral Competencies')}
-                action={<LinkButton to="/self-review/behavioral-competencies" />}
-                classes={{ action: classes.cardHeaderAction }}
-              />
+            <Card classes={{ root: classes.card }}>
+              <CardHeader title={i18n._('Behavioral Competencies')} />
               <CardContent classes={{ root: classes.centerCardContent }}>
                 <PerformanceCompetenciesCircularIndicator review={data.viewer.review} />
               </CardContent>
+              <Box paddingX={5} paddingBottom={3}>
+                <LinkButton to="/self-review/behavioral-competencies" />
+              </Box>
             </Card>
           </Grid>
           <Grid item xs={12} sm={6} md={4}>
-            <Card classes={{ root: classes.progressCard }}>
-              <CardHeader
-                title={i18n._('Dominant Characteristics')}
-                action={<LinkButton to="/self-review/dominant-characteristics" />}
-                classes={{ action: classes.cardHeaderAction }}
-              />
+            <Card classes={{ root: classes.card }}>
+              <CardHeader title={i18n._('Dominant Characteristics')} />
               <CardContent classes={{ root: classes.centerCardContent }}>
                 <DominantCharacteristicsCircularIndicator review={data.viewer.review} />
               </CardContent>
+              <Box paddingX={5} paddingBottom={3}>
+                <LinkButton to="/self-review/dominant-characteristics" />
+              </Box>
             </Card>
           </Grid>
           <Grid item xs={12} sm={6} md={4}>
-            <Card classes={{ root: clsx(classes.progressCard, classes.achievementsCard) }}>
-              <CardHeader
-                title={i18n._('Achievements')}
-                action={<LinkButton to="/self-review/achievements" />}
-                classes={{ root: classes.achievementsHeader, action: classes.cardHeaderAction }}
-              />
+            <Card classes={{ root: clsx(classes.card, classes.achievementsCard) }}>
+              <CardHeader title={i18n._('Achievements')} />
               <Overlayscrollbars className={classes.overlayscrollbars}>
                 <CardContent className={classes.achievementCardContent}>
                   <AchievementsIndicators projects={data.viewer.projects} />
                 </CardContent>
               </Overlayscrollbars>
+              <Box paddingX={5} paddingBottom={3}>
+                <LinkButton to="/self-review/achievements" />
+              </Box>
             </Card>
           </Grid>
         </Grid>
@@ -90,26 +87,25 @@ export default function DashboardPage(props: Props) {
 }
 
 const styles = (theme: Theme) => ({
-  progressCard: {
-    height: 360,
+  card: {
+    height: 400,
+    display: 'flex',
+    flexDirection: 'column',
   } as CSSProperties,
   centerCardContent: {
     display: 'flex',
+    flex: 1,
+    flexDirection: 'column',
     justifyContent: 'center',
   } as CSSProperties,
   achievementsCard: {
     display: 'flex',
+    flex: 1,
     flexDirection: 'column',
-  } as CSSProperties,
-  achievementsHeader: {
-    flex: 0,
   } as CSSProperties,
   overlayscrollbars: {
     flex: 1,
     marginBottom: theme.spacing(3),
-  } as CSSProperties,
-  cardHeaderAction: {
-    marginTop: 0,
   } as CSSProperties,
   achievementCardContent: {
     height: '100%',
