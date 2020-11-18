@@ -17,7 +17,7 @@ msgstr ""
 msgid "%s - Performance Review"
 msgstr "%s - ارزیابی عملکرد"
 
-#: src/pages/projects-page/ProjectForm.tsx:70
+#: src/pages/projects-page/ProjectForm.tsx:68
 #: src/shared/project-output/ProjectCommentOutput.tsx:27
 #: src/shared/project-output/ProjectOutput.tsx:34
 msgid "Accomplishments"
@@ -58,7 +58,7 @@ msgstr "تمامی ارزیابی‌ها با موفقیت انجام شد"
 msgid "An error occurred. Try again!"
 msgstr "خطایی رخ داده. دوباره تلاش کنید."
 
-#: src/pages/projects-page/ProjectForm.tsx:83
+#: src/pages/projects-page/ProjectForm.tsx:81
 msgid "Are you sure you want to delete this project review?"
 msgstr "آیا از حذف  این پروژه مطمین هستید؟"
 
@@ -88,7 +88,7 @@ msgstr "یعنی بدون ذخیره تغییرات می‌خوای بری؟؟"
 msgid "Choose projects you have been working on in the past year."
 msgstr "پروژه‌هایی که طی یک سال گذشته درگیرشون بودید رو انتخاب کنید."
 
-#: src/pages/projects-page/ProjectForm.tsx:76
+#: src/pages/projects-page/ProjectForm.tsx:74
 msgid "Coordinate reviewers with your manager (maximum 6 reviewers)"
 msgstr "مرورکنندگان رو حتما با هماهنگی مدیر مستقیم خودتون انتخاب کنید (حداکثر ۶ نفر)"
 
@@ -106,7 +106,7 @@ msgstr "پیشخوان"
 msgid "Dear {name}, Hello"
 msgstr "{name} عزیز، سلام"
 
-#: src/pages/projects-page/ProjectForm.tsx:83
+#: src/pages/projects-page/ProjectForm.tsx:81
 msgid "Delete"
 msgstr "حذف"
 
@@ -144,7 +144,7 @@ msgstr "خطا"
 #: src/pages/manager-review-page/achievements/ManagerReviewAchievementsExpansionPanel.tsx:81
 #: src/pages/manager-review-page/overall-evaluation/ManagerReviewOverallEvaluation.tsx:65
 #: src/pages/manager-review-page/performance-competencies/ManagerReviewPerformanceCompetenciesExpansionPanel.tsx:39
-#: src/pages/peer-review-page/projectsTab/projects-form/PeerReviewProjectsForm.tsx:34
+#: src/pages/peer-review-page/projectsTab/projects-form/PeerReviewProjectsForm.tsx:32
 #: src/shared/criterion-item/CriterionItem.tsx:22
 #: src/shared/criterion-output-item/CriterionOutputItem.tsx:13
 #: src/shared/project-output/ProjectCommentOutput.tsx:19
@@ -189,7 +189,7 @@ msgstr "کمتر از حد انتظاری که ازش میره"
 msgid "He/She asked your review on {numberOfProjects} project(s)"
 msgstr "در {numberOfProjects} پروژه از شما نظر خواسته است"
 
-#: src/pages/projects-page/ProjectForm.tsx:58
+#: src/pages/projects-page/ProjectForm.tsx:56
 msgid "How effective were you in this project?"
 msgstr "توی این پروژه چقدر مؤثر بودی؟"
 
@@ -239,7 +239,7 @@ msgstr "در حد انتظاری که ازش میره"
 msgid "Meets Expectations from me"
 msgstr "در حد انتظاری که از من میره"
 
-#: src/pages/projects-page/ProjectForm.tsx:63
+#: src/pages/projects-page/ProjectForm.tsx:61
 msgid "My impact"
 msgstr "تأثیر من"
 
@@ -261,7 +261,7 @@ msgstr "یافت نشد"
 msgid "No! Wait"
 msgstr "نه! می‌مونم"
 
-#: src/pages/peer-review-page/projectsTab/projects-form/PeerReviewProjectsForm.tsx:41
+#: src/pages/peer-review-page/projectsTab/projects-form/PeerReviewProjectsForm.tsx:39
 msgid "Observation"
 msgstr "مشاهده"
 
@@ -334,7 +334,7 @@ msgstr "پروژه‌ها"
 msgid "Reviewee"
 msgstr "ارزیابی‌شونده"
 
-#: src/pages/projects-page/ProjectForm.tsx:76
+#: src/pages/projects-page/ProjectForm.tsx:74
 msgid "Reviewers"
 msgstr "مرورکننده‌ها"
 
@@ -347,8 +347,8 @@ msgstr "مرجعیت تخصصی"
 #: src/pages/manager-review-page/achievements/ManagerReviewAchievements.tsx:77
 #: src/pages/manager-review-page/overall-evaluation/ManagerReviewOverallEvaluation.tsx:73
 #: src/pages/manager-review-page/performance-competencies/ManagerReviewPerformanceCompetencies.tsx:120
-#: src/pages/peer-review-page/projectsTab/projects-form/PeerReviewProjectsForm.tsx:49
-#: src/pages/projects-page/ProjectForm.tsx:85
+#: src/pages/peer-review-page/projectsTab/projects-form/PeerReviewProjectsForm.tsx:47
+#: src/pages/projects-page/ProjectForm.tsx:83
 #: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:63
 msgid "Save"
 msgstr "ذخیره"
@@ -515,7 +515,7 @@ msgstr "چی رو ادامه بدم"
 msgid "What to improve"
 msgstr "چی رو بهبود بدم"
 
-#: src/pages/projects-page/ProjectForm.tsx:70
+#: src/pages/projects-page/ProjectForm.tsx:68
 msgid "Work results and achievemnts reflecting your contributions; For instance, your key-results"
 msgstr "خروجی‌ها و دستاوردهایی که نشان‌دهندهٔ تاثیر شما در این پروژه بوده؛ به عنوان مثال نتایج کلیدی شما در دورهٔ اخیر"
 

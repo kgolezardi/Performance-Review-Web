@@ -16,7 +16,6 @@ import { Rating } from 'src/shared/rating';
 import { StickyBottomPaper } from 'src/shared/sticky-bottom-paper';
 import { i18n } from '@lingui/core';
 import { useFragment } from 'react-relay/hooks';
-import { useInView } from 'react-intersection-observer';
 
 import { Evaluation } from '../../__generated__/savePersonReviewMutation.graphql';
 import { PeerReviewProjectsForm_projectComment$key } from './__generated__/PeerReviewProjectsForm_projectComment.graphql';
@@ -43,7 +42,7 @@ type Props = FCProps<OwnProps>;
 
 export function PeerReviewProjectsForm(props: Props) {
   const { onSubmit } = props;
-  const [ref, inView] = useInView();
+
   const projectComment = useFragment(fragment, props.projectComment);
   const initialValue: PeerReviewProjectsFormValue = {
     text: projectComment.text ?? '',
@@ -52,7 +51,7 @@ export function PeerReviewProjectsForm(props: Props) {
 
   return (
     <Forminator onSubmit={onSubmit} initialValue={initialValue}>
-      <Grid container spacing={2} ref={ref}>
+      <Grid container spacing={2}>
         <DictInput>
           <Grid item xs={12}>
             <DictInputItem field="rating">
@@ -75,7 +74,7 @@ export function PeerReviewProjectsForm(props: Props) {
             </DictInputItem>
           </Grid>
         </DictInput>
-        <StickyBottomPaper noSticky={!inView}>
+        <StickyBottomPaper noSticky>
           <ActionBar>
             <SubmitButton variant="contained" color="primary">
               {i18n._('Save')}
