@@ -1,6 +1,6 @@
 import ReactMarkdown from 'react-markdown';
 import React, { useCallback } from 'react';
-import { Box, Button, Card, CardContent, CardHeader, Grid, Theme, makeStyles } from '@material-ui/core';
+import { Box, Button, Card, CardContent, CardHeader, Theme, makeStyles } from '@material-ui/core';
 import { CSSProperties } from '@material-ui/core/styles/withStyles';
 import { FCProps } from 'src/shared/types/FCProps';
 import { Styles } from 'src/shared/types/Styles';
@@ -31,15 +31,13 @@ export function StartReviewCard(props: Props) {
       <CardHeader title={i18n._('Dear {name}, Hello', { name: getUserLabel(user) })} />
       <CardContent>
         <ReactMarkdown renderers={renderers}>{startText ?? ''}</ReactMarkdown>
-        <Grid container justify="center">
-          <Grid item>
-            <Box marginTop={3}>
-              <Button variant="contained" color="secondary" size="large" onClick={startReview}>
-                {i18n._('Start')}
-              </Button>
-            </Box>
-          </Grid>
-        </Grid>
+        <Box display="flex" justifyContent="center" marginTop={3}>
+          <Box width="240px">
+            <Button variant="contained" color="secondary" size="large" fullWidth onClick={startReview}>
+              {i18n._('Start')}
+            </Button>
+          </Box>
+        </Box>
       </CardContent>
     </Card>
   );
