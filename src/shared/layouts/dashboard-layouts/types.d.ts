@@ -1,1 +1,1 @@
-export { LinkType, MenuItem } from './menu/types';
+export type { LinkType, NavbarMenuItem } from './menu/types';
