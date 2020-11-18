@@ -6,11 +6,12 @@ import { Box, Container, Paper, Theme, makeStyles } from '@material-ui/core';
 import { CSSProperties } from '@material-ui/core/styles/withStyles';
 import { FCProps } from 'src/shared/types/FCProps';
 import { FullPageSpinner } from 'src/shared/loading';
-import { PromptProvider } from 'src/shared/prompt';
 import { Redirect, Route, Switch, useParams } from 'react-router-dom';
 import { Styles } from 'src/shared/types/Styles';
 import { TabLink } from 'src/shared/tab';
 import { Tabs } from 'src/shared/tabs';
+import { UnsavedDetector } from 'src/shared/unsaved-detector';
+import { UnsavedPrompt } from 'src/shared/unsaved-prompt';
 import { i18n } from '@lingui/core';
 import { useAuthGuardUser } from 'src/core/auth';
 
@@ -54,7 +55,8 @@ export default function SelfReviewPage(props: Props) {
               </Box>
             }
           >
-            <PromptProvider message={i18n._('Changes you made may not be saved.')}>
+            <UnsavedDetector>
+              <UnsavedPrompt message={i18n._('Changes you made may not be saved.')} />
               <Switch>
                 <Route
                   path={toPrefix + '/behavioral-competencies'}
@@ -67,7 +69,7 @@ export default function SelfReviewPage(props: Props) {
                 <Route path={toPrefix + '/achievements'} children={<ProjectsPage />} />
                 <Redirect to={toPrefix + '/behavioral-competencies'} />
               </Switch>
-            </PromptProvider>
+            </UnsavedDetector>
           </Suspense>
         </Paper>
       </Box>

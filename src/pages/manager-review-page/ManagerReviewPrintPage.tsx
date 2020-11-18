@@ -7,7 +7,8 @@ import { InView } from 'src/shared/in-view';
 import { PageBreak } from 'src/shared/page-break';
 import { PersonInfoCardHeader } from 'src/shared/person-info-card-header';
 import { PrintingContext } from 'src/shared/layouts/dashboard-layouts/PrintingContext';
-import { PromptProvider } from 'src/shared/prompt';
+import { UnsavedDetector } from 'src/shared/unsaved-detector';
+import { UnsavedPrompt } from 'src/shared/unsaved-prompt';
 import { getUserLabel } from 'src/shared/utils/getUserLabel';
 import { i18n } from '@lingui/core';
 import { useLazyLoadQuery } from 'react-relay/hooks';
@@ -59,7 +60,8 @@ export function ManagerReviewPrintPage(props: Props) {
   }
 
   return (
-    <PromptProvider message={i18n._('Changes you made may not be saved.')}>
+    <UnsavedDetector>
+      <UnsavedPrompt message={i18n._('Changes you made may not be saved.')} />
       <Helmet>
         <title>{getUserLabel(data.viewer.user)}</title>
       </Helmet>
@@ -88,6 +90,6 @@ export function ManagerReviewPrintPage(props: Props) {
         </Box>
         <ManagerReviewOverallEvaluation revieweeId={revieweeId} />
       </PrintingContext.Provider>
-    </PromptProvider>
+    </UnsavedDetector>
   );
 }

@@ -11,7 +11,7 @@ import { localizeNumber } from 'src/shared/utils/localizeNumber.util';
 import { useBiDiSnackbar } from 'src/shared/snackbar';
 import { useFragment } from 'react-relay/hooks';
 import { useHistory } from 'react-router-dom';
-import { usePromptStateContext } from 'src/shared/prompt/PromptProvider';
+import { useUnsavedDetectorContext } from 'src/shared/unsaved-detector';
 
 import { PeerReviewPersonInfoCard_user$key } from './__generated__/PeerReviewPersonInfoCard_user.graphql';
 import { useSavePersonReviewMutation } from './savePersonReview.mutation';
@@ -71,11 +71,11 @@ export function PeerReviewPersonInfoCard(props: Props) {
   }, [user, savePersonReviewMutation, enqueueSnackbar]);
 
   const numberOfProjects = localizeNumber(user.projectReviews.length, i18n.language as LanguageCodes);
-  const { changed } = usePromptStateContext();
+  const unsavedContext = useUnsavedDetectorContext();
   const allProjectCommentFilled = !user.projectReviews.every(
     ({ comment }) => !!(comment && comment.text && comment.rating),
   );
-  const disabled = changed || allProjectCommentFilled;
+  const disabled = !(unsavedContext?.unsaved ?? true) || allProjectCommentFilled;
 
   return (
     <PersonInfoCardHeader

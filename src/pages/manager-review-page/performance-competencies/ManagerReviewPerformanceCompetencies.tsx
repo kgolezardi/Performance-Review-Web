@@ -17,7 +17,7 @@ import { useBiDiSnackbar } from 'src/shared/snackbar';
 import { useInView } from 'react-intersection-observer';
 import { useLazyLoadQuery } from 'react-relay/hooks';
 import { useMutation } from 'src/relay';
-import { usePromptStateContext } from 'src/shared/prompt/PromptProvider';
+import { useUnsavedDetectorContext } from 'src/shared/unsaved-detector';
 
 import { ManagerReviewPerformanceCompetenciesExpansionPanel } from './ManagerReviewPerformanceCompetenciesExpansionPanel';
 import { ManagerReviewPerformanceCompetenciesMutation } from './__generated__/ManagerReviewPerformanceCompetenciesMutation.graphql';
@@ -98,8 +98,8 @@ export function ManagerReviewPerformanceCompetencies(props: Props) {
       });
   };
 
-  const { changed } = usePromptStateContext();
-  const disabled = !changed;
+  const unsavedContext = useUnsavedDetectorContext();
+  const disabled = !(unsavedContext?.unsaved ?? true);
 
   const reviews = data.viewer.user?.personReviews;
   if (!reviews) {

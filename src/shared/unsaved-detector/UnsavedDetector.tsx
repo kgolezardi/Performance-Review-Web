@@ -1,30 +1,10 @@
 import nanoid from 'nanoid';
-import React, { createContext, useCallback, useContext, useEffect, useMemo, useState } from 'react';
+import React, { useCallback, useMemo, useState } from 'react';
 import { FCProps } from 'src/shared/types/FCProps';
 import { values } from 'ramda';
 
-export interface UnsavedDetectorContextType {
-  setUnsaved: (id: string, state: boolean) => void;
-  unsaved: boolean;
-}
-export const UnsavedDetectorContext = createContext<UnsavedDetectorContextType | null>(null);
-
-export function useUnsavedDetectorContext(): UnsavedDetectorContextType | null {
-  const context = useContext(UnsavedDetectorContext);
-  return context;
-}
-
-export function useUnsavedDetector(id: string, state: boolean) {
-  const context = useUnsavedDetectorContext();
-  useEffect(() => {
-    context?.setUnsaved(id, state);
-    return () => {
-      if (state /* === true*/) {
-        context?.setUnsaved(id, false);
-      }
-    };
-  }, [id, state, context]);
-}
+import { UnsavedDetectorContext } from './UnsavedDetectorContext';
+import { useUnsavedDetector } from './useUnsavedDetector';
 
 interface OwnProps {}
 

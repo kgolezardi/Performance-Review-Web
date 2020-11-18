@@ -4,6 +4,7 @@ import { ExpansionPanel, ExpansionPanelDetails, ExpansionPanelSummary } from 'sr
 import { FCProps } from 'src/shared/types/FCProps';
 import { ReviewersInputProps } from 'src/shared/reviewers-input/ReviewersInput';
 import { Typography } from '@material-ui/core';
+import { UnsavedDetector } from 'src/shared/unsaved-detector';
 import { useFragment } from 'react-relay/hooks';
 
 import { DeleteProjectReviewMutationInput } from './__generated__/deleteProjectReviewMutation.graphql';
@@ -25,14 +26,16 @@ export function ProjectExpansionPanel(props: Props) {
   const projectReview = useFragment(fragment, props.projectReview);
 
   return (
-    <ExpansionPanel defaultExpanded={!initialProjectIds.has(projectReview.project.id)}>
-      <ExpansionPanelSummary>
-        <Typography variant="h6">{projectReview.project.name}</Typography>
-      </ExpansionPanelSummary>
-      <ExpansionPanelDetails>
-        <ProjectForm onSubmit={saveProject} onDelete={deleteProject} projectReview={projectReview} users={users} />
-      </ExpansionPanelDetails>
-    </ExpansionPanel>
+    <UnsavedDetector>
+      <ExpansionPanel defaultExpanded={!initialProjectIds.has(projectReview.project.id)}>
+        <ExpansionPanelSummary>
+          <Typography variant="h6">{projectReview.project.name}</Typography>
+        </ExpansionPanelSummary>
+        <ExpansionPanelDetails>
+          <ProjectForm onSubmit={saveProject} onDelete={deleteProject} projectReview={projectReview} users={users} />
+        </ExpansionPanelDetails>
+      </ExpansionPanel>
+    </UnsavedDetector>
   );
 }
 

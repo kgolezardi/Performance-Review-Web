@@ -4,9 +4,9 @@ import { equals } from 'ramda';
 import { getFragmentsValues, subscribeFragments } from 'src/shared/forminator/core/utils/subscribeFragments';
 import { useEffect, useState } from 'react';
 import { useFragmentContext } from 'src/shared/forminator/core/fragment/FragmentContext';
-import { usePrompt } from 'src/shared/prompt';
 import { useReadonlySubscribableValue } from 'src/shared/forminator/core/subscribable/useReadonlySubscribableValue';
 import { useStoreContext } from 'src/shared/forminator/core/store/StoreContext';
+import { useUnsavedDetector } from 'src/shared/unsaved-detector';
 
 export type Equal = (
   fragmentValue: ReadonlyArray<string | undefined>,
@@ -55,6 +55,6 @@ export function ArrayValuePrompt(props: Props) {
   const value = useFragmentsValue();
   const when = !equal(value, props.value);
   const fragment = useFragmentContext();
-  usePrompt(fragment.id, when);
+  useUnsavedDetector(fragment.id, when);
   return null;
 }

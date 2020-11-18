@@ -5,11 +5,12 @@ import { FCProps } from 'src/shared/types/FCProps';
 import { FullPageSpinner } from 'src/shared/loading';
 import { InView } from 'src/shared/in-view';
 import { PersonInfoCardHeader } from 'src/shared/person-info-card-header';
-import { PromptProvider } from 'src/shared/prompt';
 import { Redirect, Route, Switch, useParams } from 'react-router-dom';
 import { TabLink } from 'src/shared/tab';
 import { Tabs } from 'src/shared/tabs';
 import { TopStickyCard } from 'src/shared/top-sticky-card';
+import { UnsavedDetector } from 'src/shared/unsaved-detector';
+import { UnsavedPrompt } from 'src/shared/unsaved-prompt';
 import { i18n } from '@lingui/core';
 import { useLazyLoadQuery } from 'react-relay/hooks';
 
@@ -55,7 +56,8 @@ export default function ManagerReviewPage(props: Props) {
   }
 
   return (
-    <PromptProvider message={i18n._('Changes you made may not be saved.')}>
+    <UnsavedDetector>
+      <UnsavedPrompt message={i18n._('Changes you made may not be saved.')} />
       <Container maxWidth="md">
         <InView>
           <TopStickyCard>
@@ -114,6 +116,6 @@ export default function ManagerReviewPage(props: Props) {
         </Box>
       </Container>
       <ManagerReviewPrintButton uid={revieweeId} />
-    </PromptProvider>
+    </UnsavedDetector>
   );
 }
