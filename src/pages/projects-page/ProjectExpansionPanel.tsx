@@ -2,6 +2,7 @@ import React from 'react';
 import graphql from 'babel-plugin-relay/macro';
 import { ExpansionPanel, ExpansionPanelDetails, ExpansionPanelSummary } from 'src/shared/expansion-panel';
 import { FCProps } from 'src/shared/types/FCProps';
+import { FormChangeDetector } from 'src/shared/form-change-detector';
 import { ReviewersInputProps } from 'src/shared/reviewers-input/ReviewersInput';
 import { Typography } from '@material-ui/core';
 import { useFragment } from 'react-relay/hooks';
@@ -25,14 +26,16 @@ export function ProjectExpansionPanel(props: Props) {
   const projectReview = useFragment(fragment, props.projectReview);
 
   return (
-    <ExpansionPanel defaultExpanded={!initialProjectIds.has(projectReview.project.id)}>
-      <ExpansionPanelSummary>
-        <Typography variant="h6">{projectReview.project.name}</Typography>
-      </ExpansionPanelSummary>
-      <ExpansionPanelDetails>
-        <ProjectForm onSubmit={saveProject} onDelete={deleteProject} projectReview={projectReview} users={users} />
-      </ExpansionPanelDetails>
-    </ExpansionPanel>
+    <FormChangeDetector>
+      <ExpansionPanel defaultExpanded={!initialProjectIds.has(projectReview.project.id)}>
+        <ExpansionPanelSummary>
+          <Typography variant="h6">{projectReview.project.name}</Typography>
+        </ExpansionPanelSummary>
+        <ExpansionPanelDetails>
+          <ProjectForm onSubmit={saveProject} onDelete={deleteProject} projectReview={projectReview} users={users} />
+        </ExpansionPanelDetails>
+      </ExpansionPanel>
+    </FormChangeDetector>
   );
 }
 

@@ -2,12 +2,13 @@ import graphql from 'babel-plugin-relay/macro';
 import React, { useEffect } from 'react';
 import { Box, Divider, Typography } from '@material-ui/core';
 import { FCProps } from 'src/shared/types/FCProps';
+import { FormChangeDetector } from 'src/shared/form-change-detector';
+import { FormChangePrompt } from 'src/shared/form-change-prompt';
 import { Helmet } from 'react-helmet-async';
 import { InView } from 'src/shared/in-view';
 import { PageBreak } from 'src/shared/page-break';
 import { PersonInfoCardHeader } from 'src/shared/person-info-card-header';
 import { PrintingContext } from 'src/shared/layouts/dashboard-layouts/PrintingContext';
-import { PromptProvider } from 'src/shared/prompt';
 import { getUserLabel } from 'src/shared/utils/getUserLabel';
 import { i18n } from '@lingui/core';
 import { useLazyLoadQuery } from 'react-relay/hooks';
@@ -59,7 +60,8 @@ export function ManagerReviewPrintPage(props: Props) {
   }
 
   return (
-    <PromptProvider message={i18n._('Changes you made may not be saved.')}>
+    <FormChangeDetector>
+      <FormChangePrompt message={i18n._('Changes you made may not be saved.')} />
       <Helmet>
         <title>{getUserLabel(data.viewer.user)}</title>
       </Helmet>
@@ -88,6 +90,6 @@ export function ManagerReviewPrintPage(props: Props) {
         </Box>
         <ManagerReviewOverallEvaluation revieweeId={revieweeId} />
       </PrintingContext.Provider>
-    </PromptProvider>
+    </FormChangeDetector>
   );
 }

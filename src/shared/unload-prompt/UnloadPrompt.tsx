@@ -8,7 +8,7 @@ interface OwnProps {
 
 type Props = FCProps<OwnProps>;
 
-export function Prompt(props: Props) {
+export function UnloadPrompt(props: Props) {
   const { when, message } = props;
   const whenRef = useRef(when);
   const messageRef = useRef(message);

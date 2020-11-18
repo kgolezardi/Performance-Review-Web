@@ -1,5 +1,5 @@
 import { FCProps } from 'src/shared/types/FCProps';
-import { usePrompt } from 'src/shared/prompt';
+import { useFormChanged } from 'src/shared/form-change-detector';
 
 import { useFragmentContext } from '../core/fragment/FragmentContext';
 import { useFragmentValue } from '../core/utils/useFragmentValue';
@@ -23,7 +23,7 @@ function FragmentPrompt<VF, VS>(props: Props<VF, VS>) {
   const fragment = useFragmentContext<VF>();
   const value = useFragmentValue<VF>();
   const when = !equal(value, props.value);
-  usePrompt(fragment.id, when);
+  useFormChanged(fragment.id, when);
   return null;
 }
 

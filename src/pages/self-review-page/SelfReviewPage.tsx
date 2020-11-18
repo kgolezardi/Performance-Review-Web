@@ -5,8 +5,9 @@ import React, { Suspense } from 'react';
 import { Box, Container, Paper, Theme, makeStyles } from '@material-ui/core';
 import { CSSProperties } from '@material-ui/core/styles/withStyles';
 import { FCProps } from 'src/shared/types/FCProps';
+import { FormChangeDetector } from 'src/shared/form-change-detector';
+import { FormChangePrompt } from 'src/shared/form-change-prompt';
 import { FullPageSpinner } from 'src/shared/loading';
-import { PromptProvider } from 'src/shared/prompt';
 import { Redirect, Route, Switch, useParams } from 'react-router-dom';
 import { Styles } from 'src/shared/types/Styles';
 import { TabLink } from 'src/shared/tab';
@@ -54,7 +55,8 @@ export default function SelfReviewPage(props: Props) {
               </Box>
             }
           >
-            <PromptProvider message={i18n._('Changes you made may not be saved.')}>
+            <FormChangeDetector>
+              <FormChangePrompt message={i18n._('Changes you made may not be saved.')} />
               <Switch>
                 <Route
                   path={toPrefix + '/behavioral-competencies'}
@@ -67,7 +69,7 @@ export default function SelfReviewPage(props: Props) {
                 <Route path={toPrefix + '/achievements'} children={<ProjectsPage />} />
                 <Redirect to={toPrefix + '/behavioral-competencies'} />
               </Switch>
-            </PromptProvider>
+            </FormChangeDetector>
           </Suspense>
         </Paper>
       </Box>
