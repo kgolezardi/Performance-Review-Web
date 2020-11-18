@@ -14,10 +14,10 @@ import { i18n } from '@lingui/core';
 import { importMDX } from 'mdx.macro';
 import { isNotNil } from 'src/shared/utils/general.util';
 import { useBiDiSnackbar } from 'src/shared/snackbar';
+import { useFormDirty } from 'src/shared/form-change-detector';
 import { useInView } from 'react-intersection-observer';
 import { useLazyLoadQuery } from 'react-relay/hooks';
 import { useMutation } from 'src/relay';
-import { useUnsavedDetectorContext } from 'src/shared/unsaved-detector';
 
 import { ManagerReviewPerformanceCompetenciesExpansionPanel } from './ManagerReviewPerformanceCompetenciesExpansionPanel';
 import { ManagerReviewPerformanceCompetenciesMutation } from './__generated__/ManagerReviewPerformanceCompetenciesMutation.graphql';
@@ -98,8 +98,8 @@ export function ManagerReviewPerformanceCompetencies(props: Props) {
       });
   };
 
-  const unsavedContext = useUnsavedDetectorContext();
-  const disabled = !(unsavedContext?.unsaved ?? true);
+  const dirty = useFormDirty();
+  const disabled = !dirty;
 
   const reviews = data.viewer.user?.personReviews;
   if (!reviews) {

@@ -4,14 +4,14 @@ import graphql from 'babel-plugin-relay/macro';
 import React, { Suspense } from 'react';
 import { Box, Container, Divider, Paper } from '@material-ui/core';
 import { FCProps } from 'src/shared/types/FCProps';
+import { FormChangeDetector } from 'src/shared/form-change-detector';
+import { FormChangePrompt } from 'src/shared/form-change-prompt';
 import { FullPageSpinner } from 'src/shared/loading';
 import { InView } from 'src/shared/in-view';
 import { Redirect, Route, Switch, useParams } from 'react-router-dom';
 import { TabLink } from 'src/shared/tab';
 import { Tabs } from 'src/shared/tabs';
 import { TopStickyCard } from 'src/shared/top-sticky-card';
-import { UnsavedDetector } from 'src/shared/unsaved-detector';
-import { UnsavedPrompt } from 'src/shared/unsaved-prompt';
 import { i18n } from '@lingui/core';
 import { unescape } from 'src/shared/utils/base64.util';
 import { useLazyLoadQuery } from 'react-relay/hooks';
@@ -52,8 +52,8 @@ export default function PeerReviewPage(props: Props) {
   }
 
   return (
-    <UnsavedDetector>
-      <UnsavedPrompt message={i18n._('Changes you made may not be saved.')} />
+    <FormChangeDetector>
+      <FormChangePrompt message={i18n._('Changes you made may not be saved.')} />
       <Container maxWidth="md">
         <InView>
           <TopStickyCard>
@@ -100,6 +100,6 @@ export default function PeerReviewPage(props: Props) {
           </Paper>
         </Box>
       </Container>
-    </UnsavedDetector>
+    </FormChangeDetector>
   );
 }

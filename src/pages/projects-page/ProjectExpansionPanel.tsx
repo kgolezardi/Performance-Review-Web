@@ -2,9 +2,9 @@ import React from 'react';
 import graphql from 'babel-plugin-relay/macro';
 import { ExpansionPanel, ExpansionPanelDetails, ExpansionPanelSummary } from 'src/shared/expansion-panel';
 import { FCProps } from 'src/shared/types/FCProps';
+import { FormChangeDetector } from 'src/shared/form-change-detector';
 import { ReviewersInputProps } from 'src/shared/reviewers-input/ReviewersInput';
 import { Typography } from '@material-ui/core';
-import { UnsavedDetector } from 'src/shared/unsaved-detector';
 import { useFragment } from 'react-relay/hooks';
 
 import { DeleteProjectReviewMutationInput } from './__generated__/deleteProjectReviewMutation.graphql';
@@ -26,7 +26,7 @@ export function ProjectExpansionPanel(props: Props) {
   const projectReview = useFragment(fragment, props.projectReview);
 
   return (
-    <UnsavedDetector>
+    <FormChangeDetector>
       <ExpansionPanel defaultExpanded={!initialProjectIds.has(projectReview.project.id)}>
         <ExpansionPanelSummary>
           <Typography variant="h6">{projectReview.project.name}</Typography>
@@ -35,7 +35,7 @@ export function ProjectExpansionPanel(props: Props) {
           <ProjectForm onSubmit={saveProject} onDelete={deleteProject} projectReview={projectReview} users={users} />
         </ExpansionPanelDetails>
       </ExpansionPanel>
-    </UnsavedDetector>
+    </FormChangeDetector>
   );
 }
 

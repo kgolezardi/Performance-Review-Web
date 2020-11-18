@@ -9,9 +9,9 @@ import { getUserLabel } from 'src/shared/utils/getUserLabel';
 import { i18n } from '@lingui/core';
 import { localizeNumber } from 'src/shared/utils/localizeNumber.util';
 import { useBiDiSnackbar } from 'src/shared/snackbar';
+import { useFormDirty } from 'src/shared/form-change-detector';
 import { useFragment } from 'react-relay/hooks';
 import { useHistory } from 'react-router-dom';
-import { useUnsavedDetectorContext } from 'src/shared/unsaved-detector';
 
 import { PeerReviewPersonInfoCard_user$key } from './__generated__/PeerReviewPersonInfoCard_user.graphql';
 import { useSavePersonReviewMutation } from './savePersonReview.mutation';
@@ -71,11 +71,11 @@ export function PeerReviewPersonInfoCard(props: Props) {
   }, [user, savePersonReviewMutation, enqueueSnackbar]);
 
   const numberOfProjects = localizeNumber(user.projectReviews.length, i18n.language as LanguageCodes);
-  const unsavedContext = useUnsavedDetectorContext();
+  const dirty = useFormDirty();
   const allProjectCommentFilled = !user.projectReviews.every(
     ({ comment }) => !!(comment && comment.text && comment.rating),
   );
-  const disabled = !(unsavedContext?.unsaved ?? true) || allProjectCommentFilled;
+  const disabled = !dirty || allProjectCommentFilled;
 
   return (
     <PersonInfoCardHeader

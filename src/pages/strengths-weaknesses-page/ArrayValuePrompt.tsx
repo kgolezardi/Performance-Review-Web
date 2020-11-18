@@ -3,10 +3,10 @@ import { ForminatorFragment } from 'src/shared/forminator/core/fragment/Forminat
 import { equals } from 'ramda';
 import { getFragmentsValues, subscribeFragments } from 'src/shared/forminator/core/utils/subscribeFragments';
 import { useEffect, useState } from 'react';
+import { useFormChanged } from 'src/shared/form-change-detector';
 import { useFragmentContext } from 'src/shared/forminator/core/fragment/FragmentContext';
 import { useReadonlySubscribableValue } from 'src/shared/forminator/core/subscribable/useReadonlySubscribableValue';
 import { useStoreContext } from 'src/shared/forminator/core/store/StoreContext';
-import { useUnsavedDetector } from 'src/shared/unsaved-detector';
 
 export type Equal = (
   fragmentValue: ReadonlyArray<string | undefined>,
@@ -55,6 +55,6 @@ export function ArrayValuePrompt(props: Props) {
   const value = useFragmentsValue();
   const when = !equal(value, props.value);
   const fragment = useFragmentContext();
-  useUnsavedDetector(fragment.id, when);
+  useFormChanged(fragment.id, when);
   return null;
 }
