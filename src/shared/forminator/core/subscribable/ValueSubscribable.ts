@@ -20,8 +20,10 @@ export class ValueSubscribable<V> implements Subscribable<V> {
   }
 
   subscribe(callback: (value: V) => void): () => void {
-    const handler = (value: V) => {
-      callback(value);
+    const handler = (value?: V) => {
+      if (value) {
+        callback(value);
+      }
     };
     this.emitter.on(this.key, handler);
     return () => {
