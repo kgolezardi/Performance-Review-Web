@@ -53,7 +53,7 @@ export function CriteriaOutput(props: Props) {
       </Grid>
       <Grid item xs={12}>
         <CriterionOutputItem
-          title={i18n._('Execution')}
+          title={i18n._('Output Quality')}
           evaluation={review?.executionRating as Evaluation}
           evidence={review?.executionComment ?? null}
         />

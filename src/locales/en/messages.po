@@ -165,13 +165,6 @@ msgstr "Exceeds Expectations from Him/Her"
 msgid "Exceeds Expectations from me"
 msgstr "Exceeds Expectations from me"
 
-#: src/pages/criteria-page/CriteriaForm.tsx:64
-#: src/pages/manager-review-page/performance-competencies/ManagerReviewPerformanceCompetencies.tsx:102
-#: src/shared/criteria-output/CriteriaOutput.tsx:34
-#: src/shared/criteria-result/CriteriaResult.tsx:18
-msgid "Execution"
-msgstr "Execution"
-
 #: src/pages/dashboard-page/AchievementsNoProjects.tsx:8
 msgid "Go to Achievements page and add projects you have participated in"
 msgstr "Go to Achievements page and add projects you have participated in"
@@ -279,6 +272,13 @@ msgstr "Other people comments about your performance compared to initial expecta
 #: src/pages/manager-review-page/achievements/ManagerReviewAchievementsExpansionPanel.tsx:66
 msgid "Other people comments about {name} performance compared to initial expectation"
 msgstr "Other people comments about {name} performance compared to initial expectation"
+
+#: src/pages/criteria-page/CriteriaForm.tsx:64
+#: src/pages/manager-review-page/performance-competencies/ManagerReviewPerformanceCompetencies.tsx:102
+#: src/shared/criteria-output/CriteriaOutput.tsx:34
+#: src/shared/criteria-result/CriteriaResult.tsx:18
+msgid "Output Quality"
+msgstr "Output Quality"
 
 #: src/pages/manager-review-page/ManagerReviewPage.tsx:52
 #: src/pages/manager-review-page/ManagerReviewPrintPage.tsx:71

@@ -43,7 +43,7 @@ export function CriteriaResult(props: Props) {
       <CriterionResultExpansionPanel
         reviews={reviews}
         details={<CriteriaHelpText criteria="execution" isSelfReview={isSelfReview} />}
-        title={i18n._('Execution')}
+        title={i18n._('Output Quality')}
         prefix="execution"
       />
       <CriterionResultExpansionPanel
