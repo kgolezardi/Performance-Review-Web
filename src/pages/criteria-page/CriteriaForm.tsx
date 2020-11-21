@@ -95,7 +95,7 @@ export function CriteriaForm(props: Props) {
             </Grid>
             <Grid item xs={12}>
               <CriterionItem
-                title={i18n._('Execution')}
+                title={i18n._('Output Quality')}
                 type={reviewType}
                 details={<CriteriaHelpText criteria="execution" isSelfReview={isSelfReview} />}
                 prefix="execution"

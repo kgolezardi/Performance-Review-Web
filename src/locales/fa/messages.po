@@ -165,13 +165,6 @@ msgstr "فراتر از انتظاری که ازش میره"
 msgid "Exceeds Expectations from me"
 msgstr "فراتر از انتظاری که از من میره"
 
-#: src/pages/criteria-page/CriteriaForm.tsx:64
-#: src/pages/manager-review-page/performance-competencies/ManagerReviewPerformanceCompetencies.tsx:102
-#: src/shared/criteria-output/CriteriaOutput.tsx:34
-#: src/shared/criteria-result/CriteriaResult.tsx:18
-msgid "Execution"
-msgstr "اجرا"
-
 #: src/pages/dashboard-page/AchievementsNoProjects.tsx:8
 msgid "Go to Achievements page and add projects you have participated in"
 msgstr "به صفحه‌ی دستاوردها برو و پروژه‌هایی که در آن‌ها شرکت داشتی را وارد کن"
@@ -279,6 +272,13 @@ msgstr "نظرات دیگران در مورد سطح عمکرد شما در ای
 #: src/pages/manager-review-page/achievements/ManagerReviewAchievementsExpansionPanel.tsx:66
 msgid "Other people comments about {name} performance compared to initial expectation"
 msgstr "نظرات دیگران در مورد سطح عملکرد {name} در این پروژه"
+
+#: src/pages/criteria-page/CriteriaForm.tsx:64
+#: src/pages/manager-review-page/performance-competencies/ManagerReviewPerformanceCompetencies.tsx:102
+#: src/shared/criteria-output/CriteriaOutput.tsx:34
+#: src/shared/criteria-result/CriteriaResult.tsx:18
+msgid "Output Quality"
+msgstr "کیفیت خروجی"
 
 #: src/pages/manager-review-page/ManagerReviewPage.tsx:52
 #: src/pages/manager-review-page/ManagerReviewPrintPage.tsx:71

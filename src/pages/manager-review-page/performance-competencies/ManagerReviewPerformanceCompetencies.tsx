@@ -139,7 +139,7 @@ export function ManagerReviewPerformanceCompetencies(props: Props) {
                 <ManagerReviewPerformanceCompetenciesExpansionPanel
                   reviews={reviews}
                   details={<CriteriaHelpText criteria="execution" isSelfReview={false} />}
-                  title={i18n._('Execution')}
+                  title={i18n._('Output Quality')}
                   prefix="execution"
                   reviewee={data.viewer.user}
                 />
