@@ -137,7 +137,9 @@ export function ProjectForm(props: Props) {
             <ConfirmButton
               buttonText={i18n._('Delete')}
               onConfirm={handleDelete}
-              text={i18n._('Are you sure you want to delete this project review?')}
+              text={i18n._('Are you sure you want to delete {projectName} review?', {
+                projectName: projectReview.project.name,
+              })}
               ConfirmComponent={DangerButton}
               confirmProps={{ variant: 'contained' }}
             />

@@ -59,8 +59,8 @@ msgid "An error occurred. Try again!"
 msgstr "خطایی رخ داده. دوباره تلاش کنید."
 
 #: src/pages/projects-page/ProjectForm.tsx:83
-msgid "Are you sure you want to delete this project review?"
-msgstr "آیا از حذف  این پروژه مطمین هستید؟"
+msgid "Are you sure you want to delete {projectName} review?"
+msgstr "آیا از حذف {projectName} مطمین هستید؟"
 
 #: src/containers/main/getMenuItems.ts:22
 #: src/pages/dashboard-page/DashboardPage.tsx:35
@@ -348,7 +348,7 @@ msgstr "مرجعیت تخصصی"
 #: src/pages/manager-review-page/overall-evaluation/ManagerReviewOverallEvaluation.tsx:73
 #: src/pages/manager-review-page/performance-competencies/ManagerReviewPerformanceCompetencies.tsx:120
 #: src/pages/peer-review-page/projectsTab/projects-form/PeerReviewProjectsForm.tsx:47
-#: src/pages/projects-page/ProjectForm.tsx:85
+#: src/pages/projects-page/ProjectForm.tsx:87
 #: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:65
 msgid "Save"
 msgstr "ذخیره"
