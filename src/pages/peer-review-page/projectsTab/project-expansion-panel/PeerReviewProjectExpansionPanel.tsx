@@ -4,7 +4,7 @@ import { CSSProperties } from '@material-ui/core/styles/withStyles';
 import { ExpansionPanel, ExpansionPanelDetails, ExpansionPanelSummary } from 'src/shared/expansion-panel';
 import { FCProps } from 'src/shared/types/FCProps';
 import { Grid, Theme, Typography, makeStyles } from '@material-ui/core';
-import { ProjectOutput } from 'src/shared/project-output';
+import { MultilineOutput } from 'src/shared/multiline-output';
 import { QuoteBox } from 'src/shared/quote-box';
 import { Styles } from 'src/shared/types/Styles';
 import { getUserLabel } from 'src/shared/utils/getUserLabel';
@@ -25,7 +25,7 @@ const fragment = graphql`
     project {
       name
     }
-    ...ProjectOutput_review
+    text
     comment {
       ...PeerReviewProjectsForm_projectComment
     }
@@ -70,12 +70,12 @@ export function PeerReviewProjectExpansionPanel(props: Props) {
         <Grid container spacing={2}>
           <Grid item xs={12}>
             <Typography variant="button" className={classes.detailTypography}>
-              {i18n._("{name}'s comment about his/her performance compared to initial expectation", { name })}
+              {i18n._("{name}'s comment about his/her achievements in this project", { name })}
             </Typography>
           </Grid>
           <Grid item xs={12}>
             <QuoteBox>
-              <ProjectOutput review={projectReview} />
+              <MultilineOutput value={projectReview.text} enableTruncating />
             </QuoteBox>
           </Grid>
           {projectReview.comment && (
