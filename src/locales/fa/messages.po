@@ -165,6 +165,10 @@ msgstr "فراتر از انتظاری که ازش میره"
 msgid "Exceeds Expectations from me"
 msgstr "فراتر از انتظاری که از من میره"
 
+#: src/pages/peer-review-page/projectsTab/projects-form/PeerReviewProjectsForm.tsx:39
+msgid "Feedback"
+msgstr "بازخورد"
+
 #: src/pages/dashboard-page/AchievementsNoProjects.tsx:8
 msgid "Go to Achievements page and add projects you have participated in"
 msgstr "به صفحه‌ی دستاوردها برو و پروژه‌هایی که در آن‌ها شرکت داشتی را وارد کن"
@@ -253,10 +257,6 @@ msgstr "یافت نشد"
 #: src/shared/confirm-provider/ConfirmationDialog.tsx:23
 msgid "No! Wait"
 msgstr "نه! می‌مونم"
-
-#: src/pages/peer-review-page/projectsTab/projects-form/PeerReviewProjectsForm.tsx:39
-msgid "Observation"
-msgstr "مشاهده"
 
 #: src/pages/criteria-page/CriteriaForm.tsx:58
 #: src/pages/manager-review-page/performance-competencies/ManagerReviewPerformanceCompetencies.tsx:96
@@ -598,9 +598,12 @@ msgstr "{evaluatedItems} مورد از {total} شایستگی رفتاری ار�
 msgid "{evaluationsCount} evaluations / {commentsCount} comments"
 msgstr "{evaluationsCount} ارزیابی / {commentsCount} نظر"
 
+#: src/pages/peer-review-page/projectsTab/project-expansion-panel/PeerReviewProjectExpansionPanel.tsx:53
+msgid "{name}'s comment about his/her achievements in this project"
+msgstr "نظر {name} در مورد دستاوردهاش در این پروژه"
+
 #: src/pages/manager-review-page/achievements/ManagerReviewAchievementsExpansionPanel.tsx:55
 #: src/pages/peer-review-page/projectsTab/PeerReviewProjectsResult.tsx:40
-#: src/pages/peer-review-page/projectsTab/project-expansion-panel/PeerReviewProjectExpansionPanel.tsx:53
 msgid "{name}'s comment about his/her performance compared to initial expectation"
 msgstr "نظر {name} در مورد سطح عملکردش نسبت به انتظاری که ازش میره"
 

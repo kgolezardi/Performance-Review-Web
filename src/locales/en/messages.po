@@ -165,6 +165,10 @@ msgstr "Exceeds Expectations from Him/Her"
 msgid "Exceeds Expectations from me"
 msgstr "Exceeds Expectations from me"
 
+#: src/pages/peer-review-page/projectsTab/projects-form/PeerReviewProjectsForm.tsx:39
+msgid "Feedback"
+msgstr "Feedback"
+
 #: src/pages/dashboard-page/AchievementsNoProjects.tsx:8
 msgid "Go to Achievements page and add projects you have participated in"
 msgstr "Go to Achievements page and add projects you have participated in"
@@ -253,10 +257,6 @@ msgstr "No Options"
 #: src/shared/confirm-provider/ConfirmationDialog.tsx:23
 msgid "No! Wait"
 msgstr "No! Wait"
-
-#: src/pages/peer-review-page/projectsTab/projects-form/PeerReviewProjectsForm.tsx:39
-msgid "Observation"
-msgstr "Observation"
 
 #: src/pages/criteria-page/CriteriaForm.tsx:58
 #: src/pages/manager-review-page/performance-competencies/ManagerReviewPerformanceCompetencies.tsx:96
@@ -598,9 +598,12 @@ msgstr "{evaluatedItems} of {total} behavioral competencies are evaluated"
 msgid "{evaluationsCount} evaluations / {commentsCount} comments"
 msgstr "{evaluationsCount} evaluations / {commentsCount} comments"
 
+#: src/pages/peer-review-page/projectsTab/project-expansion-panel/PeerReviewProjectExpansionPanel.tsx:53
+msgid "{name}'s comment about his/her achievements in this project"
+msgstr "{name}'s comment about his/her achievements in this project"
+
 #: src/pages/manager-review-page/achievements/ManagerReviewAchievementsExpansionPanel.tsx:55
 #: src/pages/peer-review-page/projectsTab/PeerReviewProjectsResult.tsx:40
-#: src/pages/peer-review-page/projectsTab/project-expansion-panel/PeerReviewProjectExpansionPanel.tsx:53
 msgid "{name}'s comment about his/her performance compared to initial expectation"
 msgstr "{name}'s comment about his/her performance compared to initial expectation"
 
