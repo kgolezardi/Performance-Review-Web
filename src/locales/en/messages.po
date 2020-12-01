@@ -53,8 +53,8 @@ msgstr "All reviews were successfully done"
 #: src/pages/manager-review-page/achievements/ManagerReviewAchievements.tsx:59
 #: src/pages/manager-review-page/overall-evaluation/ManagerReviewOverallEvaluation.tsx:48
 #: src/pages/manager-review-page/performance-competencies/ManagerReviewPerformanceCompetencies.tsx:76
-#: src/pages/peer-review-page/PeerReviewPersonInfoCard.tsx:49
-#: src/pages/peer-review-page/PeerReviewPersonInfoCard.tsx:54
+#: src/pages/peer-review-page/PeerReviewPersonInfoCard.tsx:50
+#: src/pages/peer-review-page/PeerReviewPersonInfoCard.tsx:55
 msgid "An error occurred. Try again!"
 msgstr "An error occurred. Try again!"
 
@@ -125,11 +125,11 @@ msgstr "Dominant Characteristics"
 msgid "Done"
 msgstr "Done"
 
-#: src/pages/peer-review-page/PeerReviewPersonInfoCard.tsx:62
+#: src/pages/peer-review-page/PeerReviewPersonInfoCard.tsx:67
 msgid "Edit"
 msgstr "Edit"
 
-#: src/pages/peer-review-page/PeerReviewPersonInfoCard.tsx:64
+#: src/pages/peer-review-page/PeerReviewPersonInfoCard.tsx:70
 msgid "End {name}'s evaluation"
 msgstr "End {name}'s evaluation"
 
@@ -181,7 +181,7 @@ msgstr "Good job!"
 msgid "He/She Needs Improvement"
 msgstr "He/She Needs Improvement"
 
-#: src/pages/peer-review-page/PeerReviewPersonInfoCard.tsx:65
+#: src/pages/peer-review-page/PeerReviewPersonInfoCard.tsx:94
 #: src/shared/user-card/UserCard.tsx:39
 msgid "He/She asked your review on {numberOfProjects} project(s)"
 msgstr "He/She asked your review on {numberOfProjects} project(s)"
@@ -193,6 +193,10 @@ msgstr "How effective were you in this project?"
 #: src/global-types/Evaluation.ts:10
 msgid "I Need Improvement"
 msgstr "I Need Improvement"
+
+#: src/pages/peer-review-page/PeerReviewPersonInfoCard.tsx:86
+msgid "I got it"
+msgstr "I got it"
 
 #: src/pages/dashboard-page/DominantCharacteristicsCircularIndicator.tsx:56
 msgid "I thought you forgot to write your strengths!"
@@ -515,6 +519,10 @@ msgstr "What to continue doing"
 msgid "What to improve"
 msgstr "What to improve"
 
+#: src/pages/peer-review-page/PeerReviewPersonInfoCard.tsx:75
+msgid "When does this button activates?"
+msgstr "When does this button activates?"
+
 #: src/pages/projects-page/ProjectForm.tsx:70
 msgid "Work results and achievemnts reflecting your contributions; For instance, your key-results"
 msgstr "Work results and achievemnts reflecting your contributions; For instance, your key-results"
@@ -607,6 +615,6 @@ msgstr "{name}'s comment about his/her achievements in this project"
 msgid "{name}'s comment about his/her performance compared to initial expectation"
 msgstr "{name}'s comment about his/her performance compared to initial expectation"
 
-#: src/pages/peer-review-page/PeerReviewPersonInfoCard.tsx:40
+#: src/pages/peer-review-page/PeerReviewPersonInfoCard.tsx:41
 msgid "{name}'s evaluation completed successfully."
 msgstr "{name}'s evaluation completed successfully."

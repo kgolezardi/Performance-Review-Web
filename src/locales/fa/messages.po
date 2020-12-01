@@ -53,8 +53,8 @@ msgstr "تمامی ارزیابی‌ها با موفقیت انجام شد"
 #: src/pages/manager-review-page/achievements/ManagerReviewAchievements.tsx:59
 #: src/pages/manager-review-page/overall-evaluation/ManagerReviewOverallEvaluation.tsx:48
 #: src/pages/manager-review-page/performance-competencies/ManagerReviewPerformanceCompetencies.tsx:76
-#: src/pages/peer-review-page/PeerReviewPersonInfoCard.tsx:49
-#: src/pages/peer-review-page/PeerReviewPersonInfoCard.tsx:54
+#: src/pages/peer-review-page/PeerReviewPersonInfoCard.tsx:50
+#: src/pages/peer-review-page/PeerReviewPersonInfoCard.tsx:55
 msgid "An error occurred. Try again!"
 msgstr "خطایی رخ داده. دوباره تلاش کنید."
 
@@ -125,11 +125,11 @@ msgstr "ویژگی‌های بارز"
 msgid "Done"
 msgstr "انجام شده"
 
-#: src/pages/peer-review-page/PeerReviewPersonInfoCard.tsx:62
+#: src/pages/peer-review-page/PeerReviewPersonInfoCard.tsx:67
 msgid "Edit"
 msgstr "ویرایش"
 
-#: src/pages/peer-review-page/PeerReviewPersonInfoCard.tsx:64
+#: src/pages/peer-review-page/PeerReviewPersonInfoCard.tsx:70
 msgid "End {name}'s evaluation"
 msgstr "اتمام ارزیابی {name}"
 
@@ -181,7 +181,7 @@ msgstr "باریکلا! چه خوب که همه رو داری انجام مید�
 msgid "He/She Needs Improvement"
 msgstr "کمتر از حد انتظاری که ازش میره"
 
-#: src/pages/peer-review-page/PeerReviewPersonInfoCard.tsx:65
+#: src/pages/peer-review-page/PeerReviewPersonInfoCard.tsx:94
 #: src/shared/user-card/UserCard.tsx:39
 msgid "He/She asked your review on {numberOfProjects} project(s)"
 msgstr "در {numberOfProjects} پروژه از شما نظر خواسته است"
@@ -193,6 +193,10 @@ msgstr "توی این پروژه چقدر مؤثر بودی؟"
 #: src/global-types/Evaluation.ts:10
 msgid "I Need Improvement"
 msgstr "کمتر از حد انتظاری که از من میره"
+
+#: src/pages/peer-review-page/PeerReviewPersonInfoCard.tsx:86
+msgid "I got it"
+msgstr "بسیار خوب"
 
 #: src/pages/dashboard-page/DominantCharacteristicsCircularIndicator.tsx:56
 msgid "I thought you forgot to write your strengths!"
@@ -515,6 +519,10 @@ msgstr "چی رو ادامه بدم"
 msgid "What to improve"
 msgstr "چی رو بهبود بدم"
 
+#: src/pages/peer-review-page/PeerReviewPersonInfoCard.tsx:75
+msgid "When does this button activates?"
+msgstr "این دکمه کی فعال می‌شه؟"
+
 #: src/pages/projects-page/ProjectForm.tsx:70
 msgid "Work results and achievemnts reflecting your contributions; For instance, your key-results"
 msgstr "خروجی‌ها و دستاوردهایی که نشان‌دهندهٔ تاثیر شما در این پروژه بوده؛ به عنوان مثال نتایج کلیدی شما در دورهٔ اخیر"
@@ -607,6 +615,6 @@ msgstr "نظر {name} در مورد دستاوردهاش در این پروژه"
 msgid "{name}'s comment about his/her performance compared to initial expectation"
 msgstr "نظر {name} در مورد سطح عملکردش نسبت به انتظاری که ازش میره"
 
-#: src/pages/peer-review-page/PeerReviewPersonInfoCard.tsx:40
+#: src/pages/peer-review-page/PeerReviewPersonInfoCard.tsx:41
 msgid "{name}'s evaluation completed successfully."
 msgstr "ارزیابی {name} با موفقیت تمام شد."

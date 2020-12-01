@@ -1,12 +1,17 @@
 import graphql from 'babel-plugin-relay/macro';
-import React, { useCallback } from 'react';
-import { Button } from '@material-ui/core';
+import React, { useCallback, useContext, useState } from 'react';
+import { Box, Button, Paper, Popper } from '@material-ui/core';
 import { FCProps } from 'src/shared/types/FCProps';
 import { LanguageCodes } from 'src/core/locales/types';
 import { LocationState } from 'src/pages/peer-review-board-page/PeerReviewBoardPage';
+import { MDXContext } from '@mdx-js/react';
+import { MDXPropsProvider } from 'src/shared/mdx-provider/MDXPropsProvider';
 import { PersonInfoCardHeader } from 'src/shared/person-info-card-header';
+import { TextButton } from 'src/shared/text-button';
+import { UserType } from 'src/shared/utils/getUserLabel';
 import { getUserLabel } from 'src/shared/utils/getUserLabel';
 import { i18n } from '@lingui/core';
+import { importMDX } from 'mdx.macro';
 import { localizeNumber } from 'src/shared/utils/localizeNumber.util';
 import { useBiDiSnackbar } from 'src/shared/snackbar';
 import { useFormDirty } from 'src/shared/form-change-detector';
@@ -15,6 +20,8 @@ import { useHistory } from 'react-router-dom';
 
 import { PeerReviewPersonInfoCard_user$key } from './__generated__/PeerReviewPersonInfoCard_user.graphql';
 import { useSavePersonReviewMutation } from './savePersonReview.mutation';
+
+const DoneButtonHelpContent = importMDX.sync('./DoneButtonHelpContent.mdx');
 
 const fragment = graphql`
   fragment PeerReviewPersonInfoCard_user on UserNode {
@@ -44,6 +51,8 @@ export function PeerReviewPersonInfoCard(props: Props) {
   const savePersonReviewMutation = useSavePersonReviewMutation();
   const { enqueueSnackbar } = useBiDiSnackbar();
   const history = useHistory<LocationState>();
+  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+  const components = useContext(MDXContext);
 
   const state = user.personReview?.state;
   const name = getUserLabel(user, { short: true });
@@ -72,10 +81,13 @@ export function PeerReviewPersonInfoCard(props: Props) {
 
   const numberOfProjects = localizeNumber(user.projectReviews.length, i18n.language as LanguageCodes);
   const dirty = useFormDirty();
-  const allProjectCommentFilled = !user.projectReviews.every(
-    ({ comment }) => !!(comment && comment.text && comment.rating),
-  );
-  const disabled = !dirty || allProjectCommentFilled;
+  const allProjectCommentsFilled = user.projectReviews.every(({ comment }) => !!(comment?.text && comment?.rating));
+  const disabled = !dirty || !allProjectCommentsFilled;
+
+  const handleHelperTextClick = (event: React.MouseEvent<HTMLElement>) => {
+    setAnchorEl(anchorEl ? null : event.currentTarget);
+  };
+  const open = Boolean(anchorEl);
 
   return (
     <PersonInfoCardHeader
@@ -85,9 +97,32 @@ export function PeerReviewPersonInfoCard(props: Props) {
             {i18n._('Edit')}
           </Button>
         ) : (
-          <Button onClick={handleEndEvaluationClick} variant="contained" color="secondary" disabled={disabled}>
-            {i18n._("End {name}'s evaluation", { name })}
-          </Button>
+          <Box display="flex" flexDirection="column">
+            <Button color="secondary" disabled={disabled} onClick={handleEndEvaluationClick} variant="contained">
+              {i18n._("End {name}'s evaluation", { name })}
+            </Button>
+            {disabled && (
+              <Box marginTop={1}>
+                <TextButton color="primary" onClick={handleHelperTextClick}>
+                  {i18n._('When does this button activates?')}
+                </TextButton>
+                <Popper open={open} anchorEl={anchorEl} style={{ zIndex: 2000 }} placement="bottom-end">
+                  <Paper>
+                    <Box width="400px" padding={2}>
+                      <MDXPropsProvider<UserType | null> value={user}>
+                        <DoneButtonHelpContent components={components} />
+                      </MDXPropsProvider>
+                      <Box marginTop={2} display="flex" justifyContent="flex-end">
+                        <TextButton color="primary" onClick={handleHelperTextClick}>
+                          {i18n._('I got it')}
+                        </TextButton>
+                      </Box>
+                    </Box>
+                  </Paper>
+                </Popper>
+              </Box>
+            )}
+          </Box>
         )
       }
       subheader={i18n._('He/She asked your review on {numberOfProjects} project(s)', {
