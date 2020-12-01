@@ -76,7 +76,7 @@ export function StrengthsWeaknessesForm(props: Props) {
                 }
                 label={isSelfReview ? i18n._('What to continue doing') : i18n._('What should he/she continue doing')}
               />
-              <ArrayValuePrompt value={props.initialValue?.strengths || []} equal={arrayEqual} />
+              <ArrayValuePrompt value={props.initialValue?.strengths} equal={arrayEqual} />
             </Grid>
           </DictInputItem>
 
@@ -91,7 +91,7 @@ export function StrengthsWeaknessesForm(props: Props) {
                 }
                 label={isSelfReview ? i18n._('What to improve') : i18n._('What should he/she improve')}
               />
-              <ArrayValuePrompt value={props.initialValue?.weaknesses || []} equal={arrayEqual} />
+              <ArrayValuePrompt value={props.initialValue?.weaknesses} equal={arrayEqual} />
             </Grid>
           </DictInputItem>
         </DictInput>

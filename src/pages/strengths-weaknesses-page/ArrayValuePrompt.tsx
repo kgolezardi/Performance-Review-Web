@@ -14,8 +14,9 @@ export type Equal = (
 ) => boolean;
 
 const defaultEqual: Equal = (fragmentValue, propValue) => equals(fragmentValue, propValue);
+
 interface OwnProps {
-  value: ReadonlyArray<string | undefined>;
+  value?: ReadonlyArray<string | undefined>;
   /**
    * return true if values is equal
    */
@@ -30,9 +31,12 @@ interface Subscribe {
 const useFragmentsValue = () => {
   const fragment = useFragmentContext();
   const store = useStoreContext();
-  const fragmentValue: ForminatorFragment[] =
-    useReadonlySubscribableValue<Array<ForminatorFragment>>(store.getValueSubscribable(fragment)) || [];
-  const [value, setValue] = useState<Array<string | undefined>>(() => getFragmentsValues<string>(fragmentValue, store));
+  const fragmentValue: ForminatorFragment[] | undefined = useReadonlySubscribableValue<Array<ForminatorFragment>>(
+    store.getValueSubscribable(fragment),
+  );
+  const [value, setValue] = useState<Array<string | undefined> | undefined>(() =>
+    fragmentValue !== undefined ? getFragmentsValues<string>(fragmentValue, store) : undefined,
+  );
   const [subscribe, setSubscribe] = useState<Subscribe>(() => ({
     resubscribe: () => {},
   }));
@@ -44,8 +48,8 @@ const useFragmentsValue = () => {
   }, [store]);
 
   useEffect(() => {
-    setValue(getFragmentsValues(fragmentValue, store));
-    subscribe.resubscribe(fragmentValue);
+    setValue(fragmentValue !== undefined ? getFragmentsValues(fragmentValue, store) : undefined);
+    subscribe.resubscribe(fragmentValue ?? []);
   }, [fragmentValue, subscribe, store]);
   return value;
 };
@@ -53,7 +57,7 @@ const useFragmentsValue = () => {
 export function ArrayValuePrompt(props: Props) {
   const { equal = defaultEqual } = props;
   const value = useFragmentsValue();
-  const when = !equal(value, props.value);
+  const when = value !== undefined && !equal(value ?? [], props.value ?? []);
   const fragment = useFragmentContext();
   useFormChanged(fragment.id, when);
   return null;

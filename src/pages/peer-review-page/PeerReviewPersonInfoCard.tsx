@@ -72,10 +72,10 @@ export function PeerReviewPersonInfoCard(props: Props) {
 
   const numberOfProjects = localizeNumber(user.projectReviews.length, i18n.language as LanguageCodes);
   const dirty = useFormDirty();
-  const allProjectCommentFilled = !user.projectReviews.every(
+  const allProjectCommentFilled = user.projectReviews.every(
     ({ comment }) => !!(comment && comment.text && comment.rating),
   );
-  const disabled = !dirty || allProjectCommentFilled;
+  const disabled = dirty || !allProjectCommentFilled;
 
   return (
     <PersonInfoCardHeader
