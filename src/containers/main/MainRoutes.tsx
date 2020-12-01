@@ -99,6 +99,10 @@ export function MainRoutes(props: FCProps<Props>) {
 
   const data = useLazyLoadQuery<MainRoutesQuery>(query, {});
 
+  if (phase === 'IDLE') {
+    return <IdlePage />;
+  }
+
   if (shouldRenderStartReviewPage(user, phase)) {
     return <StartReviewPage />;
   }
