@@ -82,7 +82,7 @@ export function PeerReviewPersonInfoCard(props: Props) {
   const numberOfProjects = localizeNumber(user.projectReviews.length, i18n.language as LanguageCodes);
   const dirty = useFormDirty();
   const allProjectCommentsFilled = user.projectReviews.every(({ comment }) => !!(comment?.text && comment?.rating));
-  const disabled = !dirty || !allProjectCommentsFilled;
+  const disabled = dirty || !allProjectCommentsFilled;
 
   const handleHelperTextClick = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(anchorEl ? null : event.currentTarget);
