@@ -2,6 +2,7 @@ import graphql from 'babel-plugin-relay/macro';
 import React, { Fragment, useContext } from 'react';
 import { Box, Grid } from '@material-ui/core';
 import { FCProps } from 'src/shared/types/FCProps';
+import { FormChangeDetector } from 'src/shared/form-change-detector';
 import { MDXContext } from '@mdx-js/react';
 import { MDXPropsProvider } from 'src/shared/mdx-provider/MDXPropsProvider';
 import { SectionGuide } from 'src/shared/section-guide';
@@ -81,7 +82,9 @@ export function PeerReviewProjectsTab(props: Props) {
           </Box>
           <Box>
             {projectReviews?.map((projectReview) => (
-              <PeerReviewProjectExpansionPanel projectReview={projectReview} key={projectReview.id} />
+              <FormChangeDetector key={projectReview.id}>
+                <PeerReviewProjectExpansionPanel projectReview={projectReview} />
+              </FormChangeDetector>
             ))}
           </Box>
         </Fragment>

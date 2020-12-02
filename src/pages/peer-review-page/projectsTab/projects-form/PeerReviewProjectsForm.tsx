@@ -15,6 +15,7 @@ import { LIMITED_TEXT_AREA_COUNTER_DISPLAY_THRESHOLD, LIMITED_TEXT_AREA_MAX_CHAR
 import { Rating } from 'src/shared/rating';
 import { StickyBottomPaper } from 'src/shared/sticky-bottom-paper';
 import { i18n } from '@lingui/core';
+import { useFormDirty } from 'src/shared/form-change-detector';
 import { useFragment } from 'react-relay/hooks';
 
 import { Evaluation } from '../../__generated__/savePersonReviewMutation.graphql';
@@ -49,6 +50,8 @@ export function PeerReviewProjectsForm(props: Props) {
     rating: projectComment.rating,
   };
 
+  const dirty = useFormDirty();
+
   return (
     <Forminator onSubmit={onSubmit} initialValue={initialValue}>
       <Grid container spacing={2}>
@@ -76,7 +79,7 @@ export function PeerReviewProjectsForm(props: Props) {
         </DictInput>
         <StickyBottomPaper noSticky>
           <ActionBar>
-            <SubmitButton variant="contained" color="primary">
+            <SubmitButton variant="contained" color="primary" disabled={!dirty}>
               {i18n._('Save')}
             </SubmitButton>
           </ActionBar>
