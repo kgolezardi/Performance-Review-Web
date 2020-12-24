@@ -12,8 +12,8 @@ import { useMutation } from 'src/relay';
 
 import { BehavioralCompetenciesForm } from './BehavioralCompetenciesForm';
 import { BehavioralCompetenciesFormValue } from './BehavioralCompetenciesFormValue';
-import { CriteriaPageMutation } from './__generated__/CriteriaPageMutation.graphql';
-import { CriteriaPageQuery } from './__generated__/CriteriaPageQuery.graphql';
+import { BehavioralCompetenciesPageMutation } from './__generated__/BehavioralCompetenciesPageMutation.graphql';
+import { BehavioralCompetenciesPageQuery } from './__generated__/BehavioralCompetenciesPageQuery.graphql';
 
 interface OwnProps {
   revieweeId: string;
@@ -21,9 +21,9 @@ interface OwnProps {
 
 type Props = FCProps<OwnProps>;
 
-const useCriteriaPageMutation = () =>
-  useMutation<CriteriaPageMutation>(graphql`
-    mutation CriteriaPageMutation($input: SavePersonReviewMutationInput!) {
+const useBehavioralCompetenciesPageMutation = () =>
+  useMutation<BehavioralCompetenciesPageMutation>(graphql`
+    mutation BehavioralCompetenciesPageMutation($input: SavePersonReviewMutationInput!) {
       savePersonReview(input: $input) {
         personReview {
           id
@@ -36,7 +36,7 @@ const useCriteriaPageMutation = () =>
   `);
 
 const query = graphql`
-  query CriteriaPageQuery($id: ID!) {
+  query BehavioralCompetenciesPageQuery($id: ID!) {
     viewer {
       review: findPersonReview(revieweeId: $id) {
         reviewee {
@@ -52,17 +52,17 @@ const query = graphql`
   }
 `;
 
-export default function CriteriaPage(props: Props) {
+export default function BehavioralCompetenciesPage(props: Props) {
   const { revieweeId } = props;
   const { enqueueSnackbar } = useBiDiSnackbar();
-  const criteriaPageMutation = useCriteriaPageMutation();
+  const BehavioralCompetenciesPageMutation = useBehavioralCompetenciesPageMutation();
 
-  const data = useLazyLoadQuery<CriteriaPageQuery>(query, { id: revieweeId });
+  const data = useLazyLoadQuery<BehavioralCompetenciesPageQuery>(query, { id: revieweeId });
 
   const handleSubmit = useCallback(
     (data: BehavioralCompetenciesFormValue) => {
       const input = { input: { revieweeId, ...data } };
-      criteriaPageMutation(input)
+      BehavioralCompetenciesPageMutation(input)
         .then(() => {
           enqueueSnackbar(i18n._('Successfully saved.'), { variant: 'success' });
         })
@@ -70,16 +70,17 @@ export default function CriteriaPage(props: Props) {
           enqueueSnackbar(i18n._('Something went wrong.'), { variant: 'error' });
         });
     },
-    [criteriaPageMutation, revieweeId, enqueueSnackbar],
+    [BehavioralCompetenciesPageMutation, revieweeId, enqueueSnackbar],
   );
 
   const review = data.viewer.review;
   const user = review?.reviewee;
   const isSelfReview = review?.isSelfReview || false;
+  const readonly = review?.state === 'DONE';
 
   return (
     <Box padding={4}>
-      {review?.state === 'DONE' ? (
+      {readonly ? (
         <BehavioralCompetenciesOutput review={review} isSelfReview={isSelfReview} />
       ) : (
         <MDXPropsProvider<UserType | null> value={user || null}>

@@ -1,4 +1,4 @@
-import CriteriaPage from 'src/pages/criteria-page/CriteriaPage';
+import BehavioralCompetenciesPage from 'src/pages/behavioral-competencies-page/BehavioralCompetenciesPage';
 import ProjectsPage from 'src/pages/projects-page/ProjectsPage';
 import StrengthsWeaknessesPage from 'src/pages/strengths-weaknesses-page/StrengthsWeaknessesPage';
 import React, { Suspense } from 'react';
@@ -59,7 +59,7 @@ export default function SelfReviewPage(props: Props) {
               <Switch>
                 <Route
                   path={toPrefix + '/behavioral-competencies'}
-                  children={<CriteriaPage revieweeId={revieweeId} />}
+                  children={<BehavioralCompetenciesPage revieweeId={revieweeId} />}
                 />
                 <Route
                   path={toPrefix + '/dominant-characteristics'}

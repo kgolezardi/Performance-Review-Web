@@ -1,4 +1,4 @@
-import { Evaluation } from './__generated__/CriteriaPageMutation.graphql';
+import { Evaluation } from 'src/__generated__/enums';
 
 export interface BehavioralCompetenciesFormValue {
   sahabinessRating?: Evaluation;

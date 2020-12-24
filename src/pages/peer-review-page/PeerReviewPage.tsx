@@ -1,4 +1,4 @@
-import CriteriaPage from 'src/pages/criteria-page/CriteriaPage';
+import BehavioralCompetenciesPage from 'src/pages/behavioral-competencies-page/BehavioralCompetenciesPage';
 import StrengthsWeaknessesPage from 'src/pages/strengths-weaknesses-page/StrengthsWeaknessesPage';
 import graphql from 'babel-plugin-relay/macro';
 import React, { Suspense } from 'react';
@@ -87,7 +87,7 @@ export default function PeerReviewPage(props: Props) {
               <Switch>
                 <Route
                   path={toPrefix + '/behavioral-competencies'}
-                  children={<CriteriaPage revieweeId={revieweeId} />}
+                  children={<BehavioralCompetenciesPage revieweeId={revieweeId} />}
                 />
                 <Route
                   path={toPrefix + '/dominant-characteristics'}

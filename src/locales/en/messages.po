@@ -217,7 +217,7 @@ msgstr "It'd be good if u wrote more!"
 msgid "It's complete!"
 msgstr "It's complete!"
 
-#: src/pages/criteria-page/BehavioralCompetenciesForm.tsx:70
+#: src/pages/behavioral-competencies-page/BehavioralCompetenciesForm.tsx:70
 #: src/pages/manager-review-page/performance-competencies/ManagerReviewPerformanceCompetencies.tsx:108
 #: src/shared/behavioral-competencies-output/BehavioralCompetenciesOutput.tsx:42
 #: src/shared/criteria-result/CriteriaResult.tsx:20
@@ -258,7 +258,7 @@ msgstr "No Options"
 msgid "No! Wait"
 msgstr "No! Wait"
 
-#: src/pages/criteria-page/BehavioralCompetenciesForm.tsx:58
+#: src/pages/behavioral-competencies-page/BehavioralCompetenciesForm.tsx:58
 #: src/pages/manager-review-page/performance-competencies/ManagerReviewPerformanceCompetencies.tsx:96
 #: src/shared/behavioral-competencies-output/BehavioralCompetenciesOutput.tsx:30
 #: src/shared/criteria-result/CriteriaResult.tsx:16
@@ -273,7 +273,7 @@ msgstr "Other people comments about your performance compared to initial expecta
 msgid "Other people comments about {name} performance compared to initial expectation"
 msgstr "Other people comments about {name} performance compared to initial expectation"
 
-#: src/pages/criteria-page/BehavioralCompetenciesForm.tsx:64
+#: src/pages/behavioral-competencies-page/BehavioralCompetenciesForm.tsx:64
 #: src/pages/manager-review-page/performance-competencies/ManagerReviewPerformanceCompetencies.tsx:102
 #: src/shared/behavioral-competencies-output/BehavioralCompetenciesOutput.tsx:36
 #: src/shared/criteria-result/CriteriaResult.tsx:18
@@ -308,14 +308,14 @@ msgstr "Performance Review System"
 msgid "Persian"
 msgstr "فارسی"
 
-#: src/pages/criteria-page/BehavioralCompetenciesForm.tsx:73
+#: src/pages/behavioral-competencies-page/BehavioralCompetenciesForm.tsx:73
 #: src/pages/manager-review-page/performance-competencies/ManagerReviewPerformanceCompetencies.tsx:111
 #: src/shared/behavioral-competencies-output/BehavioralCompetenciesOutput.tsx:45
 #: src/shared/criteria-result/CriteriaResult.tsx:21
 msgid "Presence"
 msgstr "Presence"
 
-#: src/pages/criteria-page/BehavioralCompetenciesForm.tsx:61
+#: src/pages/behavioral-competencies-page/BehavioralCompetenciesForm.tsx:61
 #: src/pages/manager-review-page/performance-competencies/ManagerReviewPerformanceCompetencies.tsx:99
 #: src/shared/behavioral-competencies-output/BehavioralCompetenciesOutput.tsx:33
 #: src/shared/criteria-result/CriteriaResult.tsx:17
@@ -343,7 +343,7 @@ msgstr "Reviewers"
 msgid "Role Expertise and Self Development"
 msgstr "Role Expertise and Self Development"
 
-#: src/pages/criteria-page/BehavioralCompetenciesForm.tsx:79
+#: src/pages/behavioral-competencies-page/BehavioralCompetenciesForm.tsx:79
 #: src/pages/manager-review-page/achievements/ManagerReviewAchievements.tsx:77
 #: src/pages/manager-review-page/overall-evaluation/ManagerReviewOverallEvaluation.tsx:73
 #: src/pages/manager-review-page/performance-competencies/ManagerReviewPerformanceCompetencies.tsx:120
@@ -384,7 +384,7 @@ msgid "Show and claim reward"
 msgstr "Show and claim reward"
 
 #: src/core/snackbar/Snackbar.stories.tsx:23
-#: src/pages/criteria-page/CriteriaPage.tsx:51
+#: src/pages/behavioral-competencies-page/BehavioralCompetenciesPage.tsx:51
 #: src/pages/peer-review-page/projectsTab/project-expansion-panel/PeerReviewProjectExpansionPanel.tsx:40
 #: src/pages/projects-page/ProjectsPage.tsx:48
 #: src/pages/strengths-weaknesses-page/StrengthsWeaknessesPage.tsx:62
@@ -416,7 +416,7 @@ msgid "Submit"
 msgstr "Submit"
 
 #: src/core/snackbar/Snackbar.stories.tsx:13
-#: src/pages/criteria-page/CriteriaPage.tsx:48
+#: src/pages/behavioral-competencies-page/BehavioralCompetenciesPage.tsx:48
 #: src/pages/manager-review-page/achievements/ManagerReviewAchievements.tsx:56
 #: src/pages/manager-review-page/overall-evaluation/ManagerReviewOverallEvaluation.tsx:45
 #: src/pages/manager-review-page/performance-competencies/ManagerReviewPerformanceCompetencies.tsx:73
@@ -457,7 +457,7 @@ msgstr "The most important characteristics or effective behaviors that I should 
 msgid "The most important characteristics or effective behaviors that he/she should maintain"
 msgstr "The most important characteristics or effective behaviors that he/she should maintain"
 
-#: src/pages/criteria-page/BehavioralCompetenciesForm.tsx:67
+#: src/pages/behavioral-competencies-page/BehavioralCompetenciesForm.tsx:67
 #: src/pages/manager-review-page/performance-competencies/ManagerReviewPerformanceCompetencies.tsx:105
 #: src/shared/behavioral-competencies-output/BehavioralCompetenciesOutput.tsx:39
 #: src/shared/criteria-result/CriteriaResult.tsx:19
