@@ -1,7 +1,6 @@
 import React from 'react';
 import graphql from 'babel-plugin-relay/macro';
-import { Box, Grid, Theme, Typography, lighten, makeStyles, useTheme } from '@material-ui/core';
-import { CSSProperties } from '@material-ui/core/styles/withStyles';
+import { Box, Grid, Theme, Typography, createStyles, lighten, makeStyles, useTheme } from '@material-ui/core';
 import { ExpansionPanel, ExpansionPanelDetails, ExpansionPanelSummary } from 'src/shared/expansion-panel';
 import { FCProps } from 'src/shared/types/FCProps';
 import { ProjectOutput } from 'src/shared/project-output';
@@ -80,11 +79,12 @@ export function ProjectResultExpansionPanel(props: Props) {
   );
 }
 
-const styles = (theme: Theme) => ({
-  detailTypography: {
-    color: theme.palette.grey[700],
-  } as CSSProperties,
-});
+const styles = (theme: Theme) =>
+  createStyles({
+    detailTypography: {
+      color: theme.palette.grey[700],
+    },
+  });
 
 const useStyles = makeStyles(styles, { name: 'ProjectResultExpansionPanel' });
 type StyleProps = Styles<typeof styles>;

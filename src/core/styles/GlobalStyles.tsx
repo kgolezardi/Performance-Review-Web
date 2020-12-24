@@ -1,4 +1,3 @@
-import { CSSProperties } from '@material-ui/core/styles/withStyles';
 import { FCProps } from 'src/shared/types/FCProps';
 import { Styles } from 'src/shared/types/Styles';
 import { Theme, createStyles, makeStyles, useTheme } from '@material-ui/core';
@@ -26,7 +25,7 @@ export function GlobalStyles(props: Props) {
 const styles = (theme: Theme) =>
   createStyles({
     '@global': {
-      html: {} as CSSProperties,
+      html: {},
       body: {
         direction: 'ltr', // automatically changes to `rtl` based on theme.
         '@media print': {
@@ -35,7 +34,7 @@ const styles = (theme: Theme) =>
             display: 'block !important',
           },
         },
-      } as CSSProperties,
+      },
     },
   });
 

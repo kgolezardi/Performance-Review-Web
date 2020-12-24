@@ -1,8 +1,7 @@
 import defaultLoginBackgroundImage from 'src/assets/login-background.png';
 import logo from 'src/assets/logo-light.png';
 import React, { useState } from 'react';
-import { CSSProperties } from '@material-ui/core/styles/withStyles';
-import { Card, Container, Theme, Typography, makeStyles } from '@material-ui/core';
+import { Card, Container, Theme, Typography, createStyles, makeStyles } from '@material-ui/core';
 import { FCProps } from 'src/shared/types/FCProps';
 import { Styles } from 'src/shared/types/Styles';
 import { i18n } from '@lingui/core';
@@ -54,51 +53,52 @@ export function Login(props: Props) {
   );
 }
 
-const styles = (theme: Theme) => ({
-  paper: {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    backgroundColor: theme.palette.background.default,
-    padding: theme.spacing(8.5),
-    borderRadius: theme.spacing(1),
-  } as CSSProperties,
-  logo: {
-    width: '100%',
-    margin: -theme.spacing(6),
-    minHeight: 0,
-  } as CSSProperties,
-  logoSubtitle: {
-    marginBottom: theme.spacing(6),
-  } as CSSProperties,
-  avatar: {
-    margin: theme.spacing(1),
-    backgroundColor: theme.palette.secondary.main,
-  } as CSSProperties,
-  form: {
-    width: '100%', // Fix IE 11 issue.
-    marginTop: theme.spacing(1),
-  } as CSSProperties,
-  textField: {
-    margin: 0,
-  } as CSSProperties,
-  fullPageContainer: {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    height: '100vh',
-  } as CSSProperties,
-  formContainer: {
-    zIndex: 1,
-  } as CSSProperties,
-  background: {
-    position: 'absolute',
-    height: '100%',
-    width: '100vw',
-    backgroundColor: theme.palette.primary.dark,
-    backgroundSize: 'cover',
-  } as CSSProperties,
-});
+const styles = (theme: Theme) =>
+  createStyles({
+    paper: {
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      backgroundColor: theme.palette.background.default,
+      padding: theme.spacing(8.5),
+      borderRadius: theme.spacing(1),
+    },
+    logo: {
+      width: '100%',
+      margin: -theme.spacing(6),
+      minHeight: 0,
+    },
+    logoSubtitle: {
+      marginBottom: theme.spacing(6),
+    },
+    avatar: {
+      margin: theme.spacing(1),
+      backgroundColor: theme.palette.secondary.main,
+    },
+    form: {
+      width: '100%', // Fix IE 11 issue.
+      marginTop: theme.spacing(1),
+    },
+    textField: {
+      margin: 0,
+    },
+    fullPageContainer: {
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      height: '100vh',
+    },
+    formContainer: {
+      zIndex: 1,
+    },
+    background: {
+      position: 'absolute',
+      height: '100%',
+      width: '100vw',
+      backgroundColor: theme.palette.primary.dark,
+      backgroundSize: 'cover',
+    },
+  });
 
 const useStyles = makeStyles(styles, { name: 'Login' });
 type StyleProps = Styles<typeof styles>;

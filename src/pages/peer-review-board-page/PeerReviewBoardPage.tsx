@@ -1,8 +1,7 @@
 import graphql from 'babel-plugin-relay/macro';
 import React, { useCallback, useState } from 'react';
 import { BoardList, EmptyList } from 'src/shared/board-list';
-import { CSSProperties } from '@material-ui/core/styles/withStyles';
-import { Container, Fab, Grid, Theme, makeStyles } from '@material-ui/core';
+import { Container, Fab, Grid, Theme, makeStyles, createStyles } from '@material-ui/core';
 import { Done as DoneIcon } from 'src/assets/icons/Done';
 import { ElementType } from 'src/shared/types/ElementType';
 import { FCProps } from 'src/shared/types/FCProps';
@@ -139,15 +138,16 @@ export default function PeerReviewBoardPage(props: Props) {
   );
 }
 
-const styles = (theme: Theme) => ({
-  fab: {
-    position: 'fixed',
-    bottom: 48,
-    left: 40,
-    zIndex: theme.zIndex.snackbar - 10,
-    backgroundImage: `linear-gradient(212deg, #ffa978, ${theme.palette.secondary.main} 85%, ${theme.palette.secondary.main} 90%)`,
-  } as CSSProperties,
-});
+const styles = (theme: Theme) =>
+  createStyles({
+    fab: {
+      position: 'fixed',
+      bottom: 48,
+      left: 40,
+      zIndex: theme.zIndex.snackbar - 10,
+      backgroundImage: `linear-gradient(212deg, #ffa978, ${theme.palette.secondary.main} 85%, ${theme.palette.secondary.main} 90%)`,
+    },
+  });
 
 const useStyles = makeStyles(styles, { name: 'PeerReviewBoardPage' });
 type StyleProps = Styles<typeof styles>;

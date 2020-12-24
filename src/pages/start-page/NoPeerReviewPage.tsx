@@ -10,9 +10,9 @@ import {
   CardHeader,
   Container,
   Theme,
+  createStyles,
   makeStyles,
 } from '@material-ui/core';
-import { CSSProperties } from '@material-ui/core/styles/withStyles';
 import { FCProps } from 'src/shared/types/FCProps';
 import { MDXContext } from '@mdx-js/react';
 import { ReacteroidsPortal } from 'src/shared/reacteroids';
@@ -68,29 +68,30 @@ export default function NoPeerReviewPage(props: Props) {
   );
 }
 
-const styles = (theme: Theme) => ({
-  card: {
-    position: 'relative',
-    padding: theme.spacing(6),
-    overflow: 'visible',
-  } as CSSProperties,
-  giftInCirlceImage: {
-    width: 168,
-    height: 168,
-    position: 'absolute',
-    top: 0,
-    right: '50%',
-    transform: 'translate(50%,-50%)',
-  } as CSSProperties,
-  headerImage: {
-    backgroundImage: `url(${GiftDialogHeader})`,
-    backgroundSize: 'contain',
-    backgroundPositionX: 'center',
-  } as CSSProperties,
-  cardActions: {
-    justifyContent: 'center',
-  } as CSSProperties,
-});
+const styles = (theme: Theme) =>
+  createStyles({
+    card: {
+      position: 'relative',
+      padding: theme.spacing(6),
+      overflow: 'visible',
+    },
+    giftInCirlceImage: {
+      width: 168,
+      height: 168,
+      position: 'absolute',
+      top: 0,
+      right: '50%',
+      transform: 'translate(50%,-50%)',
+    },
+    headerImage: {
+      backgroundImage: `url(${GiftDialogHeader})`,
+      backgroundSize: 'contain',
+      backgroundPositionX: 'center',
+    },
+    cardActions: {
+      justifyContent: 'center',
+    },
+  });
 
 const useStyles = makeStyles(styles, { name: 'NoPeerReviewPage' });
 type StyleProps = Styles<typeof styles>;

@@ -1,7 +1,6 @@
 import React from 'react';
 import clsx from 'clsx';
-import { CSSProperties } from '@material-ui/core/styles/withStyles';
-import { CircularProgress, Theme, makeStyles } from '@material-ui/core';
+import { CircularProgress, Theme, createStyles, makeStyles } from '@material-ui/core';
 import { FCProps } from 'src/shared/types/FCProps';
 import { Styles } from 'src/shared/types/Styles';
 
@@ -20,18 +19,19 @@ export function FullPageSpinner(props: Props) {
   );
 }
 
-const styles = (theme: Theme) => ({
-  root: {
-    height: '100%',
-    width: '100%',
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-  } as CSSProperties,
-  fullHeight: {
-    height: '100vh',
-  },
-});
+const styles = (theme: Theme) =>
+  createStyles({
+    root: {
+      height: '100%',
+      width: '100%',
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+    },
+    fullHeight: {
+      height: '100vh',
+    },
+  });
 
 const useStyles = makeStyles(styles, { name: 'FullPageSpinner' });
 type StyleProps = Styles<typeof styles>;

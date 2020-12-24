@@ -1,7 +1,6 @@
 import React from 'react';
 import graphql from 'babel-plugin-relay/macro';
-import { Box, Grid, Theme, Typography, lighten, makeStyles, useTheme } from '@material-ui/core';
-import { CSSProperties } from '@material-ui/core/styles/withStyles';
+import { Box, Grid, Theme, Typography, createStyles, lighten, makeStyles, useTheme } from '@material-ui/core';
 import { DictInputItem, FragmentPrompt } from 'src/shared/forminator';
 import { ExpansionPanel, ExpansionPanelDetails } from 'src/shared/expansion-panel';
 import { FCProps } from 'src/shared/types/FCProps';
@@ -108,10 +107,10 @@ export function ManagerReviewAchievementsExpansionPanel(props: Props) {
   );
 }
 
-const styles = (theme: Theme) => ({
+const styles = (theme: Theme) => createStyles({
   detailTypography: {
     color: theme.palette.grey[700],
-  } as CSSProperties,
+  },
 });
 
 const useStyles = makeStyles(styles, { name: 'ManagerReviewAchievementsExpansionPanel' });

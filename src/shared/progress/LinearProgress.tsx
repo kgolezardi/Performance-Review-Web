@@ -1,11 +1,11 @@
 import clsx from 'clsx';
 import React, { useEffect, useState } from 'react';
-import { CSSProperties, CreateCSSProperties } from '@material-ui/core/styles/withStyles';
 import { FCProps } from 'src/shared/types/FCProps';
 import {
   LinearProgress as MuiLinearProgress,
   LinearProgressProps,
   Theme,
+  createStyles,
   lighten,
   makeStyles,
 } from '@material-ui/core';
@@ -46,43 +46,43 @@ export function LinearProgress(props: Props) {
   );
 }
 
-const styles = (theme: Theme) => ({
-  root: {
-    overflow: 'visible',
-    backgroundColor: theme.palette.grey[300],
-    height: 8,
-    borderRadius: theme.spacing(),
-  } as CSSProperties,
-  bar: {
-    transition: 'width .4s linear',
-    transform: 'none !important',
-    width: 0,
-    borderRadius: theme.spacing(),
-  } as CSSProperties,
-  barAnimated: (props: Props) =>
-    ({
+const styles = (theme: Theme) =>
+  createStyles({
+    root: {
+      overflow: 'visible',
+      backgroundColor: theme.palette.grey[300],
+      height: 8,
+      borderRadius: theme.spacing(),
+    },
+    bar: {
+      transition: 'width .4s linear',
+      transform: 'none !important',
+      width: 0,
+      borderRadius: theme.spacing(),
+    },
+    barAnimated: (props: Props) => ({
       width: `${props.value || 0}%`,
-    } as CreateCSSProperties<{ value?: number | undefined }>),
-  barDefaultColor: {
-    filter: `drop-shadow(0 0 2px ${lighten(theme.palette.primary.main, 0.6)})`,
-  } as CSSProperties,
-  barLowColor: {
-    backgroundColor: deepOrange[300],
-    filter: `drop-shadow(0 0 2px ${lighten(deepOrange[300], 0.6)})`,
-  } as CSSProperties,
-  barMediumColor: {
-    backgroundColor: amber[400],
-    filter: `drop-shadow(0 0 2px ${lighten(amber[400], 0.6)})`,
-  } as CSSProperties,
-  barHighColor: {
-    backgroundColor: lightBlue[400],
-    filter: `drop-shadow(0 0 2px ${lighten(lightBlue[400], 0.6)})`,
-  } as CSSProperties,
-  barCompleteColor: {
-    backgroundColor: green[500],
-    filter: `drop-shadow(0 0 2px ${lighten(green[500], 0.6)})`,
-  } as CSSProperties,
-});
+    }),
+    barDefaultColor: {
+      filter: `drop-shadow(0 0 2px ${lighten(theme.palette.primary.main, 0.6)})`,
+    },
+    barLowColor: {
+      backgroundColor: deepOrange[300],
+      filter: `drop-shadow(0 0 2px ${lighten(deepOrange[300], 0.6)})`,
+    },
+    barMediumColor: {
+      backgroundColor: amber[400],
+      filter: `drop-shadow(0 0 2px ${lighten(amber[400], 0.6)})`,
+    },
+    barHighColor: {
+      backgroundColor: lightBlue[400],
+      filter: `drop-shadow(0 0 2px ${lighten(lightBlue[400], 0.6)})`,
+    },
+    barCompleteColor: {
+      backgroundColor: green[500],
+      filter: `drop-shadow(0 0 2px ${lighten(green[500], 0.6)})`,
+    },
+  });
 
 const useStyles = makeStyles(styles, { name: 'LinearProgress' });
 type StyleProps = Styles<typeof styles>;

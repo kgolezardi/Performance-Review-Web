@@ -1,9 +1,8 @@
 import Autocomplete, { AutocompleteProps } from '@material-ui/lab/Autocomplete';
 import React, { ComponentType, useCallback, useMemo } from 'react';
 import { AutocompleteClassKey } from '@material-ui/lab/Autocomplete/Autocomplete';
-import { CSSProperties } from '@material-ui/core/styles/withStyles';
 import { FCProps } from 'src/shared/types/FCProps';
-import { OutlinedTextFieldProps, Paper, TextField, Theme, makeStyles } from '@material-ui/core';
+import { OutlinedTextFieldProps, Paper, TextField, Theme, createStyles, makeStyles } from '@material-ui/core';
 import { Styles } from 'src/shared/types/Styles';
 import { i18n } from '@lingui/core';
 import { indexBy, prop } from 'ramda';
@@ -73,13 +72,14 @@ function SelectAutoComplete<Suggestion extends BaseSuggestion = BaseSuggestion>(
   );
 }
 
-const styles = (theme: Theme) => ({
-  paper: {
-    '& > ul': {
-      maxHeight: 8 * 32, // 8 item x item height
+const styles = (theme: Theme) =>
+  createStyles({
+    paper: {
+      '& > ul': {
+        maxHeight: 8 * 32, // 8 item x item height
+      },
     },
-  } as CSSProperties,
-});
+  });
 
 const useStyles = makeStyles(styles, { name: 'SelectAutoComplete' });
 type StyleProps = Styles<AutocompleteClassKey>;

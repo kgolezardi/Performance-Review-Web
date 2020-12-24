@@ -1,9 +1,8 @@
 import React from 'react';
-import { CSSProperties } from '@material-ui/core/styles/withStyles';
 import { Evaluation } from 'src/__generated__/enums';
 import { FCProps } from 'src/shared/types/FCProps';
 import { Styles } from 'src/shared/types/Styles';
-import { Theme, Typography, TypographyProps, makeStyles } from '@material-ui/core';
+import { Theme, Typography, TypographyProps, createStyles, makeStyles } from '@material-ui/core';
 import { getEnumLabel } from 'src/shared/enum-utils';
 import { i18n } from '@lingui/core';
 import { peerReviewEvaluationDictionary, selfReviewEvaluationDictionary } from 'src/global-types';
@@ -33,9 +32,10 @@ export function EvaluationOutput(props: Props) {
   );
 }
 
-const styles = (theme: Theme) => ({
-  root: {} as CSSProperties,
-});
+const styles = (theme: Theme) =>
+  createStyles({
+    root: {},
+  });
 
 const useStyles = makeStyles(styles, { name: 'EvaluationOutput' });
 type StyleProps = Styles<typeof styles>;

@@ -1,8 +1,7 @@
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import clsx from 'clsx';
 import React, { Fragment, useState } from 'react';
-import { CSSProperties } from '@material-ui/core/styles/withStyles';
-import { Divider, List, MenuItem, Paper, Theme, lighten, makeStyles } from '@material-ui/core';
+import { Divider, List, MenuItem, Paper, Theme, createStyles, lighten, makeStyles } from '@material-ui/core';
 import { FCProps } from 'src/shared/types/FCProps';
 import { NavLink } from 'react-router-dom';
 import { Styles } from 'src/shared/types/Styles';
@@ -73,63 +72,64 @@ export function NavBarMenuItem(props: Props) {
   );
 }
 
-const styles = (theme: Theme) => ({
-  root: {
-    '&:hover $menu': {
-      display: 'block',
+const styles = (theme: Theme) =>
+  createStyles({
+    root: {
+      '&:hover $menu': {
+        display: 'block',
+      },
     },
-  } as CSSProperties,
-  link: {
-    fontSize: theme.typography.h6.fontSize,
-    padding: theme.spacing(2),
-    color: theme.palette.common.white,
-    textDecoration: 'none',
-    display: 'flex',
-    alignItems: 'center',
-    position: 'relative',
-    height: '100%',
-    '&:hover': {
-      color: lighten(theme.palette.primary.main, 0.9),
+    link: {
+      fontSize: theme.typography.h6.fontSize,
+      padding: theme.spacing(2),
+      color: theme.palette.common.white,
+      textDecoration: 'none',
+      display: 'flex',
+      alignItems: 'center',
+      position: 'relative',
+      height: '100%',
+      '&:hover': {
+        color: lighten(theme.palette.primary.main, 0.9),
+      },
     },
-  } as CSSProperties,
-  hide: {} as CSSProperties,
-  menu: {
-    display: 'none',
-    position: 'absolute',
-    top: 60,
-    '$root$hide &': {
-      display: 'none !important',
+    hide: {},
+    menu: {
+      display: 'none',
+      position: 'absolute',
+      top: 60,
+      '$root$hide &': {
+        display: 'none !important',
+      },
     },
-  } as CSSProperties,
-  menuItem: {} as CSSProperties,
-  menuItemLink: {
-    color: theme.palette.text.primary,
-    height: '100%',
-    width: '100%',
-    textDecoration: 'none',
-    padding: theme.spacing(1.5, 2),
-  } as CSSProperties,
-  bar: {
-    position: 'absolute',
-    width: '100%',
-    bottom: 0,
-    right: 0,
-    transition: 'transform 0.2s ease-in, opacity 0.2s ease-in',
-    backgroundColor: theme.palette.common.white,
-    height: theme.spacing(0.5),
-    opacity: 0,
-    transform: `translateY(${theme.spacing(1)}px)`,
-    borderRadius: 2,
-    '$active &': {
-      opacity: 1,
-      transform: 'translateY(0)',
+    menuItem: {},
+    menuItemLink: {
+      color: theme.palette.text.primary,
+      height: '100%',
+      width: '100%',
+      textDecoration: 'none',
+      padding: theme.spacing(1.5, 2),
     },
-  } as CSSProperties,
-  active: {
-    color: theme.palette.common.white,
-    fontWeight: 'bold',
-  } as CSSProperties,
-});
+    bar: {
+      position: 'absolute',
+      width: '100%',
+      bottom: 0,
+      right: 0,
+      transition: 'transform 0.2s ease-in, opacity 0.2s ease-in',
+      backgroundColor: theme.palette.common.white,
+      height: theme.spacing(0.5),
+      opacity: 0,
+      transform: `translateY(${theme.spacing(1)}px)`,
+      borderRadius: 2,
+      '$active &': {
+        opacity: 1,
+        transform: 'translateY(0)',
+      },
+    },
+    active: {
+      color: theme.palette.common.white,
+      fontWeight: 'bold',
+    },
+  });
 
 const useStyles = makeStyles(styles, { name: 'NavBarMenuItem' });
 type StyleProps = Styles<typeof styles>;

@@ -1,9 +1,8 @@
 import React, { ComponentProps, useMemo } from 'react';
-import { CSSProperties } from '@material-ui/core/styles/withStyles';
 import { FCProps } from 'src/shared/types/FCProps';
 import { Select } from 'src/shared/select';
 import { Styles } from 'src/shared/types/Styles';
-import { Theme, makeStyles } from '@material-ui/core';
+import { Theme, createStyles, makeStyles } from '@material-ui/core';
 import { getOptionsFromDictionary } from 'src/shared/utils/getOptionsFromDictionary';
 import { peerReviewEvaluationDictionary, selfReviewEvaluationDictionary } from 'src/global-types';
 
@@ -27,14 +26,15 @@ export function Rating(props: Props) {
   return <Select options={options} {...selectProps} classes={classes} />;
 }
 
-const styles = (theme: Theme) => ({
-  root: {} as CSSProperties,
-  select: {
-    background: 'white',
-    '&:focus': {
+const styles = (theme: Theme) =>
+  createStyles({
+    root: {},
+    select: {
       background: 'white',
+      '&:focus': {
+        background: 'white',
+      },
     },
-  } as CSSProperties,
-});
+  });
 const useStyles = makeStyles(styles, { name: 'Rating' });
 type StyleProps = Styles<typeof styles>;

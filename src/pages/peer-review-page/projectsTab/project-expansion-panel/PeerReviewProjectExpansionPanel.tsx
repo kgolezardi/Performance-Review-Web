@@ -1,9 +1,8 @@
 import graphql from 'babel-plugin-relay/macro';
 import React, { useCallback } from 'react';
-import { CSSProperties } from '@material-ui/core/styles/withStyles';
 import { ExpansionPanel, ExpansionPanelDetails, ExpansionPanelSummary } from 'src/shared/expansion-panel';
 import { FCProps } from 'src/shared/types/FCProps';
-import { Grid, Theme, Typography, makeStyles } from '@material-ui/core';
+import { Grid, Theme, Typography, createStyles, makeStyles } from '@material-ui/core';
 import { MultilineOutput } from 'src/shared/multiline-output';
 import { QuoteBox } from 'src/shared/quote-box';
 import { Styles } from 'src/shared/types/Styles';
@@ -96,11 +95,12 @@ export function PeerReviewProjectExpansionPanel(props: Props) {
   );
 }
 
-const styles = (theme: Theme) => ({
-  detailTypography: {
-    color: theme.palette.grey[700],
-  } as CSSProperties,
-});
+const styles = (theme: Theme) =>
+  createStyles({
+    detailTypography: {
+      color: theme.palette.grey[700],
+    },
+  });
 
 const useStyles = makeStyles(styles, { name: 'PeerReviewProjectExpansionPanel' });
 type StyleProps = Styles<typeof styles>;

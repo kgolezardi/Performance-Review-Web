@@ -2,10 +2,9 @@ import Avatar from '@material-ui/core/Avatar';
 import AvatarGroup from '@material-ui/lab/AvatarGroup';
 import React from 'react';
 import clsx from 'clsx';
-import { CSSProperties } from '@material-ui/core/styles/withStyles';
 import { FCProps } from 'src/shared/types/FCProps';
 import { Styles } from 'src/shared/types/Styles';
-import { Theme, makeStyles } from '@material-ui/core';
+import { Theme, createStyles, makeStyles } from '@material-ui/core';
 
 export interface ReviewAvatar {
   avatarUrl?: string;
@@ -40,29 +39,30 @@ export function ReviewAvatarGroup(props: Props) {
   );
 }
 
-const styles = (theme: Theme) => ({
-  root: {
-    '@media print': {
-      display: 'none !important',
+const styles = (theme: Theme) =>
+  createStyles({
+    root: {
+      '@media print': {
+        display: 'none !important',
+      },
     },
-  } as CSSProperties,
-  avatars: {
-    width: theme.spacing(4),
-    height: theme.spacing(4),
-  } as CSSProperties,
-  avatar: {
-    // Only apply white background to none fallback avatars
-    '&:not($colorDefault)': {
-      background: theme.palette.common.white,
+    avatars: {
+      width: theme.spacing(4),
+      height: theme.spacing(4),
     },
-  } as CSSProperties,
-  colorDefault: {} as CSSProperties,
-  self: {
-    borderWidth: 2,
-    borderStyle: 'solid',
-    borderColor: theme.palette.primary.light,
-  } as CSSProperties,
-});
+    avatar: {
+      // Only apply white background to none fallback avatars
+      '&:not($colorDefault)': {
+        background: theme.palette.common.white,
+      },
+    },
+    colorDefault: {},
+    self: {
+      borderWidth: 2,
+      borderStyle: 'solid',
+      borderColor: theme.palette.primary.light,
+    },
+  });
 
 const useStyles = makeStyles(styles, { name: 'ReviewAvatarGroup' });
 type StyleProps = Styles<typeof styles>;

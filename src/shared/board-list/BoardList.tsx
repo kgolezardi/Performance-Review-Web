@@ -1,6 +1,5 @@
 import React from 'react';
-import { CSSProperties } from '@material-ui/core/styles/withStyles';
-import { Card, CardContent, CardHeader, Divider, Grid, Theme, makeStyles } from '@material-ui/core';
+import { Card, CardContent, CardHeader, Divider, Grid, Theme, createStyles, makeStyles } from '@material-ui/core';
 import { FCProps } from 'src/shared/types/FCProps';
 import { Overlayscrollbars } from 'src/shared/overlayscrollbars';
 import { Styles } from 'src/shared/types/Styles';
@@ -25,31 +24,32 @@ export const BoardList = (props: Props) => {
   );
 };
 
-const styles = (theme: Theme) => ({
-  root: {
-    marginTop: theme.spacing(7),
-    height: '75vh',
-  } as CSSProperties,
-  card: {
-    height: '100%',
-    display: 'flex',
-    flexDirection: 'column',
-  } as CSSProperties,
-  cardContentRoot: {
-    padding: theme.spacing(3),
-    position: 'relative',
-    height: '100%',
-  } as CSSProperties,
-  cardHeaderRoot: {
-    padding: theme.spacing(3, 2),
-    color: theme.palette.grey[700],
-  } as CSSProperties,
-  overlayscrollbars: {
-    flex: 1,
-    width: '100%',
-  } as CSSProperties,
-  childrenWrapper: {} as CSSProperties,
-});
+const styles = (theme: Theme) =>
+  createStyles({
+    root: {
+      marginTop: theme.spacing(7),
+      height: '75vh',
+    },
+    card: {
+      height: '100%',
+      display: 'flex',
+      flexDirection: 'column',
+    },
+    cardContentRoot: {
+      padding: theme.spacing(3),
+      position: 'relative',
+      height: '100%',
+    },
+    cardHeaderRoot: {
+      padding: theme.spacing(3, 2),
+      color: theme.palette.grey[700],
+    },
+    overlayscrollbars: {
+      flex: 1,
+      width: '100%',
+    },
+    childrenWrapper: {},
+  });
 
 const useStyles = makeStyles(styles, { name: 'BoardList' });
 type StyleProps = Styles<typeof styles>;

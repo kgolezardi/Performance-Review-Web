@@ -1,8 +1,7 @@
 import React from 'react';
-import { CSSProperties } from '@material-ui/core/styles/withStyles';
 import { FCProps } from 'src/shared/types/FCProps';
 import { Styles } from 'src/shared/types/Styles';
-import { Theme, makeStyles } from '@material-ui/core';
+import { Theme, createStyles, makeStyles } from '@material-ui/core';
 
 export interface PlaceHolderProps {}
 
@@ -13,13 +12,14 @@ export const PlaceHolder = (props: Props) => {
   return <div className={classes.root}>{props.children}</div>;
 };
 
-const styles = (theme: Theme) => ({
-  root: {
-    position: 'absolute',
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
-  } as CSSProperties,
-});
+const styles = (theme: Theme) =>
+  createStyles({
+    root: {
+      position: 'absolute',
+      top: '50%',
+      left: '50%',
+      transform: 'translate(-50%, -50%)',
+    },
+  });
 const useStyles = makeStyles(styles, { name: 'PlaceHolder' });
 type StyleProps = Styles<typeof styles>;

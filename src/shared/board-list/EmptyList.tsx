@@ -1,8 +1,7 @@
 import React from 'react';
-import { CSSProperties } from '@material-ui/core/styles/withStyles';
 import { FCProps } from 'src/shared/types/FCProps';
 import { Styles } from 'src/shared/types/Styles';
-import { Theme, Typography, makeStyles } from '@material-ui/core';
+import { Theme, Typography, createStyles, makeStyles } from '@material-ui/core';
 
 import { PlaceHolder } from './PlaceHolder';
 
@@ -25,15 +24,16 @@ export function EmptyList(props: Props) {
     </PlaceHolder>
   );
 }
-const styles = (theme: Theme) => ({
-  root: {
-    textAlign: 'center',
-    width: '75%',
-  } as CSSProperties,
-  typography: {
-    color: theme.palette.grey[700],
-  } as CSSProperties,
-});
+const styles = (theme: Theme) =>
+  createStyles({
+    root: {
+      textAlign: 'center',
+      width: '75%',
+    },
+    typography: {
+      color: theme.palette.grey[700],
+    },
+  });
 
 const useStyles = makeStyles(styles, { name: 'EmptyList' });
 type StyleProps = Styles<typeof styles>;

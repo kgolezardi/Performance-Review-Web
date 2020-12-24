@@ -1,10 +1,9 @@
 import React from 'react';
 import clsx from 'clsx';
-import { CSSProperties } from '@material-ui/core/styles/withStyles';
 import { CircularProgress } from 'src/shared/progress';
 import { FCProps } from 'src/shared/types/FCProps';
 import { Styles } from 'src/shared/types/Styles';
-import { Theme, Typography, makeStyles } from '@material-ui/core';
+import { Theme, Typography, createStyles, makeStyles } from '@material-ui/core';
 
 interface OwnProps {
   count: number;
@@ -43,19 +42,20 @@ export function Counter(props: Props) {
   );
 }
 
-const styles = (theme: Theme) => ({
-  root: {
-    display: 'flex',
-  } as CSSProperties,
-  circularProgress: {
-    marginLeft: theme.spacing(),
-  } as CSSProperties,
-  redColor: {
-    color: theme.palette.error.main,
-  } as CSSProperties,
-  warningColor: {} as CSSProperties,
-  typography: {} as CSSProperties,
-});
+const styles = (theme: Theme) =>
+  createStyles({
+    root: {
+      display: 'flex',
+    },
+    circularProgress: {
+      marginLeft: theme.spacing(),
+    },
+    redColor: {
+      color: theme.palette.error.main,
+    },
+    warningColor: {},
+    typography: {},
+  });
 
 const useStyles = makeStyles(styles, { name: 'Counter' });
 type StyleProps = Styles<typeof styles>;

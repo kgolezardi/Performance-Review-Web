@@ -10,10 +10,10 @@ import {
   DialogTitle as MuiDialogTitle,
   Theme,
   Typography,
+  createStyles,
   makeStyles,
   styled,
 } from '@material-ui/core';
-import { CSSProperties } from '@material-ui/core/styles/withStyles';
 import { FCProps } from 'src/shared/types/FCProps';
 import { MDXContext } from '@mdx-js/react';
 import { MDXPropsProvider } from 'src/shared/mdx-provider/MDXPropsProvider';
@@ -82,26 +82,27 @@ export function GiftDialog(props: Props) {
   );
 }
 
-const styles = (theme: Theme) => ({
-  dialogPaper: {
-    overflowY: 'visible',
-    width: 512,
-  } as CSSProperties,
-  giftInCirlceImage: {
-    width: 168,
-    height: 168,
-    position: 'absolute',
-    top: 0,
-    right: '50%',
-    transform: 'translate(50%,-50%)',
-  } as CSSProperties,
-  headerImage: {
-    width: '100%',
-  } as CSSProperties,
-  dialogTitle: {
-    textAlign: 'center',
-  } as CSSProperties,
-});
+const styles = (theme: Theme) =>
+  createStyles({
+    dialogPaper: {
+      overflowY: 'visible',
+      width: 512,
+    },
+    giftInCirlceImage: {
+      width: 168,
+      height: 168,
+      position: 'absolute',
+      top: 0,
+      right: '50%',
+      transform: 'translate(50%,-50%)',
+    },
+    headerImage: {
+      width: '100%',
+    },
+    dialogTitle: {
+      textAlign: 'center',
+    },
+  });
 
 const useStyles = makeStyles(styles, { name: 'GiftDialog' });
 type StyleProps = Styles<typeof styles>;
