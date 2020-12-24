@@ -1,8 +1,7 @@
 import React, { Fragment, useMemo } from 'react';
-import { CSSProperties } from '@material-ui/core/styles/withStyles';
 import { FCProps } from 'src/shared/types/FCProps';
 import { Styles } from 'src/shared/types/Styles';
-import { Theme, makeStyles } from '@material-ui/core';
+import { Theme, createStyles, makeStyles } from '@material-ui/core';
 import { useInView } from 'react-intersection-observer';
 
 import { InViewContextProvider } from './InViewContext';
@@ -28,13 +27,14 @@ export function InView(props: Props) {
   );
 }
 
-const styles = (theme: Theme) => ({
-  inViewSpy: {
-    height: 1,
-    width: '100%',
-    backgroundColor: 'transparent',
-  } as CSSProperties,
-});
+const styles = (theme: Theme) =>
+  createStyles({
+    inViewSpy: {
+      height: 1,
+      width: '100%',
+      backgroundColor: 'transparent',
+    },
+  });
 
 const useStyles = makeStyles(styles, { name: 'InView' });
 type StyleProps = Styles<typeof styles>;

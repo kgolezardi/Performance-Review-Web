@@ -1,9 +1,8 @@
 import PrintIcon from '@material-ui/icons/Print';
 import clsx from 'clsx';
 import React, { Fragment, useEffect, useRef, useState } from 'react';
-import { CSSProperties } from '@material-ui/core/styles/withStyles';
 import { FCProps } from 'src/shared/types/FCProps';
-import { Fab, Theme, makeStyles } from '@material-ui/core';
+import { Fab, Theme, createStyles, makeStyles } from '@material-ui/core';
 import { Styles } from 'src/shared/types/Styles';
 
 const iframeId = 'print-manager-review';
@@ -58,17 +57,18 @@ export function ManagerReviewPrintButton(props: Props) {
   );
 }
 
-const styles = (theme: Theme) => ({
-  noDisplay: {
-    display: 'none',
-  } as CSSProperties,
-  fab: {
-    position: 'fixed',
-    bottom: 48,
-    left: 40,
-    zIndex: theme.zIndex.snackbar - 10,
-  } as CSSProperties,
-});
+const styles = (theme: Theme) =>
+  createStyles({
+    noDisplay: {
+      display: 'none',
+    },
+    fab: {
+      position: 'fixed',
+      bottom: 48,
+      left: 40,
+      zIndex: theme.zIndex.snackbar - 10,
+    },
+  });
 
 const useStyles = makeStyles(styles, { name: 'ManagerReviewPrintButton' });
 type StyleProps = Styles<typeof styles>;

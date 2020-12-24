@@ -1,8 +1,7 @@
 import React from 'react';
 import WarningRounded from '@material-ui/icons/WarningRounded';
 import { amber as Amber } from '@material-ui/core/colors';
-import { Button, Theme, Typography, makeStyles } from '@material-ui/core';
-import { CSSProperties } from '@material-ui/core/styles/withStyles';
+import { Button, Theme, Typography, createStyles, makeStyles } from '@material-ui/core';
 import { FCProps } from 'src/shared/types/FCProps';
 import { Overlay } from 'src/shared/overlay/Overlay';
 import { Styles } from 'src/shared/types/Styles';
@@ -38,14 +37,15 @@ export function OverlayError(props: Props) {
   );
 }
 
-const styles = (theme: Theme) => ({
-  label: {
-    textAlign: 'center',
-    maxWidth: 240,
-    marginTop: theme.spacing(2),
-    marginBottom: theme.spacing(2),
-  } as CSSProperties,
-});
+const styles = (theme: Theme) =>
+  createStyles({
+    label: {
+      textAlign: 'center',
+      maxWidth: 240,
+      marginTop: theme.spacing(2),
+      marginBottom: theme.spacing(2),
+    },
+  });
 
 const useStyles = makeStyles(styles, { name: 'OverlayError' });
 type StyleProps = Styles<typeof styles>;

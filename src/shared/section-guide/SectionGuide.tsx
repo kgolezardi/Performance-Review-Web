@@ -1,7 +1,6 @@
 import HelpIcon from '@material-ui/icons/HelpOutline';
 import React from 'react';
-import { Box, Grid, Theme, lighten, makeStyles } from '@material-ui/core';
-import { CSSProperties } from '@material-ui/core/styles/withStyles';
+import { Box, Grid, Theme, createStyles, lighten, makeStyles } from '@material-ui/core';
 import { FCProps } from 'src/shared/types/FCProps';
 import { Styles } from 'src/shared/types/Styles';
 
@@ -27,16 +26,17 @@ export function SectionGuide(props: Props) {
   );
 }
 
-const styles = (theme: Theme) => ({
-  root: {
-    backgroundColor: lighten(theme.palette.primary.main, 0.85),
-    borderRadius: theme.spacing(0.5),
-    padding: theme.spacing(2),
-    '@media print': {
-      pageBreakInside: 'avoid',
+const styles = (theme: Theme) =>
+  createStyles({
+    root: {
+      backgroundColor: lighten(theme.palette.primary.main, 0.85),
+      borderRadius: theme.spacing(0.5),
+      padding: theme.spacing(2),
+      '@media print': {
+        pageBreakInside: 'avoid',
+      },
     },
-  } as CSSProperties,
-});
+  });
 
 const useStyles = makeStyles(styles, { name: 'SectionGuide' });
 type StyleProps = Styles<typeof styles>;

@@ -1,8 +1,7 @@
 import React, { Fragment, useCallback } from 'react';
-import { CSSProperties } from '@material-ui/core/styles/withStyles';
 import { Counter } from 'src/shared/counter';
 import { FCProps } from 'src/shared/types/FCProps';
-import { FormHelperText, Omit, TextField, TextFieldProps, Theme, makeStyles } from '@material-ui/core';
+import { FormHelperText, Omit, TextField, TextFieldProps, Theme, createStyles, makeStyles } from '@material-ui/core';
 import { Styles } from 'src/shared/types/Styles';
 
 import { useForminatorState } from '../core/useForminatorState';
@@ -69,20 +68,21 @@ function LimitedTextAreaInput(props: Props) {
 
 export default LimitedTextAreaInput;
 
-const styles = (theme: Theme) => ({
-  root: {
-    position: 'relative',
-  } as CSSProperties,
-  textField: {} as CSSProperties,
-  multiline: {
-    paddingBottom: theme.spacing(3),
-  } as CSSProperties,
-  counter: {
-    position: 'absolute',
-    right: theme.spacing(),
-    bottom: 0,
-  } as CSSProperties,
-});
+const styles = (theme: Theme) =>
+  createStyles({
+    root: {
+      position: 'relative',
+    },
+    textField: {},
+    multiline: {
+      paddingBottom: theme.spacing(3),
+    },
+    counter: {
+      position: 'absolute',
+      right: theme.spacing(),
+      bottom: 0,
+    },
+  });
 
 const useStyles = makeStyles(styles, { name: 'LimitedTextAreaInput' });
 type StyleProps = Styles<typeof styles>;

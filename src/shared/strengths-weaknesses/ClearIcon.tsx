@@ -1,10 +1,9 @@
 import MuiClearIcon from '@material-ui/icons/Clear';
 import React, { useCallback } from 'react';
 import { ArrayActionType } from 'src/shared/forminator/inputs/array-input/arrayReducer';
-import { CSSProperties } from '@material-ui/core/styles/withStyles';
 import { FCProps } from 'src/shared/types/FCProps';
 import { Styles } from 'src/shared/types/Styles';
-import { SvgIconProps, Theme, makeStyles } from '@material-ui/core';
+import { SvgIconProps, Theme, createStyles, makeStyles } from '@material-ui/core';
 import { useArrayContext } from 'src/shared/forminator/inputs/array-input/ArrayContext';
 import { useFragmentContext } from 'src/shared/forminator/core/fragment/FragmentContext';
 
@@ -24,12 +23,13 @@ export function ClearIcon(props: Props) {
   return <MuiClearIcon fontSize="small" {...props} onClick={handleClick} classes={{ root: classes.root }} />;
 }
 
-const styles = (theme: Theme) => ({
-  root: {
-    cursor: 'pointer',
-    color: theme.palette.grey[500],
-  } as CSSProperties,
-});
+const styles = (theme: Theme) =>
+  createStyles({
+    root: {
+      cursor: 'pointer',
+      color: theme.palette.grey[500],
+    },
+  });
 
 const useStyles = makeStyles(styles, { name: 'ClearIcon' });
 type StyleProps = Styles<typeof styles>;

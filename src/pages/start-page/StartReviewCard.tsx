@@ -1,7 +1,6 @@
 import ReactMarkdown from 'react-markdown';
 import React, { useCallback } from 'react';
-import { Box, Button, Card, CardContent, CardHeader, Theme, makeStyles } from '@material-ui/core';
-import { CSSProperties } from '@material-ui/core/styles/withStyles';
+import { Box, Button, Card, CardContent, CardHeader, Theme, createStyles, makeStyles } from '@material-ui/core';
 import { FCProps } from 'src/shared/types/FCProps';
 import { Styles } from 'src/shared/types/Styles';
 import { getUserLabel } from 'src/shared/utils/getUserLabel';
@@ -43,11 +42,12 @@ export function StartReviewCard(props: Props) {
   );
 }
 
-const styles = (theme: Theme) => ({
-  root: {
-    padding: theme.spacing(6),
-  } as CSSProperties,
-});
+const styles = (theme: Theme) =>
+  createStyles({
+    root: {
+      padding: theme.spacing(6),
+    },
+  });
 
 const useStyles = makeStyles(styles, { name: 'StartReviewCard' });
 type StyleProps = Styles<typeof styles>;

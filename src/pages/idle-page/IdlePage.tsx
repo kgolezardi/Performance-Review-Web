@@ -1,6 +1,5 @@
 import React from 'react';
-import { CSSProperties } from '@material-ui/core/styles/withStyles';
-import { Card, Theme, Typography, makeStyles } from '@material-ui/core';
+import { Card, Theme, Typography, createStyles, makeStyles } from '@material-ui/core';
 import { FCProps } from 'src/shared/types/FCProps';
 import { Styles } from 'src/shared/types/Styles';
 import { i18n } from '@lingui/core';
@@ -27,22 +26,23 @@ export default function IdlePage(props: Props) {
   );
 }
 
-const styles = (theme: Theme) => ({
-  root: {
-    height: '100%',
-    width: '100vw',
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-  } as CSSProperties,
-  card: {
-    padding: theme.spacing(5),
-  } as CSSProperties,
-  iframe: {
-    borderWidth: 0,
-    borderRadius: theme.spacing(0.5),
-  } as CSSProperties,
-});
+const styles = (theme: Theme) =>
+  createStyles({
+    root: {
+      height: '100%',
+      width: '100vw',
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+    },
+    card: {
+      padding: theme.spacing(5),
+    },
+    iframe: {
+      borderWidth: 0,
+      borderRadius: theme.spacing(0.5),
+    },
+  });
 
 const useStyles = makeStyles(styles, { name: 'IdlePage' });
 type StyleProps = Styles<typeof styles>;

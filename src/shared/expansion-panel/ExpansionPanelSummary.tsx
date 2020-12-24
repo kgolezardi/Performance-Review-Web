@@ -1,11 +1,11 @@
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import React from 'react';
-import { CSSProperties } from '@material-ui/core/styles/withStyles';
 import { FCProps } from 'src/shared/types/FCProps';
 import {
   ExpansionPanelSummary as MuiExpansionPanelSummary,
   ExpansionPanelSummaryProps,
   Theme,
+  createStyles,
   makeStyles,
 } from '@material-ui/core';
 import { Styles } from 'src/shared/types/Styles';
@@ -19,22 +19,23 @@ export function ExpansionPanelSummary(props: Props) {
   return <MuiExpansionPanelSummary expandIcon={<ExpandMoreIcon />} {...props} classes={classes} />;
 }
 
-const styles = (theme: Theme) => ({
-  root: {} as CSSProperties,
-  expanded: {} as CSSProperties,
-  focused: {} as CSSProperties,
-  disabled: {} as CSSProperties,
-  content: {
-    '@media print': {
-      flexWrap: 'wrap',
+const styles = (theme: Theme) =>
+  createStyles({
+    root: {},
+    expanded: {},
+    focused: {},
+    disabled: {},
+    content: {
+      '@media print': {
+        flexWrap: 'wrap',
+      },
     },
-  } as CSSProperties,
-  expandIcon: {
-    '@media print': {
-      display: 'none !important',
+    expandIcon: {
+      '@media print': {
+        display: 'none !important',
+      },
     },
-  } as CSSProperties,
-});
+  });
 
 const useStyles = makeStyles(styles, { name: 'ExpansionPanelSummary' });
 type StyleProps = Styles<typeof styles>;

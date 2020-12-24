@@ -2,8 +2,7 @@ import CriteriaPage from 'src/pages/criteria-page/CriteriaPage';
 import ProjectsPage from 'src/pages/projects-page/ProjectsPage';
 import StrengthsWeaknessesPage from 'src/pages/strengths-weaknesses-page/StrengthsWeaknessesPage';
 import React, { Suspense } from 'react';
-import { Box, Container, Paper, Theme, makeStyles } from '@material-ui/core';
-import { CSSProperties } from '@material-ui/core/styles/withStyles';
+import { Box, Container, Paper, Theme, createStyles, makeStyles } from '@material-ui/core';
 import { FCProps } from 'src/shared/types/FCProps';
 import { FormChangeDetector } from 'src/shared/form-change-detector';
 import { FormChangePrompt } from 'src/shared/form-change-prompt';
@@ -76,19 +75,20 @@ export default function SelfReviewPage(props: Props) {
     </Container>
   );
 }
-const styles = (theme: Theme) => ({
-  tabsPaper: {
-    position: 'sticky',
-    top: 0,
-    zIndex: theme.zIndex.appBar - 25,
-    borderBottomLeftRadius: 0,
-    borderBottomRightRadius: 0,
-  } as CSSProperties,
-  tabPanelPaper: {
-    borderTopLeftRadius: 0,
-    borderTopRightRadius: 0,
-  } as CSSProperties,
-});
+const styles = (theme: Theme) =>
+  createStyles({
+    tabsPaper: {
+      position: 'sticky',
+      top: 0,
+      zIndex: theme.zIndex.appBar - 25,
+      borderBottomLeftRadius: 0,
+      borderBottomRightRadius: 0,
+    },
+    tabPanelPaper: {
+      borderTopLeftRadius: 0,
+      borderTopRightRadius: 0,
+    },
+  });
 
 const useStyles = makeStyles(styles, { name: 'SelfReviewPage' });
 type StyleProps = Styles<typeof styles>;

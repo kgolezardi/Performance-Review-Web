@@ -1,6 +1,5 @@
 import React, { useContext } from 'react';
-import { Box, Card, CardContent, CardHeader, Container, Theme, makeStyles } from '@material-ui/core';
-import { CSSProperties } from '@material-ui/core/styles/withStyles';
+import { Box, Card, CardContent, CardHeader, Container, Theme, createStyles, makeStyles } from '@material-ui/core';
 import { FCProps } from 'src/shared/types/FCProps';
 import { MDXComponentProps, MDXContext } from '@mdx-js/react';
 import { Styles } from 'src/shared/types/Styles';
@@ -33,11 +32,12 @@ export function GuideCard(props: Props) {
   );
 }
 
-const styles = (theme: Theme) => ({
-  headerRoot: {
-    marginTop: theme.spacing(5),
-  } as CSSProperties,
-});
+const styles = (theme: Theme) =>
+  createStyles({
+    headerRoot: {
+      marginTop: theme.spacing(5),
+    },
+  });
 
 const useStyles = makeStyles(styles, { name: 'GuideCard' });
 type StyleProps = Styles<typeof styles>;

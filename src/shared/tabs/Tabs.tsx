@@ -1,7 +1,6 @@
 import React from 'react';
-import { CSSProperties } from '@material-ui/core/styles/withStyles';
 import { FCProps } from 'src/shared/types/FCProps';
-import { Tabs as MuiTabs, TabsProps as MuiTabsProps, Theme, makeStyles } from '@material-ui/core';
+import { Tabs as MuiTabs, TabsProps as MuiTabsProps, Theme, createStyles, makeStyles } from '@material-ui/core';
 
 interface OwnProps extends Omit<MuiTabsProps, 'onChange'> {
   onChange?: (event: React.ChangeEvent<{}>, value: number) => void;
@@ -14,18 +13,19 @@ export function Tabs(props: Props) {
   return <MuiTabs textColor="primary" indicatorColor="primary" centered {...props} classes={classes} />;
 }
 
-const styles = (theme: Theme) => ({
-  scroller: {
-    display: 'block',
-  } as CSSProperties,
-  indicator: {
-    height: theme.spacing(0.5),
-    borderRadius: theme.spacing(0.5),
-    '@media print': {
-      display: 'none',
+const styles = (theme: Theme) =>
+  createStyles({
+    scroller: {
+      display: 'block',
     },
-  } as CSSProperties,
-});
+    indicator: {
+      height: theme.spacing(0.5),
+      borderRadius: theme.spacing(0.5),
+      '@media print': {
+        display: 'none',
+      },
+    },
+  });
 
 const useStyles = makeStyles(styles, { name: 'Tabs' });
 

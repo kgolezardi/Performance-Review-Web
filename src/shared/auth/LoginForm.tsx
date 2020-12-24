@@ -1,6 +1,5 @@
 import React from 'react';
-import { Box, Button, Theme, makeStyles } from '@material-ui/core';
-import { CSSProperties } from '@material-ui/core/styles/withStyles';
+import { Box, Button, Theme, createStyles, makeStyles } from '@material-ui/core';
 import { DictInput, DictInputItem, Form, Forminator, StringInput } from 'src/shared/forminator';
 import { FCProps } from 'src/shared/types/FCProps';
 import { NON_BREAKING_SPACE } from 'src/shared/constants';
@@ -55,9 +54,10 @@ export const LoginForm = (props: Props) => {
   );
 };
 
-const styles = (theme: Theme) => ({
-  stringInput: {} as CSSProperties,
-});
+const styles = (theme: Theme) =>
+  createStyles({
+    stringInput: {},
+  });
 
 const useStyles = makeStyles(styles, { name: 'LoginForm' });
 type StyleProps = Styles<typeof styles>;

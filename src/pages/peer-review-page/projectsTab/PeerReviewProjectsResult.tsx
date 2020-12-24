@@ -1,9 +1,8 @@
 import React from 'react';
 import graphql from 'babel-plugin-relay/macro';
-import { CSSProperties } from '@material-ui/core/styles/withStyles';
 import { ExpansionPanel, ExpansionPanelDetails, ExpansionPanelSummary } from 'src/shared/expansion-panel';
 import { FCProps } from 'src/shared/types/FCProps';
-import { Grid, Theme, Typography, makeStyles } from '@material-ui/core';
+import { Grid, Theme, Typography, createStyles, makeStyles } from '@material-ui/core';
 import { ProjectCommentsOutput, ProjectOutput } from 'src/shared/project-output';
 import { QuoteBox } from 'src/shared/quote-box';
 import { Styles } from 'src/shared/types/Styles';
@@ -75,11 +74,12 @@ export function PeerReviewProjectsResult(props: Props) {
   );
 }
 
-const styles = (theme: Theme) => ({
-  detailTypography: {
-    color: theme.palette.grey[700],
-  } as CSSProperties,
-});
+const styles = (theme: Theme) =>
+  createStyles({
+    detailTypography: {
+      color: theme.palette.grey[700],
+    },
+  });
 
 const useStyles = makeStyles(styles, { name: 'ProjectResult' });
 type StyleProps = Styles<typeof styles>;

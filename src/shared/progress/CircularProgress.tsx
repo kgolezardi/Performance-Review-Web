@@ -1,11 +1,11 @@
 import clsx from 'clsx';
 import React, { useEffect, useState } from 'react';
-import { CSSProperties } from '@material-ui/core/styles/withStyles';
 import { FCProps } from 'src/shared/types/FCProps';
 import {
   CircularProgress as MuiCircularProgress,
   CircularProgressProps,
   Theme,
+  createStyles,
   lighten,
   makeStyles,
 } from '@material-ui/core';
@@ -72,74 +72,75 @@ export function CircularProgress(props: Props) {
   );
 }
 
-const styles = (theme: Theme) => ({
-  root: {
-    display: 'inline-block',
-    position: 'relative',
-  } as CSSProperties,
-  backgroundCircularProgressRoot: {
-    position: 'absolute',
-  } as CSSProperties,
-  backgroundCircularProgressCircle: {
-    color: theme.palette.grey[300],
-    transformOrigin: 'center center',
-    transform: 'translate(10%,10%) scale(0.8)',
-    flip: false,
-  } as CSSProperties,
-  circularProgressRoot: {} as CSSProperties,
-  circularProgressColorDefaultSvg: {} as CSSProperties,
-  circularProgressColorDefaultSvgShadow: {
-    filter: `drop-shadow(0 0 2px ${lighten(theme.palette.primary.main, 0.6)})`,
-  } as CSSProperties,
-  circularProgressColorErrorSvg: {
-    color: theme.palette.error.main,
-  } as CSSProperties,
-  circularProgressColorErrorSvgShadow: {
-    filter: `drop-shadow(0 0 2px ${lighten(theme.palette.error.main, 0.6)})`,
-  } as CSSProperties,
-  circularProgressColorLowSvg: {
-    color: deepOrange[300],
-  } as CSSProperties,
-  circularProgressColorLowSvgShadow: {
-    filter: `drop-shadow(0 0 2px ${lighten(deepOrange[300], 0.6)})`,
-  } as CSSProperties,
-  circularProgressColorMediumSvg: {
-    color: amber[400],
-  } as CSSProperties,
-  circularProgressColorMediumSvgShadow: {
-    filter: `drop-shadow(0 0 2px ${lighten(amber[400], 0.6)})`,
-  } as CSSProperties,
-  circularProgressColorHighSvg: {
-    color: lightBlue[400],
-  } as CSSProperties,
-  circularProgressColorHighSvgShadow: {
-    filter: `drop-shadow(0 0 2px ${lighten(lightBlue[400], 0.6)})`,
-  } as CSSProperties,
-  circularProgressColorCompleteSvg: {
-    color: green[500],
-  } as CSSProperties,
-  circularProgressColorCompleteSvgDropShadow: {
-    filter: `drop-shadow(0 0 2px ${lighten(green[500], 0.6)})`,
-  } as CSSProperties,
-  content: {
-    position: 'absolute',
-    top: '15%',
-    right: '15%',
-    left: '15%',
-    bottom: '15%',
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'center',
-    textAlign: 'center',
-  } as CSSProperties,
-  circularProgressCircle: {
-    strokeLinecap: 'round',
-    transformOrigin: 'center center',
-    transform: 'translate(10%,10%) scale(0.8)',
-    flip: false,
-  } as CSSProperties,
-});
+const styles = (theme: Theme) =>
+  createStyles({
+    root: {
+      display: 'inline-block',
+      position: 'relative',
+    },
+    backgroundCircularProgressRoot: {
+      position: 'absolute',
+    },
+    backgroundCircularProgressCircle: {
+      color: theme.palette.grey[300],
+      transformOrigin: 'center center',
+      transform: 'translate(10%,10%) scale(0.8)',
+      flip: false,
+    },
+    circularProgressRoot: {},
+    circularProgressColorDefaultSvg: {},
+    circularProgressColorDefaultSvgShadow: {
+      filter: `drop-shadow(0 0 2px ${lighten(theme.palette.primary.main, 0.6)})`,
+    },
+    circularProgressColorErrorSvg: {
+      color: theme.palette.error.main,
+    },
+    circularProgressColorErrorSvgShadow: {
+      filter: `drop-shadow(0 0 2px ${lighten(theme.palette.error.main, 0.6)})`,
+    },
+    circularProgressColorLowSvg: {
+      color: deepOrange[300],
+    },
+    circularProgressColorLowSvgShadow: {
+      filter: `drop-shadow(0 0 2px ${lighten(deepOrange[300], 0.6)})`,
+    },
+    circularProgressColorMediumSvg: {
+      color: amber[400],
+    },
+    circularProgressColorMediumSvgShadow: {
+      filter: `drop-shadow(0 0 2px ${lighten(amber[400], 0.6)})`,
+    },
+    circularProgressColorHighSvg: {
+      color: lightBlue[400],
+    },
+    circularProgressColorHighSvgShadow: {
+      filter: `drop-shadow(0 0 2px ${lighten(lightBlue[400], 0.6)})`,
+    },
+    circularProgressColorCompleteSvg: {
+      color: green[500],
+    },
+    circularProgressColorCompleteSvgDropShadow: {
+      filter: `drop-shadow(0 0 2px ${lighten(green[500], 0.6)})`,
+    },
+    content: {
+      position: 'absolute',
+      top: '15%',
+      right: '15%',
+      left: '15%',
+      bottom: '15%',
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'center',
+      alignItems: 'center',
+      textAlign: 'center',
+    },
+    circularProgressCircle: {
+      strokeLinecap: 'round',
+      transformOrigin: 'center center',
+      transform: 'translate(10%,10%) scale(0.8)',
+      flip: false,
+    },
+  });
 
 const useStyles = makeStyles(styles, { name: 'CircularProgress' });
 type StyleProps = Styles<typeof styles>;

@@ -1,8 +1,7 @@
 import graphql from 'babel-plugin-relay/macro';
 import React, { useMemo } from 'react';
-import { CSSProperties } from '@material-ui/core/styles/withStyles';
 import { FCProps } from 'src/shared/types/FCProps';
-import { Grid, Paper, Theme, Typography, makeStyles } from '@material-ui/core';
+import { Grid, Paper, Theme, Typography, createStyles, makeStyles } from '@material-ui/core';
 import { LanguageCodes } from 'src/core/locales/types';
 import { Link } from 'react-router-dom';
 import { Styles } from 'src/shared/types/Styles';
@@ -66,35 +65,36 @@ export const UserCard = (props: Props) => {
   );
 };
 
-const styles = (theme: Theme) => ({
-  root: {
-    marginBottom: theme.spacing(3),
-    boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.15)',
-  } as CSSProperties,
-  imageWrapper: {
-    marginTop: theme.spacing(),
-    marginBottom: theme.spacing(),
-  } as CSSProperties,
-  profilePicture: {
-    width: theme.spacing(10),
-    height: theme.spacing(10),
-    marginLeft: theme.spacing(2),
-  } as CSSProperties,
-  textSection: {
-    marginBottom: theme.spacing(),
-    marginTop: theme.spacing(),
-  } as CSSProperties,
-  textWrapper: {
-    padding: theme.spacing(2),
-    marginLeft: -theme.spacing(2),
-  } as CSSProperties,
-  textSecondary: {
-    color: theme.palette.grey[600],
-  } as CSSProperties,
-  link: {
-    textDecoration: 'none',
-    color: 'unset',
-  } as CSSProperties,
-});
+const styles = (theme: Theme) =>
+  createStyles({
+    root: {
+      marginBottom: theme.spacing(3),
+      boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.15)',
+    },
+    imageWrapper: {
+      marginTop: theme.spacing(),
+      marginBottom: theme.spacing(),
+    },
+    profilePicture: {
+      width: theme.spacing(10),
+      height: theme.spacing(10),
+      marginLeft: theme.spacing(2),
+    },
+    textSection: {
+      marginBottom: theme.spacing(),
+      marginTop: theme.spacing(),
+    },
+    textWrapper: {
+      padding: theme.spacing(2),
+      marginLeft: -theme.spacing(2),
+    },
+    textSecondary: {
+      color: theme.palette.grey[600],
+    },
+    link: {
+      textDecoration: 'none',
+      color: 'unset',
+    },
+  });
 const useStyles = makeStyles(styles, { name: 'UserCard' });
 type StyleProps = Styles<typeof styles>;

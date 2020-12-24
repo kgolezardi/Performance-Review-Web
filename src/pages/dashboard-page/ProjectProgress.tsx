@@ -1,6 +1,5 @@
 import React from 'react';
-import { Box, Theme, Typography, makeStyles } from '@material-ui/core';
-import { CSSProperties } from '@material-ui/core/styles/withStyles';
+import { Box, Theme, Typography, createStyles, makeStyles } from '@material-ui/core';
 import { FCProps } from 'src/shared/types/FCProps';
 import { LinearProgress } from 'src/shared/progress';
 import { Styles } from 'src/shared/types/Styles';
@@ -24,13 +23,14 @@ export function ProjectProgress(props: Props) {
   );
 }
 
-const styles = (theme: Theme) => ({
-  root: {
-    '&:first-child': {
-      marginTop: 0,
+const styles = (theme: Theme) =>
+  createStyles({
+    root: {
+      '&:first-child': {
+        marginTop: 0,
+      },
     },
-  } as CSSProperties,
-});
+  });
 
 const useStyles = makeStyles(styles, { name: 'ProjectProgress' });
 type StyleProps = Styles<typeof styles>;

@@ -105,6 +105,7 @@
     "import-sort-cli": "^6.0.0",
     "import-sort-parser-typescript": "^6.0.0",
     "import-sort-style-renke": "^6.0.0",
+    "jscodeshift": "^0.11.0",
     "lint-staged": "^10.4.0",
     "prettier": "^2.0.5",
     "react-is": "^16.13.1",

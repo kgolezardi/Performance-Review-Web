@@ -1,6 +1,5 @@
 import React from 'react';
-import { Button, Theme, makeStyles } from '@material-ui/core';
-import { CSSProperties } from '@material-ui/core/styles/withStyles';
+import { Button, Theme, createStyles, makeStyles } from '@material-ui/core';
 import { FCProps } from 'src/shared/types/FCProps';
 import { Link, LinkProps } from 'react-router-dom';
 import { Styles } from 'src/shared/types/Styles';
@@ -24,11 +23,12 @@ export function LinkButton(props: Props) {
   );
 }
 
-const styles = (theme: Theme) => ({
-  root: {
-    textDecoration: 'none',
-  } as CSSProperties,
-});
+const styles = (theme: Theme) =>
+  createStyles({
+    root: {
+      textDecoration: 'none',
+    },
+  });
 
 const useStyles = makeStyles(styles, { name: 'LinkButton' });
 type StyleProps = Styles<typeof styles>;

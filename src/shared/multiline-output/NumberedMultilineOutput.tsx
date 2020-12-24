@@ -1,8 +1,7 @@
 import React, { ComponentProps } from 'react';
-import { CreateCSSProperties } from '@material-ui/core/styles/withStyles';
 import { FCProps } from 'src/shared/types/FCProps';
 import { Styles } from 'src/shared/types/Styles';
-import { Theme, makeStyles } from '@material-ui/core';
+import { Theme, createStyles, makeStyles } from '@material-ui/core';
 
 import { MultilineOutput } from './MultilineOutput';
 
@@ -17,15 +16,15 @@ export function NumberedMultilineOutput(props: Props) {
   return <MultilineOutput {...props} className={classes.root} />;
 }
 
-const styles = (theme: Theme) => ({
-  root: (props: Props) =>
-    ({
+const styles = (theme: Theme) =>
+  createStyles({
+    root: (props: Props) => ({
       '&:first-of-type:before': {
         content: `"${props.index + 1}. "`,
         fontWeight: 'bold',
       },
-    } as CreateCSSProperties),
-});
+    }),
+  });
 
 const useStyles = makeStyles(styles, { name: 'NumberedMultilineOutput' });
 type StyleProps = Styles<typeof styles>;

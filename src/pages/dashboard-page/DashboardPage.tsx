@@ -1,8 +1,17 @@
 import React from 'react';
 import clsx from 'clsx';
 import graphql from 'babel-plugin-relay/macro';
-import { Box, Card, CardContent, CardHeader, Container, Grid, Theme, makeStyles } from '@material-ui/core';
-import { CSSProperties } from '@material-ui/core/styles/withStyles';
+import {
+  Box,
+  Card,
+  CardContent,
+  CardHeader,
+  Container,
+  Grid,
+  Theme,
+  createStyles,
+  makeStyles,
+} from '@material-ui/core';
 import { FCProps } from 'src/shared/types/FCProps';
 import { Overlayscrollbars } from 'src/shared/overlayscrollbars/Overlayscrollbars';
 import { Styles } from 'src/shared/types/Styles';
@@ -86,32 +95,33 @@ export default function DashboardPage(props: Props) {
   );
 }
 
-const styles = (theme: Theme) => ({
-  card: {
-    height: 400,
-    display: 'flex',
-    flexDirection: 'column',
-  } as CSSProperties,
-  centerCardContent: {
-    display: 'flex',
-    flex: 1,
-    flexDirection: 'column',
-    justifyContent: 'center',
-  } as CSSProperties,
-  achievementsCard: {
-    display: 'flex',
-    flex: 1,
-    flexDirection: 'column',
-  } as CSSProperties,
-  overlayscrollbars: {
-    flex: 1,
-    marginBottom: theme.spacing(3),
-  } as CSSProperties,
-  achievementCardContent: {
-    height: '100%',
-    paddingTop: 0,
-  } as CSSProperties,
-});
+const styles = (theme: Theme) =>
+  createStyles({
+    card: {
+      height: 400,
+      display: 'flex',
+      flexDirection: 'column',
+    },
+    centerCardContent: {
+      display: 'flex',
+      flex: 1,
+      flexDirection: 'column',
+      justifyContent: 'center',
+    },
+    achievementsCard: {
+      display: 'flex',
+      flex: 1,
+      flexDirection: 'column',
+    },
+    overlayscrollbars: {
+      flex: 1,
+      marginBottom: theme.spacing(3),
+    },
+    achievementCardContent: {
+      height: '100%',
+      paddingTop: 0,
+    },
+  });
 
 const useStyles = makeStyles(styles, { name: 'DashboardPage' });
 type StyleProps = Styles<typeof styles>;

@@ -1,6 +1,5 @@
 import React, { ComponentType, Fragment } from 'react';
-import { AppBar, Theme, Toolbar, makeStyles } from '@material-ui/core';
-import { CSSProperties } from '@material-ui/core/styles/withStyles';
+import { AppBar, Theme, Toolbar, createStyles, makeStyles } from '@material-ui/core';
 import { FCProps } from 'src/shared/types/FCProps';
 import { Overlayscrollbars } from 'src/shared/overlayscrollbars';
 import { Styles } from 'src/shared/types/Styles';
@@ -74,51 +73,52 @@ export function DashboardLayout(props: Props) {
   );
 }
 
-const styles = (theme: Theme) => ({
-  root: {
-    display: 'flex',
-    flexDirection: 'column',
-    height: '100vh',
-    '@media print': {
-      height: 'auto',
+const styles = (theme: Theme) =>
+  createStyles({
+    root: {
+      display: 'flex',
+      flexDirection: 'column',
+      height: '100vh',
+      '@media print': {
+        height: 'auto',
+      },
     },
-  } as CSSProperties,
-  appBar: {
-    height: headerHeight,
-    '@media print': {
-      display: 'none',
+    appBar: {
+      height: headerHeight,
+      '@media print': {
+        display: 'none',
+      },
     },
-  } as CSSProperties,
-  toolbar: {
-    paddingLeft: 0,
-    height: '100%',
-  } as CSSProperties,
-  brandToolbar: {
-    backgroundColor: theme.palette.primary.dark,
-    overflow: 'hidden',
-    width: brandWidth,
-    display: 'flex',
-    alignSelf: 'stretch',
-  } as CSSProperties,
-  content: {
-    flex: 1,
-    marginTop: headerHeight,
-    overflow: 'auto',
-    maxHeight: `calc(100vh - ${headerHeight}px)`,
-    position: 'relative',
-    '@media print': {
-      maxHeight: 'none',
-      marginTop: 0,
+    toolbar: {
+      paddingLeft: 0,
+      height: '100%',
     },
-  } as CSSProperties,
-  userRegion: {
-    marginRight: theme.spacing(8),
-    marginLeft: 'auto',
-  } as CSSProperties,
-  overlayscrollbars: {
-    height: '100%',
-  } as CSSProperties,
-});
+    brandToolbar: {
+      backgroundColor: theme.palette.primary.dark,
+      overflow: 'hidden',
+      width: brandWidth,
+      display: 'flex',
+      alignSelf: 'stretch',
+    },
+    content: {
+      flex: 1,
+      marginTop: headerHeight,
+      overflow: 'auto',
+      maxHeight: `calc(100vh - ${headerHeight}px)`,
+      position: 'relative',
+      '@media print': {
+        maxHeight: 'none',
+        marginTop: 0,
+      },
+    },
+    userRegion: {
+      marginRight: theme.spacing(8),
+      marginLeft: 'auto',
+    },
+    overlayscrollbars: {
+      height: '100%',
+    },
+  });
 
 const useStyles = makeStyles(styles, { name: 'DashboardLayout' });
 type StyleProps = Styles<typeof styles>;

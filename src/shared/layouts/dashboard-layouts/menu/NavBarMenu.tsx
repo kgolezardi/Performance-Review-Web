@@ -1,8 +1,7 @@
 import React from 'react';
-import { CSSProperties } from '@material-ui/core/styles/withStyles';
 import { FCProps } from 'src/shared/types/FCProps';
 import { Styles } from 'src/shared/types/Styles';
-import { Theme, makeStyles } from '@material-ui/core';
+import { Theme, createStyles, makeStyles } from '@material-ui/core';
 
 import { NavBarMenuItem } from './NavBarMenuItem';
 import { NavbarMenuItem } from './types';
@@ -24,14 +23,15 @@ export function NavBarMenu(props: Props) {
   );
 }
 
-const styles = (theme: Theme) => ({
-  root: {
-    height: '100%',
-    display: 'flex',
-    flexDirection: 'row',
-    marginLeft: theme.spacing(3),
-  } as CSSProperties,
-});
+const styles = (theme: Theme) =>
+  createStyles({
+    root: {
+      height: '100%',
+      display: 'flex',
+      flexDirection: 'row',
+      marginLeft: theme.spacing(3),
+    },
+  });
 
 const useStyles = makeStyles(styles, { name: 'NavBarMenu' });
 type StyleProps = Styles<typeof styles>;

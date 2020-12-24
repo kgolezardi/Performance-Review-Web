@@ -1,10 +1,9 @@
 import React from 'react';
 import clsx from 'clsx';
 import graphql from 'babel-plugin-relay/macro';
-import { CSSProperties } from '@material-ui/core/styles/withStyles';
 import { FCProps } from 'src/shared/types/FCProps';
 import { Styles } from 'src/shared/types/Styles';
-import { Theme, makeStyles } from '@material-ui/core';
+import { Theme, createStyles, makeStyles } from '@material-ui/core';
 import { UserAvatar } from 'src/shared/user-avatar';
 import { useFragment } from 'react-relay/hooks';
 import { useInViewContext } from 'src/shared/in-view';
@@ -33,17 +32,18 @@ export function CardHeaderUserAvatar(props: Props) {
   return <UserAvatar user={user} className={clsx(classes.root, { [classes.shrink]: shrink })} />;
 }
 
-const styles = (theme: Theme) => ({
-  root: {
-    width: 80,
-    height: 80,
-    transition: theme.transitions.create(['width', 'height']),
-  } as CSSProperties,
-  shrink: {
-    width: 48,
-    height: 48,
-  } as CSSProperties,
-});
+const styles = (theme: Theme) =>
+  createStyles({
+    root: {
+      width: 80,
+      height: 80,
+      transition: theme.transitions.create(['width', 'height']),
+    },
+    shrink: {
+      width: 48,
+      height: 48,
+    },
+  });
 
 const useStyles = makeStyles(styles, { name: 'CardHeaderUserAvatar' });
 type StyleProps = Styles<typeof styles>;

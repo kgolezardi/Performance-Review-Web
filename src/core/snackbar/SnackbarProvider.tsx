@@ -1,5 +1,4 @@
 import React from 'react';
-import { CSSProperties } from '@material-ui/core/styles/withStyles';
 import { FCProps } from 'src/shared/types/FCProps';
 import { SnackbarProvider as Snackbar, SnackbarProviderProps } from 'notistack';
 import { Styles } from 'src/shared/types/Styles';
@@ -20,8 +19,8 @@ export function SnackbarProvider(props: Props) {
 
 const styles = (theme: Theme) =>
   createStyles({
-    containerAnchorOriginBottomLeft: { flip: false, left: 20, right: 'auto' } as CSSProperties,
-    containerAnchorOriginBottomRight: { flip: false, right: 20, left: 'auto' } as CSSProperties,
+    containerAnchorOriginBottomLeft: { flip: false, left: 20, right: 'auto' },
+    containerAnchorOriginBottomRight: { flip: false, right: 20, left: 'auto' },
   });
 
 const useStyles = makeStyles(styles, { name: 'SnackbarProvider' });

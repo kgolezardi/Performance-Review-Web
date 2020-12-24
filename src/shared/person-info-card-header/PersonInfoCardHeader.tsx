@@ -1,7 +1,6 @@
 import React from 'react';
 import graphql from 'babel-plugin-relay/macro';
-import { CSSProperties } from '@material-ui/core/styles/withStyles';
-import { CardHeader, CardHeaderProps, Theme, makeStyles } from '@material-ui/core';
+import { CardHeader, CardHeaderProps, Theme, createStyles, makeStyles } from '@material-ui/core';
 import { FCProps } from 'src/shared/types/FCProps';
 import { Styles } from 'src/shared/types/Styles';
 import { getUserLabel } from 'src/shared/utils/getUserLabel';
@@ -41,15 +40,16 @@ export function PersonInfoCardHeader(props: Props) {
   );
 }
 
-const styles = (theme: Theme) => ({
-  root: {
-    padding: theme.spacing(3, 6),
-  } as CSSProperties,
-  action: {
-    margin: 0,
-    alignSelf: 'center',
-  } as CSSProperties,
-});
+const styles = (theme: Theme) =>
+  createStyles({
+    root: {
+      padding: theme.spacing(3, 6),
+    },
+    action: {
+      margin: 0,
+      alignSelf: 'center',
+    },
+  });
 
 const useStyles = makeStyles(styles, { name: 'PersonInfoCardHeader' });
 type StyleProps = Styles<typeof styles>;
