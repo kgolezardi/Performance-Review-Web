@@ -1,6 +1,6 @@
 import React from 'react';
 import graphql from 'babel-plugin-relay/macro';
-import { CriterionOutputItem } from 'src/shared/criterion-output-item';
+import { BehavioralCompetencyOutput } from 'src/shared/behavioral-competency-output';
 import { Evaluation } from 'src/global-types';
 import { FCProps } from 'src/shared/types/FCProps';
 import { Grid } from '@material-ui/core';
@@ -41,7 +41,7 @@ export function CriteriaOutput(props: Props) {
   return (
     <Grid container spacing={2}>
       <Grid item xs={12}>
-        <CriterionOutputItem
+        <BehavioralCompetencyOutput
           title={i18n._('Organization Culture Adoption')}
           evaluation={review?.sahabinessRating as Evaluation}
           evidence={review?.sahabinessComment ?? null}
@@ -49,7 +49,7 @@ export function CriteriaOutput(props: Props) {
         />
       </Grid>
       <Grid item xs={12}>
-        <CriterionOutputItem
+        <BehavioralCompetencyOutput
           title={i18n._('Problem Solving')}
           evaluation={review?.problemSolvingRating as Evaluation}
           evidence={review?.problemSolvingComment ?? null}
@@ -57,7 +57,7 @@ export function CriteriaOutput(props: Props) {
         />
       </Grid>
       <Grid item xs={12}>
-        <CriterionOutputItem
+        <BehavioralCompetencyOutput
           title={i18n._('Output Quality')}
           evaluation={review?.executionRating as Evaluation}
           evidence={review?.executionComment ?? null}
@@ -65,7 +65,7 @@ export function CriteriaOutput(props: Props) {
         />
       </Grid>
       <Grid item xs={12}>
-        <CriterionOutputItem
+        <BehavioralCompetencyOutput
           title={i18n._('Thought Leadership')}
           evaluation={review?.thoughtLeadershipRating as Evaluation}
           evidence={review?.thoughtLeadershipComment ?? null}
@@ -73,7 +73,7 @@ export function CriteriaOutput(props: Props) {
         />
       </Grid>
       <Grid item xs={12}>
-        <CriterionOutputItem
+        <BehavioralCompetencyOutput
           title={i18n._('Leadership')}
           evaluation={review?.leadershipRating as Evaluation}
           evidence={review?.leadershipComment ?? null}
@@ -81,7 +81,7 @@ export function CriteriaOutput(props: Props) {
         />
       </Grid>
       <Grid item xs={12}>
-        <CriterionOutputItem
+        <BehavioralCompetencyOutput
           title={i18n._('Presence')}
           evaluation={review?.presenceRating as Evaluation}
           evidence={review?.presenceComment ?? null}

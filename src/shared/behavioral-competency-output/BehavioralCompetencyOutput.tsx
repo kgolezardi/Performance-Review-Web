@@ -1,6 +1,6 @@
 import React from 'react';
 import { Box, Grid, Typography } from '@material-ui/core';
-import { Evaluation } from 'src/global-types';
+import { Evaluation } from 'src/__generated__/enums';
 import { EvaluationOutput } from 'src/shared/evaluation-output';
 import { FCProps } from 'src/shared/types/FCProps';
 import { MultilineOutput } from 'src/shared/multiline-output';
@@ -8,14 +8,14 @@ import { i18n } from '@lingui/core';
 
 interface OwnProps {
   title: string;
-  evaluation: '%future added value' | Evaluation | null;
+  evaluation: Evaluation | null;
   evidence: string | null;
   type: 'self' | 'peer';
 }
 
 type Props = FCProps<OwnProps>;
 
-export function CriterionOutputItem(props: Props) {
+export function BehavioralCompetencyOutput(props: Props) {
   const { title, evaluation, evidence, type } = props;
 
   return (

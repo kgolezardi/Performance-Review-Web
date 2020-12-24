@@ -5,14 +5,14 @@ import { LoremIpsum } from 'lorem-ipsum';
 import { i18n } from '@lingui/core';
 import { storiesOf } from '@storybook/react';
 
-import { CriterionOutputItem } from './CriterionOutputItem';
+import { BehavioralCompetencyOutput } from './BehavioralCompetencyOutput';
 
 storiesOf('Criterion Output Item', module).add('simple', () => {
   return (
     <Container>
       <Grid container spacing={2}>
         <Grid item xs={12}>
-          <CriterionOutputItem
+          <BehavioralCompetencyOutput
             title={i18n._('Role Expertise and Self Development')}
             evaluation={Evaluation.EXCEEDS_EXPECTATIONS}
             evidence={new LoremIpsum().generateSentences(2)}
@@ -20,7 +20,7 @@ storiesOf('Criterion Output Item', module).add('simple', () => {
           />
         </Grid>
         <Grid item xs={12}>
-          <CriterionOutputItem
+          <BehavioralCompetencyOutput
             title="روحیه‌ی کار تیمی"
             evaluation={Evaluation.MEETS_EXPECTATIONS}
             evidence={new LoremIpsum().generateSentences(2)}

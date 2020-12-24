@@ -1,1 +1,0 @@
-export { CriterionOutputItem } from './CriterionOutputItem';
