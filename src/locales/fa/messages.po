@@ -207,13 +207,13 @@ msgstr "در حال انجام"
 msgid "It'd be a good idea to write a weakness!"
 msgstr "کاش یه نقطه‌ی ضعف هم بنویسی!"
 
+#: src/pages/dashboard-page/BehavioralCompetenciesCircularIndicator.tsx:70
 #: src/pages/dashboard-page/DominantCharacteristicsCircularIndicator.tsx:67
-#: src/pages/dashboard-page/PerformanceCompetenciesCircularIndicator.tsx:70
 msgid "It'd be good if u wrote more!"
 msgstr "کاش بیشتر برامون بنویسی!"
 
+#: src/pages/dashboard-page/BehavioralCompetenciesCircularIndicator.tsx:76
 #: src/pages/dashboard-page/DominantCharacteristicsCircularIndicator.tsx:62
-#: src/pages/dashboard-page/PerformanceCompetenciesCircularIndicator.tsx:76
 msgid "It's complete!"
 msgstr "تکمیل شد!"
 
@@ -539,8 +539,8 @@ msgstr "هر {total} مورد شایستگی رفتاری ارزیابی شد. �
 msgid "You haven't added any project."
 msgstr "هنوز هیچ پروژه‌ای را اضافه نکردی!"
 
+#: src/pages/dashboard-page/BehavioralCompetenciesCircularIndicator.tsx:67
 #: src/pages/dashboard-page/DominantCharacteristicsCircularIndicator.tsx:53
-#: src/pages/dashboard-page/PerformanceCompetenciesCircularIndicator.tsx:67
 msgid "You haven't entered anything yet!"
 msgstr "هنوز چیزی ننوشتی!"
 
@@ -556,9 +556,9 @@ msgstr "هنوز هیچ شایستگی رفتاری را ارزیابی نکرد
 msgid "You haven't started evaluating yet!"
 msgstr "هنوز شروع به ارزیابی نکردی!"
 
+#: src/pages/dashboard-page/BehavioralCompetenciesCircularIndicator.tsx:73
+#: src/pages/dashboard-page/BehavioralCompetenciesCircularIndicator.tsx:78
 #: src/pages/dashboard-page/DominantCharacteristicsCircularIndicator.tsx:65
-#: src/pages/dashboard-page/PerformanceCompetenciesCircularIndicator.tsx:73
-#: src/pages/dashboard-page/PerformanceCompetenciesCircularIndicator.tsx:78
 msgid "You're almost there!"
 msgstr "یه کم مونده!"
 

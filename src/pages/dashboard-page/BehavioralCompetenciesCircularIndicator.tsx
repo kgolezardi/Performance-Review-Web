@@ -5,19 +5,19 @@ import { Typography } from '@material-ui/core';
 import { i18n } from '@lingui/core';
 import { useFragment } from 'react-relay/hooks';
 
-import { DashboardPageCircularIndicator } from './DashboardPageCircularIndicator';
 import {
-  PerformanceCompetenciesCircularIndicator_review,
-  PerformanceCompetenciesCircularIndicator_review$key,
-} from './__generated__/PerformanceCompetenciesCircularIndicator_review.graphql';
+  BehavioralCompetenciesCircularIndicator_review,
+  BehavioralCompetenciesCircularIndicator_review$key,
+} from './__generated__/BehavioralCompetenciesCircularIndicator_review.graphql';
+import { DashboardPageCircularIndicator } from './DashboardPageCircularIndicator';
 
 interface OwnProps {
-  review: PerformanceCompetenciesCircularIndicator_review$key | null;
+  review: BehavioralCompetenciesCircularIndicator_review$key | null;
 }
 
 type Props = FCProps<OwnProps>;
 
-export function PerformanceCompetenciesCircularIndicator(props: Props) {
+export function BehavioralCompetenciesCircularIndicator(props: Props) {
   const review = useFragment(fragment, props.review);
 
   const numberOfFilledFields = getNumberOfFilledFields(review);
@@ -34,7 +34,7 @@ export function PerformanceCompetenciesCircularIndicator(props: Props) {
 }
 
 export const fragment = graphql`
-  fragment PerformanceCompetenciesCircularIndicator_review on PersonReviewNode {
+  fragment BehavioralCompetenciesCircularIndicator_review on PersonReviewNode {
     sahabinessComment
     problemSolvingComment
     executionComment
@@ -57,12 +57,12 @@ const getLength = (obj: object | null) => {
   return Object.keys(obj).length;
 };
 
-const getNumberOfFilledFields = (review: PerformanceCompetenciesCircularIndicator_review | null): number => {
+const getNumberOfFilledFields = (review: BehavioralCompetenciesCircularIndicator_review | null): number => {
   if (review === null) {
     return 0;
   }
 
-  const keys = Object.keys(review) as [keyof PerformanceCompetenciesCircularIndicator_review];
+  const keys = Object.keys(review) as [keyof BehavioralCompetenciesCircularIndicator_review];
   const items = keys.map((key) => Boolean(review[key]));
   return items.filter(Boolean).length;
 };

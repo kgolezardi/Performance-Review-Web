@@ -20,10 +20,10 @@ import { useAuthGuardUser } from 'src/core/auth';
 import { useLazyLoadQuery } from 'react-relay/hooks';
 
 import { AchievementsIndicators } from './AchievementsIndicators';
+import { BehavioralCompetenciesCircularIndicator } from './BehavioralCompetenciesCircularIndicator';
 import { DashboardPageQuery } from './__generated__/DashboardPageQuery.graphql';
 import { DominantCharacteristicsCircularIndicator } from './DominantCharacteristicsCircularIndicator';
 import { LinkButton } from './LinkButton';
-import { PerformanceCompetenciesCircularIndicator } from './PerformanceCompetenciesCircularIndicator';
 
 interface OwnProps {}
 
@@ -33,7 +33,7 @@ const query = graphql`
   query DashboardPageQuery($id: ID!) {
     viewer {
       review: findPersonReview(revieweeId: $id) {
-        ...PerformanceCompetenciesCircularIndicator_review
+        ...BehavioralCompetenciesCircularIndicator_review
         ...DominantCharacteristicsCircularIndicator_review
       }
       projects: projectReviews {
@@ -58,7 +58,7 @@ export default function DashboardPage(props: Props) {
             <Card classes={{ root: classes.card }}>
               <CardHeader title={i18n._('Behavioral Competencies')} />
               <CardContent classes={{ root: classes.centerCardContent }}>
-                <PerformanceCompetenciesCircularIndicator review={data.viewer.review} />
+                <BehavioralCompetenciesCircularIndicator review={data.viewer.review} />
               </CardContent>
               <Box paddingX={5} paddingBottom={3}>
                 <LinkButton to="/self-review/behavioral-competencies" />

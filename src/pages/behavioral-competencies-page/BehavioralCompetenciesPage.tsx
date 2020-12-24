@@ -28,7 +28,7 @@ const useBehavioralCompetenciesPageMutation = () =>
         personReview {
           id
           state
-          ...PerformanceCompetenciesCircularIndicator_review
+          ...BehavioralCompetenciesCircularIndicator_review
           ...DominantCharacteristicsCircularIndicator_review
         }
       }
