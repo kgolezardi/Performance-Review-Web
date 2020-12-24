@@ -219,7 +219,7 @@ msgstr "It's complete!"
 
 #: src/pages/criteria-page/CriteriaForm.tsx:70
 #: src/pages/manager-review-page/performance-competencies/ManagerReviewPerformanceCompetencies.tsx:108
-#: src/shared/criteria-output/CriteriaOutput.tsx:42
+#: src/shared/behavioral-competencies-output/BehavioralCompetenciesOutput.tsx:42
 #: src/shared/criteria-result/CriteriaResult.tsx:20
 msgid "Leadership"
 msgstr "Leadership"
@@ -260,7 +260,7 @@ msgstr "No! Wait"
 
 #: src/pages/criteria-page/CriteriaForm.tsx:58
 #: src/pages/manager-review-page/performance-competencies/ManagerReviewPerformanceCompetencies.tsx:96
-#: src/shared/criteria-output/CriteriaOutput.tsx:30
+#: src/shared/behavioral-competencies-output/BehavioralCompetenciesOutput.tsx:30
 #: src/shared/criteria-result/CriteriaResult.tsx:16
 msgid "Organization Culture Adoption"
 msgstr "Organization Culture Adoption"
@@ -275,7 +275,7 @@ msgstr "Other people comments about {name} performance compared to initial expec
 
 #: src/pages/criteria-page/CriteriaForm.tsx:64
 #: src/pages/manager-review-page/performance-competencies/ManagerReviewPerformanceCompetencies.tsx:102
-#: src/shared/criteria-output/CriteriaOutput.tsx:36
+#: src/shared/behavioral-competencies-output/BehavioralCompetenciesOutput.tsx:36
 #: src/shared/criteria-result/CriteriaResult.tsx:18
 msgid "Output Quality"
 msgstr "Output Quality"
@@ -310,14 +310,14 @@ msgstr "فارسی"
 
 #: src/pages/criteria-page/CriteriaForm.tsx:73
 #: src/pages/manager-review-page/performance-competencies/ManagerReviewPerformanceCompetencies.tsx:111
-#: src/shared/criteria-output/CriteriaOutput.tsx:45
+#: src/shared/behavioral-competencies-output/BehavioralCompetenciesOutput.tsx:45
 #: src/shared/criteria-result/CriteriaResult.tsx:21
 msgid "Presence"
 msgstr "Presence"
 
 #: src/pages/criteria-page/CriteriaForm.tsx:61
 #: src/pages/manager-review-page/performance-competencies/ManagerReviewPerformanceCompetencies.tsx:99
-#: src/shared/criteria-output/CriteriaOutput.tsx:33
+#: src/shared/behavioral-competencies-output/BehavioralCompetenciesOutput.tsx:33
 #: src/shared/criteria-result/CriteriaResult.tsx:17
 msgid "Problem Solving"
 msgstr "Problem Solving"
@@ -459,7 +459,7 @@ msgstr "The most important characteristics or effective behaviors that he/she sh
 
 #: src/pages/criteria-page/CriteriaForm.tsx:67
 #: src/pages/manager-review-page/performance-competencies/ManagerReviewPerformanceCompetencies.tsx:105
-#: src/shared/criteria-output/CriteriaOutput.tsx:39
+#: src/shared/behavioral-competencies-output/BehavioralCompetenciesOutput.tsx:39
 #: src/shared/criteria-result/CriteriaResult.tsx:19
 msgid "Thought Leadership"
 msgstr "Thought Leadership"

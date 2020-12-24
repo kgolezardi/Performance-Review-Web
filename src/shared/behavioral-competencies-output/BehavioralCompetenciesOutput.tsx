@@ -7,10 +7,10 @@ import { Grid } from '@material-ui/core';
 import { i18n } from '@lingui/core';
 import { useFragment } from 'react-relay/hooks';
 
-import { CriteriaOutput_review$key } from './__generated__/CriteriaOutput_review.graphql';
+import { BehavioralCompetenciesOutput_review$key } from './__generated__/BehavioralCompetenciesOutput_review.graphql';
 
 const fragment = graphql`
-  fragment CriteriaOutput_review on PersonReviewNode {
+  fragment BehavioralCompetenciesOutput_review on PersonReviewNode {
     sahabinessComment
     sahabinessRating
     problemSolvingComment
@@ -28,12 +28,12 @@ const fragment = graphql`
 
 interface OwnProps {
   isSelfReview: boolean;
-  review: CriteriaOutput_review$key | null;
+  review: BehavioralCompetenciesOutput_review$key | null;
 }
 
 type Props = FCProps<OwnProps>;
 
-export function CriteriaOutput(props: Props) {
+export function BehavioralCompetenciesOutput(props: Props) {
   const { isSelfReview } = props;
   const review = useFragment(fragment, props.review);
   const reviewType = isSelfReview ? 'self' : 'peer';

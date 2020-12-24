@@ -1,7 +1,7 @@
 import graphql from 'babel-plugin-relay/macro';
 import React, { useCallback } from 'react';
+import { BehavioralCompetenciesOutput } from 'src/shared/behavioral-competencies-output';
 import { Box } from '@material-ui/core';
-import { CriteriaOutput } from 'src/shared/criteria-output';
 import { FCProps } from 'src/shared/types/FCProps';
 import { MDXPropsProvider } from 'src/shared/mdx-provider/MDXPropsProvider';
 import { UserType } from 'src/shared/utils/getUserLabel';
@@ -43,7 +43,7 @@ const query = graphql`
           id
           ...getUserLabel_user
         }
-        ...CriteriaOutput_review
+        ...BehavioralCompetenciesOutput_review
         ...CriteriaForm_review
         isSelfReview
         state
@@ -80,7 +80,7 @@ export default function CriteriaPage(props: Props) {
   return (
     <Box padding={4}>
       {review?.state === 'DONE' ? (
-        <CriteriaOutput review={review} isSelfReview={isSelfReview} />
+        <BehavioralCompetenciesOutput review={review} isSelfReview={isSelfReview} />
       ) : (
         <MDXPropsProvider<UserType | null> value={user || null}>
           <CriteriaForm review={data.viewer.review} onSubmit={handleSubmit} isSelfReview={isSelfReview} />
