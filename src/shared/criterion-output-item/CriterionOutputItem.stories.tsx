@@ -16,6 +16,7 @@ storiesOf('Criterion Output Item', module).add('simple', () => {
             title={i18n._('Role Expertise and Self Development')}
             evaluation={Evaluation.EXCEEDS_EXPECTATIONS}
             evidence={new LoremIpsum().generateSentences(2)}
+            type="self"
           />
         </Grid>
         <Grid item xs={12}>
@@ -23,6 +24,7 @@ storiesOf('Criterion Output Item', module).add('simple', () => {
             title="روحیه‌ی کار تیمی"
             evaluation={Evaluation.MEETS_EXPECTATIONS}
             evidence={new LoremIpsum().generateSentences(2)}
+            type="self"
           />
         </Grid>
       </Grid>

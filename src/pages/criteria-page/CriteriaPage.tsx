@@ -75,18 +75,15 @@ export default function CriteriaPage(props: Props) {
 
   const review = data.viewer.review;
   const user = review?.reviewee;
+  const isSelfReview = review?.isSelfReview || false;
 
   return (
     <Box padding={4}>
       {review?.state === 'DONE' ? (
-        <CriteriaOutput review={review} />
+        <CriteriaOutput review={review} isSelfReview={isSelfReview} />
       ) : (
         <MDXPropsProvider<UserType | null> value={user || null}>
-          <CriteriaForm
-            review={data.viewer.review}
-            onSubmit={handleSubmit}
-            isSelfReview={review?.isSelfReview || false}
-          />
+          <CriteriaForm review={data.viewer.review} onSubmit={handleSubmit} isSelfReview={isSelfReview} />
         </MDXPropsProvider>
       )}
     </Box>
