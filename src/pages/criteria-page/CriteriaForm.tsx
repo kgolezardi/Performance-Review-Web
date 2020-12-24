@@ -1,8 +1,8 @@
 import graphql from 'babel-plugin-relay/macro';
 import React, { useContext } from 'react';
 import { ActionBar } from 'src/shared/action-bar';
+import { BehavioralCompetencyItem } from 'src/shared/behavioral-competency-item';
 import { CriteriaHelpText } from 'src/shared/criteria-help-text';
-import { CriterionItem } from 'src/shared/criterion-item';
 import { DictInput, Forminator, SubmitButton } from 'src/shared/forminator';
 import { FCProps } from 'src/shared/types/FCProps';
 import { Grid } from '@material-ui/core';
@@ -78,7 +78,7 @@ export function CriteriaForm(props: Props) {
               </SectionGuide>
             </Grid>
             <Grid item xs={12}>
-              <CriterionItem
+              <BehavioralCompetencyItem
                 title={i18n._('Organization Culture Adoption')}
                 type={reviewType}
                 details={<CriteriaHelpText criteria="sahabiness" isSelfReview={isSelfReview} />}
@@ -86,7 +86,7 @@ export function CriteriaForm(props: Props) {
               />
             </Grid>
             <Grid item xs={12}>
-              <CriterionItem
+              <BehavioralCompetencyItem
                 title={i18n._('Problem Solving')}
                 type={reviewType}
                 details={<CriteriaHelpText criteria="problemSolving" isSelfReview={isSelfReview} />}
@@ -94,7 +94,7 @@ export function CriteriaForm(props: Props) {
               />
             </Grid>
             <Grid item xs={12}>
-              <CriterionItem
+              <BehavioralCompetencyItem
                 title={i18n._('Output Quality')}
                 type={reviewType}
                 details={<CriteriaHelpText criteria="execution" isSelfReview={isSelfReview} />}
@@ -102,7 +102,7 @@ export function CriteriaForm(props: Props) {
               />
             </Grid>
             <Grid item xs={12}>
-              <CriterionItem
+              <BehavioralCompetencyItem
                 title={i18n._('Thought Leadership')}
                 type={reviewType}
                 details={<CriteriaHelpText criteria="thoughtLeadership" isSelfReview={isSelfReview} />}
@@ -110,7 +110,7 @@ export function CriteriaForm(props: Props) {
               />
             </Grid>
             <Grid item xs={12}>
-              <CriterionItem
+              <BehavioralCompetencyItem
                 title={i18n._('Leadership')}
                 type={reviewType}
                 details={<CriteriaHelpText criteria="leadership" isSelfReview={isSelfReview} />}
@@ -118,7 +118,7 @@ export function CriteriaForm(props: Props) {
               />
             </Grid>
             <Grid item xs={12}>
-              <CriterionItem
+              <BehavioralCompetencyItem
                 title={i18n._('Presence')}
                 type={reviewType}
                 details={<CriteriaHelpText criteria="presence" isSelfReview={isSelfReview} />}

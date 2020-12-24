@@ -6,19 +6,19 @@ import { i18n } from '@lingui/core';
 import { promptDecorator, routerDecorator } from 'src/stories/decorators';
 import { storiesOf } from '@storybook/react';
 
-import { CriterionItem } from './CriterionItem';
+import { BehavioralCompetencyItem } from './BehavioralCompetencyItem';
 
-storiesOf('Criterion Item', module)
+storiesOf('Behavioral Competency Item', module)
   .addDecorator(promptDecorator())
   .addDecorator(routerDecorator())
-  .add('simple', () => {
+  .add('default', () => {
     return (
       <Container>
         <Forminator onSubmit={action('submit')}>
           <DictInput>
             <Grid container spacing={2}>
               <Grid item xs={12}>
-                <CriterionItem
+                <BehavioralCompetencyItem
                   type="self"
                   title={i18n._('Role Expertise and Self Development')}
                   details="Demonstrates role knowledge, skills, and procedures Commitment to growth and development"
@@ -26,7 +26,7 @@ storiesOf('Criterion Item', module)
                 />
               </Grid>
               <Grid item xs={12}>
-                <CriterionItem type="peer" title="روحیه‌ی کار تیمی" prefix="teamwork" />
+                <BehavioralCompetencyItem type="peer" title="روحیه‌ی کار تیمی" prefix="teamwork" />
               </Grid>
               <Grid item>
                 <SubmitButton variant="contained" color="primary">

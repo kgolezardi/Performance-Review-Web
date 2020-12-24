@@ -20,7 +20,7 @@ interface OwnProps {
 
 type Props = FCProps<OwnProps>;
 
-export function CriterionItem({ title, details, prefix, type }: Props) {
+export function BehavioralCompetencyItem({ title, details, prefix, type }: Props) {
   const serverValue = useServerValueContext<ServerValue>();
   const rating = (serverValue && serverValue[prefix + 'Rating']) || null;
   const comment = (serverValue && serverValue[prefix + 'Comment']) || '';

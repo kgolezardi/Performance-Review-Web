@@ -145,15 +145,15 @@ msgstr "خطا"
 #: src/pages/manager-review-page/overall-evaluation/ManagerReviewOverallEvaluation.tsx:65
 #: src/pages/manager-review-page/performance-competencies/ManagerReviewPerformanceCompetenciesExpansionPanel.tsx:39
 #: src/pages/peer-review-page/projectsTab/projects-form/PeerReviewProjectsForm.tsx:34
+#: src/shared/behavioral-competency-item/BehavioralCompetencyItem.tsx:22
 #: src/shared/behavioral-competency-output/BehavioralCompetencyOutput.tsx:14
-#: src/shared/criterion-item/CriterionItem.tsx:22
 #: src/shared/project-output/ProjectCommentOutput.tsx:19
 #: src/shared/project-output/ProjectOutput.tsx:28
 msgid "Evaluation"
 msgstr "ارزیابی"
 
+#: src/shared/behavioral-competency-item/BehavioralCompetencyItem.tsx:29
 #: src/shared/behavioral-competency-output/BehavioralCompetencyOutput.tsx:22
-#: src/shared/criterion-item/CriterionItem.tsx:29
 msgid "Evidence"
 msgstr "شواهد"
 
@@ -338,8 +338,8 @@ msgstr "ارزیابی‌شونده"
 msgid "Reviewers"
 msgstr "مرورکننده‌ها"
 
+#: src/shared/behavioral-competency-item/BehavioralCompetencyItem.stories.tsx:18
 #: src/shared/behavioral-competency-output/BehavioralCompetencyOutput.stories.tsx:12
-#: src/shared/criterion-item/CriterionItem.stories.tsx:18
 msgid "Role Expertise and Self Development"
 msgstr "مرجعیت تخصصی"
 
