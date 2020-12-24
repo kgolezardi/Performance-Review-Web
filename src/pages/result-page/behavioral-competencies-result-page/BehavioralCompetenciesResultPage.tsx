@@ -8,9 +8,9 @@ import { SectionGuide } from 'src/shared/section-guide';
 import { importMDX } from 'mdx.macro';
 import { useLazyLoadQuery } from 'react-relay/hooks';
 
-import { CriteriaResultPageQuery } from './__generated__/CriteriaResultPageQuery.graphql';
+import { BehavioralCompetenciesResultPageQuery } from './__generated__/BehavioralCompetenciesResultPageQuery.graphql';
 
-const DescriptionCriteriaResultPage = importMDX.sync('./DescriptionCriteriaResultPage.mdx');
+const BehavioralCompetenciesResultPageDescription = importMDX.sync('./BehavioralCompetenciesResultPageDescription.mdx');
 
 interface OwnProps {
   revieweeId: string;
@@ -19,7 +19,7 @@ interface OwnProps {
 type Props = FCProps<OwnProps>;
 
 const query = graphql`
-  query CriteriaResultPageQuery($id: ID!) {
+  query BehavioralCompetenciesResultPageQuery($id: ID!) {
     viewer {
       user(id: $id) {
         personReviews {
@@ -30,10 +30,10 @@ const query = graphql`
   }
 `;
 
-export default function CriteriaResultPage(props: Props) {
+export default function BehavioralCompetenciesResultPage(props: Props) {
   const { revieweeId } = props;
 
-  const data = useLazyLoadQuery<CriteriaResultPageQuery>(query, { id: revieweeId });
+  const data = useLazyLoadQuery<BehavioralCompetenciesResultPageQuery>(query, { id: revieweeId });
   const components = useContext(MDXContext);
 
   const reviews = data.viewer.user?.personReviews;
@@ -43,7 +43,7 @@ export default function CriteriaResultPage(props: Props) {
   return (
     <Box padding={4}>
       <SectionGuide>
-        <DescriptionCriteriaResultPage components={components} />
+        <BehavioralCompetenciesResultPageDescription components={components} />
       </SectionGuide>
       <BehavioralCompetenciesResult reviews={reviews} />
     </Box>
