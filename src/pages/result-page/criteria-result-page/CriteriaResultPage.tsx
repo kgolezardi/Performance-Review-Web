@@ -1,7 +1,7 @@
 import graphql from 'babel-plugin-relay/macro';
 import React, { useContext } from 'react';
+import { BehavioralCompetenciesResult } from 'src/shared/behavioral-competencies-result';
 import { Box } from '@material-ui/core';
-import { CriteriaResult } from 'src/shared/criteria-result';
 import { FCProps } from 'src/shared/types/FCProps';
 import { MDXContext } from '@mdx-js/react';
 import { SectionGuide } from 'src/shared/section-guide';
@@ -23,7 +23,7 @@ const query = graphql`
     viewer {
       user(id: $id) {
         personReviews {
-          ...CriteriaResult_reviews
+          ...BehavioralCompetenciesResult_reviews
         }
       }
     }
@@ -45,7 +45,7 @@ export default function CriteriaResultPage(props: Props) {
       <SectionGuide>
         <DescriptionCriteriaResultPage components={components} />
       </SectionGuide>
-      <CriteriaResult reviews={reviews} />
+      <BehavioralCompetenciesResult reviews={reviews} />
     </Box>
   );
 }

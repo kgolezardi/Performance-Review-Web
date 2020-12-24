@@ -5,60 +5,60 @@ import { FCProps } from 'src/shared/types/FCProps';
 import { i18n } from '@lingui/core';
 import { useFragment } from 'react-relay/hooks';
 
-import { CriteriaResult_reviews$key } from './__generated__/CriteriaResult_reviews.graphql';
-import { CriterionResultExpansionPanel } from './CriterionResultExpansionPanel';
+import { BehavioralCompetenciesResult_reviews$key } from './__generated__/BehavioralCompetenciesResult_reviews.graphql';
+import { BehavioralCompetencyResultExpansionPanel } from './BehavioralCompetencyResultExpansionPanel';
 
 const fragment = graphql`
-  fragment CriteriaResult_reviews on PersonReviewNode @relay(plural: true) {
-    ...CriterionResultExpansionPanel_reviews
+  fragment BehavioralCompetenciesResult_reviews on PersonReviewNode @relay(plural: true) {
+    ...BehavioralCompetencyResultExpansionPanel_reviews
   }
 `;
 
 interface OwnProps {
-  reviews: CriteriaResult_reviews$key;
+  reviews: BehavioralCompetenciesResult_reviews$key;
   isSelfReview?: boolean;
 }
 
 export type Props = FCProps<OwnProps>;
 
-export function CriteriaResult(props: Props) {
+export function BehavioralCompetenciesResult(props: Props) {
   const { isSelfReview = true } = props;
 
   const reviews = useFragment(fragment, props.reviews);
 
   return (
     <Fragment>
-      <CriterionResultExpansionPanel
+      <BehavioralCompetencyResultExpansionPanel
         reviews={reviews}
         details={<CriteriaHelpText criteria="sahabiness" isSelfReview={isSelfReview} />}
         title={i18n._('Organization Culture Adoption')}
         prefix="sahabiness"
       />
-      <CriterionResultExpansionPanel
+      <BehavioralCompetencyResultExpansionPanel
         reviews={reviews}
         details={<CriteriaHelpText criteria="problemSolving" isSelfReview={isSelfReview} />}
         title={i18n._('Problem Solving')}
         prefix="problemSolving"
       />
-      <CriterionResultExpansionPanel
+      <BehavioralCompetencyResultExpansionPanel
         reviews={reviews}
         details={<CriteriaHelpText criteria="execution" isSelfReview={isSelfReview} />}
         title={i18n._('Output Quality')}
         prefix="execution"
       />
-      <CriterionResultExpansionPanel
+      <BehavioralCompetencyResultExpansionPanel
         reviews={reviews}
         details={<CriteriaHelpText criteria="thoughtLeadership" isSelfReview={isSelfReview} />}
         title={i18n._('Thought Leadership')}
         prefix="thoughtLeadership"
       />
-      <CriterionResultExpansionPanel
+      <BehavioralCompetencyResultExpansionPanel
         reviews={reviews}
         details={<CriteriaHelpText criteria="leadership" isSelfReview={isSelfReview} />}
         title={i18n._('Leadership')}
         prefix="leadership"
       />
-      <CriterionResultExpansionPanel
+      <BehavioralCompetencyResultExpansionPanel
         reviews={reviews}
         details={<CriteriaHelpText criteria="presence" isSelfReview={isSelfReview} />}
         title={i18n._('Presence')}

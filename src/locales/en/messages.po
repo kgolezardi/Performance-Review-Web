@@ -220,7 +220,7 @@ msgstr "It's complete!"
 #: src/pages/behavioral-competencies-page/BehavioralCompetenciesForm.tsx:70
 #: src/pages/manager-review-page/performance-competencies/ManagerReviewPerformanceCompetencies.tsx:108
 #: src/shared/behavioral-competencies-output/BehavioralCompetenciesOutput.tsx:42
-#: src/shared/criteria-result/CriteriaResult.tsx:20
+#: src/shared/behavioral-competencies-result/BehavioralCompetenciesResult.tsx:20
 msgid "Leadership"
 msgstr "Leadership"
 
@@ -261,7 +261,7 @@ msgstr "No! Wait"
 #: src/pages/behavioral-competencies-page/BehavioralCompetenciesForm.tsx:58
 #: src/pages/manager-review-page/performance-competencies/ManagerReviewPerformanceCompetencies.tsx:96
 #: src/shared/behavioral-competencies-output/BehavioralCompetenciesOutput.tsx:30
-#: src/shared/criteria-result/CriteriaResult.tsx:16
+#: src/shared/behavioral-competencies-result/BehavioralCompetenciesResult.tsx:16
 msgid "Organization Culture Adoption"
 msgstr "Organization Culture Adoption"
 
@@ -276,7 +276,7 @@ msgstr "Other people comments about {name} performance compared to initial expec
 #: src/pages/behavioral-competencies-page/BehavioralCompetenciesForm.tsx:64
 #: src/pages/manager-review-page/performance-competencies/ManagerReviewPerformanceCompetencies.tsx:102
 #: src/shared/behavioral-competencies-output/BehavioralCompetenciesOutput.tsx:36
-#: src/shared/criteria-result/CriteriaResult.tsx:18
+#: src/shared/behavioral-competencies-result/BehavioralCompetenciesResult.tsx:18
 msgid "Output Quality"
 msgstr "Output Quality"
 
@@ -311,14 +311,14 @@ msgstr "فارسی"
 #: src/pages/behavioral-competencies-page/BehavioralCompetenciesForm.tsx:73
 #: src/pages/manager-review-page/performance-competencies/ManagerReviewPerformanceCompetencies.tsx:111
 #: src/shared/behavioral-competencies-output/BehavioralCompetenciesOutput.tsx:45
-#: src/shared/criteria-result/CriteriaResult.tsx:21
+#: src/shared/behavioral-competencies-result/BehavioralCompetenciesResult.tsx:21
 msgid "Presence"
 msgstr "Presence"
 
 #: src/pages/behavioral-competencies-page/BehavioralCompetenciesForm.tsx:61
 #: src/pages/manager-review-page/performance-competencies/ManagerReviewPerformanceCompetencies.tsx:99
 #: src/shared/behavioral-competencies-output/BehavioralCompetenciesOutput.tsx:33
-#: src/shared/criteria-result/CriteriaResult.tsx:17
+#: src/shared/behavioral-competencies-result/BehavioralCompetenciesResult.tsx:17
 msgid "Problem Solving"
 msgstr "Problem Solving"
 
@@ -460,7 +460,7 @@ msgstr "The most important characteristics or effective behaviors that he/she sh
 #: src/pages/behavioral-competencies-page/BehavioralCompetenciesForm.tsx:67
 #: src/pages/manager-review-page/performance-competencies/ManagerReviewPerformanceCompetencies.tsx:105
 #: src/shared/behavioral-competencies-output/BehavioralCompetenciesOutput.tsx:39
-#: src/shared/criteria-result/CriteriaResult.tsx:19
+#: src/shared/behavioral-competencies-result/BehavioralCompetenciesResult.tsx:19
 msgid "Thought Leadership"
 msgstr "Thought Leadership"
 
@@ -476,7 +476,7 @@ msgstr "Try Again"
 #: src/pages/manager-review-page/achievements/ManagerReviewAchievementsRatingGroup.tsx:33
 #: src/pages/manager-review-page/performance-competencies/ManagerReviewPerformanceCompetenciesRatingGroup.tsx:49
 #: src/pages/result-page/project-result-page/ProjectResultRatingGroup.tsx:26
-#: src/shared/criteria-result/CriterionResultRatingGroup.tsx:41
+#: src/shared/behavioral-competencies-result/BehavioralCompetencyResultRatingGroup.tsx:41
 #: src/shared/evaluation-output/EvaluationOutput.tsx:23
 #: src/shared/evaluation-output/EvaluationOutput.tsx:24
 msgid "Unknown"
@@ -594,7 +594,7 @@ msgstr "{evaluatedItems} of {total} behavioral competencies are evaluated"
 #: src/pages/manager-review-page/achievements/ManagerReviewAchievementsRatingGroup.tsx:50
 #: src/pages/manager-review-page/performance-competencies/ManagerReviewPerformanceCompetenciesRatingGroup.tsx:70
 #: src/pages/result-page/project-result-page/ProjectResultRatingGroup.tsx:34
-#: src/shared/criteria-result/CriterionResultRatingGroup.tsx:49
+#: src/shared/behavioral-competencies-result/BehavioralCompetencyResultRatingGroup.tsx:49
 msgid "{evaluationsCount} evaluations / {commentsCount} comments"
 msgstr "{evaluationsCount} evaluations / {commentsCount} comments"
 
