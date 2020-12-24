@@ -1,4 +1,4 @@
-export type PerformanceCompetenciesPrefix =
+export type BehavioralCompetenciesPrefix =
   | 'sahabiness'
   | 'problemSolving'
   | 'execution'
@@ -6,7 +6,7 @@ export type PerformanceCompetenciesPrefix =
   | 'leadership'
   | 'presence';
 
-export type PerformanceCompetenciesRating =
+export type BehavioralCompetenciesRating =
   | 'executionRating'
   | 'leadershipRating'
   | 'presenceRating'
@@ -14,7 +14,7 @@ export type PerformanceCompetenciesRating =
   | 'sahabinessRating'
   | 'thoughtLeadershipRating';
 
-export type PerformanceCompetenciesComment =
+export type BehavioralCompetenciesComment =
   | 'executionComment'
   | 'leadershipComment'
   | 'presenceComment'

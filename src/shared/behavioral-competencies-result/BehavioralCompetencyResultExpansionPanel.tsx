@@ -1,10 +1,10 @@
 import graphql from 'babel-plugin-relay/macro';
 import React, { ReactNode } from 'react';
+import { BehavioralCompetenciesPrefix } from 'src/global-types';
 import { Box, Typography } from '@material-ui/core';
 import { ExpansionPanel, ExpansionPanelDetails, ExpansionPanelSummary } from 'src/shared/expansion-panel';
 import { FCProps } from 'src/shared/types/FCProps';
 import { HelperText } from 'src/shared/helper-text/HelperText';
-import { PerformanceCompetenciesPrefix } from 'src/global-types';
 import { useFragment } from 'react-relay/hooks';
 
 import { BehavioralCompetencyResultExpansionPanel_reviews$key } from './__generated__/BehavioralCompetencyResultExpansionPanel_reviews.graphql';
@@ -19,7 +19,7 @@ const fragment = graphql`
 interface OwnProps {
   title: string;
   reviews: BehavioralCompetencyResultExpansionPanel_reviews$key;
-  prefix: PerformanceCompetenciesPrefix;
+  prefix: BehavioralCompetenciesPrefix;
   details?: ReactNode;
 }
 

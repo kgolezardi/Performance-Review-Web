@@ -1,12 +1,12 @@
 import React, { useContext } from 'react';
+import { BehavioralCompetenciesPrefix } from 'src/global-types';
 import { FCProps } from 'src/shared/types/FCProps';
 import { MDXContext } from '@mdx-js/react';
-import { PerformanceCompetenciesPrefix } from 'src/global-types';
 import { importMDX } from 'mdx.macro';
 
 interface OwnProps {
   isSelfReview: boolean;
-  criteria: PerformanceCompetenciesPrefix;
+  criteria: BehavioralCompetenciesPrefix;
 }
 
 // self review helper texts

@@ -1,16 +1,16 @@
 import React from 'react';
 import graphql from 'babel-plugin-relay/macro';
+import {
+  BehavioralCompetenciesComment,
+  BehavioralCompetenciesPrefix,
+  BehavioralCompetenciesRating,
+  selfReviewEvaluationDictionary,
+} from 'src/global-types';
 import { Box, Typography } from '@material-ui/core';
 import { Evaluation } from 'src/__generated__/enums';
 import { ExcludeUnknown } from 'src/shared/enum-utils/types';
 import { FCProps } from 'src/shared/types/FCProps';
 import { MultilineOutput } from 'src/shared/multiline-output';
-import {
-  PerformanceCompetenciesComment,
-  PerformanceCompetenciesPrefix,
-  PerformanceCompetenciesRating,
-  selfReviewEvaluationDictionary,
-} from 'src/global-types';
 import type { ReviewAvatar } from 'src/shared/review-avatar-group';
 import { ReviewAvatarGroup } from 'src/shared/review-avatar-group';
 import { ReviewItemInfo } from 'src/shared/review-item-info';
@@ -47,7 +47,7 @@ const fragment = graphql`
 interface OwnProps {
   reviews: ManagerReviewBehavioralCompetenciesRatingGroup_reviews$key;
   rating: ExcludeUnknown<Evaluation> | null;
-  prefix: PerformanceCompetenciesPrefix;
+  prefix: BehavioralCompetenciesPrefix;
 }
 
 export type Props = FCProps<OwnProps>;
@@ -58,9 +58,9 @@ export const ManagerReviewBehavioralCompetenciesRatingGroup = React.memo(
 
     const reviews = useFragment(fragment, props.reviews);
 
-    const criteriaRating = (prefix + 'Rating') as PerformanceCompetenciesRating;
+    const criteriaRating = (prefix + 'Rating') as BehavioralCompetenciesRating;
 
-    const criteriaComment = (prefix + 'Comment') as PerformanceCompetenciesComment;
+    const criteriaComment = (prefix + 'Comment') as BehavioralCompetenciesComment;
 
     const filteredByRating =
       rating !== null
