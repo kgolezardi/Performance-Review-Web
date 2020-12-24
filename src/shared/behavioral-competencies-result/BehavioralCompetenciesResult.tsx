@@ -1,6 +1,6 @@
 import graphql from 'babel-plugin-relay/macro';
 import React, { Fragment } from 'react';
-import { CriteriaHelpText } from 'src/shared/criteria-help-text';
+import { BehavioralCompetencyHelpText } from 'src/shared/behavioral-competency-help-text';
 import { FCProps } from 'src/shared/types/FCProps';
 import { i18n } from '@lingui/core';
 import { useFragment } from 'react-relay/hooks';
@@ -30,37 +30,37 @@ export function BehavioralCompetenciesResult(props: Props) {
     <Fragment>
       <BehavioralCompetencyResultExpansionPanel
         reviews={reviews}
-        details={<CriteriaHelpText criteria="sahabiness" isSelfReview={isSelfReview} />}
+        details={<BehavioralCompetencyHelpText criteria="sahabiness" isSelfReview={isSelfReview} />}
         title={i18n._('Organization Culture Adoption')}
         prefix="sahabiness"
       />
       <BehavioralCompetencyResultExpansionPanel
         reviews={reviews}
-        details={<CriteriaHelpText criteria="problemSolving" isSelfReview={isSelfReview} />}
+        details={<BehavioralCompetencyHelpText criteria="problemSolving" isSelfReview={isSelfReview} />}
         title={i18n._('Problem Solving')}
         prefix="problemSolving"
       />
       <BehavioralCompetencyResultExpansionPanel
         reviews={reviews}
-        details={<CriteriaHelpText criteria="execution" isSelfReview={isSelfReview} />}
+        details={<BehavioralCompetencyHelpText criteria="execution" isSelfReview={isSelfReview} />}
         title={i18n._('Output Quality')}
         prefix="execution"
       />
       <BehavioralCompetencyResultExpansionPanel
         reviews={reviews}
-        details={<CriteriaHelpText criteria="thoughtLeadership" isSelfReview={isSelfReview} />}
+        details={<BehavioralCompetencyHelpText criteria="thoughtLeadership" isSelfReview={isSelfReview} />}
         title={i18n._('Thought Leadership')}
         prefix="thoughtLeadership"
       />
       <BehavioralCompetencyResultExpansionPanel
         reviews={reviews}
-        details={<CriteriaHelpText criteria="leadership" isSelfReview={isSelfReview} />}
+        details={<BehavioralCompetencyHelpText criteria="leadership" isSelfReview={isSelfReview} />}
         title={i18n._('Leadership')}
         prefix="leadership"
       />
       <BehavioralCompetencyResultExpansionPanel
         reviews={reviews}
-        details={<CriteriaHelpText criteria="presence" isSelfReview={isSelfReview} />}
+        details={<BehavioralCompetencyHelpText criteria="presence" isSelfReview={isSelfReview} />}
         title={i18n._('Presence')}
         prefix="presence"
       />

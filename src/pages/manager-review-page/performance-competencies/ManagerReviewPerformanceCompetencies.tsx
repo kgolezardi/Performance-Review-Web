@@ -1,7 +1,7 @@
 import graphql from 'babel-plugin-relay/macro';
 import React, { useContext } from 'react';
+import { BehavioralCompetencyHelpText } from 'src/shared/behavioral-competency-help-text';
 import { Box, Grid } from '@material-ui/core';
-import { CriteriaHelpText } from 'src/shared/criteria-help-text';
 import { DictInput, Forminator, SubmitButton } from 'src/shared/forminator';
 import { FCProps } from 'src/shared/types/FCProps';
 import { MDXContext } from '@mdx-js/react';
@@ -120,7 +120,7 @@ export function ManagerReviewPerformanceCompetencies(props: Props) {
               <Grid item xs={12}>
                 <ManagerReviewPerformanceCompetenciesExpansionPanel
                   reviews={reviews}
-                  details={<CriteriaHelpText criteria="sahabiness" isSelfReview={false} />}
+                  details={<BehavioralCompetencyHelpText criteria="sahabiness" isSelfReview={false} />}
                   title={i18n._('Organization Culture Adoption')}
                   prefix="sahabiness"
                   reviewee={data.viewer.user}
@@ -129,7 +129,7 @@ export function ManagerReviewPerformanceCompetencies(props: Props) {
               <Grid item xs={12}>
                 <ManagerReviewPerformanceCompetenciesExpansionPanel
                   reviews={reviews}
-                  details={<CriteriaHelpText criteria="problemSolving" isSelfReview={false} />}
+                  details={<BehavioralCompetencyHelpText criteria="problemSolving" isSelfReview={false} />}
                   title={i18n._('Problem Solving')}
                   prefix="problemSolving"
                   reviewee={data.viewer.user}
@@ -138,7 +138,7 @@ export function ManagerReviewPerformanceCompetencies(props: Props) {
               <Grid item xs={12}>
                 <ManagerReviewPerformanceCompetenciesExpansionPanel
                   reviews={reviews}
-                  details={<CriteriaHelpText criteria="execution" isSelfReview={false} />}
+                  details={<BehavioralCompetencyHelpText criteria="execution" isSelfReview={false} />}
                   title={i18n._('Output Quality')}
                   prefix="execution"
                   reviewee={data.viewer.user}
@@ -147,7 +147,7 @@ export function ManagerReviewPerformanceCompetencies(props: Props) {
               <Grid item xs={12}>
                 <ManagerReviewPerformanceCompetenciesExpansionPanel
                   reviews={reviews}
-                  details={<CriteriaHelpText criteria="thoughtLeadership" isSelfReview={false} />}
+                  details={<BehavioralCompetencyHelpText criteria="thoughtLeadership" isSelfReview={false} />}
                   title={i18n._('Thought Leadership')}
                   prefix="thoughtLeadership"
                   reviewee={data.viewer.user}
@@ -156,7 +156,7 @@ export function ManagerReviewPerformanceCompetencies(props: Props) {
               <Grid item xs={12}>
                 <ManagerReviewPerformanceCompetenciesExpansionPanel
                   reviews={reviews}
-                  details={<CriteriaHelpText criteria="leadership" isSelfReview={false} />}
+                  details={<BehavioralCompetencyHelpText criteria="leadership" isSelfReview={false} />}
                   title={i18n._('Leadership')}
                   prefix="leadership"
                   reviewee={data.viewer.user}
@@ -165,7 +165,7 @@ export function ManagerReviewPerformanceCompetencies(props: Props) {
               <Grid item xs={12}>
                 <ManagerReviewPerformanceCompetenciesExpansionPanel
                   reviews={reviews}
-                  details={<CriteriaHelpText criteria="presence" isSelfReview={false} />}
+                  details={<BehavioralCompetencyHelpText criteria="presence" isSelfReview={false} />}
                   title={i18n._('Presence')}
                   prefix="presence"
                   reviewee={data.viewer.user}

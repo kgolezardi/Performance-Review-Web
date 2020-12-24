@@ -31,7 +31,7 @@ const PresenceContentPeerReview = importMDX.sync('./help-texts/peer-review/Prese
 
 export type Props = FCProps<OwnProps>;
 
-export function CriteriaHelpText(props: Props) {
+export function BehavioralCompetencyHelpText(props: Props) {
   const { criteria, isSelfReview } = props;
   const components = useContext(MDXContext);
 
