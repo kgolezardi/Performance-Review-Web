@@ -11,7 +11,7 @@ interface OwnProps {
 
 type Props = FCProps<OwnProps> & StyleProps;
 
-export function ManagerReviewPerformanceCompetenciesCriteriaHeading(props: Props) {
+export function ManagerReviewBehavioralCompetenciesCriteriaHeading(props: Props) {
   const { description, title } = props;
   const classes = useStyles(props);
 
@@ -23,14 +23,15 @@ export function ManagerReviewPerformanceCompetenciesCriteriaHeading(props: Props
   );
 }
 
-const styles = (theme: Theme) => createStyles({
-  root: {
-    display: 'flex',
-    '@media print': {
-      display: 'block',
+const styles = (theme: Theme) =>
+  createStyles({
+    root: {
+      display: 'flex',
+      '@media print': {
+        display: 'block',
+      },
     },
-  },
-});
+  });
 
-const useStyles = makeStyles(styles, { name: 'ManagerReviewPerformanceCompetenciesCriteriaHeading' });
+const useStyles = makeStyles(styles, { name: 'ManagerReviewBehavioralCompetenciesCriteriaHeading' });
 type StyleProps = Styles<typeof styles>;

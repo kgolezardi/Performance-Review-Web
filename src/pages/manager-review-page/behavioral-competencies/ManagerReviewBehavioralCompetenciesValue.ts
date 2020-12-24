@@ -1,6 +1,6 @@
 import { Evaluation } from 'src/__generated__/enums';
 
-export interface ManagerReviewPerformanceCompetenciesValue {
+export interface ManagerReviewBehavioralCompetenciesValue {
   sahabinessRating?: Evaluation;
   problemSolvingRating?: Evaluation;
   executionRating?: Evaluation;

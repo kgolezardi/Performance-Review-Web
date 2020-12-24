@@ -1,0 +1,1 @@
+export { ManagerReviewBehavioralCompetencies } from './ManagerReviewBehavioralCompetencies';

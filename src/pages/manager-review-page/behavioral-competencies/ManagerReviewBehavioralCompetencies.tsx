@@ -19,18 +19,18 @@ import { useInView } from 'react-intersection-observer';
 import { useLazyLoadQuery } from 'react-relay/hooks';
 import { useMutation } from 'src/relay';
 
-import { ManagerReviewPerformanceCompetenciesExpansionPanel } from './ManagerReviewPerformanceCompetenciesExpansionPanel';
-import { ManagerReviewPerformanceCompetenciesMutation } from './__generated__/ManagerReviewPerformanceCompetenciesMutation.graphql';
-import { ManagerReviewPerformanceCompetenciesQuery } from './__generated__/ManagerReviewPerformanceCompetenciesQuery.graphql';
-import { ManagerReviewPerformanceCompetenciesValue } from './ManagerReviewPerformanceCompetenciesValue';
+import { ManagerReviewBehavioralCompetenciesExpansionPanel } from './ManagerReviewBehavioralCompetenciesExpansionPanel';
+import { ManagerReviewBehavioralCompetenciesMutation } from './__generated__/ManagerReviewBehavioralCompetenciesMutation.graphql';
+import { ManagerReviewBehavioralCompetenciesQuery } from './__generated__/ManagerReviewBehavioralCompetenciesQuery.graphql';
+import { ManagerReviewBehavioralCompetenciesValue } from './ManagerReviewBehavioralCompetenciesValue';
 import { ManagerReviewProgress } from '../ManagerReviewProgress';
 
-const ManagerReviewPerformanceCompetenciesDescription = importMDX.sync(
-  './ManagerReviewPerformanceCompetenciesDescription.mdx',
+const ManagerReviewBehavioralCompetenciesDescription = importMDX.sync(
+  './ManagerReviewBehavioralCompetenciesDescription.mdx',
 );
 
 const query = graphql`
-  query ManagerReviewPerformanceCompetenciesQuery($id: ID!) {
+  query ManagerReviewBehavioralCompetenciesQuery($id: ID!) {
     viewer {
       user(id: $id) {
         ...getUserLabel_user
@@ -43,7 +43,7 @@ const query = graphql`
           presenceRating
         }
         personReviews {
-          ...ManagerReviewPerformanceCompetenciesExpansionPanel_reviews
+          ...ManagerReviewBehavioralCompetenciesExpansionPanel_reviews
         }
       }
     }
@@ -56,12 +56,12 @@ interface OwnProps {
 
 type Props = FCProps<OwnProps>;
 
-export function ManagerReviewPerformanceCompetencies(props: Props) {
+export function ManagerReviewBehavioralCompetencies(props: Props) {
   const { revieweeId } = props;
 
-  const data = useLazyLoadQuery<ManagerReviewPerformanceCompetenciesQuery>(query, { id: revieweeId });
-  const savePersonReview = useMutation<ManagerReviewPerformanceCompetenciesMutation>(graphql`
-    mutation ManagerReviewPerformanceCompetenciesMutation($input: SaveManagerPersonReviewMutationInput!) {
+  const data = useLazyLoadQuery<ManagerReviewBehavioralCompetenciesQuery>(query, { id: revieweeId });
+  const savePersonReview = useMutation<ManagerReviewBehavioralCompetenciesMutation>(graphql`
+    mutation ManagerReviewBehavioralCompetenciesMutation($input: SaveManagerPersonReviewMutationInput!) {
       saveManagerPersonReview(input: $input) {
         managerPersonReview {
           id
@@ -80,15 +80,15 @@ export function ManagerReviewPerformanceCompetencies(props: Props) {
   const [, inView] = useInView();
   const { enqueueSnackbar } = useBiDiSnackbar();
 
-  const value: ManagerReviewPerformanceCompetenciesValue = {};
+  const value: ManagerReviewBehavioralCompetenciesValue = {};
   for (const key in data.viewer.user?.managerPersonReview) {
     Object.assign(value, {
       [key]:
-        data.viewer.user?.managerPersonReview?.[key as keyof ManagerReviewPerformanceCompetenciesValue] ?? undefined,
+        data.viewer.user?.managerPersonReview?.[key as keyof ManagerReviewBehavioralCompetenciesValue] ?? undefined,
     });
   }
 
-  const handleSubmit = (data: ManagerReviewPerformanceCompetenciesValue) => {
+  const handleSubmit = (data: ManagerReviewBehavioralCompetenciesValue) => {
     savePersonReview({ input: { revieweeId: revieweeId, ...data } })
       .then((data) => {
         enqueueSnackbar(i18n._('Successfully saved.'), { variant: 'success' });
@@ -110,7 +110,7 @@ export function ManagerReviewPerformanceCompetencies(props: Props) {
     <Box padding={4}>
       <SectionGuide>
         <MDXPropsProvider<UserType | null> value={data.viewer.user || null}>
-          <ManagerReviewPerformanceCompetenciesDescription components={components} />
+          <ManagerReviewBehavioralCompetenciesDescription components={components} />
         </MDXPropsProvider>
       </SectionGuide>
       <ServerValueProvider value={value}>
@@ -118,7 +118,7 @@ export function ManagerReviewPerformanceCompetencies(props: Props) {
           <Grid container spacing={4}>
             <DictInput>
               <Grid item xs={12}>
-                <ManagerReviewPerformanceCompetenciesExpansionPanel
+                <ManagerReviewBehavioralCompetenciesExpansionPanel
                   reviews={reviews}
                   details={<BehavioralCompetencyHelpText criteria="sahabiness" isSelfReview={false} />}
                   title={i18n._('Organization Culture Adoption')}
@@ -127,7 +127,7 @@ export function ManagerReviewPerformanceCompetencies(props: Props) {
                 />
               </Grid>
               <Grid item xs={12}>
-                <ManagerReviewPerformanceCompetenciesExpansionPanel
+                <ManagerReviewBehavioralCompetenciesExpansionPanel
                   reviews={reviews}
                   details={<BehavioralCompetencyHelpText criteria="problemSolving" isSelfReview={false} />}
                   title={i18n._('Problem Solving')}
@@ -136,7 +136,7 @@ export function ManagerReviewPerformanceCompetencies(props: Props) {
                 />
               </Grid>
               <Grid item xs={12}>
-                <ManagerReviewPerformanceCompetenciesExpansionPanel
+                <ManagerReviewBehavioralCompetenciesExpansionPanel
                   reviews={reviews}
                   details={<BehavioralCompetencyHelpText criteria="execution" isSelfReview={false} />}
                   title={i18n._('Output Quality')}
@@ -145,7 +145,7 @@ export function ManagerReviewPerformanceCompetencies(props: Props) {
                 />
               </Grid>
               <Grid item xs={12}>
-                <ManagerReviewPerformanceCompetenciesExpansionPanel
+                <ManagerReviewBehavioralCompetenciesExpansionPanel
                   reviews={reviews}
                   details={<BehavioralCompetencyHelpText criteria="thoughtLeadership" isSelfReview={false} />}
                   title={i18n._('Thought Leadership')}
@@ -154,7 +154,7 @@ export function ManagerReviewPerformanceCompetencies(props: Props) {
                 />
               </Grid>
               <Grid item xs={12}>
-                <ManagerReviewPerformanceCompetenciesExpansionPanel
+                <ManagerReviewBehavioralCompetenciesExpansionPanel
                   reviews={reviews}
                   details={<BehavioralCompetencyHelpText criteria="leadership" isSelfReview={false} />}
                   title={i18n._('Leadership')}
@@ -163,7 +163,7 @@ export function ManagerReviewPerformanceCompetencies(props: Props) {
                 />
               </Grid>
               <Grid item xs={12}>
-                <ManagerReviewPerformanceCompetenciesExpansionPanel
+                <ManagerReviewBehavioralCompetenciesExpansionPanel
                   reviews={reviews}
                   details={<BehavioralCompetencyHelpText criteria="presence" isSelfReview={false} />}
                   title={i18n._('Presence')}

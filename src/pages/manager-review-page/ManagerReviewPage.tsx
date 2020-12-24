@@ -17,8 +17,8 @@ import { useLazyLoadQuery } from 'react-relay/hooks';
 import ManagerReviewDominantCharacteristics from './dominant-characteristics/ManagerReviewDominantCharacteristics';
 import ManagerReviewOverallEvaluation from './overall-evaluation';
 import { ManagerReviewAchievements } from './achievements';
+import { ManagerReviewBehavioralCompetencies } from './behavioral-competencies';
 import { ManagerReviewPageQuery } from './__generated__/ManagerReviewPageQuery.graphql';
-import { ManagerReviewPerformanceCompetencies } from './performance-competencies';
 import { ManagerReviewPrintButton } from './ManagerReviewPrintButton';
 
 const query = graphql`
@@ -95,7 +95,7 @@ export default function ManagerReviewPage(props: Props) {
               <Switch>
                 <Route
                   path={toPrefix + '/behavioral-competencies'}
-                  children={<ManagerReviewPerformanceCompetencies revieweeId={revieweeId} />}
+                  children={<ManagerReviewBehavioralCompetencies revieweeId={revieweeId} />}
                 />
                 <Route
                   path={toPrefix + '/dominant-characteristics'}

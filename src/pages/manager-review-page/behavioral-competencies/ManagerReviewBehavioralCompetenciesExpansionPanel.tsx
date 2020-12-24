@@ -12,15 +12,15 @@ import { i18n } from '@lingui/core';
 import { useFragment } from 'react-relay/hooks';
 import { useServerValueContext } from 'src/shared/server-value';
 
+import { ManagerReviewBehavioralCompetenciesCriteriaHeading } from './ManagerReviewBehavioralCompetenciesCriteriaHeading';
+import { ManagerReviewBehavioralCompetenciesExpansionPanel_reviews$key } from './__generated__/ManagerReviewBehavioralCompetenciesExpansionPanel_reviews.graphql';
+import { ManagerReviewBehavioralCompetenciesRatingGroup } from './ManagerReviewBehavioralCompetenciesRatingGroup';
 import { ManagerReviewEvaluationBox } from '../ManagerReviewEvaluationBox';
 import { ManagerReviewEvaluationExpansionPanelSummary } from '../ManagerReviewExpansionPanelSummary';
-import { ManagerReviewPerformanceCompetenciesCriteriaHeading } from './ManagerReviewPerformanceCompetenciesCriteriaHeading';
-import { ManagerReviewPerformanceCompetenciesExpansionPanel_reviews$key } from './__generated__/ManagerReviewPerformanceCompetenciesExpansionPanel_reviews.graphql';
-import { ManagerReviewPerformanceCompetenciesRatingGroup } from './ManagerReviewPerformanceCompetenciesRatingGroup';
 
 const fragment = graphql`
-  fragment ManagerReviewPerformanceCompetenciesExpansionPanel_reviews on PersonReviewNode @relay(plural: true) {
-    ...ManagerReviewPerformanceCompetenciesRatingGroup_reviews
+  fragment ManagerReviewBehavioralCompetenciesExpansionPanel_reviews on PersonReviewNode @relay(plural: true) {
+    ...ManagerReviewBehavioralCompetenciesRatingGroup_reviews
   }
 `;
 
@@ -30,7 +30,7 @@ interface ServerValue {
 
 interface OwnProps {
   title: string;
-  reviews: ManagerReviewPerformanceCompetenciesExpansionPanel_reviews$key;
+  reviews: ManagerReviewBehavioralCompetenciesExpansionPanel_reviews$key;
   prefix: 'sahabiness' | 'problemSolving' | 'execution' | 'thoughtLeadership' | 'leadership' | 'presence';
   details?: ReactNode;
   reviewee: getUserLabel_user$key | null;
@@ -38,7 +38,7 @@ interface OwnProps {
 
 export type Props = FCProps<OwnProps>;
 
-export function ManagerReviewPerformanceCompetenciesExpansionPanel(props: Props) {
+export function ManagerReviewBehavioralCompetenciesExpansionPanel(props: Props) {
   const { details, prefix, reviewee, title } = props;
 
   const reviews = useFragment(fragment, props.reviews);
@@ -50,27 +50,27 @@ export function ManagerReviewPerformanceCompetenciesExpansionPanel(props: Props)
   return (
     <ExpansionPanel>
       <ManagerReviewEvaluationExpansionPanelSummary rating={rating}>
-        <ManagerReviewPerformanceCompetenciesCriteriaHeading title={title} description={details} />
+        <ManagerReviewBehavioralCompetenciesCriteriaHeading title={title} description={details} />
       </ManagerReviewEvaluationExpansionPanelSummary>
       <ExpansionPanelDetails>
         <Box width="100%">
-          <ManagerReviewPerformanceCompetenciesRatingGroup rating="SUPERB" prefix={prefix} reviews={reviews} />
-          <ManagerReviewPerformanceCompetenciesRatingGroup
+          <ManagerReviewBehavioralCompetenciesRatingGroup rating="SUPERB" prefix={prefix} reviews={reviews} />
+          <ManagerReviewBehavioralCompetenciesRatingGroup
             rating="EXCEEDS_EXPECTATIONS"
             prefix={prefix}
             reviews={reviews}
           />
-          <ManagerReviewPerformanceCompetenciesRatingGroup
+          <ManagerReviewBehavioralCompetenciesRatingGroup
             rating="MEETS_EXPECTATIONS"
             prefix={prefix}
             reviews={reviews}
           />
-          <ManagerReviewPerformanceCompetenciesRatingGroup
+          <ManagerReviewBehavioralCompetenciesRatingGroup
             rating="NEEDS_IMPROVEMENT"
             prefix={prefix}
             reviews={reviews}
           />
-          <ManagerReviewPerformanceCompetenciesRatingGroup rating={null} prefix={prefix} reviews={reviews} />
+          <ManagerReviewBehavioralCompetenciesRatingGroup rating={null} prefix={prefix} reviews={reviews} />
           <DictInputItem field={prefix + 'Rating'}>
             <ManagerReviewEvaluationBox
               text={i18n._('Your evaluation of {name} on {criteria}', { name, criteria: title })}
