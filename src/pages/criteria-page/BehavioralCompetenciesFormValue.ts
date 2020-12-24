@@ -1,6 +1,6 @@
 import { Evaluation } from './__generated__/CriteriaPageMutation.graphql';
 
-export interface CriteriaFormValue {
+export interface BehavioralCompetenciesFormValue {
   sahabinessRating?: Evaluation;
   sahabinessComment?: string;
   problemSolvingRating?: Evaluation;

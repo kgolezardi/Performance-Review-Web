@@ -10,8 +10,8 @@ import { useBiDiSnackbar } from 'src/shared/snackbar';
 import { useLazyLoadQuery } from 'react-relay/hooks';
 import { useMutation } from 'src/relay';
 
-import { CriteriaForm } from './CriteriaForm';
-import { CriteriaFormValue } from './CriteriaFormValue';
+import { BehavioralCompetenciesForm } from './BehavioralCompetenciesForm';
+import { BehavioralCompetenciesFormValue } from './BehavioralCompetenciesFormValue';
 import { CriteriaPageMutation } from './__generated__/CriteriaPageMutation.graphql';
 import { CriteriaPageQuery } from './__generated__/CriteriaPageQuery.graphql';
 
@@ -44,7 +44,7 @@ const query = graphql`
           ...getUserLabel_user
         }
         ...BehavioralCompetenciesOutput_review
-        ...CriteriaForm_review
+        ...BehavioralCompetenciesForm_review
         isSelfReview
         state
       }
@@ -60,7 +60,7 @@ export default function CriteriaPage(props: Props) {
   const data = useLazyLoadQuery<CriteriaPageQuery>(query, { id: revieweeId });
 
   const handleSubmit = useCallback(
-    (data: CriteriaFormValue) => {
+    (data: BehavioralCompetenciesFormValue) => {
       const input = { input: { revieweeId, ...data } };
       criteriaPageMutation(input)
         .then(() => {
@@ -83,7 +83,7 @@ export default function CriteriaPage(props: Props) {
         <BehavioralCompetenciesOutput review={review} isSelfReview={isSelfReview} />
       ) : (
         <MDXPropsProvider<UserType | null> value={user || null}>
-          <CriteriaForm review={data.viewer.review} onSubmit={handleSubmit} isSelfReview={isSelfReview} />
+          <BehavioralCompetenciesForm review={data.viewer.review} onSubmit={handleSubmit} isSelfReview={isSelfReview} />
         </MDXPropsProvider>
       )}
     </Box>

@@ -217,7 +217,7 @@ msgstr "کاش بیشتر برامون بنویسی!"
 msgid "It's complete!"
 msgstr "تکمیل شد!"
 
-#: src/pages/criteria-page/CriteriaForm.tsx:70
+#: src/pages/criteria-page/BehavioralCompetenciesForm.tsx:70
 #: src/pages/manager-review-page/performance-competencies/ManagerReviewPerformanceCompetencies.tsx:108
 #: src/shared/behavioral-competencies-output/BehavioralCompetenciesOutput.tsx:42
 #: src/shared/criteria-result/CriteriaResult.tsx:20
@@ -258,7 +258,7 @@ msgstr "یافت نشد"
 msgid "No! Wait"
 msgstr "نه! می‌مونم"
 
-#: src/pages/criteria-page/CriteriaForm.tsx:58
+#: src/pages/criteria-page/BehavioralCompetenciesForm.tsx:58
 #: src/pages/manager-review-page/performance-competencies/ManagerReviewPerformanceCompetencies.tsx:96
 #: src/shared/behavioral-competencies-output/BehavioralCompetenciesOutput.tsx:30
 #: src/shared/criteria-result/CriteriaResult.tsx:16
@@ -273,7 +273,7 @@ msgstr "نظرات دیگران در مورد سطح عمکرد شما در ای
 msgid "Other people comments about {name} performance compared to initial expectation"
 msgstr "نظرات دیگران در مورد سطح عملکرد {name} در این پروژه"
 
-#: src/pages/criteria-page/CriteriaForm.tsx:64
+#: src/pages/criteria-page/BehavioralCompetenciesForm.tsx:64
 #: src/pages/manager-review-page/performance-competencies/ManagerReviewPerformanceCompetencies.tsx:102
 #: src/shared/behavioral-competencies-output/BehavioralCompetenciesOutput.tsx:36
 #: src/shared/criteria-result/CriteriaResult.tsx:18
@@ -308,14 +308,14 @@ msgstr "سامانه ارزیابی عملکرد"
 msgid "Persian"
 msgstr "فارسی"
 
-#: src/pages/criteria-page/CriteriaForm.tsx:73
+#: src/pages/criteria-page/BehavioralCompetenciesForm.tsx:73
 #: src/pages/manager-review-page/performance-competencies/ManagerReviewPerformanceCompetencies.tsx:111
 #: src/shared/behavioral-competencies-output/BehavioralCompetenciesOutput.tsx:45
 #: src/shared/criteria-result/CriteriaResult.tsx:21
 msgid "Presence"
 msgstr "اثر حضور"
 
-#: src/pages/criteria-page/CriteriaForm.tsx:61
+#: src/pages/criteria-page/BehavioralCompetenciesForm.tsx:61
 #: src/pages/manager-review-page/performance-competencies/ManagerReviewPerformanceCompetencies.tsx:99
 #: src/shared/behavioral-competencies-output/BehavioralCompetenciesOutput.tsx:33
 #: src/shared/criteria-result/CriteriaResult.tsx:17
@@ -343,7 +343,7 @@ msgstr "مرورکننده‌ها"
 msgid "Role Expertise and Self Development"
 msgstr "مرجعیت تخصصی"
 
-#: src/pages/criteria-page/CriteriaForm.tsx:79
+#: src/pages/criteria-page/BehavioralCompetenciesForm.tsx:79
 #: src/pages/manager-review-page/achievements/ManagerReviewAchievements.tsx:77
 #: src/pages/manager-review-page/overall-evaluation/ManagerReviewOverallEvaluation.tsx:73
 #: src/pages/manager-review-page/performance-competencies/ManagerReviewPerformanceCompetencies.tsx:120
@@ -457,7 +457,7 @@ msgstr "مهم‌ترین ویژگی‌ها یا رفتارهای مؤثری ک�
 msgid "The most important characteristics or effective behaviors that he/she should maintain"
 msgstr "مهم‌ترین ویژگی‌ها یا رفتارهای مؤثری که باید ادامه‌شون بده"
 
-#: src/pages/criteria-page/CriteriaForm.tsx:67
+#: src/pages/criteria-page/BehavioralCompetenciesForm.tsx:67
 #: src/pages/manager-review-page/performance-competencies/ManagerReviewPerformanceCompetencies.tsx:105
 #: src/shared/behavioral-competencies-output/BehavioralCompetenciesOutput.tsx:39
 #: src/shared/criteria-result/CriteriaResult.tsx:19

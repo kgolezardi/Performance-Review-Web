@@ -15,8 +15,8 @@ import { importMDX } from 'mdx.macro';
 import { useFormDirty } from 'src/shared/form-change-detector';
 import { useFragment } from 'react-relay/hooks';
 
-import { CriteriaFormValue } from './CriteriaFormValue';
-import { CriteriaForm_review$key } from './__generated__/CriteriaForm_review.graphql';
+import { BehavioralCompetenciesFormValue } from './BehavioralCompetenciesFormValue';
+import { BehavioralCompetenciesForm_review$key } from './__generated__/BehavioralCompetenciesForm_review.graphql';
 
 // self review helper texts
 const DescriptionContentSelfReview = importMDX.sync('./help-texts/self-review/DescriptionContent.mdx');
@@ -25,7 +25,7 @@ const DescriptionContentSelfReview = importMDX.sync('./help-texts/self-review/De
 const DescriptionContentPeerReview = importMDX.sync('./help-texts/peer-review/DescriptionContent.mdx');
 
 const fragment = graphql`
-  fragment CriteriaForm_review on PersonReviewNode {
+  fragment BehavioralCompetenciesForm_review on PersonReviewNode {
     sahabinessComment
     sahabinessRating
     problemSolvingComment
@@ -42,23 +42,23 @@ const fragment = graphql`
 `;
 
 interface OwnProps {
-  review: CriteriaForm_review$key | null;
+  review: BehavioralCompetenciesForm_review$key | null;
   isSelfReview: boolean;
-  onSubmit: (data: CriteriaFormValue) => void;
+  onSubmit: (data: BehavioralCompetenciesFormValue) => void;
 }
 
 type Props = FCProps<OwnProps>;
 
-export function CriteriaForm(props: Props) {
+export function BehavioralCompetenciesForm(props: Props) {
   const { onSubmit, isSelfReview } = props;
   const components = useContext(MDXContext);
   const review = useFragment(fragment, props.review);
   const reviewType = isSelfReview ? 'self' : 'peer';
 
   // if review properties are null, replace it with undefined
-  let value: CriteriaFormValue = {};
+  let value: BehavioralCompetenciesFormValue = {};
   for (const key in review) {
-    Object.assign(value, { [key]: review?.[key as keyof CriteriaFormValue] ?? undefined });
+    Object.assign(value, { [key]: review?.[key as keyof BehavioralCompetenciesFormValue] ?? undefined });
   }
 
   const dirty = useFormDirty();
