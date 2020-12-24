@@ -25,7 +25,7 @@ storiesOf('Criterion Manager Review', module)
     const data = useLazyLoadQuery<CriteriaOutputStoriesQuery>(query, {});
     return (
       <Container>
-        <CriteriaOutput review={data.viewer.personReviews[0]} />
+        <CriteriaOutput review={data.viewer.personReviews[0]} isSelfReview />
       </Container>
     );
   });

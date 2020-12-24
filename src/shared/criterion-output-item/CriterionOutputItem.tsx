@@ -10,11 +10,14 @@ interface OwnProps {
   title: string;
   evaluation: '%future added value' | Evaluation | null;
   evidence: string | null;
+  type: 'self' | 'peer';
 }
 
 type Props = FCProps<OwnProps>;
 
-export function CriterionOutputItem({ title, evaluation, evidence }: Props) {
+export function CriterionOutputItem(props: Props) {
+  const { title, evaluation, evidence, type } = props;
+
   return (
     <Grid container spacing={2}>
       <Grid item xs={12}>
@@ -25,7 +28,7 @@ export function CriterionOutputItem({ title, evaluation, evidence }: Props) {
           {i18n._('Evaluation')}:
         </Typography>
         <Box width={240}>
-          <EvaluationOutput value={evaluation} type="self" />
+          <EvaluationOutput value={evaluation} type={type} />
         </Box>
       </Grid>
       <Grid item xs={12}>
