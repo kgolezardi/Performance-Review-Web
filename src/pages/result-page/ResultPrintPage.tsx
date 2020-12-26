@@ -1,7 +1,7 @@
 import graphql from 'babel-plugin-relay/macro';
 import React, { useEffect } from 'react';
+import { BehavioralCompetenciesResult } from 'src/shared/behavioral-competencies-result';
 import { Box } from '@material-ui/core';
-import { CriteriaResult } from 'src/shared/criteria-result';
 import { FCProps } from 'src/shared/types/FCProps';
 import { PageBreak } from 'src/shared/page-break';
 import { PrintingContext } from 'src/shared/layouts/dashboard-layouts/PrintingContext';
@@ -21,7 +21,7 @@ const query = graphql`
     viewer {
       user(id: $id) {
         personReviews {
-          ...CriteriaResult_reviews
+          ...BehavioralCompetenciesResult_reviews
           ...StrengthsWeaknessesResult_reviews
         }
         projectReviews {
@@ -49,7 +49,7 @@ export function ResultPrintPage(props: Props) {
   return (
     <PrintingContext.Provider value={true}>
       <Box paddingY={2}>
-        <CriteriaResult reviews={reviews} />
+        <BehavioralCompetenciesResult reviews={reviews} />
       </Box>
       <PageBreak />
       <Box paddingY={2}>

@@ -1,0 +1,1 @@
+export { BehavioralCompetencyItem } from './BehavioralCompetencyItem';

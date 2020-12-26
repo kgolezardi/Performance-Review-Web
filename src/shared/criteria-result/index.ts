@@ -1,1 +1,0 @@
-export { CriteriaResult } from './CriteriaResult';

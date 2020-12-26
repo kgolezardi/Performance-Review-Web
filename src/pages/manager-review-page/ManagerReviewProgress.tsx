@@ -47,7 +47,7 @@ const ManagerReviewColorDictionary: Record<ProgressState, 'complete' | 'medium' 
   completed: 'complete',
 };
 
-const ManagerReviewPerformanceCompetenciesTextDictionary: Record<
+const ManagerReviewBehavioralCompetenciesTextDictionary: Record<
   ProgressState,
   (evaluatedItems: number, total: number) => string
 > = {
@@ -74,6 +74,6 @@ const ManagerReviewTextDictionary: Record<
   'achievements' | 'behavioral-competencies',
   Record<ProgressState, (evaluatedItems: number, total: number) => string>
 > = {
-  'behavioral-competencies': ManagerReviewPerformanceCompetenciesTextDictionary,
+  'behavioral-competencies': ManagerReviewBehavioralCompetenciesTextDictionary,
   achievements: ManagerReviewAchievementsTextDictionary,
 };

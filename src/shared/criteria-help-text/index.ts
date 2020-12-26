@@ -1,1 +1,0 @@
-export { CriteriaHelpText } from './CriteriaHelpText';
