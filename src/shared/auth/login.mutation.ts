@@ -9,7 +9,7 @@ export const useLoginMutation = () =>
       login(input: $input) {
         viewer {
           me {
-            ...AuthGuard_user
+            id
           }
         }
       }

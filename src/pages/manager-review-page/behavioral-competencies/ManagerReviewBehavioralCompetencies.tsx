@@ -5,11 +5,9 @@ import { Box, Grid } from '@material-ui/core';
 import { DictInput, Forminator, SubmitButton } from 'src/shared/forminator';
 import { FCProps } from 'src/shared/types/FCProps';
 import { MDXContext } from '@mdx-js/react';
-import { MDXPropsProvider } from 'src/shared/mdx-provider/MDXPropsProvider';
 import { SectionGuide } from 'src/shared/section-guide';
 import { ServerValueProvider } from 'src/shared/server-value';
 import { StickyBottomPaper } from 'src/shared/sticky-bottom-paper';
-import { UserType } from 'src/shared/utils/getUserLabel';
 import { i18n } from '@lingui/core';
 import { importMDX } from 'mdx.macro';
 import { isNotNil } from 'src/shared/utils/general.util';
@@ -109,9 +107,7 @@ export function ManagerReviewBehavioralCompetencies(props: Props) {
   return (
     <Box padding={4}>
       <SectionGuide>
-        <MDXPropsProvider<UserType | null> value={data.viewer.user || null}>
-          <ManagerReviewBehavioralCompetenciesDescription components={components} />
-        </MDXPropsProvider>
+        <ManagerReviewBehavioralCompetenciesDescription components={components} />
       </SectionGuide>
       <ServerValueProvider value={value}>
         <Forminator onSubmit={handleSubmit} initialValue={value}>

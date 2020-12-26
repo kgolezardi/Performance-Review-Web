@@ -4,9 +4,7 @@ import { Box, Grid } from '@material-ui/core';
 import { FCProps } from 'src/shared/types/FCProps';
 import { FormChangeDetector } from 'src/shared/form-change-detector';
 import { MDXContext } from '@mdx-js/react';
-import { MDXPropsProvider } from 'src/shared/mdx-provider/MDXPropsProvider';
 import { SectionGuide } from 'src/shared/section-guide';
-import { UserType } from 'src/shared/utils/getUserLabel';
 import { importMDX } from 'mdx.macro';
 import { useFragment, useLazyLoadQuery } from 'react-relay/hooks';
 
@@ -73,9 +71,7 @@ export function PeerReviewProjectsTab(props: Props) {
             <Grid container spacing={2}>
               <Grid item xs={12}>
                 <SectionGuide>
-                  <MDXPropsProvider<UserType | null> value={user}>
-                    <Content components={components} />
-                  </MDXPropsProvider>
+                  <Content components={components} />
                 </SectionGuide>
               </Grid>
             </Grid>

@@ -6,6 +6,8 @@ import { getUserLabel_user, getUserLabel_user$key } from './__generated__/getUse
 interface GetLabelOptions {
   short?: boolean;
 }
+
+// TODO: Remove fragment?
 const fragment = graphql`
   fragment getUserLabel_user on UserNode @inline {
     firstName
@@ -13,14 +15,16 @@ const fragment = graphql`
     username
   }
 `;
-export type UserType = getUserLabel_user$key;
 
-export const getUserLabel = (user: UserType, options: GetLabelOptions = {}) => {
+export const getUserLabel = (userRef: getUserLabel_user$key, options: GetLabelOptions = {}) => {
   const { short = false } = options;
-  const userValue = readInlineData<getUserLabel_user>(fragment, user);
+
+  const user = readInlineData<getUserLabel_user>(fragment, userRef);
+
   if (short) {
-    return userValue.firstName.trim() || userValue.lastName.trim() || userValue.username.trim();
+    return user.firstName.trim() || user.lastName.trim() || user.username.trim();
   }
-  const name = (userValue.firstName + ' ' + userValue.lastName).trim();
-  return name || userValue.username;
+
+  const name = (user.firstName + ' ' + user.lastName).trim();
+  return name || user.username;
 };

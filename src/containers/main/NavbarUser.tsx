@@ -3,7 +3,6 @@ import React, { useCallback } from 'react';
 import { FCProps } from 'src/shared/types/FCProps';
 import { IconButton, Theme, Typography, createStyles, makeStyles } from '@material-ui/core';
 import { Styles } from 'src/shared/types/Styles';
-import { getUserLabel } from 'src/shared/utils/getUserLabel';
 import { useAuthGuardUser } from 'src/core/auth';
 
 import { useLogoutMutation } from './logout.mutation';
@@ -15,18 +14,18 @@ type Props = FCProps<OwnProps> & StyleProps;
 export function NavbarUser(props: Props) {
   const classes = useStyles(props);
 
+  const { userLabel } = useAuthGuardUser();
+
   const logoutMutation = useLogoutMutation();
 
   const handleLogout = useCallback(() => {
     return logoutMutation();
   }, [logoutMutation]);
 
-  const user = useAuthGuardUser();
-
   return (
     <div className={classes.root}>
       <Typography variant="body2" className={classes.label}>
-        {getUserLabel(user)}
+        {userLabel}
       </Typography>
       <IconButton onClick={handleLogout} color="inherit">
         <LogoutIcon />

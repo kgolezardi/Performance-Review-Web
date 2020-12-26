@@ -1,7 +1,7 @@
 import graphql from 'babel-plugin-relay/macro';
 import React, { useCallback, useState } from 'react';
 import { BoardList, EmptyList } from 'src/shared/board-list';
-import { Container, Fab, Grid, Theme, makeStyles, createStyles } from '@material-ui/core';
+import { Container, Fab, Grid, Theme, createStyles, makeStyles } from '@material-ui/core';
 import { Done as DoneIcon } from 'src/assets/icons/Done';
 import { ElementType } from 'src/shared/types/ElementType';
 import { FCProps } from 'src/shared/types/FCProps';
@@ -32,9 +32,6 @@ const query = graphql`
     viewer {
       usersToReview {
         ...PeerReviewBoardPage_user
-      }
-      me {
-        ...GiftDialog_user
       }
     }
   }
@@ -105,7 +102,7 @@ export default function PeerReviewBoardPage(props: Props) {
 
   return (
     <Container maxWidth="xl">
-      <GiftDialog open={open} onClaimClick={handleClaimClick} onLaterClick={handleLaterClick} user={data.viewer.me} />
+      <GiftDialog open={open} onClaimClick={handleClaimClick} onLaterClick={handleLaterClick} />
       <Grid container spacing={2}>
         <BoardList listTitle={i18n._('Todo')}>
           {boards['TODO'] ? (

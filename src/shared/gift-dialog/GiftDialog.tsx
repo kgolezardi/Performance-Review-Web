@@ -1,6 +1,5 @@
 import GiftDialogHeader from 'src/assets/gift-dialog-elements.png';
 import GiftInCircle from 'src/assets/gift-in-cirlce.png';
-import graphql from 'babel-plugin-relay/macro';
 import React, { useCallback, useContext } from 'react';
 import {
   Box,
@@ -16,30 +15,18 @@ import {
 } from '@material-ui/core';
 import { FCProps } from 'src/shared/types/FCProps';
 import { MDXContext } from '@mdx-js/react';
-import { MDXPropsProvider } from 'src/shared/mdx-provider/MDXPropsProvider';
 import { Styles } from 'src/shared/types/Styles';
-import { UserType } from 'src/shared/utils/getUserLabel';
 import { i18n } from '@lingui/core';
 import { importMDX } from 'mdx.macro';
-import { useFragment } from 'react-relay/hooks';
 
-import { GiftDialog_user$key } from './__generated__/GiftDialog_user.graphql';
 import { withProps } from '../utils/withProps';
 
 const Content = importMDX.sync('./Content.mdx');
-
-const fragment = graphql`
-  fragment GiftDialog_user on UserNode {
-    id
-    ...getUserLabel_user
-  }
-`;
 
 interface OwnProps {
   open: boolean;
   onClaimClick: () => void;
   onLaterClick: () => void;
-  user: GiftDialog_user$key | null;
 }
 
 type Props = FCProps<OwnProps> & StyleProps;
@@ -48,7 +35,6 @@ export function GiftDialog(props: Props) {
   const { open, onClaimClick, onLaterClick } = props;
   const classes = useStyles(props);
   const components = useContext(MDXContext);
-  const user = useFragment(fragment, props.user);
 
   const handleClaimClick = useCallback(() => {
     onClaimClick();
@@ -68,9 +54,7 @@ export function GiftDialog(props: Props) {
         <Typography variant="h5">{i18n._('All reviews were successfully done')}</Typography>
       </MuiDialogTitle>
       <DialogContent>
-        <MDXPropsProvider<UserType | null> value={user}>
-          <Content components={{ ...components, p: PTypography }} />
-        </MDXPropsProvider>
+        <Content components={{ ...components, p: PTypography }} />
       </DialogContent>
       <DialogActions>
         <Button onClick={handleClaimClick} variant="contained" color="primary">

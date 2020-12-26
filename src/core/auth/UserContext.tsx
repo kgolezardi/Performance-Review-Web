@@ -1,15 +1,14 @@
 import React, { useContext } from 'react';
 
-import { AuthGuard_user } from './__generated__/AuthGuard_user.graphql';
+import { User } from './User';
 
-export type UserContextValue = AuthGuard_user;
-export const UserContext = React.createContext<UserContextValue | null>(null);
+export const UserContext = React.createContext<User | null>(null);
 
-export function useUser(): UserContextValue | null {
+export function useUser(): User | null {
   return useContext(UserContext);
 }
 
-export function useAuthGuardUser(): UserContextValue {
+export function useAuthGuardUser(): User {
   const context = useContext(UserContext);
   if (!context) {
     throw new Error('useAuthGuardUser must be used inside the AuthGuard');

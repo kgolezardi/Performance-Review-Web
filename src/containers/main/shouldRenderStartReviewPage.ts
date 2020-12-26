@@ -1,7 +1,7 @@
 import { Phase } from 'src/__generated__/enums';
-import type { UserContextValue } from 'src/core/auth/UserContext';
+import type { User } from 'src/core/auth';
 
-export const shouldRenderStartReviewPage = (user: UserContextValue, phase: Phase) => {
+export const shouldRenderStartReviewPage = (user: User, phase: Phase) => {
   if (phase === 'MANAGER_REVIEW') {
     if (!user.isManager) {
       return false;

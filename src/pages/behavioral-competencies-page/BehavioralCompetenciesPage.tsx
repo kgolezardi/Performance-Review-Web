@@ -3,8 +3,6 @@ import React, { useCallback } from 'react';
 import { BehavioralCompetenciesOutput } from 'src/shared/behavioral-competencies-output';
 import { Box } from '@material-ui/core';
 import { FCProps } from 'src/shared/types/FCProps';
-import { MDXPropsProvider } from 'src/shared/mdx-provider/MDXPropsProvider';
-import { UserType } from 'src/shared/utils/getUserLabel';
 import { i18n } from '@lingui/core';
 import { useBiDiSnackbar } from 'src/shared/snackbar';
 import { useLazyLoadQuery } from 'react-relay/hooks';
@@ -74,7 +72,7 @@ export default function BehavioralCompetenciesPage(props: Props) {
   );
 
   const review = data.viewer.review;
-  const user = review?.reviewee;
+  // const user = review?.reviewee;
   const isSelfReview = review?.isSelfReview || false;
   const readonly = review?.state === 'DONE';
 
@@ -83,9 +81,7 @@ export default function BehavioralCompetenciesPage(props: Props) {
       {readonly ? (
         <BehavioralCompetenciesOutput review={review} isSelfReview={isSelfReview} />
       ) : (
-        <MDXPropsProvider<UserType | null> value={user || null}>
-          <BehavioralCompetenciesForm review={data.viewer.review} onSubmit={handleSubmit} isSelfReview={isSelfReview} />
-        </MDXPropsProvider>
+        <BehavioralCompetenciesForm review={data.viewer.review} onSubmit={handleSubmit} isSelfReview={isSelfReview} />
       )}
     </Box>
   );

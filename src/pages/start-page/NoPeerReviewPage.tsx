@@ -17,7 +17,6 @@ import { FCProps } from 'src/shared/types/FCProps';
 import { MDXContext } from '@mdx-js/react';
 import { ReacteroidsPortal } from 'src/shared/reacteroids';
 import { Styles } from 'src/shared/types/Styles';
-import { getUserLabel } from 'src/shared/utils/getUserLabel';
 import { i18n } from '@lingui/core';
 import { importMDX } from 'mdx.macro';
 import { useAuthGuardUser } from 'src/core/auth';
@@ -30,9 +29,8 @@ type Props = FCProps<OwnProps> & StyleProps;
 
 export default function NoPeerReviewPage(props: Props) {
   const classes = useStyles(props);
-  const user = useAuthGuardUser();
   const components = useContext(MDXContext);
-
+  const { userLabel } = useAuthGuardUser();
   const [showGame, setShowGame] = useState(false);
 
   const handleClick = useCallback(() => {
@@ -53,7 +51,7 @@ export default function NoPeerReviewPage(props: Props) {
         <Card classes={{ root: classes.card }}>
           <img src={GiftInCircle} className={classes.giftInCirlceImage} alt="gift circle" />
           <Box padding={3} paddingBottom={5} className={classes.headerImage} />
-          <CardHeader title={i18n._('Dear {name}, Hello', { name: getUserLabel(user) })} />
+          <CardHeader title={i18n._('Dear {name}, Hello', { name: userLabel })} />
           <CardContent>
             <Content components={components} />
           </CardContent>
