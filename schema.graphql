@@ -1,5 +1,5 @@
 # source: http://127.0.0.1:8000/graphql
-# timestamp: Tue Oct 20 2020 12:30:49 GMT+0330 (Iran Standard Time)
+# timestamp: Sat Dec 26 2020 22:27:11 GMT+0330 (Iran Standard Time)
 
 input ChangePasswordMutationInput {
   oldPassword: String!
@@ -82,10 +82,10 @@ type Mutation {
   saveProjectComment(input: SaveProjectCommentMutationInput!): SaveProjectCommentMutationPayload!
   saveManagerPersonReview(input: SaveManagerPersonReviewMutationInput!): SaveManagerPersonReviewMutationPayload!
   saveManagerProjectComment(input: SaveManagerProjectCommentMutationInput!): SaveManagerProjectCommentMutationPayload!
+  startReview(input: StartReviewMutationInput!): StartReviewMutationPayload!
   login(input: LoginMutationInput!): LoginMutationPayload!
   logout(input: LogoutMutationInput!): LogoutMutationPayload!
   changePassword(input: ChangePasswordMutationInput!): ChangePasswordMutationPayload!
-  startReview(input: StartReviewMutationInput!): StartReviewMutationPayload!
 }
 
 """An object with an ID"""
@@ -168,6 +168,16 @@ type ProjectReviewNode implements Node {
 
 type Query {
   viewer: ViewerNode!
+}
+
+type RoundNode implements Node {
+  title: String!
+
+  """The ID of the object."""
+  id: ID!
+  phase: Phase!
+  projects: [ProjectNode!]!
+  participants: [UserNode!]!
 }
 
 input SaveManagerPersonReviewMutationInput {
@@ -261,6 +271,7 @@ type SettingsNode implements Node {
   id: ID!
   phase: Phase!
   startText: String
+  managerOverallReviewText: String
 }
 
 input StartReviewMutationInput {
@@ -289,7 +300,6 @@ type UserNode implements Node {
 
   """The ID of the object."""
   id: ID!
-  hasStarted: Boolean
   isManager: Boolean!
 
   """get or create a person review about this user from logged in user"""
@@ -305,6 +315,9 @@ type UserNode implements Node {
   get or create a manager person review about this user from logged in user
   """
   managerPersonReview: ManagerPersonReviewNode
+  hasStarted: Boolean
+  ranking1: String
+  ranking2: String
 }
 
 type ViewerNode implements Node {
@@ -315,6 +328,11 @@ type ViewerNode implements Node {
   """The ID of the object"""
   user(id: ID!): UserNode
   me: UserNode
+
+  """The ID of the object"""
+  round(id: ID!): RoundNode
+  activeRound: RoundNode
+  rounds: [RoundNode!]!
 
   """The ID of the object"""
   managerProjectComment(id: ID!): ManagerProjectCommentNode
