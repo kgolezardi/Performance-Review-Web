@@ -28,7 +28,7 @@ export function AnonymousReviewItemInfo(props: Props) {
           bgcolor={bgcolor}
           width={48}
           height={48}
-          displayPrint="none"
+          displayPrint="none !important"
         >
           {type === 'self' ? <SelfCommentIcon color="primary" /> : <PeerCommnentIcon color="action" />}
         </Box>

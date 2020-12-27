@@ -9,10 +9,10 @@ import { Tabs } from 'src/shared/tabs';
 import { i18n } from '@lingui/core';
 import { useAuthGuardUser } from 'src/core/auth';
 
-import BehavioralCompetenciesResultPage from './behavioral-competencies-result-page/BehavioralCompetenciesResultPage';
 import StrengthsWeaknessesResultPage from './strengths-weaknesses-result-page/StrengthsWeaknessesResultPage';
 import { PrintResultButton } from './PrintResultButton';
 import { ProjectsResultPage } from './project-result-page/ProjectsResultPage';
+import { ResultBehavioralCompetencies } from './behavioral-competencies';
 
 interface Params {
   tab?: string;
@@ -57,7 +57,7 @@ export default function ResultPage(props: Props) {
             <Switch>
               <Route
                 path={toPrefix + '/behavioral-competencies'}
-                children={<BehavioralCompetenciesResultPage revieweeId={revieweeId} />}
+                children={<ResultBehavioralCompetencies revieweeId={revieweeId} />}
               />
               <Route
                 path={toPrefix + '/dominant-characteristics'}

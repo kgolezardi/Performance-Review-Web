@@ -7,25 +7,25 @@ import { FCProps } from 'src/shared/types/FCProps';
 import { HelperText } from 'src/shared/helper-text/HelperText';
 import { useFragment } from 'react-relay/hooks';
 
-import { BehavioralCompetencyResultExpansionPanel_reviews$key } from './__generated__/BehavioralCompetencyResultExpansionPanel_reviews.graphql';
-import { BehavioralCompetencyResultRatingGroup } from './BehavioralCompetencyResultRatingGroup';
+import { ResultBehavioralCompetenciesExpansionPanel_reviews$key } from './__generated__/ResultBehavioralCompetenciesExpansionPanel_reviews.graphql';
+import { ResultBehavioralCompetenciesRatingGroup } from './ResultBehavioralCompetenciesRatingGroup';
 
 const fragment = graphql`
-  fragment BehavioralCompetencyResultExpansionPanel_reviews on PersonReviewNode @relay(plural: true) {
-    ...BehavioralCompetencyResultRatingGroup_reviews
+  fragment ResultBehavioralCompetenciesExpansionPanel_reviews on PersonReviewNode @relay(plural: true) {
+    ...ResultBehavioralCompetenciesRatingGroup_reviews
   }
 `;
 
 interface OwnProps {
   title: string;
-  reviews: BehavioralCompetencyResultExpansionPanel_reviews$key;
+  reviews: ResultBehavioralCompetenciesExpansionPanel_reviews$key;
   prefix: BehavioralCompetenciesPrefix;
   details?: ReactNode;
 }
 
 export type Props = FCProps<OwnProps>;
 
-export function BehavioralCompetencyResultExpansionPanel(props: Props) {
+export function ResultBehavioralCompetenciesExpansionPanel(props: Props) {
   const { details, title } = props;
 
   const reviews = useFragment(fragment, props.reviews);
@@ -38,15 +38,19 @@ export function BehavioralCompetencyResultExpansionPanel(props: Props) {
       </ExpansionPanelSummary>
       <ExpansionPanelDetails>
         <Box width="100%">
-          <BehavioralCompetencyResultRatingGroup rating="SUPERB" prefix={props.prefix} reviews={reviews} />
-          <BehavioralCompetencyResultRatingGroup
+          <ResultBehavioralCompetenciesRatingGroup rating="SUPERB" prefix={props.prefix} reviews={reviews} />
+          <ResultBehavioralCompetenciesRatingGroup
             rating="EXCEEDS_EXPECTATIONS"
             prefix={props.prefix}
             reviews={reviews}
           />
-          <BehavioralCompetencyResultRatingGroup rating="MEETS_EXPECTATIONS" prefix={props.prefix} reviews={reviews} />
-          <BehavioralCompetencyResultRatingGroup rating="NEEDS_IMPROVEMENT" prefix={props.prefix} reviews={reviews} />
-          <BehavioralCompetencyResultRatingGroup rating={null} prefix={props.prefix} reviews={reviews} />
+          <ResultBehavioralCompetenciesRatingGroup
+            rating="MEETS_EXPECTATIONS"
+            prefix={props.prefix}
+            reviews={reviews}
+          />
+          <ResultBehavioralCompetenciesRatingGroup rating="NEEDS_IMPROVEMENT" prefix={props.prefix} reviews={reviews} />
+          <ResultBehavioralCompetenciesRatingGroup rating={null} prefix={props.prefix} reviews={reviews} />
         </Box>
       </ExpansionPanelDetails>
     </ExpansionPanel>

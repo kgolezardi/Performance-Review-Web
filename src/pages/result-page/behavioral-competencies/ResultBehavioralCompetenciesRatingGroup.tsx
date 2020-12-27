@@ -15,10 +15,10 @@ import { ReviewItemInfo } from 'src/shared/review-item-info';
 import { i18n } from '@lingui/core';
 import { useFragment } from 'react-relay/hooks';
 
-import { BehavioralCompetencyResultRatingGroup_reviews$key } from './__generated__/BehavioralCompetencyResultRatingGroup_reviews.graphql';
+import { ResultBehavioralCompetenciesRatingGroup_reviews$key } from './__generated__/ResultBehavioralCompetenciesRatingGroup_reviews.graphql';
 
 const fragment = graphql`
-  fragment BehavioralCompetencyResultRatingGroup_reviews on PersonReviewNode @relay(plural: true) {
+  fragment ResultBehavioralCompetenciesRatingGroup_reviews on PersonReviewNode @relay(plural: true) {
     id
     isSelfReview
     sahabinessRating
@@ -37,14 +37,14 @@ const fragment = graphql`
 `;
 
 interface OwnProps {
-  reviews: BehavioralCompetencyResultRatingGroup_reviews$key;
+  reviews: ResultBehavioralCompetenciesRatingGroup_reviews$key;
   rating: ExcludeUnknown<Evaluation> | null;
   prefix: BehavioralCompetenciesPrefix;
 }
 
 export type Props = FCProps<OwnProps>;
 
-export const BehavioralCompetencyResultRatingGroup = React.memo(function BehavioralCompetencyResultRatingGroup(
+export const ResultBehavioralCompetenciesRatingGroup = React.memo(function ResultBehavioralCompetenciesRatingGroup(
   props: Props,
 ) {
   const { rating, prefix } = props;

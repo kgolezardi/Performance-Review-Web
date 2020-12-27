@@ -1,6 +1,5 @@
 import graphql from 'babel-plugin-relay/macro';
 import React, { useEffect } from 'react';
-import { BehavioralCompetenciesResult } from 'src/shared/behavioral-competencies-result';
 import { Box } from '@material-ui/core';
 import { FCProps } from 'src/shared/types/FCProps';
 import { PageBreak } from 'src/shared/page-break';
@@ -9,6 +8,7 @@ import { useAuthGuardUser } from 'src/core/auth';
 import { useLazyLoadQuery } from 'react-relay/hooks';
 
 import { ProjectResultExpansionPanel } from './project-result-page/ProjectResultExpansionPanel';
+import { ResultBehavioralCompetencies } from './behavioral-competencies';
 import { ResultPrintPageQuery } from './__generated__/ResultPrintPageQuery.graphql';
 import { StrengthsWeaknessesResult } from './strengths-weaknesses-result-page/StrengthsWeaknessesResult';
 
@@ -21,7 +21,6 @@ const query = graphql`
     viewer {
       user(id: $id) {
         personReviews {
-          ...BehavioralCompetenciesResult_reviews
           ...StrengthsWeaknessesResult_reviews
         }
         projectReviews {
@@ -49,7 +48,7 @@ export function ResultPrintPage(props: Props) {
   return (
     <PrintingContext.Provider value={true}>
       <Box paddingY={2}>
-        <BehavioralCompetenciesResult reviews={reviews} />
+        <ResultBehavioralCompetencies revieweeId={id} />
       </Box>
       <PageBreak />
       <Box paddingY={2}>
