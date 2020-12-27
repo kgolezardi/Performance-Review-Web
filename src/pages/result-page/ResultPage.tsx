@@ -29,7 +29,7 @@ export default function ResultPage(props: Props) {
   const toPrefix = '';
 
   return (
-    <Container maxWidth="md" className={classes.container}>
+    <Container maxWidth="md">
       <Box marginY={5}>
         <Paper classes={{ root: classes.tabsPaper }}>
           <Tabs value={tab ?? 'behavioral-competencies'}>
@@ -76,34 +76,16 @@ export default function ResultPage(props: Props) {
 
 const styles = (theme: Theme) =>
   createStyles({
-    container: {
-      '@media print': {
-        paddingLeft: 0,
-        paddingRight: 0,
-      },
-    },
     tabsPaper: {
       position: 'sticky',
       top: 0,
       zIndex: theme.zIndex.appBar - 25,
       borderBottomLeftRadius: 0,
       borderBottomRightRadius: 0,
-      '@media print': {
-        boxShadow: 'none',
-      },
     },
     tabPanelPaper: {
       borderTopLeftRadius: 0,
       borderTopRightRadius: 0,
-      '@media print': {
-        boxShadow: 'none',
-      },
-    },
-    printButton: {
-      position: 'fixed',
-      bottom: 48,
-      left: 40,
-      zIndex: theme.zIndex.snackbar - 10,
     },
   });
 
