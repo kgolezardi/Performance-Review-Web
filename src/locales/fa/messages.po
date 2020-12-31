@@ -52,7 +52,7 @@ msgstr "تمامی ارزیابی‌ها با موفقیت انجام شد"
 
 #: src/pages/manager-review-page/achievements/ManagerReviewAchievements.tsx:59
 #: src/pages/manager-review-page/behavioral-competencies/ManagerReviewBehavioralCompetencies.tsx:76
-#: src/pages/manager-review-page/overall-evaluation/ManagerReviewOverallEvaluation.tsx:48
+#: src/pages/manager-review-page/overall-evaluation/ManagerReviewOverallEvaluation.tsx:62
 #: src/pages/peer-review-page/PeerReviewPersonInfoCard.tsx:49
 #: src/pages/peer-review-page/PeerReviewPersonInfoCard.tsx:54
 msgid "An error occurred. Try again!"
@@ -143,7 +143,7 @@ msgstr "خطا"
 
 #: src/pages/manager-review-page/achievements/ManagerReviewAchievementsExpansionPanel.tsx:81
 #: src/pages/manager-review-page/behavioral-competencies/ManagerReviewBehavioralCompetenciesExpansionPanel.tsx:39
-#: src/pages/manager-review-page/overall-evaluation/ManagerReviewOverallEvaluation.tsx:65
+#: src/pages/manager-review-page/overall-evaluation/ManagerReviewOverallEvaluation.tsx:79
 #: src/pages/peer-review-page/projectsTab/projects-form/PeerReviewProjectsForm.tsx:34
 #: src/shared/behavioral-competency-item/BehavioralCompetencyItem.tsx:22
 #: src/shared/behavioral-competency-output/BehavioralCompetencyOutput.tsx:14
@@ -219,8 +219,8 @@ msgstr "تکمیل شد!"
 
 #: src/pages/behavioral-competencies-page/BehavioralCompetenciesForm.tsx:70
 #: src/pages/manager-review-page/behavioral-competencies/ManagerReviewBehavioralCompetencies.tsx:108
+#: src/pages/result-page/behavioral-competencies/ResultBehavioralCompetencies.tsx:50
 #: src/shared/behavioral-competencies-output/BehavioralCompetenciesOutput.tsx:42
-#: src/shared/behavioral-competencies-result/BehavioralCompetenciesResult.tsx:20
 msgid "Leadership"
 msgstr "رهبری خودظهور"
 
@@ -260,8 +260,8 @@ msgstr "نه! می‌مونم"
 
 #: src/pages/behavioral-competencies-page/BehavioralCompetenciesForm.tsx:58
 #: src/pages/manager-review-page/behavioral-competencies/ManagerReviewBehavioralCompetencies.tsx:96
+#: src/pages/result-page/behavioral-competencies/ResultBehavioralCompetencies.tsx:38
 #: src/shared/behavioral-competencies-output/BehavioralCompetenciesOutput.tsx:30
-#: src/shared/behavioral-competencies-result/BehavioralCompetenciesResult.tsx:16
 msgid "Organization Culture Adoption"
 msgstr "انطباق با فرهنگ سازمانی"
 
@@ -275,8 +275,8 @@ msgstr "نظرات دیگران در مورد سطح عملکرد {name} در ا
 
 #: src/pages/behavioral-competencies-page/BehavioralCompetenciesForm.tsx:64
 #: src/pages/manager-review-page/behavioral-competencies/ManagerReviewBehavioralCompetencies.tsx:102
+#: src/pages/result-page/behavioral-competencies/ResultBehavioralCompetencies.tsx:44
 #: src/shared/behavioral-competencies-output/BehavioralCompetenciesOutput.tsx:36
-#: src/shared/behavioral-competencies-result/BehavioralCompetenciesResult.tsx:18
 msgid "Output Quality"
 msgstr "کیفیت خروجی"
 
@@ -310,15 +310,15 @@ msgstr "فارسی"
 
 #: src/pages/behavioral-competencies-page/BehavioralCompetenciesForm.tsx:73
 #: src/pages/manager-review-page/behavioral-competencies/ManagerReviewBehavioralCompetencies.tsx:111
+#: src/pages/result-page/behavioral-competencies/ResultBehavioralCompetencies.tsx:53
 #: src/shared/behavioral-competencies-output/BehavioralCompetenciesOutput.tsx:45
-#: src/shared/behavioral-competencies-result/BehavioralCompetenciesResult.tsx:21
 msgid "Presence"
 msgstr "اثر حضور"
 
 #: src/pages/behavioral-competencies-page/BehavioralCompetenciesForm.tsx:61
 #: src/pages/manager-review-page/behavioral-competencies/ManagerReviewBehavioralCompetencies.tsx:99
+#: src/pages/result-page/behavioral-competencies/ResultBehavioralCompetencies.tsx:41
 #: src/shared/behavioral-competencies-output/BehavioralCompetenciesOutput.tsx:33
-#: src/shared/behavioral-competencies-result/BehavioralCompetenciesResult.tsx:17
 msgid "Problem Solving"
 msgstr "حل مسئله"
 
@@ -346,7 +346,7 @@ msgstr "مرجعیت تخصصی"
 #: src/pages/behavioral-competencies-page/BehavioralCompetenciesForm.tsx:79
 #: src/pages/manager-review-page/achievements/ManagerReviewAchievements.tsx:77
 #: src/pages/manager-review-page/behavioral-competencies/ManagerReviewBehavioralCompetencies.tsx:120
-#: src/pages/manager-review-page/overall-evaluation/ManagerReviewOverallEvaluation.tsx:73
+#: src/pages/manager-review-page/overall-evaluation/ManagerReviewOverallEvaluation.tsx:87
 #: src/pages/peer-review-page/projectsTab/projects-form/PeerReviewProjectsForm.tsx:49
 #: src/pages/projects-page/ProjectForm.tsx:87
 #: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:65
@@ -419,7 +419,7 @@ msgstr "ثبت"
 #: src/pages/behavioral-competencies-page/BehavioralCompetenciesPage.tsx:48
 #: src/pages/manager-review-page/achievements/ManagerReviewAchievements.tsx:56
 #: src/pages/manager-review-page/behavioral-competencies/ManagerReviewBehavioralCompetencies.tsx:73
-#: src/pages/manager-review-page/overall-evaluation/ManagerReviewOverallEvaluation.tsx:45
+#: src/pages/manager-review-page/overall-evaluation/ManagerReviewOverallEvaluation.tsx:59
 #: src/pages/peer-review-page/projectsTab/project-expansion-panel/PeerReviewProjectExpansionPanel.tsx:37
 #: src/pages/projects-page/ProjectsPage.tsx:45
 #: src/pages/strengths-weaknesses-page/StrengthsWeaknessesPage.tsx:59
@@ -459,8 +459,8 @@ msgstr "مهم‌ترین ویژگی‌ها یا رفتارهای مؤثری ک�
 
 #: src/pages/behavioral-competencies-page/BehavioralCompetenciesForm.tsx:67
 #: src/pages/manager-review-page/behavioral-competencies/ManagerReviewBehavioralCompetencies.tsx:105
+#: src/pages/result-page/behavioral-competencies/ResultBehavioralCompetencies.tsx:47
 #: src/shared/behavioral-competencies-output/BehavioralCompetenciesOutput.tsx:39
-#: src/shared/behavioral-competencies-result/BehavioralCompetenciesResult.tsx:19
 msgid "Thought Leadership"
 msgstr "مرجعیت تخصصی"
 
@@ -475,8 +475,10 @@ msgstr "تلاش مجدد"
 
 #: src/pages/manager-review-page/achievements/ManagerReviewAchievementsRatingGroup.tsx:33
 #: src/pages/manager-review-page/behavioral-competencies/ManagerReviewBehavioralCompetenciesRatingGroup.tsx:49
+#: src/pages/manager-review-page/overall-evaluation/ManagerReviewOverallEvaluation.tsx:49
+#: src/pages/manager-review-page/overall-evaluation/ManagerReviewOverallEvaluation.tsx:50
+#: src/pages/result-page/behavioral-competencies/ResultBehavioralCompetenciesRatingGroup.tsx:41
 #: src/pages/result-page/project-result-page/ProjectResultRatingGroup.tsx:26
-#: src/shared/behavioral-competencies-result/BehavioralCompetencyResultRatingGroup.tsx:41
 #: src/shared/evaluation-output/EvaluationOutput.tsx:23
 #: src/shared/evaluation-output/EvaluationOutput.tsx:24
 msgid "Unknown"
@@ -593,8 +595,8 @@ msgstr "{evaluatedItems} مورد از {total} شایستگی رفتاری ار�
 
 #: src/pages/manager-review-page/achievements/ManagerReviewAchievementsRatingGroup.tsx:50
 #: src/pages/manager-review-page/behavioral-competencies/ManagerReviewBehavioralCompetenciesRatingGroup.tsx:70
+#: src/pages/result-page/behavioral-competencies/ResultBehavioralCompetenciesRatingGroup.tsx:49
 #: src/pages/result-page/project-result-page/ProjectResultRatingGroup.tsx:34
-#: src/shared/behavioral-competencies-result/BehavioralCompetencyResultRatingGroup.tsx:49
 msgid "{evaluationsCount} evaluations / {commentsCount} comments"
 msgstr "{evaluationsCount} ارزیابی / {commentsCount} نظر"
 

@@ -15,7 +15,7 @@ const StyledBlackQuote = styled('blockquote')(({ theme }) => ({
   },
 }));
 
-export const renderers: ReactMarkdownPropsBase['renderers'] = {
+export const defaultRenderers: ReactMarkdownPropsBase['renderers'] = {
   paragraph: Typography,
   blockquote: StyledBlackQuote,
   heading: ({ children, level }: { children: React.ReactNode; level: 1 | 2 | 3 | 4 | 5 | 6 }) => (

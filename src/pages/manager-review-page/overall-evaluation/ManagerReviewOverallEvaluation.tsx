@@ -1,3 +1,4 @@
+import ReactMarkdown from 'react-markdown';
 import graphql from 'babel-plugin-relay/macro';
 import React, { Fragment } from 'react';
 import { Box, Grid, Typography } from '@material-ui/core';
@@ -13,6 +14,7 @@ import { EvaluationOutput } from 'src/shared/evaluation-output';
 import { FCProps } from 'src/shared/types/FCProps';
 import { Rating } from 'src/shared/rating';
 import { ServerValueProvider } from 'src/shared/server-value';
+import { defaultRenderers } from 'src/shared/react-markdown';
 import { i18n } from '@lingui/core';
 import { useBiDiSnackbar } from 'src/shared/snackbar';
 import { useLazyLoadQuery } from 'react-relay/hooks';
@@ -29,6 +31,11 @@ const query = graphql`
         managerPersonReview {
           overallRating
         }
+        ranking1
+        ranking2
+      }
+      settings {
+        managerOverallReviewText
       }
     }
   }
@@ -56,7 +63,16 @@ export default function ManagerReviewOverallEvaluation(props: Props) {
 
   const { enqueueSnackbar } = useBiDiSnackbar();
 
-  const overallRating = data.viewer.user?.managerPersonReview?.overallRating ?? undefined;
+  // TODO:
+  if (!data.viewer.user) {
+    return null;
+  }
+
+  const overallReviewText = (data.viewer.settings.managerOverallReviewText ?? '')
+    .replace(/{{ ranking1 }}/, data.viewer.user.ranking1 ?? i18n._('Unknown'))
+    .replace(/{{ ranking2 }}/, data.viewer.user.ranking2 ?? i18n._('Unknown'));
+
+  const overallRating = data.viewer.user.managerPersonReview?.overallRating ?? undefined;
 
   const value: ManagerReviewOverallEvaluationValue = {
     revieweeId,
@@ -77,7 +93,7 @@ export default function ManagerReviewOverallEvaluation(props: Props) {
       <Box paddingY={12} paddingX={20} displayPrint="none !important">
         <ServerValueProvider value={value}>
           <Forminator onSubmit={handleSubmit} initialValue={value}>
-            {/* TODO: Add overall evaluation text */}
+            <ReactMarkdown renderers={defaultRenderers}>{overallReviewText}</ReactMarkdown>
             <Typography gutterBottom />
             <DictInput>
               <DictInputItem field="revieweeId">
