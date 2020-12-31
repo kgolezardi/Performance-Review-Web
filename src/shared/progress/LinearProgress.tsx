@@ -13,7 +13,13 @@ import { Styles } from 'src/shared/types/Styles';
 import { amber, deepOrange, green, lightBlue } from '@material-ui/core/colors';
 
 interface OwnProps extends Omit<LinearProgressProps, 'color' | 'variant'> {
+  // TODO: Add a `default` type, so not providing `color` prop means using the `mappingFn`
   color?: 'low' | 'medium' | 'high' | 'complete';
+  // TODO: We probabely should add this `mappingFn` prop and add a default `mappingFn`
+  // 1. Checking `color` prop, if it is not undefined, use the `color`
+  // 2. If `color` prop is undefined, use the `mappingFn`
+  // 3. If `mappingFn` is undefined, use the default `MappingFn`
+  // mappingFn?: (value: number) => 'low' | 'medium' | 'high' | 'complete' | 'default';
 }
 
 type Props = FCProps<OwnProps> & StyleProps;
