@@ -3,8 +3,8 @@ import React, { useMemo } from 'react';
 import { Evaluation } from 'src/__generated__/enums';
 import { FCProps } from 'src/shared/types/FCProps';
 import { LinearProgress } from 'src/shared/progress';
+import { Styles } from 'src/shared/types/Styles';
 import {
-  Paper,
   Table,
   TableBody,
   TableCell,
@@ -13,8 +13,10 @@ import {
   TablePagination,
   TableRow,
   TableSortLabel,
+  Theme,
+  createStyles,
+  makeStyles,
 } from '@material-ui/core';
-import { TextLink } from 'src/shared/text-link';
 import { getEnumLabel } from 'src/shared/enum-utils';
 import { getUserLabel } from 'src/shared/utils/getUserLabel';
 import { i18n } from '@lingui/core';
@@ -56,14 +58,18 @@ export interface Row {
 }
 
 interface OwnProps {
+  activeId: string | null;
+  createRowClickHandler: (id: string) => (e: React.MouseEvent<HTMLTableRowElement, MouseEvent>) => void;
   data: ManagerReviewDashboardTable_data$key;
   filterRows: (rows: Row[]) => Row[];
 }
 
-type Props = FCProps<OwnProps>;
+type Props = FCProps<OwnProps> & StyleProps;
 
 export function ManagerReviewDashboardTable(props: Props) {
-  const { filterRows } = props;
+  const { activeId, createRowClickHandler, filterRows } = props;
+  const classes = useStyles(props);
+
   const data = useFragment(fragment, props.data);
   const { page, rowsPerPage, handleChangePage, handleChangeRowsPerPage } = usePagination();
   const { order, orderBy, onPropertySort, sortRows } = useSortBy<Row>();
@@ -95,59 +101,54 @@ export function ManagerReviewDashboardTable(props: Props) {
     onPropertySort(event, property);
   };
 
-  const emptyRows = rowsPerPage - Math.min(rowsPerPage, rows.length - page * rowsPerPage);
-
   return (
-    <TableContainer component={Paper}>
-      <Table aria-label="manager review dashboard table">
-        <TableHead>
-          <TableRow>
-            <TableCell>
-              <TableSortLabel
-                active={orderBy === 'user'}
-                direction={orderBy === 'user' ? order : 'asc'}
-                onClick={createSortHandler('user')}
-              >
-                {i18n._('User')}
-              </TableSortLabel>
-            </TableCell>
-            <TableCell>{i18n._('Behavioral Competencies')}</TableCell>
-            <TableCell>{i18n._('Achievements')}</TableCell>
-            <TableCell>{i18n._('Overall Rating')}</TableCell>
-            <TableCell />
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {sortRows(filterRows(rows))
-            .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-            .map((row) => (
-              <TableRow hover key={row.id}>
-                <TableCell>{row.user}</TableCell>
-                <TableCell>
-                  <LinearProgress value={row.behavioralCompetencies} color={getColor(row.behavioralCompetencies)} />
-                </TableCell>
-                <TableCell>
-                  <LinearProgress value={row.achievements} color={getColor(row.achievements)} />
-                </TableCell>
-                <TableCell>
-                  {row.overallRating
-                    ? getEnumLabel(peerReviewEvaluationDictionary, row.overallRating, i18n._('Unknown'))
-                    : '---'}
-                </TableCell>
-                <TableCell>
-                  <TextLink to={`manager-review/${row.id}`} target="_self">
-                    {i18n._('View')}
-                  </TextLink>
-                </TableCell>
-              </TableRow>
-            ))}
-          {emptyRows > 0 && (
-            <TableRow style={{ height: 53 * emptyRows }}>
-              <TableCell colSpan={6} />
+    <div className={classes.root}>
+      <TableContainer className={classes.tableContainer}>
+        <Table stickyHeader>
+          <colgroup>
+            <col style={{ width: '25%' }} />
+            <col style={{ width: '25%' }} />
+            <col style={{ width: '25%' }} />
+            <col style={{ width: '25%' }} />
+          </colgroup>
+          <TableHead>
+            <TableRow>
+              <TableCell>
+                <TableSortLabel
+                  active={orderBy === 'user'}
+                  direction={orderBy === 'user' ? order : 'asc'}
+                  onClick={createSortHandler('user')}
+                >
+                  {i18n._('User')}
+                </TableSortLabel>
+              </TableCell>
+              <TableCell>{i18n._('Behavioral Competencies')}</TableCell>
+              <TableCell>{i18n._('Achievements')}</TableCell>
+              <TableCell>{i18n._('Overall Rating')}</TableCell>
             </TableRow>
-          )}
-        </TableBody>
-      </Table>
+          </TableHead>
+          <TableBody>
+            {sortRows(filterRows(rows))
+              .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+              .map((row) => (
+                <TableRow hover key={row.id} onClick={createRowClickHandler(row.id)} selected={activeId === row.id}>
+                  <TableCell>{row.user}</TableCell>
+                  <TableCell>
+                    <LinearProgress value={row.behavioralCompetencies} color={getColor(row.behavioralCompetencies)} />
+                  </TableCell>
+                  <TableCell>
+                    <LinearProgress value={row.achievements} color={getColor(row.achievements)} />
+                  </TableCell>
+                  <TableCell>
+                    {row.overallRating
+                      ? getEnumLabel(peerReviewEvaluationDictionary, row.overallRating, i18n._('Unknown'))
+                      : '---'}
+                  </TableCell>
+                </TableRow>
+              ))}
+          </TableBody>
+        </Table>
+      </TableContainer>
       <TablePagination
         rowsPerPageOptions={[10, 20, 30]}
         component="div"
@@ -163,9 +164,9 @@ export function ManagerReviewDashboardTable(props: Props) {
             count: paginationInfo.count,
           })
         }
-        labelRowsPerPage={i18n._('Rows per page:')}
+        labelRowsPerPage={i18n._('Rows per page')}
       />
-    </TableContainer>
+    </div>
   );
 }
 
@@ -181,3 +182,17 @@ const getColor = (value: number) => {
   }
   return 'high';
 };
+
+const styles = (theme: Theme) =>
+  createStyles({
+    root: {
+      display: 'flex',
+      flexDirection: 'column',
+    },
+    tableContainer: {
+      flex: 1,
+    },
+  });
+
+const useStyles = makeStyles(styles, { name: 'ManagerReviewDashboardTable' });
+type StyleProps = Styles<typeof styles>;

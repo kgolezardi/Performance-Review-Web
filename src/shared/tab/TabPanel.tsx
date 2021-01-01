@@ -11,9 +11,9 @@ type Props = FCProps<OwnProps>;
 
 export function TabPanel(props: Props) {
   const { value, children } = props;
-  const { value: selectedTab } = useTabPanelsContext();
+  const currentValue = useTabPanelsContext();
 
-  if (value === selectedTab) {
+  if (value === currentValue) {
     return <Fragment>{children}</Fragment>;
   }
   return null;

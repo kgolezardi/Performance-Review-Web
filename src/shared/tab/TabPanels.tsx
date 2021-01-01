@@ -1,9 +1,7 @@
 import React, { createContext, useContext } from 'react';
 import { FCProps } from 'src/shared/types/FCProps';
 
-export interface TabPanelsContextType {
-  value: number;
-}
+export type TabPanelsContextType = number;
 export const TabPanelsContext = createContext<TabPanelsContextType | null>(null);
 
 export function useTabPanelsContext(): TabPanelsContextType {
@@ -21,5 +19,5 @@ interface OwnProps {
 type Props = FCProps<OwnProps>;
 
 export function TabPanelsProvider(props: Props) {
-  return <TabPanelsContext.Provider value={{ value: props.value.value }}>{props.children}</TabPanelsContext.Provider>;
+  return <TabPanelsContext.Provider value={props.value}>{props.children}</TabPanelsContext.Provider>;
 }
