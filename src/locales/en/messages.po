@@ -25,6 +25,7 @@ msgstr "Accomplishments"
 
 #: src/containers/main/getMenuItems.ts:34
 #: src/pages/dashboard-page/DashboardPage.tsx:57
+#: src/pages/manager-review-dashboard/ManagerReviewDashboard.tsx:83
 #: src/pages/manager-review-page/ManagerReviewPage.tsx:51
 #: src/pages/manager-review-page/ManagerReviewPrintPage.tsx:66
 #: src/pages/peer-review-page/PeerReviewPage.tsx:48
@@ -46,6 +47,11 @@ msgstr "Add here after completing any evaluation"
 msgid "Adding Projects"
 msgstr "Adding Projects"
 
+#: src/pages/manager-review-dashboard/TableFilters.tsx:24
+#: src/pages/manager-review-dashboard/TableFilters.tsx:37
+msgid "All"
+msgstr "All"
+
 #: src/shared/gift-dialog/GiftDialog.tsx:36
 msgid "All reviews were successfully done"
 msgstr "All reviews were successfully done"
@@ -64,6 +70,7 @@ msgstr "Are you sure you want to delete {projectName} review?"
 
 #: src/containers/main/getMenuItems.ts:22
 #: src/pages/dashboard-page/DashboardPage.tsx:35
+#: src/pages/manager-review-dashboard/ManagerReviewDashboard.tsx:82
 #: src/pages/manager-review-page/ManagerReviewPage.tsx:49
 #: src/pages/manager-review-page/ManagerReviewPrintPage.tsx:56
 #: src/pages/peer-review-page/PeerReviewPage.tsx:46
@@ -88,6 +95,10 @@ msgstr "Changes you made may not be saved."
 msgid "Choose projects you have been working on in the past year."
 msgstr "Choose projects you have been working on in the past year."
 
+#: src/pages/manager-review-dashboard/TableFilters.tsx:14
+msgid "Colleague name"
+msgstr "Colleague name"
+
 #: src/pages/projects-page/ProjectForm.tsx:76
 msgid "Coordinate reviewers with your manager (maximum 6 reviewers)"
 msgstr "Coordinate reviewers with your manager (maximum 6 reviewers)"
@@ -110,6 +121,10 @@ msgstr "Dear {name}, Hello"
 msgid "Delete"
 msgstr "Delete"
 
+#: src/pages/manager-review-dashboard/TableFilters.tsx:26
+msgid "Doing"
+msgstr "Doing"
+
 #: src/containers/main/getMenuItems.ts:28
 #: src/pages/dashboard-page/DashboardPage.tsx:46
 #: src/pages/manager-review-page/ManagerReviewPage.tsx:50
@@ -121,6 +136,7 @@ msgid "Dominant Characteristics"
 msgstr "Dominant Characteristics"
 
 #: src/assets/icons/Done.tsx:5
+#: src/pages/manager-review-dashboard/TableFilters.tsx:27
 #: src/pages/peer-review-board-page/PeerReviewBoardPage.tsx:82
 msgid "Done"
 msgstr "Done"
@@ -151,6 +167,10 @@ msgstr "Error"
 #: src/shared/project-output/ProjectOutput.tsx:28
 msgid "Evaluation"
 msgstr "Evaluation"
+
+#: src/pages/manager-review-dashboard/TableFilters.tsx:20
+msgid "Evaluation Status"
+msgstr "Evaluation Status"
 
 #: src/shared/behavioral-competency-item/BehavioralCompetencyItem.tsx:29
 #: src/shared/behavioral-competency-output/BehavioralCompetencyOutput.tsx:22
@@ -280,10 +300,15 @@ msgstr "Other people comments about {name} performance compared to initial expec
 msgid "Output Quality"
 msgstr "Output Quality"
 
+#: src/pages/manager-review-dashboard/TableFilters.tsx:33
 #: src/pages/manager-review-page/ManagerReviewPage.tsx:52
 #: src/pages/manager-review-page/ManagerReviewPrintPage.tsx:71
 msgid "Overall Evaluation"
 msgstr "Overall Evaluation"
+
+#: src/pages/manager-review-dashboard/ManagerReviewDashboard.tsx:84
+msgid "Overall Rating"
+msgstr "Overall Rating"
 
 #: src/shared/auth/LoginForm.tsx:15
 msgid "Password"
@@ -342,6 +367,10 @@ msgstr "Reviewers"
 #: src/shared/behavioral-competency-output/BehavioralCompetencyOutput.stories.tsx:12
 msgid "Role Expertise and Self Development"
 msgstr "Role Expertise and Self Development"
+
+#: src/pages/manager-review-dashboard/ManagerReviewDashboard.tsx:119
+msgid "Rows per page:"
+msgstr "Rows per page:"
 
 #: src/pages/behavioral-competencies-page/BehavioralCompetenciesForm.tsx:79
 #: src/pages/manager-review-page/achievements/ManagerReviewAchievements.tsx:77
@@ -465,6 +494,7 @@ msgid "Thought Leadership"
 msgstr "Thought Leadership"
 
 #: src/assets/icons/Todo.tsx:5
+#: src/pages/manager-review-dashboard/TableFilters.tsx:25
 #: src/pages/peer-review-board-page/PeerReviewBoardPage.tsx:76
 msgid "Todo"
 msgstr "Todo"
@@ -473,6 +503,7 @@ msgstr "Todo"
 msgid "Try Again"
 msgstr "Try Again"
 
+#: src/pages/manager-review-dashboard/ManagerReviewDashboard.tsx:101
 #: src/pages/manager-review-page/achievements/ManagerReviewAchievementsRatingGroup.tsx:33
 #: src/pages/manager-review-page/behavioral-competencies/ManagerReviewBehavioralCompetenciesRatingGroup.tsx:49
 #: src/pages/manager-review-page/overall-evaluation/ManagerReviewOverallEvaluation.tsx:49
@@ -484,7 +515,7 @@ msgstr "Try Again"
 msgid "Unknown"
 msgstr "Unknown"
 
-#: src/pages/manager-review-dashboard/ManagerReviewDashboard.tsx:26
+#: src/pages/manager-review-dashboard/ManagerReviewDashboard.tsx:79
 msgid "User"
 msgstr "User"
 
@@ -497,7 +528,7 @@ msgid "Username or Password is incorrect."
 msgstr "Username or Password is incorrect."
 
 #: src/pages/dashboard-page/LinkButton.tsx:10
-#: src/pages/manager-review-dashboard/ManagerReviewDashboard.tsx:35
+#: src/pages/manager-review-dashboard/ManagerReviewDashboard.tsx:106
 msgid "View"
 msgstr "View"
 
@@ -599,6 +630,10 @@ msgstr "{evaluatedItems} of {total} behavioral competencies are evaluated"
 #: src/pages/result-page/project-result-page/ProjectResultRatingGroup.tsx:34
 msgid "{evaluationsCount} evaluations / {commentsCount} comments"
 msgstr "{evaluationsCount} evaluations / {commentsCount} comments"
+
+#: src/pages/manager-review-dashboard/ManagerReviewDashboard.tsx:115
+msgid "{from} to {to} of {count}"
+msgstr "{from} to {to} of {count}"
 
 #: src/pages/peer-review-page/projectsTab/project-expansion-panel/PeerReviewProjectExpansionPanel.tsx:53
 msgid "{name}'s comment about his/her achievements in this project"

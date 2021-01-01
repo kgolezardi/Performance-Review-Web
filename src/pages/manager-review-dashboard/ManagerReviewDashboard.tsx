@@ -25,6 +25,8 @@ import { peerReviewEvaluationDictionary } from 'src/global-types';
 import { useLazyLoadQuery } from 'react-relay/hooks';
 
 import { ManagerReviewDashboardQuery } from './__generated__/ManagerReviewDashboardQuery.graphql';
+import { TableFilters } from './TableFilters';
+import { useFilters } from './useFilters';
 import { usePagination } from './usePagination';
 import { useSortBy } from './useSortBy';
 
@@ -53,7 +55,7 @@ const query = graphql`
   }
 `;
 
-interface Row {
+export interface Row {
   id: string;
   user: string;
   behavioralCompetencies: number;
@@ -93,6 +95,7 @@ export default function ManagerReviewDashboard(props: Props) {
 
   const { page, rowsPerPage, handleChangePage, handleChangeRowsPerPage } = usePagination();
   const { order, orderBy, onPropertySort, sortRows } = useSortBy<Row>();
+  const { filterRows, filters, setFilters } = useFilters();
 
   const createSortHandler = (property: keyof Row) => (event: React.MouseEvent<unknown>) => {
     onPropertySort(event, property);
@@ -103,74 +106,80 @@ export default function ManagerReviewDashboard(props: Props) {
   return (
     <Container maxWidth="md">
       <Box marginY={2} height="100%">
-        <TableContainer component={Paper}>
-          <Table aria-label="manager review dashboard table">
-            <TableHead>
-              <TableRow>
-                <TableCell>
-                  <TableSortLabel
-                    active={orderBy === 'user'}
-                    direction={orderBy === 'user' ? order : 'asc'}
-                    onClick={createSortHandler('user')}
-                  >
-                    {i18n._('User')}
-                  </TableSortLabel>
-                </TableCell>
-                <TableCell>{i18n._('Behavioral Competencies')}</TableCell>
-                <TableCell>{i18n._('Achievements')}</TableCell>
-                <TableCell>{i18n._('Overall Rating')}</TableCell>
-                <TableCell />
-              </TableRow>
-            </TableHead>
-            <TableBody>
-              {sortRows(rows)
-                .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                .map((row, index) => (
-                  <TableRow hover key={row.id}>
-                    <TableCell>{row.user}</TableCell>
-                    <TableCell>
-                      <LinearProgress value={row.behavioralCompetencies} color={getColor(row.behavioralCompetencies)} />
-                    </TableCell>
-                    <TableCell>
-                      <LinearProgress value={row.achievements} color={getColor(row.achievements)} />
-                    </TableCell>
-                    <TableCell>
-                      {row.overallRating
-                        ? getEnumLabel(peerReviewEvaluationDictionary, row.overallRating, i18n._('Unknown'))
-                        : '---'}
-                    </TableCell>
-                    <TableCell>
-                      <TextLink to={`manager-review/${row.id}`} target="_self">
-                        {i18n._('View')}
-                      </TextLink>
-                    </TableCell>
-                  </TableRow>
-                ))}
-              {emptyRows > 0 && (
-                <TableRow style={{ height: 53 * emptyRows }}>
-                  <TableCell colSpan={6} />
+        <Paper>
+          <TableFilters filters={filters} setFilters={setFilters} />
+          <TableContainer component={Paper}>
+            <Table aria-label="manager review dashboard table">
+              <TableHead>
+                <TableRow>
+                  <TableCell>
+                    <TableSortLabel
+                      active={orderBy === 'user'}
+                      direction={orderBy === 'user' ? order : 'asc'}
+                      onClick={createSortHandler('user')}
+                    >
+                      {i18n._('User')}
+                    </TableSortLabel>
+                  </TableCell>
+                  <TableCell>{i18n._('Behavioral Competencies')}</TableCell>
+                  <TableCell>{i18n._('Achievements')}</TableCell>
+                  <TableCell>{i18n._('Overall Rating')}</TableCell>
+                  <TableCell />
                 </TableRow>
-              )}
-            </TableBody>
-          </Table>
-          <TablePagination
-            rowsPerPageOptions={[10, 20, 30]}
-            component="div"
-            count={rows.length}
-            rowsPerPage={rowsPerPage}
-            page={page}
-            onChangePage={handleChangePage}
-            onChangeRowsPerPage={handleChangeRowsPerPage}
-            labelDisplayedRows={(paginationInfo) =>
-              i18n._('{from} to {to} of {count}', {
-                from: paginationInfo.from,
-                to: paginationInfo.to,
-                count: paginationInfo.count,
-              })
-            }
-            labelRowsPerPage={i18n._('Rows per page:')}
-          />
-        </TableContainer>
+              </TableHead>
+              <TableBody>
+                {sortRows(filterRows(rows))
+                  .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                  .map((row) => (
+                    <TableRow hover key={row.id}>
+                      <TableCell>{row.user}</TableCell>
+                      <TableCell>
+                        <LinearProgress
+                          value={row.behavioralCompetencies}
+                          color={getColor(row.behavioralCompetencies)}
+                        />
+                      </TableCell>
+                      <TableCell>
+                        <LinearProgress value={row.achievements} color={getColor(row.achievements)} />
+                      </TableCell>
+                      <TableCell>
+                        {row.overallRating
+                          ? getEnumLabel(peerReviewEvaluationDictionary, row.overallRating, i18n._('Unknown'))
+                          : '---'}
+                      </TableCell>
+                      <TableCell>
+                        <TextLink to={`manager-review/${row.id}`} target="_self">
+                          {i18n._('View')}
+                        </TextLink>
+                      </TableCell>
+                    </TableRow>
+                  ))}
+                {emptyRows > 0 && (
+                  <TableRow style={{ height: 53 * emptyRows }}>
+                    <TableCell colSpan={6} />
+                  </TableRow>
+                )}
+              </TableBody>
+            </Table>
+            <TablePagination
+              rowsPerPageOptions={[10, 20, 30]}
+              component="div"
+              count={rows.length}
+              rowsPerPage={rowsPerPage}
+              page={page}
+              onChangePage={handleChangePage}
+              onChangeRowsPerPage={handleChangeRowsPerPage}
+              labelDisplayedRows={(paginationInfo) =>
+                i18n._('{from} to {to} of {count}', {
+                  from: paginationInfo.from,
+                  to: paginationInfo.to,
+                  count: paginationInfo.count,
+                })
+              }
+              labelRowsPerPage={i18n._('Rows per page:')}
+            />
+          </TableContainer>
+        </Paper>
       </Box>
     </Container>
   );
