@@ -1,0 +1,1 @@
+export { ResultBehavioralCompetencies } from './ResultBehavioralCompetencies';

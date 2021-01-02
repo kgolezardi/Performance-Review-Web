@@ -9,10 +9,10 @@ import { Tabs } from 'src/shared/tabs';
 import { i18n } from '@lingui/core';
 import { useAuthGuardUser } from 'src/core/auth';
 
-import BehavioralCompetenciesResultPage from './behavioral-competencies-result-page/BehavioralCompetenciesResultPage';
 import StrengthsWeaknessesResultPage from './strengths-weaknesses-result-page/StrengthsWeaknessesResultPage';
 import { PrintResultButton } from './PrintResultButton';
 import { ProjectsResultPage } from './project-result-page/ProjectsResultPage';
+import { ResultBehavioralCompetencies } from './behavioral-competencies';
 
 interface Params {
   tab?: string;
@@ -29,7 +29,7 @@ export default function ResultPage(props: Props) {
   const toPrefix = '';
 
   return (
-    <Container maxWidth="md" className={classes.container}>
+    <Container maxWidth="md">
       <Box marginY={5}>
         <Paper classes={{ root: classes.tabsPaper }}>
           <Tabs value={tab ?? 'behavioral-competencies'}>
@@ -57,7 +57,7 @@ export default function ResultPage(props: Props) {
             <Switch>
               <Route
                 path={toPrefix + '/behavioral-competencies'}
-                children={<BehavioralCompetenciesResultPage revieweeId={revieweeId} />}
+                children={<ResultBehavioralCompetencies revieweeId={revieweeId} />}
               />
               <Route
                 path={toPrefix + '/dominant-characteristics'}
@@ -76,34 +76,16 @@ export default function ResultPage(props: Props) {
 
 const styles = (theme: Theme) =>
   createStyles({
-    container: {
-      '@media print': {
-        paddingLeft: 0,
-        paddingRight: 0,
-      },
-    },
     tabsPaper: {
       position: 'sticky',
       top: 0,
       zIndex: theme.zIndex.appBar - 25,
       borderBottomLeftRadius: 0,
       borderBottomRightRadius: 0,
-      '@media print': {
-        boxShadow: 'none',
-      },
     },
     tabPanelPaper: {
       borderTopLeftRadius: 0,
       borderTopRightRadius: 0,
-      '@media print': {
-        boxShadow: 'none',
-      },
-    },
-    printButton: {
-      position: 'fixed',
-      bottom: 48,
-      left: 40,
-      zIndex: theme.zIndex.snackbar - 10,
     },
   });
 
