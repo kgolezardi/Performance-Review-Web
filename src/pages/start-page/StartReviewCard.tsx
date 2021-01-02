@@ -3,12 +3,12 @@ import React, { useCallback } from 'react';
 import { Box, Button, Card, CardContent, CardHeader, Theme, createStyles, makeStyles } from '@material-ui/core';
 import { FCProps } from 'src/shared/types/FCProps';
 import { Styles } from 'src/shared/types/Styles';
+import { defaultRenderers } from 'src/shared/react-markdown/defaultRenderers';
 import { getUserLabel } from 'src/shared/utils/getUserLabel';
 import { i18n } from '@lingui/core';
 import { useAppSettings } from 'src/core/settings';
 import { useAuthGuardUser } from 'src/core/auth';
 
-import { renderers } from './renderers';
 import { useStartReviewMutation } from './start-review.mutation';
 
 interface OwnProps {}
@@ -29,7 +29,7 @@ export function StartReviewCard(props: Props) {
     <Card classes={{ root: classes.root }}>
       <CardHeader title={i18n._('Dear {name}, Hello', { name: getUserLabel(user) })} />
       <CardContent>
-        <ReactMarkdown renderers={renderers}>{startText ?? ''}</ReactMarkdown>
+        <ReactMarkdown renderers={defaultRenderers}>{startText ?? ''}</ReactMarkdown>
         <Box display="flex" justifyContent="center" marginTop={3}>
           <Box width="240px">
             <Button variant="contained" color="secondary" size="large" fullWidth onClick={startReview}>

@@ -24,7 +24,9 @@ type DeleteProjectReviewMutationPayload {
   clientMutationId: String
 }
 
-"""An enumeration."""
+"""
+An enumeration.
+"""
 enum Evaluation {
   NEEDS_IMPROVEMENT
   MEETS_EXPECTATIONS
@@ -56,7 +58,9 @@ type LogoutMutationPayload {
 type ManagerPersonReviewNode implements Node {
   reviewee: UserNode!
 
-  """The ID of the object."""
+  """
+  The ID of the object.
+  """
   id: ID!
   sahabinessRating: Evaluation
   problemSolvingRating: Evaluation
@@ -70,7 +74,9 @@ type ManagerPersonReviewNode implements Node {
 type ManagerProjectCommentNode implements Node {
   projectReview: ProjectReviewNode!
 
-  """The ID of the object."""
+  """
+  The ID of the object.
+  """
   id: ID!
   rating: Evaluation
 }
@@ -88,9 +94,13 @@ type Mutation {
   changePassword(input: ChangePasswordMutationInput!): ChangePasswordMutationPayload!
 }
 
-"""An object with an ID"""
+"""
+An object with an ID
+"""
 interface Node {
-  """The ID of the object."""
+  """
+  The ID of the object.
+  """
   id: ID!
 }
 
@@ -105,7 +115,9 @@ type PersonReviewNode implements Node {
   strengths: [String]
   weaknesses: [String]
 
-  """The ID of the object."""
+  """
+  The ID of the object.
+  """
   id: ID!
   sahabinessRating: Evaluation
   problemSolvingRating: Evaluation
@@ -118,7 +130,9 @@ type PersonReviewNode implements Node {
   isSelfReview: Boolean!
 }
 
-"""An enumeration."""
+"""
+An enumeration.
+"""
 enum Phase {
   SELF_REVIEW
   PEER_REVIEW
@@ -131,7 +145,9 @@ type ProjectCommentNode implements Node {
   projectReview: ProjectReviewNode!
   text: String
 
-  """The ID of the object."""
+  """
+  The ID of the object.
+  """
   id: ID!
   reviewer: UserNode
   rating: Evaluation
@@ -140,7 +156,9 @@ type ProjectCommentNode implements Node {
 type ProjectNode implements Node {
   name: String!
 
-  """The ID of the object."""
+  """
+  The ID of the object.
+  """
   id: ID!
 }
 
@@ -149,7 +167,9 @@ type ProjectReviewNode implements Node {
   reviewee: UserNode!
   text: String
 
-  """The ID of the object."""
+  """
+  The ID of the object.
+  """
   id: ID!
   rating: Evaluation
   reviewers: [UserNode!]!
@@ -173,7 +193,9 @@ type Query {
 type RoundNode implements Node {
   title: String!
 
-  """The ID of the object."""
+  """
+  The ID of the object.
+  """
   id: ID!
   phase: Phase!
   projects: [ProjectNode!]!
@@ -267,7 +289,9 @@ type SettingsNode implements Node {
   idlePageUrl: String
   loginBackgroundImage: String
 
-  """The ID of the object."""
+  """
+  The ID of the object.
+  """
   id: ID!
   phase: Phase!
   startText: String
@@ -284,7 +308,9 @@ type StartReviewMutationPayload {
   clientMutationId: String
 }
 
-"""An enumeration."""
+"""
+An enumeration.
+"""
 enum State {
   TODO
   DOING
@@ -292,23 +318,33 @@ enum State {
 }
 
 type UserNode implements Node {
-  """Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only."""
+  """
+  Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only.
+  """
   username: String!
   firstName: String!
   lastName: String!
   avatarUrl: String
 
-  """The ID of the object."""
+  """
+  The ID of the object.
+  """
   id: ID!
   isManager: Boolean!
 
-  """get or create a person review about this user from logged in user"""
+  """
+  get or create a person review about this user from logged in user
+  """
   personReview: PersonReviewNode
 
-  """list of person reviews about this user"""
+  """
+  list of person reviews about this user
+  """
   personReviews: [PersonReviewNode!]!
 
-  """list of project reviews about this user"""
+  """
+  list of project reviews about this user
+  """
   projectReviews: [ProjectReviewNode!]!
 
   """
@@ -321,44 +357,62 @@ type UserNode implements Node {
 }
 
 type ViewerNode implements Node {
-  """The ID of the object."""
+  """
+  The ID of the object.
+  """
   id: ID!
   users: [UserNode!]!
 
-  """The ID of the object"""
+  """
+  The ID of the object
+  """
   user(id: ID!): UserNode
   me: UserNode
 
-  """The ID of the object"""
+  """
+  The ID of the object
+  """
   round(id: ID!): RoundNode
   activeRound: RoundNode
   rounds: [RoundNode!]!
 
-  """The ID of the object"""
+  """
+  The ID of the object
+  """
   managerProjectComment(id: ID!): ManagerProjectCommentNode
   managerProjectComments: [ManagerProjectCommentNode!]!
 
-  """The ID of the object"""
+  """
+  The ID of the object
+  """
   managerPersonReview(id: ID!): ManagerPersonReviewNode
   managerPersonReviews: [ManagerPersonReviewNode!]!
   findManagerPersonReview(revieweeId: ID): ManagerPersonReviewNode
 
-  """The ID of the object"""
+  """
+  The ID of the object
+  """
   projectComment(id: ID!): ProjectCommentNode
   projectComments: [ProjectCommentNode!]!
 
-  """The ID of the object"""
+  """
+  The ID of the object
+  """
   projectReview(id: ID!): ProjectReviewNode
   projectReviews(revieweeId: ID): [ProjectReviewNode!]!
   usersToReview: [UserNode!]!
   settings: SettingsNode!
 
-  """The ID of the object"""
+  """
+  The ID of the object
+  """
   personReview(id: ID!): PersonReviewNode
   personReviews: [PersonReviewNode!]!
   findPersonReview(revieweeId: ID): PersonReviewNode
 
-  """The ID of the object"""
+  """
+  The ID of the object
+  """
   project(id: ID!): ProjectNode
   projects: [ProjectNode!]!
   node(id: ID!): Node
