@@ -1,10 +1,7 @@
 import graphql from 'babel-plugin-relay/macro';
 import React, { useMemo } from 'react';
-import { Evaluation } from 'src/__generated__/enums';
-import { FCProps } from 'src/shared/types/FCProps';
-import { LinearProgress } from 'src/shared/progress';
-import { Styles } from 'src/shared/types/Styles';
 import {
+  Avatar,
   Table,
   TableBody,
   TableCell,
@@ -17,6 +14,10 @@ import {
   createStyles,
   makeStyles,
 } from '@material-ui/core';
+import { Evaluation } from 'src/__generated__/enums';
+import { FCProps } from 'src/shared/types/FCProps';
+import { LinearProgress } from 'src/shared/progress';
+import { Styles } from 'src/shared/types/Styles';
 import { getEnumLabel } from 'src/shared/enum-utils';
 import { getUserLabel } from 'src/shared/utils/getUserLabel';
 import { i18n } from '@lingui/core';
@@ -31,7 +32,11 @@ import { useSortBy } from './useSortBy';
 const fragment = graphql`
   fragment ManagerReviewDashboardTable_data on UserNode @relay(plural: true) {
     id
+    avatarUrl
     ...getUserLabel_user
+    manager {
+      ...getUserLabel_user
+    }
     managerPersonReview {
       sahabinessRating
       problemSolvingRating
@@ -52,6 +57,8 @@ const fragment = graphql`
 export interface Row {
   id: string;
   user: string;
+  avatarUrl: string | null;
+  manager: string;
   behavioralCompetencies: number;
   achievements: number;
   overallRating?: Evaluation | null;
@@ -78,7 +85,9 @@ export function ManagerReviewDashboardTable(props: Props) {
     () =>
       data.map((userToReview) => ({
         id: userToReview.id,
+        avatarUrl: userToReview.avatarUrl,
         user: getUserLabel(userToReview),
+        manager: userToReview.manager ? getUserLabel(userToReview.manager) : '---',
         behavioralCompetencies: userToReview.managerPersonReview
           ? (Object.entries(userToReview.managerPersonReview)
               .filter(([key, value]) => key !== 'overallRating')
@@ -104,12 +113,13 @@ export function ManagerReviewDashboardTable(props: Props) {
   return (
     <div className={classes.root}>
       <TableContainer className={classes.tableContainer}>
-        <Table stickyHeader>
+        <Table size="small" stickyHeader>
           <colgroup>
-            <col style={{ width: '25%' }} />
-            <col style={{ width: '25%' }} />
-            <col style={{ width: '25%' }} />
-            <col style={{ width: '25%' }} />
+            <col style={{ width: '20%' }} />
+            <col style={{ width: '20%' }} />
+            <col style={{ width: '20%' }} />
+            <col style={{ width: '20%' }} />
+            <col style={{ width: '20%' }} />
           </colgroup>
           <TableHead>
             <TableRow>
@@ -122,6 +132,15 @@ export function ManagerReviewDashboardTable(props: Props) {
                   {i18n._('User')}
                 </TableSortLabel>
               </TableCell>
+              <TableCell>
+                <TableSortLabel
+                  active={orderBy === 'manager'}
+                  direction={orderBy === 'manager' ? order : 'asc'}
+                  onClick={createSortHandler('manager')}
+                >
+                  {i18n._('Manager')}
+                </TableSortLabel>
+              </TableCell>
               <TableCell>{i18n._('Behavioral Competencies')}</TableCell>
               <TableCell>{i18n._('Achievements')}</TableCell>
               <TableCell>{i18n._('Overall Rating')}</TableCell>
@@ -132,7 +151,11 @@ export function ManagerReviewDashboardTable(props: Props) {
               .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
               .map((row) => (
                 <TableRow hover key={row.id} onClick={createRowClickHandler(row.id)} selected={activeId === row.id}>
-                  <TableCell>{row.user}</TableCell>
+                  <TableCell>
+                    <Avatar src={row.avatarUrl ?? undefined} className={classes.avatar} />
+                    {row.user}
+                  </TableCell>
+                  <TableCell>{row.manager}</TableCell>
                   <TableCell>
                     <LinearProgress value={row.behavioralCompetencies} color={getColor(row.behavioralCompetencies)} />
                   </TableCell>
@@ -188,6 +211,10 @@ const styles = (theme: Theme) =>
     root: {
       display: 'flex',
       flexDirection: 'column',
+    },
+    avatar: {
+      display: 'inline-block',
+      verticalAlign: 'middle',
     },
     tableContainer: {
       flex: 1,

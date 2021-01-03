@@ -25,8 +25,8 @@ msgstr "Accomplishments"
 
 #: src/containers/main/getMenuItems.ts:34
 #: src/pages/dashboard-page/DashboardPage.tsx:57
-#: src/pages/manager-review-dashboard/ManagerReviewDashboardDrawerContent.tsx:75
-#: src/pages/manager-review-dashboard/ManagerReviewDashboardTable.tsx:79
+#: src/pages/manager-review-dashboard/ManagerReviewDashboardDrawerContent.tsx:84
+#: src/pages/manager-review-dashboard/ManagerReviewDashboardTable.tsx:91
 #: src/pages/manager-review-page/ManagerReviewPage.tsx:51
 #: src/pages/manager-review-page/ManagerReviewPrintPage.tsx:66
 #: src/pages/peer-review-page/PeerReviewPage.tsx:48
@@ -48,8 +48,8 @@ msgstr "Add here after completing any evaluation"
 msgid "Adding Projects"
 msgstr "Adding Projects"
 
-#: src/pages/manager-review-dashboard/TableFilters.tsx:24
-#: src/pages/manager-review-dashboard/TableFilters.tsx:37
+#: src/pages/manager-review-dashboard/TableFilters.tsx:29
+#: src/pages/manager-review-dashboard/TableFilters.tsx:42
 msgid "All"
 msgstr "All"
 
@@ -71,8 +71,8 @@ msgstr "Are you sure you want to delete {projectName} review?"
 
 #: src/containers/main/getMenuItems.ts:22
 #: src/pages/dashboard-page/DashboardPage.tsx:35
-#: src/pages/manager-review-dashboard/ManagerReviewDashboardDrawerContent.tsx:74
-#: src/pages/manager-review-dashboard/ManagerReviewDashboardTable.tsx:78
+#: src/pages/manager-review-dashboard/ManagerReviewDashboardDrawerContent.tsx:83
+#: src/pages/manager-review-dashboard/ManagerReviewDashboardTable.tsx:90
 #: src/pages/manager-review-page/ManagerReviewPage.tsx:49
 #: src/pages/manager-review-page/ManagerReviewPrintPage.tsx:56
 #: src/pages/peer-review-page/PeerReviewPage.tsx:46
@@ -123,7 +123,7 @@ msgstr "Dear {name}, Hello"
 msgid "Delete"
 msgstr "Delete"
 
-#: src/pages/manager-review-dashboard/TableFilters.tsx:26
+#: src/pages/manager-review-dashboard/TableFilters.tsx:31
 msgid "Doing"
 msgstr "Doing"
 
@@ -138,7 +138,7 @@ msgid "Dominant Characteristics"
 msgstr "Dominant Characteristics"
 
 #: src/assets/icons/Done.tsx:5
-#: src/pages/manager-review-dashboard/TableFilters.tsx:27
+#: src/pages/manager-review-dashboard/TableFilters.tsx:32
 #: src/pages/peer-review-board-page/PeerReviewBoardPage.tsx:82
 msgid "Done"
 msgstr "Done"
@@ -170,7 +170,7 @@ msgstr "Error"
 msgid "Evaluation"
 msgstr "Evaluation"
 
-#: src/pages/manager-review-dashboard/TableFilters.tsx:20
+#: src/pages/manager-review-dashboard/TableFilters.tsx:25
 msgid "Evaluation Status"
 msgstr "Evaluation Status"
 
@@ -240,7 +240,7 @@ msgid "It's complete!"
 msgstr "It's complete!"
 
 #: src/pages/behavioral-competencies-page/BehavioralCompetenciesForm.tsx:70
-#: src/pages/manager-review-dashboard/ManagerReviewDashboardDrawerContent.tsx:99
+#: src/pages/manager-review-dashboard/ManagerReviewDashboardDrawerContent.tsx:108
 #: src/pages/manager-review-page/behavioral-competencies/ManagerReviewBehavioralCompetencies.tsx:108
 #: src/pages/result-page/behavioral-competencies/ResultBehavioralCompetencies.tsx:50
 #: src/shared/behavioral-competencies-output/BehavioralCompetenciesOutput.tsx:42
@@ -250,6 +250,12 @@ msgstr "Leadership"
 #: src/shared/auth/LoginForm.tsx:20
 msgid "Login"
 msgstr "Login"
+
+#: src/pages/manager-review-dashboard/ManagerReviewDashboardDrawerContent.tsx:75
+#: src/pages/manager-review-dashboard/ManagerReviewDashboardTable.tsx:87
+#: src/pages/manager-review-dashboard/TableFilters.tsx:19
+msgid "Manager"
+msgstr "Manager"
 
 #: src/global-types/Evaluation.ts:17
 msgid "Meets Expectations from Him/Her"
@@ -282,7 +288,7 @@ msgid "No! Wait"
 msgstr "No! Wait"
 
 #: src/pages/behavioral-competencies-page/BehavioralCompetenciesForm.tsx:58
-#: src/pages/manager-review-dashboard/ManagerReviewDashboardDrawerContent.tsx:83
+#: src/pages/manager-review-dashboard/ManagerReviewDashboardDrawerContent.tsx:92
 #: src/pages/manager-review-page/behavioral-competencies/ManagerReviewBehavioralCompetencies.tsx:96
 #: src/pages/result-page/behavioral-competencies/ResultBehavioralCompetencies.tsx:38
 #: src/shared/behavioral-competencies-output/BehavioralCompetenciesOutput.tsx:30
@@ -298,21 +304,21 @@ msgid "Other people comments about {name} performance compared to initial expect
 msgstr "Other people comments about {name} performance compared to initial expectation"
 
 #: src/pages/behavioral-competencies-page/BehavioralCompetenciesForm.tsx:64
-#: src/pages/manager-review-dashboard/ManagerReviewDashboardDrawerContent.tsx:91
+#: src/pages/manager-review-dashboard/ManagerReviewDashboardDrawerContent.tsx:100
 #: src/pages/manager-review-page/behavioral-competencies/ManagerReviewBehavioralCompetencies.tsx:102
 #: src/pages/result-page/behavioral-competencies/ResultBehavioralCompetencies.tsx:44
 #: src/shared/behavioral-competencies-output/BehavioralCompetenciesOutput.tsx:36
 msgid "Output Quality"
 msgstr "Output Quality"
 
-#: src/pages/manager-review-dashboard/ManagerReviewDashboardDrawerContent.tsx:70
-#: src/pages/manager-review-dashboard/TableFilters.tsx:33
+#: src/pages/manager-review-dashboard/ManagerReviewDashboardDrawerContent.tsx:79
+#: src/pages/manager-review-dashboard/TableFilters.tsx:38
 #: src/pages/manager-review-page/ManagerReviewPage.tsx:52
 #: src/pages/manager-review-page/ManagerReviewPrintPage.tsx:71
 msgid "Overall Evaluation"
 msgstr "Overall Evaluation"
 
-#: src/pages/manager-review-dashboard/ManagerReviewDashboardTable.tsx:80
+#: src/pages/manager-review-dashboard/ManagerReviewDashboardTable.tsx:92
 msgid "Overall Rating"
 msgstr "Overall Rating"
 
@@ -340,7 +346,7 @@ msgid "Persian"
 msgstr "فارسی"
 
 #: src/pages/behavioral-competencies-page/BehavioralCompetenciesForm.tsx:73
-#: src/pages/manager-review-dashboard/ManagerReviewDashboardDrawerContent.tsx:103
+#: src/pages/manager-review-dashboard/ManagerReviewDashboardDrawerContent.tsx:112
 #: src/pages/manager-review-page/behavioral-competencies/ManagerReviewBehavioralCompetencies.tsx:111
 #: src/pages/result-page/behavioral-competencies/ResultBehavioralCompetencies.tsx:53
 #: src/shared/behavioral-competencies-output/BehavioralCompetenciesOutput.tsx:45
@@ -348,7 +354,7 @@ msgid "Presence"
 msgstr "Presence"
 
 #: src/pages/behavioral-competencies-page/BehavioralCompetenciesForm.tsx:61
-#: src/pages/manager-review-dashboard/ManagerReviewDashboardDrawerContent.tsx:87
+#: src/pages/manager-review-dashboard/ManagerReviewDashboardDrawerContent.tsx:96
 #: src/pages/manager-review-page/behavioral-competencies/ManagerReviewBehavioralCompetencies.tsx:99
 #: src/pages/result-page/behavioral-competencies/ResultBehavioralCompetencies.tsx:41
 #: src/shared/behavioral-competencies-output/BehavioralCompetenciesOutput.tsx:33
@@ -376,7 +382,7 @@ msgstr "Reviewers"
 msgid "Role Expertise and Self Development"
 msgstr "Role Expertise and Self Development"
 
-#: src/pages/manager-review-dashboard/ManagerReviewDashboardTable.tsx:107
+#: src/pages/manager-review-dashboard/ManagerReviewDashboardTable.tsx:126
 msgid "Rows per page"
 msgstr "Rows per page"
 
@@ -394,7 +400,7 @@ msgstr "Save"
 msgid "See Less"
 msgstr "See Less"
 
-#: src/pages/manager-review-dashboard/ManagerReviewDashboardDrawerContent.tsx:59
+#: src/pages/manager-review-dashboard/ManagerReviewDashboardDrawerContent.tsx:62
 #: src/shared/multiline-output/MultilineOutput.tsx:40
 msgid "See More"
 msgstr "See More"
@@ -496,7 +502,7 @@ msgid "The most important characteristics or effective behaviors that he/she sho
 msgstr "The most important characteristics or effective behaviors that he/she should maintain"
 
 #: src/pages/behavioral-competencies-page/BehavioralCompetenciesForm.tsx:67
-#: src/pages/manager-review-dashboard/ManagerReviewDashboardDrawerContent.tsx:95
+#: src/pages/manager-review-dashboard/ManagerReviewDashboardDrawerContent.tsx:104
 #: src/pages/manager-review-page/behavioral-competencies/ManagerReviewBehavioralCompetencies.tsx:105
 #: src/pages/result-page/behavioral-competencies/ResultBehavioralCompetencies.tsx:47
 #: src/shared/behavioral-competencies-output/BehavioralCompetenciesOutput.tsx:39
@@ -504,7 +510,7 @@ msgid "Thought Leadership"
 msgstr "Thought Leadership"
 
 #: src/assets/icons/Todo.tsx:5
-#: src/pages/manager-review-dashboard/TableFilters.tsx:25
+#: src/pages/manager-review-dashboard/TableFilters.tsx:30
 #: src/pages/peer-review-board-page/PeerReviewBoardPage.tsx:76
 msgid "Todo"
 msgstr "Todo"
@@ -513,7 +519,7 @@ msgstr "Todo"
 msgid "Try Again"
 msgstr "Try Again"
 
-#: src/pages/manager-review-dashboard/ManagerReviewDashboardTable.tsx:96
+#: src/pages/manager-review-dashboard/ManagerReviewDashboardTable.tsx:114
 #: src/pages/manager-review-page/achievements/ManagerReviewAchievementsRatingGroup.tsx:33
 #: src/pages/manager-review-page/behavioral-competencies/ManagerReviewBehavioralCompetenciesRatingGroup.tsx:49
 #: src/pages/manager-review-page/overall-evaluation/ManagerReviewOverallEvaluation.tsx:49
@@ -525,7 +531,7 @@ msgstr "Try Again"
 msgid "Unknown"
 msgstr "Unknown"
 
-#: src/pages/manager-review-dashboard/ManagerReviewDashboardTable.tsx:75
+#: src/pages/manager-review-dashboard/ManagerReviewDashboardTable.tsx:82
 msgid "User"
 msgstr "User"
 
@@ -640,7 +646,7 @@ msgstr "{evaluatedItems} of {total} behavioral competencies are evaluated"
 msgid "{evaluationsCount} evaluations / {commentsCount} comments"
 msgstr "{evaluationsCount} evaluations / {commentsCount} comments"
 
-#: src/pages/manager-review-dashboard/ManagerReviewDashboardTable.tsx:103
+#: src/pages/manager-review-dashboard/ManagerReviewDashboardTable.tsx:122
 msgid "{from} to {to} of {count}"
 msgstr "{from} to {to} of {count}"
 

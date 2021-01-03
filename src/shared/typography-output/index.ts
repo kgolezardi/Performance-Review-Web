@@ -1,0 +1,1 @@
+export { TypographyOutput } from './TypographyOutput';

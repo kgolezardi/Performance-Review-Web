@@ -11,12 +11,16 @@ import { getUserLabel } from 'src/shared/utils/getUserLabel';
 import { i18n } from '@lingui/core';
 import { useFragment } from 'react-relay/hooks';
 
-import { ManagerReviewDashboardContentItem } from './ManagerReviewDashboardContentItem';
+import { EvaluationItemOutput } from './EvaluationItemOutput';
+import { ItemOutput } from './ItemOutput';
 import { ManagerReviewDashboardDrawerContent_data$key } from './__generated__/ManagerReviewDashboardDrawerContent_data.graphql';
 
 const fragment = graphql`
   fragment ManagerReviewDashboardDrawerContent_data on UserNode @relay(plural: true) {
     id
+    manager {
+      ...getUserLabel_user
+    }
     managerPersonReview {
       sahabinessRating
       problemSolvingRating
@@ -82,9 +86,11 @@ export function ManagerReviewDashboardDrawerContent(props: Props) {
             <Typography variant="h5">{getUserLabel(user)}</Typography>
           </Box>
         </Box>
-        <Box py={2}>
-          <ManagerReviewDashboardContentItem
+        <Box py={2} display="flex" justifyContent="space-between">
+          <ItemOutput title={i18n._('Manager')} value={user.manager ? getUserLabel(user.manager) : null} />
+          <EvaluationItemOutput
             title={i18n._('Overall Evaluation')}
+            type="peer"
             value={user.managerPersonReview?.overallRating ?? null}
           />
         </Box>
@@ -99,43 +105,49 @@ export function ManagerReviewDashboardDrawerContent(props: Props) {
           <TabPanel value={0}>
             <Grid container spacing={3}>
               <Grid item xs={12}>
-                <ManagerReviewDashboardContentItem
+                <EvaluationItemOutput
                   title={i18n._('Organization Culture Adoption')}
+                  type="peer"
                   value={user.managerPersonReview?.sahabinessRating ?? null}
                 />
               </Grid>
 
               <Grid item xs={12}>
-                <ManagerReviewDashboardContentItem
+                <EvaluationItemOutput
                   title={i18n._('Problem Solving')}
+                  type="peer"
                   value={user.managerPersonReview?.problemSolvingRating ?? null}
                 />
               </Grid>
 
               <Grid item xs={12}>
-                <ManagerReviewDashboardContentItem
+                <EvaluationItemOutput
                   title={i18n._('Output Quality')}
+                  type="peer"
                   value={user.managerPersonReview?.executionRating ?? null}
                 />
               </Grid>
 
               <Grid item xs={12}>
-                <ManagerReviewDashboardContentItem
+                <EvaluationItemOutput
                   title={i18n._('Thought Leadership')}
+                  type="peer"
                   value={user.managerPersonReview?.thoughtLeadershipRating ?? null}
                 />
               </Grid>
 
               <Grid item xs={12}>
-                <ManagerReviewDashboardContentItem
+                <EvaluationItemOutput
                   title={i18n._('Leadership')}
+                  type="peer"
                   value={user.managerPersonReview?.leadershipRating ?? null}
                 />
               </Grid>
 
               <Grid item xs={12}>
-                <ManagerReviewDashboardContentItem
+                <EvaluationItemOutput
                   title={i18n._('Presence')}
+                  type="peer"
                   value={user.managerPersonReview?.presenceRating ?? null}
                 />
               </Grid>
@@ -145,8 +157,9 @@ export function ManagerReviewDashboardDrawerContent(props: Props) {
             <Grid container spacing={3}>
               {user.projectReviews.map((projectReview) => (
                 <Grid item xs={12} key={projectReview.project.id}>
-                  <ManagerReviewDashboardContentItem
+                  <EvaluationItemOutput
                     title={projectReview.project.name}
+                    type="peer"
                     value={projectReview.managerComment?.rating ?? null}
                   />
                 </Grid>

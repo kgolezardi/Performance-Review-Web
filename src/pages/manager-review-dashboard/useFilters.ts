@@ -25,6 +25,13 @@ export const useFilters = () => {
     return true;
   };
 
+  const filterManager = (row: Row) => {
+    if (filters.manager) {
+      return row.manager.includes(filters.manager);
+    }
+    return true;
+  };
+
   const filterStatus = (row: Row) => {
     if (filters.status === 'todo') {
       return row.behavioralCompetencies === 0 && row.achievements === 0;
@@ -49,7 +56,7 @@ export const useFilters = () => {
   };
 
   const filterRows = (rows: Row[]) => {
-    return rows.filter(filterUser).filter(filterStatus).filter(filteroverallRating);
+    return rows.filter(filterUser).filter(filterManager).filter(filterStatus).filter(filteroverallRating);
   };
 
   const clearFilters = () => {

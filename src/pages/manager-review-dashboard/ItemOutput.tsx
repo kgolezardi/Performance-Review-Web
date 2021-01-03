@@ -1,24 +1,23 @@
 import React from 'react';
 import { Box, Typography } from '@material-ui/core';
-import { Evaluation } from 'src/__generated__/enums';
-import { EvaluationOutput } from 'src/shared/evaluation-output';
 import { FCProps } from 'src/shared/types/FCProps';
+import { TypographyOutput } from 'src/shared/typography-output';
 
 interface OwnProps {
   title: string;
-  value: Evaluation | null;
+  value: React.ReactNode;
 }
 
 type Props = FCProps<OwnProps>;
 
-export function ManagerReviewDashboardContentItem(props: Props) {
+export function ItemOutput(props: Props) {
   const { title, value } = props;
   return (
     <Box>
       <Typography color="textSecondary" gutterBottom variant="body2">
         {title}:
       </Typography>
-      <EvaluationOutput type="peer" value={value} />
+      {typeof value === 'string' || value === null ? <TypographyOutput value={value} /> : value}
     </Box>
   );
 }
