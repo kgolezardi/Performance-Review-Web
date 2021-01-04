@@ -25,6 +25,8 @@ msgstr "دستاوردها"
 
 #: src/containers/main/getMenuItems.ts:34
 #: src/pages/dashboard-page/DashboardPage.tsx:57
+#: src/pages/manager-review-dashboard/ManagerReviewDashboardDrawerContent.tsx:84
+#: src/pages/manager-review-dashboard/ManagerReviewDashboardTable.tsx:91
 #: src/pages/manager-review-page/ManagerReviewPage.tsx:51
 #: src/pages/manager-review-page/ManagerReviewPrintPage.tsx:66
 #: src/pages/peer-review-page/PeerReviewPage.tsx:48
@@ -46,6 +48,11 @@ msgstr "هر ارزیابی که تکمیل شد رو به اینجا اضافه
 msgid "Adding Projects"
 msgstr "افزودن پروژه"
 
+#: src/pages/manager-review-dashboard/TableFilters.tsx:29
+#: src/pages/manager-review-dashboard/TableFilters.tsx:42
+msgid "All"
+msgstr "همه"
+
 #: src/shared/gift-dialog/GiftDialog.tsx:36
 msgid "All reviews were successfully done"
 msgstr "تمامی ارزیابی‌ها با موفقیت انجام شد"
@@ -64,6 +71,8 @@ msgstr "آیا از حذف {projectName} مطمین هستید؟"
 
 #: src/containers/main/getMenuItems.ts:22
 #: src/pages/dashboard-page/DashboardPage.tsx:35
+#: src/pages/manager-review-dashboard/ManagerReviewDashboardDrawerContent.tsx:83
+#: src/pages/manager-review-dashboard/ManagerReviewDashboardTable.tsx:90
 #: src/pages/manager-review-page/ManagerReviewPage.tsx:49
 #: src/pages/manager-review-page/ManagerReviewPrintPage.tsx:56
 #: src/pages/peer-review-page/PeerReviewPage.tsx:46
@@ -88,6 +97,10 @@ msgstr "یعنی بدون ذخیره تغییرات می‌خوای بری؟؟"
 msgid "Choose projects you have been working on in the past year."
 msgstr "پروژه‌هایی که طی یک سال گذشته درگیرشون بودید رو انتخاب کنید."
 
+#: src/pages/manager-review-dashboard/TableFilters.tsx:14
+msgid "Colleague name"
+msgstr "نام همکار"
+
 #: src/pages/projects-page/ProjectForm.tsx:76
 msgid "Coordinate reviewers with your manager (maximum 6 reviewers)"
 msgstr "مرورکنندگان رو حتما با هماهنگی مدیر مستقیم خودتون انتخاب کنید (حداکثر ۶ نفر)"
@@ -110,6 +123,10 @@ msgstr "{name} عزیز، سلام"
 msgid "Delete"
 msgstr "حذف"
 
+#: src/pages/manager-review-dashboard/TableFilters.tsx:31
+msgid "Doing"
+msgstr "در حال انجام"
+
 #: src/containers/main/getMenuItems.ts:28
 #: src/pages/dashboard-page/DashboardPage.tsx:46
 #: src/pages/manager-review-page/ManagerReviewPage.tsx:50
@@ -121,6 +138,7 @@ msgid "Dominant Characteristics"
 msgstr "ویژگی‌های بارز"
 
 #: src/assets/icons/Done.tsx:5
+#: src/pages/manager-review-dashboard/TableFilters.tsx:32
 #: src/pages/peer-review-board-page/PeerReviewBoardPage.tsx:82
 msgid "Done"
 msgstr "انجام شده"
@@ -151,6 +169,10 @@ msgstr "خطا"
 #: src/shared/project-output/ProjectOutput.tsx:28
 msgid "Evaluation"
 msgstr "ارزیابی"
+
+#: src/pages/manager-review-dashboard/TableFilters.tsx:25
+msgid "Evaluation Status"
+msgstr "وضعیت ارزیابی"
 
 #: src/shared/behavioral-competency-item/BehavioralCompetencyItem.tsx:29
 #: src/shared/behavioral-competency-output/BehavioralCompetencyOutput.tsx:22
@@ -218,6 +240,7 @@ msgid "It's complete!"
 msgstr "تکمیل شد!"
 
 #: src/pages/behavioral-competencies-page/BehavioralCompetenciesForm.tsx:70
+#: src/pages/manager-review-dashboard/ManagerReviewDashboardDrawerContent.tsx:108
 #: src/pages/manager-review-page/behavioral-competencies/ManagerReviewBehavioralCompetencies.tsx:108
 #: src/pages/result-page/behavioral-competencies/ResultBehavioralCompetencies.tsx:50
 #: src/shared/behavioral-competencies-output/BehavioralCompetenciesOutput.tsx:42
@@ -227,6 +250,12 @@ msgstr "رهبری خودظهور"
 #: src/shared/auth/LoginForm.tsx:20
 msgid "Login"
 msgstr "ورود"
+
+#: src/pages/manager-review-dashboard/ManagerReviewDashboardDrawerContent.tsx:75
+#: src/pages/manager-review-dashboard/ManagerReviewDashboardTable.tsx:87
+#: src/pages/manager-review-dashboard/TableFilters.tsx:19
+msgid "Manager"
+msgstr "مدیر مستقیم"
 
 #: src/global-types/Evaluation.ts:17
 msgid "Meets Expectations from Him/Her"
@@ -259,6 +288,7 @@ msgid "No! Wait"
 msgstr "نه! می‌مونم"
 
 #: src/pages/behavioral-competencies-page/BehavioralCompetenciesForm.tsx:58
+#: src/pages/manager-review-dashboard/ManagerReviewDashboardDrawerContent.tsx:92
 #: src/pages/manager-review-page/behavioral-competencies/ManagerReviewBehavioralCompetencies.tsx:96
 #: src/pages/result-page/behavioral-competencies/ResultBehavioralCompetencies.tsx:38
 #: src/shared/behavioral-competencies-output/BehavioralCompetenciesOutput.tsx:30
@@ -274,15 +304,22 @@ msgid "Other people comments about {name} performance compared to initial expect
 msgstr "نظرات دیگران در مورد سطح عملکرد {name} در این پروژه"
 
 #: src/pages/behavioral-competencies-page/BehavioralCompetenciesForm.tsx:64
+#: src/pages/manager-review-dashboard/ManagerReviewDashboardDrawerContent.tsx:100
 #: src/pages/manager-review-page/behavioral-competencies/ManagerReviewBehavioralCompetencies.tsx:102
 #: src/pages/result-page/behavioral-competencies/ResultBehavioralCompetencies.tsx:44
 #: src/shared/behavioral-competencies-output/BehavioralCompetenciesOutput.tsx:36
 msgid "Output Quality"
 msgstr "کیفیت خروجی"
 
+#: src/pages/manager-review-dashboard/ManagerReviewDashboardDrawerContent.tsx:79
+#: src/pages/manager-review-dashboard/TableFilters.tsx:38
 #: src/pages/manager-review-page/ManagerReviewPage.tsx:52
 #: src/pages/manager-review-page/ManagerReviewPrintPage.tsx:71
 msgid "Overall Evaluation"
+msgstr "ارزیابی کلی"
+
+#: src/pages/manager-review-dashboard/ManagerReviewDashboardTable.tsx:92
+msgid "Overall Rating"
 msgstr "ارزیابی کلی"
 
 #: src/shared/auth/LoginForm.tsx:15
@@ -309,6 +346,7 @@ msgid "Persian"
 msgstr "فارسی"
 
 #: src/pages/behavioral-competencies-page/BehavioralCompetenciesForm.tsx:73
+#: src/pages/manager-review-dashboard/ManagerReviewDashboardDrawerContent.tsx:112
 #: src/pages/manager-review-page/behavioral-competencies/ManagerReviewBehavioralCompetencies.tsx:111
 #: src/pages/result-page/behavioral-competencies/ResultBehavioralCompetencies.tsx:53
 #: src/shared/behavioral-competencies-output/BehavioralCompetenciesOutput.tsx:45
@@ -316,6 +354,7 @@ msgid "Presence"
 msgstr "اثر حضور"
 
 #: src/pages/behavioral-competencies-page/BehavioralCompetenciesForm.tsx:61
+#: src/pages/manager-review-dashboard/ManagerReviewDashboardDrawerContent.tsx:96
 #: src/pages/manager-review-page/behavioral-competencies/ManagerReviewBehavioralCompetencies.tsx:99
 #: src/pages/result-page/behavioral-competencies/ResultBehavioralCompetencies.tsx:41
 #: src/shared/behavioral-competencies-output/BehavioralCompetenciesOutput.tsx:33
@@ -343,6 +382,10 @@ msgstr "مرورکننده‌ها"
 msgid "Role Expertise and Self Development"
 msgstr "مرجعیت تخصصی"
 
+#: src/pages/manager-review-dashboard/ManagerReviewDashboardTable.tsx:126
+msgid "Rows per page"
+msgstr "تعداد نمایش در صفحه"
+
 #: src/pages/behavioral-competencies-page/BehavioralCompetenciesForm.tsx:79
 #: src/pages/manager-review-page/achievements/ManagerReviewAchievements.tsx:77
 #: src/pages/manager-review-page/behavioral-competencies/ManagerReviewBehavioralCompetencies.tsx:120
@@ -357,6 +400,7 @@ msgstr "ذخیره"
 msgid "See Less"
 msgstr "مشاهده کمتر"
 
+#: src/pages/manager-review-dashboard/ManagerReviewDashboardDrawerContent.tsx:62
 #: src/shared/multiline-output/MultilineOutput.tsx:40
 msgid "See More"
 msgstr "مشاهده بیشتر"
@@ -458,6 +502,7 @@ msgid "The most important characteristics or effective behaviors that he/she sho
 msgstr "مهم‌ترین ویژگی‌ها یا رفتارهای مؤثری که باید ادامه‌شون بده"
 
 #: src/pages/behavioral-competencies-page/BehavioralCompetenciesForm.tsx:67
+#: src/pages/manager-review-dashboard/ManagerReviewDashboardDrawerContent.tsx:104
 #: src/pages/manager-review-page/behavioral-competencies/ManagerReviewBehavioralCompetencies.tsx:105
 #: src/pages/result-page/behavioral-competencies/ResultBehavioralCompetencies.tsx:47
 #: src/shared/behavioral-competencies-output/BehavioralCompetenciesOutput.tsx:39
@@ -465,6 +510,7 @@ msgid "Thought Leadership"
 msgstr "مرجعیت تخصصی"
 
 #: src/assets/icons/Todo.tsx:5
+#: src/pages/manager-review-dashboard/TableFilters.tsx:30
 #: src/pages/peer-review-board-page/PeerReviewBoardPage.tsx:76
 msgid "Todo"
 msgstr "انجام نشده"
@@ -473,6 +519,7 @@ msgstr "انجام نشده"
 msgid "Try Again"
 msgstr "تلاش مجدد"
 
+#: src/pages/manager-review-dashboard/ManagerReviewDashboardTable.tsx:114
 #: src/pages/manager-review-page/achievements/ManagerReviewAchievementsRatingGroup.tsx:33
 #: src/pages/manager-review-page/behavioral-competencies/ManagerReviewBehavioralCompetenciesRatingGroup.tsx:49
 #: src/pages/manager-review-page/overall-evaluation/ManagerReviewOverallEvaluation.tsx:49
@@ -484,7 +531,7 @@ msgstr "تلاش مجدد"
 msgid "Unknown"
 msgstr "نامعین"
 
-#: src/pages/manager-review-dashboard/ManagerReviewDashboard.tsx:26
+#: src/pages/manager-review-dashboard/ManagerReviewDashboardTable.tsx:82
 msgid "User"
 msgstr "کاربر"
 
@@ -497,7 +544,6 @@ msgid "Username or Password is incorrect."
 msgstr "نام کاربری یا گذرواژه اشتباه است."
 
 #: src/pages/dashboard-page/LinkButton.tsx:10
-#: src/pages/manager-review-dashboard/ManagerReviewDashboard.tsx:35
 msgid "View"
 msgstr "مشاهده"
 
@@ -599,6 +645,10 @@ msgstr "{evaluatedItems} مورد از {total} شایستگی رفتاری ار�
 #: src/pages/result-page/project-result-page/ProjectResultRatingGroup.tsx:34
 msgid "{evaluationsCount} evaluations / {commentsCount} comments"
 msgstr "{evaluationsCount} ارزیابی / {commentsCount} نظر"
+
+#: src/pages/manager-review-dashboard/ManagerReviewDashboardTable.tsx:122
+msgid "{from} to {to} of {count}"
+msgstr "{from} تا {to} از {count}"
 
 #: src/pages/peer-review-page/projectsTab/project-expansion-panel/PeerReviewProjectExpansionPanel.tsx:53
 msgid "{name}'s comment about his/her achievements in this project"

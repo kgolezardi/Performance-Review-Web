@@ -139,7 +139,7 @@ export function MainRoutes(props: FCProps<Props>) {
     );
   }
 
-  if (phase === 'MANAGER_REVIEW' && user.isManager) {
+  if (phase === 'MANAGER_REVIEW' && (user.isManager || user.isHr)) {
     return (
       <Switch>
         <Redirect exact path="/" to="/manager-review" />

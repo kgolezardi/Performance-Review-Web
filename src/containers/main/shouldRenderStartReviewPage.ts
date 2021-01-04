@@ -3,7 +3,7 @@ import type { UserContextValue } from 'src/core/auth/UserContext';
 
 export const shouldRenderStartReviewPage = (user: UserContextValue, phase: Phase) => {
   if (phase === 'MANAGER_REVIEW') {
-    if (!user.isManager) {
+    if (!(user.isManager || user.isHr)) {
       return false;
     }
   }
