@@ -33,14 +33,16 @@ export const useFilters = () => {
   };
 
   const filterStatus = (row: Row) => {
+    if (filters.status === 'all') {
+      return true;
+    }
     if (filters.status === 'todo') {
       return row.behavioralCompetencies === 0 && row.achievements === 0;
     }
     if (filters.status === 'doing') {
-      return !(
-        (row.behavioralCompetencies === 100 && row.achievements === 100) ||
-        (row.behavioralCompetencies === 0 && row.achievements === 0)
-      );
+      const done = row.behavioralCompetencies === 100 && row.achievements === 100;
+      const todo = row.behavioralCompetencies === 0 && row.achievements === 0;
+      return !done && !todo;
     }
     if (filters.status === 'done') {
       return row.behavioralCompetencies === 100 && row.achievements === 100;

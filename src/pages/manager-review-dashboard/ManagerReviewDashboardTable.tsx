@@ -7,7 +7,6 @@ import {
   TableCell,
   TableContainer,
   TableHead,
-  TablePagination,
   TableRow,
   TableSortLabel,
   Theme,
@@ -26,7 +25,6 @@ import { peerReviewEvaluationDictionary } from 'src/global-types';
 import { useFragment } from 'react-relay/hooks';
 
 import { ManagerReviewDashboardTable_data$key } from './__generated__/ManagerReviewDashboardTable_data.graphql';
-import { usePagination } from './usePagination';
 import { useSortBy } from './useSortBy';
 
 const fragment = graphql`
@@ -78,7 +76,6 @@ export function ManagerReviewDashboardTable(props: Props) {
   const classes = useStyles(props);
 
   const data = useFragment(fragment, props.data);
-  const { page, rowsPerPage, handleChangePage, handleChangeRowsPerPage } = usePagination();
   const { order, orderBy, onPropertySort, sortRows } = useSortBy<Row>();
 
   const rows: Row[] = useMemo(
@@ -97,10 +94,10 @@ export function ManagerReviewDashboardTable(props: Props) {
             100
           : 0,
         achievements:
-          (userToReview.projectReviews.map((projectReview) => projectReview.managerComment?.rating).filter(isNotNil)
-            .length /
-            userToReview.projectReviews.length) *
-          100,
+          (userToReview.projectReviews.length > 0
+            ? userToReview.projectReviews.map((projectReview) => projectReview.managerComment?.rating).filter(isNotNil)
+                .length / userToReview.projectReviews.length
+            : 1) * 100,
         overallRating: userToReview.managerPersonReview?.overallRating,
       })),
     [data],
@@ -109,6 +106,8 @@ export function ManagerReviewDashboardTable(props: Props) {
   const createSortHandler = (property: keyof Row) => (event: React.MouseEvent<unknown>) => {
     onPropertySort(event, property);
   };
+
+  const filteredRows = sortRows(filterRows(rows));
 
   return (
     <div className={classes.root}>
@@ -147,48 +146,29 @@ export function ManagerReviewDashboardTable(props: Props) {
             </TableRow>
           </TableHead>
           <TableBody>
-            {sortRows(filterRows(rows))
-              .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-              .map((row) => (
-                <TableRow hover key={row.id} onClick={createRowClickHandler(row.id)} selected={activeId === row.id}>
-                  <TableCell>
-                    <Avatar src={row.avatarUrl ?? undefined} className={classes.avatar} />
-                    {row.user}
-                  </TableCell>
-                  <TableCell>{row.manager}</TableCell>
-                  <TableCell>
-                    <LinearProgress value={row.behavioralCompetencies} color={getColor(row.behavioralCompetencies)} />
-                  </TableCell>
-                  <TableCell>
-                    <LinearProgress value={row.achievements} color={getColor(row.achievements)} />
-                  </TableCell>
-                  <TableCell>
-                    {row.overallRating
-                      ? getEnumLabel(peerReviewEvaluationDictionary, row.overallRating, i18n._('Unknown'))
-                      : '---'}
-                  </TableCell>
-                </TableRow>
-              ))}
+            {filteredRows.map((row) => (
+              <TableRow hover key={row.id} onClick={createRowClickHandler(row.id)} selected={activeId === row.id}>
+                <TableCell>
+                  <Avatar src={row.avatarUrl ?? undefined} className={classes.avatar} />
+                  {row.user}
+                </TableCell>
+                <TableCell>{row.manager}</TableCell>
+                <TableCell>
+                  <LinearProgress value={row.behavioralCompetencies} color={getColor(row.behavioralCompetencies)} />
+                </TableCell>
+                <TableCell>
+                  <LinearProgress value={row.achievements} color={getColor(row.achievements)} />
+                </TableCell>
+                <TableCell>
+                  {row.overallRating
+                    ? getEnumLabel(peerReviewEvaluationDictionary, row.overallRating, i18n._('Unknown'))
+                    : '---'}
+                </TableCell>
+              </TableRow>
+            ))}
           </TableBody>
         </Table>
       </TableContainer>
-      <TablePagination
-        rowsPerPageOptions={[10, 20, 30]}
-        component="div"
-        count={rows.length}
-        rowsPerPage={rowsPerPage}
-        page={page}
-        onChangePage={handleChangePage}
-        onChangeRowsPerPage={handleChangeRowsPerPage}
-        labelDisplayedRows={(paginationInfo) =>
-          i18n._('{from} to {to} of {count}', {
-            from: paginationInfo.from,
-            to: paginationInfo.to,
-            count: paginationInfo.count,
-          })
-        }
-        labelRowsPerPage={i18n._('Rows per page')}
-      />
     </div>
   );
 }

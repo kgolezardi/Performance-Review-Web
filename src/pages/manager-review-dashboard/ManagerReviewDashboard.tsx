@@ -120,6 +120,7 @@ const styles = (theme: Theme) =>
       zIndex: theme.zIndex.drawer + 10,
       display: 'flex',
       flexDirection: 'column',
+      overflowY: 'auto',
     },
     contentShift: {
       transition: theme.transitions.create('margin', {
