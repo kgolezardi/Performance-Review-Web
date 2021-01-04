@@ -74,7 +74,7 @@ export function ManagerReviewDashboardDrawerContent(props: Props) {
           <IconButton onClick={onCloseClick}>
             <CloseIcon />
           </IconButton>
-          <Link className={classes.link} target="_blank" to={`manager-review/${user.id}`}>
+          <Link className={classes.link} to={`manager-review/${user.id}`}>
             <Button color="primary" variant="outlined">
               {i18n._('See More')}
             </Button>
