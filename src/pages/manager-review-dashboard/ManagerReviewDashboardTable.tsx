@@ -90,8 +90,7 @@ export function ManagerReviewDashboardTable(props: Props) {
               .filter(([key, value]) => key !== 'overallRating')
               .map(([key, value]) => Boolean(value))
               .filter(Boolean).length /
-              Object.entries(userToReview.managerPersonReview).length -
-              /* Remove overall rating */ 1) *
+              (Object.entries(userToReview.managerPersonReview).length - /* Remove overall rating */ 1)) *
             100
           : 0,
         achievements:
