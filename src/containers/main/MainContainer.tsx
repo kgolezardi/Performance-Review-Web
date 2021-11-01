@@ -28,7 +28,7 @@ type Props = FCProps<OwnProps>;
 export function MainContainer(props: Props) {
   const { hasStarted, isManager } = useAuthGuardUser();
 
-  const { phase } = useAppSettings();
+  const { phase, logoUrl } = useAppSettings();
 
   const items = useMemo(() => getMenuItems(phase, { isManager, hasStarted: hasStarted || false }), [
     isManager,
@@ -39,7 +39,7 @@ export function MainContainer(props: Props) {
   return (
     <DashboardLayout>
       <BrandRegion>
-        <Brand label={i18n._('Performance Review')} logo={logo} />
+        <Brand label={i18n._('Performance Review')} logo={logoUrl ?? logo} />
       </BrandRegion>
       <NavbarRegion>
         <NavBarMenu items={items} />
