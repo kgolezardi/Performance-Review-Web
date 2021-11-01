@@ -41,7 +41,7 @@ export function Login(props: Props) {
       <div className={classes.fullPageContainer}>
         <Container component="main" maxWidth="xs" className={classes.formContainer}>
           <Card className={classes.paper}>
-            <img src={logo} alt={'logo'} className={classes.logo} />
+            <img src={settings.lightLogoUrl ?? logo} alt={'logo'} className={classes.logo} />
             <Typography variant="h5" color="primary" className={classes.logoSubtitle}>
               {i18n._('Performance Review System')}
             </Typography>

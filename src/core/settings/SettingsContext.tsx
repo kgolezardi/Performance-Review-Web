@@ -7,6 +7,8 @@ export interface SettingsContextValue {
   loginBackgroundImage: string | null;
   idlePageUrl: string | null;
   startText: string | null;
+  lightLogoUrl: string | null;
+  logoUrl: string | null;
 }
 export const SettingsContext = React.createContext<SettingsContextValue | null>(null);
 
