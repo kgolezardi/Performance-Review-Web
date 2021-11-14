@@ -1,0 +1,28 @@
+version: '3.5'
+
+services:
+  api:
+    image: kgolezardi/performance-review-api:dev
+    command: python manage.py runserver 0.0.0.0:8000
+    depends_on:
+      - database
+    environment:
+      - DEBUG
+      - SECRET_KEY
+      - DATABASE_URL
+      - ALLOWED_HOSTS
+      - CORS_ALLOW_CREDENTIALS
+    ports:
+      - 8000:8000
+
+  database:
+    image: postgres:12.1
+    environment:
+      - POSTGRES_USER
+      - POSTGRES_DB
+      - POSTGRES_PASSWORD
+    volumes:
+      - database-data:/var/lib/postgresql/data
+
+volumes:
+  database-data:

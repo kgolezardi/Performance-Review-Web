@@ -1,5 +1,33 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Setting Up a Developmental API Server
+
+First off, create a `.env` file in `docker` directory based on the given `docker/sample.env`.
+
+After making sure that you have [Docker Engine](https://docs.docker.com/engine/install/ubuntu/),
+[Docker Compose](https://docs.docker.com/compose/install/),
+and [Docker Compose V2](https://docs.docker.com/compose/cli-command/)
+installed, navigate to `docker` directory and run:
+```
+docker compose up -d
+```
+
+If you are setting up the backend for the first time, you will need to run these commands as well:
+```
+docker compose exec api python manage.py migrate --noinput
+docker compose exec api python manage.py createsuperuser
+```
+
+To bring the API server down, run `docker compose down`. You can bring the server back up simply by running
+`docker compose up -d`. Note that all of the commands above should be executed while the working directory is on
+`docker`. You may also need to run the migration command if there are some new migrations in the backend.
+
+Finally, note that each time there is a new docker image, we should run:
+```
+docker compose pull api
+```
+
+
 ## Available Scripts
 
 In the project directory, you can run:
