@@ -30,8 +30,10 @@ const query = graphql`
       projects {
         ...ProjectInput_projects
       }
-      users {
-        ...ReviewersInput_Reviewers
+      activeRound {
+        participants {
+          ...ReviewersInput_Reviewers
+        }
       }
       projectReviews {
         id
@@ -117,7 +119,7 @@ export default function ProjectsPage(props: Props) {
               initialProjectIds={initialProjectIds}
               saveProject={saveProject}
               deleteProject={deleteProject}
-              users={data.viewer.users}
+              users={data.viewer.activeRound?.participants ?? []}
             />
           );
         })}

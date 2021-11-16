@@ -56,8 +56,8 @@ export function NavBarMenuItem(props: Props) {
         <Paper className={classes.menu}>
           <List>
             {children.map((item, index) => (
-              <Fragment>
-                <MenuItem className={classes.menuItem} key={index} disableGutters>
+              <Fragment key={index}>
+                <MenuItem className={classes.menuItem} disableGutters>
                   <NavLink className={classes.menuItemLink} {...item.link} onClick={hideMenu}>
                     {item.text}
                   </NavLink>
