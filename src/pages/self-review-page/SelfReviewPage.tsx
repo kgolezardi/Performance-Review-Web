@@ -33,6 +33,7 @@ export default function SelfReviewPage(props: Props) {
       <Box marginY={5}>
         <Paper classes={{ root: classes.tabsPaper }}>
           <Tabs value={tab ?? 'behavioral-competencies'}>
+            <TabLink label={i18n._('Achievements')} value="achievements" to={toPrefix + '/achievements'} />
             <TabLink
               label={i18n._('Behavioral Competencies')}
               value="behavioral-competencies"
@@ -43,7 +44,6 @@ export default function SelfReviewPage(props: Props) {
               value="dominant-characteristics"
               to={toPrefix + '/dominant-characteristics'}
             />
-            <TabLink label={i18n._('Achievements')} value="achievements" to={toPrefix + '/achievements'} />
           </Tabs>
         </Paper>
         <Paper classes={{ root: classes.tabPanelPaper }}>
