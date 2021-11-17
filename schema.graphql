@@ -1,5 +1,5 @@
-# source: http://pr-demo/graphql
-# timestamp: Mon Nov 01 2021 11:55:35 GMT+0330 (Iran Standard Time)
+# source: http://127.0.0.1:8000/graphql
+# timestamp: Wed Nov 17 2021 17:33:33 GMT+0330 (Iran Standard Time)
 
 input ChangePasswordMutationInput {
   oldPassword: String!
@@ -13,6 +13,17 @@ type ChangePasswordMutationPayload {
   clientMutationId: String
 }
 
+input CreateProjectReviewMutationInput {
+  projectName: String
+  clientMutationId: String
+}
+
+type CreateProjectReviewMutationPayload {
+  viewer: ViewerNode!
+  projectReview: ProjectReviewNode
+  clientMutationId: String
+}
+
 input DeleteProjectReviewMutationInput {
   projectReviewId: ID!
   clientMutationId: String
@@ -21,6 +32,21 @@ input DeleteProjectReviewMutationInput {
 type DeleteProjectReviewMutationPayload {
   viewer: ViewerNode!
   deletedProjectReviewId: ID
+  clientMutationId: String
+}
+
+input EditProjectReviewMutationInput {
+  projectReviewId: ID!
+  projectName: String
+  text: String
+  rating: Evaluation
+  reviewersId: [ID!]
+  clientMutationId: String
+}
+
+type EditProjectReviewMutationPayload {
+  viewer: ViewerNode!
+  projectReview: ProjectReviewNode
   clientMutationId: String
 }
 
@@ -77,7 +103,8 @@ type ManagerProjectCommentNode implements Node {
 
 type Mutation {
   savePersonReview(input: SavePersonReviewMutationInput!): SavePersonReviewMutationPayload!
-  saveProjectReview(input: SaveProjectReviewMutationInput!): SaveProjectReviewMutationPayload!
+  createProjectReview(input: CreateProjectReviewMutationInput!): CreateProjectReviewMutationPayload!
+  editProjectReview(input: EditProjectReviewMutationInput!): EditProjectReviewMutationPayload!
   deleteProjectReview(input: DeleteProjectReviewMutationInput!): DeleteProjectReviewMutationPayload!
   saveProjectComment(input: SaveProjectCommentMutationInput!): SaveProjectCommentMutationPayload!
   saveManagerPersonReview(input: SaveManagerPersonReviewMutationInput!): SaveManagerPersonReviewMutationPayload!
@@ -137,15 +164,8 @@ type ProjectCommentNode implements Node {
   rating: Evaluation
 }
 
-type ProjectNode implements Node {
-  name: String!
-
-  """The ID of the object."""
-  id: ID!
-}
-
 type ProjectReviewNode implements Node {
-  project: ProjectNode!
+  projectName: String!
   reviewee: UserNode!
   text: String
 
@@ -176,7 +196,6 @@ type RoundNode implements Node {
   """The ID of the object."""
   id: ID!
   phase: Phase!
-  projects: [ProjectNode!]!
   participants: [UserNode!]!
 }
 
@@ -246,20 +265,6 @@ input SaveProjectCommentMutationInput {
 type SaveProjectCommentMutationPayload {
   viewer: ViewerNode!
   projectComment: ProjectCommentNode
-  clientMutationId: String
-}
-
-input SaveProjectReviewMutationInput {
-  projectId: ID!
-  text: String
-  rating: Evaluation
-  reviewersId: [ID!]
-  clientMutationId: String
-}
-
-type SaveProjectReviewMutationPayload {
-  viewer: ViewerNode!
-  projectReview: ProjectReviewNode
   clientMutationId: String
 }
 
@@ -361,9 +366,5 @@ type ViewerNode implements Node {
   personReview(id: ID!): PersonReviewNode
   personReviews: [PersonReviewNode!]!
   findPersonReview(revieweeId: ID): PersonReviewNode
-
-  """The ID of the object"""
-  project(id: ID!): ProjectNode
-  projects: [ProjectNode!]!
   node(id: ID!): Node
 }

@@ -1,0 +1,99 @@
+import * as React from 'react';
+import graphql from 'babel-plugin-relay/macro';
+import { Box, Button, DialogActions, DialogContent, Theme, createStyles, makeStyles } from '@material-ui/core';
+import { DictInput, DictInputItem, Forminator, StringInput, SubmitButton } from 'src/shared/forminator';
+import { i18n } from '@lingui/core';
+import { map, prop } from 'ramda';
+import { useBiDiSnackbar } from 'src/shared/snackbar';
+import { useFragment } from 'react-relay/hooks';
+
+import { AddProjectFormData } from '../AddProjectForm';
+import { EditProjectReviewMutationInput } from '../__generated__/editProjectReviewMutation.graphql';
+import { ProjectReviewEditForm_projectReview$key } from './__generated__/ProjectReviewEditForm_projectReview.graphql';
+import { useEditProjectReview } from '../editProjectReview.mutation';
+
+interface OwnProps {
+  projectReview: ProjectReviewEditForm_projectReview$key;
+  onCloseModal?: () => void;
+}
+
+type Props = React.PropsWithChildren<OwnProps>;
+
+export function ProjectReviewEditForm(props: Props) {
+  const { onCloseModal, projectReview } = props;
+
+  const classes = useStyles();
+
+  const project = useFragment(
+    graphql`
+      fragment ProjectReviewEditForm_projectReview on ProjectReviewNode {
+        projectName
+        id
+        text
+        rating
+        reviewers {
+          id
+        }
+      }
+    `,
+    projectReview,
+  );
+
+  const { enqueueSnackbar } = useBiDiSnackbar();
+
+  const editProjectReview = useEditProjectReview();
+
+  const handleEditProjectReviewTitle = async ({ projectName }: AddProjectFormData) => {
+    try {
+      const input: EditProjectReviewMutationInput = {
+        projectReviewId: project.id,
+        text: project.text,
+        rating: project.rating,
+        reviewersId: map(prop('id'), project.reviewers),
+        projectName,
+      };
+      await editProjectReview({ input });
+      enqueueSnackbar(i18n._('Successfully saved.'), { variant: 'success' });
+      onCloseModal?.();
+    } catch (error) {
+      enqueueSnackbar(i18n._('An error occurred. Try again!'), { variant: 'error' });
+    }
+  };
+
+  return (
+    <Forminator onSubmit={handleEditProjectReviewTitle}>
+      <DialogContent>
+        <DictInput>
+          <DictInputItem field="projectName">
+            <StringInput
+              variant="outlined"
+              fullWidth
+              initialValue={project.projectName}
+              label={i18n._('Project title')}
+            />
+          </DictInputItem>
+        </DictInput>
+      </DialogContent>
+      <DialogActions>
+        <Box p={2} display="flex" alignItems="center">
+          <Box mr={1}>
+            <Button className={classes.button} size="large" onClick={onCloseModal}>
+              {i18n._('Cancel')}
+            </Button>
+          </Box>
+          <SubmitButton className={classes.button} size="large" variant="contained" color="primary" type="submit">
+            {i18n._('Submit changes')}
+          </SubmitButton>
+        </Box>
+      </DialogActions>
+    </Forminator>
+  );
+}
+
+const styles = (theme: Theme) =>
+  createStyles({
+    button: {
+      minWidth: 96,
+    },
+  });
+const useStyles = makeStyles(styles, { name: 'ProjectReviewEditForm' });

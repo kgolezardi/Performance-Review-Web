@@ -27,9 +27,7 @@ const fragment = graphql`
       firstName
       ...getUserLabel_user
     }
-    project {
-      name
-    }
+    projectName
     comments {
       ...ManagerReviewAchievementsRatingGroup_comments
     }
@@ -53,7 +51,7 @@ export function ManagerReviewAchievementsExpansionPanel(props: Props) {
 
   const theme = useTheme();
   const quoteBoxBgcolor = lighten(theme.palette.primary.main, 0.85);
-  const projectName = projectReview.project.name;
+  const projectName = projectReview.projectName;
   const name = getUserLabel(projectReview.reviewee, { short: true });
 
   const serverValue = useServerValueContext<ManagerReviewAchievementsValue>();
@@ -93,7 +91,7 @@ export function ManagerReviewAchievementsExpansionPanel(props: Props) {
               <ManagerReviewEvaluationBox
                 text={i18n._('Your evaluation of {name} on project {projectName}', {
                   name,
-                  projectName: projectReview.project.name,
+                  projectName: projectReview.projectName,
                 })}
               >
                 <Rating inputLabel={i18n._('Evaluation')} type="peer" />
@@ -107,11 +105,12 @@ export function ManagerReviewAchievementsExpansionPanel(props: Props) {
   );
 }
 
-const styles = (theme: Theme) => createStyles({
-  detailTypography: {
-    color: theme.palette.grey[700],
-  },
-});
+const styles = (theme: Theme) =>
+  createStyles({
+    detailTypography: {
+      color: theme.palette.grey[700],
+    },
+  });
 
 const useStyles = makeStyles(styles, { name: 'ManagerReviewAchievementsExpansionPanel' });
 type StyleProps = Styles<typeof styles>;

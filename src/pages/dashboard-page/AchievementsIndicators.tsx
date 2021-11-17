@@ -28,7 +28,7 @@ export function AchievementsIndicators(props: Props) {
     <Fragment>
       {projects.map((project, index) => {
         const value = getValue(project);
-        return <ProjectProgress key={project.project.id} value={value} name={project.project.name} />;
+        return <ProjectProgress key={project.id} value={value} name={project.projectName} />;
       })}
     </Fragment>
   );
@@ -36,10 +36,8 @@ export function AchievementsIndicators(props: Props) {
 
 export const fragment = graphql`
   fragment AchievementsIndicators_projects on ProjectReviewNode @relay(plural: true) {
-    project {
-      name
-      id
-    }
+    id
+    projectName
     rating
     reviewers {
       id

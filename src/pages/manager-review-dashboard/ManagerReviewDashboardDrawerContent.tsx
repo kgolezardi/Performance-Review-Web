@@ -31,10 +31,8 @@ const fragment = graphql`
       overallRating
     }
     projectReviews {
-      project {
-        name
-        id
-      }
+      id
+      projectName
       managerComment {
         rating
       }
@@ -156,9 +154,9 @@ export function ManagerReviewDashboardDrawerContent(props: Props) {
           <TabPanel value={1}>
             <Grid container spacing={3}>
               {user.projectReviews.map((projectReview) => (
-                <Grid item xs={12} key={projectReview.project.id}>
+                <Grid item xs={12} key={projectReview.id}>
                   <EvaluationItemOutput
-                    title={projectReview.project.name}
+                    title={projectReview.projectName}
                     type="peer"
                     value={projectReview.managerComment?.rating ?? null}
                   />

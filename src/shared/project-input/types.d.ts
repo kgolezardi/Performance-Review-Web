@@ -1,1 +1,0 @@
-export { ProjectInputProps } from './ProjectInput';

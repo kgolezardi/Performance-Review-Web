@@ -20,9 +20,7 @@ const fragment = graphql`
       firstName
       ...getUserLabel_user
     }
-    project {
-      name
-    }
+    projectName
     ...ProjectOutput_review
     comments {
       ...ProjectResultRatingGroup_comments
@@ -42,7 +40,7 @@ export function ProjectResultExpansionPanel(props: Props) {
 
   const theme = useTheme();
   const quoteBoxBgcolor = lighten(theme.palette.primary.main, 0.85);
-  const projectName = projectReview.project.name;
+  const projectName = projectReview.projectName;
 
   return (
     <ExpansionPanel>
