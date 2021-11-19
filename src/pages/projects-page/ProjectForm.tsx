@@ -26,11 +26,11 @@ import { useFormDirty } from 'src/shared/form-change-detector';
 import { useFragment } from 'react-relay/hooks';
 
 import { DeleteProjectReviewMutationInput } from './__generated__/deleteProjectReviewMutation.graphql';
-import { Evaluation } from './__generated__/saveProjectReviewMutation.graphql';
+import { Evaluation } from './__generated__/editProjectReviewMutation.graphql';
 import { ProjectForm_projectReview$key } from './__generated__/ProjectForm_projectReview.graphql';
 
 export interface ProjectFormData {
-  projectId: string;
+  projectReviewId: string;
   text?: string;
   rating?: Evaluation;
   reviewersId: string[];
@@ -53,10 +53,7 @@ export function ProjectForm(props: Props) {
   const projectReview = useFragment(
     graphql`
       fragment ProjectForm_projectReview on ProjectReviewNode {
-        project {
-          id
-          name
-        }
+        projectName
         text
         id
         rating
@@ -70,7 +67,7 @@ export function ProjectForm(props: Props) {
 
   const initialValue: ProjectFormData = useMemo(() => {
     return {
-      projectId: projectReview.project.id,
+      projectReviewId: projectReview.id,
       text: projectReview.text || '',
       rating: projectReview.rating || undefined,
       reviewersId: projectReview.reviewers.map(prop('id')),
@@ -90,7 +87,7 @@ export function ProjectForm(props: Props) {
     <Forminator onSubmit={onSubmit} initialValue={initialValue}>
       <Grid container spacing={2}>
         <DictInput>
-          <DictInputItem field="projectId">
+          <DictInputItem field="projectReviewId">
             <ConstantInput />
           </DictInputItem>
 
@@ -138,7 +135,7 @@ export function ProjectForm(props: Props) {
               buttonText={i18n._('Delete')}
               onConfirm={handleDelete}
               text={i18n._('Are you sure you want to delete {projectName} review?', {
-                projectName: projectReview.project.name,
+                projectName: projectReview.projectName,
               })}
               ConfirmComponent={DangerButton}
               confirmProps={{ variant: 'contained' }}

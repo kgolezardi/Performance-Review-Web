@@ -26,9 +26,7 @@ const fragment = graphql`
       firstName
       ...getUserLabel_user
     }
-    project {
-      name
-    }
+    projectName
     ...ProjectOutput_review
     comments {
       ...ProjectCommentsOutput_comments
@@ -40,7 +38,7 @@ export function PeerReviewProjectsResult(props: Props) {
   const projectReview = useFragment(fragment, props.projectReview);
   const classes = useStyles(props);
 
-  const projectName = projectReview.project.name;
+  const projectName = projectReview.projectName;
   const name = getUserLabel(projectReview.reviewee);
 
   return (
