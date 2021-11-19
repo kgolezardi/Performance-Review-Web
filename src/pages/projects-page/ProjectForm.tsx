@@ -111,7 +111,7 @@ export function ProjectForm(props: Props) {
                 variant="outlined"
                 fullWidth
                 helperText={i18n._(
-                  'Work results and achievemnts reflecting your contributions; For instance, your key-results',
+                  '**Work results and achievemnts reflecting your contributions; For instance, your key-results',
                 )}
               />
               <FragmentPrompt value={initialValue.text || ''} />
@@ -123,7 +123,7 @@ export function ProjectForm(props: Props) {
                 label={i18n._('Reviewers')}
                 users={props.users}
                 excludes={userIds}
-                helperText={i18n._('Coordinate reviewers with your manager (maximum 6 reviewers)')}
+                helperText={i18n._('**Coordinate reviewers with your manager (maximum 6 reviewers)')}
               />
               <FragmentPrompt value={initialValue.reviewersId || []} equal={arrayEqual} />
             </DictInputItem>

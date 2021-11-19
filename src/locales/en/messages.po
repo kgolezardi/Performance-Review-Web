@@ -44,10 +44,6 @@ msgstr "Add"
 msgid "Add here after completing any evaluation"
 msgstr "Add here after completing any evaluation"
 
-#: src/pages/projects-page/AddProjectForm.tsx:12
-msgid "Projects"
-msgstr "Projects"
-
 #: src/pages/manager-review-dashboard/TableFilters.tsx:29
 #: src/pages/manager-review-dashboard/TableFilters.tsx:42
 msgid "All"
@@ -102,7 +98,7 @@ msgid "Colleague name"
 msgstr "Colleague name"
 
 #: src/pages/projects-page/ProjectForm.tsx:73
-msgid "Coordinate reviewers with your manager (maximum 6 reviewers)"
+msgid "**Coordinate reviewers with your manager (maximum 6 reviewers)"
 msgstr "Coordinate reviewers with your manager (maximum 6 reviewers)"
 
 #: src/shared/full-page-error/FullPageError.stories.tsx:9
@@ -373,6 +369,7 @@ msgstr "Project review name is duplicated."
 msgid "Project title"
 msgstr "Project title"
 
+#: src/pages/projects-page/AddProjectForm.tsx:12
 #: src/shared/full-page-error/FullPageError.stories.tsx:21
 msgid "Projects"
 msgstr "Projects"
@@ -565,7 +562,7 @@ msgid "What to improve"
 msgstr "What to improve"
 
 #: src/pages/projects-page/ProjectForm.tsx:67
-msgid "Work results and achievemnts reflecting your contributions; For instance, your key-results"
+msgid "**Work results and achievemnts reflecting your contributions; For instance, your key-results"
 msgstr "Work results and achievemnts reflecting your contributions; For instance, your key-results"
 
 #: src/shared/confirm-button/ConfirmButton.tsx:8
