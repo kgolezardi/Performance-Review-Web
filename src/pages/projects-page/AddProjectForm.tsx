@@ -22,7 +22,7 @@ export function AddProjectForm(props: Props) {
       <DictInput>
         <Grid container spacing={2}>
           <Grid item xs={12}>
-            <Typography variant="h5">{i18n._('Adding Projects')}</Typography>
+            <Typography variant="h5">{i18n._('Projects')}</Typography>
           </Grid>
           <Grid item xs={12}>
             <Typography>{i18n._('Choose projects you have been working on in the past year.')}</Typography>

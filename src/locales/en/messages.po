@@ -45,8 +45,8 @@ msgid "Add here after completing any evaluation"
 msgstr "Add here after completing any evaluation"
 
 #: src/pages/projects-page/AddProjectForm.tsx:12
-msgid "Adding Projects"
-msgstr "Adding Projects"
+msgid "Projects"
+msgstr "Projects"
 
 #: src/pages/manager-review-dashboard/TableFilters.tsx:29
 #: src/pages/manager-review-dashboard/TableFilters.tsx:42
@@ -266,8 +266,8 @@ msgid "Meets Expectations from me"
 msgstr "Meets Expectations from me"
 
 #: src/pages/projects-page/ProjectForm.tsx:60
-msgid "My impact"
-msgstr "My impact"
+msgid "My evaluation"
+msgstr "My evaluation"
 
 #: src/containers/main/getMenuItems.ts:49
 #: src/pages/guide-page/NvcGuidePage.tsx:10
