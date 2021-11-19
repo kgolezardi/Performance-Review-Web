@@ -27,9 +27,9 @@ export function ProjectExpansionPanel(props: Props) {
 
   return (
     <FormChangeDetector>
-      <ExpansionPanel defaultExpanded={!initialProjectIds.has(projectReview.project.id)}>
+      <ExpansionPanel defaultExpanded={!initialProjectIds.has(projectReview.id)}>
         <ExpansionPanelSummary>
-          <Typography variant="h6">{projectReview.project.name}</Typography>
+          <Typography variant="h6">{projectReview.projectName}</Typography>
         </ExpansionPanelSummary>
         <ExpansionPanelDetails>
           <ProjectForm onSubmit={saveProject} onDelete={deleteProject} projectReview={projectReview} users={users} />
@@ -41,10 +41,8 @@ export function ProjectExpansionPanel(props: Props) {
 
 const fragment = graphql`
   fragment ProjectExpansionPanel_projectReview on ProjectReviewNode {
-    project {
-      id
-      name
-    }
+    id
+    projectName
     ...ProjectForm_projectReview
   }
 `;

@@ -14,9 +14,7 @@ const fragment = graphql`
   fragment ProjectOutput_review on ProjectReviewNode {
     text
     rating
-    project {
-      name
-    }
+    projectName
   }
 `;
 
@@ -37,7 +35,7 @@ export function ProjectOutput(props: Props) {
       {showProjectName && (
         <Grid item xs={12}>
           <Typography variant="h5" gutterBottom>
-            {review.project.name}
+            {review.projectName}
           </Typography>
         </Grid>
       )}

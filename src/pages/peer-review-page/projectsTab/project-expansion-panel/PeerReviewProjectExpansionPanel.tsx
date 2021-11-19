@@ -21,9 +21,7 @@ const fragment = graphql`
     reviewee {
       ...getUserLabel_user
     }
-    project {
-      name
-    }
+    projectName
     text
     comment {
       ...PeerReviewProjectsForm_projectComment
@@ -57,7 +55,7 @@ export function PeerReviewProjectExpansionPanel(props: Props) {
     [saveProjectComment, projectReviewId, enqueueSnackbar],
   );
 
-  const projectName = projectReview.project.name;
+  const projectName = projectReview.projectName;
   const name = getUserLabel(projectReview.reviewee);
 
   return (
