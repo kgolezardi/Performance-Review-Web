@@ -183,7 +183,7 @@ msgstr "وضعیت ارزیابی"
 #: src/shared/behavioral-competency-item/BehavioralCompetencyItem.tsx:29
 #: src/shared/behavioral-competency-output/BehavioralCompetencyOutput.tsx:22
 msgid "Evidence"
-msgstr "شواهد"
+msgstr "دلیل ارزیابی‌ات"
 
 #: src/global-types/Evaluation.ts:18
 msgid "Exceeds Expectations from Him/Her"
