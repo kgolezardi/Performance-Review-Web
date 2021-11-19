@@ -44,10 +44,6 @@ msgstr "Add"
 msgid "Add here after completing any evaluation"
 msgstr "Add here after completing any evaluation"
 
-#: src/pages/projects-page/AddProjectForm.tsx:12
-msgid "Projects"
-msgstr "Projects"
-
 #: src/pages/manager-review-dashboard/TableFilters.tsx:29
 #: src/pages/manager-review-dashboard/TableFilters.tsx:42
 msgid "All"
@@ -373,6 +369,7 @@ msgstr "Project review name is duplicated."
 msgid "Project title"
 msgstr "Project title"
 
+#: src/pages/projects-page/AddProjectForm.tsx:12
 #: src/shared/full-page-error/FullPageError.stories.tsx:21
 msgid "Projects"
 msgstr "Projects"
