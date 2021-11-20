@@ -15,7 +15,7 @@ msgstr ""
 
 #: src/App.tsx:24
 msgid "%s - Performance Review"
-msgstr "%s - ارزیابی عملکرد"
+msgstr "%s - مرور عملکرد"
 
 #: src/pages/projects-page/ProjectForm.tsx:73
 msgid "**Coordinate reviewers with your manager (maximum 6 reviewers)"
@@ -341,11 +341,11 @@ msgstr "ارزیابی همکار"
 #: src/shared/full-page-error/FullPageError.stories.tsx:33
 #: src/shared/layouts/dashboard-layouts/DashboardLayout.stories.tsx:26
 msgid "Performance Review"
-msgstr "ارزیابی عملکرد"
+msgstr "مرور عملکرد"
 
 #: src/shared/auth/Login.tsx:35
 msgid "Performance Review System"
-msgstr "سامانه ارزیابی عملکرد"
+msgstr "سامانه مرور عملکرد"
 
 #: src/core/locales/languages.ts:4
 msgid "Persian"
