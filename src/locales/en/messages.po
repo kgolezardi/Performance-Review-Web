@@ -17,6 +17,14 @@ msgstr ""
 msgid "%s - Performance Review"
 msgstr "%s - Performance Review"
 
+#: src/pages/projects-page/ProjectForm.tsx:73
+msgid "**Coordinate reviewers with your manager (maximum 6 reviewers)"
+msgstr "Coordinate reviewers with your manager (maximum 6 reviewers)"
+
+#: src/pages/projects-page/ProjectForm.tsx:67
+msgid "**Work results and achievemnts reflecting your contributions; For instance, your key-results"
+msgstr "Work results and achievemnts reflecting your contributions; For instance, your key-results"
+
 #: src/pages/projects-page/ProjectForm.tsx:67
 #: src/shared/project-output/ProjectCommentOutput.tsx:27
 #: src/shared/project-output/ProjectOutput.tsx:32
@@ -96,10 +104,6 @@ msgstr "Choose projects you have been working on in the past year."
 #: src/pages/manager-review-dashboard/TableFilters.tsx:14
 msgid "Colleague name"
 msgstr "Colleague name"
-
-#: src/pages/projects-page/ProjectForm.tsx:73
-msgid "**Coordinate reviewers with your manager (maximum 6 reviewers)"
-msgstr "Coordinate reviewers with your manager (maximum 6 reviewers)"
 
 #: src/shared/full-page-error/FullPageError.stories.tsx:9
 msgid "Criteria"
@@ -560,10 +564,6 @@ msgstr "What to continue doing"
 #: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:57
 msgid "What to improve"
 msgstr "What to improve"
-
-#: src/pages/projects-page/ProjectForm.tsx:67
-msgid "**Work results and achievemnts reflecting your contributions; For instance, your key-results"
-msgstr "Work results and achievemnts reflecting your contributions; For instance, your key-results"
 
 #: src/shared/confirm-button/ConfirmButton.tsx:8
 msgid "Yes"

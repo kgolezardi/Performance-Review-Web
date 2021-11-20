@@ -17,6 +17,14 @@ msgstr ""
 msgid "%s - Performance Review"
 msgstr "%s - ارزیابی عملکرد"
 
+#: src/pages/projects-page/ProjectForm.tsx:73
+msgid "**Coordinate reviewers with your manager (maximum 6 reviewers)"
+msgstr "مرورکنندگانی رو که اینجا مشخص می‌کنی، فقط قسمت «توضیح فعالیت» رو در فاز بعدی مرور عملکرد می‌خونن و روش بهت بازخورد می‌دن. همچنین این افراد «شایستگی‌های رفتاری» و «ویژگی‌های بارز» تو رو از نگاه خودشون (و بدون خوندن نوشته‌هات) ارزیابی می‌کنن. مرورکنندگان رو حتما با هماهنگی مدیر مستقیمت انتخاب کن (حداکثر ۶ نفر)."
+
+#: src/pages/projects-page/ProjectForm.tsx:67
+msgid "**Work results and achievemnts reflecting your contributions; For instance, your key-results"
+msgstr "ماهیت فعالیت و خروجی مستقیمش رو بیشتر توضیح بده. همچنین چنتا از چالش‌های اصلی‌ای رو که در مسیر انجام فعالیت بهشون برخورد کردی تعریف و عملکردت رو برای حل اونا تحلیل کن."
+
 #: src/pages/projects-page/ProjectForm.tsx:67
 #: src/shared/project-output/ProjectCommentOutput.tsx:27
 #: src/shared/project-output/ProjectOutput.tsx:32
@@ -96,10 +104,6 @@ msgstr "کارهایی که در یکسال گذشته انجام دادی رو 
 #: src/pages/manager-review-dashboard/TableFilters.tsx:14
 msgid "Colleague name"
 msgstr "نام همکار"
-
-#: src/pages/projects-page/ProjectForm.tsx:73
-msgid "**Coordinate reviewers with your manager (maximum 6 reviewers)"
-msgstr "مرورکنندگانی رو که اینجا مشخص می‌کنی، فقط قسمت «توضیح فعالیت» رو در فاز بعدی مرور عملکرد می‌خونن و روش بهت بازخورد می‌دن. همچنین این افراد «شایستگی‌های رفتاری» و «ویژگی‌های بارز» تو رو از نگاه خودشون (و بدون خوندن نوشته‌هات) ارزیابی می‌کنن. مرورکنندگان رو حتما با هماهنگی مدیر مستقیمت انتخاب کن (حداکثر ۶ نفر)."
 
 #: src/shared/full-page-error/FullPageError.stories.tsx:9
 msgid "Criteria"
@@ -560,10 +564,6 @@ msgstr "چی رو ادامه بدم"
 #: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:57
 msgid "What to improve"
 msgstr "چی رو بهبود بدم"
-
-#: src/pages/projects-page/ProjectForm.tsx:67
-msgid "**Work results and achievemnts reflecting your contributions; For instance, your key-results"
-msgstr "ماهیت فعالیت و خروجی مستقیمش رو بیشتر توضیح بده. همچنین چنتا از چالش‌های اصلی‌ای رو که در مسیر انجام فعالیت بهشون برخورد کردی تعریف و عملکردت رو برای حل اونا تحلیل کن."
 
 #: src/shared/confirm-button/ConfirmButton.tsx:8
 msgid "Yes"
