@@ -1,5 +1,5 @@
 import defaultLoginBackgroundImage from 'src/assets/login-background.png';
-import logo from 'src/assets/logo-light.png';
+import logo from 'src/assets/logo.png';
 import React, { useState } from 'react';
 import { Card, Container, Theme, Typography, createStyles, makeStyles } from '@material-ui/core';
 import { FCProps } from 'src/shared/types/FCProps';

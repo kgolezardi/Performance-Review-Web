@@ -1,4 +1,4 @@
-import logo from 'src/assets/logo.png';
+import logo from 'src/assets/logo-light.png';
 import React, { Suspense, useMemo } from 'react';
 import {
   Brand,
