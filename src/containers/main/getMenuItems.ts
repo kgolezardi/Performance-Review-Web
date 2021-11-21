@@ -24,6 +24,12 @@ export function getMenuItems(phase: Phase, user: User): NavbarMenuItem[] {
         children: [
           {
             link: {
+              to: '/self-review/achievements',
+            },
+            text: i18n._('Achievements'),
+          },
+          {
+            link: {
               to: '/self-review/behavioral-competencies',
             },
             text: i18n._('Behavioral Competencies'),
@@ -33,12 +39,6 @@ export function getMenuItems(phase: Phase, user: User): NavbarMenuItem[] {
               to: '/self-review/dominant-characteristics',
             },
             text: i18n._('Dominant Characteristics'),
-          },
-          {
-            link: {
-              to: '/self-review/achievements',
-            },
-            text: i18n._('Achievements'),
           },
         ],
       },

@@ -31,8 +31,8 @@ msgstr "ماهیت فعالیت و خروجی مستقیمش رو بیشتر ت�
 msgid "Accomplishments"
 msgstr "توضیح فعالیت"
 
-#: src/containers/main/getMenuItems.ts:34
-#: src/pages/dashboard-page/DashboardPage.tsx:57
+#: src/containers/main/getMenuItems.ts:22
+#: src/pages/dashboard-page/DashboardPage.tsx:35
 #: src/pages/manager-review-dashboard/ManagerReviewDashboardDrawerContent.tsx:78
 #: src/pages/manager-review-dashboard/ManagerReviewDashboardTable.tsx:90
 #: src/pages/manager-review-page/ManagerReviewPage.tsx:51
@@ -66,6 +66,7 @@ msgstr "تمامی ارزیابی‌ها با موفقیت انجام شد"
 #: src/pages/manager-review-page/overall-evaluation/ManagerReviewOverallEvaluation.tsx:62
 #: src/pages/peer-review-page/PeerReviewPersonInfoCard.tsx:49
 #: src/pages/peer-review-page/PeerReviewPersonInfoCard.tsx:54
+#: src/pages/projects-page/project-review-title-editor/ProjectReviewEditForm.tsx:46
 msgid "An error occurred. Try again!"
 msgstr "خطایی رخ داده. دوباره تلاش کنید."
 
@@ -73,8 +74,8 @@ msgstr "خطایی رخ داده. دوباره تلاش کنید."
 msgid "Are you sure you want to delete {projectName} review?"
 msgstr "آیا از حذف {projectName} مطمین هستید؟"
 
-#: src/containers/main/getMenuItems.ts:22
-#: src/pages/dashboard-page/DashboardPage.tsx:35
+#: src/containers/main/getMenuItems.ts:28
+#: src/pages/dashboard-page/DashboardPage.tsx:48
 #: src/pages/manager-review-dashboard/ManagerReviewDashboardDrawerContent.tsx:77
 #: src/pages/manager-review-dashboard/ManagerReviewDashboardTable.tsx:89
 #: src/pages/manager-review-page/ManagerReviewPage.tsx:49
@@ -85,6 +86,7 @@ msgstr "آیا از حذف {projectName} مطمین هستید؟"
 msgid "Behavioral Competencies"
 msgstr "شایستگی‌های رفتاری"
 
+#: src/pages/projects-page/project-review-title-editor/ProjectReviewEditForm.tsx:61
 #: src/shared/sticky-bottom-paper/StickyBottomPaper.stories.tsx:11
 msgid "Cancel"
 msgstr "لغو"
@@ -127,8 +129,8 @@ msgstr "حذف"
 msgid "Doing"
 msgstr "در حال انجام"
 
-#: src/containers/main/getMenuItems.ts:28
-#: src/pages/dashboard-page/DashboardPage.tsx:46
+#: src/containers/main/getMenuItems.ts:34
+#: src/pages/dashboard-page/DashboardPage.tsx:59
 #: src/pages/manager-review-page/ManagerReviewPage.tsx:50
 #: src/pages/manager-review-page/ManagerReviewPrintPage.tsx:61
 #: src/pages/peer-review-page/PeerReviewPage.tsx:47
@@ -146,6 +148,10 @@ msgstr "انجام شده"
 #: src/pages/peer-review-page/PeerReviewPersonInfoCard.tsx:62
 msgid "Edit"
 msgstr "ویرایش"
+
+#: src/pages/projects-page/project-review-title-editor/ProjectReviewTitleModal.tsx:8
+msgid "Edit project title"
+msgstr "ویرایش عنوان پروژه"
 
 #: src/pages/peer-review-page/PeerReviewPersonInfoCard.tsx:64
 msgid "End {name}'s evaluation"
@@ -370,6 +376,7 @@ msgid "Project review name is duplicated."
 msgstr "عنوان فعالیت تکراری است."
 
 #: src/pages/projects-page/AddProjectForm.tsx:21
+#: src/pages/projects-page/project-review-title-editor/ProjectReviewEditForm.tsx:53
 msgid "Project title"
 msgstr "عنوان فعالیت"
 
@@ -433,6 +440,7 @@ msgstr "مشاهده و دریافت جایزه"
 #: src/pages/peer-review-page/projectsTab/project-expansion-panel/PeerReviewProjectExpansionPanel.tsx:38
 #: src/pages/projects-page/ProjectsPage.tsx:44
 #: src/pages/projects-page/ProjectsPage.tsx:52
+#: src/pages/projects-page/project-review-title-editor/ProjectReviewEditForm.tsx:37
 #: src/pages/strengths-weaknesses-page/StrengthsWeaknessesPage.tsx:62
 msgid "Something went wrong."
 msgstr "خطایی رخ داد."
@@ -461,6 +469,10 @@ msgstr "نقاط قوت و ضعف"
 msgid "Submit"
 msgstr "ثبت"
 
+#: src/pages/projects-page/project-review-title-editor/ProjectReviewEditForm.tsx:65
+msgid "Submit changes"
+msgstr "ثبت تغییرات"
+
 #: src/core/snackbar/Snackbar.stories.tsx:13
 #: src/pages/behavioral-competencies-page/BehavioralCompetenciesPage.tsx:48
 #: src/pages/manager-review-page/achievements/ManagerReviewAchievements.tsx:56
@@ -468,6 +480,7 @@ msgstr "ثبت"
 #: src/pages/manager-review-page/overall-evaluation/ManagerReviewOverallEvaluation.tsx:59
 #: src/pages/peer-review-page/projectsTab/project-expansion-panel/PeerReviewProjectExpansionPanel.tsx:35
 #: src/pages/projects-page/ProjectsPage.tsx:41
+#: src/pages/projects-page/project-review-title-editor/ProjectReviewEditForm.tsx:42
 #: src/pages/strengths-weaknesses-page/StrengthsWeaknessesPage.tsx:59
 msgid "Successfully saved."
 msgstr "با موفقیت ثبت گردید."
@@ -502,6 +515,10 @@ msgstr "مهم‌ترین ویژگی‌ها یا رفتارهای مؤثری ک�
 #: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:48
 msgid "The most important characteristics or effective behaviors that he/she should maintain"
 msgstr "مهم‌ترین ویژگی‌ها یا رفتارهای مؤثری که باید ادامه‌شون بده"
+
+#: src/pages/projects-page/project-review-title-editor/ProjectReviewEditForm.tsx:37
+msgid "The project review name already exists."
+msgstr "نام پروژه قبلا وجود داشته است"
 
 #: src/pages/behavioral-competencies-page/BehavioralCompetenciesForm.tsx:67
 #: src/pages/manager-review-dashboard/ManagerReviewDashboardDrawerContent.tsx:98
