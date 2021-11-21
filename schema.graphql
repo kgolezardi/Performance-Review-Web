@@ -279,6 +279,13 @@ type SettingsNode implements Node {
   phase: Phase!
   startText: String
   managerOverallReviewText: String
+  selfReviewSahabinessHelpModalText: String
+  selfReviewProblemSolvingHelpModalText: String
+  selfReviewExecutionHelpModalText: String
+  selfReviewThoughtLeadershipHelpModalText: String
+  selfReviewLeadershipHelpModalText: String
+  selfReviewPresenceHelpModalText: String
+  selfReviewProjectReviewHelpModalText: String
 }
 
 input StartReviewMutationInput {

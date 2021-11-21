@@ -14,6 +14,7 @@ import {
 } from 'src/shared/forminator';
 import { DangerButton } from 'src/shared/danger-button';
 import { FCProps } from 'src/shared/types/FCProps';
+import { Guide } from 'src/shared/guide/Guide';
 import { LIMITED_TEXT_AREA_COUNTER_DISPLAY_THRESHOLD, LIMITED_TEXT_AREA_MAX_CHARS } from 'src/shared/constants';
 import { Rating } from 'src/shared/rating';
 import { ReviewersInput } from 'src/shared/reviewers-input';
@@ -24,6 +25,7 @@ import { i18n } from '@lingui/core';
 import { useAuthGuardUser } from 'src/core/auth';
 import { useFormDirty } from 'src/shared/form-change-detector';
 import { useFragment } from 'react-relay/hooks';
+import { useGuidesContext } from 'src/core/guides';
 
 import { DeleteProjectReviewMutationInput } from './__generated__/deleteProjectReviewMutation.graphql';
 import { Evaluation } from './__generated__/editProjectReviewMutation.graphql';
@@ -64,6 +66,8 @@ export function ProjectForm(props: Props) {
     `,
     props.projectReview,
   );
+
+  const { selfReviewProjectReviewHelpModalText } = useGuidesContext();
 
   const initialValue: ProjectFormData = useMemo(() => {
     return {
@@ -110,9 +114,14 @@ export function ProjectForm(props: Props) {
                 counterDisplayThreshold={LIMITED_TEXT_AREA_COUNTER_DISPLAY_THRESHOLD}
                 variant="outlined"
                 fullWidth
-                helperText={i18n._(
-                  '**Work results and achievemnts reflecting your contributions; For instance, your key-results',
-                )}
+                helperText={
+                  <Box display="flex" alignItems="center">
+                    {i18n._(
+                      'Work results and achievements reflecting your contributions; For instance, your key-results',
+                    )}
+                    <Guide guideText={selfReviewProjectReviewHelpModalText} title={i18n._('Accomplishments')} />
+                  </Box>
+                }
               />
               <FragmentPrompt value={initialValue.text || ''} />
             </DictInputItem>

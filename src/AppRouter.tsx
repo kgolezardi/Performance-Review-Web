@@ -4,6 +4,7 @@ import { ErrorBoundary } from 'src/shared/error-boundary';
 import { FCProps } from 'src/shared/types/FCProps';
 import { FullPageError } from 'src/shared/full-page-error';
 import { FullPageSpinner } from 'src/shared/loading';
+import { GuidesProvider } from 'src/core/guides';
 import { MainContainer } from 'src/containers/main';
 import { ResultPrintPage } from 'src/pages/result-page/ResultPrintPage';
 import { Route, Switch } from 'react-router-dom';
@@ -25,14 +26,16 @@ export function AppRouter(props: Props) {
       <Suspense fallback={<FullPageSpinner fullHeight />}>
         <Router historyOptions={routerOptions}>
           <SettingsProvider>
-            <AuthGuard>
-              <div id="game-container" />
-              <Switch>
-                <Route path="/print" children={<ResultPrintPage />} />
-                <Route path="/print-manager-review/:uid" children={<ManagerReviewPrintPage />} />
-                <Route children={<MainContainer />} />
-              </Switch>
-            </AuthGuard>
+            <GuidesProvider>
+              <AuthGuard>
+                <div id="game-container" />
+                <Switch>
+                  <Route path="/print" children={<ResultPrintPage />} />
+                  <Route path="/print-manager-review/:uid" children={<ManagerReviewPrintPage />} />
+                  <Route children={<MainContainer />} />
+                </Switch>
+              </AuthGuard>
+            </GuidesProvider>
           </SettingsProvider>
         </Router>
       </Suspense>
