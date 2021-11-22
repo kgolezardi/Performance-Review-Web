@@ -590,7 +590,7 @@ msgstr "بله"
 msgid "Yes! Go"
 msgstr "آره! می‌رم"
 
-#: src/pages/manager-review-page/ManagerReviewProgress.tsx:39
+#: src/pages/manager-review-page/ManagerReviewProgress.tsx:41
 msgid "You have evaluated all {total} achievements. You can change them whenever you want to."
 msgstr "هر {total} همه فعالیت‌‌ها ارزیابی شد. هر زمان که خواستی می‌تونی اونارو تغییر بدی"
 
@@ -607,7 +607,7 @@ msgstr "هنوز هیچ فعالیتی اضافه نکردی!"
 msgid "You haven't entered anything yet!"
 msgstr "هنوز چیزی ننوشتی!"
 
-#: src/pages/manager-review-page/ManagerReviewProgress.tsx:37
+#: src/pages/manager-review-page/ManagerReviewProgress.tsx:39
 msgid "You haven't evaluated any achievements yet"
 msgstr "هنوز هیچ فعالیتی را ارزیابی نکردی"
 
@@ -646,7 +646,7 @@ msgstr "ارزیابی شما از {name} در {criteria}"
 msgid "Your evaluation:"
 msgstr "ارزیابی شما:"
 
-#: src/pages/manager-review-page/ManagerReviewProgress.tsx:38
+#: src/pages/manager-review-page/ManagerReviewProgress.tsx:40
 msgid "{evaluatedItems} of {total} achievements are evaluated"
 msgstr "{evaluatedItems} مورد از {total} فعالیت ارزیابی شد"
 

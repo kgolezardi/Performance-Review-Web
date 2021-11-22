@@ -590,7 +590,7 @@ msgstr "Yes"
 msgid "Yes! Go"
 msgstr "Yes! Go"
 
-#: src/pages/manager-review-page/ManagerReviewProgress.tsx:39
+#: src/pages/manager-review-page/ManagerReviewProgress.tsx:41
 msgid "You have evaluated all {total} achievements. You can change them whenever you want to."
 msgstr "You have evaluated all {total} achievements. You can change them whenever you want to."
 
@@ -607,7 +607,7 @@ msgstr "You haven't added any project."
 msgid "You haven't entered anything yet!"
 msgstr "You haven't entered anything yet!"
 
-#: src/pages/manager-review-page/ManagerReviewProgress.tsx:37
+#: src/pages/manager-review-page/ManagerReviewProgress.tsx:39
 msgid "You haven't evaluated any achievements yet"
 msgstr "You haven't evaluated any achievements yet"
 
@@ -646,7 +646,7 @@ msgstr "Your evaluation of {name} on {criteria}"
 msgid "Your evaluation:"
 msgstr "Your evaluation:"
 
-#: src/pages/manager-review-page/ManagerReviewProgress.tsx:38
+#: src/pages/manager-review-page/ManagerReviewProgress.tsx:40
 msgid "{evaluatedItems} of {total} achievements are evaluated"
 msgstr "{evaluatedItems} of {total} achievements are evaluated"
 
