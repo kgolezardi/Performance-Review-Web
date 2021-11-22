@@ -49,7 +49,7 @@ export function ProjectOutput(props: Props) {
       )}
       <Grid item xs={12}>
         <Typography color="textSecondary" gutterBottom>
-          {i18n._('Accomplishments')}:
+          {i18n._('Accomplishments Description')}:
         </Typography>
         <MultilineOutput value={review.text} enableTruncating />
       </Grid>

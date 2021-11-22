@@ -38,7 +38,7 @@ export function ProjectCommentOutput(props: Props) {
       </Grid>
       <Grid item xs={12}>
         <Typography color="textSecondary" gutterBottom>
-          {i18n._('Accomplishments')}:
+          {i18n._('Accomplishments Description')}:
         </Typography>
         <MultilineOutput value={comment.text} />
       </Grid>

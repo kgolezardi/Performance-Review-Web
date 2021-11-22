@@ -28,7 +28,7 @@ msgstr "ماهیت فعالیت و خروجی مستقیمش رو بیشتر ت�
 #: src/pages/projects-page/ProjectForm.tsx:67
 #: src/shared/project-output/ProjectCommentOutput.tsx:27
 #: src/shared/project-output/ProjectOutput.tsx:32
-msgid "Accomplishments"
+msgid "Accomplishments Description"
 msgstr "توضیح فعالیت"
 
 #: src/containers/main/getMenuItems.ts:22
@@ -100,8 +100,8 @@ msgid "Changes you made may not be saved."
 msgstr "یعنی بدون ذخیره تغییرات می‌خوای بری؟؟"
 
 #: src/pages/projects-page/AddProjectForm.tsx:15
-msgid "Choose projects you have been working on in the past year."
-msgstr "کارهایی که در یکسال گذشته انجام دادی رو به حداکثر ۵ فعالیت کلی افراز کن و راجع بهشون توضیح بده."
+msgid "Choose projects you have been working on in the past year (At most 5)."
+msgstr "کارهایی که در یکسال گذشته انجام دادی رو به حداکثر ۵ فعالیت کلی تقسیم کن و راجع بهشون توضیح بده."
 
 #: src/pages/manager-review-dashboard/TableFilters.tsx:14
 msgid "Colleague name"
@@ -151,7 +151,7 @@ msgstr "ویرایش"
 
 #: src/pages/projects-page/project-review-title-editor/ProjectReviewTitleModal.tsx:8
 msgid "Edit project title"
-msgstr "ویرایش عنوان پروژه"
+msgstr "ویرایش عنوان فعالیت"
 
 #: src/pages/peer-review-page/PeerReviewPersonInfoCard.tsx:64
 msgid "End {name}'s evaluation"
@@ -492,7 +492,7 @@ msgstr "فوق‌العاده"
 
 #: src/shared/gift-dialog/GiftDialog.tsx:47
 msgid "Thanks, I claim it later"
-msgstr "ممنون، بعدا می‌گیرم جایزمو"
+msgstr "ممنون، جایزمو بعدا می‌گیرم"
 
 #: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:56
 #: src/shared/dominant-characteristics-output/DominantCharacteristics.tsx:21
@@ -518,7 +518,7 @@ msgstr "مهم‌ترین ویژگی‌ها یا رفتارهای مؤثری ک�
 
 #: src/pages/projects-page/project-review-title-editor/ProjectReviewEditForm.tsx:37
 msgid "The project review name already exists."
-msgstr "نام پروژه قبلا وجود داشته است"
+msgstr "نام فعالیت تکراری است"
 
 #: src/pages/behavioral-competencies-page/BehavioralCompetenciesForm.tsx:67
 #: src/pages/manager-review-dashboard/ManagerReviewDashboardDrawerContent.tsx:98
@@ -591,11 +591,11 @@ msgid "Yes! Go"
 msgstr "آره! می‌رم"
 
 #: src/pages/manager-review-page/ManagerReviewProgress.tsx:39
-msgid "You have evaluated all {total} achievements. You can change them when you want to."
+msgid "You have evaluated all {total} achievements. You can change them whenever you want to."
 msgstr "هر {total} همه فعالیت‌‌ها ارزیابی شد. هر زمان که خواستی می‌تونی اونارو تغییر بدی"
 
 #: src/pages/manager-review-page/ManagerReviewProgress.tsx:34
-msgid "You have evaluated all {total} behavioral competencies. You can change them when you want to."
+msgid "You have evaluated all {total} behavioral competencies. You can change them whenever you want to."
 msgstr "هر {total} مورد شایستگی رفتاری ارزیابی شد. هر زمان که خواستی می‌تونی اونارو تغییر بدی"
 
 #: src/pages/dashboard-page/AchievementsNoProjects.tsx:6

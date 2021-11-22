@@ -25,7 +25,7 @@ export function AddProjectForm(props: Props) {
             <Typography variant="h5">{i18n._('Projects')}</Typography>
           </Grid>
           <Grid item xs={12}>
-            <Typography>{i18n._('Choose projects you have been working on in the past year.')}</Typography>
+            <Typography>{i18n._('Choose projects you have been working on in the past year (At most 5).')}</Typography>
           </Grid>
           <Grid container item spacing={2} alignItems="center" xs={12}>
             <Grid item>
