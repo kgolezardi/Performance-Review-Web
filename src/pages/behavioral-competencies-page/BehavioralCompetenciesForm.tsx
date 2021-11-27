@@ -6,6 +6,7 @@ import { BehavioralCompetencyItem } from 'src/shared/behavioral-competency-item'
 import { DictInput, Forminator, SubmitButton } from 'src/shared/forminator';
 import { FCProps } from 'src/shared/types/FCProps';
 import { Grid } from '@material-ui/core';
+import { Guide } from 'src/shared/guide/Guide';
 import { MDXContext } from '@mdx-js/react';
 import { SectionGuide } from 'src/shared/section-guide';
 import { ServerValueProvider } from 'src/shared/server-value';
@@ -14,6 +15,7 @@ import { i18n } from '@lingui/core';
 import { importMDX } from 'mdx.macro';
 import { useFormDirty } from 'src/shared/form-change-detector';
 import { useFragment } from 'react-relay/hooks';
+import { useGuidesContext } from 'src/core/guides';
 
 import { BehavioralCompetenciesFormValue } from './BehavioralCompetenciesFormValue';
 import { BehavioralCompetenciesForm_review$key } from './__generated__/BehavioralCompetenciesForm_review.graphql';
@@ -54,7 +56,14 @@ export function BehavioralCompetenciesForm(props: Props) {
   const components = useContext(MDXContext);
   const review = useFragment(fragment, props.review);
   const reviewType = isSelfReview ? 'self' : 'peer';
-
+  const {
+    selfReviewExecutionHelpModalText,
+    selfReviewSahabinessHelpModalText,
+    selfReviewLeadershipHelpModalText,
+    selfReviewPresenceHelpModalText,
+    selfReviewProblemSolvingHelpModalText,
+    selfReviewThoughtLeadershipHelpModalText,
+  } = useGuidesContext();
   // if review properties are null, replace it with undefined
   let value: BehavioralCompetenciesFormValue = {};
   for (const key in review) {
@@ -84,6 +93,7 @@ export function BehavioralCompetenciesForm(props: Props) {
                 details={<BehavioralCompetencyHelpText criteria="sahabiness" isSelfReview={isSelfReview} />}
                 prefix="sahabiness"
               />
+              <Guide title={i18n._('Organization Culture Adoption')} guideText={selfReviewSahabinessHelpModalText} />
             </Grid>
             <Grid item xs={12}>
               <BehavioralCompetencyItem
@@ -92,6 +102,7 @@ export function BehavioralCompetenciesForm(props: Props) {
                 details={<BehavioralCompetencyHelpText criteria="problemSolving" isSelfReview={isSelfReview} />}
                 prefix="problemSolving"
               />
+              <Guide title={i18n._('Problem Solving')} guideText={selfReviewProblemSolvingHelpModalText} />
             </Grid>
             <Grid item xs={12}>
               <BehavioralCompetencyItem
@@ -100,6 +111,7 @@ export function BehavioralCompetenciesForm(props: Props) {
                 details={<BehavioralCompetencyHelpText criteria="execution" isSelfReview={isSelfReview} />}
                 prefix="execution"
               />
+              <Guide title={i18n._('Output Quality')} guideText={selfReviewExecutionHelpModalText} />
             </Grid>
             <Grid item xs={12}>
               <BehavioralCompetencyItem
@@ -108,6 +120,7 @@ export function BehavioralCompetenciesForm(props: Props) {
                 details={<BehavioralCompetencyHelpText criteria="thoughtLeadership" isSelfReview={isSelfReview} />}
                 prefix="thoughtLeadership"
               />
+              <Guide title={i18n._('Thought Leadership')} guideText={selfReviewThoughtLeadershipHelpModalText} />
             </Grid>
             <Grid item xs={12}>
               <BehavioralCompetencyItem
@@ -116,6 +129,7 @@ export function BehavioralCompetenciesForm(props: Props) {
                 details={<BehavioralCompetencyHelpText criteria="leadership" isSelfReview={isSelfReview} />}
                 prefix="leadership"
               />
+              <Guide title={i18n._('Leadership')} guideText={selfReviewLeadershipHelpModalText} />
             </Grid>
             <Grid item xs={12}>
               <BehavioralCompetencyItem
@@ -124,6 +138,7 @@ export function BehavioralCompetenciesForm(props: Props) {
                 details={<BehavioralCompetencyHelpText criteria="presence" isSelfReview={isSelfReview} />}
                 prefix="presence"
               />
+              <Guide title={i18n._('Presence')} guideText={selfReviewPresenceHelpModalText} />
             </Grid>
           </DictInput>
           <StickyBottomPaper>

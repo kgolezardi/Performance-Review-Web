@@ -17,15 +17,12 @@ msgstr ""
 msgid "%s - Performance Review"
 msgstr "%s - ارزیابی عملکرد"
 
-#: src/pages/projects-page/ProjectForm.tsx:73
+#: src/pages/projects-page/ProjectForm.tsx:79
 msgid "**Coordinate reviewers with your manager (maximum 6 reviewers)"
 msgstr "مرورکنندگانی رو که اینجا مشخص می‌کنی، فقط قسمت «توضیح فعالیت» رو در فاز بعدی مرور عملکرد می‌خونن و روش بهت بازخورد می‌دن. همچنین این افراد «شایستگی‌های رفتاری» و «ویژگی‌های بارز» تو رو از نگاه خودشون (و بدون خوندن نوشته‌هات) ارزیابی می‌کنن. مرورکنندگان رو حتما با هماهنگی مدیر مستقیمت انتخاب کن (حداکثر ۶ نفر)."
 
-#: src/pages/projects-page/ProjectForm.tsx:67
-msgid "**Work results and achievemnts reflecting your contributions; For instance, your key-results"
-msgstr "ماهیت فعالیت و خروجی مستقیمش رو بیشتر توضیح بده. همچنین چنتا از چالش‌های اصلی‌ای رو که در مسیر انجام فعالیت بهشون برخورد کردی تعریف و عملکردت رو برای حل اونا تحلیل کن."
-
-#: src/pages/projects-page/ProjectForm.tsx:67
+#: src/pages/projects-page/ProjectForm.tsx:70
+#: src/pages/projects-page/ProjectForm.tsx:72
 #: src/shared/project-output/ProjectCommentOutput.tsx:27
 #: src/shared/project-output/ProjectOutput.tsx:32
 msgid "Accomplishments"
@@ -70,7 +67,7 @@ msgstr "تمامی ارزیابی‌ها با موفقیت انجام شد"
 msgid "An error occurred. Try again!"
 msgstr "خطایی رخ داده. دوباره تلاش کنید."
 
-#: src/pages/projects-page/ProjectForm.tsx:80
+#: src/pages/projects-page/ProjectForm.tsx:86
 msgid "Are you sure you want to delete {projectName} review?"
 msgstr "آیا از حذف {projectName} مطمین هستید؟"
 
@@ -121,7 +118,7 @@ msgstr "پیشخوان"
 msgid "Dear {name}, Hello"
 msgstr "{name} عزیز، سلام"
 
-#: src/pages/projects-page/ProjectForm.tsx:80
+#: src/pages/projects-page/ProjectForm.tsx:86
 msgid "Delete"
 msgstr "حذف"
 
@@ -214,7 +211,7 @@ msgstr "کمتر از حد انتظاری که ازش میره"
 msgid "He/She asked your review on {numberOfProjects} project(s)"
 msgstr "در {numberOfProjects} فعالیت از شما نظر خواسته است"
 
-#: src/pages/projects-page/ProjectForm.tsx:55
+#: src/pages/projects-page/ProjectForm.tsx:58
 msgid "How effective were you in this project?"
 msgstr "خودت رو در انجام این فعالیت چطور ارزیابی می‌کنی؟"
 
@@ -245,7 +242,8 @@ msgstr "کاش بیشتر برامون بنویسی!"
 msgid "It's complete!"
 msgstr "تکمیل شد!"
 
-#: src/pages/behavioral-competencies-page/BehavioralCompetenciesForm.tsx:70
+#: src/pages/behavioral-competencies-page/BehavioralCompetenciesForm.tsx:77
+#: src/pages/behavioral-competencies-page/BehavioralCompetenciesForm.tsx:78
 #: src/pages/manager-review-dashboard/ManagerReviewDashboardDrawerContent.tsx:102
 #: src/pages/manager-review-page/behavioral-competencies/ManagerReviewBehavioralCompetencies.tsx:108
 #: src/pages/result-page/behavioral-competencies/ResultBehavioralCompetencies.tsx:50
@@ -271,7 +269,7 @@ msgstr "در حد انتظاری که ازش میره"
 msgid "Meets Expectations from me"
 msgstr "در حد انتظاری که از من میره"
 
-#: src/pages/projects-page/ProjectForm.tsx:60
+#: src/pages/projects-page/ProjectForm.tsx:63
 msgid "My evaluation"
 msgstr "ارزیابی من"
 
@@ -293,7 +291,8 @@ msgstr "یافت نشد"
 msgid "No! Wait"
 msgstr "نه! می‌مونم"
 
-#: src/pages/behavioral-competencies-page/BehavioralCompetenciesForm.tsx:58
+#: src/pages/behavioral-competencies-page/BehavioralCompetenciesForm.tsx:61
+#: src/pages/behavioral-competencies-page/BehavioralCompetenciesForm.tsx:62
 #: src/pages/manager-review-dashboard/ManagerReviewDashboardDrawerContent.tsx:86
 #: src/pages/manager-review-page/behavioral-competencies/ManagerReviewBehavioralCompetencies.tsx:96
 #: src/pages/result-page/behavioral-competencies/ResultBehavioralCompetencies.tsx:38
@@ -309,7 +308,8 @@ msgstr "نظرات دیگران در مورد سطح عمکرد شما در ای
 msgid "Other people comments about {name} performance compared to initial expectation"
 msgstr "نظرات دیگران در مورد سطح عملکرد {name} در این فعالیت"
 
-#: src/pages/behavioral-competencies-page/BehavioralCompetenciesForm.tsx:64
+#: src/pages/behavioral-competencies-page/BehavioralCompetenciesForm.tsx:69
+#: src/pages/behavioral-competencies-page/BehavioralCompetenciesForm.tsx:70
 #: src/pages/manager-review-dashboard/ManagerReviewDashboardDrawerContent.tsx:94
 #: src/pages/manager-review-page/behavioral-competencies/ManagerReviewBehavioralCompetencies.tsx:102
 #: src/pages/result-page/behavioral-competencies/ResultBehavioralCompetencies.tsx:44
@@ -351,7 +351,8 @@ msgstr "سامانه ارزیابی عملکرد"
 msgid "Persian"
 msgstr "فارسی"
 
-#: src/pages/behavioral-competencies-page/BehavioralCompetenciesForm.tsx:73
+#: src/pages/behavioral-competencies-page/BehavioralCompetenciesForm.tsx:81
+#: src/pages/behavioral-competencies-page/BehavioralCompetenciesForm.tsx:82
 #: src/pages/manager-review-dashboard/ManagerReviewDashboardDrawerContent.tsx:106
 #: src/pages/manager-review-page/behavioral-competencies/ManagerReviewBehavioralCompetencies.tsx:111
 #: src/pages/result-page/behavioral-competencies/ResultBehavioralCompetencies.tsx:53
@@ -359,7 +360,8 @@ msgstr "فارسی"
 msgid "Presence"
 msgstr "اثر حضور"
 
-#: src/pages/behavioral-competencies-page/BehavioralCompetenciesForm.tsx:61
+#: src/pages/behavioral-competencies-page/BehavioralCompetenciesForm.tsx:65
+#: src/pages/behavioral-competencies-page/BehavioralCompetenciesForm.tsx:66
 #: src/pages/manager-review-dashboard/ManagerReviewDashboardDrawerContent.tsx:90
 #: src/pages/manager-review-page/behavioral-competencies/ManagerReviewBehavioralCompetencies.tsx:99
 #: src/pages/result-page/behavioral-competencies/ResultBehavioralCompetencies.tsx:41
@@ -385,11 +387,15 @@ msgstr "عنوان فعالیت"
 msgid "Projects"
 msgstr "فعالیت‌ها"
 
+#: src/shared/guide/Guide.tsx:7
+msgid "Read the guide"
+msgstr "مطالعه راهنما"
+
 #: src/shared/review-item-info/IdentifiedReviewItemInfo.tsx:17
 msgid "Reviewee"
 msgstr "ارزیابی‌شونده"
 
-#: src/pages/projects-page/ProjectForm.tsx:73
+#: src/pages/projects-page/ProjectForm.tsx:79
 msgid "Reviewers"
 msgstr "مرورکننده‌ها"
 
@@ -398,12 +404,12 @@ msgstr "مرورکننده‌ها"
 msgid "Role Expertise and Self Development"
 msgstr "مرجعیت تخصصی"
 
-#: src/pages/behavioral-competencies-page/BehavioralCompetenciesForm.tsx:79
+#: src/pages/behavioral-competencies-page/BehavioralCompetenciesForm.tsx:88
 #: src/pages/manager-review-page/achievements/ManagerReviewAchievements.tsx:77
 #: src/pages/manager-review-page/behavioral-competencies/ManagerReviewBehavioralCompetencies.tsx:120
 #: src/pages/manager-review-page/overall-evaluation/ManagerReviewOverallEvaluation.tsx:87
 #: src/pages/peer-review-page/projectsTab/projects-form/PeerReviewProjectsForm.tsx:49
-#: src/pages/projects-page/ProjectForm.tsx:84
+#: src/pages/projects-page/ProjectForm.tsx:90
 #: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:65
 msgid "Save"
 msgstr "ذخیره"
@@ -520,7 +526,8 @@ msgstr "مهم‌ترین ویژگی‌ها یا رفتارهای مؤثری ک�
 msgid "The project review name already exists."
 msgstr "نام پروژه قبلا وجود داشته است"
 
-#: src/pages/behavioral-competencies-page/BehavioralCompetenciesForm.tsx:67
+#: src/pages/behavioral-competencies-page/BehavioralCompetenciesForm.tsx:73
+#: src/pages/behavioral-competencies-page/BehavioralCompetenciesForm.tsx:74
 #: src/pages/manager-review-dashboard/ManagerReviewDashboardDrawerContent.tsx:98
 #: src/pages/manager-review-page/behavioral-competencies/ManagerReviewBehavioralCompetencies.tsx:105
 #: src/pages/result-page/behavioral-competencies/ResultBehavioralCompetencies.tsx:47
@@ -581,6 +588,10 @@ msgstr "چی رو ادامه بدم"
 #: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:57
 msgid "What to improve"
 msgstr "چی رو بهبود بدم"
+
+#: src/pages/projects-page/ProjectForm.tsx:71
+msgid "Work results and achievements reflecting your contributions; For instance, your key-results"
+msgstr "خروجی‌ها و دستاوردهایی که نشان‌دهندهٔ تاثیر شما در این پروژه بوده؛ به عنوان مثال نتایج کلیدی شما در دورهٔ اخیر"
 
 #: src/shared/confirm-button/ConfirmButton.tsx:8
 msgid "Yes"
