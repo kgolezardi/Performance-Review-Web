@@ -1,3 +1,4 @@
+import ReactMarkdown from 'react-markdown';
 import graphql from 'babel-plugin-relay/macro';
 import React, { useCallback, useMemo } from 'react';
 import { ActionBar } from 'src/shared/action-bar';
@@ -20,6 +21,7 @@ import { Rating } from 'src/shared/rating';
 import { ReviewersInput } from 'src/shared/reviewers-input';
 import { ReviewersInputProps } from 'src/shared/reviewers-input/types';
 import { StickyBottomPaper } from 'src/shared/sticky-bottom-paper';
+import { defaultRenderers } from 'src/shared/react-markdown';
 import { equals, identity, prop, sortBy } from 'ramda';
 import { i18n } from '@lingui/core';
 import { useAuthGuardUser } from 'src/core/auth';
@@ -119,7 +121,16 @@ export function ProjectForm(props: Props) {
                     {i18n._(
                       'Work results and achievements reflecting your contributions; For instance, your key-results',
                     )}
-                    <Guide guideText={selfReviewProjectReviewHelpModalText} title={i18n._('Accomplishments')} />
+                    {selfReviewProjectReviewHelpModalText ? (
+                      <Guide
+                        guideText={
+                          <ReactMarkdown renderers={defaultRenderers}>
+                            {selfReviewProjectReviewHelpModalText}
+                          </ReactMarkdown>
+                        }
+                        title={i18n._('Accomplishments')}
+                      />
+                    ) : null}
                   </Box>
                 }
               />

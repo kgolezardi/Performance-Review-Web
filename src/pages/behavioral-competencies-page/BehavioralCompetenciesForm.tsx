@@ -1,3 +1,4 @@
+import ReactMarkdown from 'react-markdown';
 import graphql from 'babel-plugin-relay/macro';
 import React, { useContext } from 'react';
 import { ActionBar } from 'src/shared/action-bar';
@@ -11,6 +12,7 @@ import { MDXContext } from '@mdx-js/react';
 import { SectionGuide } from 'src/shared/section-guide';
 import { ServerValueProvider } from 'src/shared/server-value';
 import { StickyBottomPaper } from 'src/shared/sticky-bottom-paper';
+import { defaultRenderers } from 'src/shared/react-markdown';
 import { i18n } from '@lingui/core';
 import { importMDX } from 'mdx.macro';
 import { useFormDirty } from 'src/shared/form-change-detector';
@@ -93,7 +95,14 @@ export function BehavioralCompetenciesForm(props: Props) {
                 details={<BehavioralCompetencyHelpText criteria="sahabiness" isSelfReview={isSelfReview} />}
                 prefix="sahabiness"
               />
-              <Guide title={i18n._('Organization Culture Adoption')} guideText={selfReviewSahabinessHelpModalText} />
+              {selfReviewSahabinessHelpModalText ? (
+                <Guide
+                  title={i18n._('Organization Culture Adoption')}
+                  guideText={
+                    <ReactMarkdown renderers={defaultRenderers}>{selfReviewSahabinessHelpModalText}</ReactMarkdown>
+                  }
+                />
+              ) : null}
             </Grid>
             <Grid item xs={12}>
               <BehavioralCompetencyItem
@@ -102,7 +111,14 @@ export function BehavioralCompetenciesForm(props: Props) {
                 details={<BehavioralCompetencyHelpText criteria="problemSolving" isSelfReview={isSelfReview} />}
                 prefix="problemSolving"
               />
-              <Guide title={i18n._('Problem Solving')} guideText={selfReviewProblemSolvingHelpModalText} />
+              {selfReviewProblemSolvingHelpModalText ? (
+                <Guide
+                  title={i18n._('Problem Solving')}
+                  guideText={
+                    <ReactMarkdown renderers={defaultRenderers}>{selfReviewProblemSolvingHelpModalText}</ReactMarkdown>
+                  }
+                />
+              ) : null}
             </Grid>
             <Grid item xs={12}>
               <BehavioralCompetencyItem
@@ -111,7 +127,14 @@ export function BehavioralCompetenciesForm(props: Props) {
                 details={<BehavioralCompetencyHelpText criteria="execution" isSelfReview={isSelfReview} />}
                 prefix="execution"
               />
-              <Guide title={i18n._('Output Quality')} guideText={selfReviewExecutionHelpModalText} />
+              {selfReviewExecutionHelpModalText ? (
+                <Guide
+                  title={i18n._('Output Quality')}
+                  guideText={
+                    <ReactMarkdown renderers={defaultRenderers}>{selfReviewExecutionHelpModalText}</ReactMarkdown>
+                  }
+                />
+              ) : null}
             </Grid>
             <Grid item xs={12}>
               <BehavioralCompetencyItem
@@ -120,7 +143,16 @@ export function BehavioralCompetenciesForm(props: Props) {
                 details={<BehavioralCompetencyHelpText criteria="thoughtLeadership" isSelfReview={isSelfReview} />}
                 prefix="thoughtLeadership"
               />
-              <Guide title={i18n._('Thought Leadership')} guideText={selfReviewThoughtLeadershipHelpModalText} />
+              {selfReviewThoughtLeadershipHelpModalText ? (
+                <Guide
+                  title={i18n._('Thought Leadership')}
+                  guideText={
+                    <ReactMarkdown renderers={defaultRenderers}>
+                      {selfReviewThoughtLeadershipHelpModalText}
+                    </ReactMarkdown>
+                  }
+                />
+              ) : null}
             </Grid>
             <Grid item xs={12}>
               <BehavioralCompetencyItem
@@ -129,7 +161,14 @@ export function BehavioralCompetenciesForm(props: Props) {
                 details={<BehavioralCompetencyHelpText criteria="leadership" isSelfReview={isSelfReview} />}
                 prefix="leadership"
               />
-              <Guide title={i18n._('Leadership')} guideText={selfReviewLeadershipHelpModalText} />
+              {selfReviewLeadershipHelpModalText ? (
+                <Guide
+                  title={i18n._('Leadership')}
+                  guideText={
+                    <ReactMarkdown renderers={defaultRenderers}>{selfReviewLeadershipHelpModalText}</ReactMarkdown>
+                  }
+                />
+              ) : null}
             </Grid>
             <Grid item xs={12}>
               <BehavioralCompetencyItem
@@ -138,7 +177,14 @@ export function BehavioralCompetenciesForm(props: Props) {
                 details={<BehavioralCompetencyHelpText criteria="presence" isSelfReview={isSelfReview} />}
                 prefix="presence"
               />
-              <Guide title={i18n._('Presence')} guideText={selfReviewPresenceHelpModalText} />
+              {selfReviewPresenceHelpModalText ? (
+                <Guide
+                  title={i18n._('Presence')}
+                  guideText={
+                    <ReactMarkdown renderers={defaultRenderers}>{selfReviewPresenceHelpModalText}</ReactMarkdown>
+                  }
+                />
+              ) : null}
             </Grid>
           </DictInput>
           <StickyBottomPaper>
