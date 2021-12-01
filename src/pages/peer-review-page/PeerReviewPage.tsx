@@ -61,6 +61,7 @@ export default function PeerReviewPage(props: Props) {
             <Divider />
 
             <Tabs value={tab ?? 'behavioral-competencies'}>
+              <TabLink label={i18n._('Achievements')} value="achievements" to={toPrefix + '/achievements'} />
               <TabLink
                 label={i18n._('Behavioral Competencies')}
                 value="behavioral-competencies"
@@ -71,7 +72,6 @@ export default function PeerReviewPage(props: Props) {
                 value="dominant-characteristics"
                 to={toPrefix + '/dominant-characteristics'}
               />
-              <TabLink label={i18n._('Achievements')} value="achievements" to={toPrefix + '/achievements'} />
             </Tabs>
           </TopStickyCard>
         </InView>
