@@ -15,7 +15,7 @@ msgstr ""
 
 #: src/App.tsx:24
 msgid "%s - Performance Review"
-msgstr "%s - ارزیابی عملکرد"
+msgstr "%s - مرور عملکرد"
 
 #: src/pages/projects-page/ProjectForm.tsx:79
 msgid "**Coordinate reviewers with your manager (maximum 6 reviewers)"
@@ -25,7 +25,7 @@ msgstr "مرورکنندگانی رو که اینجا مشخص می‌کنی، �
 #: src/pages/projects-page/ProjectForm.tsx:72
 #: src/shared/project-output/ProjectCommentOutput.tsx:27
 #: src/shared/project-output/ProjectOutput.tsx:32
-msgid "Accomplishments"
+msgid "Accomplishments Description"
 msgstr "توضیح فعالیت"
 
 #: src/containers/main/getMenuItems.ts:22
@@ -97,8 +97,8 @@ msgid "Changes you made may not be saved."
 msgstr "یعنی بدون ذخیره تغییرات می‌خوای بری؟؟"
 
 #: src/pages/projects-page/AddProjectForm.tsx:15
-msgid "Choose projects you have been working on in the past year."
-msgstr "کارهایی که در یکسال گذشته انجام دادی رو به حداکثر ۵ فعالیت کلی افراز کن و راجع بهشون توضیح بده."
+msgid "Choose projects you have been working on in the past year (At most 5)."
+msgstr "کارهایی که در یکسال گذشته انجام دادی رو به حداکثر ۵ فعالیت کلی تقسیم کن و راجع بهشون توضیح بده."
 
 #: src/pages/manager-review-dashboard/TableFilters.tsx:14
 msgid "Colleague name"
@@ -148,7 +148,7 @@ msgstr "ویرایش"
 
 #: src/pages/projects-page/project-review-title-editor/ProjectReviewTitleModal.tsx:8
 msgid "Edit project title"
-msgstr "ویرایش عنوان پروژه"
+msgstr "ویرایش عنوان فعالیت"
 
 #: src/pages/peer-review-page/PeerReviewPersonInfoCard.tsx:64
 msgid "End {name}'s evaluation"
@@ -180,7 +180,7 @@ msgstr "وضعیت ارزیابی"
 #: src/shared/behavioral-competency-item/BehavioralCompetencyItem.tsx:29
 #: src/shared/behavioral-competency-output/BehavioralCompetencyOutput.tsx:22
 msgid "Evidence"
-msgstr "شواهد"
+msgstr "دلیل ارزیابی‌ات"
 
 #: src/global-types/Evaluation.ts:18
 msgid "Exceeds Expectations from Him/Her"
@@ -341,11 +341,11 @@ msgstr "ارزیابی همکار"
 #: src/shared/full-page-error/FullPageError.stories.tsx:33
 #: src/shared/layouts/dashboard-layouts/DashboardLayout.stories.tsx:26
 msgid "Performance Review"
-msgstr "ارزیابی عملکرد"
+msgstr "مرور عملکرد"
 
 #: src/shared/auth/Login.tsx:35
 msgid "Performance Review System"
-msgstr "سامانه ارزیابی عملکرد"
+msgstr "سامانه مرور عملکرد"
 
 #: src/core/locales/languages.ts:4
 msgid "Persian"
@@ -498,7 +498,7 @@ msgstr "فوق‌العاده"
 
 #: src/shared/gift-dialog/GiftDialog.tsx:47
 msgid "Thanks, I claim it later"
-msgstr "ممنون، بعدا می‌گیرم جایزمو"
+msgstr "ممنون، جایزمو بعدا می‌گیرم"
 
 #: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:56
 #: src/shared/dominant-characteristics-output/DominantCharacteristics.tsx:21
@@ -524,7 +524,7 @@ msgstr "مهم‌ترین ویژگی‌ها یا رفتارهای مؤثری ک�
 
 #: src/pages/projects-page/project-review-title-editor/ProjectReviewEditForm.tsx:37
 msgid "The project review name already exists."
-msgstr "نام پروژه قبلا وجود داشته است"
+msgstr "نام فعالیت تکراری است"
 
 #: src/pages/behavioral-competencies-page/BehavioralCompetenciesForm.tsx:73
 #: src/pages/behavioral-competencies-page/BehavioralCompetenciesForm.tsx:74
@@ -601,12 +601,12 @@ msgstr "بله"
 msgid "Yes! Go"
 msgstr "آره! می‌رم"
 
-#: src/pages/manager-review-page/ManagerReviewProgress.tsx:39
-msgid "You have evaluated all {total} achievements. You can change them when you want to."
+#: src/pages/manager-review-page/ManagerReviewProgress.tsx:41
+msgid "You have evaluated all {total} achievements. You can change them whenever you want to."
 msgstr "هر {total} همه فعالیت‌‌ها ارزیابی شد. هر زمان که خواستی می‌تونی اونارو تغییر بدی"
 
 #: src/pages/manager-review-page/ManagerReviewProgress.tsx:34
-msgid "You have evaluated all {total} behavioral competencies. You can change them when you want to."
+msgid "You have evaluated all {total} behavioral competencies. You can change them whenever you want to."
 msgstr "هر {total} مورد شایستگی رفتاری ارزیابی شد. هر زمان که خواستی می‌تونی اونارو تغییر بدی"
 
 #: src/pages/dashboard-page/AchievementsNoProjects.tsx:6
@@ -618,7 +618,7 @@ msgstr "هنوز هیچ فعالیتی اضافه نکردی!"
 msgid "You haven't entered anything yet!"
 msgstr "هنوز چیزی ننوشتی!"
 
-#: src/pages/manager-review-page/ManagerReviewProgress.tsx:37
+#: src/pages/manager-review-page/ManagerReviewProgress.tsx:39
 msgid "You haven't evaluated any achievements yet"
 msgstr "هنوز هیچ فعالیتی را ارزیابی نکردی"
 
@@ -657,7 +657,7 @@ msgstr "ارزیابی شما از {name} در {criteria}"
 msgid "Your evaluation:"
 msgstr "ارزیابی شما:"
 
-#: src/pages/manager-review-page/ManagerReviewProgress.tsx:38
+#: src/pages/manager-review-page/ManagerReviewProgress.tsx:40
 msgid "{evaluatedItems} of {total} achievements are evaluated"
 msgstr "{evaluatedItems} مورد از {total} فعالیت ارزیابی شد"
 

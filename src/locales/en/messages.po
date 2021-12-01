@@ -25,8 +25,8 @@ msgstr "Coordinate reviewers with your manager (maximum 6 reviewers)"
 #: src/pages/projects-page/ProjectForm.tsx:72
 #: src/shared/project-output/ProjectCommentOutput.tsx:27
 #: src/shared/project-output/ProjectOutput.tsx:32
-msgid "Accomplishments"
-msgstr "Accomplishments"
+msgid "Accomplishments Description"
+msgstr "Accomplishments Description"
 
 #: src/containers/main/getMenuItems.ts:22
 #: src/pages/dashboard-page/DashboardPage.tsx:35
@@ -97,8 +97,8 @@ msgid "Changes you made may not be saved."
 msgstr "Changes you made may not be saved."
 
 #: src/pages/projects-page/AddProjectForm.tsx:15
-msgid "Choose projects you have been working on in the past year."
-msgstr "Choose projects you have been working on in the past year."
+msgid "Choose projects you have been working on in the past year (At most 5)."
+msgstr "Choose projects you have been working on in the past year (At most 5)."
 
 #: src/pages/manager-review-dashboard/TableFilters.tsx:14
 msgid "Colleague name"
@@ -601,13 +601,13 @@ msgstr "Yes"
 msgid "Yes! Go"
 msgstr "Yes! Go"
 
-#: src/pages/manager-review-page/ManagerReviewProgress.tsx:39
-msgid "You have evaluated all {total} achievements. You can change them when you want to."
-msgstr "You have evaluated all {total} achievements. You can change them when you want to."
+#: src/pages/manager-review-page/ManagerReviewProgress.tsx:41
+msgid "You have evaluated all {total} achievements. You can change them whenever you want to."
+msgstr "You have evaluated all {total} achievements. You can change them whenever you want to."
 
 #: src/pages/manager-review-page/ManagerReviewProgress.tsx:34
-msgid "You have evaluated all {total} behavioral competencies. You can change them when you want to."
-msgstr "You have evaluated all {total} behavioral competencies. You can change them when you want to."
+msgid "You have evaluated all {total} behavioral competencies. You can change them whenever you want to."
+msgstr "You have evaluated all {total} behavioral competencies. You can change them whenever you want to."
 
 #: src/pages/dashboard-page/AchievementsNoProjects.tsx:6
 msgid "You haven't added any project."
@@ -618,7 +618,7 @@ msgstr "You haven't added any project."
 msgid "You haven't entered anything yet!"
 msgstr "You haven't entered anything yet!"
 
-#: src/pages/manager-review-page/ManagerReviewProgress.tsx:37
+#: src/pages/manager-review-page/ManagerReviewProgress.tsx:39
 msgid "You haven't evaluated any achievements yet"
 msgstr "You haven't evaluated any achievements yet"
 
@@ -657,7 +657,7 @@ msgstr "Your evaluation of {name} on {criteria}"
 msgid "Your evaluation:"
 msgstr "Your evaluation:"
 
-#: src/pages/manager-review-page/ManagerReviewProgress.tsx:38
+#: src/pages/manager-review-page/ManagerReviewProgress.tsx:40
 msgid "{evaluatedItems} of {total} achievements are evaluated"
 msgstr "{evaluatedItems} of {total} achievements are evaluated"
 

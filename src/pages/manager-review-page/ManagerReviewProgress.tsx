@@ -56,7 +56,9 @@ const ManagerReviewBehavioralCompetenciesTextDictionary: Record<
   'in-progress': (evaluatedItems: number, total: number) =>
     i18n._('{evaluatedItems} of {total} behavioral competencies are evaluated', { evaluatedItems, total }),
   completed: (evaluatedItems: number, total: number) =>
-    i18n._('You have evaluated all {total} behavioral competencies. You can change them when you want to.', { total }),
+    i18n._('You have evaluated all {total} behavioral competencies. You can change them whenever you want to.', {
+      total,
+    }),
 };
 
 const ManagerReviewAchievementsTextDictionary: Record<
@@ -67,7 +69,7 @@ const ManagerReviewAchievementsTextDictionary: Record<
   'in-progress': (evaluatedItems: number, total: number) =>
     i18n._('{evaluatedItems} of {total} achievements are evaluated', { evaluatedItems, total }),
   completed: (evaluatedItems: number, total: number) =>
-    i18n._('You have evaluated all {total} achievements. You can change them when you want to.', { total }),
+    i18n._('You have evaluated all {total} achievements. You can change them whenever you want to.', { total }),
 };
 
 const ManagerReviewTextDictionary: Record<
