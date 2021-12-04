@@ -60,7 +60,7 @@ export default function PeerReviewPage(props: Props) {
             <PeerReviewPersonInfoCard user={data.viewer.user} />
             <Divider />
 
-            <Tabs value={tab ?? 'behavioral-competencies'}>
+            <Tabs value={tab ?? 'achievements'}>
               <TabLink label={i18n._('Achievements')} value="achievements" to={toPrefix + '/achievements'} />
               <TabLink
                 label={i18n._('Behavioral Competencies')}
@@ -94,7 +94,7 @@ export default function PeerReviewPage(props: Props) {
                   children={<StrengthsWeaknessesPage revieweeId={revieweeId} />}
                 />
                 <Route path={toPrefix + '/achievements'} children={<PeerReviewProjectsTab revieweeId={revieweeId} />} />
-                <Redirect to={toPrefix + '/behavioral-competencies'} />
+                <Redirect to={toPrefix + '/achievements'} />
               </Switch>
             </Suspense>
           </Paper>
