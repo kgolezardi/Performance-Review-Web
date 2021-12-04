@@ -182,6 +182,10 @@ msgstr "Evaluation Status"
 msgid "Evidence"
 msgstr "Evidence"
 
+#: src/pages/peer-review-page/projectsTab/projects-form/PeerReviewProjectsForm.tsx:41
+msgid "Evidence and Feedback"
+msgstr "Evidence and Feedback"
+
 #: src/global-types/Evaluation.ts:18
 msgid "Exceeds Expectations from Him/Her"
 msgstr "Exceeds Expectations from Him/Her"
@@ -189,10 +193,6 @@ msgstr "Exceeds Expectations from Him/Her"
 #: src/global-types/Evaluation.ts:12
 msgid "Exceeds Expectations from me"
 msgstr "Exceeds Expectations from me"
-
-#: src/pages/peer-review-page/projectsTab/projects-form/PeerReviewProjectsForm.tsx:41
-msgid "Feedback"
-msgstr "Feedback"
 
 #: src/pages/dashboard-page/AchievementsNoProjects.tsx:8
 msgid "Go to Achievements page and add projects you have participated in"
