@@ -67,7 +67,7 @@ export function PeerReviewProjectsForm(props: Props) {
           <Grid item xs={12}>
             <DictInputItem field="text">
               <LimitedTextAreaInput
-                label={i18n._('Feedback')}
+                label={i18n._('Evidence and Feedback')}
                 variant="outlined"
                 maxChars={LIMITED_TEXT_AREA_MAX_CHARS}
                 counterDisplayThreshold={LIMITED_TEXT_AREA_COUNTER_DISPLAY_THRESHOLD}

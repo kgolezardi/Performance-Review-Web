@@ -119,7 +119,7 @@ export function ProjectForm(props: Props) {
                     {i18n._(
                       'Work results and achievements reflecting your contributions; For instance, your key-results',
                     )}
-                    <Guide guideText={selfReviewProjectReviewHelpModalText} title={i18n._('Accomplishments')} />
+                    <Guide guideText={selfReviewProjectReviewHelpModalText} title={i18n._('Accomplishments Description')} />
                   </Box>
                 }
               />
