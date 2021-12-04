@@ -128,7 +128,7 @@ export function ProjectForm(props: Props) {
                             {selfReviewProjectReviewHelpModalText}
                           </ReactMarkdown>
                         }
-                        title={i18n._('Accomplishments')}
+                        title={i18n._('Accomplishments Description')}
                       />
                     ) : null}
                   </Box>
