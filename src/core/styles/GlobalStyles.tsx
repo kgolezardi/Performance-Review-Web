@@ -28,6 +28,7 @@ const styles = (theme: Theme) =>
       html: {},
       body: {
         direction: 'ltr', // automatically changes to `rtl` based on theme.
+        overflowX: 'hidden',
         '@media print': {
           '& div': {
             // `display: flex` breaks pageBreakInside behaviour
