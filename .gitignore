@@ -25,3 +25,5 @@ yarn-error.log*
 __generated__
 .vscode
 .idea
+
+/docker/.env
