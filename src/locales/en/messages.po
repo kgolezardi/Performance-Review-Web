@@ -29,14 +29,14 @@ msgid "Accomplishments Description"
 msgstr "Accomplishments Description"
 
 #: src/containers/main/getMenuItems.ts:22
-#: src/pages/dashboard-page/DashboardPage.tsx:35
-#: src/pages/manager-review-dashboard/ManagerReviewDashboardDrawerContent.tsx:78
-#: src/pages/manager-review-dashboard/ManagerReviewDashboardTable.tsx:90
-#: src/pages/manager-review-page/ManagerReviewPage.tsx:51
-#: src/pages/manager-review-page/ManagerReviewPrintPage.tsx:66
-#: src/pages/peer-review-page/PeerReviewPage.tsx:48
-#: src/pages/result-page/ResultPage.tsx:24
-#: src/pages/self-review-page/SelfReviewPage.tsx:23
+#: src/pages/dashboard-page/DashboardPage.tsx:34
+#: src/pages/manager-review-dashboard/ManagerReviewDashboardDrawerContent.tsx:74
+#: src/pages/manager-review-dashboard/ManagerReviewDashboardTable.tsx:88
+#: src/pages/manager-review-page/ManagerReviewPage.tsx:48
+#: src/pages/manager-review-page/ManagerReviewPrintPage.tsx:61
+#: src/pages/peer-review-page/PeerReviewPage.tsx:45
+#: src/pages/result-page/ResultPage.tsx:21
+#: src/pages/self-review-page/SelfReviewPage.tsx:22
 msgid "Achievements"
 msgstr "Achievements"
 
@@ -59,7 +59,6 @@ msgid "All reviews were successfully done"
 msgstr "All reviews were successfully done"
 
 #: src/pages/manager-review-page/achievements/ManagerReviewAchievements.tsx:59
-#: src/pages/manager-review-page/behavioral-competencies/ManagerReviewBehavioralCompetencies.tsx:76
 #: src/pages/manager-review-page/overall-evaluation/ManagerReviewOverallEvaluation.tsx:62
 #: src/pages/peer-review-page/PeerReviewPersonInfoCard.tsx:49
 #: src/pages/peer-review-page/PeerReviewPersonInfoCard.tsx:54
@@ -71,27 +70,15 @@ msgstr "An error occurred. Try again!"
 msgid "Are you sure you want to delete {projectName} review?"
 msgstr "Are you sure you want to delete {projectName} review?"
 
-#: src/containers/main/getMenuItems.ts:28
-#: src/pages/dashboard-page/DashboardPage.tsx:48
-#: src/pages/manager-review-dashboard/ManagerReviewDashboardDrawerContent.tsx:77
-#: src/pages/manager-review-dashboard/ManagerReviewDashboardTable.tsx:89
-#: src/pages/manager-review-page/ManagerReviewPage.tsx:49
-#: src/pages/manager-review-page/ManagerReviewPrintPage.tsx:56
-#: src/pages/peer-review-page/PeerReviewPage.tsx:46
-#: src/pages/result-page/ResultPage.tsx:22
-#: src/pages/self-review-page/SelfReviewPage.tsx:24
-msgid "Behavioral Competencies"
-msgstr "Behavioral Competencies"
-
 #: src/pages/projects-page/project-review-title-editor/ProjectReviewEditForm.tsx:61
 #: src/shared/sticky-bottom-paper/StickyBottomPaper.stories.tsx:11
 msgid "Cancel"
 msgstr "Cancel"
 
-#: src/pages/manager-review-page/ManagerReviewPage.tsx:42
-#: src/pages/manager-review-page/ManagerReviewPrintPage.tsx:46
-#: src/pages/peer-review-page/PeerReviewPage.tsx:38
-#: src/pages/self-review-page/SelfReviewPage.tsx:33
+#: src/pages/manager-review-page/ManagerReviewPage.tsx:41
+#: src/pages/manager-review-page/ManagerReviewPrintPage.tsx:45
+#: src/pages/peer-review-page/PeerReviewPage.tsx:37
+#: src/pages/self-review-page/SelfReviewPage.tsx:31
 #: src/stories/decorators/promptDecorator.tsx:7
 msgid "Changes you made may not be saved."
 msgstr "Changes you made may not be saved."
@@ -109,7 +96,7 @@ msgid "Criteria"
 msgstr "Criteria"
 
 #: src/containers/main/getMenuItems.ts:6
-#: src/containers/main/getMenuItems.ts:59
+#: src/containers/main/getMenuItems.ts:53
 msgid "Dashboard"
 msgstr "Dashboard"
 
@@ -126,13 +113,13 @@ msgstr "Delete"
 msgid "Doing"
 msgstr "Doing"
 
-#: src/containers/main/getMenuItems.ts:34
-#: src/pages/dashboard-page/DashboardPage.tsx:59
-#: src/pages/manager-review-page/ManagerReviewPage.tsx:50
-#: src/pages/manager-review-page/ManagerReviewPrintPage.tsx:61
+#: src/containers/main/getMenuItems.ts:28
+#: src/pages/dashboard-page/DashboardPage.tsx:47
+#: src/pages/manager-review-page/ManagerReviewPage.tsx:49
+#: src/pages/manager-review-page/ManagerReviewPrintPage.tsx:56
 #: src/pages/peer-review-page/PeerReviewPage.tsx:47
-#: src/pages/result-page/ResultPage.tsx:23
-#: src/pages/self-review-page/SelfReviewPage.tsx:25
+#: src/pages/result-page/ResultPage.tsx:22
+#: src/pages/self-review-page/SelfReviewPage.tsx:23
 msgid "Dominant Characteristics"
 msgstr "Dominant Characteristics"
 
@@ -163,11 +150,8 @@ msgid "Error"
 msgstr "Error"
 
 #: src/pages/manager-review-page/achievements/ManagerReviewAchievementsExpansionPanel.tsx:79
-#: src/pages/manager-review-page/behavioral-competencies/ManagerReviewBehavioralCompetenciesExpansionPanel.tsx:39
 #: src/pages/manager-review-page/overall-evaluation/ManagerReviewOverallEvaluation.tsx:79
 #: src/pages/peer-review-page/projectsTab/projects-form/PeerReviewProjectsForm.tsx:34
-#: src/shared/behavioral-competency-item/BehavioralCompetencyItem.tsx:22
-#: src/shared/behavioral-competency-output/BehavioralCompetencyOutput.tsx:14
 #: src/shared/project-output/ProjectCommentOutput.tsx:19
 #: src/shared/project-output/ProjectOutput.tsx:26
 msgid "Evaluation"
@@ -176,11 +160,6 @@ msgstr "Evaluation"
 #: src/pages/manager-review-dashboard/TableFilters.tsx:25
 msgid "Evaluation Status"
 msgstr "Evaluation Status"
-
-#: src/shared/behavioral-competency-item/BehavioralCompetencyItem.tsx:29
-#: src/shared/behavioral-competency-output/BehavioralCompetencyOutput.tsx:22
-msgid "Evidence"
-msgstr "Evidence"
 
 #: src/pages/peer-review-page/projectsTab/projects-form/PeerReviewProjectsForm.tsx:41
 msgid "Evidence and Feedback"
@@ -232,31 +211,20 @@ msgstr "In Progress"
 msgid "It'd be a good idea to write a weakness!"
 msgstr "It'd be a good idea to write a weakness!"
 
-#: src/pages/dashboard-page/BehavioralCompetenciesCircularIndicator.tsx:70
 #: src/pages/dashboard-page/DominantCharacteristicsCircularIndicator.tsx:67
 msgid "It'd be good if u wrote more!"
 msgstr "It'd be good if u wrote more!"
 
-#: src/pages/dashboard-page/BehavioralCompetenciesCircularIndicator.tsx:76
 #: src/pages/dashboard-page/DominantCharacteristicsCircularIndicator.tsx:62
 msgid "It's complete!"
 msgstr "It's complete!"
-
-#: src/pages/behavioral-competencies-page/BehavioralCompetenciesForm.tsx:81
-#: src/pages/behavioral-competencies-page/BehavioralCompetenciesForm.tsx:82
-#: src/pages/manager-review-dashboard/ManagerReviewDashboardDrawerContent.tsx:102
-#: src/pages/manager-review-page/behavioral-competencies/ManagerReviewBehavioralCompetencies.tsx:108
-#: src/pages/result-page/behavioral-competencies/ResultBehavioralCompetencies.tsx:50
-#: src/shared/behavioral-competencies-output/BehavioralCompetenciesOutput.tsx:42
-msgid "Leadership"
-msgstr "Leadership"
 
 #: src/shared/auth/LoginForm.tsx:20
 msgid "Login"
 msgstr "Login"
 
-#: src/pages/manager-review-dashboard/ManagerReviewDashboardDrawerContent.tsx:72
-#: src/pages/manager-review-dashboard/ManagerReviewDashboardTable.tsx:86
+#: src/pages/manager-review-dashboard/ManagerReviewDashboardDrawerContent.tsx:69
+#: src/pages/manager-review-dashboard/ManagerReviewDashboardTable.tsx:85
 #: src/pages/manager-review-dashboard/TableFilters.tsx:19
 msgid "Manager"
 msgstr "Manager"
@@ -273,7 +241,7 @@ msgstr "Meets Expectations from me"
 msgid "My evaluation"
 msgstr "My evaluation"
 
-#: src/containers/main/getMenuItems.ts:49
+#: src/containers/main/getMenuItems.ts:43
 #: src/pages/guide-page/NvcGuidePage.tsx:10
 msgid "NVC Guide"
 msgstr "NVC Guide"
@@ -291,15 +259,6 @@ msgstr "No Options"
 msgid "No! Wait"
 msgstr "No! Wait"
 
-#: src/pages/behavioral-competencies-page/BehavioralCompetenciesForm.tsx:63
-#: src/pages/behavioral-competencies-page/BehavioralCompetenciesForm.tsx:64
-#: src/pages/manager-review-dashboard/ManagerReviewDashboardDrawerContent.tsx:86
-#: src/pages/manager-review-page/behavioral-competencies/ManagerReviewBehavioralCompetencies.tsx:96
-#: src/pages/result-page/behavioral-competencies/ResultBehavioralCompetencies.tsx:38
-#: src/shared/behavioral-competencies-output/BehavioralCompetenciesOutput.tsx:30
-msgid "Organization Culture Adoption"
-msgstr "Organization Culture Adoption"
-
 #: src/pages/result-page/project-result-page/ProjectResultExpansionPanel.tsx:50
 msgid "Other people comments about your performance compared to initial expectation"
 msgstr "Other people comments about your performance compared to initial expectation"
@@ -308,23 +267,14 @@ msgstr "Other people comments about your performance compared to initial expecta
 msgid "Other people comments about {name} performance compared to initial expectation"
 msgstr "Other people comments about {name} performance compared to initial expectation"
 
-#: src/pages/behavioral-competencies-page/BehavioralCompetenciesForm.tsx:71
-#: src/pages/behavioral-competencies-page/BehavioralCompetenciesForm.tsx:72
-#: src/pages/manager-review-dashboard/ManagerReviewDashboardDrawerContent.tsx:94
-#: src/pages/manager-review-page/behavioral-competencies/ManagerReviewBehavioralCompetencies.tsx:102
-#: src/pages/result-page/behavioral-competencies/ResultBehavioralCompetencies.tsx:44
-#: src/shared/behavioral-competencies-output/BehavioralCompetenciesOutput.tsx:36
-msgid "Output Quality"
-msgstr "Output Quality"
-
-#: src/pages/manager-review-dashboard/ManagerReviewDashboardDrawerContent.tsx:73
+#: src/pages/manager-review-dashboard/ManagerReviewDashboardDrawerContent.tsx:70
 #: src/pages/manager-review-dashboard/TableFilters.tsx:38
-#: src/pages/manager-review-page/ManagerReviewPage.tsx:52
-#: src/pages/manager-review-page/ManagerReviewPrintPage.tsx:71
+#: src/pages/manager-review-page/ManagerReviewPage.tsx:50
+#: src/pages/manager-review-page/ManagerReviewPrintPage.tsx:66
 msgid "Overall Evaluation"
 msgstr "Overall Evaluation"
 
-#: src/pages/manager-review-dashboard/ManagerReviewDashboardTable.tsx:91
+#: src/pages/manager-review-dashboard/ManagerReviewDashboardTable.tsx:89
 msgid "Overall Rating"
 msgstr "Overall Rating"
 
@@ -332,7 +282,7 @@ msgstr "Overall Rating"
 msgid "Password"
 msgstr "Password"
 
-#: src/containers/main/getMenuItems.ts:43
+#: src/containers/main/getMenuItems.ts:37
 msgid "Peer Review"
 msgstr "Peer Review"
 
@@ -350,24 +300,6 @@ msgstr "Performance Review System"
 #: src/core/locales/languages.ts:4
 msgid "Persian"
 msgstr "فارسی"
-
-#: src/pages/behavioral-competencies-page/BehavioralCompetenciesForm.tsx:85
-#: src/pages/behavioral-competencies-page/BehavioralCompetenciesForm.tsx:86
-#: src/pages/manager-review-dashboard/ManagerReviewDashboardDrawerContent.tsx:106
-#: src/pages/manager-review-page/behavioral-competencies/ManagerReviewBehavioralCompetencies.tsx:111
-#: src/pages/result-page/behavioral-competencies/ResultBehavioralCompetencies.tsx:53
-#: src/shared/behavioral-competencies-output/BehavioralCompetenciesOutput.tsx:45
-msgid "Presence"
-msgstr "Presence"
-
-#: src/pages/behavioral-competencies-page/BehavioralCompetenciesForm.tsx:67
-#: src/pages/behavioral-competencies-page/BehavioralCompetenciesForm.tsx:68
-#: src/pages/manager-review-dashboard/ManagerReviewDashboardDrawerContent.tsx:90
-#: src/pages/manager-review-page/behavioral-competencies/ManagerReviewBehavioralCompetencies.tsx:99
-#: src/pages/result-page/behavioral-competencies/ResultBehavioralCompetencies.tsx:41
-#: src/shared/behavioral-competencies-output/BehavioralCompetenciesOutput.tsx:33
-msgid "Problem Solving"
-msgstr "Problem Solving"
 
 #: src/pages/idle-page/IdlePage.tsx:10
 msgid "Programmers are typing..."
@@ -399,18 +331,11 @@ msgstr "Reviewee"
 msgid "Reviewers"
 msgstr "Reviewers"
 
-#: src/shared/behavioral-competency-item/BehavioralCompetencyItem.stories.tsx:18
-#: src/shared/behavioral-competency-output/BehavioralCompetencyOutput.stories.tsx:12
-msgid "Role Expertise and Self Development"
-msgstr "Role Expertise and Self Development"
-
-#: src/pages/behavioral-competencies-page/BehavioralCompetenciesForm.tsx:92
 #: src/pages/manager-review-page/achievements/ManagerReviewAchievements.tsx:77
-#: src/pages/manager-review-page/behavioral-competencies/ManagerReviewBehavioralCompetencies.tsx:120
 #: src/pages/manager-review-page/overall-evaluation/ManagerReviewOverallEvaluation.tsx:87
 #: src/pages/peer-review-page/projectsTab/projects-form/PeerReviewProjectsForm.tsx:49
 #: src/pages/projects-page/ProjectForm.tsx:94
-#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:65
+#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:52
 msgid "Save"
 msgstr "Save"
 
@@ -418,7 +343,7 @@ msgstr "Save"
 msgid "See Less"
 msgstr "See Less"
 
-#: src/pages/manager-review-dashboard/ManagerReviewDashboardDrawerContent.tsx:61
+#: src/pages/manager-review-dashboard/ManagerReviewDashboardDrawerContent.tsx:58
 #: src/shared/multiline-output/MultilineOutput.tsx:40
 msgid "See More"
 msgstr "See More"
@@ -442,12 +367,11 @@ msgid "Show and claim reward"
 msgstr "Show and claim reward"
 
 #: src/core/snackbar/Snackbar.stories.tsx:23
-#: src/pages/behavioral-competencies-page/BehavioralCompetenciesPage.tsx:51
 #: src/pages/peer-review-page/projectsTab/project-expansion-panel/PeerReviewProjectExpansionPanel.tsx:38
 #: src/pages/projects-page/ProjectsPage.tsx:44
 #: src/pages/projects-page/ProjectsPage.tsx:52
 #: src/pages/projects-page/project-review-title-editor/ProjectReviewEditForm.tsx:37
-#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesPage.tsx:62
+#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesPage.tsx:58
 msgid "Something went wrong."
 msgstr "Something went wrong."
 
@@ -480,14 +404,12 @@ msgid "Submit changes"
 msgstr "Submit changes"
 
 #: src/core/snackbar/Snackbar.stories.tsx:13
-#: src/pages/behavioral-competencies-page/BehavioralCompetenciesPage.tsx:48
 #: src/pages/manager-review-page/achievements/ManagerReviewAchievements.tsx:56
-#: src/pages/manager-review-page/behavioral-competencies/ManagerReviewBehavioralCompetencies.tsx:73
 #: src/pages/manager-review-page/overall-evaluation/ManagerReviewOverallEvaluation.tsx:59
 #: src/pages/peer-review-page/projectsTab/project-expansion-panel/PeerReviewProjectExpansionPanel.tsx:35
 #: src/pages/projects-page/ProjectsPage.tsx:41
 #: src/pages/projects-page/project-review-title-editor/ProjectReviewEditForm.tsx:42
-#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesPage.tsx:59
+#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesPage.tsx:55
 msgid "Successfully saved."
 msgstr "Successfully saved."
 
@@ -500,40 +422,31 @@ msgstr "Superb"
 msgid "Thanks, I claim it later"
 msgstr "Thanks, I claim it later"
 
-#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:56
+#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:43
 #: src/shared/dominant-characteristics-output/DominantCharacteristics.tsx:21
 msgid "The most important characteristics or behaviors I should improve in myself"
 msgstr "The most important characteristics or behaviors I should improve in myself"
 
 #: src/pages/manager-review-page/dominant-characteristics/ManagerReviewDominantCharacteristics.tsx:28
 #: src/pages/result-page/strengths-weaknesses-result-page/StrengthsWeaknessesResult.tsx:33
-#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:57
+#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:44
 msgid "The most important characteristics or behaviors he/she should improve"
 msgstr "The most important characteristics or behaviors he/she should improve"
 
-#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:47
+#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:34
 #: src/shared/dominant-characteristics-output/DominantCharacteristics.tsx:18
 msgid "The most important characteristics or effective behaviors that I should maintain"
 msgstr "The most important characteristics or effective behaviors that I should maintain"
 
 #: src/pages/manager-review-page/dominant-characteristics/ManagerReviewDominantCharacteristics.tsx:27
 #: src/pages/result-page/strengths-weaknesses-result-page/StrengthsWeaknessesResult.tsx:32
-#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:48
+#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:35
 msgid "The most important characteristics or effective behaviors that he/she should maintain"
 msgstr "The most important characteristics or effective behaviors that he/she should maintain"
 
 #: src/pages/projects-page/project-review-title-editor/ProjectReviewEditForm.tsx:37
 msgid "The project review name already exists."
 msgstr "The project review name already exists."
-
-#: src/pages/behavioral-competencies-page/BehavioralCompetenciesForm.tsx:75
-#: src/pages/behavioral-competencies-page/BehavioralCompetenciesForm.tsx:76
-#: src/pages/manager-review-dashboard/ManagerReviewDashboardDrawerContent.tsx:98
-#: src/pages/manager-review-page/behavioral-competencies/ManagerReviewBehavioralCompetencies.tsx:105
-#: src/pages/result-page/behavioral-competencies/ResultBehavioralCompetencies.tsx:47
-#: src/shared/behavioral-competencies-output/BehavioralCompetenciesOutput.tsx:39
-msgid "Thought Leadership"
-msgstr "Thought Leadership"
 
 #: src/assets/icons/Todo.tsx:5
 #: src/pages/manager-review-dashboard/TableFilters.tsx:30
@@ -545,19 +458,17 @@ msgstr "Todo"
 msgid "Try Again"
 msgstr "Try Again"
 
-#: src/pages/manager-review-dashboard/ManagerReviewDashboardTable.tsx:111
+#: src/pages/manager-review-dashboard/ManagerReviewDashboardTable.tsx:106
 #: src/pages/manager-review-page/achievements/ManagerReviewAchievementsRatingGroup.tsx:33
-#: src/pages/manager-review-page/behavioral-competencies/ManagerReviewBehavioralCompetenciesRatingGroup.tsx:49
 #: src/pages/manager-review-page/overall-evaluation/ManagerReviewOverallEvaluation.tsx:49
 #: src/pages/manager-review-page/overall-evaluation/ManagerReviewOverallEvaluation.tsx:50
-#: src/pages/result-page/behavioral-competencies/ResultBehavioralCompetenciesRatingGroup.tsx:41
 #: src/pages/result-page/project-result-page/ProjectResultRatingGroup.tsx:26
 #: src/shared/evaluation-output/EvaluationOutput.tsx:23
 #: src/shared/evaluation-output/EvaluationOutput.tsx:24
 msgid "Unknown"
 msgstr "Unknown"
 
-#: src/pages/manager-review-dashboard/ManagerReviewDashboardTable.tsx:81
+#: src/pages/manager-review-dashboard/ManagerReviewDashboardTable.tsx:80
 msgid "User"
 msgstr "User"
 
@@ -573,19 +484,19 @@ msgstr "Username or Password is incorrect."
 msgid "View"
 msgstr "View"
 
-#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:48
+#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:35
 msgid "What should he/she continue doing"
 msgstr "What should he/she continue doing"
 
-#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:57
+#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:44
 msgid "What should he/she improve"
 msgstr "What should he/she improve"
 
-#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:48
+#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:35
 msgid "What to continue doing"
 msgstr "What to continue doing"
 
-#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:57
+#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:44
 msgid "What to improve"
 msgstr "What to improve"
 
@@ -601,37 +512,26 @@ msgstr "Yes"
 msgid "Yes! Go"
 msgstr "Yes! Go"
 
-#: src/pages/manager-review-page/ManagerReviewProgress.tsx:41
+#: src/pages/manager-review-page/ManagerReviewProgress.tsx:34
 msgid "You have evaluated all {total} achievements. You can change them whenever you want to."
 msgstr "You have evaluated all {total} achievements. You can change them whenever you want to."
-
-#: src/pages/manager-review-page/ManagerReviewProgress.tsx:34
-msgid "You have evaluated all {total} behavioral competencies. You can change them whenever you want to."
-msgstr "You have evaluated all {total} behavioral competencies. You can change them whenever you want to."
 
 #: src/pages/dashboard-page/AchievementsNoProjects.tsx:6
 msgid "You haven't added any project."
 msgstr "You haven't added any project."
 
-#: src/pages/dashboard-page/BehavioralCompetenciesCircularIndicator.tsx:67
 #: src/pages/dashboard-page/DominantCharacteristicsCircularIndicator.tsx:53
 msgid "You haven't entered anything yet!"
 msgstr "You haven't entered anything yet!"
 
-#: src/pages/manager-review-page/ManagerReviewProgress.tsx:39
+#: src/pages/manager-review-page/ManagerReviewProgress.tsx:32
 msgid "You haven't evaluated any achievements yet"
 msgstr "You haven't evaluated any achievements yet"
-
-#: src/pages/manager-review-page/ManagerReviewProgress.tsx:32
-msgid "You haven't evaluated any behavioral competencies yet"
-msgstr "You haven't evaluated any behavioral competencies yet"
 
 #: src/pages/peer-review-board-page/PeerReviewBoardPage.tsx:80
 msgid "You haven't started evaluating yet!"
 msgstr "You haven't started evaluating yet!"
 
-#: src/pages/dashboard-page/BehavioralCompetenciesCircularIndicator.tsx:73
-#: src/pages/dashboard-page/BehavioralCompetenciesCircularIndicator.tsx:78
 #: src/pages/dashboard-page/DominantCharacteristicsCircularIndicator.tsx:65
 msgid "You're almost there!"
 msgstr "You're almost there!"
@@ -649,25 +549,15 @@ msgstr "Your comments about your performance compared to initial expectation"
 msgid "Your evaluation of {name} on project {projectName}"
 msgstr "Your evaluation of {name} on project {projectName}"
 
-#: src/pages/manager-review-page/behavioral-competencies/ManagerReviewBehavioralCompetenciesExpansionPanel.tsx:38
-msgid "Your evaluation of {name} on {criteria}"
-msgstr "Your evaluation of {name} on {criteria}"
-
 #: src/pages/manager-review-page/ManagerReviewExpansionPanelSummary.tsx:14
 msgid "Your evaluation:"
 msgstr "Your evaluation:"
 
-#: src/pages/manager-review-page/ManagerReviewProgress.tsx:40
+#: src/pages/manager-review-page/ManagerReviewProgress.tsx:33
 msgid "{evaluatedItems} of {total} achievements are evaluated"
 msgstr "{evaluatedItems} of {total} achievements are evaluated"
 
-#: src/pages/manager-review-page/ManagerReviewProgress.tsx:33
-msgid "{evaluatedItems} of {total} behavioral competencies are evaluated"
-msgstr "{evaluatedItems} of {total} behavioral competencies are evaluated"
-
 #: src/pages/manager-review-page/achievements/ManagerReviewAchievementsRatingGroup.tsx:50
-#: src/pages/manager-review-page/behavioral-competencies/ManagerReviewBehavioralCompetenciesRatingGroup.tsx:70
-#: src/pages/result-page/behavioral-competencies/ResultBehavioralCompetenciesRatingGroup.tsx:49
 #: src/pages/result-page/project-result-page/ProjectResultRatingGroup.tsx:34
 msgid "{evaluationsCount} evaluations / {commentsCount} comments"
 msgstr "{evaluationsCount} evaluations / {commentsCount} comments"

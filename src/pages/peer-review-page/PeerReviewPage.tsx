@@ -1,4 +1,3 @@
-import BehavioralCompetenciesPage from 'src/pages/behavioral-competencies-page/BehavioralCompetenciesPage';
 import StrengthsWeaknessesPage from 'src/pages/strengths-weaknesses-page/StrengthsWeaknessesPage';
 import graphql from 'babel-plugin-relay/macro';
 import React, { Suspense } from 'react';
@@ -62,11 +61,7 @@ export default function PeerReviewPage(props: Props) {
 
             <Tabs value={tab ?? 'achievements'}>
               <TabLink label={i18n._('Achievements')} value="achievements" to={toPrefix + '/achievements'} />
-              <TabLink
-                label={i18n._('Behavioral Competencies')}
-                value="behavioral-competencies"
-                to={toPrefix + '/behavioral-competencies'}
-              />
+
               <TabLink
                 label={i18n._('Dominant Characteristics')}
                 value="dominant-characteristics"
@@ -85,10 +80,6 @@ export default function PeerReviewPage(props: Props) {
               }
             >
               <Switch>
-                <Route
-                  path={toPrefix + '/behavioral-competencies'}
-                  children={<BehavioralCompetenciesPage revieweeId={revieweeId} />}
-                />
                 <Route
                   path={toPrefix + '/dominant-characteristics'}
                   children={<StrengthsWeaknessesPage revieweeId={revieweeId} />}

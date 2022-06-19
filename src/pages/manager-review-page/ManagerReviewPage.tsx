@@ -17,7 +17,6 @@ import { useLazyLoadQuery } from 'react-relay/hooks';
 import ManagerReviewDominantCharacteristics from './dominant-characteristics/ManagerReviewDominantCharacteristics';
 import ManagerReviewOverallEvaluation from './overall-evaluation';
 import { ManagerReviewAchievements } from './achievements';
-import { ManagerReviewBehavioralCompetencies } from './behavioral-competencies';
 import { ManagerReviewPageQuery } from './__generated__/ManagerReviewPageQuery.graphql';
 import { ManagerReviewPrintButton } from './ManagerReviewPrintButton';
 
@@ -64,17 +63,12 @@ export default function ManagerReviewPage(props: Props) {
             <PersonInfoCardHeader user={data.viewer.user} />
             <Divider />
             <Tabs value={tab}>
-              <TabLink
-                label={i18n._('Behavioral Competencies')}
-                value="behavioral-competencies"
-                to={toPrefix + '/behavioral-competencies'}
-              />
+              <TabLink label={i18n._('Achievements')} value="achievements" to={toPrefix + '/achievements'} />
               <TabLink
                 label={i18n._('Dominant Characteristics')}
                 value="dominant-characteristics"
                 to={toPrefix + '/dominant-characteristics'}
               />
-              <TabLink label={i18n._('Achievements')} value="achievements" to={toPrefix + '/achievements'} />
               <TabLink
                 label={i18n._('Overall Evaluation')}
                 value="overall-evaluation"
@@ -94,10 +88,6 @@ export default function ManagerReviewPage(props: Props) {
             >
               <Switch>
                 <Route
-                  path={toPrefix + '/behavioral-competencies'}
-                  children={<ManagerReviewBehavioralCompetencies revieweeId={revieweeId} />}
-                />
-                <Route
                   path={toPrefix + '/dominant-characteristics'}
                   children={<ManagerReviewDominantCharacteristics revieweeId={revieweeId} />}
                 />
@@ -109,7 +99,7 @@ export default function ManagerReviewPage(props: Props) {
                   path={toPrefix + '/overall-evaluation'}
                   children={<ManagerReviewOverallEvaluation revieweeId={revieweeId} />}
                 />
-                <Redirect to={toPrefix + '/behavioral-competencies'} />
+                <Redirect to={toPrefix + '/achievements'} />
               </Switch>
             </Suspense>
           </Paper>

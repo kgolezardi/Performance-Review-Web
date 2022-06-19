@@ -17,7 +17,6 @@ import { useParams } from 'react-router-dom';
 import ManagerReviewDominantCharacteristics from './dominant-characteristics/ManagerReviewDominantCharacteristics';
 import ManagerReviewOverallEvaluation from './overall-evaluation';
 import { ManagerReviewAchievements } from './achievements';
-import { ManagerReviewBehavioralCompetencies } from './behavioral-competencies';
 import { ManagerReviewPrintPageQuery } from './__generated__/ManagerReviewPrintPageQuery.graphql';
 
 const query = graphql`
@@ -70,10 +69,6 @@ export function ManagerReviewPrintPage(props: Props) {
           <PersonInfoCardHeader user={data.viewer.user} />
           <Divider />
         </InView>
-        <Box color="primary.main" marginTop={8} textAlign="center">
-          <Typography variant="h2">{i18n._('Behavioral Competencies')}</Typography>
-        </Box>
-        <ManagerReviewBehavioralCompetencies revieweeId={revieweeId} />
         <PageBreak />
         <Box color="primary.main" marginTop={8} textAlign="center">
           <Typography variant="h2">{i18n._('Dominant Characteristics')}</Typography>

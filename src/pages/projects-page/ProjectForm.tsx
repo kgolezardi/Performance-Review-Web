@@ -117,7 +117,7 @@ export function ProjectForm(props: Props) {
                 variant="outlined"
                 fullWidth
                 helperText={
-                  <Box display="flex" alignItems="center">
+                  <Box component="span" display="flex" alignItems="center">
                     {i18n._(
                       'Work results and achievements reflecting your contributions; For instance, your key-results',
                     )}

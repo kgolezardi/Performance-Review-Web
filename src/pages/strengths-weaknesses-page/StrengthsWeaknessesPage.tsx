@@ -36,9 +36,6 @@ const query = graphql`
   query StrengthsWeaknessesPageQuery($id: ID!) {
     viewer {
       findPersonReview(revieweeId: $id) {
-        reviewee {
-          ...StrengthsWeaknessesForm_user
-        }
         ...DominantCharacteristicsOutput_review
         state
         strengths
@@ -88,7 +85,6 @@ export default function StrengthsWeaknessesPage(props: Props) {
         <DominantCharacteristicsOutput review={review} />
       ) : (
         <StrengthsWeaknessesForm
-          user={review?.reviewee ?? null}
           onSubmit={handleSubmit}
           initialValue={{
             strengths: normalizeArray(review?.strengths),

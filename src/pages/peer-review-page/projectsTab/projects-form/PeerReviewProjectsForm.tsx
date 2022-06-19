@@ -18,8 +18,10 @@ import { i18n } from '@lingui/core';
 import { useFormDirty } from 'src/shared/form-change-detector';
 import { useFragment } from 'react-relay/hooks';
 
-import { Evaluation } from '../../__generated__/savePersonReviewMutation.graphql';
-import { PeerReviewProjectsForm_projectComment$key } from './__generated__/PeerReviewProjectsForm_projectComment.graphql';
+import {
+  Evaluation,
+  PeerReviewProjectsForm_projectComment$key,
+} from './__generated__/PeerReviewProjectsForm_projectComment.graphql';
 
 const fragment = graphql`
   fragment PeerReviewProjectsForm_projectComment on ProjectCommentNode {

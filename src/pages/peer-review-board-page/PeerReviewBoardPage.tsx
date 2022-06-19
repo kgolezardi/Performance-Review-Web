@@ -1,7 +1,7 @@
 import graphql from 'babel-plugin-relay/macro';
 import React, { useCallback, useState } from 'react';
 import { BoardList, EmptyList } from 'src/shared/board-list';
-import { Container, Fab, Grid, Theme, makeStyles, createStyles } from '@material-ui/core';
+import { Container, Fab, Grid, Theme, createStyles, makeStyles } from '@material-ui/core';
 import { Done as DoneIcon } from 'src/assets/icons/Done';
 import { ElementType } from 'src/shared/types/ElementType';
 import { FCProps } from 'src/shared/types/FCProps';

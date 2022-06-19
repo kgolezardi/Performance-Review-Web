@@ -10,7 +10,6 @@ import { useAuthGuardUser } from 'src/core/auth';
 import { useLazyLoadQuery } from 'react-relay/hooks';
 
 import { ProjectResultExpansionPanel } from './project-result-page/ProjectResultExpansionPanel';
-import { ResultBehavioralCompetencies } from './behavioral-competencies';
 import { ResultPrintPageQuery } from './__generated__/ResultPrintPageQuery.graphql';
 import { StrengthsWeaknessesResult } from './strengths-weaknesses-result-page/StrengthsWeaknessesResult';
 
@@ -58,9 +57,6 @@ export function ResultPrintPage(props: Props) {
       <Helmet>
         <title>{getUserLabel(data.viewer.user)}</title>
       </Helmet>
-      <Box paddingY={2}>
-        <ResultBehavioralCompetencies revieweeId={id} />
-      </Box>
       <PageBreak />
       <Box paddingY={2}>
         <StrengthsWeaknessesResult reviews={reviews} />

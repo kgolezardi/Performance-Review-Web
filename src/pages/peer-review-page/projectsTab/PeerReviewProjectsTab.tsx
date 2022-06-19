@@ -1,21 +1,14 @@
 import graphql from 'babel-plugin-relay/macro';
-import React, { Fragment, useContext } from 'react';
-import { Box, Grid } from '@material-ui/core';
+import React, { Fragment } from 'react';
+import { Box } from '@material-ui/core';
 import { FCProps } from 'src/shared/types/FCProps';
 import { FormChangeDetector } from 'src/shared/form-change-detector';
-import { MDXContext } from '@mdx-js/react';
-import { MDXPropsProvider } from 'src/shared/mdx-provider/MDXPropsProvider';
-import { SectionGuide } from 'src/shared/section-guide';
-import { UserType } from 'src/shared/utils/getUserLabel';
-import { importMDX } from 'mdx.macro';
 import { useFragment, useLazyLoadQuery } from 'react-relay/hooks';
 
 import { PeerReviewProjectExpansionPanel } from './project-expansion-panel/PeerReviewProjectExpansionPanel';
 import { PeerReviewProjectsResult } from './PeerReviewProjectsResult';
 import { PeerReviewProjectsTabQuery } from './__generated__/PeerReviewProjectsTabQuery.graphql';
 import { PeerReviewProjectsTab_user$key } from './__generated__/PeerReviewProjectsTab_user.graphql';
-
-const Content = importMDX.sync('./Guide.mdx');
 
 const query = graphql`
   query PeerReviewProjectsTabQuery($revieweeId: ID!) {
@@ -53,7 +46,6 @@ type Props = FCProps<OwnProps>;
 
 export function PeerReviewProjectsTab(props: Props) {
   const { revieweeId } = props;
-  const components = useContext(MDXContext);
   const data = useLazyLoadQuery<PeerReviewProjectsTabQuery>(query, { revieweeId });
   const user = useFragment<PeerReviewProjectsTab_user$key>(fragment, data.viewer.user);
   const state = user?.personReview?.state;
@@ -68,26 +60,13 @@ export function PeerReviewProjectsTab(props: Props) {
           ))}
         </Box>
       ) : (
-        <Fragment>
-          <Box padding={4}>
-            <Grid container spacing={2}>
-              <Grid item xs={12}>
-                <SectionGuide>
-                  <MDXPropsProvider<UserType | null> value={user}>
-                    <Content components={components} />
-                  </MDXPropsProvider>
-                </SectionGuide>
-              </Grid>
-            </Grid>
-          </Box>
-          <Box>
-            {projectReviews?.map((projectReview) => (
-              <FormChangeDetector key={projectReview.id}>
-                <PeerReviewProjectExpansionPanel projectReview={projectReview} />
-              </FormChangeDetector>
-            ))}
-          </Box>
-        </Fragment>
+        <Box>
+          {projectReviews?.map((projectReview) => (
+            <FormChangeDetector key={projectReview.id}>
+              <PeerReviewProjectExpansionPanel projectReview={projectReview} />
+            </FormChangeDetector>
+          ))}
+        </Box>
       )}
     </Fragment>
   );
