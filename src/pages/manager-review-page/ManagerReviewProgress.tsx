@@ -7,7 +7,7 @@ import { i18n } from '@lingui/core';
 interface OwnProps {
   evaluatedItems: number;
   total: number;
-  type: 'achievements' | 'behavioral-competencies';
+  type: 'achievements';
 }
 
 type Props = FCProps<OwnProps>;
@@ -47,20 +47,6 @@ const ManagerReviewColorDictionary: Record<ProgressState, 'complete' | 'medium' 
   completed: 'complete',
 };
 
-const ManagerReviewBehavioralCompetenciesTextDictionary: Record<
-  ProgressState,
-  (evaluatedItems: number, total: number) => string
-> = {
-  'not-started': (evaluatedItems: number, total: number) =>
-    i18n._("You haven't evaluated any behavioral competencies yet"),
-  'in-progress': (evaluatedItems: number, total: number) =>
-    i18n._('{evaluatedItems} of {total} behavioral competencies are evaluated', { evaluatedItems, total }),
-  completed: (evaluatedItems: number, total: number) =>
-    i18n._('You have evaluated all {total} behavioral competencies. You can change them whenever you want to.', {
-      total,
-    }),
-};
-
 const ManagerReviewAchievementsTextDictionary: Record<
   ProgressState,
   (evaluatedItems: number, total: number) => string
@@ -73,9 +59,8 @@ const ManagerReviewAchievementsTextDictionary: Record<
 };
 
 const ManagerReviewTextDictionary: Record<
-  'achievements' | 'behavioral-competencies',
+  'achievements',
   Record<ProgressState, (evaluatedItems: number, total: number) => string>
 > = {
-  'behavioral-competencies': ManagerReviewBehavioralCompetenciesTextDictionary,
   achievements: ManagerReviewAchievementsTextDictionary,
 };

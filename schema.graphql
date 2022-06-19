@@ -1,5 +1,5 @@
 # source: http://127.0.0.1:8000/graphql
-# timestamp: Wed Nov 17 2021 17:33:33 GMT+0330 (Iran Standard Time)
+# timestamp: Wed Jun 22 2022 08:44:36 GMT+0430 (Iran Daylight Time)
 
 input ChangePasswordMutationInput {
   oldPassword: String!
@@ -84,12 +84,6 @@ type ManagerPersonReviewNode implements Node {
 
   """The ID of the object."""
   id: ID!
-  sahabinessRating: Evaluation
-  problemSolvingRating: Evaluation
-  executionRating: Evaluation
-  thoughtLeadershipRating: Evaluation
-  leadershipRating: Evaluation
-  presenceRating: Evaluation
   overallRating: Evaluation
 }
 
@@ -123,23 +117,11 @@ interface Node {
 
 type PersonReviewNode implements Node {
   reviewee: UserNode!
-  sahabinessComment: String
-  problemSolvingComment: String
-  executionComment: String
-  thoughtLeadershipComment: String
-  leadershipComment: String
-  presenceComment: String
   strengths: [String!]
   weaknesses: [String!]
 
   """The ID of the object."""
   id: ID!
-  sahabinessRating: Evaluation
-  problemSolvingRating: Evaluation
-  executionRating: Evaluation
-  thoughtLeadershipRating: Evaluation
-  leadershipRating: Evaluation
-  presenceRating: Evaluation
   state: State!
   reviewer: UserNode
   isSelfReview: Boolean!
@@ -201,12 +183,6 @@ type RoundNode implements Node {
 
 input SaveManagerPersonReviewMutationInput {
   revieweeId: ID!
-  sahabinessRating: Evaluation
-  problemSolvingRating: Evaluation
-  executionRating: Evaluation
-  thoughtLeadershipRating: Evaluation
-  leadershipRating: Evaluation
-  presenceRating: Evaluation
   overallRating: Evaluation
   clientMutationId: String
 }
@@ -231,18 +207,6 @@ type SaveManagerProjectCommentMutationPayload {
 
 input SavePersonReviewMutationInput {
   revieweeId: ID!
-  sahabinessRating: Evaluation
-  sahabinessComment: String
-  problemSolvingRating: Evaluation
-  problemSolvingComment: String
-  executionRating: Evaluation
-  executionComment: String
-  thoughtLeadershipRating: Evaluation
-  thoughtLeadershipComment: String
-  leadershipRating: Evaluation
-  leadershipComment: String
-  presenceRating: Evaluation
-  presenceComment: String
   strengths: [String!]
   weaknesses: [String!]
   state: State

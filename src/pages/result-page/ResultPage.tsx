@@ -12,7 +12,6 @@ import { useAuthGuardUser } from 'src/core/auth';
 import StrengthsWeaknessesResultPage from './strengths-weaknesses-result-page/StrengthsWeaknessesResultPage';
 import { PrintResultButton } from './PrintResultButton';
 import { ProjectsResultPage } from './project-result-page/ProjectsResultPage';
-import { ResultBehavioralCompetencies } from './behavioral-competencies';
 
 interface Params {
   tab?: string;
@@ -32,18 +31,13 @@ export default function ResultPage(props: Props) {
     <Container maxWidth="md">
       <Box marginY={5}>
         <Paper classes={{ root: classes.tabsPaper }}>
-          <Tabs value={tab ?? 'behavioral-competencies'}>
-            <TabLink
-              label={i18n._('Behavioral Competencies')}
-              value="behavioral-competencies"
-              to={toPrefix + '/behavioral-competencies'}
-            />
+          <Tabs value={tab ?? 'achievements'}>
+            <TabLink label={i18n._('Achievements')} value="achievements" to={toPrefix + '/achievements'} />
             <TabLink
               label={i18n._('Dominant Characteristics')}
               value="dominant-characteristics"
               to={toPrefix + '/dominant-characteristics'}
             />
-            <TabLink label={i18n._('Achievements')} value="achievements" to={toPrefix + '/achievements'} />
           </Tabs>
         </Paper>
         <Paper classes={{ root: classes.tabPanelPaper }}>
@@ -56,15 +50,11 @@ export default function ResultPage(props: Props) {
           >
             <Switch>
               <Route
-                path={toPrefix + '/behavioral-competencies'}
-                children={<ResultBehavioralCompetencies revieweeId={revieweeId} />}
-              />
-              <Route
                 path={toPrefix + '/dominant-characteristics'}
                 children={<StrengthsWeaknessesResultPage revieweeId={revieweeId} />}
               />
               <Route path={toPrefix + '/achievements'} children={<ProjectsResultPage revieweeId={revieweeId} />} />
-              <Redirect to={toPrefix + '/behavioral-competencies'} />
+              <Redirect to={toPrefix + '/achievements'} />
             </Switch>
           </Suspense>
         </Paper>

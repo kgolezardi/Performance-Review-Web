@@ -1,4 +1,3 @@
-import BehavioralCompetenciesPage from 'src/pages/behavioral-competencies-page/BehavioralCompetenciesPage';
 import ProjectsPage from 'src/pages/projects-page/ProjectsPage';
 import StrengthsWeaknessesPage from 'src/pages/strengths-weaknesses-page/StrengthsWeaknessesPage';
 import React, { Suspense } from 'react';
@@ -32,13 +31,8 @@ export default function SelfReviewPage(props: Props) {
     <Container maxWidth="md">
       <Box marginY={5}>
         <Paper classes={{ root: classes.tabsPaper }}>
-          <Tabs value={tab ?? 'behavioral-competencies'}>
+          <Tabs value={tab ?? 'achievements'}>
             <TabLink label={i18n._('Achievements')} value="achievements" to={toPrefix + '/achievements'} />
-            <TabLink
-              label={i18n._('Behavioral Competencies')}
-              value="behavioral-competencies"
-              to={toPrefix + '/behavioral-competencies'}
-            />
             <TabLink
               label={i18n._('Dominant Characteristics')}
               value="dominant-characteristics"
@@ -58,15 +52,11 @@ export default function SelfReviewPage(props: Props) {
               <FormChangePrompt message={i18n._('Changes you made may not be saved.')} />
               <Switch>
                 <Route
-                  path={toPrefix + '/behavioral-competencies'}
-                  children={<BehavioralCompetenciesPage revieweeId={revieweeId} />}
-                />
-                <Route
                   path={toPrefix + '/dominant-characteristics'}
                   children={<StrengthsWeaknessesPage revieweeId={revieweeId} />}
                 />
                 <Route path={toPrefix + '/achievements'} children={<ProjectsPage />} />
-                <Redirect to={toPrefix + '/behavioral-competencies'} />
+                <Redirect to={toPrefix + '/achievements'} />
               </Switch>
             </FormChangeDetector>
           </Suspense>

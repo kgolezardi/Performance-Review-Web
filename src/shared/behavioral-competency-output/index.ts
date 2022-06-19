@@ -1,1 +1,0 @@
-export { BehavioralCompetencyOutput } from './BehavioralCompetencyOutput';

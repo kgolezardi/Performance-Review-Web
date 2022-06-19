@@ -36,12 +36,6 @@ const fragment = graphql`
       ...getUserLabel_user
     }
     managerPersonReview {
-      sahabinessRating
-      problemSolvingRating
-      executionRating
-      thoughtLeadershipRating
-      leadershipRating
-      presenceRating
       overallRating
     }
     projectReviews {
@@ -114,11 +108,10 @@ export function ManagerReviewDashboardTable(props: Props) {
       <TableContainer className={classes.tableContainer}>
         <Table size="small" stickyHeader>
           <colgroup>
-            <col style={{ width: '20%' }} />
-            <col style={{ width: '20%' }} />
-            <col style={{ width: '20%' }} />
-            <col style={{ width: '20%' }} />
-            <col style={{ width: '20%' }} />
+            <col style={{ width: '25%' }} />
+            <col style={{ width: '25%' }} />
+            <col style={{ width: '25%' }} />
+            <col style={{ width: '25%' }} />
           </colgroup>
           <TableHead>
             <TableRow>
@@ -140,7 +133,6 @@ export function ManagerReviewDashboardTable(props: Props) {
                   {i18n._('Manager')}
                 </TableSortLabel>
               </TableCell>
-              <TableCell>{i18n._('Behavioral Competencies')}</TableCell>
               <TableCell>{i18n._('Achievements')}</TableCell>
               <TableCell>{i18n._('Overall Rating')}</TableCell>
             </TableRow>
@@ -153,9 +145,6 @@ export function ManagerReviewDashboardTable(props: Props) {
                   {row.user}
                 </TableCell>
                 <TableCell>{row.manager}</TableCell>
-                <TableCell>
-                  <LinearProgress value={row.behavioralCompetencies} color={getColor(row.behavioralCompetencies)} />
-                </TableCell>
                 <TableCell>
                   <LinearProgress value={row.achievements} color={getColor(row.achievements)} />
                 </TableCell>

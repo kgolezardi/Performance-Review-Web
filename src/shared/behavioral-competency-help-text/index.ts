@@ -1,1 +1,0 @@
-export { BehavioralCompetencyHelpText } from './BehavioralCompetencyHelpText';

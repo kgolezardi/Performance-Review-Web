@@ -1,22 +1,23 @@
-import { i18n } from '@lingui/core';
-import { Box, Grid } from '@material-ui/core';
-import { MDXContext } from '@mdx-js/react';
 import graphql from 'babel-plugin-relay/macro';
+import React, { Fragment, useCallback, useContext, useState } from 'react';
+import { Box, Grid } from '@material-ui/core';
+import { FCProps } from 'src/shared/types/FCProps';
+import { MDXContext } from '@mdx-js/react';
+import { SectionGuide } from 'src/shared/section-guide';
+import { i18n } from '@lingui/core';
 import { importMDX } from 'mdx.macro';
 import { reverse } from 'ramda';
-import React, { Fragment, useCallback, useContext, useState } from 'react';
-import { useLazyLoadQuery } from 'react-relay/hooks';
-import { SectionGuide } from 'src/shared/section-guide';
 import { useBiDiSnackbar } from 'src/shared/snackbar';
-import { FCProps } from 'src/shared/types/FCProps';
+import { useLazyLoadQuery } from 'react-relay/hooks';
+
 import { AddProjectForm, AddProjectFormData } from './AddProjectForm';
+import { DeleteProjectReviewMutationInput } from './__generated__/deleteProjectReviewMutation.graphql';
+import { ProjectExpansionPanel } from './ProjectExpansionPanel';
+import { ProjectFormData } from './ProjectForm';
+import { ProjectsPageQuery } from './__generated__/ProjectsPageQuery.graphql';
 import { useCreateProjectReview } from './createProjectReview.mutaion';
 import { useDeleteProjectReview } from './deleteProjectReview.mutation';
 import { useEditProjectReview } from './editProjectReview.mutation';
-import { ProjectExpansionPanel } from './ProjectExpansionPanel';
-import { ProjectFormData } from './ProjectForm';
-import { DeleteProjectReviewMutationInput } from './__generated__/deleteProjectReviewMutation.graphql';
-import { ProjectsPageQuery } from './__generated__/ProjectsPageQuery.graphql';
 
 const DescriptionContent = importMDX.sync('./DescriptionContent.mdx');
 
