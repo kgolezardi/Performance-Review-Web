@@ -46,7 +46,7 @@ export function ProjectReviewEditForm(props: Props) {
   const handleEditProjectReviewTitle = ({ projectName }: AddProjectFormData) => {
     const input: EditProjectReviewMutationInput = {
       projectReviewId: project.id,
-      text: project.text,
+      text: project.text ?? '',
       rating: project.rating,
       reviewersId: map(prop('id'), project.reviewers),
       projectName,
