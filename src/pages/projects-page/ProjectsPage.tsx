@@ -42,11 +42,16 @@ const query = graphql`
 `;
 
 export default function ProjectsPage(props: Props) {
+  const data = useLazyLoadQuery<ProjectsPageQuery>(query, {});
+
   const { enqueueSnackbar } = useBiDiSnackbar();
   const createProjectReview = useCreateProjectReview();
   const editProjectReview = useEditProjectReview();
   const deleteProjectReview = useDeleteProjectReview();
   const components = useContext(MDXContext);
+
+  const projectReviews = reverse(data.viewer.projectReviews);
+  const canAddNewProject = projectReviews.length < 5;
 
   const saveProject = useCallback(
     (input: ProjectFormData) => {
@@ -63,7 +68,7 @@ export default function ProjectsPage(props: Props) {
 
   const addProjectReview = useCallback(
     ({ projectName }: AddProjectFormData) => {
-      if (projectName !== null) {
+      if (canAddNewProject && projectName !== null) {
         const input = { projectName };
         return createProjectReview({ input }).then((res) => {
           if (!res.createProjectReview.projectReview) {
@@ -74,7 +79,7 @@ export default function ProjectsPage(props: Props) {
         });
       }
     },
-    [createProjectReview, enqueueSnackbar],
+    [canAddNewProject, createProjectReview, enqueueSnackbar],
   );
 
   const deleteProject = useCallback(
@@ -84,13 +89,9 @@ export default function ProjectsPage(props: Props) {
     [deleteProjectReview],
   );
 
-  const data = useLazyLoadQuery<ProjectsPageQuery>(query, {});
-
   const [initialProjectIds] = useState(
     () => new Set(data.viewer.projectReviews.map((projectReview) => projectReview.id)),
   );
-
-  const projectReviews = reverse(data.viewer.projectReviews);
 
   return (
     <Fragment>
@@ -102,7 +103,7 @@ export default function ProjectsPage(props: Props) {
             </SectionGuide>
           </Grid>
           <Grid item xs={12}>
-            <AddProjectForm onSubmit={addProjectReview} />
+            <AddProjectForm onSubmit={addProjectReview} canAddNewProject={canAddNewProject} />
           </Grid>
         </Grid>
       </Box>
