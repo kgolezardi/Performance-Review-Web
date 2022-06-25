@@ -33,6 +33,8 @@ import { DeleteProjectReviewMutationInput } from './__generated__/deleteProjectR
 import { Evaluation } from './__generated__/editProjectReviewMutation.graphql';
 import { ProjectForm_projectReview$key } from './__generated__/ProjectForm_projectReview.graphql';
 
+const maximumReviewers = 5;
+
 export interface ProjectFormData {
   projectReviewId: string;
   text?: string;
@@ -140,10 +142,13 @@ export function ProjectForm(props: Props) {
           <Grid item xs={12}>
             <DictInputItem field="reviewersId">
               <ReviewersInput
-                label={i18n._('Reviewers')}
+                label={i18n._('Reviewers (maximum {num})', { num: maximumReviewers })}
                 users={props.users}
                 excludes={userIds}
-                helperText={i18n._('**Coordinate reviewers with your manager (maximum 6 reviewers)')}
+                helperText={i18n._('**Coordinate reviewers with your manager (maximum {num} reviewers)', {
+                  num: maximumReviewers,
+                })}
+                maximumReviewers={maximumReviewers}
               />
               <FragmentPrompt value={initialValue.reviewersId || []} equal={arrayEqual} />
             </DictInputItem>

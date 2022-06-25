@@ -6,6 +6,7 @@ import { OutlinedTextFieldProps, Paper, TextField, Theme, createStyles, makeStyl
 import { Styles } from 'src/shared/types/Styles';
 import { i18n } from '@lingui/core';
 import { indexBy, map, prop } from 'ramda';
+import { useBiDiSnackbar } from 'src/shared/snackbar';
 import { withProps } from 'src/shared/utils/withProps';
 
 import { useForminatorState } from '../core/useForminatorState';
@@ -21,6 +22,8 @@ interface OwnProps<Suggestion extends BaseSuggestion = BaseSuggestion> {
   label: string;
   textFieldOptions?: OutlinedTextFieldProps;
   renderInput?: AutocompleteProps<Suggestion>['renderInput'];
+  maximumValues?: number;
+  messageMaximumReviewers?: string;
   excludes?: string[]; // ids // TODO rethink about this prop
 }
 type Props<Suggestion extends BaseSuggestion = BaseSuggestion> = FCProps<OwnProps<Suggestion>> &
@@ -35,26 +38,39 @@ function SelectMultiAutoComplete<Suggestion extends BaseSuggestion = BaseSuggest
   label,
   textFieldOptions,
   excludes,
+  maximumValues = Number.POSITIVE_INFINITY,
+  messageMaximumReviewers = '',
   ...props
 }: Props<Suggestion>) {
   const [values, setValues] = useForminatorState<string[], string[]>(initialValue);
   const classes = useStyles(props);
 
+  const { enqueueSnackbar } = useBiDiSnackbar();
+
   const options = useMemo(() => {
     const excludesSet = new Set(excludes || []);
     return allOptions.filter((o) => !excludesSet.has(o.value));
   }, [allOptions, excludes]);
+
   const indexedOptions = useMemo(() => indexBy<Suggestion>(prop('value'), options), [options]);
+
   const onChange = useCallback(
     (event, newValue: Suggestion[]) => {
+      if (maximumValues < newValue.length) {
+        enqueueSnackbar(messageMaximumReviewers, { variant: 'warning', preventDuplicate: true });
+        return;
+      }
       setValues(map(prop('value'), newValue));
     },
-    [setValues],
+    [enqueueSnackbar, maximumValues, messageMaximumReviewers, setValues],
   );
+
   const renderInput: AutocompleteProps<Suggestion>['renderInput'] = useCallback(
     (params) => <TextField variant="outlined" label={label} fullWidth {...textFieldOptions} {...params} />,
-    [textFieldOptions, label],
+    [label, textFieldOptions],
   );
+
+  const selectedValues = values.map((v) => indexedOptions[v]).filter((o) => o !== undefined);
 
   return (
     <Autocomplete
@@ -65,9 +81,10 @@ function SelectMultiAutoComplete<Suggestion extends BaseSuggestion = BaseSuggest
       {...props}
       multiple
       options={options}
-      value={values.map((v) => indexedOptions[v]).filter((o) => o !== undefined)}
+      value={selectedValues}
       onChange={onChange}
       classes={classes}
+      popupIcon={maximumValues <= selectedValues.length ? null : undefined}
     />
   );
 }
