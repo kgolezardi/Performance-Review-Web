@@ -43,7 +43,7 @@ const query = graphql`
 const userFragment = graphql`
   fragment PeerReviewBoardPage_user on UserNode @relay(plural: true) {
     id
-    personReview {
+    peerPersonReview {
       state
     }
     ...UserCard_user
@@ -57,7 +57,7 @@ export interface LocationState {
 type UserType = ElementType<PeerReviewBoardPage_user>;
 
 const groupByState = groupBy<UserType>((user: UserType) => {
-  return user.personReview?.state || '';
+  return user.peerPersonReview?.state || '';
 });
 
 const generateCardList = (cardList: PeerReviewBoardPage_user) =>

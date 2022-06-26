@@ -1,5 +1,5 @@
 # source: http://127.0.0.1:8000/graphql
-# timestamp: Wed Jun 22 2022 08:44:36 GMT+0430 (Iran Daylight Time)
+# timestamp: Sat Jun 25 2022 14:49:57 GMT+0430 (Iran Daylight Time)
 
 input ChangePasswordMutationInput {
   oldPassword: String!
@@ -40,6 +40,7 @@ input EditProjectReviewMutationInput {
   projectName: String
   text: String
   rating: Evaluation
+  consultedWithManager: Boolean
   reviewersId: [ID!]
   clientMutationId: String
 }
@@ -150,6 +151,7 @@ type ProjectReviewNode implements Node {
   projectName: String!
   reviewee: UserNode!
   text: String
+  consultedWithManager: Boolean!
 
   """The ID of the object."""
   id: ID!
@@ -157,13 +159,13 @@ type ProjectReviewNode implements Node {
   reviewers: [UserNode!]!
 
   """
-  get or create a project comment about this project review from the logged in user
+  Get or create a project comment about this project review from the logged in user
   """
   comment: ProjectCommentNode
   comments: [ProjectCommentNode!]!
 
   """
-  get or create a manager project comment about this project review from the logged in user
+  Get (or create for manager) the manager project comment on this project review
   """
   managerComment: ManagerProjectCommentNode
 }
@@ -282,18 +284,19 @@ type UserNode implements Node {
   id: ID!
   isManager: Boolean!
 
-  """get or create a person review about this user from logged in user"""
-  personReview: PersonReviewNode
+  """Get (or create for self) a self person review about this user"""
+  selfPersonReview: PersonReviewNode
 
-  """list of person reviews about this user"""
+  """Get (or create for peer) a peer person review about this user"""
+  peerPersonReview: PersonReviewNode
+
+  """List of person reviews about this user"""
   personReviews: [PersonReviewNode!]!
 
-  """list of project reviews about this user"""
+  """List of project reviews about this user"""
   projectReviews: [ProjectReviewNode!]!
 
-  """
-  get or create a manager person review about this user from logged in user
-  """
+  """Get (or create for manager) a manager person review about this user"""
   managerPersonReview: ManagerPersonReviewNode
   hasStarted: Boolean
   ranking1: String
@@ -321,7 +324,6 @@ type ViewerNode implements Node {
   """The ID of the object"""
   managerPersonReview(id: ID!): ManagerPersonReviewNode
   managerPersonReviews: [ManagerPersonReviewNode!]!
-  findManagerPersonReview(revieweeId: ID): ManagerPersonReviewNode
 
   """The ID of the object"""
   projectComment(id: ID!): ProjectCommentNode
@@ -336,6 +338,5 @@ type ViewerNode implements Node {
   """The ID of the object"""
   personReview(id: ID!): PersonReviewNode
   personReviews: [PersonReviewNode!]!
-  findPersonReview(revieweeId: ID): PersonReviewNode
   node(id: ID!): Node
 }
