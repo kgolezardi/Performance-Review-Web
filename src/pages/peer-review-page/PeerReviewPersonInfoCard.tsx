@@ -21,7 +21,7 @@ const fragment = graphql`
     id
     ...getUserLabel_user
     ...PersonInfoCardHeader_user
-    personReview {
+    peerPersonReview {
       state
     }
     projectReviews {
@@ -45,7 +45,7 @@ export function PeerReviewPersonInfoCard(props: Props) {
   const { enqueueSnackbar } = useBiDiSnackbar();
   const history = useHistory<LocationState>();
 
-  const state = user.personReview?.state;
+  const state = user.peerPersonReview?.state;
   const name = getUserLabel(user, { short: true });
 
   const handleEndEvaluationClick = useCallback(() => {
@@ -55,7 +55,7 @@ export function PeerReviewPersonInfoCard(props: Props) {
           variant: 'success',
         });
         // check if all reviews assigned to the reviewee are in the state of 'DONE'
-        const usersState = data.savePersonReview.viewer.usersToReview.map((user) => user.personReview?.state);
+        const usersState = data.savePersonReview.viewer.usersToReview.map((user) => user.peerPersonReview?.state);
         const showDialog = usersState.every((state) => state === 'DONE');
         history.push('/peer-review', { showDialog });
       })

@@ -4,6 +4,7 @@ import { Box } from '@material-ui/core';
 import { DominantCharacteristicsOutput } from 'src/shared/dominant-characteristics-output';
 import { FCProps } from 'src/shared/types/FCProps';
 import { i18n } from '@lingui/core';
+import { useAppSettings } from 'src/core/settings';
 import { useBiDiSnackbar } from 'src/shared/snackbar';
 import { useLazyLoadQuery } from 'react-relay/hooks';
 import { useMutation } from 'src/relay';
@@ -35,12 +36,21 @@ const useStrengthsWeaknessesPageMutation = () =>
 const query = graphql`
   query StrengthsWeaknessesPageQuery($id: ID!) {
     viewer {
-      findPersonReview(revieweeId: $id) {
-        ...DominantCharacteristicsOutput_review
-        state
-        strengths
-        weaknesses
-        isSelfReview
+      user(id: $id) {
+        selfPersonReview {
+          ...DominantCharacteristicsOutput_review
+          state
+          strengths
+          weaknesses
+          isSelfReview
+        }
+        peerPersonReview {
+          ...DominantCharacteristicsOutput_review
+          state
+          strengths
+          weaknesses
+          isSelfReview
+        }
       }
     }
   }
@@ -61,7 +71,9 @@ export default function StrengthsWeaknessesPage(props: Props) {
   const { enqueueSnackbar } = useBiDiSnackbar();
   const strengthsWeaknessesPageMutation = useStrengthsWeaknessesPageMutation();
   const data = useLazyLoadQuery<StrengthsWeaknessesPageQuery>(query, { id: revieweeId });
-  const review = data.viewer.findPersonReview;
+  const { phase } = useAppSettings();
+
+  const review = phase === 'PEER_REVIEW' ? data.viewer.user?.peerPersonReview : data.viewer.user?.selfPersonReview;
 
   const handleSubmit = useCallback(
     (data: StrengthsWeaknessesFormData) => {

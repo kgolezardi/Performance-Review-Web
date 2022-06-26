@@ -24,9 +24,6 @@ const query = graphql`
   query ManagerReviewPageQuery($id: ID!) {
     viewer {
       user(id: $id) {
-        personReview {
-          ...DominantCharacteristicsOutput_review
-        }
         ...PersonInfoCardHeader_user
       }
     }

@@ -31,8 +31,10 @@ type Props = FCProps<OwnProps> & StyleProps;
 const query = graphql`
   query DashboardPageQuery($id: ID!) {
     viewer {
-      review: findPersonReview(revieweeId: $id) {
-        ...DominantCharacteristicsCircularIndicator_review
+      user: user(id: $id) {
+        selfPersonReview {
+          ...DominantCharacteristicsCircularIndicator_review
+        }
       }
       projects: projectReviews {
         ...AchievementsIndicators_projects
@@ -52,7 +54,7 @@ export default function DashboardPage(props: Props) {
     <Container maxWidth="md">
       <Box marginY={4}>
         <Grid container spacing={2}>
-          <Grid item xs={12} sm={6} md={4}>
+          <Grid item xs={12} sm={6}>
             <Card classes={{ root: clsx(classes.card, classes.achievementsCard) }}>
               <CardHeader title={i18n._('Achievements')} />
               <Overlayscrollbars className={classes.overlayscrollbars}>
@@ -65,11 +67,11 @@ export default function DashboardPage(props: Props) {
               </Box>
             </Card>
           </Grid>
-          <Grid item xs={12} sm={6} md={4}>
+          <Grid item xs={12} sm={6}>
             <Card classes={{ root: classes.card }}>
               <CardHeader title={i18n._('Dominant Characteristics')} />
               <CardContent classes={{ root: classes.centerCardContent }}>
-                <DominantCharacteristicsCircularIndicator review={data.viewer.review} />
+                <DominantCharacteristicsCircularIndicator review={data.viewer.user?.selfPersonReview ?? null} />
               </CardContent>
               <Box paddingX={5} paddingBottom={3}>
                 <LinkButton to="/self-review/dominant-characteristics" />
@@ -94,6 +96,7 @@ const styles = (theme: Theme) =>
       flex: 1,
       flexDirection: 'column',
       justifyContent: 'center',
+      alignItems: 'center',
     },
     achievementsCard: {
       display: 'flex',

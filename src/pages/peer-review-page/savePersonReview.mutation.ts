@@ -12,7 +12,7 @@ export const useSavePersonReviewMutation = () =>
         }
         viewer {
           usersToReview {
-            personReview {
+            peerPersonReview {
               state
             }
           }

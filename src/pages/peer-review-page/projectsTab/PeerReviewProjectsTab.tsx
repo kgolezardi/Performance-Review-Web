@@ -32,7 +32,7 @@ const fragment = graphql`
       ...PeerReviewProjectsResult_projectReview
       ...PeerReviewProjectExpansionPanel_projectReview
     }
-    personReview {
+    peerPersonReview {
       state
     }
   }
@@ -48,7 +48,7 @@ export function PeerReviewProjectsTab(props: Props) {
   const { revieweeId } = props;
   const data = useLazyLoadQuery<PeerReviewProjectsTabQuery>(query, { revieweeId });
   const user = useFragment<PeerReviewProjectsTab_user$key>(fragment, data.viewer.user);
-  const state = user?.personReview?.state;
+  const state = user?.peerPersonReview?.state;
   const projectReviews = user?.projectReviews;
 
   return (

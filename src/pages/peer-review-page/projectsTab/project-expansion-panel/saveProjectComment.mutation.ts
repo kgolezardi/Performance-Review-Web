@@ -10,7 +10,7 @@ export const useSaveProjectComment = () =>
         projectComment {
           projectReview {
             reviewee {
-              personReview {
+              peerPersonReview {
                 state
               }
             }
