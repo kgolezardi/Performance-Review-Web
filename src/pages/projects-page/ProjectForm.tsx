@@ -83,7 +83,13 @@ export function ProjectForm(props: Props) {
   }, [projectReview]);
 
   const user = useAuthGuardUser();
-  const userIds = useMemo(() => [user.id], [user]);
+
+  const userIds = useMemo(() => {
+    if (user.manager) {
+      return [user.id, user.manager.id];
+    }
+    return [user.id];
+  }, [user]);
 
   const handleDelete = useCallback(() => {
     onDelete({ projectReviewId: projectReview.id });
