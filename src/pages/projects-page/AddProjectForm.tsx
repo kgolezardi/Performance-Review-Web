@@ -1,9 +1,11 @@
 import AddIcon from '@material-ui/icons/Add';
 import React from 'react';
+import ResetInputOnSubmit from 'src/shared/forminator/utils/ResetInputOnSubmit';
 import { Box, Grid, Typography } from '@material-ui/core';
-import { DictInput, DictInputItem, Forminator, StringInput, SubmitButton } from 'src/shared/forminator';
+import { DictInput, DictInputItem, Forminator, FragmentRef, StringInput, SubmitButton } from 'src/shared/forminator';
 import { FCProps } from 'src/shared/types/FCProps';
 import { i18n } from '@lingui/core';
+import { useFragmentLens } from 'src/shared/forminator/core/fragment-lens/useFragmentLens';
 
 const maximumProjects = 5;
 export interface AddProjectFormData {
@@ -18,6 +20,7 @@ type Props = FCProps<OwnProps>;
 
 export function AddProjectForm(props: Props) {
   const { onSubmit, canAddNewProject } = props;
+  const lens = useFragmentLens();
 
   return (
     <Forminator onSubmit={onSubmit}>
@@ -43,13 +46,16 @@ export function AddProjectForm(props: Props) {
                     label={i18n._('Project title')}
                     fullWidth
                   />
+                  <FragmentRef lens={lens} />
                 </Box>
               </DictInputItem>
             </Grid>
             <Grid item>
-              <SubmitButton disabled={!canAddNewProject} variant="outlined" color="primary" startIcon={<AddIcon />}>
-                {i18n._('Add')}
-              </SubmitButton>
+              <ResetInputOnSubmit resetValue={''} lens={lens}>
+                <SubmitButton disabled={!canAddNewProject} variant="outlined" color="primary" startIcon={<AddIcon />}>
+                  {i18n._('Add')}
+                </SubmitButton>
+              </ResetInputOnSubmit>
             </Grid>
           </Grid>
         </Grid>
