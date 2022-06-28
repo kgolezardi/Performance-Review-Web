@@ -41,5 +41,8 @@ const fragment = graphql`
     hasStarted
     isManager
     isHr
+    manager {
+      id
+    }
   }
 `;
