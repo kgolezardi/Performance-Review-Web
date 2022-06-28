@@ -1,9 +1,12 @@
 import AddIcon from '@material-ui/icons/Add';
 import React from 'react';
 import { Box, Grid, Typography } from '@material-ui/core';
-import { DictInput, DictInputItem, Forminator, StringInput, SubmitButton } from 'src/shared/forminator';
+import { DictInput, DictInputItem, Forminator, FragmentRef, StringInput } from 'src/shared/forminator';
 import { FCProps } from 'src/shared/types/FCProps';
 import { i18n } from '@lingui/core';
+import { useFragmentLens } from 'src/shared/forminator/core/fragment-lens/useFragmentLens';
+
+import { ProjectAddSubmitButton } from './ProjectAddSubmitButton';
 
 const maximumProjects = 5;
 export interface AddProjectFormData {
@@ -18,6 +21,7 @@ type Props = FCProps<OwnProps>;
 
 export function AddProjectForm(props: Props) {
   const { onSubmit, canAddNewProject } = props;
+  const lens = useFragmentLens();
 
   return (
     <Forminator onSubmit={onSubmit}>
@@ -34,8 +38,8 @@ export function AddProjectForm(props: Props) {
             </Typography>
           </Grid>
           <Grid container item spacing={2} alignItems="center" xs={12}>
-            <Grid item>
-              <DictInputItem field="projectName">
+            <DictInputItem field="projectName">
+              <Grid item>
                 <Box width={320}>
                   <StringInput
                     disabled={!canAddNewProject}
@@ -43,14 +47,21 @@ export function AddProjectForm(props: Props) {
                     label={i18n._('Project title')}
                     fullWidth
                   />
+                  <FragmentRef lens={lens} />
                 </Box>
-              </DictInputItem>
-            </Grid>
-            <Grid item>
-              <SubmitButton disabled={!canAddNewProject} variant="outlined" color="primary" startIcon={<AddIcon />}>
-                {i18n._('Add')}
-              </SubmitButton>
-            </Grid>
+              </Grid>
+              <Grid item>
+                <ProjectAddSubmitButton
+                  lens={lens}
+                  disabled={!canAddNewProject}
+                  variant="outlined"
+                  color="primary"
+                  startIcon={<AddIcon />}
+                >
+                  {i18n._('Add')}
+                </ProjectAddSubmitButton>
+              </Grid>
+            </DictInputItem>
           </Grid>
         </Grid>
       </DictInput>
