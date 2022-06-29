@@ -51,7 +51,6 @@ export interface Row {
   user: string;
   avatarUrl: string | null;
   manager: string;
-  behavioralCompetencies: number;
   achievements: number;
   overallRating?: Evaluation | null;
 }
@@ -79,14 +78,6 @@ export function ManagerReviewDashboardTable(props: Props) {
         avatarUrl: userToReview.avatarUrl,
         user: getUserLabel(userToReview),
         manager: userToReview.manager ? getUserLabel(userToReview.manager) : '---',
-        behavioralCompetencies: userToReview.managerPersonReview
-          ? (Object.entries(userToReview.managerPersonReview)
-              .filter(([key, value]) => key !== 'overallRating')
-              .map(([key, value]) => Boolean(value))
-              .filter(Boolean).length /
-              (Object.entries(userToReview.managerPersonReview).length - /* Remove overall rating */ 1)) *
-            100
-          : 0,
         achievements:
           (userToReview.projectReviews.length > 0
             ? userToReview.projectReviews.map((projectReview) => projectReview.managerComment?.rating).filter(isNotNil)
