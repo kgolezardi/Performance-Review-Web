@@ -37,15 +37,15 @@ export const useFilters = () => {
       return true;
     }
     if (filters.status === 'todo') {
-      return row.behavioralCompetencies === 0 && row.achievements === 0;
+      return row.achievements === 0;
     }
     if (filters.status === 'doing') {
-      const done = row.behavioralCompetencies === 100 && row.achievements === 100;
-      const todo = row.behavioralCompetencies === 0 && row.achievements === 0;
+      const done = row.achievements === 100;
+      const todo = row.achievements === 0;
       return !done && !todo;
     }
     if (filters.status === 'done') {
-      return row.behavioralCompetencies === 100 && row.achievements === 100;
+      return row.achievements === 100;
     }
     return true;
   };
