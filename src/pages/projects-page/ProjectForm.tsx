@@ -3,8 +3,8 @@ import graphql from 'babel-plugin-relay/macro';
 import React, { useCallback, useMemo } from 'react';
 import { ActionBar } from 'src/shared/action-bar';
 import { Box, Grid, Typography } from '@material-ui/core';
-import { ConfirmButton } from 'src/shared/confirm-button';
 import {
+  CheckboxInput,
   ConstantInput,
   DictInput,
   DictInputItem,
@@ -13,6 +13,7 @@ import {
   LimitedTextAreaInput,
   SubmitButton,
 } from 'src/shared/forminator';
+import { ConfirmButton } from 'src/shared/confirm-button';
 import { DangerButton } from 'src/shared/danger-button';
 import { FCProps } from 'src/shared/types/FCProps';
 import { Guide } from 'src/shared/guide/Guide';
@@ -40,6 +41,7 @@ export interface ProjectFormData {
   text?: string;
   rating?: Evaluation;
   reviewersId: string[];
+  consultedWithManager: boolean;
 }
 interface OwnProps {
   onSubmit: (data: ProjectFormData) => void;
@@ -66,6 +68,7 @@ export function ProjectForm(props: Props) {
         reviewers {
           id
         }
+        consultedWithManager
       }
     `,
     props.projectReview,
@@ -79,6 +82,7 @@ export function ProjectForm(props: Props) {
       text: projectReview.text || '',
       rating: projectReview.rating || undefined,
       reviewersId: projectReview.reviewers.map(prop('id')),
+      consultedWithManager: projectReview.consultedWithManager ?? false,
     };
   }, [projectReview]);
 
@@ -104,7 +108,6 @@ export function ProjectForm(props: Props) {
           <DictInputItem field="projectReviewId">
             <ConstantInput />
           </DictInputItem>
-
           <Grid item xs={12}>
             <Typography>{i18n._('How effective were you in this project?')}</Typography>
           </Grid>
@@ -157,6 +160,16 @@ export function ProjectForm(props: Props) {
                 maximumReviewers={maximumReviewers}
               />
               <FragmentPrompt value={initialValue.reviewersId || []} equal={arrayEqual} />
+            </DictInputItem>
+          </Grid>
+          <Grid item xs={12}>
+            <DictInputItem field="consultedWithManager">
+              <CheckboxInput
+                color="primary"
+                label={i18n._('I consulted with my manager')}
+                initialValue={initialValue.consultedWithManager}
+              />
+              <FragmentPrompt value={initialValue.consultedWithManager} />
             </DictInputItem>
           </Grid>
         </DictInput>

@@ -17,30 +17,30 @@ msgstr ""
 msgid "%s - Performance Review"
 msgstr "%s - Performance Review"
 
-#: src/pages/projects-page/ProjectForm.tsx:84
+#: src/pages/projects-page/ProjectForm.tsx:91
 msgid "**Coordinate reviewers with your manager (maximum {num} reviewers)"
 msgstr "**Coordinate reviewers with your manager (maximum {num} reviewers)"
 
-#: src/pages/projects-page/ProjectForm.tsx:73
-#: src/pages/projects-page/ProjectForm.tsx:77
+#: src/pages/projects-page/ProjectForm.tsx:80
+#: src/pages/projects-page/ProjectForm.tsx:84
 #: src/shared/project-output/ProjectCommentOutput.tsx:27
 #: src/shared/project-output/ProjectOutput.tsx:32
 msgid "Accomplishments Description"
 msgstr "Accomplishments Description"
 
 #: src/containers/main/getMenuItems.ts:22
-#: src/pages/dashboard-page/DashboardPage.tsx:33
+#: src/pages/dashboard-page/DashboardPage.tsx:36
 #: src/pages/manager-review-dashboard/ManagerReviewDashboardDrawerContent.tsx:66
-#: src/pages/manager-review-dashboard/ManagerReviewDashboardTable.tsx:82
-#: src/pages/manager-review-page/ManagerReviewPage.tsx:48
-#: src/pages/manager-review-page/ManagerReviewPrintPage.tsx:61
+#: src/pages/manager-review-dashboard/ManagerReviewDashboardTable.tsx:74
+#: src/pages/manager-review-page/ManagerReviewPage.tsx:45
+#: src/pages/manager-review-page/ManagerReviewPrintPage.tsx:58
 #: src/pages/peer-review-page/PeerReviewPage.tsx:45
 #: src/pages/result-page/ResultPage.tsx:21
 #: src/pages/self-review-page/SelfReviewPage.tsx:22
 msgid "Achievements"
 msgstr "Achievements"
 
-#: src/pages/projects-page/AddProjectForm.tsx:32
+#: src/pages/projects-page/AddProjectForm.tsx:37
 #: src/shared/strengths-weaknesses/StrengthsOrWeaknesses.tsx:58
 msgid "Add"
 msgstr "Add"
@@ -66,7 +66,7 @@ msgstr "All reviews were successfully done"
 msgid "An error occurred. Try again!"
 msgstr "An error occurred. Try again!"
 
-#: src/pages/projects-page/ProjectForm.tsx:93
+#: src/pages/projects-page/ProjectForm.tsx:106
 msgid "Are you sure you want to delete {projectName} review?"
 msgstr "Are you sure you want to delete {projectName} review?"
 
@@ -75,15 +75,15 @@ msgstr "Are you sure you want to delete {projectName} review?"
 msgid "Cancel"
 msgstr "Cancel"
 
-#: src/pages/manager-review-page/ManagerReviewPage.tsx:41
-#: src/pages/manager-review-page/ManagerReviewPrintPage.tsx:45
+#: src/pages/manager-review-page/ManagerReviewPage.tsx:38
+#: src/pages/manager-review-page/ManagerReviewPrintPage.tsx:42
 #: src/pages/peer-review-page/PeerReviewPage.tsx:37
 #: src/pages/self-review-page/SelfReviewPage.tsx:31
 #: src/stories/decorators/promptDecorator.tsx:7
 msgid "Changes you made may not be saved."
 msgstr "Changes you made may not be saved."
 
-#: src/pages/projects-page/AddProjectForm.tsx:17
+#: src/pages/projects-page/AddProjectForm.tsx:20
 msgid "Choose projects you have been working on in the past year (At most {num})."
 msgstr "Choose projects you have been working on in the past year (At most {num})."
 
@@ -105,7 +105,7 @@ msgstr "Dashboard"
 msgid "Dear {name}, Hello"
 msgstr "Dear {name}, Hello"
 
-#: src/pages/projects-page/ProjectForm.tsx:93
+#: src/pages/projects-page/ProjectForm.tsx:106
 msgid "Delete"
 msgstr "Delete"
 
@@ -114,9 +114,9 @@ msgid "Doing"
 msgstr "Doing"
 
 #: src/containers/main/getMenuItems.ts:28
-#: src/pages/dashboard-page/DashboardPage.tsx:46
-#: src/pages/manager-review-page/ManagerReviewPage.tsx:49
-#: src/pages/manager-review-page/ManagerReviewPrintPage.tsx:56
+#: src/pages/dashboard-page/DashboardPage.tsx:49
+#: src/pages/manager-review-page/ManagerReviewPage.tsx:46
+#: src/pages/manager-review-page/ManagerReviewPrintPage.tsx:53
 #: src/pages/peer-review-page/PeerReviewPage.tsx:47
 #: src/pages/result-page/ResultPage.tsx:22
 #: src/pages/self-review-page/SelfReviewPage.tsx:23
@@ -190,13 +190,17 @@ msgstr "He/She Needs Improvement"
 msgid "He/She asked your review on {numberOfProjects} project(s)"
 msgstr "He/She asked your review on {numberOfProjects} project(s)"
 
-#: src/pages/projects-page/ProjectForm.tsx:61
+#: src/pages/projects-page/ProjectForm.tsx:68
 msgid "How effective were you in this project?"
 msgstr "How effective were you in this project?"
 
 #: src/global-types/Evaluation.ts:10
 msgid "I Need Improvement"
 msgstr "I Need Improvement"
+
+#: src/pages/projects-page/ProjectForm.tsx:99
+msgid "I consulted with my manager"
+msgstr "I consulted with my manager"
 
 #: src/pages/dashboard-page/DominantCharacteristicsCircularIndicator.tsx:56
 msgid "I thought you forgot to write your strengths!"
@@ -224,7 +228,7 @@ msgid "Login"
 msgstr "Login"
 
 #: src/pages/manager-review-dashboard/ManagerReviewDashboardDrawerContent.tsx:60
-#: src/pages/manager-review-dashboard/ManagerReviewDashboardTable.tsx:79
+#: src/pages/manager-review-dashboard/ManagerReviewDashboardTable.tsx:71
 #: src/pages/manager-review-dashboard/TableFilters.tsx:19
 msgid "Manager"
 msgstr "Manager"
@@ -237,7 +241,7 @@ msgstr "Meets Expectations from Him/Her"
 msgid "Meets Expectations from me"
 msgstr "Meets Expectations from me"
 
-#: src/pages/projects-page/ProjectForm.tsx:66
+#: src/pages/projects-page/ProjectForm.tsx:73
 msgid "My evaluation"
 msgstr "My evaluation"
 
@@ -251,7 +255,7 @@ msgid "No"
 msgstr "No"
 
 #: src/shared/forminator/inputs/SelectAutoComplete.tsx:33
-#: src/shared/forminator/inputs/SelectMultiAutoComplete.tsx:39
+#: src/shared/forminator/inputs/SelectMultiAutoComplete.tsx:40
 msgid "No Options"
 msgstr "No Options"
 
@@ -269,12 +273,12 @@ msgstr "Other people comments about {name} performance compared to initial expec
 
 #: src/pages/manager-review-dashboard/ManagerReviewDashboardDrawerContent.tsx:61
 #: src/pages/manager-review-dashboard/TableFilters.tsx:38
-#: src/pages/manager-review-page/ManagerReviewPage.tsx:50
-#: src/pages/manager-review-page/ManagerReviewPrintPage.tsx:66
+#: src/pages/manager-review-page/ManagerReviewPage.tsx:47
+#: src/pages/manager-review-page/ManagerReviewPrintPage.tsx:63
 msgid "Overall Evaluation"
 msgstr "Overall Evaluation"
 
-#: src/pages/manager-review-dashboard/ManagerReviewDashboardTable.tsx:83
+#: src/pages/manager-review-dashboard/ManagerReviewDashboardTable.tsx:75
 msgid "Overall Rating"
 msgstr "Overall Rating"
 
@@ -309,12 +313,12 @@ msgstr "Programmers are typing..."
 msgid "Project review name is duplicated."
 msgstr "Project review name is duplicated."
 
-#: src/pages/projects-page/AddProjectForm.tsx:26
+#: src/pages/projects-page/AddProjectForm.tsx:29
 #: src/pages/projects-page/project-review-title-editor/ProjectReviewEditForm.tsx:54
 msgid "Project title"
 msgstr "Project title"
 
-#: src/pages/projects-page/AddProjectForm.tsx:13
+#: src/pages/projects-page/AddProjectForm.tsx:16
 #: src/shared/full-page-error/FullPageError.stories.tsx:21
 msgid "Projects"
 msgstr "Projects"
@@ -327,14 +331,14 @@ msgstr "Read the guide"
 msgid "Reviewee"
 msgstr "Reviewee"
 
-#: src/pages/projects-page/ProjectForm.tsx:84
+#: src/pages/projects-page/ProjectForm.tsx:91
 msgid "Reviewers (maximum {num})"
 msgstr "Reviewers (maximum {num})"
 
 #: src/pages/manager-review-page/achievements/ManagerReviewAchievements.tsx:77
 #: src/pages/manager-review-page/overall-evaluation/ManagerReviewOverallEvaluation.tsx:87
 #: src/pages/peer-review-page/projectsTab/projects-form/PeerReviewProjectsForm.tsx:49
-#: src/pages/projects-page/ProjectForm.tsx:97
+#: src/pages/projects-page/ProjectForm.tsx:110
 #: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:52
 msgid "Save"
 msgstr "Save"
@@ -371,7 +375,7 @@ msgstr "Show and claim reward"
 #: src/pages/projects-page/ProjectsPage.tsx:47
 #: src/pages/projects-page/ProjectsPage.tsx:55
 #: src/pages/projects-page/project-review-title-editor/ProjectReviewEditForm.tsx:38
-#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesPage.tsx:58
+#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesPage.tsx:70
 msgid "Something went wrong."
 msgstr "Something went wrong."
 
@@ -409,7 +413,7 @@ msgstr "Submit changes"
 #: src/pages/peer-review-page/projectsTab/project-expansion-panel/PeerReviewProjectExpansionPanel.tsx:35
 #: src/pages/projects-page/ProjectsPage.tsx:44
 #: src/pages/projects-page/project-review-title-editor/ProjectReviewEditForm.tsx:43
-#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesPage.tsx:55
+#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesPage.tsx:67
 msgid "Successfully saved."
 msgstr "Successfully saved."
 
@@ -421,6 +425,11 @@ msgstr "Superb"
 #: src/shared/gift-dialog/GiftDialog.tsx:47
 msgid "Thanks, I claim it later"
 msgstr "Thanks, I claim it later"
+
+#: src/pages/dashboard-page/ProjectProgress.tsx:13
+#: src/pages/projects-page/ProjectExpansionPanel.tsx:32
+msgid "The manager has not been consulted"
+msgstr "The manager has not been consulted"
 
 #: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:43
 #: src/shared/dominant-characteristics-output/DominantCharacteristics.tsx:21
@@ -458,7 +467,7 @@ msgstr "Todo"
 msgid "Try Again"
 msgstr "Try Again"
 
-#: src/pages/manager-review-dashboard/ManagerReviewDashboardTable.tsx:100
+#: src/pages/manager-review-dashboard/ManagerReviewDashboardTable.tsx:92
 #: src/pages/manager-review-page/achievements/ManagerReviewAchievementsRatingGroup.tsx:33
 #: src/pages/manager-review-page/overall-evaluation/ManagerReviewOverallEvaluation.tsx:49
 #: src/pages/manager-review-page/overall-evaluation/ManagerReviewOverallEvaluation.tsx:50
@@ -468,7 +477,7 @@ msgstr "Try Again"
 msgid "Unknown"
 msgstr "Unknown"
 
-#: src/pages/manager-review-dashboard/ManagerReviewDashboardTable.tsx:74
+#: src/pages/manager-review-dashboard/ManagerReviewDashboardTable.tsx:66
 msgid "User"
 msgstr "User"
 
@@ -500,7 +509,7 @@ msgstr "What to continue doing"
 msgid "What to improve"
 msgstr "What to improve"
 
-#: src/pages/projects-page/ProjectForm.tsx:74
+#: src/pages/projects-page/ProjectForm.tsx:81
 msgid "Work results and achievements reflecting your contributions; For instance, your key-results"
 msgstr "Work results and achievements reflecting your contributions; For instance, your key-results"
 
@@ -513,8 +522,8 @@ msgid "Yes! Go"
 msgstr "Yes! Go"
 
 #: src/shared/reviewers-input/ReviewersInput.tsx:21
-msgid "You can choose only {num} reviewers"
-msgstr "You can choose only {num} reviewers"
+msgid "You can choose maximum {num} reviewers"
+msgstr "You can choose maximum {num} reviewers"
 
 #: src/pages/manager-review-page/ManagerReviewProgress.tsx:34
 msgid "You have evaluated all {total} achievements. You can change them whenever you want to."

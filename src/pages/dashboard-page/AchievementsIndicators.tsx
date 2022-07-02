@@ -26,9 +26,16 @@ export function AchievementsIndicators(props: Props) {
 
   return (
     <Fragment>
-      {projects.map((project, index) => {
+      {projects.map((project) => {
         const value = getValue(project);
-        return <ProjectProgress key={project.id} value={value} name={project.projectName} />;
+        return (
+          <ProjectProgress
+            key={project.id}
+            value={value}
+            name={project.projectName}
+            consultedWithManager={project.consultedWithManager}
+          />
+        );
       })}
     </Fragment>
   );
@@ -43,6 +50,7 @@ export const fragment = graphql`
       id
     }
     text
+    consultedWithManager
   }
 `;
 

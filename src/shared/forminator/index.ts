@@ -12,3 +12,4 @@ export { default as SelectAutoComplete } from './inputs/SelectAutoComplete';
 export { default as SelectMultiAutoComplete } from './inputs/SelectMultiAutoComplete';
 export { default as ConstantInput } from './inputs/ConstantInput';
 export { default as FragmentPrompt } from './utils/FragmentPrompt';
+export { default as CheckboxInput } from './inputs/CheckboxInput';

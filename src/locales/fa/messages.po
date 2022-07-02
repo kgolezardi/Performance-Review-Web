@@ -17,30 +17,30 @@ msgstr ""
 msgid "%s - Performance Review"
 msgstr "%s - مرور عملکرد"
 
-#: src/pages/projects-page/ProjectForm.tsx:84
+#: src/pages/projects-page/ProjectForm.tsx:91
 msgid "**Coordinate reviewers with your manager (maximum {num} reviewers)"
 msgstr "مرورکنندگانی رو که اینجا مشخص می‌کنی، فقط قسمت «توضیح فعالیت» رو در فاز بعدی مرور عملکرد می‌خونن و روش بهت بازخورد می‌دن. همچنین این افراد «ویژگی‌های بارز» تو رو از نگاه خودشون (و بدون خوندن نوشته‌هات) ارزیابی می‌کنن. مرورکنندگان رو حتما با هماهنگی مدیر مستقیمت انتخاب کن (حداکثر {num} نفر)."
 
-#: src/pages/projects-page/ProjectForm.tsx:73
-#: src/pages/projects-page/ProjectForm.tsx:77
+#: src/pages/projects-page/ProjectForm.tsx:80
+#: src/pages/projects-page/ProjectForm.tsx:84
 #: src/shared/project-output/ProjectCommentOutput.tsx:27
 #: src/shared/project-output/ProjectOutput.tsx:32
 msgid "Accomplishments Description"
 msgstr "توضیح فعالیت"
 
 #: src/containers/main/getMenuItems.ts:22
-#: src/pages/dashboard-page/DashboardPage.tsx:33
+#: src/pages/dashboard-page/DashboardPage.tsx:36
 #: src/pages/manager-review-dashboard/ManagerReviewDashboardDrawerContent.tsx:66
-#: src/pages/manager-review-dashboard/ManagerReviewDashboardTable.tsx:82
-#: src/pages/manager-review-page/ManagerReviewPage.tsx:48
-#: src/pages/manager-review-page/ManagerReviewPrintPage.tsx:61
+#: src/pages/manager-review-dashboard/ManagerReviewDashboardTable.tsx:74
+#: src/pages/manager-review-page/ManagerReviewPage.tsx:45
+#: src/pages/manager-review-page/ManagerReviewPrintPage.tsx:58
 #: src/pages/peer-review-page/PeerReviewPage.tsx:45
 #: src/pages/result-page/ResultPage.tsx:21
 #: src/pages/self-review-page/SelfReviewPage.tsx:22
 msgid "Achievements"
 msgstr "فعالیت‌ها"
 
-#: src/pages/projects-page/AddProjectForm.tsx:32
+#: src/pages/projects-page/AddProjectForm.tsx:37
 #: src/shared/strengths-weaknesses/StrengthsOrWeaknesses.tsx:58
 msgid "Add"
 msgstr "افزودن"
@@ -66,7 +66,7 @@ msgstr "تمامی ارزیابی‌ها با موفقیت انجام شد"
 msgid "An error occurred. Try again!"
 msgstr "خطایی رخ داده. دوباره تلاش کنید."
 
-#: src/pages/projects-page/ProjectForm.tsx:93
+#: src/pages/projects-page/ProjectForm.tsx:106
 msgid "Are you sure you want to delete {projectName} review?"
 msgstr "آیا از حذف {projectName} مطمین هستید؟"
 
@@ -75,15 +75,15 @@ msgstr "آیا از حذف {projectName} مطمین هستید؟"
 msgid "Cancel"
 msgstr "لغو"
 
-#: src/pages/manager-review-page/ManagerReviewPage.tsx:41
-#: src/pages/manager-review-page/ManagerReviewPrintPage.tsx:45
+#: src/pages/manager-review-page/ManagerReviewPage.tsx:38
+#: src/pages/manager-review-page/ManagerReviewPrintPage.tsx:42
 #: src/pages/peer-review-page/PeerReviewPage.tsx:37
 #: src/pages/self-review-page/SelfReviewPage.tsx:31
 #: src/stories/decorators/promptDecorator.tsx:7
 msgid "Changes you made may not be saved."
 msgstr "یعنی بدون ذخیره تغییرات می‌خوای بری؟؟"
 
-#: src/pages/projects-page/AddProjectForm.tsx:17
+#: src/pages/projects-page/AddProjectForm.tsx:20
 msgid "Choose projects you have been working on in the past year (At most {num})."
 msgstr "کارهایی که در یکسال گذشته انجام دادی رو به حداکثر {num} فعالیت کلی تقسیم کن و راجع بهشون توضیح بده."
 
@@ -105,7 +105,7 @@ msgstr "پیشخوان"
 msgid "Dear {name}, Hello"
 msgstr "{name} عزیز، سلام"
 
-#: src/pages/projects-page/ProjectForm.tsx:93
+#: src/pages/projects-page/ProjectForm.tsx:106
 msgid "Delete"
 msgstr "حذف"
 
@@ -114,9 +114,9 @@ msgid "Doing"
 msgstr "در حال انجام"
 
 #: src/containers/main/getMenuItems.ts:28
-#: src/pages/dashboard-page/DashboardPage.tsx:46
-#: src/pages/manager-review-page/ManagerReviewPage.tsx:49
-#: src/pages/manager-review-page/ManagerReviewPrintPage.tsx:56
+#: src/pages/dashboard-page/DashboardPage.tsx:49
+#: src/pages/manager-review-page/ManagerReviewPage.tsx:46
+#: src/pages/manager-review-page/ManagerReviewPrintPage.tsx:53
 #: src/pages/peer-review-page/PeerReviewPage.tsx:47
 #: src/pages/result-page/ResultPage.tsx:22
 #: src/pages/self-review-page/SelfReviewPage.tsx:23
@@ -190,13 +190,17 @@ msgstr "کمتر از حد انتظاری که ازش میره"
 msgid "He/She asked your review on {numberOfProjects} project(s)"
 msgstr "در {numberOfProjects} فعالیت از شما نظر خواسته است"
 
-#: src/pages/projects-page/ProjectForm.tsx:61
+#: src/pages/projects-page/ProjectForm.tsx:68
 msgid "How effective were you in this project?"
 msgstr "خودت رو در انجام این فعالیت چطور ارزیابی می‌کنی؟"
 
 #: src/global-types/Evaluation.ts:10
 msgid "I Need Improvement"
 msgstr "کمتر از حد انتظاری که از من میره"
+
+#: src/pages/projects-page/ProjectForm.tsx:99
+msgid "I consulted with my manager"
+msgstr "با مدیرم مشورت کردم"
 
 #: src/pages/dashboard-page/DominantCharacteristicsCircularIndicator.tsx:56
 msgid "I thought you forgot to write your strengths!"
@@ -224,7 +228,7 @@ msgid "Login"
 msgstr "ورود"
 
 #: src/pages/manager-review-dashboard/ManagerReviewDashboardDrawerContent.tsx:60
-#: src/pages/manager-review-dashboard/ManagerReviewDashboardTable.tsx:79
+#: src/pages/manager-review-dashboard/ManagerReviewDashboardTable.tsx:71
 #: src/pages/manager-review-dashboard/TableFilters.tsx:19
 msgid "Manager"
 msgstr "مدیر مستقیم"
@@ -237,7 +241,7 @@ msgstr "در حد انتظاری که ازش میره"
 msgid "Meets Expectations from me"
 msgstr "در حد انتظاری که از من میره"
 
-#: src/pages/projects-page/ProjectForm.tsx:66
+#: src/pages/projects-page/ProjectForm.tsx:73
 msgid "My evaluation"
 msgstr "ارزیابی من"
 
@@ -251,7 +255,7 @@ msgid "No"
 msgstr "خیر"
 
 #: src/shared/forminator/inputs/SelectAutoComplete.tsx:33
-#: src/shared/forminator/inputs/SelectMultiAutoComplete.tsx:39
+#: src/shared/forminator/inputs/SelectMultiAutoComplete.tsx:40
 msgid "No Options"
 msgstr "یافت نشد"
 
@@ -269,12 +273,12 @@ msgstr "نظرات دیگران در مورد سطح عملکرد {name} در ا
 
 #: src/pages/manager-review-dashboard/ManagerReviewDashboardDrawerContent.tsx:61
 #: src/pages/manager-review-dashboard/TableFilters.tsx:38
-#: src/pages/manager-review-page/ManagerReviewPage.tsx:50
-#: src/pages/manager-review-page/ManagerReviewPrintPage.tsx:66
+#: src/pages/manager-review-page/ManagerReviewPage.tsx:47
+#: src/pages/manager-review-page/ManagerReviewPrintPage.tsx:63
 msgid "Overall Evaluation"
 msgstr "ارزیابی کلی"
 
-#: src/pages/manager-review-dashboard/ManagerReviewDashboardTable.tsx:83
+#: src/pages/manager-review-dashboard/ManagerReviewDashboardTable.tsx:75
 msgid "Overall Rating"
 msgstr "ارزیابی کلی"
 
@@ -309,12 +313,12 @@ msgstr "برنامه‌نویسان در حال تایپند...‌"
 msgid "Project review name is duplicated."
 msgstr "عنوان فعالیت تکراری است."
 
-#: src/pages/projects-page/AddProjectForm.tsx:26
+#: src/pages/projects-page/AddProjectForm.tsx:29
 #: src/pages/projects-page/project-review-title-editor/ProjectReviewEditForm.tsx:54
 msgid "Project title"
 msgstr "عنوان فعالیت"
 
-#: src/pages/projects-page/AddProjectForm.tsx:13
+#: src/pages/projects-page/AddProjectForm.tsx:16
 #: src/shared/full-page-error/FullPageError.stories.tsx:21
 msgid "Projects"
 msgstr "فعالیت‌ها"
@@ -327,14 +331,14 @@ msgstr "مطالعه راهنما"
 msgid "Reviewee"
 msgstr "ارزیابی‌شونده"
 
-#: src/pages/projects-page/ProjectForm.tsx:84
+#: src/pages/projects-page/ProjectForm.tsx:91
 msgid "Reviewers (maximum {num})"
 msgstr "مرورکننده‌ها (حداکثر {num})"
 
 #: src/pages/manager-review-page/achievements/ManagerReviewAchievements.tsx:77
 #: src/pages/manager-review-page/overall-evaluation/ManagerReviewOverallEvaluation.tsx:87
 #: src/pages/peer-review-page/projectsTab/projects-form/PeerReviewProjectsForm.tsx:49
-#: src/pages/projects-page/ProjectForm.tsx:97
+#: src/pages/projects-page/ProjectForm.tsx:110
 #: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:52
 msgid "Save"
 msgstr "ذخیره"
@@ -371,7 +375,7 @@ msgstr "مشاهده و دریافت جایزه"
 #: src/pages/projects-page/ProjectsPage.tsx:47
 #: src/pages/projects-page/ProjectsPage.tsx:55
 #: src/pages/projects-page/project-review-title-editor/ProjectReviewEditForm.tsx:38
-#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesPage.tsx:58
+#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesPage.tsx:70
 msgid "Something went wrong."
 msgstr "خطایی رخ داد."
 
@@ -409,7 +413,7 @@ msgstr "ثبت تغییرات"
 #: src/pages/peer-review-page/projectsTab/project-expansion-panel/PeerReviewProjectExpansionPanel.tsx:35
 #: src/pages/projects-page/ProjectsPage.tsx:44
 #: src/pages/projects-page/project-review-title-editor/ProjectReviewEditForm.tsx:43
-#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesPage.tsx:55
+#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesPage.tsx:67
 msgid "Successfully saved."
 msgstr "با موفقیت ثبت گردید."
 
@@ -421,6 +425,11 @@ msgstr "فوق‌العاده"
 #: src/shared/gift-dialog/GiftDialog.tsx:47
 msgid "Thanks, I claim it later"
 msgstr "ممنون، جایزمو بعدا می‌گیرم"
+
+#: src/pages/dashboard-page/ProjectProgress.tsx:13
+#: src/pages/projects-page/ProjectExpansionPanel.tsx:32
+msgid "The manager has not been consulted"
+msgstr "با مدیر مشورت نشده است"
 
 #: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:43
 #: src/shared/dominant-characteristics-output/DominantCharacteristics.tsx:21
@@ -458,7 +467,7 @@ msgstr "انجام نشده"
 msgid "Try Again"
 msgstr "تلاش مجدد"
 
-#: src/pages/manager-review-dashboard/ManagerReviewDashboardTable.tsx:100
+#: src/pages/manager-review-dashboard/ManagerReviewDashboardTable.tsx:92
 #: src/pages/manager-review-page/achievements/ManagerReviewAchievementsRatingGroup.tsx:33
 #: src/pages/manager-review-page/overall-evaluation/ManagerReviewOverallEvaluation.tsx:49
 #: src/pages/manager-review-page/overall-evaluation/ManagerReviewOverallEvaluation.tsx:50
@@ -468,7 +477,7 @@ msgstr "تلاش مجدد"
 msgid "Unknown"
 msgstr "نامعین"
 
-#: src/pages/manager-review-dashboard/ManagerReviewDashboardTable.tsx:74
+#: src/pages/manager-review-dashboard/ManagerReviewDashboardTable.tsx:66
 msgid "User"
 msgstr "کاربر"
 
@@ -500,7 +509,7 @@ msgstr "چی رو ادامه بدم"
 msgid "What to improve"
 msgstr "چی رو بهبود بدم"
 
-#: src/pages/projects-page/ProjectForm.tsx:74
+#: src/pages/projects-page/ProjectForm.tsx:81
 msgid "Work results and achievements reflecting your contributions; For instance, your key-results"
 msgstr "خروجی‌ها و دستاوردهایی که نشان‌دهندهٔ تاثیر شما در این پروژه بوده؛ به عنوان مثال نتایج کلیدی شما در دورهٔ اخیر"
 
