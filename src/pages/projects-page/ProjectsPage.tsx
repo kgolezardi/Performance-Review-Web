@@ -68,7 +68,7 @@ export default function ProjectsPage(props: Props) {
 
   const addProjectReview = useCallback(
     ({ projectName }: AddProjectFormData) => {
-      if (canAddNewProject && projectName !== null) {
+      if (canAddNewProject && projectName !== null && !!projectName.length) {
         const input = { projectName };
         return createProjectReview({ input }).then((res) => {
           if (!res.createProjectReview.projectReview) {
