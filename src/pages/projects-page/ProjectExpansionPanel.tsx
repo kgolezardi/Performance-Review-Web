@@ -50,10 +50,10 @@ export function ProjectExpansionPanel(props: Props) {
           <ExpansionPanelSummary>
             <Box display="flex" alignItems="center">
               <Typography variant="h6">
-                {projectReview.projectName}{' '}
+                {projectReview.projectName}
                 {!projectReview.consultedWithManager ? (
                   <Typography variant="caption" color="error" component="span">
-                    ({i18n._('The manager has not been consulted')})
+                    {` (${i18n._('The manager has not been consulted')})`}
                   </Typography>
                 ) : null}
               </Typography>

@@ -5,12 +5,12 @@ import { Omit, TextField, TextFieldProps } from '@material-ui/core';
 import { useForminatorState } from '../core/useForminatorState';
 
 interface OwnProps {
-  initialValue: string;
+  initialValue?: string;
 }
 
 type Props = FCProps<OwnProps> & Omit<TextFieldProps, 'value' | 'onChange' | 'defaultValue'>;
 
-function StringInput({ initialValue, ...props }: Props) {
+function StringInput({ initialValue = '', ...props }: Props) {
   const [value, setValue] = useForminatorState(initialValue);
   const onChange = useCallback(
     (event) => {
@@ -21,5 +21,4 @@ function StringInput({ initialValue, ...props }: Props) {
 
   return <TextField {...props} value={value} onChange={onChange} />;
 }
-StringInput.defaultProps = { initialValue: '' };
 export default StringInput;

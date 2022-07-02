@@ -7,12 +7,12 @@ import { useArrayContext } from './ArrayContext';
 
 interface OwnProps<V> extends ButtonProps {
   initialValue?: V | undefined;
-  prepend: boolean;
+  prepend?: boolean;
 }
 
 type Props<V> = FCProps<OwnProps<V>>;
 
-function ArrayAppendButton<V>({ initialValue, prepend, ...props }: Props<V>) {
+function ArrayAppendButton<V>({ initialValue, prepend = false, ...props }: Props<V>) {
   const dispatch = useArrayContext();
   const onClick = useCallback(() => {
     if (prepend) {
@@ -27,9 +27,5 @@ function ArrayAppendButton<V>({ initialValue, prepend, ...props }: Props<V>) {
     </Button>
   );
 }
-
-ArrayAppendButton.defaultProps = {
-  prepend: false,
-};
 
 export default ArrayAppendButton;

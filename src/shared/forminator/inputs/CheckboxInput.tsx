@@ -5,13 +5,13 @@ import { FCProps } from 'src/shared/types/FCProps';
 import { useForminatorState } from '../core/useForminatorState';
 
 interface OwnProps {
-  initialValue: boolean;
+  initialValue?: boolean;
   label: string;
 }
 
 type Props = FCProps<OwnProps> & Omit<CheckboxProps, 'value' | 'onChange' | 'defaultValue'>;
 
-function CheckboxInput({ initialValue, label, ...props }: Props) {
+function CheckboxInput({ initialValue = false, label, ...props }: Props) {
   const [value, setValue] = useForminatorState(initialValue);
 
   const onChange = useCallback(
@@ -23,6 +23,4 @@ function CheckboxInput({ initialValue, label, ...props }: Props) {
 
   return <FormControlLabel label={label} control={<Checkbox {...props} checked={value} onChange={onChange} />} />;
 }
-
-CheckboxInput.defaultProps = { initialValue: false };
 export default CheckboxInput;

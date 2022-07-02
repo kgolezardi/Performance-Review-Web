@@ -20,10 +20,10 @@ export function ProjectProgress(props: Props) {
   return (
     <Box marginY={3} className={classes.root}>
       <Typography gutterBottom>
-        {name}{' '}
+        {name}
         {!consultedWithManager ? (
           <Typography component="span" variant="caption" color="error">
-            ({i18n._('The manager has not been consulted')})
+            {` (${i18n._('The manager has not been consulted')})`}
           </Typography>
         ) : null}
       </Typography>
