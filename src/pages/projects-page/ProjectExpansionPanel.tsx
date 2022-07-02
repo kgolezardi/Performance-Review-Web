@@ -6,6 +6,7 @@ import { ExpansionPanel, ExpansionPanelDetails, ExpansionPanelSummary } from 'sr
 import { FCProps } from 'src/shared/types/FCProps';
 import { FormChangeDetector } from 'src/shared/form-change-detector';
 import { ReviewersInputProps } from 'src/shared/reviewers-input/ReviewersInput';
+import { i18n } from '@lingui/core';
 import { useDialog } from 'src/shared/hooks';
 import { useFragment } from 'react-relay/hooks';
 
@@ -48,7 +49,14 @@ export function ProjectExpansionPanel(props: Props) {
         <ExpansionPanel expanded={isExpanded} onChange={handleExpanded}>
           <ExpansionPanelSummary>
             <Box display="flex" alignItems="center">
-              <Typography variant="h6">{projectReview.projectName}</Typography>
+              <Typography variant="h6">
+                {projectReview.projectName}{' '}
+                {!projectReview.consultedWithManager ? (
+                  <Typography variant="caption" color="error" component="span">
+                    ({i18n._('The manager has not been consulted')})
+                  </Typography>
+                ) : null}
+              </Typography>
               {isExpanded && (
                 <IconButton onClick={handleShowModal}>
                   <EditIcon />
@@ -70,6 +78,7 @@ const fragment = graphql`
   fragment ProjectExpansionPanel_projectReview on ProjectReviewNode {
     id
     projectName
+    consultedWithManager
     ...ProjectForm_projectReview
     ...ProjectReviewEditForm_projectReview
   }
