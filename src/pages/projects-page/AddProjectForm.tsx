@@ -2,7 +2,15 @@ import AddIcon from '@material-ui/icons/Add';
 import React from 'react';
 import ResetInputOnSubmit from 'src/shared/forminator/utils/ResetInputOnSubmit';
 import { Box, Grid, Typography } from '@material-ui/core';
-import { DictInput, DictInputItem, Forminator, FragmentRef, StringInput, SubmitButton } from 'src/shared/forminator';
+import {
+  ConditionalSection,
+  DictInput,
+  DictInputItem,
+  Forminator,
+  FragmentRef,
+  StringInput,
+  SubmitButton,
+} from 'src/shared/forminator';
 import { FCProps } from 'src/shared/types/FCProps';
 import { i18n } from '@lingui/core';
 import { useFragmentLens } from 'src/shared/forminator/core/fragment-lens/useFragmentLens';
@@ -20,7 +28,7 @@ type Props = FCProps<OwnProps>;
 
 export function AddProjectForm(props: Props) {
   const { onSubmit, canAddNewProject } = props;
-  const lens = useFragmentLens();
+  const lens = useFragmentLens<string>();
 
   return (
     <Forminator onSubmit={onSubmit}>
@@ -52,9 +60,16 @@ export function AddProjectForm(props: Props) {
             </Grid>
             <Grid item>
               <ResetInputOnSubmit resetValue={''} lens={lens}>
-                <SubmitButton disabled={!canAddNewProject} variant="outlined" color="primary" startIcon={<AddIcon />}>
-                  {i18n._('Add')}
-                </SubmitButton>
+                <ConditionalSection lens={lens} condition={(value) => !value?.length}>
+                  <SubmitButton disabled variant="outlined" color="primary" startIcon={<AddIcon />}>
+                    {i18n._('Add')}
+                  </SubmitButton>
+                </ConditionalSection>
+                <ConditionalSection lens={lens} condition={(value) => value?.length > 0}>
+                  <SubmitButton disabled={!canAddNewProject} variant="outlined" color="primary" startIcon={<AddIcon />}>
+                    {i18n._('Add')}
+                  </SubmitButton>
+                </ConditionalSection>
               </ResetInputOnSubmit>
             </Grid>
           </Grid>

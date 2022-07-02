@@ -19,7 +19,7 @@ function ResetInputOnSubmit<V>({ lens, resetValue, children }: Props<V>) {
     await onClick();
     const subStore = lens.getSubStore();
     if (subStore && subStore.fragment) {
-      lens.getSubStore()?.store.getValueSubscribable(subStore.fragment).setValue(resetValue);
+      subStore.store.getValueSubscribable(subStore.fragment).setValue(resetValue);
     }
   }, [lens, onClick, resetValue]);
 
