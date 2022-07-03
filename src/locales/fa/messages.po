@@ -40,7 +40,8 @@ msgstr "توضیح فعالیت"
 msgid "Achievements"
 msgstr "فعالیت‌ها"
 
-#: src/pages/projects-page/AddProjectForm.tsx:37
+#: src/pages/projects-page/AddProjectForm.tsx:38
+#: src/pages/projects-page/AddProjectForm.tsx:43
 #: src/shared/strengths-weaknesses/StrengthsOrWeaknesses.tsx:58
 msgid "Add"
 msgstr "افزودن"
@@ -96,7 +97,7 @@ msgid "Criteria"
 msgstr "معیارها"
 
 #: src/containers/main/getMenuItems.ts:6
-#: src/containers/main/getMenuItems.ts:53
+#: src/containers/main/getMenuItems.ts:47
 msgid "Dashboard"
 msgstr "پیشخوان"
 
@@ -244,11 +245,6 @@ msgstr "در حد انتظاری که از من میره"
 #: src/pages/projects-page/ProjectForm.tsx:73
 msgid "My evaluation"
 msgstr "ارزیابی من"
-
-#: src/containers/main/getMenuItems.ts:43
-#: src/pages/guide-page/NvcGuidePage.tsx:10
-msgid "NVC Guide"
-msgstr "راهنمای مدل NVC"
 
 #: src/shared/confirm-button/ConfirmButton.tsx:8
 msgid "No"

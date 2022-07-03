@@ -40,7 +40,8 @@ msgstr "Accomplishments Description"
 msgid "Achievements"
 msgstr "Achievements"
 
-#: src/pages/projects-page/AddProjectForm.tsx:37
+#: src/pages/projects-page/AddProjectForm.tsx:38
+#: src/pages/projects-page/AddProjectForm.tsx:43
 #: src/shared/strengths-weaknesses/StrengthsOrWeaknesses.tsx:58
 msgid "Add"
 msgstr "Add"
@@ -96,7 +97,7 @@ msgid "Criteria"
 msgstr "Criteria"
 
 #: src/containers/main/getMenuItems.ts:6
-#: src/containers/main/getMenuItems.ts:53
+#: src/containers/main/getMenuItems.ts:47
 msgid "Dashboard"
 msgstr "Dashboard"
 
@@ -244,11 +245,6 @@ msgstr "Meets Expectations from me"
 #: src/pages/projects-page/ProjectForm.tsx:73
 msgid "My evaluation"
 msgstr "My evaluation"
-
-#: src/containers/main/getMenuItems.ts:43
-#: src/pages/guide-page/NvcGuidePage.tsx:10
-msgid "NVC Guide"
-msgstr "NVC Guide"
 
 #: src/shared/confirm-button/ConfirmButton.tsx:8
 msgid "No"

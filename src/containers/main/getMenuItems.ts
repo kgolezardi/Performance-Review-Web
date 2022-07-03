@@ -46,12 +46,6 @@ export function getMenuItems(phase: Phase, user: User): NavbarMenuItem[] {
           to: '/peer-review',
         },
       },
-      {
-        text: i18n._('NVC Guide'),
-        link: {
-          to: '/nvc',
-        },
-      },
     ];
   }
   if (phase === 'MANAGER_REVIEW' && user.hasStarted) {
