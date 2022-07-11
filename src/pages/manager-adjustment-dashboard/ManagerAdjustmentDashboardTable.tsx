@@ -17,31 +17,23 @@ import { Evaluation } from 'src/__generated__/enums';
 import { FCProps } from 'src/shared/types/FCProps';
 import { LinearProgress } from 'src/shared/progress';
 import { Styles } from 'src/shared/types/Styles';
-import { getEnumLabel } from 'src/shared/enum-utils';
 import { getUserLabel } from 'src/shared/utils/getUserLabel';
 import { i18n } from '@lingui/core';
-import { isNotNil } from 'src/shared/utils/general.util';
-import { peerReviewEvaluationDictionary } from 'src/global-types';
 import { useFragment } from 'react-relay/hooks';
-import { useSortBy } from 'src/shared/hooks/useSortBy';
+import { useSortBy } from 'src/shared/hooks';
 
-import { ManagerReviewDashboardTable_data$key } from './__generated__/ManagerReviewDashboardTable_data.graphql';
+import { ManagerAdjustmentDashboardTable_data$key } from './__generated__/ManagerAdjustmentDashboardTable_data.graphql';
 
 const fragment = graphql`
-  fragment ManagerReviewDashboardTable_data on UserNode @relay(plural: true) {
+  fragment ManagerAdjustmentDashboardTable_data on UserNode @relay(plural: true) {
     id
     avatarUrl
     ...getUserLabel_user
     manager {
       ...getUserLabel_user
     }
-    managerPersonReview {
-      overallRating
-    }
     projectReviews {
-      managerComment {
-        rating
-      }
+      approvedByManager
     }
   }
 `;
@@ -56,16 +48,15 @@ export interface Row {
 }
 
 interface OwnProps {
-  activeId: string | null;
-  createRowClickHandler: (id: string) => (e: React.MouseEvent<HTMLTableRowElement, MouseEvent>) => void;
-  data: ManagerReviewDashboardTable_data$key;
+  data: ManagerAdjustmentDashboardTable_data$key;
   filterRows: (rows: Row[]) => Row[];
+  onClickRow: (id: string) => (e: React.MouseEvent<HTMLTableRowElement, MouseEvent>) => void;
 }
 
 type Props = FCProps<OwnProps> & StyleProps;
 
-export function ManagerReviewDashboardTable(props: Props) {
-  const { activeId, createRowClickHandler, filterRows } = props;
+export function ManagerAdjustmentDashboardTable(props: Props) {
+  const { filterRows, onClickRow } = props;
   const classes = useStyles(props);
 
   const data = useFragment(fragment, props.data);
@@ -80,10 +71,9 @@ export function ManagerReviewDashboardTable(props: Props) {
         manager: userToReview.manager ? getUserLabel(userToReview.manager) : '---',
         achievements:
           (userToReview.projectReviews.length > 0
-            ? userToReview.projectReviews.map((projectReview) => projectReview.managerComment?.rating).filter(isNotNil)
-                .length / userToReview.projectReviews.length
+            ? userToReview.projectReviews.filter((projectReview) => projectReview.approvedByManager).length /
+              userToReview.projectReviews.length
             : 1) * 100,
-        overallRating: userToReview.managerPersonReview?.overallRating,
       })),
     [data],
   );
@@ -99,10 +89,9 @@ export function ManagerReviewDashboardTable(props: Props) {
       <TableContainer className={classes.tableContainer}>
         <Table size="small" stickyHeader>
           <colgroup>
-            <col style={{ width: '25%' }} />
-            <col style={{ width: '25%' }} />
-            <col style={{ width: '25%' }} />
-            <col style={{ width: '25%' }} />
+            <col style={{ width: '33%' }} />
+            <col style={{ width: '33%' }} />
+            <col style={{ width: '33%' }} />
           </colgroup>
           <TableHead>
             <TableRow>
@@ -125,12 +114,11 @@ export function ManagerReviewDashboardTable(props: Props) {
                 </TableSortLabel>
               </TableCell>
               <TableCell>{i18n._('Achievements')}</TableCell>
-              <TableCell>{i18n._('Overall Rating')}</TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
             {filteredRows.map((row) => (
-              <TableRow hover key={row.id} onClick={createRowClickHandler(row.id)} selected={activeId === row.id}>
+              <TableRow hover key={row.id} onClick={onClickRow(row.id)} className={classes.row}>
                 <TableCell>
                   <Avatar src={row.avatarUrl ?? undefined} className={classes.avatar} />
                   {row.user}
@@ -138,11 +126,6 @@ export function ManagerReviewDashboardTable(props: Props) {
                 <TableCell>{row.manager}</TableCell>
                 <TableCell>
                   <LinearProgress value={row.achievements} color={getColor(row.achievements)} />
-                </TableCell>
-                <TableCell>
-                  {row.overallRating
-                    ? getEnumLabel(peerReviewEvaluationDictionary, row.overallRating, i18n._('Unknown'))
-                    : '---'}
                 </TableCell>
               </TableRow>
             ))}
@@ -179,7 +162,10 @@ const styles = (theme: Theme) =>
     tableContainer: {
       flex: 1,
     },
+    row: {
+      cursor: 'pointer',
+    },
   });
 
-const useStyles = makeStyles(styles, { name: 'ManagerReviewDashboardTable' });
+const useStyles = makeStyles(styles, { name: 'ManagerAdjustmentDashboardTable' });
 type StyleProps = Styles<typeof styles>;
