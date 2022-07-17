@@ -13,3 +13,7 @@ export { default as SelectMultiAutoComplete } from './inputs/SelectMultiAutoComp
 export { default as ConstantInput } from './inputs/ConstantInput';
 export { default as FragmentPrompt } from './utils/FragmentPrompt';
 export { default as CheckboxInput } from './inputs/CheckboxInput';
+export { DynamicFields } from './DynamicFields/DynamicFields';
+export type { Question as QuestionType } from './DynamicFields/DynamicFields';
+export { Question } from './DynamicFields/Question';
+export { QuestionPrompt } from './DynamicFields/QuestionPrompt';

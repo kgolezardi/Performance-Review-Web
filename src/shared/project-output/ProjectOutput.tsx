@@ -4,17 +4,22 @@ import { Evaluation } from 'src/global-types';
 import { EvaluationOutput } from 'src/shared/evaluation-output';
 import { FCProps } from 'src/shared/types/FCProps';
 import { Grid, Typography } from '@material-ui/core';
-import { MultilineOutput } from 'src/shared/multiline-output';
 import { i18n } from '@lingui/core';
 import { useFragment } from 'react-relay/hooks';
 
+import { AnswerOutput } from './AnswerOutput';
 import { ProjectOutput_review$key } from './__generated__/ProjectOutput_review.graphql';
+import { QuestionOutput } from './QuestionOutput';
+import { QuestionsAnswers } from './QuestionsAnswers';
 
 const fragment = graphql`
   fragment ProjectOutput_review on ProjectReviewNode {
-    text
     rating
     projectName
+    answers {
+      questionId
+      value
+    }
   }
 `;
 
@@ -47,12 +52,12 @@ export function ProjectOutput(props: Props) {
           <EvaluationOutput value={review.rating as Evaluation} type="self" />
         </Grid>
       )}
-      <Grid item xs={12}>
-        <Typography color="textSecondary" gutterBottom>
-          {i18n._('Accomplishments Description')}:
-        </Typography>
-        <MultilineOutput value={review.text} enableTruncating />
-      </Grid>
+      <QuestionsAnswers whichQuestions="selfReviewProjectQuestions" answers={review.answers}>
+        <Grid item xs={12}>
+          <QuestionOutput />
+          <AnswerOutput />
+        </Grid>
+      </QuestionsAnswers>
     </Grid>
   );
 }

@@ -9,6 +9,7 @@ import { StickyBottomPaper } from 'src/shared/sticky-bottom-paper';
 import { i18n } from '@lingui/core';
 import { isNotNil } from 'src/shared/utils/general.util';
 import { useBiDiSnackbar } from 'src/shared/snackbar';
+import { useFormDirty } from 'src/shared/form-change-detector';
 import { useInView } from 'react-intersection-observer';
 import { useLazyLoadQuery } from 'react-relay/hooks';
 import { useMutation } from 'src/relay';
@@ -50,6 +51,7 @@ export function ManagerReviewAchievements(props: Props) {
 
   const [, inView] = useInView();
   const { enqueueSnackbar } = useBiDiSnackbar();
+  const dirty = useFormDirty();
 
   const value: ManagerReviewAchievementsValue =
     data.viewer.user?.projectReviews.reduce((previousValue, currentValue) => {
@@ -103,7 +105,7 @@ export function ManagerReviewAchievements(props: Props) {
                     />
                   </Box>
                   <Box displayPrint="none !important">
-                    <SubmitButton variant="contained" color="primary">
+                    <SubmitButton variant="contained" color="primary" disabled={!dirty}>
                       {i18n._('Save')}
                     </SubmitButton>
                   </Box>

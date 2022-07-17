@@ -40,7 +40,7 @@ interface OwnProps {}
 type Props = FCProps<OwnProps>;
 
 export default function ManagerReviewPage(props: Props) {
-  const { tab, uid } = useParams<Params>();
+  const { tab = 'achievements', uid } = useParams<Params>();
   const toPrefix = '/manager-review/' + uid;
   const revieweeId = unescape(uid);
 

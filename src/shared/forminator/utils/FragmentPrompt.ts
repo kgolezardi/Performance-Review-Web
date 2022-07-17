@@ -1,12 +1,11 @@
 import { FCProps } from 'src/shared/types/FCProps';
+import { equals } from 'ramda';
 import { useFormChanged } from 'src/shared/form-change-detector';
 
 import { useFragmentContext } from '../core/fragment/FragmentContext';
 import { useFragmentValue } from '../core/utils/useFragmentValue';
 
 export type Equal<VF, VS> = (fragmentValue: VF | undefined, propValue: VS | undefined) => boolean;
-
-const defaultEqual: Equal<unknown, unknown> = (fragmentValue, propValue) => fragmentValue === propValue;
 
 interface OwnProps<VF, VS> {
   value: VS | undefined;
@@ -19,7 +18,7 @@ interface OwnProps<VF, VS> {
 type Props<VF, VS> = FCProps<OwnProps<VF, VS>>;
 
 function FragmentPrompt<VF, VS>(props: Props<VF, VS>) {
-  const { equal = defaultEqual } = props;
+  const { equal = equals } = props;
   const fragment = useFragmentContext<VF>();
   const value = useFragmentValue<VF>();
   const when = value !== undefined && !equal(value, props.value);

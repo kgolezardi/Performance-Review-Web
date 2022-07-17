@@ -59,13 +59,13 @@ export function ResultPrintPage(props: Props) {
       </Helmet>
       <PageBreak />
       <Box paddingY={2}>
-        <StrengthsWeaknessesResult reviews={reviews} />
-      </Box>
-      <PageBreak />
-      <Box paddingY={2}>
         {projectReviews?.map((projectReview) => (
           <ProjectResultExpansionPanel projectReview={projectReview} key={projectReview.id} />
         ))}
+      </Box>
+      <PageBreak />
+      <Box paddingY={2}>
+        <StrengthsWeaknessesResult reviews={reviews} />
       </Box>
     </PrintingContext.Provider>
   );

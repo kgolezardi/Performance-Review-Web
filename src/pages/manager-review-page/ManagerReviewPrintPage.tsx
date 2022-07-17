@@ -68,14 +68,14 @@ export function ManagerReviewPrintPage(props: Props) {
         </InView>
         <PageBreak />
         <Box color="primary.main" marginTop={8} textAlign="center">
-          <Typography variant="h2">{i18n._('Dominant Characteristics')}</Typography>
-        </Box>
-        <ManagerReviewDominantCharacteristics revieweeId={revieweeId} />
-        <PageBreak />
-        <Box color="primary.main" marginTop={8} textAlign="center">
           <Typography variant="h2">{i18n._('Achievements')}</Typography>
         </Box>
         <ManagerReviewAchievements revieweeId={revieweeId} />
+        <PageBreak />
+        <Box color="primary.main" marginTop={8} textAlign="center">
+          <Typography variant="h2">{i18n._('Dominant Characteristics')}</Typography>
+        </Box>
+        <ManagerReviewDominantCharacteristics revieweeId={revieweeId} />
         <PageBreak />
         <Box color="primary.main" marginTop={8} textAlign="center">
           <Typography variant="h2">{i18n._('Overall Evaluation')}</Typography>

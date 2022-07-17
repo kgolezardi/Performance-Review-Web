@@ -1,5 +1,6 @@
 import graphql from 'babel-plugin-relay/macro';
 import React, { useCallback } from 'react';
+import { Answers } from 'src/core/domain';
 import { Button } from '@material-ui/core';
 import { FCProps } from 'src/shared/types/FCProps';
 import { LanguageCodes } from 'src/core/locales/types';
@@ -7,11 +8,13 @@ import { LocationState } from 'src/pages/peer-review-board-page/PeerReviewBoardP
 import { PersonInfoCardHeader } from 'src/shared/person-info-card-header';
 import { getUserLabel } from 'src/shared/utils/getUserLabel';
 import { i18n } from '@lingui/core';
+import { innerJoin, prop } from 'ramda';
 import { localizeNumber } from 'src/shared/utils/localizeNumber.util';
 import { useBiDiSnackbar } from 'src/shared/snackbar';
 import { useFormDirty } from 'src/shared/form-change-detector';
 import { useFragment } from 'react-relay/hooks';
 import { useHistory } from 'react-router-dom';
+import { useRoundQuestionsContext } from 'src/core/round-questions';
 
 import { PeerReviewPersonInfoCard_user$key } from './__generated__/PeerReviewPersonInfoCard_user.graphql';
 import { useSavePersonReviewMutation } from './savePersonReview.mutation';
@@ -26,8 +29,11 @@ const fragment = graphql`
     }
     projectReviews {
       comment {
-        text
         rating
+        answers {
+          value
+          questionId
+        }
       }
     }
   }
@@ -43,6 +49,8 @@ export function PeerReviewPersonInfoCard(props: Props) {
   const user = useFragment<PeerReviewPersonInfoCard_user$key>(fragment, props.user);
   const savePersonReviewMutation = useSavePersonReviewMutation();
   const { enqueueSnackbar } = useBiDiSnackbar();
+  const { peerReviewProjectQuestions } = useRoundQuestionsContext();
+
   const history = useHistory<LocationState>();
 
   const state = user.peerPersonReview?.state;
@@ -72,8 +80,11 @@ export function PeerReviewPersonInfoCard(props: Props) {
 
   const numberOfProjects = localizeNumber(user.projectReviews.length, i18n.language as LanguageCodes);
   const dirty = useFormDirty();
+  const peerAnswers = (answers: Answers) =>
+    innerJoin((a, b) => a.questionId === b.id, answers, peerReviewProjectQuestions);
+
   const allProjectCommentFilled = user.projectReviews.every(
-    ({ comment }) => !!(comment && comment.text && comment.rating),
+    ({ comment }) => !!(comment && peerAnswers(comment.answers).every(prop('value')) && comment.rating),
   );
   const disabled = dirty || !allProjectCommentFilled;
 

@@ -7,8 +7,10 @@ import { SectionGuide } from 'src/shared/section-guide';
 import { i18n } from '@lingui/core';
 import { importMDX } from 'mdx.macro';
 import { reverse } from 'ramda';
+import { transformAnswersToInput } from 'src/shared/utils/transformAnswers';
 import { useBiDiSnackbar } from 'src/shared/snackbar';
 import { useLazyLoadQuery } from 'react-relay/hooks';
+import { useRoundQuestionsContext } from 'src/core/round-questions';
 
 import { AddProjectForm, AddProjectFormData } from './AddProjectForm';
 import { DeleteProjectReviewMutationInput } from './__generated__/deleteProjectReviewMutation.graphql';
@@ -32,6 +34,14 @@ const query = graphql`
         participants {
           ...ReviewersInput_Reviewers
         }
+        selfReviewProjectQuestions {
+          id
+          questionType
+          order
+          label
+          helpText
+          choices
+        }
       }
       projectReviews {
         id
@@ -49,13 +59,16 @@ export default function ProjectsPage(props: Props) {
   const editProjectReview = useEditProjectReview();
   const deleteProjectReview = useDeleteProjectReview();
   const components = useContext(MDXContext);
+  const { selfReviewProjectQuestions } = useRoundQuestionsContext();
 
   const projectReviews = reverse(data.viewer.projectReviews);
   const canAddNewProject = projectReviews.length < 5;
 
   const saveProject = useCallback(
     (input: ProjectFormData) => {
-      return editProjectReview({ input })
+      return editProjectReview({
+        input: { ...input, answers: transformAnswersToInput(input.answers, selfReviewProjectQuestions) },
+      })
         .then((res) => {
           enqueueSnackbar(i18n._('Successfully saved.'), { variant: 'success' });
         })
@@ -63,7 +76,7 @@ export default function ProjectsPage(props: Props) {
           enqueueSnackbar(i18n._('Something went wrong.'), { variant: 'error' });
         });
     },
-    [editProjectReview, enqueueSnackbar],
+    [editProjectReview, enqueueSnackbar, selfReviewProjectQuestions],
   );
 
   const addProjectReview = useCallback(

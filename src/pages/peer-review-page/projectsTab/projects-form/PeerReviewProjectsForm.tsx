@@ -5,18 +5,21 @@ import { Box, Grid } from '@material-ui/core';
 import {
   DictInput,
   DictInputItem,
+  DynamicFields,
   Forminator,
   FragmentPrompt,
-  LimitedTextAreaInput,
+  Question,
+  QuestionPrompt,
   SubmitButton,
 } from 'src/shared/forminator';
 import { FCProps } from 'src/shared/types/FCProps';
-import { LIMITED_TEXT_AREA_COUNTER_DISPLAY_THRESHOLD, LIMITED_TEXT_AREA_MAX_CHARS } from 'src/shared/constants';
 import { Rating } from 'src/shared/rating';
 import { StickyBottomPaper } from 'src/shared/sticky-bottom-paper';
 import { i18n } from '@lingui/core';
+import { transformAnswersToFormData } from 'src/shared/utils/transformAnswers';
 import { useFormDirty } from 'src/shared/form-change-detector';
 import { useFragment } from 'react-relay/hooks';
+import { useRoundQuestionsContext } from 'src/core/round-questions';
 
 import {
   Evaluation,
@@ -26,13 +29,16 @@ import {
 const fragment = graphql`
   fragment PeerReviewProjectsForm_projectComment on ProjectCommentNode {
     id
-    text
     rating
+    answers {
+      questionId
+      value
+    }
   }
 `;
 
 export interface PeerReviewProjectsFormValue {
-  text: string;
+  answers: Record<string, any>;
   rating: Evaluation | null;
 }
 
@@ -46,9 +52,11 @@ type Props = FCProps<OwnProps>;
 export function PeerReviewProjectsForm(props: Props) {
   const { onSubmit } = props;
 
+  const { peerReviewProjectQuestions } = useRoundQuestionsContext();
+
   const projectComment = useFragment(fragment, props.projectComment);
   const initialValue: PeerReviewProjectsFormValue = {
-    text: projectComment.text ?? '',
+    answers: transformAnswersToFormData(projectComment.answers, peerReviewProjectQuestions),
     rating: projectComment.rating,
   };
 
@@ -66,18 +74,13 @@ export function PeerReviewProjectsForm(props: Props) {
               <FragmentPrompt value={initialValue.rating} />
             </DictInputItem>
           </Grid>
-          <Grid item xs={12}>
-            <DictInputItem field="text">
-              <LimitedTextAreaInput
-                label={i18n._('Evidence and Feedback')}
-                variant="outlined"
-                maxChars={LIMITED_TEXT_AREA_MAX_CHARS}
-                counterDisplayThreshold={LIMITED_TEXT_AREA_COUNTER_DISPLAY_THRESHOLD}
-                fullWidth
-              />
-              <FragmentPrompt value={initialValue.text} />
-            </DictInputItem>
-          </Grid>
+          <DynamicFields formData={initialValue} questions={peerReviewProjectQuestions} answersKey="answers">
+            <Grid item xs={12}>
+              <Question>
+                <QuestionPrompt />
+              </Question>
+            </Grid>
+          </DynamicFields>
         </DictInput>
         <StickyBottomPaper noSticky>
           <ActionBar>
