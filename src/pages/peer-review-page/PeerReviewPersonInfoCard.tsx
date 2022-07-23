@@ -14,7 +14,7 @@ import { useBiDiSnackbar } from 'src/shared/snackbar';
 import { useFormDirty } from 'src/shared/form-change-detector';
 import { useFragment } from 'react-relay/hooks';
 import { useHistory } from 'react-router-dom';
-import { useRoundQuestionsContext } from 'src/core/round-questions';
+import { useRoundQuestions } from 'src/core/round-questions';
 
 import { PeerReviewPersonInfoCard_user$key } from './__generated__/PeerReviewPersonInfoCard_user.graphql';
 import { useSavePersonReviewMutation } from './savePersonReview.mutation';
@@ -49,7 +49,7 @@ export function PeerReviewPersonInfoCard(props: Props) {
   const user = useFragment<PeerReviewPersonInfoCard_user$key>(fragment, props.user);
   const savePersonReviewMutation = useSavePersonReviewMutation();
   const { enqueueSnackbar } = useBiDiSnackbar();
-  const { peerReviewProjectQuestions } = useRoundQuestionsContext();
+  const { peerReviewProjectQuestions } = useRoundQuestions();
 
   const history = useHistory<LocationState>();
 

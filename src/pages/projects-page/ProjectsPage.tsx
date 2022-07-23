@@ -10,7 +10,7 @@ import { reverse } from 'ramda';
 import { transformAnswersToInput } from 'src/shared/utils/transformAnswers';
 import { useBiDiSnackbar } from 'src/shared/snackbar';
 import { useLazyLoadQuery } from 'react-relay/hooks';
-import { useRoundQuestionsContext } from 'src/core/round-questions';
+import { useRoundQuestions } from 'src/core/round-questions';
 
 import { AddProjectForm, AddProjectFormData } from './AddProjectForm';
 import { DeleteProjectReviewMutationInput } from './__generated__/deleteProjectReviewMutation.graphql';
@@ -59,7 +59,7 @@ export default function ProjectsPage(props: Props) {
   const editProjectReview = useEditProjectReview();
   const deleteProjectReview = useDeleteProjectReview();
   const components = useContext(MDXContext);
-  const { selfReviewProjectQuestions } = useRoundQuestionsContext();
+  const { selfReviewProjectQuestions } = useRoundQuestions();
 
   const projectReviews = reverse(data.viewer.projectReviews);
   const canAddNewProject = projectReviews.length < 5;

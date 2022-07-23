@@ -13,7 +13,6 @@ import { SettingsProvider } from 'src/core/settings';
 import { useConfirmContext } from 'src/shared/confirm-provider';
 
 import { ManagerReviewPrintPage } from './pages/manager-review-page/ManagerReviewPrintPage';
-import { RoundQuestionsProvider } from './core/round-questions';
 
 interface OwnProps {}
 
@@ -26,20 +25,18 @@ export function AppRouter(props: Props) {
     <ErrorBoundary fallback={<FullPageError />}>
       <Suspense fallback={<FullPageSpinner fullHeight />}>
         <Router historyOptions={routerOptions}>
-          <RoundQuestionsProvider>
-            <SettingsProvider>
-              <GuidesProvider>
-                <AuthGuard>
-                  <div id="game-container" />
-                  <Switch>
-                    <Route path="/print" children={<ResultPrintPage />} />
-                    <Route path="/print-manager-review/:uid" children={<ManagerReviewPrintPage />} />
-                    <Route children={<MainContainer />} />
-                  </Switch>
-                </AuthGuard>
-              </GuidesProvider>
-            </SettingsProvider>
-          </RoundQuestionsProvider>
+          <SettingsProvider>
+            <GuidesProvider>
+              <AuthGuard>
+                <div id="game-container" />
+                <Switch>
+                  <Route path="/print" children={<ResultPrintPage />} />
+                  <Route path="/print-manager-review/:uid" children={<ManagerReviewPrintPage />} />
+                  <Route children={<MainContainer />} />
+                </Switch>
+              </AuthGuard>
+            </GuidesProvider>
+          </SettingsProvider>
         </Router>
       </Suspense>
     </ErrorBoundary>

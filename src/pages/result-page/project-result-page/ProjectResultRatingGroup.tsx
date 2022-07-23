@@ -7,13 +7,12 @@ import { Evaluation } from 'src/__generated__/enums';
 import { ExcludeUnknown } from 'src/shared/enum-utils/types';
 import { FCProps } from 'src/shared/types/FCProps';
 import { QuestionOutput } from 'src/shared/project-output';
-import { QuestionsAnswers } from 'src/shared/project-output/QuestionsAnswers';
 import { ReviewItemInfo } from 'src/shared/review-item-info';
 import { i18n } from '@lingui/core';
 import { innerJoin } from 'ramda';
 import { selfReviewEvaluationDictionary } from 'src/global-types';
 import { useFragment } from 'react-relay/hooks';
-import { useRoundQuestionsContext } from 'src/core/round-questions';
+import { useRoundQuestions } from 'src/core/round-questions';
 
 import { ProjectResultRatingGroup_comments$key } from './__generated__/ProjectResultRatingGroup_comments.graphql';
 
@@ -39,7 +38,7 @@ export const ProjectResultRatingGroup = React.memo(function ProjectResultRatingG
   const { rating } = props;
 
   const comments = useFragment(fragment, props.comments);
-  const { peerReviewProjectQuestions } = useRoundQuestionsContext();
+  const { peerReviewProjectQuestions } = useRoundQuestions();
 
   const peerAnswers = (answers: Answers) =>
     innerJoin((a, b) => a.questionId === b.id, answers, peerReviewProjectQuestions);
@@ -70,12 +69,12 @@ export const ProjectResultRatingGroup = React.memo(function ProjectResultRatingG
       {filteredComments.map((review) => (
         <Box marginTop={2} key={review.id}>
           <ReviewItemInfo anonymous type="peer">
-            <QuestionsAnswers whichQuestions="peerReviewProjectQuestions" answers={review.answers}>
+            {peerReviewProjectQuestions.map((question) => (
               <Box my={2}>
-                <QuestionOutput />
-                <AnswerOutput />
+                <QuestionOutput questionLabel={question.label} />
+                <AnswerOutput answers={review.answers} questionId={question.id} questionType={question.questionType} />
               </Box>
-            </QuestionsAnswers>
+            ))}
           </ReviewItemInfo>
         </Box>
       ))}

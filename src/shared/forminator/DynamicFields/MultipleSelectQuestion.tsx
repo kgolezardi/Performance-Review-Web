@@ -1,7 +1,7 @@
 import * as React from 'react';
 import ReactMarkdown from 'react-markdown';
 import { FormHelperText } from '@material-ui/core';
-import { defaultRenderers } from 'src/shared/react-markdown';
+import { helpTextRenderers } from 'src/shared/react-markdown';
 
 import SelectMultiAutoComplete from '../inputs/SelectMultiAutoComplete';
 import { useQuestionContext } from './providers/QuestionProvider';
@@ -24,7 +24,7 @@ export function MultipleSelectQuestion(props: Props) {
       <SelectMultiAutoComplete filterSelectedOptions label={label} options={options} />
       {helpText && (
         <FormHelperText>
-          <ReactMarkdown renderers={defaultRenderers}>{helpText ?? ''}</ReactMarkdown>
+          <ReactMarkdown renderers={helpTextRenderers}>{helpText ?? ''}</ReactMarkdown>
         </FormHelperText>
       )}
     </>

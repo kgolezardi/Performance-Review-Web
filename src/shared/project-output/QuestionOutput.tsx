@@ -1,18 +1,18 @@
 import * as React from 'react';
 import { Typography } from '@material-ui/core';
 
-import { useQuestionOutputContext } from './QuestionOutputProvider';
-
-interface OwnProps {}
+interface OwnProps {
+  questionLabel: string;
+}
 
 type Props = React.PropsWithChildren<OwnProps>;
 
 export function QuestionOutput(props: Props) {
-  const question = useQuestionOutputContext();
+  const { questionLabel } = props;
 
   return (
     <Typography color="textSecondary" gutterBottom>
-      {question.label}
+      {questionLabel}
     </Typography>
   );
 }

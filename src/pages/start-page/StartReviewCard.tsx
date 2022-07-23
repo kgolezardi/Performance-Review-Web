@@ -3,7 +3,7 @@ import React, { useCallback } from 'react';
 import { Box, Button, Card, CardContent, CardHeader, Theme, createStyles, makeStyles } from '@material-ui/core';
 import { FCProps } from 'src/shared/types/FCProps';
 import { Styles } from 'src/shared/types/Styles';
-import { defaultRenderers } from 'src/shared/react-markdown/defaultRenderers';
+import { defaultRenderers } from 'src/shared/react-markdown/renderers';
 import { getUserLabel } from 'src/shared/utils/getUserLabel';
 import { i18n } from '@lingui/core';
 import { useAppSettings } from 'src/core/settings';

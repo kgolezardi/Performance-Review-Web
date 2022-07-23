@@ -5,7 +5,7 @@ import { FCProps } from 'src/shared/types/FCProps';
 import { RoundQuestions_selfReview } from 'src/core/round-questions/__generated__/RoundQuestions_selfReview.graphql';
 import { innerJoin, prop } from 'ramda';
 import { useFragment } from 'react-relay/hooks';
-import { useRoundQuestionsContext } from 'src/core/round-questions';
+import { useRoundQuestions } from 'src/core/round-questions';
 
 import {
   AchievementsIndicators_projects,
@@ -22,7 +22,7 @@ type Props = FCProps<OwnProps>;
 
 export function AchievementsIndicators(props: Props) {
   const projects = useFragment(fragment, props.projects);
-  const { selfReviewProjectQuestions } = useRoundQuestionsContext();
+  const { selfReviewProjectQuestions } = useRoundQuestions();
 
   if (!projects.length) {
     return <AchievementsNoProjects />;

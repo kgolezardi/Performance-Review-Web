@@ -7,7 +7,6 @@ import { Evaluation } from 'src/__generated__/enums';
 import { ExcludeUnknown } from 'src/shared/enum-utils/types';
 import { FCProps } from 'src/shared/types/FCProps';
 import { QuestionOutput } from 'src/shared/project-output';
-import { QuestionsAnswers } from 'src/shared/project-output/QuestionsAnswers';
 import { ReviewAvatarGroup } from 'src/shared/review-avatar-group';
 import { ReviewItemInfo } from 'src/shared/review-item-info';
 import { getUserLabel } from 'src/shared/utils/getUserLabel';
@@ -16,7 +15,7 @@ import { innerJoin, prop } from 'ramda';
 import { isNotNil } from 'src/shared/utils/general.util';
 import { selfReviewEvaluationDictionary } from 'src/global-types';
 import { useFragment } from 'react-relay/hooks';
-import { useRoundQuestionsContext } from 'src/core/round-questions';
+import { useRoundQuestions } from 'src/core/round-questions';
 
 import { ManagerReviewAchievementsRatingGroup_comments$key } from './__generated__/ManagerReviewAchievementsRatingGroup_comments.graphql';
 
@@ -48,7 +47,7 @@ export const ManagerReviewAchievementsRatingGroup = React.memo(function ManagerR
   const { rating } = props;
 
   const comments = useFragment(fragment, props.comments);
-  const { peerReviewProjectQuestions } = useRoundQuestionsContext();
+  const { peerReviewProjectQuestions } = useRoundQuestions();
 
   const peerAnswers = (answers: Answers) =>
     innerJoin((a, b) => a.questionId === b.id, answers, peerReviewProjectQuestions);
@@ -90,12 +89,12 @@ export const ManagerReviewAchievementsRatingGroup = React.memo(function ManagerR
             src={review.reviewer?.avatarUrl ?? undefined}
             type="peer"
           >
-            <QuestionsAnswers whichQuestions="peerReviewProjectQuestions" answers={review.answers}>
+            {peerReviewProjectQuestions.map((question) => (
               <Box my={2}>
-                <QuestionOutput />
-                <AnswerOutput />
+                <QuestionOutput questionLabel={question.label} />
+                <AnswerOutput answers={review.answers} questionId={question.id} questionType={question.questionType} />
               </Box>
-            </QuestionsAnswers>
+            ))}
           </ReviewItemInfo>
         </Box>
       ))}

@@ -27,7 +27,7 @@ import { transformAnswersToFormData } from 'src/shared/utils/transformAnswers';
 import { useAuthGuardUser } from 'src/core/auth';
 import { useFormDirty } from 'src/shared/form-change-detector';
 import { useFragment } from 'react-relay/hooks';
-import { useRoundQuestionsContext } from 'src/core/round-questions';
+import { useRoundQuestions } from 'src/core/round-questions';
 
 import { DeleteProjectReviewMutationInput } from './__generated__/deleteProjectReviewMutation.graphql';
 import { Evaluation } from './__generated__/editProjectReviewMutation.graphql';
@@ -76,7 +76,7 @@ export function ProjectForm(props: Props) {
     props.projectReview,
   );
 
-  const { selfReviewProjectQuestions } = useRoundQuestionsContext();
+  const { selfReviewProjectQuestions } = useRoundQuestions();
 
   const initialValue: ProjectFormData = useMemo(() => {
     return {

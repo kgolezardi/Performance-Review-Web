@@ -11,7 +11,7 @@ import { i18n } from '@lingui/core';
 import { transformAnswersToInput } from 'src/shared/utils/transformAnswers';
 import { useBiDiSnackbar } from 'src/shared/snackbar';
 import { useFragment } from 'react-relay/hooks';
-import { useRoundQuestionsContext } from 'src/core/round-questions';
+import { useRoundQuestions } from 'src/core/round-questions';
 
 import { PeerReviewProjectExpansionPanel_projectReview$key } from './__generated__/PeerReviewProjectExpansionPanel_projectReview.graphql';
 import { PeerReviewProjectsForm, PeerReviewProjectsFormValue } from '../projects-form/PeerReviewProjectsForm';
@@ -44,13 +44,13 @@ export function PeerReviewProjectExpansionPanel(props: Props) {
   const saveProjectComment = useSaveProjectComment();
   const projectReviewId = projectReview.id;
   const { enqueueSnackbar } = useBiDiSnackbar();
-  const { selfReviewProjectQuestions } = useRoundQuestionsContext();
+  const { peerReviewProjectQuestions } = useRoundQuestions();
 
   const handleSubmit = useCallback(
     (input: PeerReviewProjectsFormValue) => {
       const data: saveProjectCommentMutation['variables']['input'] = {
         ...input,
-        answers: transformAnswersToInput(input.answers, selfReviewProjectQuestions),
+        answers: transformAnswersToInput(input.answers, peerReviewProjectQuestions),
         projectReviewId,
       };
 
@@ -62,7 +62,7 @@ export function PeerReviewProjectExpansionPanel(props: Props) {
           enqueueSnackbar(i18n._('Something went wrong.'), { variant: 'error' });
         });
     },
-    [selfReviewProjectQuestions, projectReviewId, saveProjectComment, enqueueSnackbar],
+    [peerReviewProjectQuestions, projectReviewId, saveProjectComment, enqueueSnackbar],
   );
 
   const projectName = projectReview.projectName;

@@ -7,7 +7,7 @@ import { map, prop } from 'ramda';
 import { transformAnswersToInput } from 'src/shared/utils/transformAnswers';
 import { useBiDiSnackbar } from 'src/shared/snackbar';
 import { useFragment } from 'react-relay/hooks';
-import { useRoundQuestionsContext } from 'src/core/round-questions';
+import { useRoundQuestions } from 'src/core/round-questions';
 
 import { AddProjectFormData } from '../AddProjectForm';
 import { EditProjectReviewMutationInput } from '../__generated__/editProjectReviewMutation.graphql';
@@ -45,7 +45,7 @@ export function ProjectReviewEditForm(props: Props) {
   );
 
   const { enqueueSnackbar } = useBiDiSnackbar();
-  const { selfReviewProjectQuestions } = useRoundQuestionsContext();
+  const { selfReviewProjectQuestions } = useRoundQuestions();
   const editProjectReview = useEditProjectReview();
 
   const handleEditProjectReviewTitle = ({ projectName }: AddProjectFormData) => {

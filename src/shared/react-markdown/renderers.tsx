@@ -22,3 +22,8 @@ export const defaultRenderers: ReactMarkdownPropsBase['renderers'] = {
     <Typography variant={('h' + level) as 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'}>{children}</Typography>
   ),
 };
+
+export const helpTextRenderers: ReactMarkdownPropsBase['renderers'] = {
+  ...defaultRenderers,
+  paragraph: ({ children }) => children,
+};

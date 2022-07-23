@@ -1,18 +1,22 @@
 import * as React from 'react';
+import { Answers } from 'src/core/domain';
 import { MultilineOutput } from 'src/shared/multiline-output';
+import { QuestionType } from 'src/__generated__/enums';
 
-import { useAnswerOutputContext } from './AnswerOutputProvider';
-import { useQuestionOutputContext } from './QuestionOutputProvider';
-
-interface OwnProps {}
+interface OwnProps {
+  answers: Answers;
+  questionId: string;
+  questionType: QuestionType;
+}
 
 type Props = React.PropsWithChildren<OwnProps>;
 
 export function AnswerOutput(props: Props) {
-  const answer = useAnswerOutputContext();
-  const question = useQuestionOutputContext();
+  const { answers, questionId, questionType } = props;
 
-  const text = question.questionType === 'CHECKBOX_MULTIPLE' ? answer.value.replace(',', ' ، ') : answer.value;
+  const answer = answers.find((ans) => ans.questionId === questionId);
 
-  return <MultilineOutput value={text} enableTruncating />;
+  const text = questionType === 'CHECKBOX_MULTIPLE' ? answer?.value?.replace(',', '، ') : answer?.value;
+
+  return <MultilineOutput value={text ?? null} enableTruncating />;
 }

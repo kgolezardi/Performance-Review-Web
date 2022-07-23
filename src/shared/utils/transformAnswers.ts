@@ -27,7 +27,7 @@ export const transformAnswersToFormData = (answers: Answers, questions: Readonly
     const question = questions.find((q) => q.id === curr.questionId);
     return {
       ...acc,
-      [curr.questionId]: question?.questionType === 'CHECKBOX_MULTIPLE' ? curr.value.split(',') : curr.value,
+      [curr.questionId]: (question?.questionType === 'CHECKBOX_MULTIPLE' ? curr?.value?.split(',') : curr.value) ?? '',
     };
   }, {});
 };

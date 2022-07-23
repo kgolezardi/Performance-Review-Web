@@ -19,7 +19,7 @@ import { i18n } from '@lingui/core';
 import { transformAnswersToFormData } from 'src/shared/utils/transformAnswers';
 import { useFormDirty } from 'src/shared/form-change-detector';
 import { useFragment } from 'react-relay/hooks';
-import { useRoundQuestionsContext } from 'src/core/round-questions';
+import { useRoundQuestions } from 'src/core/round-questions';
 
 import {
   Evaluation,
@@ -52,7 +52,7 @@ type Props = FCProps<OwnProps>;
 export function PeerReviewProjectsForm(props: Props) {
   const { onSubmit } = props;
 
-  const { peerReviewProjectQuestions } = useRoundQuestionsContext();
+  const { peerReviewProjectQuestions } = useRoundQuestions();
 
   const projectComment = useFragment(fragment, props.projectComment);
   const initialValue: PeerReviewProjectsFormValue = {
