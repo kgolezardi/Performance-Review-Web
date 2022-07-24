@@ -40,5 +40,10 @@ export function useRoundQuestions(): RoundQuestions {
     managerReviewProjectQuestionsFragment,
     data.viewer.activeRound.managerReviewProjectQuestions,
   );
-  return { selfReviewProjectQuestions, managerReviewProjectQuestions, peerReviewProjectQuestions };
+
+  return {
+    selfReviewProjectQuestions,
+    managerReviewProjectQuestions,
+    peerReviewProjectQuestions,
+  };
 }

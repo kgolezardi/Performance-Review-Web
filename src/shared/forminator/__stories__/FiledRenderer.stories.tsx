@@ -1,12 +1,14 @@
 import React from 'react';
+import { Question as IQuestion } from 'src/core/domain';
+import { Question } from 'src/shared/DynamicFields';
 import { action } from '@storybook/addon-actions';
 import { storiesOf } from '@storybook/react';
 
 import DictInput from '../inputs/dict-input/DictInput';
 import SubmitButton from '../utils/SubmitButton';
-import { DynamicFields, Forminator, Question, QuestionType } from '..';
+import { Forminator } from '..';
 
-const questions: QuestionType[] = [
+const questions: IQuestion[] = [
   {
     questionType: 'TEXT',
     helpText: 'required name',
@@ -43,9 +45,9 @@ storiesOf('Forminator/Field Renderer', module)
     return (
       <Forminator onSubmit={action('submit')}>
         <DictInput>
-          <DynamicFields formData={{}} questions={questions} answersKey="answers">
-            <Question />
-          </DynamicFields>
+          {questions.map((question) => (
+            <Question question={question} formData={{}} />
+          ))}
         </DictInput>
         <SubmitButton color="primary" variant="contained">
           Submit
@@ -65,9 +67,9 @@ storiesOf('Forminator/Field Renderer', module)
     return (
       <Forminator onSubmit={action('submit')} initialValue={initialValue}>
         <DictInput>
-          <DynamicFields formData={initialValue} questions={questions} answersKey="answers">
-            <Question />
-          </DynamicFields>
+          {questions.map((question) => (
+            <Question question={question} formData={initialValue} />
+          ))}
         </DictInput>
         <SubmitButton color="primary" variant="contained">
           Submit

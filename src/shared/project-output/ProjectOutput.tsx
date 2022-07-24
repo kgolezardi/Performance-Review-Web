@@ -8,9 +8,10 @@ import { i18n } from '@lingui/core';
 import { useFragment } from 'react-relay/hooks';
 import { useRoundQuestions } from 'src/core/round-questions';
 
-import { AnswerOutput } from './AnswerOutput';
+import { MultilineOutput } from '../multiline-output';
 import { ProjectOutput_review$key } from './__generated__/ProjectOutput_review.graphql';
 import { QuestionOutput } from './QuestionOutput';
+import { getQuestionsAnswersPair } from '../utils/questionsAnswersPair';
 
 const fragment = graphql`
   fragment ProjectOutput_review on ProjectReviewNode {
@@ -36,6 +37,8 @@ export function ProjectOutput(props: Props) {
   const review = useFragment(fragment, props.review);
   const { selfReviewProjectQuestions } = useRoundQuestions();
 
+  const questionsAnswers = getQuestionsAnswersPair(selfReviewProjectQuestions, review.answers);
+
   return (
     <Grid container spacing={2}>
       {showProjectName && (
@@ -53,10 +56,10 @@ export function ProjectOutput(props: Props) {
           <EvaluationOutput value={review.rating as Evaluation} type="self" />
         </Grid>
       )}
-      {selfReviewProjectQuestions.map((question) => (
+      {questionsAnswers.map(([question, answer]) => (
         <Grid item xs={12}>
-          <QuestionOutput questionLabel={question.label} />
-          <AnswerOutput answers={review.answers} questionId={question.id} questionType={question.questionType} />
+          <QuestionOutput questionLabel={question} />
+          <MultilineOutput value={answer} />
         </Grid>
       ))}
     </Grid>

@@ -8,9 +8,10 @@ import { i18n } from '@lingui/core';
 import { useFragment } from 'react-relay/hooks';
 import { useRoundQuestions } from 'src/core/round-questions';
 
-import { AnswerOutput } from './AnswerOutput';
+import { MultilineOutput } from '../multiline-output';
 import { ProjectCommentOutput_comment$key } from './__generated__/ProjectCommentOutput_comment.graphql';
 import { QuestionOutput } from './QuestionOutput';
+import { getQuestionsAnswersPair } from '../utils/questionsAnswersPair';
 
 const fragment = graphql`
   fragment ProjectCommentOutput_comment on ProjectCommentNode {
@@ -32,6 +33,8 @@ export function ProjectCommentOutput(props: Props) {
   const comment = useFragment(fragment, props.comment);
   const { peerReviewProjectQuestions } = useRoundQuestions();
 
+  const questionsAnswers = getQuestionsAnswersPair(peerReviewProjectQuestions, comment.answers);
+
   return (
     <Grid container spacing={2}>
       <Grid item xs={12}>
@@ -42,10 +45,10 @@ export function ProjectCommentOutput(props: Props) {
           <EvaluationOutput value={comment.rating as Evaluation} type="peer" />
         </Box>
       </Grid>
-      {peerReviewProjectQuestions.map((question) => (
+      {questionsAnswers.map(([question, answer]) => (
         <Grid item xs={12}>
-          <QuestionOutput questionLabel={question.label} />
-          <AnswerOutput answers={comment.answers} questionId={question.id} questionType={question.questionType} />
+          <QuestionOutput questionLabel={question} />
+          <MultilineOutput value={answer} />
         </Grid>
       ))}
     </Grid>

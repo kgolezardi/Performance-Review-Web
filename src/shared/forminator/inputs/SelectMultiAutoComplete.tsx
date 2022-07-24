@@ -20,7 +20,7 @@ interface OwnProps<Suggestion extends BaseSuggestion = BaseSuggestion> {
   initialValue?: string[]; // id
   options: Array<Suggestion>;
   label: string;
-  textFieldOptions?: OutlinedTextFieldProps;
+  textFieldOptions?: Omit<OutlinedTextFieldProps, 'variant'>;
   renderInput?: AutocompleteProps<Suggestion>['renderInput'];
   maximumValues?: number;
   messageMaximumReviewers?: string;

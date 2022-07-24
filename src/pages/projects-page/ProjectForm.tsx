@@ -7,16 +7,14 @@ import {
   ConstantInput,
   DictInput,
   DictInputItem,
-  DynamicFields,
   Forminator,
   FragmentPrompt,
-  Question,
-  QuestionPrompt,
   SubmitButton,
 } from 'src/shared/forminator';
 import { ConfirmButton } from 'src/shared/confirm-button';
 import { DangerButton } from 'src/shared/danger-button';
 import { FCProps } from 'src/shared/types/FCProps';
+import { Question } from 'src/shared/DynamicFields';
 import { Rating } from 'src/shared/rating';
 import { ReviewersInput } from 'src/shared/reviewers-input';
 import { ReviewersInputProps } from 'src/shared/reviewers-input/types';
@@ -86,14 +84,7 @@ export function ProjectForm(props: Props) {
       reviewersId: projectReview.reviewers.map(prop('id')),
       consultedWithManager: projectReview.consultedWithManager ?? false,
     };
-  }, [
-    projectReview.answers,
-    projectReview.consultedWithManager,
-    projectReview.id,
-    projectReview.rating,
-    projectReview.reviewers,
-    selfReviewProjectQuestions,
-  ]);
+  }, [projectReview, selfReviewProjectQuestions]);
 
   const user = useAuthGuardUser();
 
@@ -128,13 +119,11 @@ export function ProjectForm(props: Props) {
               </Box>
             </DictInputItem>
           </Grid>
-          <DynamicFields formData={initialValue} answersKey="answers" questions={selfReviewProjectQuestions}>
+          {selfReviewProjectQuestions.map((question) => (
             <Grid item xs={12}>
-              <Question>
-                <QuestionPrompt />
-              </Question>
+              <Question question={question} formData={initialValue} />
             </Grid>
-          </DynamicFields>
+          ))}
           <Grid item xs={12}>
             <DictInputItem field="reviewersId">
               <ReviewersInput

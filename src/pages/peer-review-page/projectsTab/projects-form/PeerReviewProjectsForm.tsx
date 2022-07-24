@@ -2,17 +2,9 @@ import React from 'react';
 import graphql from 'babel-plugin-relay/macro';
 import { ActionBar } from 'src/shared/action-bar';
 import { Box, Grid } from '@material-ui/core';
-import {
-  DictInput,
-  DictInputItem,
-  DynamicFields,
-  Forminator,
-  FragmentPrompt,
-  Question,
-  QuestionPrompt,
-  SubmitButton,
-} from 'src/shared/forminator';
+import { DictInput, DictInputItem, Forminator, FragmentPrompt, SubmitButton } from 'src/shared/forminator';
 import { FCProps } from 'src/shared/types/FCProps';
+import { Question } from 'src/shared/DynamicFields';
 import { Rating } from 'src/shared/rating';
 import { StickyBottomPaper } from 'src/shared/sticky-bottom-paper';
 import { i18n } from '@lingui/core';
@@ -74,13 +66,11 @@ export function PeerReviewProjectsForm(props: Props) {
               <FragmentPrompt value={initialValue.rating} />
             </DictInputItem>
           </Grid>
-          <DynamicFields formData={initialValue} questions={peerReviewProjectQuestions} answersKey="answers">
+          {peerReviewProjectQuestions.map((question) => (
             <Grid item xs={12}>
-              <Question>
-                <QuestionPrompt />
-              </Question>
+              <Question question={question} formData={initialValue} />
             </Grid>
-          </DynamicFields>
+          ))}
         </DictInput>
         <StickyBottomPaper noSticky>
           <ActionBar>

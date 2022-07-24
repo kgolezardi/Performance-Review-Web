@@ -2,19 +2,21 @@ import * as React from 'react';
 import ReactMarkdown from 'react-markdown';
 import { Box } from '@material-ui/core';
 import { LIMITED_TEXT_AREA_COUNTER_DISPLAY_THRESHOLD, LIMITED_TEXT_AREA_MAX_CHARS } from 'src/shared/constants';
+import { Question } from 'src/core/domain';
 import { helpTextRenderers } from 'src/shared/react-markdown';
 
-import LimitedTextAreaInput from '../inputs/LimitedTextAreaInput';
-import { useQuestionContext } from './providers/QuestionProvider';
+import LimitedTextAreaInput from '../forminator/inputs/LimitedTextAreaInput';
 
-interface OwnProps {}
+interface OwnProps {
+  question: Question;
+}
 
 type Props = React.PropsWithChildren<OwnProps>;
 
 export function LimitedTextAreaQuestion(props: Props) {
   const {
     question: { helpText, label },
-  } = useQuestionContext();
+  } = props;
 
   return (
     <LimitedTextAreaInput

@@ -25,5 +25,5 @@ export const defaultRenderers: ReactMarkdownPropsBase['renderers'] = {
 
 export const helpTextRenderers: ReactMarkdownPropsBase['renderers'] = {
   ...defaultRenderers,
-  paragraph: ({ children }) => children,
+  paragraph: React.Fragment,
 };

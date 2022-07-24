@@ -1,13 +1,14 @@
 import React from 'react';
 import graphql from 'babel-plugin-relay/macro';
-import { AnswerOutput } from 'src/shared/project-output/AnswerOutput';
 import { Answers } from 'src/core/domain';
 import { Box, Typography } from '@material-ui/core';
 import { Evaluation } from 'src/__generated__/enums';
 import { ExcludeUnknown } from 'src/shared/enum-utils/types';
 import { FCProps } from 'src/shared/types/FCProps';
+import { MultilineOutput } from 'src/shared/multiline-output';
 import { QuestionOutput } from 'src/shared/project-output';
 import { ReviewItemInfo } from 'src/shared/review-item-info';
+import { getQuestionsAnswersPair } from 'src/shared/utils/questionsAnswersPair';
 import { i18n } from '@lingui/core';
 import { innerJoin } from 'ramda';
 import { selfReviewEvaluationDictionary } from 'src/global-types';
@@ -69,10 +70,10 @@ export const ProjectResultRatingGroup = React.memo(function ProjectResultRatingG
       {filteredComments.map((review) => (
         <Box marginTop={2} key={review.id}>
           <ReviewItemInfo anonymous type="peer">
-            {peerReviewProjectQuestions.map((question) => (
+            {getQuestionsAnswersPair(peerReviewProjectQuestions, review.answers).map(([question, answer]) => (
               <Box my={2}>
-                <QuestionOutput questionLabel={question.label} />
-                <AnswerOutput answers={review.answers} questionId={question.id} questionType={question.questionType} />
+                <QuestionOutput questionLabel={question} />
+                <MultilineOutput value={answer} />
               </Box>
             ))}
           </ReviewItemInfo>
