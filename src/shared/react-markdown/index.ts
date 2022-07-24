@@ -1,1 +1,1 @@
-export { defaultRenderers } from './defaultRenderers';
+export { defaultRenderers, helpTextRenderers } from './renderers';

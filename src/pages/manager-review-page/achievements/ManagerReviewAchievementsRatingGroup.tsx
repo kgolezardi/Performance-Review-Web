@@ -1,17 +1,22 @@
 import React from 'react';
 import graphql from 'babel-plugin-relay/macro';
+import { Answers } from 'src/core/domain';
 import { Box, Typography } from '@material-ui/core';
 import { Evaluation } from 'src/__generated__/enums';
 import { ExcludeUnknown } from 'src/shared/enum-utils/types';
 import { FCProps } from 'src/shared/types/FCProps';
 import { MultilineOutput } from 'src/shared/multiline-output';
+import { QuestionOutput } from 'src/shared/project-output';
 import { ReviewAvatarGroup } from 'src/shared/review-avatar-group';
 import { ReviewItemInfo } from 'src/shared/review-item-info';
+import { getQuestionsAnswersPair } from 'src/shared/utils/questionsAnswersPair';
 import { getUserLabel } from 'src/shared/utils/getUserLabel';
 import { i18n } from '@lingui/core';
+import { innerJoin, prop } from 'ramda';
 import { isNotNil } from 'src/shared/utils/general.util';
 import { selfReviewEvaluationDictionary } from 'src/global-types';
 import { useFragment } from 'react-relay/hooks';
+import { useRoundQuestions } from 'src/core/round-questions';
 
 import { ManagerReviewAchievementsRatingGroup_comments$key } from './__generated__/ManagerReviewAchievementsRatingGroup_comments.graphql';
 
@@ -19,7 +24,10 @@ const fragment = graphql`
   fragment ManagerReviewAchievementsRatingGroup_comments on ProjectCommentNode @relay(plural: true) {
     id
     rating
-    text
+    answers {
+      questionId
+      value
+    }
     reviewer {
       avatarUrl
       ...getUserLabel_user
@@ -40,11 +48,15 @@ export const ManagerReviewAchievementsRatingGroup = React.memo(function ManagerR
   const { rating } = props;
 
   const comments = useFragment(fragment, props.comments);
+  const { peerReviewProjectQuestions } = useRoundQuestions();
+
+  const peerAnswers = (answers: Answers) =>
+    innerJoin((a, b) => a.questionId === b.id, answers, peerReviewProjectQuestions);
 
   const filteredByRating = rating
     ? comments.filter((comment) => comment.rating === rating)
-    : comments.filter((comment) => comment.rating === rating && comment.text);
-  const filteredComments = filteredByRating.filter((comment) => comment.text);
+    : comments.filter((comment) => comment.rating === rating && peerAnswers(comment.answers).every(prop('value')));
+  const filteredComments = filteredByRating.filter((comment) => peerAnswers(comment.answers).every(prop('value')));
 
   if (filteredByRating.length === 0) {
     return null;
@@ -78,7 +90,12 @@ export const ManagerReviewAchievementsRatingGroup = React.memo(function ManagerR
             src={review.reviewer?.avatarUrl ?? undefined}
             type="peer"
           >
-            <MultilineOutput value={review.text} enableTruncating />
+            {getQuestionsAnswersPair(peerReviewProjectQuestions, review.answers).map(([question, answer]) => (
+              <Box my={2}>
+                <QuestionOutput questionLabel={question} />
+                <MultilineOutput value={answer} />
+              </Box>
+            ))}
           </ReviewItemInfo>
         </Box>
       ))}

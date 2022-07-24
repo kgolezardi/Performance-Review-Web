@@ -1,14 +1,19 @@
 import React from 'react';
 import graphql from 'babel-plugin-relay/macro';
+import { Answers } from 'src/core/domain';
 import { Box, Typography } from '@material-ui/core';
 import { Evaluation } from 'src/__generated__/enums';
 import { ExcludeUnknown } from 'src/shared/enum-utils/types';
 import { FCProps } from 'src/shared/types/FCProps';
 import { MultilineOutput } from 'src/shared/multiline-output';
+import { QuestionOutput } from 'src/shared/project-output';
 import { ReviewItemInfo } from 'src/shared/review-item-info';
+import { getQuestionsAnswersPair } from 'src/shared/utils/questionsAnswersPair';
 import { i18n } from '@lingui/core';
+import { innerJoin } from 'ramda';
 import { selfReviewEvaluationDictionary } from 'src/global-types';
 import { useFragment } from 'react-relay/hooks';
+import { useRoundQuestions } from 'src/core/round-questions';
 
 import { ProjectResultRatingGroup_comments$key } from './__generated__/ProjectResultRatingGroup_comments.graphql';
 
@@ -16,7 +21,10 @@ const fragment = graphql`
   fragment ProjectResultRatingGroup_comments on ProjectCommentNode @relay(plural: true) {
     id
     rating
-    text
+    answers {
+      value
+      questionId
+    }
   }
 `;
 
@@ -31,11 +39,15 @@ export const ProjectResultRatingGroup = React.memo(function ProjectResultRatingG
   const { rating } = props;
 
   const comments = useFragment(fragment, props.comments);
+  const { peerReviewProjectQuestions } = useRoundQuestions();
+
+  const peerAnswers = (answers: Answers) =>
+    innerJoin((a, b) => a.questionId === b.id, answers, peerReviewProjectQuestions);
 
   const filteredByRating = rating
     ? comments.filter((comment) => comment.rating === rating)
-    : comments.filter((comment) => comment.rating === rating && comment.text);
-  const filteredComments = filteredByRating.filter((comment) => comment.text);
+    : comments.filter((comment) => comment.rating === rating && peerAnswers(comment.answers).every((c) => c.value));
+  const filteredComments = filteredByRating.filter((comment) => peerAnswers(comment.answers).every((c) => c.value));
 
   if (filteredByRating.length === 0) {
     return null;
@@ -58,7 +70,12 @@ export const ProjectResultRatingGroup = React.memo(function ProjectResultRatingG
       {filteredComments.map((review) => (
         <Box marginTop={2} key={review.id}>
           <ReviewItemInfo anonymous type="peer">
-            <MultilineOutput value={review.text} enableTruncating />
+            {getQuestionsAnswersPair(peerReviewProjectQuestions, review.answers).map(([question, answer], index) => (
+              <Box key={index} my={2}>
+                <QuestionOutput questionLabel={question} />
+                <MultilineOutput value={answer} />
+              </Box>
+            ))}
           </ReviewItemInfo>
         </Box>
       ))}

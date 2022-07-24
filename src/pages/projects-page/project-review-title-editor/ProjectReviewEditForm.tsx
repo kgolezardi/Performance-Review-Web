@@ -4,8 +4,10 @@ import { Box, Button, DialogActions, DialogContent, Theme, createStyles, makeSty
 import { DictInput, DictInputItem, Forminator, StringInput, SubmitButton } from 'src/shared/forminator';
 import { i18n } from '@lingui/core';
 import { map, prop } from 'ramda';
+import { transformAnswersToInput } from 'src/shared/utils/transformAnswers';
 import { useBiDiSnackbar } from 'src/shared/snackbar';
 import { useFragment } from 'react-relay/hooks';
+import { useRoundQuestions } from 'src/core/round-questions';
 
 import { AddProjectFormData } from '../AddProjectForm';
 import { EditProjectReviewMutationInput } from '../__generated__/editProjectReviewMutation.graphql';
@@ -29,10 +31,13 @@ export function ProjectReviewEditForm(props: Props) {
       fragment ProjectReviewEditForm_projectReview on ProjectReviewNode {
         projectName
         id
-        text
         rating
         reviewers {
           id
+        }
+        answers {
+          questionId
+          value
         }
       }
     `,
@@ -40,13 +45,13 @@ export function ProjectReviewEditForm(props: Props) {
   );
 
   const { enqueueSnackbar } = useBiDiSnackbar();
-
+  const { selfReviewProjectQuestions } = useRoundQuestions();
   const editProjectReview = useEditProjectReview();
 
   const handleEditProjectReviewTitle = ({ projectName }: AddProjectFormData) => {
     const input: EditProjectReviewMutationInput = {
       projectReviewId: project.id,
-      text: project.text ?? '',
+      answers: transformAnswersToInput(project.answers, selfReviewProjectQuestions),
       rating: project.rating,
       reviewersId: map(prop('id'), project.reviewers),
       projectName,

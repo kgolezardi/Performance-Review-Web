@@ -17,6 +17,7 @@ import { ServerValueProvider } from 'src/shared/server-value';
 import { defaultRenderers } from 'src/shared/react-markdown';
 import { i18n } from '@lingui/core';
 import { useBiDiSnackbar } from 'src/shared/snackbar';
+import { useFormDirty } from 'src/shared/form-change-detector';
 import { useLazyLoadQuery } from 'react-relay/hooks';
 import { useMutation } from 'src/relay';
 
@@ -61,6 +62,7 @@ export default function ManagerReviewOverallEvaluation(props: Props) {
     }
   `);
 
+  const dirty = useFormDirty();
   const { enqueueSnackbar } = useBiDiSnackbar();
 
   // TODO:
@@ -88,6 +90,7 @@ export default function ManagerReviewOverallEvaluation(props: Props) {
         enqueueSnackbar(i18n._('An error occurred. Try again!'), { variant: 'error' });
       });
   };
+
   return (
     <Fragment>
       <Box paddingY={12} paddingX={20} displayPrint="none !important">
@@ -110,7 +113,7 @@ export default function ManagerReviewOverallEvaluation(props: Props) {
                 </Grid>
                 <Grid item>
                   <Box alignItems="center" display="flex" height="100%" marginTop="1px">
-                    <SubmitButton color="primary" size="large" variant="contained">
+                    <SubmitButton color="primary" size="large" variant="contained" disabled={!dirty}>
                       {i18n._('Save')}
                     </SubmitButton>
                   </Box>
