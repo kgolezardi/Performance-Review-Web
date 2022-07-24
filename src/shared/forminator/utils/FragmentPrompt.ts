@@ -22,8 +22,6 @@ function FragmentPrompt<VF, VS>(props: Props<VF, VS>) {
   const fragment = useFragmentContext<VF>();
   const value = useFragmentValue<VF>();
   const when = value !== undefined && !equal(value, props.value);
-  console.log(value, props.value, when);
-
   useFormChanged(fragment.id, when);
   return null;
 }

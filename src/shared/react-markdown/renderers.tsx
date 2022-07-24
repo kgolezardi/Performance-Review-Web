@@ -1,6 +1,6 @@
 import React from 'react';
+import { Box, Typography, lighten, styled } from '@material-ui/core';
 import type { ReactMarkdownPropsBase } from 'react-markdown';
-import { Typography, lighten, styled } from '@material-ui/core';
 
 const StyledBlackQuote = styled('blockquote')(({ theme }) => ({
   backgroundColor: lighten(theme.palette.primary.main, 0.85),
@@ -25,5 +25,10 @@ export const defaultRenderers: ReactMarkdownPropsBase['renderers'] = {
 
 export const helpTextRenderers: ReactMarkdownPropsBase['renderers'] = {
   ...defaultRenderers,
-  paragraph: React.Fragment,
+  paragraph: ({ children }) => (
+    <Box component="span" display="block">
+      {children}
+    </Box>
+  ),
+  text: ({ children }) => <>{String(children).replace('\r', '')}</>,
 };

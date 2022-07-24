@@ -1,6 +1,7 @@
 import React from 'react';
 import graphql from 'babel-plugin-relay/macro';
 import { FCProps } from 'src/shared/types/FCProps';
+import { FormHelperText } from '@material-ui/core';
 import { SelectMultiAutoComplete } from 'src/shared/forminator';
 import { getUserLabel } from 'src/shared/utils/getUserLabel';
 import { i18n } from '@lingui/core';
@@ -41,16 +42,18 @@ export function ReviewersInput(props: Props) {
   }));
 
   return (
-    <SelectMultiAutoComplete
-      excludes={excludes}
-      filterSelectedOptions
-      label={label}
-      options={options}
-      initialValue={initialValue}
-      maximumValues={maximumReviewers}
-      messageMaximumReviewers={i18n._('You can choose maximum {num} reviewers', { num: maximumReviewers })}
-      textFieldOptions={{ helperText: helperText }}
-    />
+    <>
+      <SelectMultiAutoComplete
+        excludes={excludes}
+        filterSelectedOptions
+        label={label}
+        options={options}
+        initialValue={initialValue}
+        maximumValues={maximumReviewers}
+        messageMaximumReviewers={i18n._('You can choose maximum {num} reviewers', { num: maximumReviewers })}
+      />
+      {helperText && <FormHelperText>{helperText}</FormHelperText>}
+    </>
   );
 }
 

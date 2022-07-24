@@ -13,6 +13,4 @@ export interface Question {
   readonly label: string;
   readonly helpText: string | null;
   readonly choices: ReadonlyArray<string> | null;
-  readonly privateAnswerToPeerReviewers: boolean;
-  readonly privateAnswerToReviewee: boolean;
 }

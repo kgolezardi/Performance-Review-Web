@@ -1,7 +1,10 @@
 import * as React from 'react';
+import ReactMarkdown from 'react-markdown';
+import { FormHelperText } from '@material-ui/core';
 import { Question } from 'src/core/domain';
 
 import SelectMultiAutoComplete from '../forminator/inputs/SelectMultiAutoComplete';
+import { helpTextRenderers } from '../react-markdown';
 
 interface OwnProps {
   question: Question;
@@ -19,11 +22,13 @@ export function MultipleSelectQuestion(props: Props) {
   }, [choices]);
 
   return (
-    <SelectMultiAutoComplete
-      filterSelectedOptions
-      label={label}
-      options={options}
-      textFieldOptions={{ helperText: helpText }}
-    />
+    <>
+      <SelectMultiAutoComplete filterSelectedOptions label={label} options={options} />
+      {helpText && (
+        <FormHelperText>
+          <ReactMarkdown renderers={helpTextRenderers}>{helpText ?? ''}</ReactMarkdown>
+        </FormHelperText>
+      )}
+    </>
   );
 }

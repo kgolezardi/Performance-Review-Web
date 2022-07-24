@@ -120,7 +120,7 @@ export function ProjectForm(props: Props) {
             </DictInputItem>
           </Grid>
           {selfReviewProjectQuestions.map((question) => (
-            <Grid item xs={12}>
+            <Grid key={question.id} item xs={12}>
               <Question question={question} formData={initialValue} />
             </Grid>
           ))}

@@ -1,6 +1,5 @@
 import * as React from 'react';
 import ReactMarkdown from 'react-markdown';
-import { Box } from '@material-ui/core';
 import { LIMITED_TEXT_AREA_COUNTER_DISPLAY_THRESHOLD, LIMITED_TEXT_AREA_MAX_CHARS } from 'src/shared/constants';
 import { Question } from 'src/core/domain';
 import { helpTextRenderers } from 'src/shared/react-markdown';
@@ -25,11 +24,7 @@ export function LimitedTextAreaQuestion(props: Props) {
       counterDisplayThreshold={LIMITED_TEXT_AREA_COUNTER_DISPLAY_THRESHOLD}
       variant="outlined"
       fullWidth
-      helperText={
-        <Box component="span" display="flex" alignItems="center">
-          <ReactMarkdown renderers={helpTextRenderers}>{helpText ?? ''}</ReactMarkdown>
-        </Box>
-      }
+      helperText={<ReactMarkdown renderers={helpTextRenderers}>{helpText ?? ''}</ReactMarkdown>}
     />
   );
 }

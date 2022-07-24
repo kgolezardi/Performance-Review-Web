@@ -16,8 +16,6 @@ const questions: IQuestion[] = [
     label: 'name',
     choices: null,
     order: 1,
-    privateAnswerToPeerReviewers: true,
-    privateAnswerToReviewee: false,
   },
   {
     questionType: 'TEXT',
@@ -26,8 +24,6 @@ const questions: IQuestion[] = [
     label: 'name',
     choices: null,
     order: 0,
-    privateAnswerToPeerReviewers: true,
-    privateAnswerToReviewee: false,
   },
   {
     questionType: 'CHECKBOX_MULTIPLE',
@@ -36,8 +32,6 @@ const questions: IQuestion[] = [
     label: 'sex',
     choices: ['male', 'female'],
     order: 2,
-    privateAnswerToPeerReviewers: true,
-    privateAnswerToReviewee: false,
   },
 ];
 storiesOf('Forminator/Field Renderer', module)

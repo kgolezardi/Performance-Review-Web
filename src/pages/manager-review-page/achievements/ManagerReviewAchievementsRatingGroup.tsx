@@ -53,7 +53,9 @@ export const ManagerReviewAchievementsRatingGroup = React.memo(function ManagerR
   const peerAnswers = (answers: Answers) =>
     innerJoin((a, b) => a.questionId === b.id, answers, peerReviewProjectQuestions);
 
-  const filteredByRating = comments.filter((comment) => comment.rating === rating);
+  const filteredByRating = rating
+    ? comments.filter((comment) => comment.rating === rating)
+    : comments.filter((comment) => comment.rating === rating && peerAnswers(comment.answers).every(prop('value')));
   const filteredComments = filteredByRating.filter((comment) => peerAnswers(comment.answers).every(prop('value')));
 
   if (filteredByRating.length === 0) {
