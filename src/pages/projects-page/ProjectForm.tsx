@@ -18,7 +18,6 @@ import { Question } from 'src/shared/DynamicFields';
 import { Rating } from 'src/shared/rating';
 import { ReviewersInput } from 'src/shared/reviewers-input';
 import { ReviewersInputProps } from 'src/shared/reviewers-input/types';
-import { StickyBottomPaper } from 'src/shared/sticky-bottom-paper';
 import { equals, identity, prop, sortBy } from 'ramda';
 import { i18n } from '@lingui/core';
 import { transformAnswersToFormData } from 'src/shared/utils/transformAnswers';
@@ -103,7 +102,7 @@ export function ProjectForm(props: Props) {
 
   return (
     <Forminator onSubmit={onSubmit} initialValue={initialValue}>
-      <Grid container spacing={2}>
+      <Grid container spacing={3}>
         <DictInput>
           <DictInputItem field="projectReviewId">
             <ConstantInput />
@@ -149,7 +148,7 @@ export function ProjectForm(props: Props) {
             </DictInputItem>
           </Grid>
         </DictInput>
-        <StickyBottomPaper noSticky>
+        <Grid item xs={12}>
           <ActionBar>
             <ConfirmButton
               buttonText={i18n._('Delete')}
@@ -164,7 +163,7 @@ export function ProjectForm(props: Props) {
               {i18n._('Save')}
             </SubmitButton>
           </ActionBar>
-        </StickyBottomPaper>
+        </Grid>
       </Grid>
     </Forminator>
   );
