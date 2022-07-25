@@ -3,6 +3,7 @@ import { Box, Theme, Typography, createStyles, makeStyles } from '@material-ui/c
 import { FCProps } from 'src/shared/types/FCProps';
 import { LinearProgress } from 'src/shared/progress';
 import { Styles } from 'src/shared/types/Styles';
+import { getProgressBarColor } from 'src/shared/utils/getProgressBarColor';
 import { i18n } from '@lingui/core';
 
 interface OwnProps {
@@ -16,7 +17,7 @@ type Props = FCProps<OwnProps> & StyleProps;
 export function ProjectProgress(props: Props) {
   const { name, value, consultedWithManager } = props;
   const classes = useStyles(props);
-  const color = getColor(value);
+  const color = getProgressBarColor(value);
   return (
     <Box marginY={3} className={classes.root}>
       <Typography gutterBottom>
@@ -43,16 +44,3 @@ const styles = (theme: Theme) =>
 
 const useStyles = makeStyles(styles, { name: 'ProjectProgress' });
 type StyleProps = Styles<typeof styles>;
-
-const getColor = (value: number) => {
-  if (value === 100) {
-    return 'complete';
-  }
-  if (value <= 20) {
-    return 'low';
-  }
-  if (value < 60) {
-    return 'medium';
-  }
-  return 'high';
-};

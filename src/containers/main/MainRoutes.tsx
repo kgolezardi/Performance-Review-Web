@@ -77,7 +77,7 @@ const ManagerReviewDashboard = React.lazy(() =>
 
 const ManagerAdjustmentDashboard = React.lazy(() =>
   import(
-    /* webpackChunkName: "manager-review-dashboard-page" */
+    /* webpackChunkName: "manager-adjustment-dashboard" */
     'src/pages/manager-adjustment-dashboard/ManagerAdjustmentDashboard'
   ),
 );

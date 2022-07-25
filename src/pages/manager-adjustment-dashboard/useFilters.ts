@@ -1,19 +1,16 @@
-import { Evaluation } from 'src/__generated__/enums';
 import { useState } from 'react';
 
 import type { Row } from './ManagerAdjustmentDashboardTable';
 
 export type Status = 'todo' | 'doing' | 'done' | 'all';
-export type OverallRating = Evaluation | 'all';
 
 export interface Filters {
   manager?: string;
-  overallRating: OverallRating;
   status: Status;
   user?: string;
 }
 
-const initialFiltersState: Filters = { overallRating: 'all', status: 'all' };
+const initialFiltersState: Filters = { status: 'all' };
 
 export const useFilters = () => {
   const [filters, setFilters] = useState<Filters>(initialFiltersState);
@@ -33,32 +30,25 @@ export const useFilters = () => {
   };
 
   const filterStatus = (row: Row) => {
-    if (filters.status === 'all') {
-      return true;
+    switch (filters.status) {
+      case 'all':
+        return true;
+      case 'todo':
+        return row.achievements === 0;
+      case 'doing': {
+        const done = row.achievements === 100;
+        const todo = row.achievements === 0;
+        return !done && !todo;
+      }
+      case 'done':
+        return row.achievements === 100;
+      default:
+        return true;
     }
-    if (filters.status === 'todo') {
-      return row.achievements === 0;
-    }
-    if (filters.status === 'doing') {
-      const done = row.achievements === 100;
-      const todo = row.achievements === 0;
-      return !done && !todo;
-    }
-    if (filters.status === 'done') {
-      return row.achievements === 100;
-    }
-    return true;
-  };
-
-  const filteroverallRating = (row: Row) => {
-    if (filters.overallRating !== 'all') {
-      return row.overallRating === filters.overallRating;
-    }
-    return true;
   };
 
   const filterRows = (rows: Row[]) => {
-    return rows.filter(filterUser).filter(filterManager).filter(filterStatus).filter(filteroverallRating);
+    return rows.filter(filterUser).filter(filterManager).filter(filterStatus);
   };
 
   const clearFilters = () => {

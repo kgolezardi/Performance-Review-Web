@@ -18,6 +18,7 @@ import { FCProps } from 'src/shared/types/FCProps';
 import { LinearProgress } from 'src/shared/progress';
 import { Styles } from 'src/shared/types/Styles';
 import { getEnumLabel } from 'src/shared/enum-utils';
+import { getProgressBarColor } from 'src/shared/utils/getProgressBarColor';
 import { getUserLabel } from 'src/shared/utils/getUserLabel';
 import { i18n } from '@lingui/core';
 import { isNotNil } from 'src/shared/utils/general.util';
@@ -137,7 +138,7 @@ export function ManagerReviewDashboardTable(props: Props) {
                 </TableCell>
                 <TableCell>{row.manager}</TableCell>
                 <TableCell>
-                  <LinearProgress value={row.achievements} color={getColor(row.achievements)} />
+                  <LinearProgress value={row.achievements} color={getProgressBarColor(row.achievements)} />
                 </TableCell>
                 <TableCell>
                   {row.overallRating
@@ -152,19 +153,6 @@ export function ManagerReviewDashboardTable(props: Props) {
     </div>
   );
 }
-
-const getColor = (value: number) => {
-  if (value === 100) {
-    return 'complete';
-  }
-  if (value <= 20) {
-    return 'low';
-  }
-  if (value < 60) {
-    return 'medium';
-  }
-  return 'high';
-};
 
 const styles = (theme: Theme) =>
   createStyles({
