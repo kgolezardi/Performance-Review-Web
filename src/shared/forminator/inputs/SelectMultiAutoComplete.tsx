@@ -38,14 +38,19 @@ function SelectMultiAutoComplete<Suggestion extends BaseSuggestion = BaseSuggest
   label,
   textFieldOptions,
   excludes,
-  maximumValues = Number.POSITIVE_INFINITY,
-  messageMaximumReviewers = '',
+  maximumValues: maximumValuesProp = -1,
+  messageMaximumReviewers: messageMaximumReviewersProp,
+
   ...props
 }: Props<Suggestion>) {
   const [values, setValues] = useForminatorState<string[], string[]>(initialValue);
   const classes = useStyles(props);
 
   const { enqueueSnackbar } = useBiDiSnackbar();
+
+  const maximumValues = maximumValuesProp > 0 ? maximumValuesProp : Number.POSITIVE_INFINITY;
+  const messageMaximumReviewers =
+    messageMaximumReviewersProp ?? i18n._('You can choose maximum {num} reviewers', { num: maximumValues });
 
   const options = useMemo(() => {
     const excludesSet = new Set(excludes || []);

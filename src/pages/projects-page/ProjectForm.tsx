@@ -30,8 +30,6 @@ import { DeleteProjectReviewMutationInput } from './__generated__/deleteProjectR
 import { Evaluation } from './__generated__/editProjectReviewMutation.graphql';
 import { ProjectForm_projectReview$key } from './__generated__/ProjectForm_projectReview.graphql';
 
-const maximumReviewers = 5;
-
 export interface ProjectFormData {
   projectReviewId: string;
   answers: Record<string, any>;
@@ -44,6 +42,7 @@ interface OwnProps {
   onDelete: (input: DeleteProjectReviewMutationInput) => void;
   projectReview: ProjectForm_projectReview$key;
   users: ReviewersInputProps['users'];
+  maximumProjectReviewers: number;
 }
 
 type Props = FCProps<OwnProps>;
@@ -53,7 +52,7 @@ const arrayEqual = (v1: string[] | undefined, v2: string[] | undefined) => {
 };
 
 export function ProjectForm(props: Props) {
-  const { onSubmit, onDelete } = props;
+  const { onSubmit, onDelete, maximumProjectReviewers } = props;
   const projectReview = useFragment(
     graphql`
       fragment ProjectForm_projectReview on ProjectReviewNode {
@@ -126,13 +125,13 @@ export function ProjectForm(props: Props) {
           <Grid item xs={12}>
             <DictInputItem field="reviewersId">
               <ReviewersInput
-                label={i18n._('Reviewers (maximum {num})', { num: maximumReviewers })}
+                label={i18n._('Reviewers (maximum {num})', { num: maximumProjectReviewers })}
                 users={props.users}
                 excludes={userIds}
                 helperText={i18n._('**Coordinate reviewers with your manager (maximum {num} reviewers)', {
-                  num: maximumReviewers,
+                  num: maximumProjectReviewers,
                 })}
-                maximumReviewers={maximumReviewers}
+                maximumReviewers={maximumProjectReviewers}
               />
               <FragmentPrompt value={initialValue.reviewersId || []} equal={arrayEqual} />
             </DictInputItem>

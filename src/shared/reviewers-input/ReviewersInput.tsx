@@ -4,7 +4,6 @@ import { FCProps } from 'src/shared/types/FCProps';
 import { FormHelperText } from '@material-ui/core';
 import { SelectMultiAutoComplete } from 'src/shared/forminator';
 import { getUserLabel } from 'src/shared/utils/getUserLabel';
-import { i18n } from '@lingui/core';
 import { useFragment } from 'react-relay/hooks';
 
 import { ReviewersInput_Reviewers$key } from './__generated__/ReviewersInput_Reviewers.graphql';
@@ -50,7 +49,6 @@ export function ReviewersInput(props: Props) {
         options={options}
         initialValue={initialValue}
         maximumValues={maximumReviewers}
-        messageMaximumReviewers={i18n._('You can choose maximum {num} reviewers', { num: maximumReviewers })}
       />
       {helperText && <FormHelperText>{helperText}</FormHelperText>}
     </>

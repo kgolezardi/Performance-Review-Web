@@ -21,12 +21,13 @@ interface OwnProps {
   saveProject: (data: ProjectFormData) => void;
   deleteProject: (input: DeleteProjectReviewMutationInput) => void;
   users: ReviewersInputProps['users'];
+  maximumProjectReviewers: number;
 }
 
 type Props = FCProps<OwnProps>;
 
 export function ProjectExpansionPanel(props: Props) {
-  const { initialProjectIds, saveProject, deleteProject, users } = props;
+  const { initialProjectIds, saveProject, deleteProject, users, maximumProjectReviewers } = props;
   const projectReview = useFragment(fragment, props.projectReview);
   const [isExpanded, setIsExpanded] = React.useState(() => !initialProjectIds.has(projectReview.id));
   const {
@@ -44,33 +45,37 @@ export function ProjectExpansionPanel(props: Props) {
   };
 
   return (
-    <React.Fragment>
-      <FormChangeDetector>
-        <ExpansionPanel expanded={isExpanded} onChange={handleExpanded}>
-          <ExpansionPanelSummary>
-            <Box display="flex" alignItems="center">
-              <Typography variant="h6">
-                {projectReview.projectName}
-                {!projectReview.consultedWithManager ? (
-                  <Typography variant="caption" color="error" component="span">
-                    {` (${i18n._('The manager has not been consulted')})`}
-                  </Typography>
-                ) : null}
-              </Typography>
-              {isExpanded && (
-                <IconButton onClick={handleShowModal}>
-                  <EditIcon />
-                </IconButton>
-              )}
-            </Box>
-          </ExpansionPanelSummary>
-          <ExpansionPanelDetails>
-            <ProjectForm onSubmit={saveProject} onDelete={deleteProject} projectReview={projectReview} users={users} />
-          </ExpansionPanelDetails>
-        </ExpansionPanel>
-      </FormChangeDetector>
+    <FormChangeDetector>
+      <ExpansionPanel expanded={isExpanded} onChange={handleExpanded}>
+        <ExpansionPanelSummary>
+          <Box display="flex" alignItems="center">
+            <Typography variant="h6">
+              {projectReview.projectName}
+              {!projectReview.consultedWithManager ? (
+                <Typography variant="caption" color="error" component="span">
+                  {` (${i18n._('The manager has not been consulted')})`}
+                </Typography>
+              ) : null}
+            </Typography>
+            {isExpanded && (
+              <IconButton onClick={handleShowModal}>
+                <EditIcon />
+              </IconButton>
+            )}
+          </Box>
+        </ExpansionPanelSummary>
+        <ExpansionPanelDetails>
+          <ProjectForm
+            maximumProjectReviewers={maximumProjectReviewers}
+            onSubmit={saveProject}
+            onDelete={deleteProject}
+            projectReview={projectReview}
+            users={users}
+          />
+        </ExpansionPanelDetails>
+      </ExpansionPanel>
       <ProjectReviewTitleModal open={open} onClose={onClose} projectReview={projectReview} />
-    </React.Fragment>
+    </FormChangeDetector>
   );
 }
 

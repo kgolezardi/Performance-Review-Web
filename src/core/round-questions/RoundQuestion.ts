@@ -26,8 +26,7 @@ export const selfReviewProjectQuestionsFragment = graphql`
     label
     helpText
     choices
-    privateAnswerToPeerReviewers
-    privateAnswerToReviewee
+    maxChoices
   }
 `;
 
@@ -39,8 +38,7 @@ export const peerReviewProjectQuestionsFragment = graphql`
     label
     helpText
     choices
-    privateAnswerToPeerReviewers
-    privateAnswerToReviewee
+    maxChoices
   }
 `;
 
@@ -52,7 +50,6 @@ export const managerReviewProjectQuestionsFragment = graphql`
     label
     helpText
     choices
-    privateAnswerToPeerReviewers
-    privateAnswerToReviewee
+    maxChoices
   }
 `;
