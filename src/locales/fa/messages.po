@@ -17,14 +17,20 @@ msgstr ""
 msgid "%s - Performance Review"
 msgstr "%s - مرور عملکرد"
 
-#: src/pages/projects-page/ProjectForm.tsx:94
+#: src/pages/manager-adjustment-page/achievements/ManagerAdjustmentForm.tsx:40
+msgid "**Coordinate reviewers with manager"
+msgstr "میتوانید مرورکنندگان را با توجه به توضیح فعالیت تغییر بدهید(حداکثر {num} مرورکننده)"
+
+#: src/pages/projects-page/ProjectForm.tsx:83
 msgid "**Coordinate reviewers with your manager (maximum {num} reviewers)"
 msgstr "مرورکنندگانی رو که اینجا مشخص می‌کنی، فقط قسمت «توضیح فعالیت» رو در فاز بعدی مرور عملکرد می‌خونن و روش بهت بازخورد می‌دن. همچنین این افراد «ویژگی‌های بارز» تو رو از نگاه خودشون (و بدون خوندن نوشته‌هات) ارزیابی می‌کنن. مرورکنندگان رو حتما با هماهنگی مدیر مستقیمت انتخاب کن (حداکثر {num} نفر)."
 
 #: src/containers/main/getMenuItems.ts:22
 #: src/pages/dashboard-page/DashboardPage.tsx:36
+#: src/pages/manager-adjustment-dashboard/ManagerAdjustmentDashboardTable.tsx:62
+#: src/pages/manager-adjustment-page/ManagerAdjustmentPage.tsx:42
 #: src/pages/manager-review-dashboard/ManagerReviewDashboardDrawerContent.tsx:66
-#: src/pages/manager-review-dashboard/ManagerReviewDashboardTable.tsx:74
+#: src/pages/manager-review-dashboard/ManagerReviewDashboardTable.tsx:75
 #: src/pages/manager-review-page/ManagerReviewPage.tsx:45
 #: src/pages/manager-review-page/ManagerReviewPrintPage.tsx:53
 #: src/pages/peer-review-page/PeerReviewPage.tsx:45
@@ -43,6 +49,7 @@ msgstr "افزودن"
 msgid "Add here after completing any evaluation"
 msgstr "هر ارزیابی که تکمیل شد رو به اینجا اضافه کن"
 
+#: src/pages/manager-adjustment-dashboard/TableFilters.tsx:28
 #: src/pages/manager-review-dashboard/TableFilters.tsx:29
 #: src/pages/manager-review-dashboard/TableFilters.tsx:42
 msgid "All"
@@ -52,6 +59,7 @@ msgstr "همه"
 msgid "All reviews were successfully done"
 msgstr "تمامی ارزیابی‌ها با موفقیت انجام شد"
 
+#: src/pages/manager-adjustment-page/achievements/ManagerAdjustmentAchievements.tsx:65
 #: src/pages/manager-review-page/achievements/ManagerReviewAchievements.tsx:61
 #: src/pages/manager-review-page/overall-evaluation/ManagerReviewOverallEvaluation.tsx:64
 #: src/pages/peer-review-page/PeerReviewPersonInfoCard.tsx:55
@@ -60,7 +68,7 @@ msgstr "تمامی ارزیابی‌ها با موفقیت انجام شد"
 msgid "An error occurred. Try again!"
 msgstr "خطایی رخ داده. دوباره تلاش کنید."
 
-#: src/pages/projects-page/ProjectForm.tsx:109
+#: src/pages/projects-page/ProjectForm.tsx:98
 msgid "Are you sure you want to delete {projectName} review?"
 msgstr "آیا از حذف {projectName} مطمین هستید؟"
 
@@ -69,6 +77,7 @@ msgstr "آیا از حذف {projectName} مطمین هستید؟"
 msgid "Cancel"
 msgstr "لغو"
 
+#: src/pages/manager-adjustment-page/ManagerAdjustmentPage.tsx:35
 #: src/pages/manager-review-page/ManagerReviewPage.tsx:38
 #: src/pages/manager-review-page/ManagerReviewPrintPage.tsx:42
 #: src/pages/peer-review-page/PeerReviewPage.tsx:37
@@ -81,6 +90,7 @@ msgstr "یعنی بدون ذخیره تغییرات می‌خوای بری؟؟"
 msgid "Choose projects you have been working on in the past year (At most {num})."
 msgstr "کارهایی که در یکسال گذشته انجام دادی رو به حداکثر {num} فعالیت کلی تقسیم کن و راجع بهشون توضیح بده."
 
+#: src/pages/manager-adjustment-dashboard/TableFilters.tsx:19
 #: src/pages/manager-review-dashboard/TableFilters.tsx:14
 msgid "Colleague name"
 msgstr "نام همکار"
@@ -99,10 +109,11 @@ msgstr "پیشخوان"
 msgid "Dear {name}, Hello"
 msgstr "{name} عزیز، سلام"
 
-#: src/pages/projects-page/ProjectForm.tsx:109
+#: src/pages/projects-page/ProjectForm.tsx:98
 msgid "Delete"
 msgstr "حذف"
 
+#: src/pages/manager-adjustment-dashboard/TableFilters.tsx:30
 #: src/pages/manager-review-dashboard/TableFilters.tsx:31
 msgid "Doing"
 msgstr "در حال انجام"
@@ -118,6 +129,7 @@ msgid "Dominant Characteristics"
 msgstr "ویژگی‌های بارز"
 
 #: src/assets/icons/Done.tsx:5
+#: src/pages/manager-adjustment-dashboard/TableFilters.tsx:31
 #: src/pages/manager-review-dashboard/TableFilters.tsx:32
 #: src/pages/peer-review-board-page/PeerReviewBoardPage.tsx:82
 msgid "Done"
@@ -145,12 +157,13 @@ msgstr "خطا"
 
 #: src/pages/manager-review-page/achievements/ManagerReviewAchievementsExpansionPanel.tsx:79
 #: src/pages/manager-review-page/overall-evaluation/ManagerReviewOverallEvaluation.tsx:81
-#: src/pages/peer-review-page/projectsTab/projects-form/PeerReviewProjectsForm.tsx:38
-#: src/shared/project-output/ProjectCommentOutput.tsx:24
-#: src/shared/project-output/ProjectOutput.tsx:31
+#: src/pages/peer-review-page/projectsTab/projects-form/PeerReviewProjectsForm.tsx:39
+#: src/shared/project-output/ProjectCommentOutput.tsx:27
+#: src/shared/project-output/ProjectOutput.tsx:34
 msgid "Evaluation"
 msgstr "ارزیابی"
 
+#: src/pages/manager-adjustment-dashboard/TableFilters.tsx:26
 #: src/pages/manager-review-dashboard/TableFilters.tsx:25
 msgid "Evaluation Status"
 msgstr "وضعیت ارزیابی"
@@ -180,7 +193,7 @@ msgstr "کمتر از حد انتظاری که ازش میره"
 msgid "He/She asked your review on {numberOfProjects} project(s)"
 msgstr "در {numberOfProjects} فعالیت از شما نظر خواسته است"
 
-#: src/pages/projects-page/ProjectForm.tsx:75
+#: src/pages/projects-page/ProjectForm.tsx:68
 msgid "How effective were you in this project?"
 msgstr "خودت رو در انجام این فعالیت چطور ارزیابی می‌کنی؟"
 
@@ -188,7 +201,11 @@ msgstr "خودت رو در انجام این فعالیت چطور ارزیاب�
 msgid "I Need Improvement"
 msgstr "کمتر از حد انتظاری که از من میره"
 
-#: src/pages/projects-page/ProjectForm.tsx:102
+#: src/pages/manager-adjustment-page/achievements/ManagerAdjustmentForm.tsx:48
+msgid "I approve"
+msgstr "مورد تایید است"
+
+#: src/pages/projects-page/ProjectForm.tsx:91
 msgid "I consulted with my manager"
 msgstr "با مدیرم مشورت کردم"
 
@@ -217,8 +234,10 @@ msgstr "تکمیل شد!"
 msgid "Login"
 msgstr "ورود"
 
+#: src/pages/manager-adjustment-dashboard/ManagerAdjustmentDashboardTable.tsx:59
+#: src/pages/manager-adjustment-dashboard/TableFilters.tsx:22
 #: src/pages/manager-review-dashboard/ManagerReviewDashboardDrawerContent.tsx:60
-#: src/pages/manager-review-dashboard/ManagerReviewDashboardTable.tsx:71
+#: src/pages/manager-review-dashboard/ManagerReviewDashboardTable.tsx:72
 #: src/pages/manager-review-dashboard/TableFilters.tsx:19
 msgid "Manager"
 msgstr "مدیر مستقیم"
@@ -231,7 +250,7 @@ msgstr "در حد انتظاری که ازش میره"
 msgid "Meets Expectations from me"
 msgstr "در حد انتظاری که از من میره"
 
-#: src/pages/projects-page/ProjectForm.tsx:80
+#: src/pages/projects-page/ProjectForm.tsx:73
 msgid "My evaluation"
 msgstr "ارزیابی من"
 
@@ -263,7 +282,7 @@ msgstr "نظرات دیگران در مورد سطح عملکرد {name} در ا
 msgid "Overall Evaluation"
 msgstr "ارزیابی کلی"
 
-#: src/pages/manager-review-dashboard/ManagerReviewDashboardTable.tsx:75
+#: src/pages/manager-review-dashboard/ManagerReviewDashboardTable.tsx:76
 msgid "Overall Rating"
 msgstr "ارزیابی کلی"
 
@@ -294,7 +313,7 @@ msgstr "فارسی"
 msgid "Programmers are typing..."
 msgstr "برنامه‌نویسان در حال تایپند...‌"
 
-#: src/pages/projects-page/ProjectsPage.tsx:68
+#: src/pages/projects-page/ProjectsPage.tsx:70
 msgid "Project review name is duplicated."
 msgstr "عنوان فعالیت تکراری است."
 
@@ -316,14 +335,16 @@ msgstr "مطالعه راهنما"
 msgid "Reviewee"
 msgstr "ارزیابی‌شونده"
 
-#: src/pages/projects-page/ProjectForm.tsx:94
+#: src/pages/manager-adjustment-page/achievements/ManagerAdjustmentForm.tsx:40
+#: src/pages/projects-page/ProjectForm.tsx:83
 msgid "Reviewers (maximum {num})"
 msgstr "مرورکننده‌ها (حداکثر {num})"
 
+#: src/pages/manager-adjustment-page/achievements/ManagerAdjustmentForm.tsx:56
 #: src/pages/manager-review-page/achievements/ManagerReviewAchievements.tsx:79
 #: src/pages/manager-review-page/overall-evaluation/ManagerReviewOverallEvaluation.tsx:89
-#: src/pages/peer-review-page/projectsTab/projects-form/PeerReviewProjectsForm.tsx:54
-#: src/pages/projects-page/ProjectForm.tsx:113
+#: src/pages/peer-review-page/projectsTab/projects-form/PeerReviewProjectsForm.tsx:51
+#: src/pages/projects-page/ProjectForm.tsx:102
 #: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:52
 msgid "Save"
 msgstr "ذخیره"
@@ -357,8 +378,8 @@ msgstr "مشاهده و دریافت جایزه"
 
 #: src/core/snackbar/Snackbar.stories.tsx:23
 #: src/pages/peer-review-page/projectsTab/project-expansion-panel/PeerReviewProjectExpansionPanel.tsx:42
-#: src/pages/projects-page/ProjectsPage.tsx:60
-#: src/pages/projects-page/ProjectsPage.tsx:68
+#: src/pages/projects-page/ProjectsPage.tsx:62
+#: src/pages/projects-page/ProjectsPage.tsx:70
 #: src/pages/projects-page/project-review-title-editor/ProjectReviewEditForm.tsx:43
 #: src/pages/strengths-weaknesses-page/StrengthsWeaknessesPage.tsx:70
 msgid "Something went wrong."
@@ -393,10 +414,11 @@ msgid "Submit changes"
 msgstr "ثبت تغییرات"
 
 #: src/core/snackbar/Snackbar.stories.tsx:13
+#: src/pages/manager-adjustment-page/achievements/ManagerAdjustmentAchievements.tsx:62
 #: src/pages/manager-review-page/achievements/ManagerReviewAchievements.tsx:58
 #: src/pages/manager-review-page/overall-evaluation/ManagerReviewOverallEvaluation.tsx:61
 #: src/pages/peer-review-page/projectsTab/project-expansion-panel/PeerReviewProjectExpansionPanel.tsx:39
-#: src/pages/projects-page/ProjectsPage.tsx:57
+#: src/pages/projects-page/ProjectsPage.tsx:59
 #: src/pages/projects-page/project-review-title-editor/ProjectReviewEditForm.tsx:48
 #: src/pages/strengths-weaknesses-page/StrengthsWeaknessesPage.tsx:67
 msgid "Successfully saved."
@@ -411,8 +433,8 @@ msgstr "فوق‌العاده"
 msgid "Thanks, I claim it later"
 msgstr "ممنون، جایزمو بعدا می‌گیرم"
 
-#: src/pages/dashboard-page/ProjectProgress.tsx:13
-#: src/pages/projects-page/ProjectExpansionPanel.tsx:32
+#: src/pages/dashboard-page/ProjectProgress.tsx:14
+#: src/pages/projects-page/ProjectExpansionPanel.tsx:30
 msgid "The manager has not been consulted"
 msgstr "با مدیر مشورت نشده است"
 
@@ -443,6 +465,7 @@ msgid "The project review name already exists."
 msgstr "نام فعالیت تکراری است"
 
 #: src/assets/icons/Todo.tsx:5
+#: src/pages/manager-adjustment-dashboard/TableFilters.tsx:29
 #: src/pages/manager-review-dashboard/TableFilters.tsx:30
 #: src/pages/peer-review-board-page/PeerReviewBoardPage.tsx:76
 msgid "Todo"
@@ -452,7 +475,7 @@ msgstr "انجام نشده"
 msgid "Try Again"
 msgstr "تلاش مجدد"
 
-#: src/pages/manager-review-dashboard/ManagerReviewDashboardTable.tsx:92
+#: src/pages/manager-review-dashboard/ManagerReviewDashboardTable.tsx:93
 #: src/pages/manager-review-page/achievements/ManagerReviewAchievementsRatingGroup.tsx:42
 #: src/pages/manager-review-page/overall-evaluation/ManagerReviewOverallEvaluation.tsx:51
 #: src/pages/manager-review-page/overall-evaluation/ManagerReviewOverallEvaluation.tsx:52
@@ -462,7 +485,8 @@ msgstr "تلاش مجدد"
 msgid "Unknown"
 msgstr "نامعین"
 
-#: src/pages/manager-review-dashboard/ManagerReviewDashboardTable.tsx:66
+#: src/pages/manager-adjustment-dashboard/ManagerAdjustmentDashboardTable.tsx:54
+#: src/pages/manager-review-dashboard/ManagerReviewDashboardTable.tsx:67
 msgid "User"
 msgstr "کاربر"
 
@@ -560,6 +584,7 @@ msgstr "{evaluationsCount} ارزیابی / {commentsCount} نظر"
 msgid "{name}'s comment about his/her achievements in this project"
 msgstr "نظر {name} در مورد دستاوردهاش در این فعالیت"
 
+#: src/pages/manager-adjustment-page/achievements/ManagerAdjustmentAchievementsExpansionPanel.tsx:47
 #: src/pages/manager-review-page/achievements/ManagerReviewAchievementsExpansionPanel.tsx:53
 #: src/pages/peer-review-page/projectsTab/PeerReviewProjectsResult.tsx:38
 msgid "{name}'s comment about his/her performance compared to initial expectation"
