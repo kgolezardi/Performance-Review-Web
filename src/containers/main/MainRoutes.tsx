@@ -70,7 +70,7 @@ const ResultPage = React.lazy(() =>
 
 const ManagerReviewDashboard = React.lazy(() =>
   import(
-    /* webpackChunkName: "manager-review-dashboard-page" */
+    /* webpackChunkName: "manager-review-dashboard" */
     'src/pages/manager-review-dashboard/ManagerReviewDashboard'
   ),
 );
@@ -79,6 +79,13 @@ const ManagerAdjustmentDashboard = React.lazy(() =>
   import(
     /* webpackChunkName: "manager-adjustment-dashboard" */
     'src/pages/manager-adjustment-dashboard/ManagerAdjustmentDashboard'
+  ),
+);
+
+const ManagerAdjustmentPage = React.lazy(() =>
+  import(
+    /* webpackChunkName: "manager-adjustment-page" */
+    'src/pages/manager-adjustment-page/ManagerAdjustmentPage'
   ),
 );
 
@@ -153,6 +160,7 @@ export function MainRoutes(props: FCProps<Props>) {
     return (
       <Switch>
         <Redirect exact path="/" to="/manager-adjustment" />
+        <Route path="/manager-adjustment/:uid" children={<ManagerAdjustmentPage />} />
         <Route path="/manager-adjustment" children={<ManagerAdjustmentDashboard />} />
       </Switch>
     );
