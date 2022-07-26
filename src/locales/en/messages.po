@@ -17,11 +17,11 @@ msgstr ""
 msgid "%s - Performance Review"
 msgstr "%s - Performance Review"
 
-#: src/pages/manager-adjustment-page/achievements/ManagerAdjustmentForm.tsx:40
+#: src/pages/manager-adjustment-page/achievements/ManagerAdjustmentForm.tsx:38
 msgid "**Coordinate reviewers with manager"
 msgstr "**Coordinate reviewers with manager"
 
-#: src/pages/projects-page/ProjectForm.tsx:83
+#: src/pages/projects-page/ProjectForm.tsx:82
 msgid "**Coordinate reviewers with your manager (maximum {num} reviewers)"
 msgstr "**Coordinate reviewers with your manager (maximum {num} reviewers)"
 
@@ -68,7 +68,7 @@ msgstr "All reviews were successfully done"
 msgid "An error occurred. Try again!"
 msgstr "An error occurred. Try again!"
 
-#: src/pages/projects-page/ProjectForm.tsx:98
+#: src/pages/projects-page/ProjectForm.tsx:97
 msgid "Are you sure you want to delete {projectName} review?"
 msgstr "Are you sure you want to delete {projectName} review?"
 
@@ -109,7 +109,7 @@ msgstr "Dashboard"
 msgid "Dear {name}, Hello"
 msgstr "Dear {name}, Hello"
 
-#: src/pages/projects-page/ProjectForm.tsx:98
+#: src/pages/projects-page/ProjectForm.tsx:97
 msgid "Delete"
 msgstr "Delete"
 
@@ -193,7 +193,7 @@ msgstr "He/She Needs Improvement"
 msgid "He/She asked your review on {numberOfProjects} project(s)"
 msgstr "He/She asked your review on {numberOfProjects} project(s)"
 
-#: src/pages/projects-page/ProjectForm.tsx:68
+#: src/pages/projects-page/ProjectForm.tsx:67
 msgid "How effective were you in this project?"
 msgstr "How effective were you in this project?"
 
@@ -201,11 +201,11 @@ msgstr "How effective were you in this project?"
 msgid "I Need Improvement"
 msgstr "I Need Improvement"
 
-#: src/pages/manager-adjustment-page/achievements/ManagerAdjustmentForm.tsx:48
+#: src/pages/manager-adjustment-page/achievements/ManagerAdjustmentForm.tsx:46
 msgid "I approve"
 msgstr "I approve"
 
-#: src/pages/projects-page/ProjectForm.tsx:91
+#: src/pages/projects-page/ProjectForm.tsx:90
 msgid "I consulted with my manager"
 msgstr "I consulted with my manager"
 
@@ -250,7 +250,7 @@ msgstr "Meets Expectations from Him/Her"
 msgid "Meets Expectations from me"
 msgstr "Meets Expectations from me"
 
-#: src/pages/projects-page/ProjectForm.tsx:73
+#: src/pages/projects-page/ProjectForm.tsx:72
 msgid "My evaluation"
 msgstr "My evaluation"
 
@@ -259,7 +259,7 @@ msgid "No"
 msgstr "No"
 
 #: src/shared/forminator/inputs/SelectAutoComplete.tsx:33
-#: src/shared/forminator/inputs/SelectMultiAutoComplete.tsx:40
+#: src/shared/forminator/inputs/SelectMultiAutoComplete.tsx:42
 msgid "No Options"
 msgstr "No Options"
 
@@ -327,24 +327,20 @@ msgstr "Project title"
 msgid "Projects"
 msgstr "Projects"
 
-#: src/shared/guide/Guide.tsx:7
-msgid "Read the guide"
-msgstr "Read the guide"
-
 #: src/shared/review-item-info/IdentifiedReviewItemInfo.tsx:17
 msgid "Reviewee"
 msgstr "Reviewee"
 
-#: src/pages/manager-adjustment-page/achievements/ManagerAdjustmentForm.tsx:40
-#: src/pages/projects-page/ProjectForm.tsx:83
+#: src/pages/manager-adjustment-page/achievements/ManagerAdjustmentForm.tsx:38
+#: src/pages/projects-page/ProjectForm.tsx:82
 msgid "Reviewers (maximum {num})"
 msgstr "Reviewers (maximum {num})"
 
-#: src/pages/manager-adjustment-page/achievements/ManagerAdjustmentForm.tsx:56
+#: src/pages/manager-adjustment-page/achievements/ManagerAdjustmentForm.tsx:54
 #: src/pages/manager-review-page/achievements/ManagerReviewAchievements.tsx:79
 #: src/pages/manager-review-page/overall-evaluation/ManagerReviewOverallEvaluation.tsx:89
 #: src/pages/peer-review-page/projectsTab/projects-form/PeerReviewProjectsForm.tsx:51
-#: src/pages/projects-page/ProjectForm.tsx:102
+#: src/pages/projects-page/ProjectForm.tsx:101
 #: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:52
 msgid "Save"
 msgstr "Save"
@@ -434,7 +430,7 @@ msgid "Thanks, I claim it later"
 msgstr "Thanks, I claim it later"
 
 #: src/pages/dashboard-page/ProjectProgress.tsx:14
-#: src/pages/projects-page/ProjectExpansionPanel.tsx:30
+#: src/pages/projects-page/ProjectExpansionPanel.tsx:31
 msgid "The manager has not been consulted"
 msgstr "The manager has not been consulted"
 
@@ -526,7 +522,7 @@ msgstr "Yes"
 msgid "Yes! Go"
 msgstr "Yes! Go"
 
-#: src/shared/reviewers-input/ReviewersInput.tsx:21
+#: src/shared/forminator/inputs/SelectMultiAutoComplete.tsx:27
 msgid "You can choose maximum {num} reviewers"
 msgstr "You can choose maximum {num} reviewers"
 
@@ -584,7 +580,7 @@ msgstr "{evaluationsCount} evaluations / {commentsCount} comments"
 msgid "{name}'s comment about his/her achievements in this project"
 msgstr "{name}'s comment about his/her achievements in this project"
 
-#: src/pages/manager-adjustment-page/achievements/ManagerAdjustmentAchievementsExpansionPanel.tsx:47
+#: src/pages/manager-adjustment-page/achievements/ManagerAdjustmentAchievementsExpansionPanel.tsx:51
 #: src/pages/manager-review-page/achievements/ManagerReviewAchievementsExpansionPanel.tsx:53
 #: src/pages/peer-review-page/projectsTab/PeerReviewProjectsResult.tsx:38
 msgid "{name}'s comment about his/her performance compared to initial expectation"

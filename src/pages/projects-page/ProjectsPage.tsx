@@ -31,6 +31,8 @@ const query = graphql`
   query ProjectsPageQuery {
     viewer {
       activeRound {
+        maxProjectReviews
+        maxReviewers
         participants {
           ...ReviewersInput_Reviewers
         }
@@ -62,7 +64,7 @@ export default function ProjectsPage(props: Props) {
   const { selfReviewProjectQuestions } = useRoundQuestions();
 
   const projectReviews = reverse(data.viewer.projectReviews);
-  const canAddNewProject = projectReviews.length < 5;
+  const canAddNewProject = projectReviews.length < data.viewer.activeRound.maxProjectReviews;
 
   const saveProject = useCallback(
     (input: ProjectFormData) => {
@@ -130,6 +132,7 @@ export default function ProjectsPage(props: Props) {
               saveProject={saveProject}
               deleteProject={deleteProject}
               users={data.viewer.activeRound?.participants ?? []}
+              maximumProjectReviewers={data.viewer.activeRound.maxReviewers}
             />
           );
         })}

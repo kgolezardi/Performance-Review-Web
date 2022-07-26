@@ -16,6 +16,7 @@ const questions: IQuestion[] = [
     label: 'name',
     choices: null,
     order: 1,
+    maxChoices: 5,
   },
   {
     questionType: 'TEXT',
@@ -24,6 +25,7 @@ const questions: IQuestion[] = [
     label: 'name',
     choices: null,
     order: 0,
+    maxChoices: 5,
   },
   {
     questionType: 'CHECKBOX_MULTIPLE',
@@ -32,6 +34,7 @@ const questions: IQuestion[] = [
     label: 'sex',
     choices: ['male', 'female'],
     order: 2,
+    maxChoices: 5,
   },
 ];
 storiesOf('Forminator/Field Renderer', module)

@@ -14,7 +14,7 @@ type Props = React.PropsWithChildren<OwnProps>;
 
 export function MultipleSelectQuestion(props: Props) {
   const {
-    question: { helpText, choices, label },
+    question: { helpText, choices, label, maxChoices },
   } = props;
 
   const options = React.useMemo(() => {
@@ -23,7 +23,7 @@ export function MultipleSelectQuestion(props: Props) {
 
   return (
     <>
-      <SelectMultiAutoComplete filterSelectedOptions label={label} options={options} />
+      <SelectMultiAutoComplete filterSelectedOptions maximumValues={maxChoices} label={label} options={options} />
       {helpText && (
         <FormHelperText>
           <ReactMarkdown renderers={helpTextRenderers}>{helpText ?? ''}</ReactMarkdown>

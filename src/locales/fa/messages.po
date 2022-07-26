@@ -17,11 +17,11 @@ msgstr ""
 msgid "%s - Performance Review"
 msgstr "%s - مرور عملکرد"
 
-#: src/pages/manager-adjustment-page/achievements/ManagerAdjustmentForm.tsx:40
+#: src/pages/manager-adjustment-page/achievements/ManagerAdjustmentForm.tsx:38
 msgid "**Coordinate reviewers with manager"
 msgstr "میتوانید مرورکنندگان را با توجه به توضیح فعالیت تغییر بدهید(حداکثر {num} مرورکننده)"
 
-#: src/pages/projects-page/ProjectForm.tsx:83
+#: src/pages/projects-page/ProjectForm.tsx:82
 msgid "**Coordinate reviewers with your manager (maximum {num} reviewers)"
 msgstr "مرورکنندگانی رو که اینجا مشخص می‌کنی، فقط قسمت «توضیح فعالیت» رو در فاز بعدی مرور عملکرد می‌خونن و روش بهت بازخورد می‌دن. همچنین این افراد «ویژگی‌های بارز» تو رو از نگاه خودشون (و بدون خوندن نوشته‌هات) ارزیابی می‌کنن. مرورکنندگان رو حتما با هماهنگی مدیر مستقیمت انتخاب کن (حداکثر {num} نفر)."
 
@@ -68,7 +68,7 @@ msgstr "تمامی ارزیابی‌ها با موفقیت انجام شد"
 msgid "An error occurred. Try again!"
 msgstr "خطایی رخ داده. دوباره تلاش کنید."
 
-#: src/pages/projects-page/ProjectForm.tsx:98
+#: src/pages/projects-page/ProjectForm.tsx:97
 msgid "Are you sure you want to delete {projectName} review?"
 msgstr "آیا از حذف {projectName} مطمین هستید؟"
 
@@ -109,7 +109,7 @@ msgstr "پیشخوان"
 msgid "Dear {name}, Hello"
 msgstr "{name} عزیز، سلام"
 
-#: src/pages/projects-page/ProjectForm.tsx:98
+#: src/pages/projects-page/ProjectForm.tsx:97
 msgid "Delete"
 msgstr "حذف"
 
@@ -193,7 +193,7 @@ msgstr "کمتر از حد انتظاری که ازش میره"
 msgid "He/She asked your review on {numberOfProjects} project(s)"
 msgstr "در {numberOfProjects} فعالیت از شما نظر خواسته است"
 
-#: src/pages/projects-page/ProjectForm.tsx:68
+#: src/pages/projects-page/ProjectForm.tsx:67
 msgid "How effective were you in this project?"
 msgstr "خودت رو در انجام این فعالیت چطور ارزیابی می‌کنی؟"
 
@@ -201,11 +201,11 @@ msgstr "خودت رو در انجام این فعالیت چطور ارزیاب�
 msgid "I Need Improvement"
 msgstr "کمتر از حد انتظاری که از من میره"
 
-#: src/pages/manager-adjustment-page/achievements/ManagerAdjustmentForm.tsx:48
+#: src/pages/manager-adjustment-page/achievements/ManagerAdjustmentForm.tsx:46
 msgid "I approve"
 msgstr "مورد تایید است"
 
-#: src/pages/projects-page/ProjectForm.tsx:91
+#: src/pages/projects-page/ProjectForm.tsx:90
 msgid "I consulted with my manager"
 msgstr "با مدیرم مشورت کردم"
 
@@ -250,7 +250,7 @@ msgstr "در حد انتظاری که ازش میره"
 msgid "Meets Expectations from me"
 msgstr "در حد انتظاری که از من میره"
 
-#: src/pages/projects-page/ProjectForm.tsx:73
+#: src/pages/projects-page/ProjectForm.tsx:72
 msgid "My evaluation"
 msgstr "ارزیابی من"
 
@@ -259,7 +259,7 @@ msgid "No"
 msgstr "خیر"
 
 #: src/shared/forminator/inputs/SelectAutoComplete.tsx:33
-#: src/shared/forminator/inputs/SelectMultiAutoComplete.tsx:40
+#: src/shared/forminator/inputs/SelectMultiAutoComplete.tsx:42
 msgid "No Options"
 msgstr "یافت نشد"
 
@@ -327,24 +327,20 @@ msgstr "عنوان فعالیت"
 msgid "Projects"
 msgstr "فعالیت‌ها"
 
-#: src/shared/guide/Guide.tsx:7
-msgid "Read the guide"
-msgstr "مطالعه راهنما"
-
 #: src/shared/review-item-info/IdentifiedReviewItemInfo.tsx:17
 msgid "Reviewee"
 msgstr "ارزیابی‌شونده"
 
-#: src/pages/manager-adjustment-page/achievements/ManagerAdjustmentForm.tsx:40
-#: src/pages/projects-page/ProjectForm.tsx:83
+#: src/pages/manager-adjustment-page/achievements/ManagerAdjustmentForm.tsx:38
+#: src/pages/projects-page/ProjectForm.tsx:82
 msgid "Reviewers (maximum {num})"
 msgstr "مرورکننده‌ها (حداکثر {num})"
 
-#: src/pages/manager-adjustment-page/achievements/ManagerAdjustmentForm.tsx:56
+#: src/pages/manager-adjustment-page/achievements/ManagerAdjustmentForm.tsx:54
 #: src/pages/manager-review-page/achievements/ManagerReviewAchievements.tsx:79
 #: src/pages/manager-review-page/overall-evaluation/ManagerReviewOverallEvaluation.tsx:89
 #: src/pages/peer-review-page/projectsTab/projects-form/PeerReviewProjectsForm.tsx:51
-#: src/pages/projects-page/ProjectForm.tsx:102
+#: src/pages/projects-page/ProjectForm.tsx:101
 #: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:52
 msgid "Save"
 msgstr "ذخیره"
@@ -434,7 +430,7 @@ msgid "Thanks, I claim it later"
 msgstr "ممنون، جایزمو بعدا می‌گیرم"
 
 #: src/pages/dashboard-page/ProjectProgress.tsx:14
-#: src/pages/projects-page/ProjectExpansionPanel.tsx:30
+#: src/pages/projects-page/ProjectExpansionPanel.tsx:31
 msgid "The manager has not been consulted"
 msgstr "با مدیر مشورت نشده است"
 
@@ -526,7 +522,7 @@ msgstr "بله"
 msgid "Yes! Go"
 msgstr "آره! می‌رم"
 
-#: src/shared/reviewers-input/ReviewersInput.tsx:21
+#: src/shared/forminator/inputs/SelectMultiAutoComplete.tsx:27
 msgid "You can choose maximum {num} reviewers"
 msgstr "میتونی حداکثر {num} ریویوکننده انتخاب کنی"
 
@@ -584,7 +580,7 @@ msgstr "{evaluationsCount} ارزیابی / {commentsCount} نظر"
 msgid "{name}'s comment about his/her achievements in this project"
 msgstr "نظر {name} در مورد دستاوردهاش در این فعالیت"
 
-#: src/pages/manager-adjustment-page/achievements/ManagerAdjustmentAchievementsExpansionPanel.tsx:47
+#: src/pages/manager-adjustment-page/achievements/ManagerAdjustmentAchievementsExpansionPanel.tsx:51
 #: src/pages/manager-review-page/achievements/ManagerReviewAchievementsExpansionPanel.tsx:53
 #: src/pages/peer-review-page/projectsTab/PeerReviewProjectsResult.tsx:38
 msgid "{name}'s comment about his/her performance compared to initial expectation"
