@@ -23,8 +23,7 @@ msgstr "میتوانید مرورکنندگان را با توجه به توضی
 
 #: src/pages/projects-page/ProjectForm.tsx:82
 msgid "**Coordinate reviewers with your manager (maximum {num} reviewers)"
-msgstr "مرورکنندگانی رو که اینجا مشخص می‌کنی، فقط قسمت «توضیح فعالیت» رو در فاز بعدی مرور عملکرد می‌خونن و روش بهت بازخورد می‌دن. همچنین این افراد «ویژگی‌های بارز» تو رو از نگاه خودشون (و بدون خوندن نوشته‌هات) ارزیابی می‌کنن. مرورکنندگان رو حتما با هماهنگی مدیر مستقیمت انتخاب کن (حداکثر {num} نفر)."
-
+msgstr "مرورکنندگانی که اینجا انتخاب می‌کنی، مواردی که بالا مشخص شده رو در فاز بعدی فرایند می‌خونن و درباره‌شون بهت بازخورد می‌دن. همچنین این افراد «ویژگی‌های بارز» تو رو از نگاه خودشون (و بدون خوندن نوشته‌هات) می‌نویسند. مرورکنندگان رو حتما با هماهنگی مدیر مستقیمت انتخاب کن (حداکثر {num} نفر)."
 #: src/containers/main/getMenuItems.ts:22
 #: src/pages/dashboard-page/DashboardPage.tsx:36
 #: src/pages/manager-adjustment-dashboard/ManagerAdjustmentDashboardTable.tsx:62
@@ -88,7 +87,7 @@ msgstr "یعنی بدون ذخیره تغییرات می‌خوای بری؟؟"
 
 #: src/pages/projects-page/AddProjectForm.tsx:20
 msgid "Choose projects you have been working on in the past year (At most {num})."
-msgstr "کارهایی که در یکسال گذشته انجام دادی رو به حداکثر {num} فعالیت کلی تقسیم کن و راجع بهشون توضیح بده."
+msgstr "در گام اول با مدیریت مشورت کن و عمدهٔ فعالیت‌هایی که از دورهٔ قبلی مرور عملکرد تا الان داشتی رو به حداکثر {num} فعالیت کلی بشکون و برای هر کدوم به سوالات مربوط بهش جواب بده."
 
 #: src/pages/manager-adjustment-dashboard/TableFilters.tsx:19
 #: src/pages/manager-review-dashboard/TableFilters.tsx:14
@@ -207,7 +206,7 @@ msgstr "مورد تایید است"
 
 #: src/pages/projects-page/ProjectForm.tsx:90
 msgid "I consulted with my manager"
-msgstr "با مدیرم مشورت کردم"
+msgstr "در مورد نوشتن این فعالیت و انتخاب مرورکنندگان آن با مدیرم مشورت کرده‌ام."
 
 #: src/pages/dashboard-page/DominantCharacteristicsCircularIndicator.tsx:56
 msgid "I thought you forgot to write your strengths!"
@@ -432,7 +431,7 @@ msgstr "ممنون، جایزمو بعدا می‌گیرم"
 #: src/pages/dashboard-page/ProjectProgress.tsx:14
 #: src/pages/projects-page/ProjectExpansionPanel.tsx:31
 msgid "The manager has not been consulted"
-msgstr "با مدیر مشورت نشده است"
+msgstr "نیازمند مشورت با مدیر"
 
 #: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:43
 #: src/shared/dominant-characteristics-output/DominantCharacteristics.tsx:21
@@ -524,7 +523,7 @@ msgstr "آره! می‌رم"
 
 #: src/shared/forminator/inputs/SelectMultiAutoComplete.tsx:27
 msgid "You can choose maximum {num} reviewers"
-msgstr "میتونی حداکثر {num} ریویوکننده انتخاب کنی"
+msgstr "حداکثر {num} مورد رو می‌تونی انتخاب کنی"
 
 #: src/pages/manager-review-page/ManagerReviewProgress.tsx:34
 msgid "You have evaluated all {total} achievements. You can change them whenever you want to."
