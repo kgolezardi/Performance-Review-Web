@@ -19,7 +19,7 @@ msgstr "%s - مرور عملکرد"
 
 #: src/pages/manager-adjustment-page/achievements/ManagerAdjustmentForm.tsx:38
 msgid "**Coordinate reviewers with manager"
-msgstr "میتوانید مرورکنندگان را با توجه به توضیح فعالیت تغییر بدهید(حداکثر {num} مرورکننده)"
+msgstr "این مرورکنندگان پاسخ به سه سوال اول رو خواهند خوند و به سوالات مشابهی در مورد عمکلرد این شخص در این فعالیت پاسخ خواهند داد. هدف بر اینه که مجموعهٔ بازخوردهای داده شده از طرف این افراد، بیشترین کمک رو به رشد سحابی و غنی‌تر شدن اطلاعات شما برای ارزیابی عملکرد بکنه. در صورت تغییر در لیست مرورکنندگان، این تغییرات رو با خود مرورشونده هماهنگ کنید. (حداکثر {num} مرورکننده)"
 
 #: src/pages/projects-page/ProjectForm.tsx:82
 msgid "**Coordinate reviewers with your manager (maximum {num} reviewers)"
@@ -202,7 +202,7 @@ msgstr "کمتر از حد انتظاری که از من میره"
 
 #: src/pages/manager-adjustment-page/achievements/ManagerAdjustmentForm.tsx:46
 msgid "I approve"
-msgstr "مورد تایید است"
+msgstr "لیست مرورکنندگان بالا مورد تایید بوده و تغییرات اعمال شده به اطلاع خود مرورکننده رسیده است."
 
 #: src/pages/projects-page/ProjectForm.tsx:90
 msgid "I consulted with my manager"
