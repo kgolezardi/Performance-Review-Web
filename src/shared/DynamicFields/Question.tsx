@@ -1,8 +1,7 @@
 import * as React from 'react';
 import { Question as IQuestion } from 'src/core/domain';
-
-import DictInputItem from '../forminator/inputs/dict-input/DictInputItem';
 import { FragmentPrompt } from '../forminator';
+import DictInputItem from '../forminator/inputs/dict-input/DictInputItem';
 import { LimitedTextAreaQuestion } from './LimitedTextAreaQuestion';
 import { MultipleSelectQuestion } from './MultipleSelectQuestion';
 

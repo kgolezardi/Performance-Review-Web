@@ -1,6 +1,5 @@
-import React, { useCallback, useState } from 'react';
 import { storiesOf } from '@storybook/react';
-
+import React, { useCallback, useState } from 'react';
 import Reacteroids from './Reacteroids';
 
 storiesOf('Reacteroids', module).add('default', () => {

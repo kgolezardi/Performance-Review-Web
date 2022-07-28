@@ -1,4 +1,4 @@
-import { Box, BoxProps, Theme, styled } from '@material-ui/core';
+import { Box, BoxProps, styled, Theme } from '@material-ui/core';
 
 export const QuoteBox = styled(Box)(({ theme, bgcolor }: { theme: Theme; bgcolor?: BoxProps['bgcolor'] }) => ({
   backgroundColor: bgcolor || theme.palette.grey[100],

@@ -1,16 +1,15 @@
-import React from 'react';
 import { FormControl, InputLabel } from '@material-ui/core';
 import { action } from '@storybook/addon-actions';
 import { storiesOf } from '@storybook/react';
-
-import ConditionalSection from '../utils/ConditionalSection';
+import React from 'react';
+import FragmentRef from '../core/fragment-lens/FragmentRef';
+import { useFragmentLens } from '../core/fragment-lens/useFragmentLens';
+import { Forminator, StringInput } from '../index';
 import DictInput from '../inputs/dict-input/DictInput';
 import DictInputItem from '../inputs/dict-input/DictInputItem';
-import FragmentRef from '../core/fragment-lens/FragmentRef';
 import SelectInput from '../inputs/SelectInput';
+import ConditionalSection from '../utils/ConditionalSection';
 import SubmitButton from '../utils/SubmitButton';
-import { Forminator, StringInput } from '../index';
-import { useFragmentLens } from '../core/fragment-lens/useFragmentLens';
 
 storiesOf('Forminator/Conditional Section', module)
   .add('with initial value', () => {

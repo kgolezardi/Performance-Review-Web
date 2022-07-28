@@ -1,17 +1,16 @@
-import React, { useContext } from 'react';
-import { ActionBar } from 'src/shared/action-bar';
-import { DictInput, DictInputItem, Forminator, SubmitButton } from 'src/shared/forminator';
-import { FCProps } from 'src/shared/types/FCProps';
+import { i18n } from '@lingui/core';
 import { Grid } from '@material-ui/core';
 import { MDXContext } from '@mdx-js/react';
+import { importMDX } from 'mdx.macro';
+import { equals, filter } from 'ramda';
+import React, { useContext } from 'react';
+import { ActionBar } from 'src/shared/action-bar';
+import { useFormDirty } from 'src/shared/form-change-detector';
+import { DictInput, DictInputItem, Forminator, SubmitButton } from 'src/shared/forminator';
 import { SectionGuide } from 'src/shared/section-guide';
 import { StickyBottomPaper } from 'src/shared/sticky-bottom-paper';
 import { StrengthsOrWeaknesses } from 'src/shared/strengths-weaknesses';
-import { equals, filter } from 'ramda';
-import { i18n } from '@lingui/core';
-import { importMDX } from 'mdx.macro';
-import { useFormDirty } from 'src/shared/form-change-detector';
-
+import { FCProps } from 'src/shared/types/FCProps';
 import { ArrayValuePrompt, Equal } from './ArrayValuePrompt';
 import { StrengthsWeaknessesFormData } from './StrengthsWeaknessesPage';
 

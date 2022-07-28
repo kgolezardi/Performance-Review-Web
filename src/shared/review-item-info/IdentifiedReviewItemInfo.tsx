@@ -1,19 +1,19 @@
-import React from 'react';
+import { i18n } from '@lingui/core';
 import {
   Avatar,
   Box,
   Chip,
-  Grid,
-  Theme,
-  Typography,
   createStyles,
+  Grid,
   lighten,
   makeStyles,
   styled,
+  Theme,
+  Typography,
 } from '@material-ui/core';
+import React from 'react';
 import { FCProps } from 'src/shared/types/FCProps';
 import { Styles } from 'src/shared/types/Styles';
-import { i18n } from '@lingui/core';
 
 interface OwnProps {
   name?: string;

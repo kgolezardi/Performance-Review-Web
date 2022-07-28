@@ -1,8 +1,7 @@
 import React from 'react';
-import { Evaluation } from 'src/__generated__/enums';
 import { EvaluationOutput } from 'src/shared/evaluation-output';
 import { FCProps } from 'src/shared/types/FCProps';
-
+import { Evaluation } from 'src/__generated__/enums';
 import { ItemOutput } from './ItemOutput';
 
 interface OwnProps {

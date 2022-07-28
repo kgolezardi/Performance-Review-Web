@@ -1,7 +1,6 @@
-import React from 'react';
 import { Box, Container } from '@material-ui/core';
+import React from 'react';
 import { FCProps } from 'src/shared/types/FCProps';
-
 import { StartReviewCard } from './StartReviewCard';
 
 interface OwnProps {}

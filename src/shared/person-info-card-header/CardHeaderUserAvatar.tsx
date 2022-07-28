@@ -1,13 +1,12 @@
-import React from 'react';
-import clsx from 'clsx';
+import { createStyles, makeStyles, Theme } from '@material-ui/core';
 import graphql from 'babel-plugin-relay/macro';
-import { FCProps } from 'src/shared/types/FCProps';
-import { Styles } from 'src/shared/types/Styles';
-import { Theme, createStyles, makeStyles } from '@material-ui/core';
-import { UserAvatar } from 'src/shared/user-avatar';
+import clsx from 'clsx';
+import React from 'react';
 import { useFragment } from 'react-relay/hooks';
 import { useInViewContext } from 'src/shared/in-view';
-
+import { FCProps } from 'src/shared/types/FCProps';
+import { Styles } from 'src/shared/types/Styles';
+import { UserAvatar } from 'src/shared/user-avatar';
 import { CardHeaderUserAvatar_user$key } from './__generated__/CardHeaderUserAvatar_user.graphql';
 
 const fragment = graphql`

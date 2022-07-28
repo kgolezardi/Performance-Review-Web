@@ -1,11 +1,10 @@
-import React from 'react';
 import { action } from '@storybook/addon-actions';
 import { storiesOf } from '@storybook/react';
-
+import React from 'react';
+import { Forminator, StringInput } from '..';
 import DictInput from '../inputs/dict-input/DictInput';
 import DictInputItem from '../inputs/dict-input/DictInputItem';
 import SubmitButton from '../utils/SubmitButton';
-import { Forminator, StringInput } from '..';
 
 storiesOf('Forminator/Dict input', module)
   .add('simple', () => {

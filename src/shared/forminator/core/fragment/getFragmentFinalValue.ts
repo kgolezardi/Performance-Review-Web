@@ -1,7 +1,7 @@
 import { DefaultOwner } from '../owner/DefaultOwner';
-import { ForminatorFragment } from './ForminatorFragment';
-import { ForminatorStore } from '../store/ForminatorStore';
 import { getFragmentOwner } from '../owner/ownerUtils';
+import { ForminatorStore } from '../store/ForminatorStore';
+import { ForminatorFragment } from './ForminatorFragment';
 
 const defaultOwner = new DefaultOwner<any>();
 

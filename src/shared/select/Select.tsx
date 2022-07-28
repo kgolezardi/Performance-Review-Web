@@ -1,8 +1,8 @@
-import React, { ComponentProps } from 'react';
-import { FCProps } from 'src/shared/types/FCProps';
 import { FormControl, InputLabel } from '@material-ui/core';
+import React, { ComponentProps } from 'react';
 import { SelectInput } from 'src/shared/forminator';
 import { useLabelWidth } from 'src/shared/hooks';
+import { FCProps } from 'src/shared/types/FCProps';
 
 interface OwnProps extends Omit<ComponentProps<typeof SelectInput>, 'labelWidth'> {
   inputLabel: string;

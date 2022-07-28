@@ -1,7 +1,6 @@
-import React, { useCallback } from 'react';
 import { Button, Dialog, DialogActions, DialogContent } from '@material-ui/core';
 import { storiesOf } from '@storybook/react';
-
+import React, { useCallback } from 'react';
 import { useDialog } from './useDialog';
 
 storiesOf('Dialog hook', module).add('Default', () => {

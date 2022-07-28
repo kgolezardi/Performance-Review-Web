@@ -1,6 +1,5 @@
-import { Evaluation } from 'src/__generated__/enums';
 import { useState } from 'react';
-
+import { Evaluation } from 'src/__generated__/enums';
 import type { Row } from './ManagerReviewDashboardTable';
 
 export type Status = 'todo' | 'doing' | 'done' | 'all';

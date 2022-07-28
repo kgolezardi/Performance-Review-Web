@@ -1,17 +1,16 @@
+import { Box } from '@material-ui/core';
 import graphql from 'babel-plugin-relay/macro';
 import React, { useEffect } from 'react';
-import { Box } from '@material-ui/core';
-import { FCProps } from 'src/shared/types/FCProps';
 import { Helmet } from 'react-helmet-async';
-import { PageBreak } from 'src/shared/page-break';
-import { PrintingContext } from 'src/shared/layouts/dashboard-layouts/PrintingContext';
-import { getUserLabel } from 'src/shared/utils/getUserLabel';
-import { useAuthGuardUser } from 'src/core/auth';
 import { useLazyLoadQuery } from 'react-relay/hooks';
-
+import { useAuthGuardUser } from 'src/core/auth';
+import { PrintingContext } from 'src/shared/layouts/dashboard-layouts/PrintingContext';
+import { PageBreak } from 'src/shared/page-break';
+import { FCProps } from 'src/shared/types/FCProps';
+import { getUserLabel } from 'src/shared/utils/getUserLabel';
 import { ProjectResultExpansionPanel } from './project-result-page/ProjectResultExpansionPanel';
-import { ResultPrintPageQuery } from './__generated__/ResultPrintPageQuery.graphql';
 import { StrengthsWeaknessesResult } from './strengths-weaknesses-result-page/StrengthsWeaknessesResult';
+import { ResultPrintPageQuery } from './__generated__/ResultPrintPageQuery.graphql';
 
 interface OwnProps {}
 

@@ -1,8 +1,8 @@
-import React from 'react';
 import { Grid, Paper } from '@material-ui/core';
 import { action } from '@storybook/addon-actions';
 import { storiesOf } from '@storybook/react';
-
+import React from 'react';
+import { Forminator, StringInput } from '../index';
 import ArrayAppendButton from '../inputs/array-input/ArrayAppendButton';
 import ArrayInput from '../inputs/array-input/ArrayInput';
 import ArrayOutput from '../inputs/array-input/ArrayOutput';
@@ -10,7 +10,6 @@ import ArrayRemoveButton from '../inputs/array-input/ArrayRemoveButton';
 import DictInput from '../inputs/dict-input/DictInput';
 import DictInputItem from '../inputs/dict-input/DictInputItem';
 import SubmitButton from '../utils/SubmitButton';
-import { Forminator, StringInput } from '../index';
 
 function LocationInput() {
   return (

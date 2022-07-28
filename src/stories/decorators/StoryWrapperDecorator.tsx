@@ -1,8 +1,7 @@
-import React from 'react';
 import { Paper, PaperProps } from '@material-ui/core';
 import { StoryFn } from '@storybook/addons';
 import { StoryFnReactReturnType } from '@storybook/react/dist/client/preview/types';
-
+import React from 'react';
 import { StoryDummy } from './StoryDummy';
 
 export const storyWrapperDecorator = (style?: PaperProps['style']) => (storyFn: StoryFn<StoryFnReactReturnType>) => (

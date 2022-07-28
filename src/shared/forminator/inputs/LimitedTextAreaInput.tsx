@@ -1,9 +1,8 @@
+import { createStyles, FormHelperText, makeStyles, Omit, TextField, TextFieldProps, Theme } from '@material-ui/core';
 import React, { Fragment, useCallback } from 'react';
 import { Counter } from 'src/shared/counter';
 import { FCProps } from 'src/shared/types/FCProps';
-import { FormHelperText, Omit, TextField, TextFieldProps, Theme, createStyles, makeStyles } from '@material-ui/core';
 import { Styles } from 'src/shared/types/Styles';
-
 import { useForminatorState } from '../core/useForminatorState';
 
 interface OwnProps {

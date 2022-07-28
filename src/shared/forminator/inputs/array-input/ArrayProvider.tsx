@@ -1,8 +1,7 @@
 import React, { Dispatch } from 'react';
 import { FCProps } from 'src/shared/types/FCProps';
-
-import { ArrayAction } from './arrayReducer';
 import { ArrayContext } from './ArrayContext';
+import { ArrayAction } from './arrayReducer';
 
 interface OwnProps<V> {
   dispatch: Dispatch<ArrayAction>;

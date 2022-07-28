@@ -1,6 +1,6 @@
+import { Box, createStyles, Grid, lighten, makeStyles, Theme } from '@material-ui/core';
 import HelpIcon from '@material-ui/icons/HelpOutline';
 import React from 'react';
-import { Box, Grid, Theme, createStyles, lighten, makeStyles } from '@material-ui/core';
 import { FCProps } from 'src/shared/types/FCProps';
 import { Styles } from 'src/shared/types/Styles';
 

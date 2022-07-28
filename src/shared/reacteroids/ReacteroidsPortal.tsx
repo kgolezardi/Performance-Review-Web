@@ -1,6 +1,6 @@
+import { Portal, styled, Theme } from '@material-ui/core';
 import React from 'react';
 import { FCProps } from 'src/shared/types/FCProps';
-import { Portal, Theme, styled } from '@material-ui/core';
 
 const Reacteroids = React.lazy(() =>
   import(

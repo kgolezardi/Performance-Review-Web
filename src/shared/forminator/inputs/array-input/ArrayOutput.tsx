@@ -1,8 +1,7 @@
 import React, { Fragment } from 'react';
 import { FCProps } from 'src/shared/types/FCProps';
-
-import FragmentProvider from '../../core/fragment/FragmentProvider';
 import { ForminatorFragment } from '../../core/fragment/ForminatorFragment';
+import FragmentProvider from '../../core/fragment/FragmentProvider';
 import { useFragmentValue } from '../../core/utils/useFragmentValue';
 
 interface OwnProps {}

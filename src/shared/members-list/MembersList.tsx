@@ -1,13 +1,12 @@
+import { List } from '@material-ui/core';
 import graphql from 'babel-plugin-relay/macro';
 import React, { unstable_useTransition as useTransition, useCallback } from 'react';
-import { FCProps } from 'src/shared/types/FCProps';
-import { List } from '@material-ui/core';
-import { getUserLabel } from 'src/shared/utils/getUserLabel';
 import { useFragment } from 'react-relay/hooks';
-
+import { FCProps } from 'src/shared/types/FCProps';
+import { getUserLabel } from 'src/shared/utils/getUserLabel';
+import { useMemberListContext } from './MemberListContext';
 import { MembersListItem } from './MembersListItem';
 import { MembersList_user$key } from './__generated__/MembersList_user.graphql';
-import { useMemberListContext } from './MemberListContext';
 
 const fragment = graphql`
   fragment MembersList_user on UserNode @relay(plural: true) {

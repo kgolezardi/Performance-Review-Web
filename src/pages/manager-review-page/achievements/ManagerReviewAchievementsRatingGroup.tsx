@@ -1,23 +1,22 @@
-import React from 'react';
-import graphql from 'babel-plugin-relay/macro';
-import { Answers } from 'src/core/domain';
+import { i18n } from '@lingui/core';
 import { Box, Typography } from '@material-ui/core';
-import { Evaluation } from 'src/__generated__/enums';
+import graphql from 'babel-plugin-relay/macro';
+import { innerJoin, prop } from 'ramda';
+import React from 'react';
+import { useFragment } from 'react-relay/hooks';
+import { Answers } from 'src/core/domain';
+import { useRoundQuestions } from 'src/core/round-questions';
+import { selfReviewEvaluationDictionary } from 'src/global-types';
 import { ExcludeUnknown } from 'src/shared/enum-utils/types';
-import { FCProps } from 'src/shared/types/FCProps';
 import { MultilineOutput } from 'src/shared/multiline-output';
 import { QuestionOutput } from 'src/shared/project-output';
 import { ReviewAvatarGroup } from 'src/shared/review-avatar-group';
 import { ReviewItemInfo } from 'src/shared/review-item-info';
-import { getQuestionsAnswersPair } from 'src/shared/utils/questionsAnswersPair';
-import { getUserLabel } from 'src/shared/utils/getUserLabel';
-import { i18n } from '@lingui/core';
-import { innerJoin, prop } from 'ramda';
+import { FCProps } from 'src/shared/types/FCProps';
 import { isNotNil } from 'src/shared/utils/general.util';
-import { selfReviewEvaluationDictionary } from 'src/global-types';
-import { useFragment } from 'react-relay/hooks';
-import { useRoundQuestions } from 'src/core/round-questions';
-
+import { getUserLabel } from 'src/shared/utils/getUserLabel';
+import { getQuestionsAnswersPair } from 'src/shared/utils/questionsAnswersPair';
+import { Evaluation } from 'src/__generated__/enums';
 import { ManagerReviewAchievementsRatingGroup_comments$key } from './__generated__/ManagerReviewAchievementsRatingGroup_comments.graphql';
 
 const fragment = graphql`

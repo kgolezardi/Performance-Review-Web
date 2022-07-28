@@ -1,14 +1,13 @@
-import React from 'react';
-import graphql from 'babel-plugin-relay/macro';
 import { Box, Typography } from '@material-ui/core';
+import graphql from 'babel-plugin-relay/macro';
+import React from 'react';
+import { useFragment } from 'react-relay/hooks';
 import { ExpansionPanel, ExpansionPanelDetails, ExpansionPanelSummary } from 'src/shared/expansion-panel';
-import { FCProps } from 'src/shared/types/FCProps';
 import { MultilineOutput, NumberedMultilineOutput } from 'src/shared/multiline-output';
 import { ReviewItemInfo } from 'src/shared/review-item-info';
-import { getUserLabel } from 'src/shared/utils/getUserLabel';
+import { FCProps } from 'src/shared/types/FCProps';
 import { isNotNil } from 'src/shared/utils/general.util';
-import { useFragment } from 'react-relay/hooks';
-
+import { getUserLabel } from 'src/shared/utils/getUserLabel';
 import { ManagerReviewDominantCharacteristicsExpansionPanel_reviews$key } from './__generated__/ManagerReviewDominantCharacteristicsExpansionPanel_reviews.graphql';
 
 const fragment = graphql`

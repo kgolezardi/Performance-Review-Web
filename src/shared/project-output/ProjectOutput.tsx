@@ -1,17 +1,16 @@
-import React from 'react';
+import { i18n } from '@lingui/core';
+import { Grid, Typography } from '@material-ui/core';
 import graphql from 'babel-plugin-relay/macro';
+import React from 'react';
+import { useFragment } from 'react-relay/hooks';
+import { useRoundQuestions } from 'src/core/round-questions';
 import { Evaluation } from 'src/global-types';
 import { EvaluationOutput } from 'src/shared/evaluation-output';
 import { FCProps } from 'src/shared/types/FCProps';
-import { Grid, Typography } from '@material-ui/core';
-import { i18n } from '@lingui/core';
-import { useFragment } from 'react-relay/hooks';
-import { useRoundQuestions } from 'src/core/round-questions';
-
 import { MultilineOutput } from '../multiline-output';
-import { ProjectOutput_review$key } from './__generated__/ProjectOutput_review.graphql';
-import { QuestionOutput } from './QuestionOutput';
 import { getQuestionsAnswersPair } from '../utils/questionsAnswersPair';
+import { QuestionOutput } from './QuestionOutput';
+import { ProjectOutput_review$key } from './__generated__/ProjectOutput_review.graphql';
 
 const fragment = graphql`
   fragment ProjectOutput_review on ProjectReviewNode {

@@ -1,8 +1,7 @@
 import { Ref } from 'react';
-
-import { SubStore } from './types';
 import { Subscribable } from '../subscribable/types';
 import { ValueSubscribable } from '../subscribable/ValueSubscribable';
+import { SubStore } from './types';
 
 export class FragmentLens<V> {
   subscribable = new ValueSubscribable<SubStore<V> | null>();

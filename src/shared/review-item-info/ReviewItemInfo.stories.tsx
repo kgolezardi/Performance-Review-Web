@@ -1,7 +1,6 @@
-import React from 'react';
 import { Meta, Story } from '@storybook/react/types-6-0';
 import { loremIpsum } from 'lorem-ipsum';
-
+import React from 'react';
 import { MultilineOutput } from '../multiline-output';
 import { ReviewItemInfo } from './ReviewItemInfo';
 

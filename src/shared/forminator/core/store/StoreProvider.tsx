@@ -1,6 +1,5 @@
 import React from 'react';
 import { FCProps } from 'src/shared/types/FCProps';
-
 import { ForminatorStore } from './ForminatorStore';
 import { StoreContext } from './StoreContext';
 

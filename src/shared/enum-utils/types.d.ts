@@ -1,1 +1,1 @@
-export { ExcludeUnknown, EnumDict } from './getEnumLabel';
+export { EnumDict, ExcludeUnknown } from './getEnumLabel';

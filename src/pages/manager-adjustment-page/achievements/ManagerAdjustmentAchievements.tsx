@@ -1,11 +1,10 @@
-import React from 'react';
-import graphql from 'babel-plugin-relay/macro';
-import { FCProps } from 'src/shared/types/FCProps';
 import { i18n } from '@lingui/core';
-import { useBiDiSnackbar } from 'src/shared/snackbar';
+import graphql from 'babel-plugin-relay/macro';
+import React from 'react';
 import { useLazyLoadQuery } from 'react-relay/hooks';
 import { useMutation } from 'src/relay';
-
+import { useBiDiSnackbar } from 'src/shared/snackbar';
+import { FCProps } from 'src/shared/types/FCProps';
 import { ManageAdjustmentFormData } from './ManageAdjustmentFormData';
 import { ManagerAdjustmentAchievementsExpansionPanel } from './ManagerAdjustmentAchievementsExpansionPanel';
 import { ManagerAdjustmentAchievementsMutation } from './__generated__/ManagerAdjustmentAchievementsMutation.graphql';

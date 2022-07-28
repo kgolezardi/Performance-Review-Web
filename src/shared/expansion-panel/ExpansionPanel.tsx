@@ -1,12 +1,12 @@
-import React from 'react';
-import { FCProps } from 'src/shared/types/FCProps';
 import {
+  createStyles,
   ExpansionPanel as MuiExpansionPanel,
   ExpansionPanelProps,
-  Theme,
-  createStyles,
   makeStyles,
+  Theme,
 } from '@material-ui/core';
+import React from 'react';
+import { FCProps } from 'src/shared/types/FCProps';
 import { Styles } from 'src/shared/types/Styles';
 
 interface OwnProps extends ExpansionPanelProps {}

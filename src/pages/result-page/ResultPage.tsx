@@ -1,17 +1,16 @@
+import { i18n } from '@lingui/core';
+import { Box, Container, createStyles, makeStyles, Paper, Theme } from '@material-ui/core';
 import React, { Suspense } from 'react';
-import { Box, Container, Paper, Theme, createStyles, makeStyles } from '@material-ui/core';
-import { FCProps } from 'src/shared/types/FCProps';
-import { FullPageSpinner } from 'src/shared/loading';
 import { Redirect, Route, Switch, useParams } from 'react-router-dom';
-import { Styles } from 'src/shared/types/Styles';
+import { useAuthGuardUser } from 'src/core/auth';
+import { FullPageSpinner } from 'src/shared/loading';
 import { TabLink } from 'src/shared/tab';
 import { Tabs } from 'src/shared/tabs';
-import { i18n } from '@lingui/core';
-import { useAuthGuardUser } from 'src/core/auth';
-
-import StrengthsWeaknessesResultPage from './strengths-weaknesses-result-page/StrengthsWeaknessesResultPage';
+import { FCProps } from 'src/shared/types/FCProps';
+import { Styles } from 'src/shared/types/Styles';
 import { PrintResultButton } from './PrintResultButton';
 import { ProjectsResultPage } from './project-result-page/ProjectsResultPage';
+import StrengthsWeaknessesResultPage from './strengths-weaknesses-result-page/StrengthsWeaknessesResultPage';
 
 interface Params {
   tab?: string;

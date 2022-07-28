@@ -1,5 +1,4 @@
 import { useState } from 'react';
-
 import type { Row } from './ManagerAdjustmentDashboardTable';
 
 export type Status = 'todo' | 'doing' | 'done' | 'all';

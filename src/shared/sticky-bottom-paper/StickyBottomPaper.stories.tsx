@@ -1,9 +1,8 @@
-import React from 'react';
-import { Button, Container } from '@material-ui/core';
-import { Lorem } from 'src/stories/helpers';
 import { i18n } from '@lingui/core';
+import { Button, Container } from '@material-ui/core';
 import { storiesOf } from '@storybook/react';
-
+import React from 'react';
+import { Lorem } from 'src/stories/helpers';
 import { StickyBottomPaper } from './StickyBottomPaper';
 
 storiesOf('Sticky Bottom Paper', module).add('simple', () => {

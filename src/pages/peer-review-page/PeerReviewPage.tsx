@@ -1,23 +1,22 @@
-import StrengthsWeaknessesPage from 'src/pages/strengths-weaknesses-page/StrengthsWeaknessesPage';
+import { i18n } from '@lingui/core';
+import { Box, Container, Divider, Paper } from '@material-ui/core';
 import graphql from 'babel-plugin-relay/macro';
 import React, { Suspense } from 'react';
-import { Box, Container, Divider, Paper } from '@material-ui/core';
-import { FCProps } from 'src/shared/types/FCProps';
+import { useLazyLoadQuery } from 'react-relay/hooks';
+import { Redirect, Route, Switch, useParams } from 'react-router-dom';
+import StrengthsWeaknessesPage from 'src/pages/strengths-weaknesses-page/StrengthsWeaknessesPage';
 import { FormChangeDetector } from 'src/shared/form-change-detector';
 import { FormChangePrompt } from 'src/shared/form-change-prompt';
-import { FullPageSpinner } from 'src/shared/loading';
 import { InView } from 'src/shared/in-view';
-import { Redirect, Route, Switch, useParams } from 'react-router-dom';
+import { FullPageSpinner } from 'src/shared/loading';
 import { TabLink } from 'src/shared/tab';
 import { Tabs } from 'src/shared/tabs';
 import { TopStickyCard } from 'src/shared/top-sticky-card';
-import { i18n } from '@lingui/core';
+import { FCProps } from 'src/shared/types/FCProps';
 import { unescape } from 'src/shared/utils/base64.util';
-import { useLazyLoadQuery } from 'react-relay/hooks';
-
-import { PeerReviewPageQuery } from './__generated__/PeerReviewPageQuery.graphql';
 import { PeerReviewPersonInfoCard } from './PeerReviewPersonInfoCard';
 import { PeerReviewProjectsTab } from './projectsTab/PeerReviewProjectsTab';
+import { PeerReviewPageQuery } from './__generated__/PeerReviewPageQuery.graphql';
 
 const peerReviewPageQuery = graphql`
   query PeerReviewPageQuery($id: ID!) {

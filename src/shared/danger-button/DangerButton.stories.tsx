@@ -1,7 +1,6 @@
-import React, { Fragment } from 'react';
 import { storiesOf } from '@storybook/react';
+import React, { Fragment } from 'react';
 import { storyWrapperDecorator } from 'src/stories/decorators';
-
 import { DangerButton } from './DangerButton';
 
 storiesOf('Danger Button', module)

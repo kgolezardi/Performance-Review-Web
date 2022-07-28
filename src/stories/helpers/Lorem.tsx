@@ -1,6 +1,6 @@
+import { loremIpsum } from 'lorem-ipsum';
 import React, { Fragment, useState } from 'react';
 import { FCProps } from 'src/shared/types/FCProps';
-import { loremIpsum } from 'lorem-ipsum';
 
 interface OwnProps {
   paragraphCount?: number;

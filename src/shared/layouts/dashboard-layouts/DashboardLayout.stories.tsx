@@ -1,9 +1,8 @@
-import React from 'react';
-import { Lorem } from 'src/stories/helpers';
 import { i18n } from '@lingui/core';
-import { routerDecorator } from 'src/stories/decorators';
 import { storiesOf } from '@storybook/react';
-
+import React from 'react';
+import { routerDecorator } from 'src/stories/decorators';
+import { Lorem } from 'src/stories/helpers';
 import { Brand, BrandRegion, ContentRegion, DashboardLayout, NavBarMenu, NavbarRegion } from '.';
 import type { NavbarMenuItem } from './menu/types';
 

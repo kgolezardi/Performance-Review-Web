@@ -1,12 +1,11 @@
+import { action } from '@storybook/addon-actions';
+import { storiesOf } from '@storybook/react';
 import React from 'react';
 import { Question as IQuestion } from 'src/core/domain';
 import { Question } from 'src/shared/DynamicFields';
-import { action } from '@storybook/addon-actions';
-import { storiesOf } from '@storybook/react';
-
+import { Forminator } from '..';
 import DictInput from '../inputs/dict-input/DictInput';
 import SubmitButton from '../utils/SubmitButton';
-import { Forminator } from '..';
 
 const questions: IQuestion[] = [
   {

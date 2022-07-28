@@ -1,7 +1,7 @@
+import { Card, CardContent, CardHeader, createStyles, Divider, Grid, makeStyles, Theme } from '@material-ui/core';
 import React from 'react';
-import { Card, CardContent, CardHeader, Divider, Grid, Theme, createStyles, makeStyles } from '@material-ui/core';
-import { FCProps } from 'src/shared/types/FCProps';
 import { Overlayscrollbars } from 'src/shared/overlayscrollbars';
+import { FCProps } from 'src/shared/types/FCProps';
 import { Styles } from 'src/shared/types/Styles';
 
 export interface BoardListProps {

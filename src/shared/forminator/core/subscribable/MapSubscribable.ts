@@ -1,5 +1,4 @@
 import { Emitter } from 'mitt';
-
 import { Subscribable } from './types';
 
 export class MapSubscribable<V> implements Subscribable<V> {

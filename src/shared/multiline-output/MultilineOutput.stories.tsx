@@ -1,7 +1,6 @@
-import React from 'react';
 import { storiesOf } from '@storybook/react';
+import React from 'react';
 import { storyWrapperDecorator } from 'src/stories/decorators';
-
 import { MultilineOutput } from './MultilineOutput';
 
 storiesOf('Multiline Output', module)

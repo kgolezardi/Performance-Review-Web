@@ -1,8 +1,8 @@
+import { createStyles, makeStyles, Theme } from '@material-ui/core';
 import React from 'react';
-import { FCProps } from 'src/shared/types/FCProps';
 import { NavLink } from 'react-router-dom';
+import { FCProps } from 'src/shared/types/FCProps';
 import { Styles } from 'src/shared/types/Styles';
-import { Theme, createStyles, makeStyles } from '@material-ui/core';
 
 interface OwnProps {
   logo: string;

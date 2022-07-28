@@ -1,24 +1,23 @@
-import React from 'react';
-import graphql from 'babel-plugin-relay/macro';
-import { Box, Grid } from '@material-ui/core';
-import { DictInput, Forminator, SubmitButton } from 'src/shared/forminator';
-import { Evaluation } from 'src/pages/dashboard-page/__generated__/AchievementsIndicators_projects.graphql';
-import { FCProps } from 'src/shared/types/FCProps';
-import { ServerValueProvider } from 'src/shared/server-value';
-import { StickyBottomPaper } from 'src/shared/sticky-bottom-paper';
 import { i18n } from '@lingui/core';
-import { isNotNil } from 'src/shared/utils/general.util';
-import { useBiDiSnackbar } from 'src/shared/snackbar';
-import { useFormDirty } from 'src/shared/form-change-detector';
+import { Box, Grid } from '@material-ui/core';
+import graphql from 'babel-plugin-relay/macro';
+import React from 'react';
 import { useInView } from 'react-intersection-observer';
 import { useLazyLoadQuery } from 'react-relay/hooks';
+import { Evaluation } from 'src/pages/dashboard-page/__generated__/AchievementsIndicators_projects.graphql';
 import { useMutation } from 'src/relay';
-
+import { useFormDirty } from 'src/shared/form-change-detector';
+import { DictInput, Forminator, SubmitButton } from 'src/shared/forminator';
+import { ServerValueProvider } from 'src/shared/server-value';
+import { useBiDiSnackbar } from 'src/shared/snackbar';
+import { StickyBottomPaper } from 'src/shared/sticky-bottom-paper';
+import { FCProps } from 'src/shared/types/FCProps';
+import { isNotNil } from 'src/shared/utils/general.util';
+import { ManagerReviewProgress } from '../ManagerReviewProgress';
 import { ManagerReviewAchievementsExpansionPanel } from './ManagerReviewAchievementsExpansionPanel';
+import { ManagerReviewAchievementsValue } from './ManagerReviewAchievementsValue';
 import { ManagerReviewAchievementsMutation } from './__generated__/ManagerReviewAchievementsMutation.graphql';
 import { ManagerReviewAchievementsQuery } from './__generated__/ManagerReviewAchievementsQuery.graphql';
-import { ManagerReviewAchievementsValue } from './ManagerReviewAchievementsValue';
-import { ManagerReviewProgress } from '../ManagerReviewProgress';
 
 interface OwnProps {
   revieweeId: string;

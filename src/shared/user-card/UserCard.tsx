@@ -1,17 +1,16 @@
+import { i18n } from '@lingui/core';
+import { createStyles, Grid, makeStyles, Paper, Theme, Typography } from '@material-ui/core';
 import graphql from 'babel-plugin-relay/macro';
 import React, { useMemo } from 'react';
-import { FCProps } from 'src/shared/types/FCProps';
-import { Grid, Paper, Theme, Typography, createStyles, makeStyles } from '@material-ui/core';
-import { LanguageCodes } from 'src/core/locales/types';
+import { useFragment } from 'react-relay/hooks';
 import { Link } from 'react-router-dom';
+import { LanguageCodes } from 'src/core/locales/types';
+import { FCProps } from 'src/shared/types/FCProps';
 import { Styles } from 'src/shared/types/Styles';
 import { UserAvatar } from 'src/shared/user-avatar';
 import { escape } from 'src/shared/utils/base64.util';
 import { getUserLabel } from 'src/shared/utils/getUserLabel';
-import { i18n } from '@lingui/core';
 import { localizeNumber } from 'src/shared/utils/localizeNumber.util';
-import { useFragment } from 'react-relay/hooks';
-
 import { UserCard_user$key } from './__generated__/UserCard_user.graphql';
 
 export interface UserCardProps {

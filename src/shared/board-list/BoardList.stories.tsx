@@ -1,15 +1,14 @@
-import React from 'react';
-import graphql from 'babel-plugin-relay/macro';
 import { Box, Grid } from '@material-ui/core';
-import { ID, UserNodeResolver, ViewerNodeResolver } from 'src/stories/mock-resolvers';
+import { storiesOf } from '@storybook/react';
+import graphql from 'babel-plugin-relay/macro';
+import React from 'react';
+import { useLazyLoadQuery } from 'react-relay/hooks';
 import { UserCard } from 'src/shared/user-card';
 import { mockRelayDecorator, routerDecorator } from 'src/stories/decorators';
-import { storiesOf } from '@storybook/react';
-import { useLazyLoadQuery } from 'react-relay/hooks';
-
+import { ID, UserNodeResolver, ViewerNodeResolver } from 'src/stories/mock-resolvers';
 import { BoardList } from './BoardList';
-import { BoardListStoriesQuery } from './__generated__/BoardListStoriesQuery.graphql';
 import { PlaceHolder } from './PlaceHolder';
+import { BoardListStoriesQuery } from './__generated__/BoardListStoriesQuery.graphql';
 
 const PlaceHolerExample = () => {
   return (

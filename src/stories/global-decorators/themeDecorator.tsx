@@ -1,10 +1,9 @@
-import * as React from 'react';
+import { i18n } from '@lingui/core';
 import { CssBaseline, ThemeProvider } from '@material-ui/core';
 import { DecoratorFunction } from '@storybook/addons';
+import * as React from 'react';
 import { RtlSupportProvider } from 'src/core/rtl/RtlSupportProvider';
-import { i18n } from '@lingui/core';
 import { ltrTheme, rtlTheme } from 'src/core/theme';
-
 import { StorybookStyles } from './StorybookStyles';
 
 export const themeDecorator: DecoratorFunction<JSX.Element> = (Story, context) => {

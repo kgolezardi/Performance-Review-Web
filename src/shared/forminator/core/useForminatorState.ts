@@ -1,9 +1,8 @@
 import { Dispatch, SetStateAction, useCallback } from 'react';
-
-import { ForminatorStore } from './store/ForminatorStore';
 import { FragmentOwner } from './owner/FragmentOwner';
-import { Reducer, useForminatorReducer } from './useForminatorReducer';
 import { useOwner } from './owner/useOwner';
+import { ForminatorStore } from './store/ForminatorStore';
+import { Reducer, useForminatorReducer } from './useForminatorReducer';
 
 function isSetStateAction<S>(action: SetStateAction<S>): action is (prevState: S) => S {
   return typeof action === 'function';

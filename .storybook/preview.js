@@ -1,6 +1,5 @@
-import 'src/_config/install';
-
 import { themeDecorator } from 'src/stories/global-decorators';
+import 'src/_config/install';
 
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },

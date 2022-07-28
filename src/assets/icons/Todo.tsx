@@ -1,6 +1,5 @@
-import React from 'react';
 import { i18n } from '@lingui/core';
-
+import React from 'react';
 import TodoIcon from './to-do.png';
 
 interface OwnProps {}

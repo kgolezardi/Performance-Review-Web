@@ -1,8 +1,8 @@
-import React from 'react';
-import { Box, Typography } from '@material-ui/core';
-import { FCProps } from 'src/shared/types/FCProps';
-import { LinearProgress } from 'src/shared/progress';
 import { i18n } from '@lingui/core';
+import { Box, Typography } from '@material-ui/core';
+import React from 'react';
+import { LinearProgress } from 'src/shared/progress';
+import { FCProps } from 'src/shared/types/FCProps';
 
 interface OwnProps {
   evaluatedItems: number;

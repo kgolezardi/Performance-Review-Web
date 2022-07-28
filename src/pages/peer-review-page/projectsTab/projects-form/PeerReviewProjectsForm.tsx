@@ -1,18 +1,17 @@
-import React from 'react';
-import graphql from 'babel-plugin-relay/macro';
-import { ActionBar } from 'src/shared/action-bar';
-import { Box, Grid } from '@material-ui/core';
-import { DictInput, DictInputItem, Forminator, FragmentPrompt, SubmitButton } from 'src/shared/forminator';
-import { FCProps } from 'src/shared/types/FCProps';
-import { Question } from 'src/shared/DynamicFields';
-import { Rating } from 'src/shared/rating';
-import { StickyBottomPaper } from 'src/shared/sticky-bottom-paper';
 import { i18n } from '@lingui/core';
-import { transformAnswersToFormData } from 'src/shared/utils/transformAnswers';
-import { useFormDirty } from 'src/shared/form-change-detector';
+import { Box, Grid } from '@material-ui/core';
+import graphql from 'babel-plugin-relay/macro';
+import React from 'react';
 import { useFragment } from 'react-relay/hooks';
 import { useRoundQuestions } from 'src/core/round-questions';
-
+import { ActionBar } from 'src/shared/action-bar';
+import { Question } from 'src/shared/DynamicFields';
+import { useFormDirty } from 'src/shared/form-change-detector';
+import { DictInput, DictInputItem, Forminator, FragmentPrompt, SubmitButton } from 'src/shared/forminator';
+import { Rating } from 'src/shared/rating';
+import { StickyBottomPaper } from 'src/shared/sticky-bottom-paper';
+import { FCProps } from 'src/shared/types/FCProps';
+import { transformAnswersToFormData } from 'src/shared/utils/transformAnswers';
 import {
   Evaluation,
   PeerReviewProjectsForm_projectComment$key,

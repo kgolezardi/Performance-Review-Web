@@ -1,19 +1,18 @@
-import React from 'react';
-import clsx from 'clsx';
+import { i18n } from '@lingui/core';
+import { createStyles, Grid, lighten, makeStyles, Theme, Typography, useTheme } from '@material-ui/core';
 import graphql from 'babel-plugin-relay/macro';
+import clsx from 'clsx';
+import React from 'react';
+import { useFragment } from 'react-relay/hooks';
 import { ExpansionPanel, ExpansionPanelDetails, ExpansionPanelSummary } from 'src/shared/expansion-panel';
-import { FCProps } from 'src/shared/types/FCProps';
-import { Grid, Theme, Typography, createStyles, lighten, makeStyles, useTheme } from '@material-ui/core';
 import { ProjectOutput } from 'src/shared/project-output';
 import { QuoteBox } from 'src/shared/quote-box';
 import { ReviewersInput_Reviewers$key } from 'src/shared/reviewers-input/__generated__/ReviewersInput_Reviewers.graphql';
+import { FCProps } from 'src/shared/types/FCProps';
 import { Styles } from 'src/shared/types/Styles';
-import { i18n } from '@lingui/core';
-import { useFragment } from 'react-relay/hooks';
-
 import { ManageAdjustmentFormData } from './ManageAdjustmentFormData';
-import { ManagerAdjustmentAchievementsExpansionPanel_projectReview$key } from './__generated__/ManagerAdjustmentAchievementsExpansionPanel_projectReview.graphql';
 import { ManagerAdjustmentForm } from './ManagerAdjustmentForm';
+import { ManagerAdjustmentAchievementsExpansionPanel_projectReview$key } from './__generated__/ManagerAdjustmentAchievementsExpansionPanel_projectReview.graphql';
 
 const fragment = graphql`
   fragment ManagerAdjustmentAchievementsExpansionPanel_projectReview on ProjectReviewNode {

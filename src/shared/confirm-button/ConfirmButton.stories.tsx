@@ -1,9 +1,8 @@
-import React from 'react';
-import { DangerButton } from 'src/shared/danger-button';
 import { action } from '@storybook/addon-actions';
 import { storiesOf } from '@storybook/react';
+import React from 'react';
+import { DangerButton } from 'src/shared/danger-button';
 import { storyWrapperDecorator } from 'src/stories/decorators';
-
 import { ConfirmButton } from './ConfirmButton';
 
 storiesOf('Confirm Button', module)

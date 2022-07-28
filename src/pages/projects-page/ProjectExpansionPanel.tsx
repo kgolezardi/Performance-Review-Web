@@ -1,19 +1,18 @@
-import EditIcon from '@material-ui/icons/Edit';
-import React from 'react';
-import graphql from 'babel-plugin-relay/macro';
-import { Box, ExpansionPanelProps, IconButton, Typography } from '@material-ui/core';
-import { ExpansionPanel, ExpansionPanelDetails, ExpansionPanelSummary } from 'src/shared/expansion-panel';
-import { FCProps } from 'src/shared/types/FCProps';
-import { FormChangeDetector } from 'src/shared/form-change-detector';
-import { ReviewersInputProps } from 'src/shared/reviewers-input/ReviewersInput';
 import { i18n } from '@lingui/core';
-import { useDialog } from 'src/shared/hooks';
+import { Box, ExpansionPanelProps, IconButton, Typography } from '@material-ui/core';
+import EditIcon from '@material-ui/icons/Edit';
+import graphql from 'babel-plugin-relay/macro';
+import React from 'react';
 import { useFragment } from 'react-relay/hooks';
-
+import { ExpansionPanel, ExpansionPanelDetails, ExpansionPanelSummary } from 'src/shared/expansion-panel';
+import { FormChangeDetector } from 'src/shared/form-change-detector';
+import { useDialog } from 'src/shared/hooks';
+import { ReviewersInputProps } from 'src/shared/reviewers-input/ReviewersInput';
+import { FCProps } from 'src/shared/types/FCProps';
+import { ProjectReviewTitleModal } from './project-review-title-editor';
+import { ProjectForm, ProjectFormData } from './ProjectForm';
 import { DeleteProjectReviewMutationInput } from './__generated__/deleteProjectReviewMutation.graphql';
 import { ProjectExpansionPanel_projectReview$key } from './__generated__/ProjectExpansionPanel_projectReview.graphql';
-import { ProjectForm, ProjectFormData } from './ProjectForm';
-import { ProjectReviewTitleModal } from './project-review-title-editor';
 
 interface OwnProps {
   projectReview: ProjectExpansionPanel_projectReview$key;

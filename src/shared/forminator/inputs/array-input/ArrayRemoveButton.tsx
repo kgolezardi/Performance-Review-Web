@@ -1,10 +1,9 @@
-import React, { useCallback } from 'react';
 import { Button, ButtonProps } from '@material-ui/core';
+import React, { useCallback } from 'react';
 import { FCProps } from 'src/shared/types/FCProps';
-
-import { ArrayActionType } from './arrayReducer';
-import { useArrayContext } from './ArrayContext';
 import { useFragmentContext } from '../../core/fragment/FragmentContext';
+import { useArrayContext } from './ArrayContext';
+import { ArrayActionType } from './arrayReducer';
 
 interface OwnProps<V> extends ButtonProps {}
 

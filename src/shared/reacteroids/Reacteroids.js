@@ -1,9 +1,8 @@
-import React, { Component, Fragment, createRef } from 'react';
 import { styled } from '@material-ui/core';
-
+import React, { Component, createRef, Fragment } from 'react';
 import Asteroid from './Asteroid';
-import Ship from './Ship';
 import { randomNumBetweenExcluding } from './helpers';
+import Ship from './Ship';
 
 const KEY = {
   LEFT: 37,

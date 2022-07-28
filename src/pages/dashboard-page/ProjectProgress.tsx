@@ -1,10 +1,10 @@
+import { i18n } from '@lingui/core';
+import { Box, createStyles, makeStyles, Theme, Typography } from '@material-ui/core';
 import React from 'react';
-import { Box, Theme, Typography, createStyles, makeStyles } from '@material-ui/core';
-import { FCProps } from 'src/shared/types/FCProps';
 import { LinearProgress } from 'src/shared/progress';
+import { FCProps } from 'src/shared/types/FCProps';
 import { Styles } from 'src/shared/types/Styles';
 import { getProgressBarColor } from 'src/shared/utils/getProgressBarColor';
-import { i18n } from '@lingui/core';
 
 interface OwnProps {
   name: React.ReactNode;

@@ -1,7 +1,7 @@
+import { createStyles, makeStyles, Theme, Typography, TypographyProps } from '@material-ui/core';
 import React from 'react';
 import { FCProps } from 'src/shared/types/FCProps';
 import { Styles } from 'src/shared/types/Styles';
-import { Theme, Typography, TypographyProps, createStyles, makeStyles } from '@material-ui/core';
 
 interface OwnProps extends TypographyProps {
   defaultValue?: string;

@@ -1,5 +1,4 @@
 import Mitt, { Emitter } from 'mitt';
-
 import { Subscribable } from './types';
 
 export class ValueSubscribable<V> implements Subscribable<V> {

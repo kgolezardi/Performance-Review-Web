@@ -1,6 +1,4 @@
-import GiftDialogHeader from 'src/assets/gift-dialog-elements.png';
-import GiftInCircle from 'src/assets/gift-in-cirlce.png';
-import React, { useCallback, useContext, useState } from 'react';
+import { i18n } from '@lingui/core';
 import {
   Box,
   Button,
@@ -9,18 +7,20 @@ import {
   CardContent,
   CardHeader,
   Container,
-  Theme,
   createStyles,
   makeStyles,
+  Theme,
 } from '@material-ui/core';
-import { FCProps } from 'src/shared/types/FCProps';
 import { MDXContext } from '@mdx-js/react';
+import { importMDX } from 'mdx.macro';
+import React, { useCallback, useContext, useState } from 'react';
+import GiftDialogHeader from 'src/assets/gift-dialog-elements.png';
+import GiftInCircle from 'src/assets/gift-in-cirlce.png';
+import { useAuthGuardUser } from 'src/core/auth';
 import { ReacteroidsPortal } from 'src/shared/reacteroids';
+import { FCProps } from 'src/shared/types/FCProps';
 import { Styles } from 'src/shared/types/Styles';
 import { getUserLabel } from 'src/shared/utils/getUserLabel';
-import { i18n } from '@lingui/core';
-import { importMDX } from 'mdx.macro';
-import { useAuthGuardUser } from 'src/core/auth';
 
 const Content = importMDX.sync('./NoPeerReviewContent.mdx');
 

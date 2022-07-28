@@ -1,9 +1,8 @@
-import React from 'react';
-import { DictInput, DictInputItem, Forminator } from 'src/shared/forminator';
 import { action } from '@storybook/addon-actions';
 import { storiesOf } from '@storybook/react';
+import React from 'react';
+import { DictInput, DictInputItem, Forminator } from 'src/shared/forminator';
 import { storyWrapperDecorator } from 'src/stories/decorators/StoryWrapperDecorator';
-
 import { StrengthsOrWeaknesses } from './StrengthsOrWeaknesses';
 
 storiesOf('Strengths and Weaknesses', module)

@@ -1,5 +1,4 @@
 import { useState } from 'react';
-
 import { FragmentLens } from './FragmentLens';
 
 export function useFragmentLens<V>(): FragmentLens<V> {

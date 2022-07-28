@@ -1,5 +1,5 @@
-import * as React from 'react';
 import { useControlledState } from '@react-stately/utils';
+import * as React from 'react';
 
 // TODO: remove this declaration when @react-stately/utils merged pr
 declare module '@react-stately/utils' {

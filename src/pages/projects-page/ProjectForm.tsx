@@ -1,7 +1,16 @@
-import graphql from 'babel-plugin-relay/macro';
-import React, { useCallback, useMemo } from 'react';
-import { ActionBar } from 'src/shared/action-bar';
+import { i18n } from '@lingui/core';
 import { Box, Grid, Typography } from '@material-ui/core';
+import graphql from 'babel-plugin-relay/macro';
+import { equals, identity, prop, sortBy } from 'ramda';
+import React, { useCallback, useMemo } from 'react';
+import { useFragment } from 'react-relay/hooks';
+import { useAuthGuardUser } from 'src/core/auth';
+import { useRoundQuestions } from 'src/core/round-questions';
+import { ActionBar } from 'src/shared/action-bar';
+import { ConfirmButton } from 'src/shared/confirm-button';
+import { DangerButton } from 'src/shared/danger-button';
+import { Question } from 'src/shared/DynamicFields';
+import { useFormDirty } from 'src/shared/form-change-detector';
 import {
   CheckboxInput,
   ConstantInput,
@@ -11,21 +20,11 @@ import {
   FragmentPrompt,
   SubmitButton,
 } from 'src/shared/forminator';
-import { ConfirmButton } from 'src/shared/confirm-button';
-import { DangerButton } from 'src/shared/danger-button';
-import { FCProps } from 'src/shared/types/FCProps';
-import { Question } from 'src/shared/DynamicFields';
 import { Rating } from 'src/shared/rating';
 import { ReviewersInput } from 'src/shared/reviewers-input';
 import { ReviewersInputProps } from 'src/shared/reviewers-input/types';
-import { equals, identity, prop, sortBy } from 'ramda';
-import { i18n } from '@lingui/core';
+import { FCProps } from 'src/shared/types/FCProps';
 import { transformAnswersToFormData } from 'src/shared/utils/transformAnswers';
-import { useAuthGuardUser } from 'src/core/auth';
-import { useFormDirty } from 'src/shared/form-change-detector';
-import { useFragment } from 'react-relay/hooks';
-import { useRoundQuestions } from 'src/core/round-questions';
-
 import { DeleteProjectReviewMutationInput } from './__generated__/deleteProjectReviewMutation.graphql';
 import { Evaluation } from './__generated__/editProjectReviewMutation.graphql';
 import { ProjectForm_projectReview$key } from './__generated__/ProjectForm_projectReview.graphql';

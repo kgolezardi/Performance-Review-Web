@@ -1,11 +1,11 @@
-import React from 'react';
-import WarningRounded from '@material-ui/icons/WarningRounded';
-import { amber as Amber } from '@material-ui/core/colors';
-import { Button, Theme, Typography, createStyles, makeStyles } from '@material-ui/core';
-import { FCProps } from 'src/shared/types/FCProps';
-import { Overlay } from 'src/shared/overlay/Overlay';
-import { Styles } from 'src/shared/types/Styles';
 import { i18n } from '@lingui/core';
+import { Button, createStyles, makeStyles, Theme, Typography } from '@material-ui/core';
+import { amber as Amber } from '@material-ui/core/colors';
+import WarningRounded from '@material-ui/icons/WarningRounded';
+import React from 'react';
+import { Overlay } from 'src/shared/overlay/Overlay';
+import { FCProps } from 'src/shared/types/FCProps';
+import { Styles } from 'src/shared/types/Styles';
 
 interface OwnProps {
   errorText?: string;

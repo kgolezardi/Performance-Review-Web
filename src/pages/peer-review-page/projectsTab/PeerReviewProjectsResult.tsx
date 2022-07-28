@@ -1,15 +1,14 @@
-import React from 'react';
+import { i18n } from '@lingui/core';
+import { createStyles, Grid, makeStyles, Theme, Typography } from '@material-ui/core';
 import graphql from 'babel-plugin-relay/macro';
+import React from 'react';
+import { useFragment } from 'react-relay/hooks';
 import { ExpansionPanel, ExpansionPanelDetails, ExpansionPanelSummary } from 'src/shared/expansion-panel';
-import { FCProps } from 'src/shared/types/FCProps';
-import { Grid, Theme, Typography, createStyles, makeStyles } from '@material-ui/core';
 import { ProjectCommentsOutput, ProjectOutput } from 'src/shared/project-output';
 import { QuoteBox } from 'src/shared/quote-box';
+import { FCProps } from 'src/shared/types/FCProps';
 import { Styles } from 'src/shared/types/Styles';
 import { getUserLabel } from 'src/shared/utils/getUserLabel';
-import { i18n } from '@lingui/core';
-import { useFragment } from 'react-relay/hooks';
-
 import { PeerReviewProjectsResult_projectReview$key } from './__generated__/PeerReviewProjectsResult_projectReview.graphql';
 
 interface OwnProps {

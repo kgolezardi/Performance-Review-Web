@@ -1,9 +1,9 @@
-import React from 'react';
+import { createStyles, makeStyles, Theme, Typography } from '@material-ui/core';
 import clsx from 'clsx';
+import React from 'react';
 import { CircularProgress } from 'src/shared/progress';
 import { FCProps } from 'src/shared/types/FCProps';
 import { Styles } from 'src/shared/types/Styles';
-import { Theme, Typography, createStyles, makeStyles } from '@material-ui/core';
 
 interface OwnProps {
   count: number;

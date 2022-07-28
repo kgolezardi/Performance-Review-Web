@@ -1,5 +1,4 @@
 import graphql from 'babel-plugin-relay/macro';
-
 import { ID, OmitRefType } from '../utils';
 import { UserNode$data } from './__generated__/UserNode.graphql';
 

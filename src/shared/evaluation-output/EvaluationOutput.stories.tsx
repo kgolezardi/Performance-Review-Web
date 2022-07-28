@@ -1,8 +1,7 @@
-import React from 'react';
 import { Container, Grid, Typography } from '@material-ui/core';
-import { Evaluation } from 'src/global-types';
 import { storiesOf } from '@storybook/react';
-
+import React from 'react';
+import { Evaluation } from 'src/global-types';
 import { EvaluationOutput } from './EvaluationOutput';
 
 storiesOf('Evaluation Output', module)

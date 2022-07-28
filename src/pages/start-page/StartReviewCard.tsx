@@ -1,14 +1,13 @@
-import ReactMarkdown from 'react-markdown';
+import { i18n } from '@lingui/core';
+import { Box, Button, Card, CardContent, CardHeader, createStyles, makeStyles, Theme } from '@material-ui/core';
 import React, { useCallback } from 'react';
-import { Box, Button, Card, CardContent, CardHeader, Theme, createStyles, makeStyles } from '@material-ui/core';
+import ReactMarkdown from 'react-markdown';
+import { useAuthGuardUser } from 'src/core/auth';
+import { useAppSettings } from 'src/core/settings';
+import { defaultRenderers } from 'src/shared/react-markdown/renderers';
 import { FCProps } from 'src/shared/types/FCProps';
 import { Styles } from 'src/shared/types/Styles';
-import { defaultRenderers } from 'src/shared/react-markdown/renderers';
 import { getUserLabel } from 'src/shared/utils/getUserLabel';
-import { i18n } from '@lingui/core';
-import { useAppSettings } from 'src/core/settings';
-import { useAuthGuardUser } from 'src/core/auth';
-
 import { useStartReviewMutation } from './start-review.mutation';
 
 interface OwnProps {}

@@ -1,13 +1,13 @@
+import {
+  createStyles,
+  ExpansionPanelSummary as MuiExpansionPanelSummary,
+  ExpansionPanelSummaryProps,
+  makeStyles,
+  Theme,
+} from '@material-ui/core';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import React from 'react';
 import { FCProps } from 'src/shared/types/FCProps';
-import {
-  ExpansionPanelSummary as MuiExpansionPanelSummary,
-  ExpansionPanelSummaryProps,
-  Theme,
-  createStyles,
-  makeStyles,
-} from '@material-ui/core';
 import { Styles } from 'src/shared/types/Styles';
 
 interface OwnProps extends ExpansionPanelSummaryProps {}

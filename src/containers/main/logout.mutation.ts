@@ -1,7 +1,6 @@
 import graphql from 'babel-plugin-relay/macro';
 import { useCallback } from 'react';
 import { useMutation } from 'src/relay';
-
 import { logoutMutation } from './__generated__/logoutMutation.graphql';
 
 const mutation = graphql`

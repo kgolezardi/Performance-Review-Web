@@ -1,16 +1,15 @@
 import React, { Suspense, useMemo } from 'react';
+import { Route, Switch } from 'react-router-dom';
+import { MainContainer } from 'src/containers/main';
 import { AuthGuard } from 'src/core/auth';
+import { SettingsProvider } from 'src/core/settings';
+import { ResultPrintPage } from 'src/pages/result-page/ResultPrintPage';
+import { useConfirmContext } from 'src/shared/confirm-provider';
 import { ErrorBoundary } from 'src/shared/error-boundary';
-import { FCProps } from 'src/shared/types/FCProps';
 import { FullPageError } from 'src/shared/full-page-error';
 import { FullPageSpinner } from 'src/shared/loading';
-import { MainContainer } from 'src/containers/main';
-import { ResultPrintPage } from 'src/pages/result-page/ResultPrintPage';
-import { Route, Switch } from 'react-router-dom';
 import { BrowserRouter as Router } from 'src/shared/router';
-import { SettingsProvider } from 'src/core/settings';
-import { useConfirmContext } from 'src/shared/confirm-provider';
-
+import { FCProps } from 'src/shared/types/FCProps';
 import { ManagerReviewPrintPage } from './pages/manager-review-page/ManagerReviewPrintPage';
 
 interface OwnProps {}

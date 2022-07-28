@@ -1,7 +1,8 @@
-import graphql from 'babel-plugin-relay/macro';
-import React, { useMemo } from 'react';
+import { i18n } from '@lingui/core';
 import {
   Avatar,
+  createStyles,
+  makeStyles,
   Table,
   TableBody,
   TableCell,
@@ -10,19 +11,17 @@ import {
   TableRow,
   TableSortLabel,
   Theme,
-  createStyles,
-  makeStyles,
 } from '@material-ui/core';
-import { Evaluation } from 'src/__generated__/enums';
-import { FCProps } from 'src/shared/types/FCProps';
+import graphql from 'babel-plugin-relay/macro';
+import React, { useMemo } from 'react';
+import { useFragment } from 'react-relay/hooks';
+import { useSortBy } from 'src/shared/hooks';
 import { LinearProgress } from 'src/shared/progress';
+import { FCProps } from 'src/shared/types/FCProps';
 import { Styles } from 'src/shared/types/Styles';
 import { getProgressBarColor } from 'src/shared/utils/getProgressBarColor';
 import { getUserLabel } from 'src/shared/utils/getUserLabel';
-import { i18n } from '@lingui/core';
-import { useFragment } from 'react-relay/hooks';
-import { useSortBy } from 'src/shared/hooks';
-
+import { Evaluation } from 'src/__generated__/enums';
 import { ManagerAdjustmentDashboardTable_data$key } from './__generated__/ManagerAdjustmentDashboardTable_data.graphql';
 
 const fragment = graphql`

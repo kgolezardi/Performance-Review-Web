@@ -1,6 +1,6 @@
+import { createStyles, makeStyles, Tabs as MuiTabs, TabsProps as MuiTabsProps, Theme } from '@material-ui/core';
 import React from 'react';
 import { FCProps } from 'src/shared/types/FCProps';
-import { Tabs as MuiTabs, TabsProps as MuiTabsProps, Theme, createStyles, makeStyles } from '@material-ui/core';
 
 interface OwnProps extends Omit<MuiTabsProps, 'onChange'> {
   onChange?: (event: React.ChangeEvent<{}>, value: number) => void;

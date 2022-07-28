@@ -1,9 +1,9 @@
-import React from 'react';
 import { Box, Typography } from '@material-ui/core';
+import React from 'react';
 import { ExpansionPanel, ExpansionPanelDetails, ExpansionPanelSummary } from 'src/shared/expansion-panel';
-import { FCProps } from 'src/shared/types/FCProps';
 import { MultilineOutput } from 'src/shared/multiline-output';
 import { ReviewItemInfo } from 'src/shared/review-item-info';
+import { FCProps } from 'src/shared/types/FCProps';
 
 interface OwnProps {
   title?: string;

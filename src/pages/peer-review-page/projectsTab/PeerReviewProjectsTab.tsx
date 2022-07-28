@@ -1,12 +1,11 @@
+import { Box } from '@material-ui/core';
 import graphql from 'babel-plugin-relay/macro';
 import React, { Fragment } from 'react';
-import { Box } from '@material-ui/core';
-import { FCProps } from 'src/shared/types/FCProps';
-import { FormChangeDetector } from 'src/shared/form-change-detector';
 import { useFragment, useLazyLoadQuery } from 'react-relay/hooks';
-
-import { PeerReviewProjectExpansionPanel } from './project-expansion-panel/PeerReviewProjectExpansionPanel';
+import { FormChangeDetector } from 'src/shared/form-change-detector';
+import { FCProps } from 'src/shared/types/FCProps';
 import { PeerReviewProjectsResult } from './PeerReviewProjectsResult';
+import { PeerReviewProjectExpansionPanel } from './project-expansion-panel/PeerReviewProjectExpansionPanel';
 import { PeerReviewProjectsTabQuery } from './__generated__/PeerReviewProjectsTabQuery.graphql';
 import { PeerReviewProjectsTab_user$key } from './__generated__/PeerReviewProjectsTab_user.graphql';
 

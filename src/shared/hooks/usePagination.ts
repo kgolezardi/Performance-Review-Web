@@ -1,5 +1,5 @@
-import type { ChangeEvent, MouseEvent } from 'react';
 import { useState } from 'react';
+import type { ChangeEvent, MouseEvent } from 'react';
 
 export const usePagination = () => {
   const [page, setPage] = useState(0);

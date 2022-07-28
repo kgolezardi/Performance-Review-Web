@@ -1,7 +1,6 @@
 import React, { ComponentProps } from 'react';
-import { FCProps } from 'src/shared/types/FCProps';
 import { InView } from 'src/shared/in-view';
-
+import { FCProps } from 'src/shared/types/FCProps';
 import { InViewPaper } from './InViewPaper';
 
 interface OwnProps extends ComponentProps<typeof InViewPaper> {}

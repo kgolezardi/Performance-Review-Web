@@ -1,18 +1,17 @@
 import graphql from 'babel-plugin-relay/macro';
-import React, { Fragment } from 'react';
-import { ElementType } from 'src/shared/types/ElementType';
-import { FCProps } from 'src/shared/types/FCProps';
-import { RoundQuestions_selfReview } from 'src/core/round-questions/__generated__/RoundQuestions_selfReview.graphql';
 import { innerJoin, prop } from 'ramda';
+import React, { Fragment } from 'react';
 import { useFragment } from 'react-relay/hooks';
 import { useRoundQuestions } from 'src/core/round-questions';
-
+import { RoundQuestions_selfReview } from 'src/core/round-questions/__generated__/RoundQuestions_selfReview.graphql';
+import { ElementType } from 'src/shared/types/ElementType';
+import { FCProps } from 'src/shared/types/FCProps';
+import { AchievementsNoProjects } from './AchievementsNoProjects';
+import { ProjectProgress } from './ProjectProgress';
 import {
   AchievementsIndicators_projects,
   AchievementsIndicators_projects$key,
 } from './__generated__/AchievementsIndicators_projects.graphql';
-import { AchievementsNoProjects } from './AchievementsNoProjects';
-import { ProjectProgress } from './ProjectProgress';
 
 interface OwnProps {
   projects: AchievementsIndicators_projects$key;

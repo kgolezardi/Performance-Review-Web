@@ -1,8 +1,7 @@
-import React from 'react';
 import { Typography as MuiTypography } from '@material-ui/core';
-import { UserType, getUserLabel } from 'src/shared/utils/getUserLabel';
+import React from 'react';
 import { useMDXPropsContext } from 'src/shared/mdx-provider/MDXPropsProvider';
-
+import { getUserLabel, UserType } from 'src/shared/utils/getUserLabel';
 import { withProps } from '../utils/withProps';
 
 export function UserLabel() {

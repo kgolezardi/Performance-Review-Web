@@ -1,7 +1,8 @@
-import graphql from 'babel-plugin-relay/macro';
-import React, { useMemo } from 'react';
+import { i18n } from '@lingui/core';
 import {
   Avatar,
+  createStyles,
+  makeStyles,
   Table,
   TableBody,
   TableCell,
@@ -10,22 +11,20 @@ import {
   TableRow,
   TableSortLabel,
   Theme,
-  createStyles,
-  makeStyles,
 } from '@material-ui/core';
-import { Evaluation } from 'src/__generated__/enums';
-import { FCProps } from 'src/shared/types/FCProps';
-import { LinearProgress } from 'src/shared/progress';
-import { Styles } from 'src/shared/types/Styles';
+import graphql from 'babel-plugin-relay/macro';
+import React, { useMemo } from 'react';
+import { useFragment } from 'react-relay/hooks';
+import { peerReviewEvaluationDictionary } from 'src/global-types';
 import { getEnumLabel } from 'src/shared/enum-utils';
+import { useSortBy } from 'src/shared/hooks/useSortBy';
+import { LinearProgress } from 'src/shared/progress';
+import { FCProps } from 'src/shared/types/FCProps';
+import { Styles } from 'src/shared/types/Styles';
+import { isNotNil } from 'src/shared/utils/general.util';
 import { getProgressBarColor } from 'src/shared/utils/getProgressBarColor';
 import { getUserLabel } from 'src/shared/utils/getUserLabel';
-import { i18n } from '@lingui/core';
-import { isNotNil } from 'src/shared/utils/general.util';
-import { peerReviewEvaluationDictionary } from 'src/global-types';
-import { useFragment } from 'react-relay/hooks';
-import { useSortBy } from 'src/shared/hooks/useSortBy';
-
+import { Evaluation } from 'src/__generated__/enums';
 import { ManagerReviewDashboardTable_data$key } from './__generated__/ManagerReviewDashboardTable_data.graphql';
 
 const fragment = graphql`
