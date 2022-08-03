@@ -1,8 +1,7 @@
 import graphql from 'babel-plugin-relay/macro';
 import React, { useMemo } from 'react';
-import { FCProps } from 'src/shared/types/FCProps';
 import { useLazyLoadQuery } from 'react-relay/hooks';
-
+import { FCProps } from 'src/shared/types/FCProps';
 import { SettingsContext } from './SettingsContext';
 import { SettingsProviderQuery } from './__generated__/SettingsProviderQuery.graphql';
 

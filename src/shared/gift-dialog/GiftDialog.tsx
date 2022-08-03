@@ -1,30 +1,29 @@
-import GiftDialogHeader from 'src/assets/gift-dialog-elements.png';
-import GiftInCircle from 'src/assets/gift-in-cirlce.png';
-import graphql from 'babel-plugin-relay/macro';
-import React, { useCallback, useContext } from 'react';
+import { i18n } from '@lingui/core';
 import {
   Box,
   Button,
+  createStyles,
   Dialog,
   DialogContent,
   DialogTitle as MuiDialogTitle,
-  Theme,
-  Typography,
-  createStyles,
   makeStyles,
   styled,
+  Theme,
+  Typography,
 } from '@material-ui/core';
-import { FCProps } from 'src/shared/types/FCProps';
 import { MDXContext } from '@mdx-js/react';
+import graphql from 'babel-plugin-relay/macro';
+import { importMDX } from 'mdx.macro';
+import React, { useCallback, useContext } from 'react';
+import { useFragment } from 'react-relay/hooks';
+import GiftDialogHeader from 'src/assets/gift-dialog-elements.png';
+import GiftInCircle from 'src/assets/gift-in-cirlce.png';
 import { MDXPropsProvider } from 'src/shared/mdx-provider/MDXPropsProvider';
+import { FCProps } from 'src/shared/types/FCProps';
 import { Styles } from 'src/shared/types/Styles';
 import { UserType } from 'src/shared/utils/getUserLabel';
-import { i18n } from '@lingui/core';
-import { importMDX } from 'mdx.macro';
-import { useFragment } from 'react-relay/hooks';
-
-import { GiftDialog_user$key } from './__generated__/GiftDialog_user.graphql';
 import { withProps } from '../utils/withProps';
+import { GiftDialog_user$key } from './__generated__/GiftDialog_user.graphql';
 
 const Content = importMDX.sync('./Content.mdx');
 

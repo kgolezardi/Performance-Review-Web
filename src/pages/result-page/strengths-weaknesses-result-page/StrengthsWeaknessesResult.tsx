@@ -1,11 +1,10 @@
+import { i18n } from '@lingui/core';
 import graphql from 'babel-plugin-relay/macro';
 import React, { Fragment, useMemo } from 'react';
-import { FCProps } from 'src/shared/types/FCProps';
-import { StrengthsWeaknessResultExpansionPanel } from 'src/pages/result-page/strengths-weaknesses-result-page/StrengthsWeaknessResultExpansionPanel';
-import { i18n } from '@lingui/core';
-import { isNotNil } from 'src/shared/utils/general.util';
 import { useFragment } from 'react-relay/hooks';
-
+import { StrengthsWeaknessResultExpansionPanel } from 'src/pages/result-page/strengths-weaknesses-result-page/StrengthsWeaknessResultExpansionPanel';
+import { FCProps } from 'src/shared/types/FCProps';
+import { isNotNil } from 'src/shared/utils/general.util';
 import { StrengthsWeaknessesResult_reviews$key } from './__generated__/StrengthsWeaknessesResult_reviews.graphql';
 
 const fragment = graphql`

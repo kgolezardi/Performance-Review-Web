@@ -1,5 +1,4 @@
 import React, { Dispatch, useContext } from 'react';
-
 import { DictAction } from './dictReducer';
 
 export const DictContext = React.createContext<Dispatch<DictAction> | null>(null);

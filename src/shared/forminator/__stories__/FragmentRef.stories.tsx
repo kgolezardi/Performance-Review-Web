@@ -1,16 +1,15 @@
-import React from 'react';
 import { action } from '@storybook/addon-actions';
 import { storiesOf } from '@storybook/react';
-
-import DictInput from '../inputs/dict-input/DictInput';
-import DictInputItem from '../inputs/dict-input/DictInputItem';
-import FragmentRef from '../core/fragment-lens/FragmentRef';
-import StringInput from '../inputs/StringInput';
-import SubmitButton from '../utils/SubmitButton';
-import { Forminator } from '../index';
+import React from 'react';
 import { FragmentLens } from '../core/fragment-lens/FragmentLens';
+import FragmentRef from '../core/fragment-lens/FragmentRef';
 import { useFragmentLens } from '../core/fragment-lens/useFragmentLens';
 import { useLensValue } from '../core/fragment-lens/useLensValue';
+import { Forminator } from '../index';
+import DictInput from '../inputs/dict-input/DictInput';
+import DictInputItem from '../inputs/dict-input/DictInputItem';
+import StringInput from '../inputs/StringInput';
+import SubmitButton from '../utils/SubmitButton';
 
 const Spy = ({ lens, name }: { lens?: FragmentLens<any>; name: string }) => {
   const value = useLensValue<string>(lens);

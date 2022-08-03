@@ -1,6 +1,5 @@
 import React, { Fragment } from 'react';
 import { FCProps } from 'src/shared/types/FCProps';
-
 import { useTabPanelsContext } from './TabPanels';
 
 interface OwnProps {

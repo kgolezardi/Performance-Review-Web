@@ -1,5 +1,4 @@
 import { useEffect } from 'react';
-
 import { useFormChangeDetectorContext } from './FormChangeDetectorContext';
 
 export function useFormChanged(id: string, dirty: boolean) {

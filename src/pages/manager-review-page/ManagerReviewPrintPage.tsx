@@ -1,22 +1,21 @@
+import { i18n } from '@lingui/core';
+import { Box, Divider, Typography } from '@material-ui/core';
 import graphql from 'babel-plugin-relay/macro';
 import React, { useEffect } from 'react';
-import { Box, Divider, Typography } from '@material-ui/core';
-import { FCProps } from 'src/shared/types/FCProps';
-import { FormChangeDetector } from 'src/shared/form-change-detector';
-import { FormChangePrompt } from 'src/shared/form-change-prompt';
 import { Helmet } from 'react-helmet-async';
-import { InView } from 'src/shared/in-view';
-import { PageBreak } from 'src/shared/page-break';
-import { PersonInfoCardHeader } from 'src/shared/person-info-card-header';
-import { PrintingContext } from 'src/shared/layouts/dashboard-layouts/PrintingContext';
-import { getUserLabel } from 'src/shared/utils/getUserLabel';
-import { i18n } from '@lingui/core';
 import { useLazyLoadQuery } from 'react-relay/hooks';
 import { useParams } from 'react-router-dom';
-
+import { FormChangeDetector } from 'src/shared/form-change-detector';
+import { FormChangePrompt } from 'src/shared/form-change-prompt';
+import { InView } from 'src/shared/in-view';
+import { PrintingContext } from 'src/shared/layouts/dashboard-layouts/PrintingContext';
+import { PageBreak } from 'src/shared/page-break';
+import { PersonInfoCardHeader } from 'src/shared/person-info-card-header';
+import { FCProps } from 'src/shared/types/FCProps';
+import { getUserLabel } from 'src/shared/utils/getUserLabel';
+import { ManagerReviewAchievements } from './achievements';
 import ManagerReviewDominantCharacteristics from './dominant-characteristics/ManagerReviewDominantCharacteristics';
 import ManagerReviewOverallEvaluation from './overall-evaluation';
-import { ManagerReviewAchievements } from './achievements';
 import { ManagerReviewPrintPageQuery } from './__generated__/ManagerReviewPrintPageQuery.graphql';
 
 const query = graphql`

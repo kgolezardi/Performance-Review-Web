@@ -1,23 +1,22 @@
-import React from 'react';
+import { i18n } from '@lingui/core';
+import { Box, createStyles, Grid, lighten, makeStyles, Theme, Typography, useTheme } from '@material-ui/core';
 import graphql from 'babel-plugin-relay/macro';
-import { Box, Grid, Theme, Typography, createStyles, lighten, makeStyles, useTheme } from '@material-ui/core';
-import { DictInputItem, FragmentPrompt } from 'src/shared/forminator';
+import React from 'react';
+import { useFragment } from 'react-relay/hooks';
 import { ExpansionPanel, ExpansionPanelDetails } from 'src/shared/expansion-panel';
-import { FCProps } from 'src/shared/types/FCProps';
+import { DictInputItem, FragmentPrompt } from 'src/shared/forminator';
 import { ProjectOutput } from 'src/shared/project-output';
 import { QuoteBox } from 'src/shared/quote-box';
 import { Rating } from 'src/shared/rating';
+import { useServerValueContext } from 'src/shared/server-value';
+import { FCProps } from 'src/shared/types/FCProps';
 import { Styles } from 'src/shared/types/Styles';
 import { getUserLabel } from 'src/shared/utils/getUserLabel';
-import { i18n } from '@lingui/core';
-import { useFragment } from 'react-relay/hooks';
-import { useServerValueContext } from 'src/shared/server-value';
-
-import { ManagerReviewAchievementsExpansionPanel_projectReview$key } from './__generated__/ManagerReviewAchievementsExpansionPanel_projectReview.graphql';
-import { ManagerReviewAchievementsRatingGroup } from './ManagerReviewAchievementsRatingGroup';
-import { ManagerReviewAchievementsValue } from './ManagerReviewAchievementsValue';
 import { ManagerReviewEvaluationBox } from '../ManagerReviewEvaluationBox';
 import { ManagerReviewEvaluationExpansionPanelSummary } from '../ManagerReviewExpansionPanelSummary';
+import { ManagerReviewAchievementsRatingGroup } from './ManagerReviewAchievementsRatingGroup';
+import { ManagerReviewAchievementsValue } from './ManagerReviewAchievementsValue';
+import { ManagerReviewAchievementsExpansionPanel_projectReview$key } from './__generated__/ManagerReviewAchievementsExpansionPanel_projectReview.graphql';
 
 const fragment = graphql`
   fragment ManagerReviewAchievementsExpansionPanel_projectReview on ProjectReviewNode {

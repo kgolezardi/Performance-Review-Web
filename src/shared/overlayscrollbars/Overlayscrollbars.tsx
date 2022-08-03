@@ -1,8 +1,7 @@
-import * as OverlayScrollbars from 'overlayscrollbars';
-import React, { HTMLAttributes, forwardRef, useImperativeHandle } from 'react';
-import { FCProps } from 'src/shared/types/FCProps';
 import { styled } from '@material-ui/core';
-
+import * as OverlayScrollbars from 'overlayscrollbars';
+import React, { forwardRef, HTMLAttributes, useImperativeHandle } from 'react';
+import { FCProps } from 'src/shared/types/FCProps';
 import { ImperativeHandles, useOverlayscrollbars } from './useOverlayscrollbars';
 
 interface OwnProps extends HTMLAttributes<HTMLDivElement> {

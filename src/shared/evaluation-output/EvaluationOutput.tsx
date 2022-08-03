@@ -1,12 +1,12 @@
+import { i18n } from '@lingui/core';
+import { createStyles, makeStyles, Theme, TypographyProps } from '@material-ui/core';
 import React from 'react';
-import { Evaluation } from 'src/__generated__/enums';
+import { peerReviewEvaluationDictionary, selfReviewEvaluationDictionary } from 'src/global-types';
+import { getEnumLabel } from 'src/shared/enum-utils';
 import { FCProps } from 'src/shared/types/FCProps';
 import { Styles } from 'src/shared/types/Styles';
-import { Theme, TypographyProps, createStyles, makeStyles } from '@material-ui/core';
 import { TypographyOutput } from 'src/shared/typography-output';
-import { getEnumLabel } from 'src/shared/enum-utils';
-import { i18n } from '@lingui/core';
-import { peerReviewEvaluationDictionary, selfReviewEvaluationDictionary } from 'src/global-types';
+import { Evaluation } from 'src/__generated__/enums';
 
 interface OwnProps {
   value: Evaluation | null;

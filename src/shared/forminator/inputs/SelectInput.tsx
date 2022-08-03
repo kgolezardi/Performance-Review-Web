@@ -1,8 +1,7 @@
+import { Box, IconButton, MenuItem, Select, SelectProps } from '@material-ui/core';
 import RemoveIcon from '@material-ui/icons/Close';
 import React, { ReactNode, useCallback } from 'react';
-import { Box, IconButton, MenuItem, Select, SelectProps } from '@material-ui/core';
 import { FCProps } from 'src/shared/types/FCProps';
-
 import { useForminatorState } from '../core/useForminatorState';
 
 export interface Option {

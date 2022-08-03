@@ -1,5 +1,2 @@
-'**/*.{ts,tsx,js,jsx}':
-  - 'import-sort --write'
-
 '**/*.{js,jsx,ts,tsx,json,css,scss,md}':
   - 'prettier --write'

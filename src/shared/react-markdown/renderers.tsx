@@ -1,5 +1,5 @@
+import { Box, lighten, styled, Typography } from '@material-ui/core';
 import React from 'react';
-import { Box, Typography, lighten, styled } from '@material-ui/core';
 import type { ReactMarkdownPropsBase } from 'react-markdown';
 
 const StyledBlackQuote = styled('blockquote')(({ theme }) => ({

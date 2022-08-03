@@ -1,6 +1,6 @@
-import React from 'react';
+import { CircularProgress, createStyles, makeStyles, Theme } from '@material-ui/core';
 import clsx from 'clsx';
-import { CircularProgress, Theme, createStyles, makeStyles } from '@material-ui/core';
+import React from 'react';
 import { FCProps } from 'src/shared/types/FCProps';
 import { Styles } from 'src/shared/types/Styles';
 

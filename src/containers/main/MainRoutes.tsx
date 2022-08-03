@@ -1,13 +1,12 @@
-import React from 'react';
 import graphql from 'babel-plugin-relay/macro';
-import { FCProps } from 'src/shared/types/FCProps';
-import { Redirect, Route, Switch } from 'react-router-dom';
-import { useAppSettings } from 'src/core/settings';
-import { useAuthGuardUser } from 'src/core/auth';
+import React from 'react';
 import { useLazyLoadQuery } from 'react-relay/hooks';
-
-import { MainRoutesQuery } from './__generated__/MainRoutesQuery.graphql';
+import { Redirect, Route, Switch } from 'react-router-dom';
+import { useAuthGuardUser } from 'src/core/auth';
+import { useAppSettings } from 'src/core/settings';
+import { FCProps } from 'src/shared/types/FCProps';
 import { shouldRenderStartReviewPage } from './shouldRenderStartReviewPage';
+import { MainRoutesQuery } from './__generated__/MainRoutesQuery.graphql';
 
 const DashboardPage = React.lazy(() =>
   import(

@@ -1,8 +1,8 @@
+import { Box, Tooltip, Typography } from '@material-ui/core';
 import HelpIcon from '@material-ui/icons/Help';
 import React, { ReactNode } from 'react';
-import { Box, Tooltip, Typography } from '@material-ui/core';
-import { FCProps } from 'src/shared/types/FCProps';
 import { usePrintingContext } from 'src/shared/layouts/dashboard-layouts/PrintingContext';
+import { FCProps } from 'src/shared/types/FCProps';
 
 interface OwnProps {
   text: ReactNode;

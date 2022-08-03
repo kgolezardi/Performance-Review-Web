@@ -1,11 +1,10 @@
-import React from 'react';
 import { FormControl, InputLabel } from '@material-ui/core';
 import { action } from '@storybook/addon-actions';
 import { storiesOf } from '@storybook/react';
-
+import React from 'react';
+import { Forminator } from '../index';
 import SelectInput from '../inputs/SelectInput';
 import SubmitButton from '../utils/SubmitButton';
-import { Forminator } from '../index';
 
 const options = [
   { value: '1', label: 'One' },

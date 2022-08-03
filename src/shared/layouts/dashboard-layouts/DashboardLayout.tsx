@@ -1,11 +1,10 @@
+import { AppBar, createStyles, makeStyles, Theme, Toolbar } from '@material-ui/core';
 import React, { ComponentType, Fragment } from 'react';
-import { AppBar, Theme, Toolbar, createStyles, makeStyles } from '@material-ui/core';
-import { FCProps } from 'src/shared/types/FCProps';
 import { Overlayscrollbars } from 'src/shared/overlayscrollbars';
+import { FCProps } from 'src/shared/types/FCProps';
 import { Styles } from 'src/shared/types/Styles';
 import { groupChildrenByType } from 'src/shared/utils/groupChildrenByType.utils';
 import { useResetScroll } from 'src/shared/utils/useResetScroll';
-
 import { brandWidth, headerHeight } from './constants';
 import { usePrintingContext } from './PrintingContext';
 

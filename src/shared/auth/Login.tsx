@@ -1,14 +1,13 @@
+import { i18n } from '@lingui/core';
+import { Card, Container, createStyles, makeStyles, Theme, Typography } from '@material-ui/core';
+import React, { useState } from 'react';
 import defaultLoginBackgroundImage from 'src/assets/login-background.png';
 import logo from 'src/assets/logo.png';
-import React, { useState } from 'react';
-import { Card, Container, Theme, Typography, createStyles, makeStyles } from '@material-ui/core';
+import { useAppSettings } from 'src/core/settings';
 import { FCProps } from 'src/shared/types/FCProps';
 import { Styles } from 'src/shared/types/Styles';
-import { i18n } from '@lingui/core';
-import { useAppSettings } from 'src/core/settings';
-
-import { LoginForm, LoginFormProps } from './LoginForm';
 import { useLoginMutation } from './login.mutation';
+import { LoginForm, LoginFormProps } from './LoginForm';
 
 interface OwnProps {}
 

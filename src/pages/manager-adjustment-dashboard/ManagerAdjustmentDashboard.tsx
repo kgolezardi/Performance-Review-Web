@@ -1,15 +1,14 @@
-import React from 'react';
-import clsx from 'clsx';
+import { Box, createStyles, makeStyles, Paper, Theme } from '@material-ui/core';
 import graphql from 'babel-plugin-relay/macro';
-import { Box, Paper, Theme, createStyles, makeStyles } from '@material-ui/core';
-import { FCProps } from 'src/shared/types/FCProps';
-import { useHistory } from 'react-router-dom';
+import clsx from 'clsx';
+import React from 'react';
 import { useLazyLoadQuery } from 'react-relay/hooks';
-
-import { ManagerAdjustmentDashboardQuery } from './__generated__/ManagerAdjustmentDashboardQuery.graphql';
+import { useHistory } from 'react-router-dom';
+import { FCProps } from 'src/shared/types/FCProps';
 import { ManagerAdjustmentDashboardTable } from './ManagerAdjustmentDashboardTable';
 import { TableFilters } from './TableFilters';
 import { useFilters } from './useFilters';
+import { ManagerAdjustmentDashboardQuery } from './__generated__/ManagerAdjustmentDashboardQuery.graphql';
 
 const query = graphql`
   query ManagerAdjustmentDashboardQuery {

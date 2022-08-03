@@ -1,11 +1,10 @@
-import React from 'react';
+import { CardHeader, CardHeaderProps, createStyles, makeStyles, Theme } from '@material-ui/core';
 import graphql from 'babel-plugin-relay/macro';
-import { CardHeader, CardHeaderProps, Theme, createStyles, makeStyles } from '@material-ui/core';
+import React from 'react';
+import { useFragment } from 'react-relay/hooks';
 import { FCProps } from 'src/shared/types/FCProps';
 import { Styles } from 'src/shared/types/Styles';
 import { getUserLabel } from 'src/shared/utils/getUserLabel';
-import { useFragment } from 'react-relay/hooks';
-
 import { CardHeaderUserAvatar } from './CardHeaderUserAvatar';
 import { PersonInfoCardHeader_user$key } from './__generated__/PersonInfoCardHeader_user.graphql';
 

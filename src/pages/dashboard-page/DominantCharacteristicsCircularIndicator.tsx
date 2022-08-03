@@ -1,10 +1,9 @@
-import React from 'react';
-import graphql from 'babel-plugin-relay/macro';
-import { FCProps } from 'src/shared/types/FCProps';
-import { Typography } from '@material-ui/core';
 import { i18n } from '@lingui/core';
+import { Typography } from '@material-ui/core';
+import graphql from 'babel-plugin-relay/macro';
+import React from 'react';
 import { useFragment } from 'react-relay/hooks';
-
+import { FCProps } from 'src/shared/types/FCProps';
 import { DashboardPageCircularIndicator } from './DashboardPageCircularIndicator';
 import {
   DominantCharacteristicsCircularIndicator_review,

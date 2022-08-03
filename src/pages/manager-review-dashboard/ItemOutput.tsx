@@ -1,5 +1,5 @@
-import React from 'react';
 import { Box, Typography } from '@material-ui/core';
+import React from 'react';
 import { FCProps } from 'src/shared/types/FCProps';
 import { TypographyOutput } from 'src/shared/typography-output';
 

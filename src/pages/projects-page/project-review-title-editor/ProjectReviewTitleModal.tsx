@@ -1,7 +1,6 @@
-import * as React from 'react';
-import { Dialog, DialogTitle } from '@material-ui/core';
 import { i18n } from '@lingui/core';
-
+import { Dialog, DialogTitle } from '@material-ui/core';
+import * as React from 'react';
 import { ProjectReviewEditForm } from './ProjectReviewEditForm';
 import { ProjectReviewEditForm_projectReview$key } from './__generated__/ProjectReviewEditForm_projectReview.graphql';
 

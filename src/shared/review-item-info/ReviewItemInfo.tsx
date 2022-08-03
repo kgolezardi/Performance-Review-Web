@@ -1,6 +1,5 @@
 import React from 'react';
 import { FCProps } from 'src/shared/types/FCProps';
-
 import { AnonymousReviewItemInfo } from './AnonymousReviewItemInfo';
 import { IdentifiedReviewItemInfo } from './IdentifiedReviewItemInfo';
 

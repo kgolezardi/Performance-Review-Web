@@ -1,6 +1,5 @@
 import React, { createContext, useCallback, useContext, useRef, useState } from 'react';
 import { FCProps } from 'src/shared/types/FCProps';
-
 import { ConfirmationDialog } from './ConfirmationDialog';
 
 export interface ConfirmContextType {

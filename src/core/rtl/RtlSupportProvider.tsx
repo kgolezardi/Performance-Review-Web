@@ -1,8 +1,8 @@
-import React from 'react';
-import rtl from 'jss-rtl';
-import { FCProps } from 'src/shared/types/FCProps';
-import { StylesProvider, jssPreset } from '@material-ui/core';
+import { jssPreset, StylesProvider } from '@material-ui/core';
 import { create } from 'jss';
+import rtl from 'jss-rtl';
+import React from 'react';
+import { FCProps } from 'src/shared/types/FCProps';
 
 const jss = create({
   plugins: [...jssPreset().plugins, rtl()],

@@ -1,7 +1,7 @@
+import { Box, Grid, lighten, useTheme } from '@material-ui/core';
+import SelfCommentIcon from '@material-ui/icons/RateReview';
 import PeerCommnentIcon from '@material-ui/icons/SpeakerNotes';
 import React from 'react';
-import SelfCommentIcon from '@material-ui/icons/RateReview';
-import { Box, Grid, lighten, useTheme } from '@material-ui/core';
 import { FCProps } from 'src/shared/types/FCProps';
 
 interface OwnProps {

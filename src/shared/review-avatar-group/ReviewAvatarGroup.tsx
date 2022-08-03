@@ -1,10 +1,10 @@
+import { createStyles, makeStyles, Theme } from '@material-ui/core';
 import Avatar from '@material-ui/core/Avatar';
 import AvatarGroup from '@material-ui/lab/AvatarGroup';
-import React from 'react';
 import clsx from 'clsx';
+import React from 'react';
 import { FCProps } from 'src/shared/types/FCProps';
 import { Styles } from 'src/shared/types/Styles';
-import { Theme, createStyles, makeStyles } from '@material-ui/core';
 
 export interface ReviewAvatar {
   avatarUrl?: string;

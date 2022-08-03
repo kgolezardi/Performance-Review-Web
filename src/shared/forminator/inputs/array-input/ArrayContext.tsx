@@ -1,5 +1,4 @@
 import React, { Dispatch, useContext } from 'react';
-
 import { ArrayAction } from './arrayReducer';
 
 export const ArrayContext = React.createContext<Dispatch<ArrayAction> | null>(null);

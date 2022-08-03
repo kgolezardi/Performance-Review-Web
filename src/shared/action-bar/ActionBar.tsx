@@ -1,4 +1,4 @@
-import { Theme, styled } from '@material-ui/core';
+import { styled, Theme } from '@material-ui/core';
 
 export const ActionBar = styled('div')(({ theme }: { theme: Theme }) => ({
   display: 'grid',

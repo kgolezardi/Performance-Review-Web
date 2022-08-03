@@ -1,9 +1,8 @@
-import React from 'react';
 import { action } from '@storybook/addon-actions';
 import { storiesOf } from '@storybook/react';
-
-import SubmitButton from '../utils/SubmitButton';
+import React from 'react';
 import { Forminator, StringInput } from '..';
+import SubmitButton from '../utils/SubmitButton';
 
 storiesOf('Forminator/String input', module).add('simple', () => {
   return (

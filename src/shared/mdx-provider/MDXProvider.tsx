@@ -1,7 +1,7 @@
-import React from 'react';
-import { Components, MDXProvider as BaseMDXProvider } from '@mdx-js/react';
-import { FCProps } from 'src/shared/types/FCProps';
 import { Typography } from '@material-ui/core';
+import { Components, MDXProvider as BaseMDXProvider } from '@mdx-js/react';
+import React from 'react';
+import { FCProps } from 'src/shared/types/FCProps';
 import { withProps } from 'src/shared/utils/withProps';
 
 const H1Typography = withProps(Typography, { variant: 'h1', gutterBottom: true, style: { marginTop: '2em' } });

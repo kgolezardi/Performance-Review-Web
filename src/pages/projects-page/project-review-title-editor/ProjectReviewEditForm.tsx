@@ -1,18 +1,17 @@
-import * as React from 'react';
-import graphql from 'babel-plugin-relay/macro';
-import { Box, Button, DialogActions, DialogContent, Theme, createStyles, makeStyles } from '@material-ui/core';
-import { DictInput, DictInputItem, Forminator, StringInput, SubmitButton } from 'src/shared/forminator';
 import { i18n } from '@lingui/core';
+import { Box, Button, createStyles, DialogActions, DialogContent, makeStyles, Theme } from '@material-ui/core';
+import graphql from 'babel-plugin-relay/macro';
 import { map, prop } from 'ramda';
-import { transformAnswersToInput } from 'src/shared/utils/transformAnswers';
-import { useBiDiSnackbar } from 'src/shared/snackbar';
+import * as React from 'react';
 import { useFragment } from 'react-relay/hooks';
 import { useRoundQuestions } from 'src/core/round-questions';
-
+import { DictInput, DictInputItem, Forminator, StringInput, SubmitButton } from 'src/shared/forminator';
+import { useBiDiSnackbar } from 'src/shared/snackbar';
+import { transformAnswersToInput } from 'src/shared/utils/transformAnswers';
 import { AddProjectFormData } from '../AddProjectForm';
+import { useEditProjectReview } from '../editProjectReview.mutation';
 import { EditProjectReviewMutationInput } from '../__generated__/editProjectReviewMutation.graphql';
 import { ProjectReviewEditForm_projectReview$key } from './__generated__/ProjectReviewEditForm_projectReview.graphql';
-import { useEditProjectReview } from '../editProjectReview.mutation';
 
 interface OwnProps {
   projectReview: ProjectReviewEditForm_projectReview$key;

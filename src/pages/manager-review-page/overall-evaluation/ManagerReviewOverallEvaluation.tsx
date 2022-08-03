@@ -1,7 +1,12 @@
-import ReactMarkdown from 'react-markdown';
+import { i18n } from '@lingui/core';
+import { Box, Grid, Typography } from '@material-ui/core';
 import graphql from 'babel-plugin-relay/macro';
 import React, { Fragment } from 'react';
-import { Box, Grid, Typography } from '@material-ui/core';
+import ReactMarkdown from 'react-markdown';
+import { useLazyLoadQuery } from 'react-relay/hooks';
+import { useMutation } from 'src/relay';
+import { EvaluationOutput } from 'src/shared/evaluation-output';
+import { useFormDirty } from 'src/shared/form-change-detector';
 import {
   ConstantInput,
   DictInput,
@@ -10,20 +15,14 @@ import {
   FragmentPrompt,
   SubmitButton,
 } from 'src/shared/forminator';
-import { EvaluationOutput } from 'src/shared/evaluation-output';
-import { FCProps } from 'src/shared/types/FCProps';
 import { Rating } from 'src/shared/rating';
-import { ServerValueProvider } from 'src/shared/server-value';
 import { defaultRenderers } from 'src/shared/react-markdown';
-import { i18n } from '@lingui/core';
+import { ServerValueProvider } from 'src/shared/server-value';
 import { useBiDiSnackbar } from 'src/shared/snackbar';
-import { useFormDirty } from 'src/shared/form-change-detector';
-import { useLazyLoadQuery } from 'react-relay/hooks';
-import { useMutation } from 'src/relay';
-
+import { FCProps } from 'src/shared/types/FCProps';
+import { ManagerReviewOverallEvaluationValue } from './ManagerReviewOverallEvaluationValue';
 import { ManagerReviewOverallEvaluationMutation } from './__generated__/ManagerReviewOverallEvaluationMutation.graphql';
 import { ManagerReviewOverallEvaluationQuery } from './__generated__/ManagerReviewOverallEvaluationQuery.graphql';
-import { ManagerReviewOverallEvaluationValue } from './ManagerReviewOverallEvaluationValue';
 
 const query = graphql`
   query ManagerReviewOverallEvaluationQuery($id: ID!) {

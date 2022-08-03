@@ -1,4 +1,4 @@
 export { FormChangeDetector } from './FormChangeDetector';
-export { useFormChanged } from './useFormChanged';
 export { useFormChangeDetectorContext } from './FormChangeDetectorContext';
+export { useFormChanged } from './useFormChanged';
 export { useFormDirty } from './useFormDirty';

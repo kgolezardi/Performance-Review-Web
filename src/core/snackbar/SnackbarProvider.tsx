@@ -1,8 +1,8 @@
+import { createStyles, makeStyles, Theme } from '@material-ui/core';
+import { SnackbarProvider as Snackbar, SnackbarProviderProps } from 'notistack';
 import React from 'react';
 import { FCProps } from 'src/shared/types/FCProps';
-import { SnackbarProvider as Snackbar, SnackbarProviderProps } from 'notistack';
 import { Styles } from 'src/shared/types/Styles';
-import { Theme, createStyles, makeStyles } from '@material-ui/core';
 
 interface OwnProps extends SnackbarProviderProps {}
 

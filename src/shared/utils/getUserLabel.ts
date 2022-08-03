@@ -1,6 +1,5 @@
 import graphql from 'babel-plugin-relay/macro';
 import { readInlineData } from 'relay-runtime';
-
 import { getUserLabel_user, getUserLabel_user$key } from './__generated__/getUserLabel_user.graphql';
 
 interface GetLabelOptions {

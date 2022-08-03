@@ -1,5 +1,10 @@
-import logo from 'src/assets/logo-light.png';
+import { i18n } from '@lingui/core';
 import React, { Suspense, useMemo } from 'react';
+import logo from 'src/assets/logo-light.png';
+import { useAuthGuardUser } from 'src/core/auth';
+import { useAppSettings } from 'src/core/settings';
+import { ErrorBoundary } from 'src/shared/error-boundary';
+import { FullPageError } from 'src/shared/full-page-error';
 import {
   Brand,
   BrandRegion,
@@ -9,17 +14,11 @@ import {
   NavbarRegion,
   UserRegion,
 } from 'src/shared/layouts/dashboard-layouts';
-import { ErrorBoundary } from 'src/shared/error-boundary';
-import { FCProps } from 'src/shared/types/FCProps';
-import { FullPageError } from 'src/shared/full-page-error';
 import { FullPageSpinner } from 'src/shared/loading';
-import { i18n } from '@lingui/core';
-import { useAppSettings } from 'src/core/settings';
-import { useAuthGuardUser } from 'src/core/auth';
-
+import { FCProps } from 'src/shared/types/FCProps';
+import { getMenuItems } from './getMenuItems';
 import { MainRoutes } from './MainRoutes';
 import { NavbarUser } from './NavbarUser';
-import { getMenuItems } from './getMenuItems';
 
 interface OwnProps {}
 

@@ -1,10 +1,8 @@
-import './_config/install';
-
 import React from 'react';
 import ReactDOM from 'react-dom';
-
-import * as serviceWorker from './serviceWorker';
 import App from './App';
+import * as serviceWorker from './serviceWorker';
+import './_config/install';
 
 const rootElement = document.createElement('div');
 rootElement.id = 'root';

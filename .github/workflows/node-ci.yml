@@ -9,9 +9,8 @@ jobs:
         with:
           node-version: '16.x'
       - run: yarn
-      - run: yarn lint
       - run: yarn format:check
-      - run: yarn sort:check
+      - run: yarn lint
       - run: yarn test --coverage --verbose
       - run: yarn build
       - run: git diff --exit-code --name-only

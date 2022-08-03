@@ -1,16 +1,15 @@
-import React from 'react';
+import { i18n } from '@lingui/core';
+import { Box, createStyles, Grid, lighten, makeStyles, Theme, Typography, useTheme } from '@material-ui/core';
 import graphql from 'babel-plugin-relay/macro';
-import { Box, Grid, Theme, Typography, createStyles, lighten, makeStyles, useTheme } from '@material-ui/core';
+import React from 'react';
+import { useFragment } from 'react-relay/hooks';
 import { ExpansionPanel, ExpansionPanelDetails, ExpansionPanelSummary } from 'src/shared/expansion-panel';
-import { FCProps } from 'src/shared/types/FCProps';
 import { ProjectOutput } from 'src/shared/project-output';
 import { QuoteBox } from 'src/shared/quote-box';
+import { FCProps } from 'src/shared/types/FCProps';
 import { Styles } from 'src/shared/types/Styles';
-import { i18n } from '@lingui/core';
-import { useFragment } from 'react-relay/hooks';
-
-import { ProjectResultExpansionPanel_projectReview$key } from './__generated__/ProjectResultExpansionPanel_projectReview.graphql';
 import { ProjectResultRatingGroup } from './ProjectResultRatingGroup';
+import { ProjectResultExpansionPanel_projectReview$key } from './__generated__/ProjectResultExpansionPanel_projectReview.graphql';
 
 const fragment = graphql`
   fragment ProjectResultExpansionPanel_projectReview on ProjectReviewNode {

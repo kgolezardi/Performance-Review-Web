@@ -1,10 +1,9 @@
-import React from 'react';
-import graphql from 'babel-plugin-relay/macro';
-import { ID, UserNodeResolver, ViewerNodeResolver } from 'src/stories/mock-resolvers';
-import { mockRelayDecorator, routerDecorator, storyWrapperDecorator } from 'src/stories/decorators';
 import { storiesOf } from '@storybook/react';
+import graphql from 'babel-plugin-relay/macro';
+import React from 'react';
 import { useLazyLoadQuery } from 'react-relay/hooks';
-
+import { mockRelayDecorator, routerDecorator, storyWrapperDecorator } from 'src/stories/decorators';
+import { ID, UserNodeResolver, ViewerNodeResolver } from 'src/stories/mock-resolvers';
 import { UserCard } from './UserCard';
 import { UserCardStoriesQuery } from './__generated__/UserCardStoriesQuery.graphql';
 

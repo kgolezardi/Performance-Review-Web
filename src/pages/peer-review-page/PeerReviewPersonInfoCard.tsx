@@ -1,23 +1,22 @@
-import graphql from 'babel-plugin-relay/macro';
-import React, { useCallback } from 'react';
-import { Answers } from 'src/core/domain';
-import { Button } from '@material-ui/core';
-import { FCProps } from 'src/shared/types/FCProps';
-import { LanguageCodes } from 'src/core/locales/types';
-import { LocationState } from 'src/pages/peer-review-board-page/PeerReviewBoardPage';
-import { PersonInfoCardHeader } from 'src/shared/person-info-card-header';
-import { getUserLabel } from 'src/shared/utils/getUserLabel';
 import { i18n } from '@lingui/core';
+import { Button } from '@material-ui/core';
+import graphql from 'babel-plugin-relay/macro';
 import { innerJoin, prop } from 'ramda';
-import { localizeNumber } from 'src/shared/utils/localizeNumber.util';
-import { useBiDiSnackbar } from 'src/shared/snackbar';
-import { useFormDirty } from 'src/shared/form-change-detector';
+import React, { useCallback } from 'react';
 import { useFragment } from 'react-relay/hooks';
 import { useHistory } from 'react-router-dom';
+import { Answers } from 'src/core/domain';
+import { LanguageCodes } from 'src/core/locales/types';
 import { useRoundQuestions } from 'src/core/round-questions';
-
-import { PeerReviewPersonInfoCard_user$key } from './__generated__/PeerReviewPersonInfoCard_user.graphql';
+import { LocationState } from 'src/pages/peer-review-board-page/PeerReviewBoardPage';
+import { useFormDirty } from 'src/shared/form-change-detector';
+import { PersonInfoCardHeader } from 'src/shared/person-info-card-header';
+import { useBiDiSnackbar } from 'src/shared/snackbar';
+import { FCProps } from 'src/shared/types/FCProps';
+import { getUserLabel } from 'src/shared/utils/getUserLabel';
+import { localizeNumber } from 'src/shared/utils/localizeNumber.util';
 import { useSavePersonReviewMutation } from './savePersonReview.mutation';
+import { PeerReviewPersonInfoCard_user$key } from './__generated__/PeerReviewPersonInfoCard_user.graphql';
 
 const fragment = graphql`
   fragment PeerReviewPersonInfoCard_user on UserNode {

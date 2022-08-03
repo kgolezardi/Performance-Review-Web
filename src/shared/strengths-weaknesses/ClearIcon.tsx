@@ -1,11 +1,11 @@
+import { createStyles, makeStyles, SvgIconProps, Theme } from '@material-ui/core';
 import MuiClearIcon from '@material-ui/icons/Clear';
 import React, { useCallback } from 'react';
+import { useFragmentContext } from 'src/shared/forminator/core/fragment/FragmentContext';
+import { useArrayContext } from 'src/shared/forminator/inputs/array-input/ArrayContext';
 import { ArrayActionType } from 'src/shared/forminator/inputs/array-input/arrayReducer';
 import { FCProps } from 'src/shared/types/FCProps';
 import { Styles } from 'src/shared/types/Styles';
-import { SvgIconProps, Theme, createStyles, makeStyles } from '@material-ui/core';
-import { useArrayContext } from 'src/shared/forminator/inputs/array-input/ArrayContext';
-import { useFragmentContext } from 'src/shared/forminator/core/fragment/FragmentContext';
 
 interface OwnProps extends Omit<SvgIconProps, 'onClick' | 'classes'> {}
 

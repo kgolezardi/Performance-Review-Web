@@ -1,8 +1,8 @@
 import React, { Fragment } from 'react';
-import { FCProps } from 'src/shared/types/FCProps';
 import { Prompt as RouterPrompt } from 'react-router-dom';
-import { UnloadPrompt } from 'src/shared/unload-prompt';
 import { useFormChangeDetectorContext } from 'src/shared/form-change-detector';
+import { FCProps } from 'src/shared/types/FCProps';
+import { UnloadPrompt } from 'src/shared/unload-prompt';
 
 interface OwnProps {
   message: string;

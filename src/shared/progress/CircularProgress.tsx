@@ -1,16 +1,16 @@
-import clsx from 'clsx';
-import React, { useEffect, useState } from 'react';
-import { FCProps } from 'src/shared/types/FCProps';
 import {
   CircularProgress as MuiCircularProgress,
   CircularProgressProps,
-  Theme,
   createStyles,
   lighten,
   makeStyles,
+  Theme,
 } from '@material-ui/core';
-import { Styles } from 'src/shared/types/Styles';
 import { amber, deepOrange, green, lightBlue } from '@material-ui/core/colors';
+import clsx from 'clsx';
+import React, { useEffect, useState } from 'react';
+import { FCProps } from 'src/shared/types/FCProps';
+import { Styles } from 'src/shared/types/Styles';
 
 interface OwnProps extends Omit<CircularProgressProps, 'color' | 'variant'> {
   color?: 'low' | 'medium' | 'high' | 'complete' | 'error' | 'default';

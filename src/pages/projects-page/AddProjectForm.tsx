@@ -1,7 +1,7 @@
+import { i18n } from '@lingui/core';
+import { Box, Grid, Typography } from '@material-ui/core';
 import AddIcon from '@material-ui/icons/Add';
 import React from 'react';
-import ResetInputOnSubmit from 'src/shared/forminator/utils/ResetInputOnSubmit';
-import { Box, Grid, Typography } from '@material-ui/core';
 import {
   ConditionalSection,
   DictInput,
@@ -11,9 +11,9 @@ import {
   StringInput,
   SubmitButton,
 } from 'src/shared/forminator';
-import { FCProps } from 'src/shared/types/FCProps';
-import { i18n } from '@lingui/core';
 import { useFragmentLens } from 'src/shared/forminator/core/fragment-lens/useFragmentLens';
+import ResetInputOnSubmit from 'src/shared/forminator/utils/ResetInputOnSubmit';
+import { FCProps } from 'src/shared/types/FCProps';
 
 const maximumProjects = 5;
 export interface AddProjectFormData {

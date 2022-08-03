@@ -1,11 +1,10 @@
-import React from 'react';
+import { i18n } from '@lingui/core';
 import { Box } from '@material-ui/core';
+import { action } from '@storybook/addon-actions';
+import { storiesOf } from '@storybook/react';
+import React from 'react';
 import { Forminator, SubmitButton } from 'src/shared/forminator';
 import { Option } from 'src/shared/forminator/types';
-import { action } from '@storybook/addon-actions';
-import { i18n } from '@lingui/core';
-import { storiesOf } from '@storybook/react';
-
 import { Select } from './Select';
 
 const options: Option[] = [

@@ -1,9 +1,8 @@
 import * as React from 'react';
 import { FCProps } from 'src/shared/types/FCProps';
-
-import SubmitProvider from '../core/submit/SubmitProvider';
 import { FragmentLens } from '../core/fragment-lens/FragmentLens';
 import { useSubmitContext } from '../core/submit/SubmitContext';
+import SubmitProvider from '../core/submit/SubmitProvider';
 
 interface OwnProps<V> {
   lens: FragmentLens<V>;

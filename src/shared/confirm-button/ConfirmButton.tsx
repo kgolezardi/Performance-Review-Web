@@ -1,4 +1,4 @@
-import React, { Fragment, useCallback } from 'react';
+import { i18n } from '@lingui/core';
 import {
   Button,
   ButtonProps,
@@ -8,7 +8,7 @@ import {
   DialogContentText,
   DialogTitle,
 } from '@material-ui/core';
-import { i18n } from '@lingui/core';
+import React, { Fragment, useCallback } from 'react';
 
 interface OwnProps {
   buttonText: string;

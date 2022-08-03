@@ -1,6 +1,6 @@
+import { SvgIcon, SvgIconProps } from '@material-ui/core';
 import React from 'react';
 import { FCProps } from 'src/shared/types/FCProps';
-import { SvgIcon, SvgIconProps } from '@material-ui/core';
 
 interface OwnProps extends SvgIconProps {}
 

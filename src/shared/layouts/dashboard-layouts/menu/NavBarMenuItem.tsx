@@ -1,11 +1,10 @@
+import { createStyles, Divider, lighten, List, makeStyles, MenuItem, Paper, Theme } from '@material-ui/core';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import clsx from 'clsx';
 import React, { Fragment, useState } from 'react';
-import { Divider, List, MenuItem, Paper, Theme, createStyles, lighten, makeStyles } from '@material-ui/core';
-import { FCProps } from 'src/shared/types/FCProps';
 import { NavLink } from 'react-router-dom';
+import { FCProps } from 'src/shared/types/FCProps';
 import { Styles } from 'src/shared/types/Styles';
-
 import type { NavbarMenuItem } from './types';
 
 interface OwnProps {

@@ -1,6 +1,10 @@
-import * as React from 'react';
+import { i18n } from '@lingui/core';
+import { Grid } from '@material-ui/core';
 import graphql from 'babel-plugin-relay/macro';
+import * as React from 'react';
+import { useFragment } from 'react-relay/hooks';
 import { ActionBar } from 'src/shared/action-bar';
+import { useFormDirty } from 'src/shared/form-change-detector';
 import {
   CheckboxInput,
   ConstantInput,
@@ -10,13 +14,8 @@ import {
   FragmentPrompt,
   SubmitButton,
 } from 'src/shared/forminator';
-import { Grid } from '@material-ui/core';
 import { ReviewersInput } from 'src/shared/reviewers-input';
 import { ReviewersInput_Reviewers$key } from 'src/shared/reviewers-input/__generated__/ReviewersInput_Reviewers.graphql';
-import { i18n } from '@lingui/core';
-import { useFormDirty } from 'src/shared/form-change-detector';
-import { useFragment } from 'react-relay/hooks';
-
 import { ManageAdjustmentFormData } from './ManageAdjustmentFormData';
 import { ManagerAdjustmentForm_data$key } from './__generated__/ManagerAdjustmentForm_data.graphql';
 

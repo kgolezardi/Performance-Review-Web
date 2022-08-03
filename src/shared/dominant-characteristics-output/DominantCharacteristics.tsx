@@ -1,10 +1,9 @@
-import React from 'react';
-import graphql from 'babel-plugin-relay/macro';
-import { FCProps } from 'src/shared/types/FCProps';
-import { Grid } from '@material-ui/core';
 import { i18n } from '@lingui/core';
+import { Grid } from '@material-ui/core';
+import graphql from 'babel-plugin-relay/macro';
+import React from 'react';
 import { useFragment } from 'react-relay/hooks';
-
+import { FCProps } from 'src/shared/types/FCProps';
 import { CharacteristicsList } from './CharacteristicsList';
 import { DominantCharacteristicsOutput_review$key } from './__generated__/DominantCharacteristicsOutput_review.graphql';
 

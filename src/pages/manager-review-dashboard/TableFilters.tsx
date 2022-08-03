@@ -1,11 +1,10 @@
-import React, { Dispatch, SetStateAction, useMemo } from 'react';
-import { FCProps } from 'src/shared/types/FCProps';
-import { FormControl, Grid, InputLabel, MenuItem, Select, TextField } from '@material-ui/core';
-import { getOptionsFromDictionary } from 'src/shared/utils/getOptionsFromDictionary';
 import { i18n } from '@lingui/core';
+import { FormControl, Grid, InputLabel, MenuItem, Select, TextField } from '@material-ui/core';
+import React, { Dispatch, SetStateAction, useMemo } from 'react';
 import { peerReviewEvaluationDictionary } from 'src/global-types';
 import { useLabelWidth } from 'src/shared/hooks';
-
+import { FCProps } from 'src/shared/types/FCProps';
+import { getOptionsFromDictionary } from 'src/shared/utils/getOptionsFromDictionary';
 import type { Filters, OverallRating, Status } from './useFilters';
 
 interface OwnProps {

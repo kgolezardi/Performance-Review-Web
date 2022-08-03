@@ -1,8 +1,7 @@
 import nanoid from 'nanoid';
+import { values } from 'ramda';
 import React, { useCallback, useMemo, useState } from 'react';
 import { FCProps } from 'src/shared/types/FCProps';
-import { values } from 'ramda';
-
 import { FormChangeDetectorContext } from './FormChangeDetectorContext';
 import { useFormChanged } from './useFormChanged';
 

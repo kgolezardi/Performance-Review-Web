@@ -1,20 +1,19 @@
-import React from 'react';
-import graphql from 'babel-plugin-relay/macro';
-import { Answers } from 'src/core/domain';
+import { i18n } from '@lingui/core';
 import { Box, Typography } from '@material-ui/core';
-import { Evaluation } from 'src/__generated__/enums';
+import graphql from 'babel-plugin-relay/macro';
+import { innerJoin } from 'ramda';
+import React from 'react';
+import { useFragment } from 'react-relay/hooks';
+import { Answers } from 'src/core/domain';
+import { useRoundQuestions } from 'src/core/round-questions';
+import { selfReviewEvaluationDictionary } from 'src/global-types';
 import { ExcludeUnknown } from 'src/shared/enum-utils/types';
-import { FCProps } from 'src/shared/types/FCProps';
 import { MultilineOutput } from 'src/shared/multiline-output';
 import { QuestionOutput } from 'src/shared/project-output';
 import { ReviewItemInfo } from 'src/shared/review-item-info';
+import { FCProps } from 'src/shared/types/FCProps';
 import { getQuestionsAnswersPair } from 'src/shared/utils/questionsAnswersPair';
-import { i18n } from '@lingui/core';
-import { innerJoin } from 'ramda';
-import { selfReviewEvaluationDictionary } from 'src/global-types';
-import { useFragment } from 'react-relay/hooks';
-import { useRoundQuestions } from 'src/core/round-questions';
-
+import { Evaluation } from 'src/__generated__/enums';
 import { ProjectResultRatingGroup_comments$key } from './__generated__/ProjectResultRatingGroup_comments.graphql';
 
 const fragment = graphql`

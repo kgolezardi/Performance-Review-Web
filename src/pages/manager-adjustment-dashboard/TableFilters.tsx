@@ -1,9 +1,8 @@
-import React, { ChangeEvent, Dispatch, SetStateAction } from 'react';
-import { FCProps } from 'src/shared/types/FCProps';
-import { FormControl, Grid, InputLabel, MenuItem, Select, SelectProps, TextField } from '@material-ui/core';
 import { i18n } from '@lingui/core';
+import { FormControl, Grid, InputLabel, MenuItem, Select, SelectProps, TextField } from '@material-ui/core';
+import React, { ChangeEvent, Dispatch, SetStateAction } from 'react';
 import { useLabelWidth } from 'src/shared/hooks';
-
+import { FCProps } from 'src/shared/types/FCProps';
 import type { Filters, Status } from './useFilters';
 
 interface OwnProps {

@@ -1,10 +1,9 @@
-import React from 'react';
-import graphql from 'babel-plugin-relay/macro';
-import { Box } from '@material-ui/core';
-import { FCProps } from 'src/shared/types/FCProps';
 import { i18n } from '@lingui/core';
+import { Box } from '@material-ui/core';
+import graphql from 'babel-plugin-relay/macro';
+import React from 'react';
 import { useLazyLoadQuery } from 'react-relay/hooks';
-
+import { FCProps } from 'src/shared/types/FCProps';
 import { ManagerReviewDominantCharacteristicsExpansionPanel } from './ManagerReviewDominantCharacteristicsExpansionPanel';
 import { ManagerReviewDominantCharacteristicsQuery } from './__generated__/ManagerReviewDominantCharacteristicsQuery.graphql';
 

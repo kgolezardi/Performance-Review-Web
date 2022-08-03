@@ -1,8 +1,7 @@
-import { GraphQLTaggedNode } from 'react-relay';
-import { MutationConfig, MutationParameters } from 'relay-runtime';
 import { useCallback } from 'react';
+import { GraphQLTaggedNode } from 'react-relay';
 import { useRelayEnvironment } from 'react-relay/hooks';
-
+import { MutationConfig, MutationParameters } from 'relay-runtime';
 import { commitMutation } from './commitMutation';
 
 export const useMutation = <TOperation extends MutationParameters = MutationParameters>(

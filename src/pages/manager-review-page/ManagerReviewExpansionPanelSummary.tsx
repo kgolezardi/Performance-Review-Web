@@ -1,11 +1,10 @@
+import { i18n } from '@lingui/core';
+import { Box, ExpansionPanelSummaryProps, makeStyles, Theme, Typography } from '@material-ui/core';
 import React from 'react';
-import { Box, ExpansionPanelSummaryProps, Theme, Typography, makeStyles } from '@material-ui/core';
 import { EvaluationOutput } from 'src/shared/evaluation-output';
 import { ExpansionPanelSummary } from 'src/shared/expansion-panel';
 import { FCProps } from 'src/shared/types/FCProps';
 import { Styles } from 'src/shared/types/Styles';
-import { i18n } from '@lingui/core';
-
 import { Evaluation } from '../dashboard-page/__generated__/AchievementsIndicators_projects.graphql';
 
 interface OwnProps extends ExpansionPanelSummaryProps {

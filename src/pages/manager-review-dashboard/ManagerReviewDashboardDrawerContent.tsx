@@ -1,14 +1,13 @@
+import { i18n } from '@lingui/core';
+import { Box, Button, createStyles, Grid, IconButton, makeStyles, Theme, Typography } from '@material-ui/core';
 import CloseIcon from '@material-ui/icons/Close';
-import React from 'react';
 import graphql from 'babel-plugin-relay/macro';
-import { Box, Button, Grid, IconButton, Theme, Typography, createStyles, makeStyles } from '@material-ui/core';
-import { FCProps } from 'src/shared/types/FCProps';
+import React from 'react';
+import { useFragment } from 'react-relay/hooks';
 import { Link } from 'react-router-dom';
+import { FCProps } from 'src/shared/types/FCProps';
 import { UserAvatar } from 'src/shared/user-avatar';
 import { getUserLabel } from 'src/shared/utils/getUserLabel';
-import { i18n } from '@lingui/core';
-import { useFragment } from 'react-relay/hooks';
-
 import { EvaluationItemOutput } from './EvaluationItemOutput';
 import { ItemOutput } from './ItemOutput';
 import { ManagerReviewDashboardDrawerContent_data$key } from './__generated__/ManagerReviewDashboardDrawerContent_data.graphql';

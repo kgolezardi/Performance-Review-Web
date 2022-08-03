@@ -1,9 +1,9 @@
-import React, { Fragment, useState } from 'react';
-import { Box, Theme, Typography, TypographyProps, styled } from '@material-ui/core';
-import { FCProps } from 'src/shared/types/FCProps';
-import { NON_BREAKING_SPACE } from 'src/shared/constants';
 import { i18n } from '@lingui/core';
+import { Box, styled, Theme, Typography, TypographyProps } from '@material-ui/core';
+import React, { Fragment, useState } from 'react';
+import { NON_BREAKING_SPACE } from 'src/shared/constants';
 import { usePrintingContext } from 'src/shared/layouts/dashboard-layouts/PrintingContext';
+import { FCProps } from 'src/shared/types/FCProps';
 
 interface OwnProps extends Omit<TypographyProps, 'children'> {
   value: string | null;

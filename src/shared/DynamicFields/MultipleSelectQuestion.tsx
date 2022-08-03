@@ -1,8 +1,7 @@
+import { FormHelperText } from '@material-ui/core';
 import * as React from 'react';
 import ReactMarkdown from 'react-markdown';
-import { FormHelperText } from '@material-ui/core';
 import { Question } from 'src/core/domain';
-
 import SelectMultiAutoComplete from '../forminator/inputs/SelectMultiAutoComplete';
 import { helpTextRenderers } from '../react-markdown';
 

@@ -1,5 +1,4 @@
 import { QuestionType } from 'src/__generated__/enums';
-
 import { RoundQuestions_managerReview } from '../round-questions/__generated__/RoundQuestions_managerReview.graphql';
 import { RoundQuestions_peerReview } from '../round-questions/__generated__/RoundQuestions_peerReview.graphql';
 import { RoundQuestions_selfReview } from '../round-questions/__generated__/RoundQuestions_selfReview.graphql';

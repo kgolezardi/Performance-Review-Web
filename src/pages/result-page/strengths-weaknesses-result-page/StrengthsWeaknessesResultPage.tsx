@@ -1,9 +1,8 @@
-import React from 'react';
-import graphql from 'babel-plugin-relay/macro';
 import { Box } from '@material-ui/core';
-import { FCProps } from 'src/shared/types/FCProps';
+import graphql from 'babel-plugin-relay/macro';
+import React from 'react';
 import { useLazyLoadQuery } from 'react-relay/hooks';
-
+import { FCProps } from 'src/shared/types/FCProps';
 import { StrengthsWeaknessesResult } from './StrengthsWeaknessesResult';
 import { StrengthsWeaknessesResultPageQuery } from './__generated__/StrengthsWeaknessesResultPageQuery.graphql';
 

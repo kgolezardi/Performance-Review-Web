@@ -1,9 +1,9 @@
-import React from 'react';
-import { Button, Theme, createStyles, makeStyles } from '@material-ui/core';
-import { FCProps } from 'src/shared/types/FCProps';
-import { Link, LinkProps } from 'react-router-dom';
-import { Styles } from 'src/shared/types/Styles';
 import { i18n } from '@lingui/core';
+import { Button, createStyles, makeStyles, Theme } from '@material-ui/core';
+import React from 'react';
+import { Link, LinkProps } from 'react-router-dom';
+import { FCProps } from 'src/shared/types/FCProps';
+import { Styles } from 'src/shared/types/Styles';
 
 interface OwnProps {
   to: LinkProps['to'];

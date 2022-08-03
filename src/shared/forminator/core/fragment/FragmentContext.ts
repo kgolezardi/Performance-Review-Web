@@ -1,5 +1,4 @@
 import React, { useContext, useDebugValue } from 'react';
-
 import { ForminatorFragment } from './ForminatorFragment';
 
 export const FragmentContext = React.createContext<ForminatorFragment | null>(null);

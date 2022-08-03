@@ -1,22 +1,21 @@
+import { i18n } from '@lingui/core';
+import { createStyles, Grid, makeStyles, Theme, Typography } from '@material-ui/core';
 import graphql from 'babel-plugin-relay/macro';
 import React, { useCallback } from 'react';
-import { ExpansionPanel, ExpansionPanelDetails, ExpansionPanelSummary } from 'src/shared/expansion-panel';
-import { FCProps } from 'src/shared/types/FCProps';
-import { Grid, Theme, Typography, createStyles, makeStyles } from '@material-ui/core';
-import { ProjectOutput } from 'src/shared/project-output';
-import { QuoteBox } from 'src/shared/quote-box';
-import { Styles } from 'src/shared/types/Styles';
-import { getUserLabel } from 'src/shared/utils/getUserLabel';
-import { i18n } from '@lingui/core';
-import { transformAnswersToInput } from 'src/shared/utils/transformAnswers';
-import { useBiDiSnackbar } from 'src/shared/snackbar';
 import { useFragment } from 'react-relay/hooks';
 import { useRoundQuestions } from 'src/core/round-questions';
-
-import { PeerReviewProjectExpansionPanel_projectReview$key } from './__generated__/PeerReviewProjectExpansionPanel_projectReview.graphql';
+import { ExpansionPanel, ExpansionPanelDetails, ExpansionPanelSummary } from 'src/shared/expansion-panel';
+import { ProjectOutput } from 'src/shared/project-output';
+import { QuoteBox } from 'src/shared/quote-box';
+import { useBiDiSnackbar } from 'src/shared/snackbar';
+import { FCProps } from 'src/shared/types/FCProps';
+import { Styles } from 'src/shared/types/Styles';
+import { getUserLabel } from 'src/shared/utils/getUserLabel';
+import { transformAnswersToInput } from 'src/shared/utils/transformAnswers';
 import { PeerReviewProjectsForm, PeerReviewProjectsFormValue } from '../projects-form/PeerReviewProjectsForm';
-import { saveProjectCommentMutation } from './__generated__/saveProjectCommentMutation.graphql';
 import { useSaveProjectComment } from './saveProjectComment.mutation';
+import { PeerReviewProjectExpansionPanel_projectReview$key } from './__generated__/PeerReviewProjectExpansionPanel_projectReview.graphql';
+import { saveProjectCommentMutation } from './__generated__/saveProjectCommentMutation.graphql';
 
 const fragment = graphql`
   fragment PeerReviewProjectExpansionPanel_projectReview on ProjectReviewNode {

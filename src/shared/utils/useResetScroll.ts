@@ -1,6 +1,6 @@
-import { ImperativeHandles } from 'src/shared/overlayscrollbars/useOverlayscrollbars';
 import { useEffect, useRef } from 'react';
 import { useLocation } from 'react-router-dom';
+import { ImperativeHandles } from 'src/shared/overlayscrollbars/useOverlayscrollbars';
 
 /**
  * Resets scrollbar whenever `location` changes

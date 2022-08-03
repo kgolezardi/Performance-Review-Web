@@ -1,5 +1,10 @@
 import { useFragment, useLazyLoadQuery } from 'react-relay/hooks';
-
+import {
+  managerReviewProjectQuestionsFragment,
+  peerReviewProjectQuestionsFragment,
+  query,
+  selfReviewProjectQuestionsFragment,
+} from './RoundQuestion';
 import { RoundQuestionsQuery } from './__generated__/RoundQuestionsQuery.graphql';
 import {
   RoundQuestions_managerReview,
@@ -13,12 +18,6 @@ import {
   RoundQuestions_selfReview,
   RoundQuestions_selfReview$key,
 } from './__generated__/RoundQuestions_selfReview.graphql';
-import {
-  managerReviewProjectQuestionsFragment,
-  peerReviewProjectQuestionsFragment,
-  query,
-  selfReviewProjectQuestionsFragment,
-} from './RoundQuestion';
 
 export type RoundQuestions = {
   selfReviewProjectQuestions: RoundQuestions_selfReview;

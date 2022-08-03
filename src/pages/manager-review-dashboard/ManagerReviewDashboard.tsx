@@ -1,15 +1,14 @@
-import clsx from 'clsx';
+import { Box, createStyles, Drawer, makeStyles, Paper, Theme } from '@material-ui/core';
 import graphql from 'babel-plugin-relay/macro';
+import clsx from 'clsx';
 import React, { useState } from 'react';
-import { Box, Drawer, Paper, Theme, createStyles, makeStyles } from '@material-ui/core';
-import { FCProps } from 'src/shared/types/FCProps';
 import { useLazyLoadQuery } from 'react-relay/hooks';
-
+import { FCProps } from 'src/shared/types/FCProps';
 import { ManagerReviewDashboardDrawerContent } from './ManagerReviewDashboardDrawerContent';
-import { ManagerReviewDashboardQuery } from './__generated__/ManagerReviewDashboardQuery.graphql';
 import { ManagerReviewDashboardTable } from './ManagerReviewDashboardTable';
 import { TableFilters } from './TableFilters';
 import { useFilters } from './useFilters';
+import { ManagerReviewDashboardQuery } from './__generated__/ManagerReviewDashboardQuery.graphql';
 
 const query = graphql`
   query ManagerReviewDashboardQuery {

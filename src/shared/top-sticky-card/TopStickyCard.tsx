@@ -1,4 +1,4 @@
-import { Card, Theme, styled } from '@material-ui/core';
+import { Card, styled, Theme } from '@material-ui/core';
 
 export const TopStickyCard = styled(Card)(({ theme }: { theme: Theme }) => ({
   position: 'sticky',
