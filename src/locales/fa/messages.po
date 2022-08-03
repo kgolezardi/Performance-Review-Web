@@ -87,7 +87,7 @@ msgstr "یعنی بدون ذخیره تغییرات می‌خوای بری؟؟"
 
 #: src/pages/projects-page/AddProjectForm.tsx:20
 msgid "Choose projects you have been working on in the past year (At most {num})."
-msgstr "در گام اول با مدیریت مشورت کن و عمدهٔ فعالیت‌هایی که از دورهٔ قبلی مرور عملکرد تا الان داشتی رو به حداکثر {num} فعالیت کلی بشکون و برای هر کدوم به سوالات مربوط بهش جواب بده."
+msgstr "در گام اول با مدیرت مشورت کن و عمدهٔ فعالیت‌هایی که از دورهٔ قبلی مرور عملکرد تا الان داشتی رو به حداکثر {num} فعالیت کلی بشکون و برای هر کدوم به سوالات مربوط بهش جواب بده."
 
 #: src/pages/manager-adjustment-dashboard/TableFilters.tsx:19
 #: src/pages/manager-review-dashboard/TableFilters.tsx:14
