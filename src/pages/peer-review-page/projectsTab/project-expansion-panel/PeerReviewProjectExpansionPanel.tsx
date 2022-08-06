@@ -69,7 +69,7 @@ export function PeerReviewProjectExpansionPanel(props: Props) {
   const name = getUserLabel(projectReview.reviewee);
 
   return (
-    <ExpansionPanel>
+    <ExpansionPanel defaultExpanded={false}>
       <ExpansionPanelSummary>
         <Typography variant="h5">{projectName}</Typography>
       </ExpansionPanelSummary>
@@ -82,7 +82,7 @@ export function PeerReviewProjectExpansionPanel(props: Props) {
           </Grid>
           <Grid item xs={12}>
             <QuoteBox>
-              <ProjectOutput review={projectReview} hideEvaluation />
+              <ProjectOutput review={projectReview} />
             </QuoteBox>
           </Grid>
           {projectReview.comment && (

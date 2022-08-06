@@ -1,40 +1,28 @@
 import graphql from 'babel-plugin-relay/macro';
 import React, { useCallback } from 'react';
-import { Answers } from 'src/core/domain';
 import { Button } from '@material-ui/core';
 import { FCProps } from 'src/shared/types/FCProps';
 import { LanguageCodes } from 'src/core/locales/types';
-import { LocationState } from 'src/pages/peer-review-board-page/PeerReviewBoardPage';
 import { PersonInfoCardHeader } from 'src/shared/person-info-card-header';
-import { getUserLabel } from 'src/shared/utils/getUserLabel';
 import { i18n } from '@lingui/core';
-import { innerJoin, prop } from 'ramda';
 import { localizeNumber } from 'src/shared/utils/localizeNumber.util';
 import { useBiDiSnackbar } from 'src/shared/snackbar';
-import { useFormDirty } from 'src/shared/form-change-detector';
 import { useFragment } from 'react-relay/hooks';
-import { useHistory } from 'react-router-dom';
-import { useRoundQuestions } from 'src/core/round-questions';
 
+import { EndEvaluation } from './EndEvaluation';
 import { PeerReviewPersonInfoCard_user$key } from './__generated__/PeerReviewPersonInfoCard_user.graphql';
 import { useSavePersonReviewMutation } from './savePersonReview.mutation';
 
 const fragment = graphql`
   fragment PeerReviewPersonInfoCard_user on UserNode {
     id
-    ...getUserLabel_user
     ...PersonInfoCardHeader_user
+    ...EndEvaluation_user
     peerPersonReview {
       state
     }
     projectReviews {
-      comment {
-        rating
-        answers {
-          value
-          questionId
-        }
-      }
+      id
     }
   }
 `;
@@ -46,31 +34,11 @@ interface OwnProps {
 type Props = FCProps<OwnProps>;
 
 export function PeerReviewPersonInfoCard(props: Props) {
-  const user = useFragment<PeerReviewPersonInfoCard_user$key>(fragment, props.user);
+  const user = useFragment(fragment, props.user);
   const savePersonReviewMutation = useSavePersonReviewMutation();
   const { enqueueSnackbar } = useBiDiSnackbar();
-  const { peerReviewProjectQuestions } = useRoundQuestions();
-
-  const history = useHistory<LocationState>();
 
   const state = user.peerPersonReview?.state;
-  const name = getUserLabel(user, { short: true });
-
-  const handleEndEvaluationClick = useCallback(() => {
-    savePersonReviewMutation({ input: { revieweeId: user.id, state: 'DONE' } })
-      .then((data) => {
-        enqueueSnackbar(i18n._("{name}'s evaluation completed successfully.", { name }), {
-          variant: 'success',
-        });
-        // check if all reviews assigned to the reviewee are in the state of 'DONE'
-        const usersState = data.savePersonReview.viewer.usersToReview.map((user) => user.peerPersonReview?.state);
-        const showDialog = usersState.every((state) => state === 'DONE');
-        history.push('/peer-review', { showDialog });
-      })
-      .catch(() => {
-        enqueueSnackbar(i18n._('An error occurred. Try again!'), { variant: 'error' });
-      });
-  }, [user, savePersonReviewMutation, history, enqueueSnackbar, name]);
 
   const handleEditClick = useCallback(() => {
     savePersonReviewMutation({ input: { revieweeId: user.id, state: 'DOING' } }).catch(() => {
@@ -79,14 +47,6 @@ export function PeerReviewPersonInfoCard(props: Props) {
   }, [user, savePersonReviewMutation, enqueueSnackbar]);
 
   const numberOfProjects = localizeNumber(user.projectReviews.length, i18n.language as LanguageCodes);
-  const dirty = useFormDirty();
-  const peerAnswers = (answers: Answers) =>
-    innerJoin((a, b) => a.questionId === b.id, answers, peerReviewProjectQuestions);
-
-  const allProjectCommentFilled = user.projectReviews.every(
-    ({ comment }) => !!(comment && peerAnswers(comment.answers).every(prop('value')) && comment.rating),
-  );
-  const disabled = dirty || !allProjectCommentFilled;
 
   return (
     <PersonInfoCardHeader
@@ -96,9 +56,7 @@ export function PeerReviewPersonInfoCard(props: Props) {
             {i18n._('Edit')}
           </Button>
         ) : (
-          <Button onClick={handleEndEvaluationClick} variant="contained" color="secondary" disabled={disabled}>
-            {i18n._("End {name}'s evaluation", { name })}
-          </Button>
+          <EndEvaluation user={user} />
         )
       }
       subheader={i18n._('He/She asked your review on {numberOfProjects} project(s)', {

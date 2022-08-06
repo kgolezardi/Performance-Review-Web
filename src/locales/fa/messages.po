@@ -24,6 +24,7 @@ msgstr "این مرورکنندگان پاسخ به سه سوال اول رو خ
 #: src/pages/projects-page/ProjectForm.tsx:82
 msgid "**Coordinate reviewers with your manager (maximum {num} reviewers)"
 msgstr "مرورکنندگانی که اینجا انتخاب می‌کنی، مواردی که بالا مشخص شده رو در فاز بعدی فرایند می‌خونن و درباره‌شون بهت بازخورد می‌دن. همچنین این افراد «ویژگی‌های بارز» تو رو از نگاه خودشون (و بدون خوندن نوشته‌هات) می‌نویسند. مرورکنندگان رو حتما با هماهنگی مدیر مستقیمت انتخاب کن (حداکثر {num} نفر)."
+
 #: src/containers/main/getMenuItems.ts:22
 #: src/pages/dashboard-page/DashboardPage.tsx:36
 #: src/pages/manager-adjustment-dashboard/ManagerAdjustmentDashboardTable.tsx:62
@@ -32,6 +33,7 @@ msgstr "مرورکنندگانی که اینجا انتخاب می‌کنی، م
 #: src/pages/manager-review-dashboard/ManagerReviewDashboardTable.tsx:75
 #: src/pages/manager-review-page/ManagerReviewPage.tsx:45
 #: src/pages/manager-review-page/ManagerReviewPrintPage.tsx:53
+#: src/pages/peer-review-page/EndEvaluationDialogContent/AchievementsContent.tsx:13
 #: src/pages/peer-review-page/PeerReviewPage.tsx:45
 #: src/pages/result-page/ResultPage.tsx:21
 #: src/pages/self-review-page/SelfReviewPage.tsx:22
@@ -61,8 +63,8 @@ msgstr "تمامی ارزیابی‌ها با موفقیت انجام شد"
 #: src/pages/manager-adjustment-page/achievements/ManagerAdjustmentAchievements.tsx:65
 #: src/pages/manager-review-page/achievements/ManagerReviewAchievements.tsx:61
 #: src/pages/manager-review-page/overall-evaluation/ManagerReviewOverallEvaluation.tsx:64
-#: src/pages/peer-review-page/PeerReviewPersonInfoCard.tsx:55
-#: src/pages/peer-review-page/PeerReviewPersonInfoCard.tsx:60
+#: src/pages/peer-review-page/EndEvaluation.tsx:71
+#: src/pages/peer-review-page/PeerReviewPersonInfoCard.tsx:32
 #: src/pages/projects-page/project-review-title-editor/ProjectReviewEditForm.tsx:52
 msgid "An error occurred. Try again!"
 msgstr "خطایی رخ داده. دوباره تلاش کنید."
@@ -70,6 +72,10 @@ msgstr "خطایی رخ داده. دوباره تلاش کنید."
 #: src/pages/projects-page/ProjectForm.tsx:97
 msgid "Are you sure you want to delete {projectName} review?"
 msgstr "آیا از حذف {projectName} مطمین هستید؟"
+
+#: src/pages/peer-review-page/EndEvaluation.tsx:102
+msgid "Are you sure you want to end the {name} evaluation?"
+msgstr "آیا مطمئنی که میخوای ارزیابی ‌{name} رو تموم کنی؟"
 
 #: src/pages/projects-page/project-review-title-editor/ProjectReviewEditForm.tsx:67
 #: src/shared/sticky-bottom-paper/StickyBottomPaper.stories.tsx:11
@@ -121,6 +127,7 @@ msgstr "در حال انجام"
 #: src/pages/dashboard-page/DashboardPage.tsx:49
 #: src/pages/manager-review-page/ManagerReviewPage.tsx:46
 #: src/pages/manager-review-page/ManagerReviewPrintPage.tsx:58
+#: src/pages/peer-review-page/EndEvaluationDialogContent/DominantCharacteristicsContent.tsx:11
 #: src/pages/peer-review-page/PeerReviewPage.tsx:47
 #: src/pages/result-page/ResultPage.tsx:22
 #: src/pages/self-review-page/SelfReviewPage.tsx:23
@@ -134,7 +141,7 @@ msgstr "ویژگی‌های بارز"
 msgid "Done"
 msgstr "انجام شده"
 
-#: src/pages/peer-review-page/PeerReviewPersonInfoCard.tsx:69
+#: src/pages/peer-review-page/PeerReviewPersonInfoCard.tsx:37
 msgid "Edit"
 msgstr "ویرایش"
 
@@ -142,7 +149,7 @@ msgstr "ویرایش"
 msgid "Edit project title"
 msgstr "ویرایش عنوان فعالیت"
 
-#: src/pages/peer-review-page/PeerReviewPersonInfoCard.tsx:71
+#: src/pages/peer-review-page/EndEvaluation.tsx:94
 msgid "End {name}'s evaluation"
 msgstr "اتمام ارزیابی {name}"
 
@@ -187,7 +194,7 @@ msgstr "باریکلا! چه خوب که همه رو داری انجام مید�
 msgid "He/She Needs Improvement"
 msgstr "کمتر از حد انتظاری که ازش میره"
 
-#: src/pages/peer-review-page/PeerReviewPersonInfoCard.tsx:72
+#: src/pages/peer-review-page/PeerReviewPersonInfoCard.tsx:38
 #: src/shared/user-card/UserCard.tsx:39
 msgid "He/She asked your review on {numberOfProjects} project(s)"
 msgstr "در {numberOfProjects} فعالیت از شما نظر خواسته است"
@@ -253,6 +260,7 @@ msgstr "در حد انتظاری که از من میره"
 msgid "My evaluation"
 msgstr "ارزیابی من"
 
+#: src/pages/peer-review-page/EndEvaluation.tsx:107
 #: src/shared/confirm-button/ConfirmButton.tsx:8
 msgid "No"
 msgstr "خیر"
@@ -455,6 +463,10 @@ msgstr "مهم‌ترین ویژگی‌ها یا رفتارهای مؤثری ک�
 msgid "The most important characteristics or effective behaviors that he/she should maintain"
 msgstr "مهم‌ترین ویژگی‌ها یا رفتارهای مؤثری که باید ادامه‌شون بده"
 
+#: src/pages/peer-review-page/EndEvaluation.tsx:97
+msgid "The parts that are not complete"
+msgstr "قسمت‌هایی که کامل نیستند"
+
 #: src/pages/projects-page/project-review-title-editor/ProjectReviewEditForm.tsx:43
 msgid "The project review name already exists."
 msgstr "نام فعالیت تکراری است"
@@ -513,6 +525,7 @@ msgstr "چی رو ادامه بدم"
 msgid "What to improve"
 msgstr "چی رو بهبود بدم"
 
+#: src/pages/peer-review-page/EndEvaluation.tsx:109
 #: src/shared/confirm-button/ConfirmButton.tsx:8
 msgid "Yes"
 msgstr "بله"
@@ -524,6 +537,14 @@ msgstr "آره! می‌رم"
 #: src/shared/forminator/inputs/SelectMultiAutoComplete.tsx:27
 msgid "You can choose maximum {num} reviewers"
 msgstr "حداکثر {num} مورد رو می‌تونی انتخاب کنی"
+
+#: src/pages/peer-review-page/EndEvaluationDialogContent/DominantCharacteristicsContent.tsx:13
+msgid "You did not write any strengths"
+msgstr "هیچ نقطه قوتی ننوشتی"
+
+#: src/pages/peer-review-page/EndEvaluationDialogContent/DominantCharacteristicsContent.tsx:14
+msgid "You did not write any weaknesses"
+msgstr "هیچ نقطه ضعفی ننوشتی"
 
 #: src/pages/manager-review-page/ManagerReviewProgress.tsx:34
 msgid "You have evaluated all {total} achievements. You can change them whenever you want to."
@@ -585,6 +606,6 @@ msgstr "نظر {name} در مورد دستاوردهاش در این فعالی�
 msgid "{name}'s comment about his/her performance compared to initial expectation"
 msgstr "نظر {name} در مورد سطح عملکردش نسبت به انتظاری که ازش میره"
 
-#: src/pages/peer-review-page/PeerReviewPersonInfoCard.tsx:46
+#: src/pages/peer-review-page/EndEvaluation.tsx:63
 msgid "{name}'s evaluation completed successfully."
 msgstr "ارزیابی {name} با موفقیت تمام شد."

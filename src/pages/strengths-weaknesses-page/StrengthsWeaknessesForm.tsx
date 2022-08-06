@@ -39,11 +39,13 @@ export function StrengthsWeaknessesForm(props: Props) {
     <Forminator onSubmit={onSubmit} initialValue={props.initialValue}>
       <Grid container spacing={4}>
         <DictInput>
-          <Grid item xs={12}>
-            <SectionGuide>
-              {isSelfReview ? <DescriptionContentSelfReview components={components} /> : null}
-            </SectionGuide>
-          </Grid>
+          {isSelfReview ? (
+            <Grid item xs={12}>
+              <SectionGuide>
+                <DescriptionContentSelfReview components={components} />
+              </SectionGuide>
+            </Grid>
+          ) : null}
           <DictInputItem field="strengths">
             <Grid item xs={12}>
               <StrengthsOrWeaknesses
