@@ -33,6 +33,7 @@ msgstr "**Coordinate reviewers with your manager (maximum {num} reviewers)"
 #: src/pages/manager-review-dashboard/ManagerReviewDashboardTable.tsx:75
 #: src/pages/manager-review-page/ManagerReviewPage.tsx:45
 #: src/pages/manager-review-page/ManagerReviewPrintPage.tsx:53
+#: src/pages/peer-review-page/EndEvaluationDialogContent/AchievementsContent.tsx:13
 #: src/pages/peer-review-page/PeerReviewPage.tsx:45
 #: src/pages/result-page/ResultPage.tsx:21
 #: src/pages/self-review-page/SelfReviewPage.tsx:22
@@ -62,8 +63,8 @@ msgstr "All reviews were successfully done"
 #: src/pages/manager-adjustment-page/achievements/ManagerAdjustmentAchievements.tsx:65
 #: src/pages/manager-review-page/achievements/ManagerReviewAchievements.tsx:61
 #: src/pages/manager-review-page/overall-evaluation/ManagerReviewOverallEvaluation.tsx:64
-#: src/pages/peer-review-page/PeerReviewPersonInfoCard.tsx:55
-#: src/pages/peer-review-page/PeerReviewPersonInfoCard.tsx:60
+#: src/pages/peer-review-page/EndEvaluation.tsx:71
+#: src/pages/peer-review-page/PeerReviewPersonInfoCard.tsx:32
 #: src/pages/projects-page/project-review-title-editor/ProjectReviewEditForm.tsx:52
 msgid "An error occurred. Try again!"
 msgstr "An error occurred. Try again!"
@@ -71,6 +72,10 @@ msgstr "An error occurred. Try again!"
 #: src/pages/projects-page/ProjectForm.tsx:97
 msgid "Are you sure you want to delete {projectName} review?"
 msgstr "Are you sure you want to delete {projectName} review?"
+
+#: src/pages/peer-review-page/EndEvaluation.tsx:102
+msgid "Are you sure you want to end the {name} evaluation?"
+msgstr "Are you sure you want to end the {name} evaluation?"
 
 #: src/pages/projects-page/project-review-title-editor/ProjectReviewEditForm.tsx:67
 #: src/shared/sticky-bottom-paper/StickyBottomPaper.stories.tsx:11
@@ -122,6 +127,7 @@ msgstr "Doing"
 #: src/pages/dashboard-page/DashboardPage.tsx:49
 #: src/pages/manager-review-page/ManagerReviewPage.tsx:46
 #: src/pages/manager-review-page/ManagerReviewPrintPage.tsx:58
+#: src/pages/peer-review-page/EndEvaluationDialogContent/DominantCharacteristicsContent.tsx:11
 #: src/pages/peer-review-page/PeerReviewPage.tsx:47
 #: src/pages/result-page/ResultPage.tsx:22
 #: src/pages/self-review-page/SelfReviewPage.tsx:23
@@ -135,7 +141,7 @@ msgstr "Dominant Characteristics"
 msgid "Done"
 msgstr "Done"
 
-#: src/pages/peer-review-page/PeerReviewPersonInfoCard.tsx:69
+#: src/pages/peer-review-page/PeerReviewPersonInfoCard.tsx:37
 msgid "Edit"
 msgstr "Edit"
 
@@ -143,7 +149,7 @@ msgstr "Edit"
 msgid "Edit project title"
 msgstr "Edit project title"
 
-#: src/pages/peer-review-page/PeerReviewPersonInfoCard.tsx:71
+#: src/pages/peer-review-page/EndEvaluation.tsx:94
 msgid "End {name}'s evaluation"
 msgstr "End {name}'s evaluation"
 
@@ -188,7 +194,7 @@ msgstr "Good job!"
 msgid "He/She Needs Improvement"
 msgstr "He/She Needs Improvement"
 
-#: src/pages/peer-review-page/PeerReviewPersonInfoCard.tsx:72
+#: src/pages/peer-review-page/PeerReviewPersonInfoCard.tsx:38
 #: src/shared/user-card/UserCard.tsx:39
 msgid "He/She asked your review on {numberOfProjects} project(s)"
 msgstr "He/She asked your review on {numberOfProjects} project(s)"
@@ -254,6 +260,7 @@ msgstr "Meets Expectations from me"
 msgid "My evaluation"
 msgstr "My evaluation"
 
+#: src/pages/peer-review-page/EndEvaluation.tsx:107
 #: src/shared/confirm-button/ConfirmButton.tsx:8
 msgid "No"
 msgstr "No"
@@ -456,6 +463,10 @@ msgstr "The most important characteristics or effective behaviors that I should 
 msgid "The most important characteristics or effective behaviors that he/she should maintain"
 msgstr "The most important characteristics or effective behaviors that he/she should maintain"
 
+#: src/pages/peer-review-page/EndEvaluation.tsx:97
+msgid "The parts that are not complete"
+msgstr "The parts that are not complete"
+
 #: src/pages/projects-page/project-review-title-editor/ProjectReviewEditForm.tsx:43
 msgid "The project review name already exists."
 msgstr "The project review name already exists."
@@ -514,6 +525,7 @@ msgstr "What to continue doing"
 msgid "What to improve"
 msgstr "What to improve"
 
+#: src/pages/peer-review-page/EndEvaluation.tsx:109
 #: src/shared/confirm-button/ConfirmButton.tsx:8
 msgid "Yes"
 msgstr "Yes"
@@ -525,6 +537,14 @@ msgstr "Yes! Go"
 #: src/shared/forminator/inputs/SelectMultiAutoComplete.tsx:27
 msgid "You can choose maximum {num} reviewers"
 msgstr "You can choose maximum {num} reviewers"
+
+#: src/pages/peer-review-page/EndEvaluationDialogContent/DominantCharacteristicsContent.tsx:13
+msgid "You did not write any strengths"
+msgstr "You did not write any strengths"
+
+#: src/pages/peer-review-page/EndEvaluationDialogContent/DominantCharacteristicsContent.tsx:14
+msgid "You did not write any weaknesses"
+msgstr "You did not write any weaknesses"
 
 #: src/pages/manager-review-page/ManagerReviewProgress.tsx:34
 msgid "You have evaluated all {total} achievements. You can change them whenever you want to."
@@ -586,6 +606,6 @@ msgstr "{name}'s comment about his/her achievements in this project"
 msgid "{name}'s comment about his/her performance compared to initial expectation"
 msgstr "{name}'s comment about his/her performance compared to initial expectation"
 
-#: src/pages/peer-review-page/PeerReviewPersonInfoCard.tsx:46
+#: src/pages/peer-review-page/EndEvaluation.tsx:63
 msgid "{name}'s evaluation completed successfully."
 msgstr "{name}'s evaluation completed successfully."

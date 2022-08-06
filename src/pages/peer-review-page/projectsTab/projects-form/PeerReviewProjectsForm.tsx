@@ -56,7 +56,7 @@ export function PeerReviewProjectsForm(props: Props) {
 
   return (
     <Forminator onSubmit={onSubmit} initialValue={initialValue}>
-      <Grid container spacing={2}>
+      <Grid container spacing={3}>
         <DictInput>
           <Grid item xs={12}>
             <DictInputItem field="rating">
@@ -67,7 +67,7 @@ export function PeerReviewProjectsForm(props: Props) {
             </DictInputItem>
           </Grid>
           {peerReviewProjectQuestions.map((question) => (
-            <Grid item xs={12}>
+            <Grid item xs={12} key={question.id}>
               <Question question={question} formData={initialValue} />
             </Grid>
           ))}

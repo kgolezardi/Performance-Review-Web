@@ -5,7 +5,9 @@ import {
   Dialog,
   DialogActions,
   DialogContent,
+  DialogContentProps,
   DialogContentText,
+  DialogProps,
   DialogTitle,
 } from '@material-ui/core';
 import { i18n } from '@lingui/core';
@@ -23,6 +25,9 @@ interface OwnProps {
   CancelComponent?: React.FunctionComponent<ButtonProps>;
   cancelProps?: ButtonProps;
   cancelButtonText?: string;
+  disableDialogContentText?: boolean;
+  dialogContentProps?: DialogContentProps;
+  dialogProps?: Omit<DialogProps, 'open'>;
 }
 
 export function ConfirmButton(props: OwnProps) {
@@ -43,6 +48,9 @@ export function ConfirmButton(props: OwnProps) {
     confirmProps,
     confirmButtonText = i18n._('Yes'),
     onConfirm,
+    disableDialogContentText = false,
+    dialogContentProps,
+    dialogProps,
   } = props;
 
   const handleConfirm = useCallback(() => {
@@ -56,10 +64,10 @@ export function ConfirmButton(props: OwnProps) {
         {buttonText}
       </ButtonComponent>
 
-      <Dialog open={open} onClose={handleClose}>
+      <Dialog {...dialogProps} open={open} onClose={handleClose}>
         {!!title && <DialogTitle>{title}</DialogTitle>}
-        <DialogContent>
-          <DialogContentText>{text}</DialogContentText>
+        <DialogContent {...dialogContentProps}>
+          {disableDialogContentText ? text : <DialogContentText>{text}</DialogContentText>}
         </DialogContent>
         <DialogActions>
           <CancelComponent {...cancelProps} onClick={handleClose}>
