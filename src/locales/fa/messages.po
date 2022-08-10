@@ -24,6 +24,7 @@ msgstr "این مرورکنندگان پاسخ به سه سوال اول رو خ
 #: src/pages/projects-page/ProjectForm.tsx:82
 msgid "**Coordinate reviewers with your manager (maximum {num} reviewers)"
 msgstr "مرورکنندگانی که اینجا انتخاب می‌کنی، مواردی که بالا مشخص شده رو در فاز بعدی فرایند می‌خونن و درباره‌شون بهت بازخورد می‌دن. همچنین این افراد «ویژگی‌های بارز» تو رو از نگاه خودشون (و بدون خوندن نوشته‌هات) می‌نویسند. مرورکنندگان رو حتما با هماهنگی مدیر مستقیمت انتخاب کن (حداکثر {num} نفر)."
+
 #: src/containers/main/getMenuItems.ts:22
 #: src/pages/dashboard-page/DashboardPage.tsx:36
 #: src/pages/manager-adjustment-dashboard/ManagerAdjustmentDashboardTable.tsx:62
@@ -202,7 +203,7 @@ msgstr "کمتر از حد انتظاری که از من میره"
 
 #: src/pages/manager-adjustment-page/achievements/ManagerAdjustmentForm.tsx:46
 msgid "I approve"
-msgstr "لیست مرورکنندگان بالا مورد تایید بوده و تغییرات اعمال شده به اطلاع خود مرورکننده رسیده است."
+msgstr "لیست مرورکنندگان بالا مورد تایید بوده و تغییرات اعمال شده به اطلاع خود مرورشونده رسیده است."
 
 #: src/pages/projects-page/ProjectForm.tsx:90
 msgid "I consulted with my manager"
