@@ -4,22 +4,24 @@ import { LIMITED_TEXT_AREA_COUNTER_DISPLAY_THRESHOLD, LIMITED_TEXT_AREA_MAX_CHAR
 import { Question } from 'src/core/domain';
 import { helpTextRenderers } from 'src/shared/react-markdown';
 
-import LimitedTextAreaInput from '../forminator/inputs/LimitedTextAreaInput';
+import LimitedTextAreaInput, { LimitedTextAreaInputClasses } from '../forminator/inputs/LimitedTextAreaInput';
 
 interface OwnProps {
   question: Question;
 }
 
-type Props = React.PropsWithChildren<OwnProps>;
+type Props = React.PropsWithChildren<OwnProps> & LimitedTextAreaInputClasses;
 
 export function LimitedTextAreaQuestion(props: Props) {
   const {
     question: { helpText, label },
+    classes,
   } = props;
 
   return (
     <LimitedTextAreaInput
       label={label}
+      classes={classes}
       maxChars={LIMITED_TEXT_AREA_MAX_CHARS}
       counterDisplayThreshold={LIMITED_TEXT_AREA_COUNTER_DISPLAY_THRESHOLD}
       variant="outlined"

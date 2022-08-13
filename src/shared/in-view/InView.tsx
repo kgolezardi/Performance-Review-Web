@@ -13,8 +13,8 @@ type Props = FCProps<OwnProps> & StyleProps;
 export function InView(props: Props) {
   const { children } = props;
   const classes = useStyles(props);
-  const [topRef, topInView] = useInView();
-  const [bottomRef, bottomInView] = useInView();
+  const [topRef, topInView] = useInView({ initialInView: true });
+  const [bottomRef, bottomInView] = useInView({ initialInView: true });
 
   const contextValue = useMemo(() => ({ topInView, bottomInView }), [topInView, bottomInView]);
 

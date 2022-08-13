@@ -56,7 +56,7 @@ export function ProjectOutput(props: Props) {
           <EvaluationOutput value={review.rating as Evaluation} type="self" />
         </Grid>
       )}
-      {questionsAnswers.map(([question, answer], index) => (
+      {questionsAnswers.pairs.map(([question, answer], index) => (
         <Grid key={index} item xs={12}>
           <QuestionOutput questionLabel={question} />
           <MultilineOutput value={answer} />

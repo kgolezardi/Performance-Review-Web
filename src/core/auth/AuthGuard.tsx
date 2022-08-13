@@ -39,6 +39,7 @@ const fragment = graphql`
     id
     ...getUserLabel_user
     hasStarted
+    avatarUrl
     isManager
     isHr
     manager {

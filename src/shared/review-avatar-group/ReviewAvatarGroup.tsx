@@ -23,12 +23,12 @@ export function ReviewAvatarGroup(props: Props) {
   const classes = useStyles(props);
 
   return (
-    <AvatarGroup max={3} classes={{ root: classes.root, avatar: classes.avatars }}>
+    <AvatarGroup max={11} classes={{ root: classes.root, avatar: classes.avatars }}>
       {users.map((user, index) => (
         <Avatar
           alt={user.name}
           key={index}
-          src={user.avatarUrl ?? undefined}
+          src={user.avatarUrl}
           classes={{
             root: clsx(classes.avatar, { [classes.self]: user.self }),
             colorDefault: classes.colorDefault,

@@ -1,23 +1,25 @@
 import React from 'react';
 import graphql from 'babel-plugin-relay/macro';
 import { Box, Grid, Theme, Typography, createStyles, lighten, makeStyles, useTheme } from '@material-ui/core';
-import { DictInputItem, FragmentPrompt } from 'src/shared/forminator';
 import { ExpansionPanel, ExpansionPanelDetails } from 'src/shared/expansion-panel';
 import { FCProps } from 'src/shared/types/FCProps';
+import { FormChangeDetector } from 'src/shared/form-change-detector';
+import { InView } from 'src/shared/in-view';
+import { ManagerProjectOutput } from 'src/shared/project-output/ManagerProjectOutput';
 import { ProjectOutput } from 'src/shared/project-output';
 import { QuoteBox } from 'src/shared/quote-box';
-import { Rating } from 'src/shared/rating';
 import { Styles } from 'src/shared/types/Styles';
+import { ThoseWhoDidNotComment } from 'src/shared/those-who-did-not-comment/ThoseWhoDidNotComment';
 import { getUserLabel } from 'src/shared/utils/getUserLabel';
 import { i18n } from '@lingui/core';
 import { useFragment } from 'react-relay/hooks';
-import { useServerValueContext } from 'src/shared/server-value';
+import { usePrintingContext } from 'src/shared/layouts/dashboard-layouts/PrintingContext';
 
+import { ManageReviewFormData } from './ManagerReviewAchievementsValue';
 import { ManagerReviewAchievementsExpansionPanel_projectReview$key } from './__generated__/ManagerReviewAchievementsExpansionPanel_projectReview.graphql';
 import { ManagerReviewAchievementsRatingGroup } from './ManagerReviewAchievementsRatingGroup';
-import { ManagerReviewAchievementsValue } from './ManagerReviewAchievementsValue';
-import { ManagerReviewEvaluationBox } from '../ManagerReviewEvaluationBox';
 import { ManagerReviewEvaluationExpansionPanelSummary } from '../ManagerReviewExpansionPanelSummary';
+import { ManagerReviewForm } from './ManagerReviewForm';
 
 const fragment = graphql`
   fragment ManagerReviewAchievementsExpansionPanel_projectReview on ProjectReviewNode {
@@ -30,10 +32,13 @@ const fragment = graphql`
     projectName
     comments {
       ...ManagerReviewAchievementsRatingGroup_comments
+      ...ThoseWhoDidNotComment_comments
     }
     managerComment {
       id
       rating
+      ...ManagerReviewForm_data
+      ...ManagerProjectOutput_review
     }
     ...ProjectOutput_review
   }
@@ -41,27 +46,28 @@ const fragment = graphql`
 
 interface OwnProps {
   projectReview: ManagerReviewAchievementsExpansionPanel_projectReview$key;
+  saveManagerProjectReview: (formData: ManageReviewFormData) => void;
 }
 
 type Props = FCProps<OwnProps> & StyleProps;
 
 export function ManagerReviewAchievementsExpansionPanel(props: Props) {
+  const { saveManagerProjectReview } = props;
   const projectReview = useFragment(fragment, props.projectReview);
   const classes = useStyles(props);
-
+  const printing = usePrintingContext();
   const theme = useTheme();
   const quoteBoxBgcolor = lighten(theme.palette.primary.main, 0.85);
   const projectName = projectReview.projectName;
   const name = getUserLabel(projectReview.reviewee, { short: true });
 
-  const serverValue = useServerValueContext<ManagerReviewAchievementsValue>();
-  const rating = serverValue?.[projectReview.id] ?? null;
-
   return (
-    <ExpansionPanel>
-      <ManagerReviewEvaluationExpansionPanelSummary rating={rating}>
-        <Typography variant="h3">{projectName}</Typography>
-      </ManagerReviewEvaluationExpansionPanelSummary>
+    <ExpansionPanel defaultExpanded={printing}>
+      <InView>
+        <ManagerReviewEvaluationExpansionPanelSummary rating={projectReview.managerComment?.rating ?? null}>
+          <Typography variant="h5">{projectName}</Typography>
+        </ManagerReviewEvaluationExpansionPanelSummary>
+      </InView>
       <ExpansionPanelDetails>
         <Grid container spacing={2}>
           <Grid item xs={12}>
@@ -80,25 +86,25 @@ export function ManagerReviewAchievementsExpansionPanel(props: Props) {
                 {i18n._('Other people comments about {name} performance compared to initial expectation', { name })}
               </Typography>
             </Box>
+            {printing && projectReview.managerComment && (
+              <Grid item xs={12}>
+                <ManagerProjectOutput review={projectReview.managerComment} />
+              </Grid>
+            )}
             <ManagerReviewAchievementsRatingGroup rating="SUPERB" comments={projectReview.comments} />
             <ManagerReviewAchievementsRatingGroup rating="EXCEEDS_EXPECTATIONS" comments={projectReview.comments} />
             <ManagerReviewAchievementsRatingGroup rating="MEETS_EXPECTATIONS" comments={projectReview.comments} />
             <ManagerReviewAchievementsRatingGroup rating="NEEDS_IMPROVEMENT" comments={projectReview.comments} />
             <ManagerReviewAchievementsRatingGroup rating={null} comments={projectReview.comments} />
           </Grid>
-          <Grid item xs>
-            <DictInputItem field={projectReview.id}>
-              <ManagerReviewEvaluationBox
-                text={i18n._('Your evaluation of {name} on project {projectName}', {
-                  name,
-                  projectName,
-                })}
-              >
-                <Rating inputLabel={i18n._('Evaluation')} type="peer" />
-                <FragmentPrompt value={rating} />
-              </ManagerReviewEvaluationBox>
-            </DictInputItem>
-          </Grid>
+          <ThoseWhoDidNotComment comments={projectReview.comments} />
+          {!printing && (
+            <Grid item xs={12}>
+              <FormChangeDetector>
+                <ManagerReviewForm onSubmit={saveManagerProjectReview} formData={projectReview.managerComment} />
+              </FormChangeDetector>
+            </Grid>
+          )}
         </Grid>
       </ExpansionPanelDetails>
     </ExpansionPanel>

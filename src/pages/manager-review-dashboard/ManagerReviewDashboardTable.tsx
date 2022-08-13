@@ -131,7 +131,13 @@ export function ManagerReviewDashboardTable(props: Props) {
           </TableHead>
           <TableBody>
             {filteredRows.map((row) => (
-              <TableRow hover key={row.id} onClick={createRowClickHandler(row.id)} selected={activeId === row.id}>
+              <TableRow
+                hover
+                className={classes.bodyRow}
+                key={row.id}
+                onClick={createRowClickHandler(row.id)}
+                selected={activeId === row.id}
+              >
                 <TableCell>
                   <Avatar src={row.avatarUrl ?? undefined} className={classes.avatar} />
                   {row.user}
@@ -166,6 +172,9 @@ const styles = (theme: Theme) =>
     },
     tableContainer: {
       flex: 1,
+    },
+    bodyRow: {
+      cursor: 'pointer',
     },
   });
 

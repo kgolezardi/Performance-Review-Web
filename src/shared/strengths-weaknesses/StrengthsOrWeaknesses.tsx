@@ -14,7 +14,7 @@ import { useFragmentLens } from 'src/shared/forminator/core/fragment-lens/useFra
 import { ClearIcon } from './ClearIcon';
 
 interface OwnProps {
-  title: string;
+  title?: string;
   maxLength: number;
   label?: string;
 }
@@ -35,11 +35,13 @@ export function StrengthsOrWeaknesses({ title, maxLength, label, ...props }: Pro
 
   return (
     <Grid container spacing={2}>
-      <Grid item xs={12}>
-        <Typography variant="h5" gutterBottom>
-          {title}
-        </Typography>
-      </Grid>
+      {title ? (
+        <Grid item xs={12}>
+          <Typography variant="h5" gutterBottom>
+            {title}
+          </Typography>
+        </Grid>
+      ) : null}
       <ArrayInput initialValue={[undefined]}>
         <FragmentRef lens={lens} />
         <ArrayOutput>

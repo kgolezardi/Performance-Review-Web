@@ -66,7 +66,6 @@ export function ManagerReviewPrintPage(props: Props) {
           <PersonInfoCardHeader user={data.viewer.user} />
           <Divider />
         </InView>
-        <PageBreak />
         <Box color="primary.main" marginTop={8} textAlign="center">
           <Typography variant="h2">{i18n._('Achievements')}</Typography>
         </Box>

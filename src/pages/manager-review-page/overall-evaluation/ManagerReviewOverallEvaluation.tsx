@@ -21,9 +21,9 @@ import { useFormDirty } from 'src/shared/form-change-detector';
 import { useLazyLoadQuery } from 'react-relay/hooks';
 import { useMutation } from 'src/relay';
 
-import { ManagerReviewOverallEvaluationMutation } from './__generated__/ManagerReviewOverallEvaluationMutation.graphql';
 import { ManagerReviewOverallEvaluationQuery } from './__generated__/ManagerReviewOverallEvaluationQuery.graphql';
 import { ManagerReviewOverallEvaluationValue } from './ManagerReviewOverallEvaluationValue';
+import { managerReviewPersonMutation } from '../managerReviewPersonMutation';
 
 const query = graphql`
   query ManagerReviewOverallEvaluationQuery($id: ID!) {
@@ -51,20 +51,10 @@ export default function ManagerReviewOverallEvaluation(props: Props) {
   const { revieweeId } = props;
 
   const data = useLazyLoadQuery<ManagerReviewOverallEvaluationQuery>(query, { id: revieweeId });
-
-  const savePersonReview = useMutation<ManagerReviewOverallEvaluationMutation>(graphql`
-    mutation ManagerReviewOverallEvaluationMutation($input: SaveManagerPersonReviewMutationInput!) {
-      saveManagerPersonReview(input: $input) {
-        managerPersonReview {
-          overallRating
-        }
-      }
-    }
-  `);
+  const saveManagerPersonReview = useMutation(managerReviewPersonMutation);
 
   const dirty = useFormDirty();
   const { enqueueSnackbar } = useBiDiSnackbar();
-
   // TODO:
   if (!data.viewer.user) {
     return null;
@@ -82,7 +72,7 @@ export default function ManagerReviewOverallEvaluation(props: Props) {
   };
 
   const handleSubmit = (data: ManagerReviewOverallEvaluationValue) => {
-    savePersonReview({ input: data })
+    saveManagerPersonReview({ input: data })
       .then(() => {
         enqueueSnackbar(i18n._('Successfully saved.'), { variant: 'success' });
       })

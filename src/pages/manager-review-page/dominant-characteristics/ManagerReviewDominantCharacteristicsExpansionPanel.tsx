@@ -45,7 +45,7 @@ export function ManagerReviewDominantCharacteristicsExpansionPanel(props: Props)
         <Typography variant="h3">{title}</Typography>
       </ExpansionPanelSummary>
       <ExpansionPanelDetails>
-        <Box>
+        <Box width={1}>
           {selfReview && selfReview[type] && (
             <ReviewItemInfo
               name={selfReview.reviewer ? getUserLabel(selfReview.reviewer) : undefined}
@@ -74,6 +74,7 @@ export function ManagerReviewDominantCharacteristicsExpansionPanel(props: Props)
               </ReviewItemInfo>
             </Box>
           ))}
+          {props.children}
         </Box>
       </ExpansionPanelDetails>
     </ExpansionPanel>
