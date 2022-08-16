@@ -4,8 +4,10 @@ import SelfCommentIcon from '@material-ui/icons/RateReview';
 import { Box, Grid, lighten, useTheme } from '@material-ui/core';
 import { FCProps } from 'src/shared/types/FCProps';
 
+import { PersonType } from './ReviewItemInfo';
+
 interface OwnProps {
-  type: 'self' | 'peer' | 'manager';
+  type: PersonType;
 }
 
 type Props = FCProps<OwnProps>;

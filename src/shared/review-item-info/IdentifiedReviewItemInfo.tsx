@@ -15,10 +15,12 @@ import { FCProps } from 'src/shared/types/FCProps';
 import { Styles } from 'src/shared/types/Styles';
 import { i18n } from '@lingui/core';
 
+import { PersonType } from './ReviewItemInfo';
+
 interface OwnProps {
   name?: string;
   src?: string;
-  type: 'self' | 'peer' | 'manager';
+  type: PersonType;
 }
 
 type Props = FCProps<OwnProps> & StyleProps;
@@ -38,9 +40,8 @@ export function IdentifiedReviewItemInfo(props: Props) {
         </Grid>
         <Grid item xs>
           <Box marginBottom={1}>
-            <Typography variant="button">
-              {name} <Typography variant="caption">{type === 'manager' && `(${i18n._('Manager')})`}</Typography>
-            </Typography>
+            <Typography variant="button">{name}</Typography>{' '}
+            {type === 'manager' && <Typography variant="caption">({i18n._('Manager')})</Typography>}
             {type === 'self' && (
               <Box marginLeft={2} display="inline-block">
                 <RevieweeChip label={i18n._('Reviewee')} size="small" color="primary" />
