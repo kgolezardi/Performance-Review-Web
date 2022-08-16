@@ -28,7 +28,7 @@ interface OwnProps<Suggestion extends BaseSuggestion = BaseSuggestion> {
 }
 type Props<Suggestion extends BaseSuggestion = BaseSuggestion> = FCProps<OwnProps<Suggestion>> &
   Omit<AutocompleteProps<Suggestion>, 'value' | 'onChange' | 'defaultValue' | 'renderInput' | 'multiple'> &
-  StyleProps;
+  SelectMultiAutoCompleteClasses;
 
 const OptionsPaper: ComponentType = withProps(Paper, { elevation: 4 }) as any;
 
@@ -101,9 +101,10 @@ const styles = (theme: Theme) =>
         maxHeight: 8 * 32, // 8 item x item height
       },
     },
+    root: {},
   });
 
 const useStyles = makeStyles(styles, { name: 'SelectMultiAutoComplete' });
-type StyleProps = Styles<AutocompleteClassKey>;
+export type SelectMultiAutoCompleteClasses = Styles<AutocompleteClassKey>;
 
 export default SelectMultiAutoComplete;

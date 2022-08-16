@@ -1,8 +1,10 @@
 import * as React from 'react';
+import DictInputItem from 'src/shared/forminator/inputs/dict-input/DictInputItem';
+import { FragmentPrompt } from 'src/shared/forminator';
 import { Question as IQuestion } from 'src/core/domain';
+import { LimitedTextAreaInputClasses } from 'src/shared/forminator/inputs/LimitedTextAreaInput';
+import { SelectMultiAutoCompleteClasses } from 'src/shared/forminator/inputs/SelectMultiAutoComplete';
 
-import DictInputItem from '../forminator/inputs/dict-input/DictInputItem';
-import { FragmentPrompt } from '../forminator';
 import { LimitedTextAreaQuestion } from './LimitedTextAreaQuestion';
 import { MultipleSelectQuestion } from './MultipleSelectQuestion';
 
@@ -13,10 +15,10 @@ interface OwnProps {
   formData: Record<string, any>;
 }
 
-type Props = React.PropsWithChildren<OwnProps>;
+type Props = React.PropsWithChildren<OwnProps> & (LimitedTextAreaInputClasses | SelectMultiAutoCompleteClasses);
 
 export function Question(props: Props) {
-  const { answersKey = 'answers', question, enablePrompt = true, formData } = props;
+  const { answersKey = 'answers', question, enablePrompt = true, formData, classes } = props;
   const { id, questionType } = question;
 
   const initialValue = questionType === 'CHECKBOX_MULTIPLE' ? [] : '';
@@ -26,9 +28,9 @@ export function Question(props: Props) {
   return (
     <DictInputItem field={`${answersKey}.${id}`}>
       {questionType === 'TEXT' ? (
-        <LimitedTextAreaQuestion question={question} />
+        <LimitedTextAreaQuestion question={question} classes={classes} />
       ) : (
-        <MultipleSelectQuestion question={question} />
+        <MultipleSelectQuestion question={question} classes={classes} />
       )}
       {enablePrompt && <FragmentPrompt value={fieldValue} />}
       {props.children}

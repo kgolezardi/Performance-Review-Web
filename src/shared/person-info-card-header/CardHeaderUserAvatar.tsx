@@ -38,6 +38,9 @@ const styles = (theme: Theme) =>
       width: 80,
       height: 80,
       transition: theme.transitions.create(['width', 'height']),
+      '@media print': {
+        display: 'none !important',
+      },
     },
     shrink: {
       width: 48,

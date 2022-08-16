@@ -15,7 +15,7 @@ export function ManagerReviewEvaluationBox(props: Props) {
 
   return (
     <div className={classes.root}>
-      <Typography className={classes.text} gutterBottom>
+      <Typography variant="h6" className={classes.text} gutterBottom>
         {text}
       </Typography>
       <div className={classes.rating}>{children}</div>
@@ -26,15 +26,13 @@ export function ManagerReviewEvaluationBox(props: Props) {
 const styles = (theme: Theme) =>
   createStyles({
     root: {
-      backgroundColor: theme.palette.grey[100],
-      marginTop: theme.spacing(4),
-      padding: theme.spacing(2),
       '@media print': {
         display: 'none !important',
       },
     },
     text: {
       color: theme.palette.grey[700],
+      marginBottom: theme.spacing(2),
     },
     rating: {
       width: '320px',

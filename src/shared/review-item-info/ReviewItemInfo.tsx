@@ -4,11 +4,12 @@ import { FCProps } from 'src/shared/types/FCProps';
 import { AnonymousReviewItemInfo } from './AnonymousReviewItemInfo';
 import { IdentifiedReviewItemInfo } from './IdentifiedReviewItemInfo';
 
+export type PersonType = 'self' | 'peer' | 'manager';
 interface OwnProps {
   anonymous?: boolean;
   name?: string;
   src?: string;
-  type: 'self' | 'peer';
+  type: PersonType;
 }
 
 type Props = FCProps<OwnProps>;

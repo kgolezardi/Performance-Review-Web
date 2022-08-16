@@ -31,8 +31,8 @@ msgstr "مرورکنندگانی که اینجا انتخاب می‌کنی، م
 #: src/pages/manager-adjustment-page/ManagerAdjustmentPage.tsx:42
 #: src/pages/manager-review-dashboard/ManagerReviewDashboardDrawerContent.tsx:66
 #: src/pages/manager-review-dashboard/ManagerReviewDashboardTable.tsx:75
-#: src/pages/manager-review-page/ManagerReviewPage.tsx:45
-#: src/pages/manager-review-page/ManagerReviewPrintPage.tsx:53
+#: src/pages/manager-review-page/ManagerReviewPage.tsx:46
+#: src/pages/manager-review-page/ManagerReviewPrintPage.tsx:52
 #: src/pages/peer-review-page/EndEvaluationDialogContent/AchievementsContent.tsx:13
 #: src/pages/peer-review-page/PeerReviewPage.tsx:45
 #: src/pages/result-page/ResultPage.tsx:21
@@ -61,8 +61,9 @@ msgid "All reviews were successfully done"
 msgstr "تمامی ارزیابی‌ها با موفقیت انجام شد"
 
 #: src/pages/manager-adjustment-page/achievements/ManagerAdjustmentAchievements.tsx:65
-#: src/pages/manager-review-page/achievements/ManagerReviewAchievements.tsx:61
-#: src/pages/manager-review-page/overall-evaluation/ManagerReviewOverallEvaluation.tsx:64
+#: src/pages/manager-review-page/achievements/ManagerReviewAchievements.tsx:63
+#: src/pages/manager-review-page/dominant-characteristics/ManagerReviewDominantCharacteristics.tsx:57
+#: src/pages/manager-review-page/overall-evaluation/ManagerReviewOverallEvaluation.tsx:57
 #: src/pages/peer-review-page/EndEvaluation.tsx:71
 #: src/pages/peer-review-page/PeerReviewPersonInfoCard.tsx:32
 #: src/pages/projects-page/project-review-title-editor/ProjectReviewEditForm.tsx:52
@@ -125,8 +126,8 @@ msgstr "در حال انجام"
 
 #: src/containers/main/getMenuItems.ts:28
 #: src/pages/dashboard-page/DashboardPage.tsx:49
-#: src/pages/manager-review-page/ManagerReviewPage.tsx:46
-#: src/pages/manager-review-page/ManagerReviewPrintPage.tsx:58
+#: src/pages/manager-review-page/ManagerReviewPage.tsx:47
+#: src/pages/manager-review-page/ManagerReviewPrintPage.tsx:57
 #: src/pages/peer-review-page/EndEvaluationDialogContent/DominantCharacteristicsContent.tsx:11
 #: src/pages/peer-review-page/PeerReviewPage.tsx:47
 #: src/pages/result-page/ResultPage.tsx:22
@@ -161,9 +162,10 @@ msgstr "English"
 msgid "Error"
 msgstr "خطا"
 
-#: src/pages/manager-review-page/achievements/ManagerReviewAchievementsExpansionPanel.tsx:79
-#: src/pages/manager-review-page/overall-evaluation/ManagerReviewOverallEvaluation.tsx:81
+#: src/pages/manager-review-page/achievements/ManagerReviewForm.tsx:59
+#: src/pages/manager-review-page/overall-evaluation/ManagerReviewOverallEvaluation.tsx:74
 #: src/pages/peer-review-page/projectsTab/projects-form/PeerReviewProjectsForm.tsx:39
+#: src/shared/project-output/ManagerProjectOutput.tsx:37
 #: src/shared/project-output/ProjectCommentOutput.tsx:27
 #: src/shared/project-output/ProjectOutput.tsx:34
 msgid "Evaluation"
@@ -245,6 +247,7 @@ msgstr "ورود"
 #: src/pages/manager-review-dashboard/ManagerReviewDashboardDrawerContent.tsx:60
 #: src/pages/manager-review-dashboard/ManagerReviewDashboardTable.tsx:72
 #: src/pages/manager-review-dashboard/TableFilters.tsx:19
+#: src/shared/review-item-info/IdentifiedReviewItemInfo.tsx:18
 msgid "Manager"
 msgstr "مدیر مستقیم"
 
@@ -278,14 +281,14 @@ msgstr "نه! می‌مونم"
 msgid "Other people comments about your performance compared to initial expectation"
 msgstr "نظرات دیگران در مورد سطح عمکرد شما در این فعالیت"
 
-#: src/pages/manager-review-page/achievements/ManagerReviewAchievementsExpansionPanel.tsx:64
+#: src/pages/manager-review-page/achievements/ManagerReviewAchievementsExpansionPanel.tsx:71
 msgid "Other people comments about {name} performance compared to initial expectation"
 msgstr "نظرات دیگران در مورد سطح عملکرد {name} در این فعالیت"
 
 #: src/pages/manager-review-dashboard/ManagerReviewDashboardDrawerContent.tsx:61
 #: src/pages/manager-review-dashboard/TableFilters.tsx:38
-#: src/pages/manager-review-page/ManagerReviewPage.tsx:47
-#: src/pages/manager-review-page/ManagerReviewPrintPage.tsx:63
+#: src/pages/manager-review-page/ManagerReviewPage.tsx:48
+#: src/pages/manager-review-page/ManagerReviewPrintPage.tsx:62
 msgid "Overall Evaluation"
 msgstr "ارزیابی کلی"
 
@@ -334,7 +337,7 @@ msgstr "عنوان فعالیت"
 msgid "Projects"
 msgstr "فعالیت‌ها"
 
-#: src/shared/review-item-info/IdentifiedReviewItemInfo.tsx:17
+#: src/shared/review-item-info/IdentifiedReviewItemInfo.tsx:21
 msgid "Reviewee"
 msgstr "ارزیابی‌شونده"
 
@@ -344,11 +347,12 @@ msgid "Reviewers (maximum {num})"
 msgstr "مرورکننده‌ها (حداکثر {num})"
 
 #: src/pages/manager-adjustment-page/achievements/ManagerAdjustmentForm.tsx:54
-#: src/pages/manager-review-page/achievements/ManagerReviewAchievements.tsx:79
-#: src/pages/manager-review-page/overall-evaluation/ManagerReviewOverallEvaluation.tsx:89
+#: src/pages/manager-review-page/achievements/ManagerReviewForm.tsx:73
+#: src/pages/manager-review-page/dominant-characteristics/ManagerReviewDominantCharacteristics.tsx:91
+#: src/pages/manager-review-page/overall-evaluation/ManagerReviewOverallEvaluation.tsx:82
 #: src/pages/peer-review-page/projectsTab/projects-form/PeerReviewProjectsForm.tsx:51
 #: src/pages/projects-page/ProjectForm.tsx:101
-#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:52
+#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:49
 msgid "Save"
 msgstr "ذخیره"
 
@@ -418,8 +422,9 @@ msgstr "ثبت تغییرات"
 
 #: src/core/snackbar/Snackbar.stories.tsx:13
 #: src/pages/manager-adjustment-page/achievements/ManagerAdjustmentAchievements.tsx:62
-#: src/pages/manager-review-page/achievements/ManagerReviewAchievements.tsx:58
-#: src/pages/manager-review-page/overall-evaluation/ManagerReviewOverallEvaluation.tsx:61
+#: src/pages/manager-review-page/achievements/ManagerReviewAchievements.tsx:60
+#: src/pages/manager-review-page/dominant-characteristics/ManagerReviewDominantCharacteristics.tsx:54
+#: src/pages/manager-review-page/overall-evaluation/ManagerReviewOverallEvaluation.tsx:54
 #: src/pages/peer-review-page/projectsTab/project-expansion-panel/PeerReviewProjectExpansionPanel.tsx:39
 #: src/pages/projects-page/ProjectsPage.tsx:59
 #: src/pages/projects-page/project-review-title-editor/ProjectReviewEditForm.tsx:48
@@ -441,25 +446,25 @@ msgstr "ممنون، جایزمو بعدا می‌گیرم"
 msgid "The manager has not been consulted"
 msgstr "نیازمند مشورت با مدیر"
 
-#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:43
+#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:40
 #: src/shared/dominant-characteristics-output/DominantCharacteristics.tsx:21
 msgid "The most important characteristics or behaviors I should improve in myself"
 msgstr "مهم‌ترین ویژگی‌ها یا رفتارهایی که باید بهبودشون بدم"
 
-#: src/pages/manager-review-page/dominant-characteristics/ManagerReviewDominantCharacteristics.tsx:28
+#: src/pages/manager-review-page/dominant-characteristics/ManagerReviewDominantCharacteristics.tsx:80
 #: src/pages/result-page/strengths-weaknesses-result-page/StrengthsWeaknessesResult.tsx:33
-#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:44
+#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:41
 msgid "The most important characteristics or behaviors he/she should improve"
 msgstr "مهم‌ترین ویژگی‌ها یا رفتارهایی که باید بهبودشون بده"
 
-#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:34
+#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:31
 #: src/shared/dominant-characteristics-output/DominantCharacteristics.tsx:18
 msgid "The most important characteristics or effective behaviors that I should maintain"
 msgstr "مهم‌ترین ویژگی‌ها یا رفتارهای مؤثری که باید ادامه‌شون بدم"
 
-#: src/pages/manager-review-page/dominant-characteristics/ManagerReviewDominantCharacteristics.tsx:27
+#: src/pages/manager-review-page/dominant-characteristics/ManagerReviewDominantCharacteristics.tsx:72
 #: src/pages/result-page/strengths-weaknesses-result-page/StrengthsWeaknessesResult.tsx:32
-#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:35
+#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:32
 msgid "The most important characteristics or effective behaviors that he/she should maintain"
 msgstr "مهم‌ترین ویژگی‌ها یا رفتارهای مؤثری که باید ادامه‌شون بده"
 
@@ -470,6 +475,10 @@ msgstr "قسمت‌هایی که کامل نیستند"
 #: src/pages/projects-page/project-review-title-editor/ProjectReviewEditForm.tsx:43
 msgid "The project review name already exists."
 msgstr "نام فعالیت تکراری است"
+
+#: src/shared/those-who-did-not-comment/ThoseWhoDidNotComment.tsx:39
+msgid "Those who did not comment"
+msgstr "کسانی که نظر ندادند"
 
 #: src/assets/icons/Todo.tsx:5
 #: src/pages/manager-adjustment-dashboard/TableFilters.tsx:29
@@ -483,9 +492,9 @@ msgid "Try Again"
 msgstr "تلاش مجدد"
 
 #: src/pages/manager-review-dashboard/ManagerReviewDashboardTable.tsx:93
-#: src/pages/manager-review-page/achievements/ManagerReviewAchievementsRatingGroup.tsx:42
-#: src/pages/manager-review-page/overall-evaluation/ManagerReviewOverallEvaluation.tsx:51
-#: src/pages/manager-review-page/overall-evaluation/ManagerReviewOverallEvaluation.tsx:52
+#: src/pages/manager-review-page/achievements/ManagerReviewAchievementsRatingGroup.tsx:41
+#: src/pages/manager-review-page/overall-evaluation/ManagerReviewOverallEvaluation.tsx:44
+#: src/pages/manager-review-page/overall-evaluation/ManagerReviewOverallEvaluation.tsx:45
 #: src/pages/result-page/project-result-page/ProjectResultRatingGroup.tsx:35
 #: src/shared/evaluation-output/EvaluationOutput.tsx:23
 #: src/shared/evaluation-output/EvaluationOutput.tsx:24
@@ -509,19 +518,21 @@ msgstr "نام کاربری یا گذرواژه اشتباه است."
 msgid "View"
 msgstr "مشاهده"
 
-#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:35
+#: src/pages/manager-review-page/dominant-characteristics/ManagerReviewDominantCharacteristics.tsx:75
+#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:32
 msgid "What should he/she continue doing"
 msgstr "چی رو ادامه بده"
 
-#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:44
+#: src/pages/manager-review-page/dominant-characteristics/ManagerReviewDominantCharacteristics.tsx:83
+#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:41
 msgid "What should he/she improve"
 msgstr "چی رو بهبود بده"
 
-#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:35
+#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:32
 msgid "What to continue doing"
 msgstr "چی رو ادامه بدم"
 
-#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:44
+#: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:41
 msgid "What to improve"
 msgstr "چی رو بهبود بدم"
 
@@ -579,11 +590,11 @@ msgstr "نظر شما در مورد عملکرد {name} در این فعالیت
 msgid "Your comments about your performance compared to initial expectation"
 msgstr "نظر شما در مورد سطح عملکردتان در این فعالیت"
 
-#: src/pages/manager-review-page/achievements/ManagerReviewAchievementsExpansionPanel.tsx:75
+#: src/pages/manager-review-page/achievements/ManagerReviewForm.tsx:55
 msgid "Your evaluation of {name} on project {projectName}"
 msgstr "ارزیابی شما از {name} در فعالیت {projectName}"
 
-#: src/pages/manager-review-page/ManagerReviewExpansionPanelSummary.tsx:14
+#: src/pages/manager-review-page/ManagerReviewExpansionPanelSummary.tsx:19
 msgid "Your evaluation:"
 msgstr "ارزیابی شما:"
 
@@ -591,7 +602,7 @@ msgstr "ارزیابی شما:"
 msgid "{evaluatedItems} of {total} achievements are evaluated"
 msgstr "{evaluatedItems} مورد از {total} فعالیت ارزیابی شد"
 
-#: src/pages/manager-review-page/achievements/ManagerReviewAchievementsRatingGroup.tsx:59
+#: src/pages/manager-review-page/achievements/ManagerReviewAchievementsRatingGroup.tsx:58
 #: src/pages/result-page/project-result-page/ProjectResultRatingGroup.tsx:43
 msgid "{evaluationsCount} evaluations / {commentsCount} comments"
 msgstr "{evaluationsCount} ارزیابی / {commentsCount} نظر"
@@ -601,7 +612,7 @@ msgid "{name}'s comment about his/her achievements in this project"
 msgstr "نظر {name} در مورد دستاوردهاش در این فعالیت"
 
 #: src/pages/manager-adjustment-page/achievements/ManagerAdjustmentAchievementsExpansionPanel.tsx:51
-#: src/pages/manager-review-page/achievements/ManagerReviewAchievementsExpansionPanel.tsx:53
+#: src/pages/manager-review-page/achievements/ManagerReviewAchievementsExpansionPanel.tsx:60
 #: src/pages/peer-review-page/projectsTab/PeerReviewProjectsResult.tsx:38
 msgid "{name}'s comment about his/her performance compared to initial expectation"
 msgstr "نظر {name} در مورد سطح عملکردش نسبت به انتظاری که ازش میره"

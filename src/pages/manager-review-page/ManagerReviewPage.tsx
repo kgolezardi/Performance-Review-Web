@@ -54,54 +54,56 @@ export default function ManagerReviewPage(props: Props) {
   return (
     <FormChangeDetector>
       <FormChangePrompt message={i18n._('Changes you made may not be saved.')} />
-      <Container maxWidth="md">
-        <InView>
-          <TopStickyCard>
-            <PersonInfoCardHeader user={data.viewer.user} />
-            <Divider />
-            <Tabs value={tab}>
-              <TabLink label={i18n._('Achievements')} value="achievements" to={toPrefix + '/achievements'} />
-              <TabLink
-                label={i18n._('Dominant Characteristics')}
-                value="dominant-characteristics"
-                to={toPrefix + '/dominant-characteristics'}
-              />
-              <TabLink
-                label={i18n._('Overall Evaluation')}
-                value="overall-evaluation"
-                to={toPrefix + '/overall-evaluation'}
-              />
-            </Tabs>
-          </TopStickyCard>
-        </InView>
-        <Box marginY={2}>
-          <Paper>
-            <Suspense
-              fallback={
-                <Box height={200}>
-                  <FullPageSpinner />
-                </Box>
-              }
-            >
-              <Switch>
-                <Route
-                  path={toPrefix + '/dominant-characteristics'}
-                  children={<ManagerReviewDominantCharacteristics revieweeId={revieweeId} />}
+      <Box overflow="hidden">
+        <Container maxWidth="md">
+          <InView>
+            <TopStickyCard>
+              <PersonInfoCardHeader user={data.viewer.user} />
+              <Divider />
+              <Tabs value={tab}>
+                <TabLink label={i18n._('Achievements')} value="achievements" to={toPrefix + '/achievements'} />
+                <TabLink
+                  label={i18n._('Dominant Characteristics')}
+                  value="dominant-characteristics"
+                  to={toPrefix + '/dominant-characteristics'}
                 />
-                <Route
-                  path={toPrefix + '/achievements'}
-                  children={<ManagerReviewAchievements revieweeId={revieweeId} />}
+                <TabLink
+                  label={i18n._('Overall Evaluation')}
+                  value="overall-evaluation"
+                  to={toPrefix + '/overall-evaluation'}
                 />
-                <Route
-                  path={toPrefix + '/overall-evaluation'}
-                  children={<ManagerReviewOverallEvaluation revieweeId={revieweeId} />}
-                />
-                <Redirect to={toPrefix + '/achievements'} />
-              </Switch>
-            </Suspense>
-          </Paper>
-        </Box>
-      </Container>
+              </Tabs>
+            </TopStickyCard>
+          </InView>
+          <Box marginY={2}>
+            <Paper>
+              <Suspense
+                fallback={
+                  <Box height={200}>
+                    <FullPageSpinner />
+                  </Box>
+                }
+              >
+                <Switch>
+                  <Route
+                    path={toPrefix + '/dominant-characteristics'}
+                    children={<ManagerReviewDominantCharacteristics revieweeId={revieweeId} />}
+                  />
+                  <Route
+                    path={toPrefix + '/achievements'}
+                    children={<ManagerReviewAchievements revieweeId={revieweeId} />}
+                  />
+                  <Route
+                    path={toPrefix + '/overall-evaluation'}
+                    children={<ManagerReviewOverallEvaluation revieweeId={revieweeId} />}
+                  />
+                  <Redirect to={toPrefix + '/achievements'} />
+                </Switch>
+              </Suspense>
+            </Paper>
+          </Box>
+        </Container>
+      </Box>
       <ManagerReviewPrintButton uid={revieweeId} />
     </FormChangeDetector>
   );

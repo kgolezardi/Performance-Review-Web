@@ -64,7 +64,7 @@ export function ManagerAdjustmentAchievementsExpansionPanel(props: Props) {
   return (
     <ExpansionPanel defaultExpanded={false}>
       <ExpansionPanelSummary className={clsx(classes.summaryRoot, { [classes.approved]: approvedByManager })}>
-        <Typography variant="h3">{projectName}</Typography>
+        <Typography variant="h5">{projectName}</Typography>
       </ExpansionPanelSummary>
       <ExpansionPanelDetails>
         <Grid container spacing={3}>

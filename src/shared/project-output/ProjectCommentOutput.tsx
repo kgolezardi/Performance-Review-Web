@@ -45,7 +45,7 @@ export function ProjectCommentOutput(props: Props) {
           <EvaluationOutput value={comment.rating as Evaluation} type="peer" />
         </Box>
       </Grid>
-      {questionsAnswers.map(([question, answer], index) => (
+      {questionsAnswers.pairs.map(([question, answer], index) => (
         <Grid key={index} item xs={12}>
           <QuestionOutput questionLabel={question} />
           <MultilineOutput value={answer} />

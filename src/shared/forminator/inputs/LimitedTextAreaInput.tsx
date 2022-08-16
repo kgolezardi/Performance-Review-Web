@@ -15,7 +15,9 @@ interface OwnProps {
   counterDisplayThreshold?: number;
 }
 
-type Props = FCProps<OwnProps> & Omit<TextFieldProps, 'value' | 'onChange' | 'defaultValue'> & StyleProps;
+type Props = FCProps<OwnProps> &
+  Omit<TextFieldProps, 'value' | 'onChange' | 'defaultValue'> &
+  LimitedTextAreaInputClasses;
 
 function LimitedTextAreaInput(props: Props) {
   const {
@@ -85,4 +87,4 @@ const styles = (theme: Theme) =>
   });
 
 const useStyles = makeStyles(styles, { name: 'LimitedTextAreaInput' });
-type StyleProps = Styles<typeof styles>;
+export type LimitedTextAreaInputClasses = Styles<typeof styles>;

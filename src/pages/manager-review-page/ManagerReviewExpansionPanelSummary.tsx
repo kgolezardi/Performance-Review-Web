@@ -1,10 +1,12 @@
 import React from 'react';
-import { Box, ExpansionPanelSummaryProps, Theme, Typography, makeStyles } from '@material-ui/core';
+import clsx from 'clsx';
+import { Box, ExpansionPanelSummaryProps, Theme, Typography, createStyles, makeStyles } from '@material-ui/core';
 import { EvaluationOutput } from 'src/shared/evaluation-output';
 import { ExpansionPanelSummary } from 'src/shared/expansion-panel';
 import { FCProps } from 'src/shared/types/FCProps';
 import { Styles } from 'src/shared/types/Styles';
 import { i18n } from '@lingui/core';
+import { useInViewContext } from 'src/shared/in-view';
 
 import { Evaluation } from '../dashboard-page/__generated__/AchievementsIndicators_projects.graphql';
 
@@ -18,8 +20,15 @@ export function ManagerReviewEvaluationExpansionPanelSummary(props: Props) {
   const { children, rating } = props;
   const classes = useStyles(props);
 
+  const { topInView } = useInViewContext();
+
   return (
-    <ExpansionPanelSummary {...props} className={classes.root}>
+    <ExpansionPanelSummary
+      {...props}
+      className={clsx(classes.root, {
+        [classes.shadow]: !topInView,
+      })}
+    >
       <Box display="flex" flexDirection="column">
         <Box display="flex">{children}</Box>
         <div className={classes.evaluation}>
@@ -33,16 +42,31 @@ export function ManagerReviewEvaluationExpansionPanelSummary(props: Props) {
   );
 }
 
-const styles = (theme: Theme) => ({
-  root: {},
-  evaluation: {
-    display: 'flex',
-    marginTop: theme.spacing(2),
-    '.Mui-expanded &': {
-      display: 'none',
+const styles = (theme: Theme) =>
+  createStyles({
+    root: {
+      position: 'sticky',
+      top: 146,
+      backgroundColor: 'white',
+      zIndex: 3,
+      '@media print': {
+        position: 'static',
+      },
     },
-  },
-});
+    shadow: {
+      boxShadow: theme.shadows[1],
+      '@media print': {
+        boxShadow: 'none',
+      },
+    },
+    evaluation: {
+      display: 'flex',
+      marginTop: theme.spacing(2),
+      '.Mui-expanded &': {
+        display: 'none',
+      },
+    },
+  });
 
 const useStyles = makeStyles(styles, { name: 'ManagerReviewEvaluationExpansionPanelSummary' });
 type StyleProps = Styles<typeof styles>;

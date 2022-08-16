@@ -7,13 +7,13 @@ import { MDXContext } from '@mdx-js/react';
 import { SectionGuide } from 'src/shared/section-guide';
 import { StickyBottomPaper } from 'src/shared/sticky-bottom-paper';
 import { StrengthsOrWeaknesses } from 'src/shared/strengths-weaknesses';
-import { equals, filter } from 'ramda';
 import { i18n } from '@lingui/core';
 import { importMDX } from 'mdx.macro';
 import { useFormDirty } from 'src/shared/form-change-detector';
 
-import { ArrayValuePrompt, Equal } from './ArrayValuePrompt';
+import { ArrayValuePrompt } from './ArrayValuePrompt';
 import { StrengthsWeaknessesFormData } from './StrengthsWeaknessesPage';
+import { arrayEqual } from './utils';
 
 const DescriptionContentSelfReview = importMDX.sync('./DescriptionContentSelfReview.mdx');
 
@@ -24,10 +24,6 @@ interface OwnProps {
 }
 
 type Props = FCProps<OwnProps>;
-
-const arrayEqual: Equal = (fragmentValue, propValue) => {
-  return equals(filter(Boolean, fragmentValue || []), filter(Boolean, propValue || []));
-};
 
 export function StrengthsWeaknessesForm(props: Props) {
   const { onSubmit, isSelfReview } = props;

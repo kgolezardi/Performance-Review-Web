@@ -43,9 +43,9 @@ export function ProjectResultExpansionPanel(props: Props) {
   const projectName = projectReview.projectName;
 
   return (
-    <ExpansionPanel>
+    <ExpansionPanel defaultExpanded={false}>
       <ExpansionPanelSummary>
-        <Typography variant="h3">{projectName}</Typography>
+        <Typography variant="h5">{projectName}</Typography>
       </ExpansionPanelSummary>
       <ExpansionPanelDetails>
         <Grid container spacing={2}>

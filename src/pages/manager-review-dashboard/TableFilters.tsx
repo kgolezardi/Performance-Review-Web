@@ -27,7 +27,7 @@ export function TableFilters(props: Props) {
 
   return (
     <Grid container spacing={1}>
-      <Grid item md={3}>
+      <Grid item xs={3}>
         <TextField
           fullWidth
           label={i18n._('Colleague name')}
@@ -39,7 +39,7 @@ export function TableFilters(props: Props) {
           variant="outlined"
         />
       </Grid>
-      <Grid item md={3}>
+      <Grid item xs={3}>
         <TextField
           fullWidth
           label={i18n._('Manager')}
@@ -51,7 +51,7 @@ export function TableFilters(props: Props) {
           variant="outlined"
         />
       </Grid>
-      <Grid item md={3}>
+      <Grid item xs={3}>
         <FormControl fullWidth margin="dense" variant="outlined">
           <InputLabel ref={statusSelectInputLabelRef}>{i18n._('Evaluation Status')}</InputLabel>
           <Select
@@ -68,7 +68,7 @@ export function TableFilters(props: Props) {
           </Select>
         </FormControl>
       </Grid>
-      <Grid item md={3}>
+      <Grid item xs={3}>
         <FormControl fullWidth margin="dense" variant="outlined">
           <InputLabel ref={overallEvaluationSelectInputLabelRef}>{i18n._('Overall Evaluation')}</InputLabel>
           <Select

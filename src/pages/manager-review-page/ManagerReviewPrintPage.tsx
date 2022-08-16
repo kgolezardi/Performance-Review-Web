@@ -45,10 +45,10 @@ export function ManagerReviewPrintPage(props: Props) {
   const data = useLazyLoadQuery<ManagerReviewPrintPageQuery>(query, { id: revieweeId });
 
   useEffect(() => {
-    setTimeout(() => {
+    if (data) {
       window.parent.postMessage({ action: 'print-manager-review' }, '*');
-    }, 6000);
-  }, []);
+    }
+  }, [data]);
 
   if (!data.viewer.user) {
     // TODO: handle this
@@ -66,7 +66,6 @@ export function ManagerReviewPrintPage(props: Props) {
           <PersonInfoCardHeader user={data.viewer.user} />
           <Divider />
         </InView>
-        <PageBreak />
         <Box color="primary.main" marginTop={8} textAlign="center">
           <Typography variant="h2">{i18n._('Achievements')}</Typography>
         </Box>

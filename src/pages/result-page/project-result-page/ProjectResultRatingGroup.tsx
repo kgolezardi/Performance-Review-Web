@@ -70,12 +70,14 @@ export const ProjectResultRatingGroup = React.memo(function ProjectResultRatingG
       {filteredComments.map((review) => (
         <Box marginTop={2} key={review.id}>
           <ReviewItemInfo anonymous type="peer">
-            {getQuestionsAnswersPair(peerReviewProjectQuestions, review.answers).map(([question, answer], index) => (
-              <Box key={index} my={2}>
-                <QuestionOutput questionLabel={question} />
-                <MultilineOutput value={answer} />
-              </Box>
-            ))}
+            {getQuestionsAnswersPair(peerReviewProjectQuestions, review.answers).pairs.map(
+              ([question, answer], index) => (
+                <Box key={index} my={2}>
+                  <QuestionOutput questionLabel={question} />
+                  <MultilineOutput value={answer} />
+                </Box>
+              ),
+            )}
           </ReviewItemInfo>
         </Box>
       ))}

@@ -12,7 +12,7 @@ export const transformAnswersToInput = (ans: Record<string, any>, questions: Que
     });
 };
 
-export const transformAnswersToFormData = (answers: Answers, questions: Questions) => {
+export const transformAnswersToFormData = (answers: Answers, questions: Questions): Record<string, string> => {
   return answers
     .filter((answer) => Boolean(answer.value))
     .reduce((acc, curr) => {
