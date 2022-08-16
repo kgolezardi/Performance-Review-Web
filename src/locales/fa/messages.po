@@ -73,7 +73,7 @@ msgstr "خطایی رخ داده. دوباره تلاش کنید."
 msgid "Are you sure you want to delete {projectName} review?"
 msgstr "آیا از حذف {projectName} مطمین هستید؟"
 
-#: src/pages/peer-review-page/EndEvaluation.tsx:102
+#: src/pages/peer-review-page/EndEvaluation.tsx:104
 msgid "Are you sure you want to end the {name} evaluation?"
 msgstr "آیا مطمئنی که میخوای ارزیابی ‌{name} رو تموم کنی؟"
 
@@ -260,7 +260,7 @@ msgstr "در حد انتظاری که از من میره"
 msgid "My evaluation"
 msgstr "ارزیابی من"
 
-#: src/pages/peer-review-page/EndEvaluation.tsx:107
+#: src/pages/peer-review-page/EndEvaluation.tsx:109
 #: src/shared/confirm-button/ConfirmButton.tsx:8
 msgid "No"
 msgstr "خیر"
@@ -525,7 +525,7 @@ msgstr "چی رو ادامه بدم"
 msgid "What to improve"
 msgstr "چی رو بهبود بدم"
 
-#: src/pages/peer-review-page/EndEvaluation.tsx:109
+#: src/pages/peer-review-page/EndEvaluation.tsx:111
 #: src/shared/confirm-button/ConfirmButton.tsx:8
 msgid "Yes"
 msgstr "بله"

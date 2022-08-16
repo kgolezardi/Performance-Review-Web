@@ -73,7 +73,7 @@ msgstr "An error occurred. Try again!"
 msgid "Are you sure you want to delete {projectName} review?"
 msgstr "Are you sure you want to delete {projectName} review?"
 
-#: src/pages/peer-review-page/EndEvaluation.tsx:102
+#: src/pages/peer-review-page/EndEvaluation.tsx:104
 msgid "Are you sure you want to end the {name} evaluation?"
 msgstr "Are you sure you want to end the {name} evaluation?"
 
@@ -260,7 +260,7 @@ msgstr "Meets Expectations from me"
 msgid "My evaluation"
 msgstr "My evaluation"
 
-#: src/pages/peer-review-page/EndEvaluation.tsx:107
+#: src/pages/peer-review-page/EndEvaluation.tsx:109
 #: src/shared/confirm-button/ConfirmButton.tsx:8
 msgid "No"
 msgstr "No"
@@ -525,7 +525,7 @@ msgstr "What to continue doing"
 msgid "What to improve"
 msgstr "What to improve"
 
-#: src/pages/peer-review-page/EndEvaluation.tsx:109
+#: src/pages/peer-review-page/EndEvaluation.tsx:111
 #: src/shared/confirm-button/ConfirmButton.tsx:8
 msgid "Yes"
 msgstr "Yes"
