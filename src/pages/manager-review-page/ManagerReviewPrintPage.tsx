@@ -45,10 +45,10 @@ export function ManagerReviewPrintPage(props: Props) {
   const data = useLazyLoadQuery<ManagerReviewPrintPageQuery>(query, { id: revieweeId });
 
   useEffect(() => {
-    setTimeout(() => {
+    if (data) {
       window.parent.postMessage({ action: 'print-manager-review' }, '*');
-    }, 6000);
-  }, []);
+    }
+  }, [data]);
 
   if (!data.viewer.user) {
     // TODO: handle this

@@ -49,9 +49,15 @@ const styles = (theme: Theme) =>
       top: 146,
       backgroundColor: 'white',
       zIndex: 3,
+      '@media print': {
+        position: 'static',
+      },
     },
     shadow: {
       boxShadow: theme.shadows[1],
+      '@media print': {
+        boxShadow: 'none',
+      },
     },
     evaluation: {
       display: 'flex',

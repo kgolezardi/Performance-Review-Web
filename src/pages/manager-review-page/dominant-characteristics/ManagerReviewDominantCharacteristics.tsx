@@ -12,6 +12,7 @@ import { useBiDiSnackbar } from 'src/shared/snackbar';
 import { useFormDirty } from 'src/shared/form-change-detector';
 import { useLazyLoadQuery } from 'react-relay/hooks';
 import { useMutation } from 'src/relay';
+import { usePrintingContext } from 'src/shared/layouts/dashboard-layouts/PrintingContext';
 
 import { ManagerReviewDominantCharacteristicsExpansionPanel } from './ManagerReviewDominantCharacteristicsExpansionPanel';
 import { ManagerReviewDominantCharacteristicsQuery } from './__generated__/ManagerReviewDominantCharacteristicsQuery.graphql';
@@ -50,6 +51,8 @@ export default function ManagerReviewDominantCharacteristics(props: Props) {
   const data = useLazyLoadQuery<ManagerReviewDominantCharacteristicsQuery>(query, { id: revieweeId });
   const reviews = data.viewer.user?.personReviews;
   const { enqueueSnackbar } = useBiDiSnackbar();
+  const printing = usePrintingContext();
+
   const saveManagerPersonReview = useMutation(managerReviewPersonMutation);
   const handleSubmit = async (formData: FormData) => {
     try {
@@ -68,9 +71,10 @@ export default function ManagerReviewDominantCharacteristics(props: Props) {
     return <Box padding={4}>no data</Box>;
   }
 
+  const managerPersonReview = data.viewer.user?.managerPersonReview ?? null;
   const initialValue: FormData = {
-    weaknesses: normalizeArray(data.viewer.user?.managerPersonReview?.weaknesses),
-    strengths: normalizeArray(data.viewer.user?.managerPersonReview?.strengths),
+    weaknesses: normalizeArray(managerPersonReview?.weaknesses),
+    strengths: normalizeArray(managerPersonReview?.strengths),
   };
 
   return (
@@ -81,25 +85,31 @@ export default function ManagerReviewDominantCharacteristics(props: Props) {
             reviews={reviews}
             title={i18n._('The most important characteristics or effective behaviors that he/she should maintain')}
             type="strengths"
+            managerPersonReview={managerPersonReview}
           >
-            <Box mt={2}>
-              <DictInputItem field="strengths">
-                <StrengthsOrWeaknesses maxLength={3} label={i18n._('What should he/she continue doing')} />
-                <ArrayValuePrompt value={initialValue.strengths} equal={arrayEqual} />
-              </DictInputItem>
-            </Box>
+            {!printing ? (
+              <Box mt={2}>
+                <DictInputItem field="strengths">
+                  <StrengthsOrWeaknesses maxLength={3} label={i18n._('What should he/she continue doing')} />
+                  <ArrayValuePrompt value={initialValue.strengths} equal={arrayEqual} />
+                </DictInputItem>
+              </Box>
+            ) : null}
           </ManagerReviewDominantCharacteristicsExpansionPanel>
           <ManagerReviewDominantCharacteristicsExpansionPanel
             title={i18n._('The most important characteristics or behaviors he/she should improve')}
             reviews={reviews}
             type="weaknesses"
+            managerPersonReview={managerPersonReview}
           >
-            <Box mt={2}>
-              <DictInputItem field="weaknesses">
-                <StrengthsOrWeaknesses maxLength={3} label={i18n._('What should he/she improve')} />
-                <ArrayValuePrompt value={initialValue.weaknesses} equal={arrayEqual} />
-              </DictInputItem>
-            </Box>
+            {!printing ? (
+              <Box mt={2}>
+                <DictInputItem field="weaknesses">
+                  <StrengthsOrWeaknesses maxLength={3} label={i18n._('What should he/she improve')} />
+                  <ArrayValuePrompt value={initialValue.weaknesses} equal={arrayEqual} />
+                </DictInputItem>
+              </Box>
+            ) : null}
           </ManagerReviewDominantCharacteristicsExpansionPanel>
         </DictInput>
         <ActionBar>

@@ -27,7 +27,7 @@ export type RoundQuestions = {
 };
 
 export function useRoundQuestions(): RoundQuestions {
-  const data = useLazyLoadQuery<RoundQuestionsQuery>(query, {}, { fetchPolicy: 'store-or-network' });
+  const data = useLazyLoadQuery<RoundQuestionsQuery>(query, {});
   const selfReviewProjectQuestions = useFragment<RoundQuestions_selfReview$key>(
     selfReviewProjectQuestionsFragment,
     data.viewer.activeRound.selfReviewProjectQuestions,

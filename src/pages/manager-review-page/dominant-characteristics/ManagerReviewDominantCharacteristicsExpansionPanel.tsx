@@ -6,8 +6,9 @@ import { FCProps } from 'src/shared/types/FCProps';
 import { MultilineOutput, NumberedMultilineOutput } from 'src/shared/multiline-output';
 import { ReviewItemInfo } from 'src/shared/review-item-info';
 import { getUserLabel } from 'src/shared/utils/getUserLabel';
-import { isNotNil } from 'src/shared/utils/general.util';
+import { useAuthGuardUser } from 'src/core/auth';
 import { useFragment } from 'react-relay/hooks';
+import { usePrintingContext } from 'src/shared/layouts/dashboard-layouts/PrintingContext';
 
 import { ManagerReviewDominantCharacteristicsExpansionPanel_reviews$key } from './__generated__/ManagerReviewDominantCharacteristicsExpansionPanel_reviews.graphql';
 
@@ -27,6 +28,10 @@ interface OwnProps {
   reviews: ManagerReviewDominantCharacteristicsExpansionPanel_reviews$key;
   title?: string;
   type: 'strengths' | 'weaknesses';
+  managerPersonReview: {
+    readonly strengths: ReadonlyArray<string> | null;
+    readonly weaknesses: ReadonlyArray<string> | null;
+  } | null;
 }
 
 type Props = FCProps<OwnProps>;
@@ -35,9 +40,12 @@ export function ManagerReviewDominantCharacteristicsExpansionPanel(props: Props)
   const { title, type } = props;
 
   const reviews = useFragment(fragment, props.reviews);
+  const isPrinting = usePrintingContext();
+  const me = useAuthGuardUser();
 
   const selfReview = reviews.find((review) => review.isSelfReview);
-  const peerReviews = reviews.filter((review) => !review.isSelfReview).filter((review) => isNotNil(review[type]));
+  const peerReviews = reviews.filter((review) => !review.isSelfReview).filter((review) => !!review[type]?.length);
+  const managerReview = props.managerPersonReview;
 
   return (
     <ExpansionPanel>
@@ -52,12 +60,27 @@ export function ManagerReviewDominantCharacteristicsExpansionPanel(props: Props)
               src={selfReview.reviewer?.avatarUrl ?? undefined}
               type="self"
             >
-              {selfReview[type]?.map((review, index) => (
-                <Box key={index} marginBottom={1}>
-                  <MultilineOutput enableTruncating value={review} />
-                </Box>
-              ))}
+              {selfReview[type]?.length ? (
+                selfReview[type]?.map((review, index) => (
+                  <Box key={index} marginBottom={1}>
+                    <MultilineOutput enableTruncating value={review} />
+                  </Box>
+                ))
+              ) : (
+                <MultilineOutput value={null} />
+              )}
             </ReviewItemInfo>
+          )}
+          {isPrinting && managerReview && (
+            <Box marginTop={2}>
+              <ReviewItemInfo name={getUserLabel(me) ?? undefined} src={me.avatarUrl ?? undefined} type="manager">
+                {managerReview[type]?.map((review, index) => (
+                  <Box key={index} marginBottom={1}>
+                    <NumberedMultilineOutput enableTruncating index={index} value={review} />
+                  </Box>
+                ))}
+              </ReviewItemInfo>
+            </Box>
           )}
           {peerReviews?.map((review, index) => (
             <Box marginTop={2} key={index}>

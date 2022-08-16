@@ -18,7 +18,7 @@ import { i18n } from '@lingui/core';
 interface OwnProps {
   name?: string;
   src?: string;
-  type: 'self' | 'peer';
+  type: 'self' | 'peer' | 'manager';
 }
 
 type Props = FCProps<OwnProps> & StyleProps;
@@ -26,26 +26,31 @@ type Props = FCProps<OwnProps> & StyleProps;
 export function IdentifiedReviewItemInfo(props: Props) {
   const { children, name, src, type } = props;
   const classes = useStyles(props);
+  const bgColor = type === 'manager' ? 'success.light' : undefined;
 
   return (
-    <Grid container spacing={2} className={classes.root}>
-      <Grid item>
-        <Avatar className={classes.avatar} src={src}>
-          {name?.[0]}
-        </Avatar>
+    <Box bgcolor={bgColor} clone>
+      <Grid container spacing={2} className={classes.root}>
+        <Grid item>
+          <Avatar className={classes.avatar} src={src}>
+            {name?.[0]}
+          </Avatar>
+        </Grid>
+        <Grid item xs>
+          <Box marginBottom={1}>
+            <Typography variant="button">
+              {name} <Typography variant="caption">{type === 'manager' && `(${i18n._('Manager')})`}</Typography>
+            </Typography>
+            {type === 'self' && (
+              <Box marginLeft={2} display="inline-block">
+                <RevieweeChip label={i18n._('Reviewee')} size="small" color="primary" />
+              </Box>
+            )}
+          </Box>
+          {children}
+        </Grid>
       </Grid>
-      <Grid item xs>
-        <Box marginBottom={1}>
-          <Typography variant="button">{name}</Typography>
-          {type === 'self' && (
-            <Box marginLeft={2} display="inline-block">
-              <RevieweeChip label={i18n._('Reviewee')} size="small" color="primary" />
-            </Box>
-          )}
-        </Box>
-        {children}
-      </Grid>
-    </Grid>
+    </Box>
   );
 }
 

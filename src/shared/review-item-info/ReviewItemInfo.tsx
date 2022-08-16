@@ -8,7 +8,7 @@ interface OwnProps {
   anonymous?: boolean;
   name?: string;
   src?: string;
-  type: 'self' | 'peer';
+  type: 'self' | 'peer' | 'manager';
 }
 
 type Props = FCProps<OwnProps>;

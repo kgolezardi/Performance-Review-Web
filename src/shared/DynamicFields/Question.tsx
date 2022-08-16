@@ -1,12 +1,12 @@
 import * as React from 'react';
+import DictInputItem from 'src/shared/forminator/inputs/dict-input/DictInputItem';
+import { FragmentPrompt } from 'src/shared/forminator';
 import { Question as IQuestion } from 'src/core/domain';
+import { LimitedTextAreaInputClasses } from 'src/shared/forminator/inputs/LimitedTextAreaInput';
+import { SelectMultiAutoCompleteClasses } from 'src/shared/forminator/inputs/SelectMultiAutoComplete';
 
-import DictInputItem from '../forminator/inputs/dict-input/DictInputItem';
-import { FragmentPrompt } from '../forminator';
-import { LimitedTextAreaInputClasses } from '../forminator/inputs/LimitedTextAreaInput';
 import { LimitedTextAreaQuestion } from './LimitedTextAreaQuestion';
 import { MultipleSelectQuestion } from './MultipleSelectQuestion';
-import { SelectMultiAutoCompleteClasses } from '../forminator/inputs/SelectMultiAutoComplete';
 
 interface OwnProps {
   question: IQuestion;

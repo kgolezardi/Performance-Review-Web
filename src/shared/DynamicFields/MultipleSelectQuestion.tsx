@@ -1,10 +1,11 @@
 import * as React from 'react';
 import ReactMarkdown from 'react-markdown';
+import SelectMultiAutoComplete, {
+  SelectMultiAutoCompleteClasses,
+} from 'src/shared/forminator/inputs/SelectMultiAutoComplete';
 import { FormHelperText } from '@material-ui/core';
 import { Question } from 'src/core/domain';
-
-import SelectMultiAutoComplete, { SelectMultiAutoCompleteClasses } from '../forminator/inputs/SelectMultiAutoComplete';
-import { helpTextRenderers } from '../react-markdown';
+import { helpTextRenderers } from 'src/shared/react-markdown';
 
 interface OwnProps {
   question: Question;

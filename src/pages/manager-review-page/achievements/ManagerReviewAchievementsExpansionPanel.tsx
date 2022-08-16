@@ -65,7 +65,7 @@ export function ManagerReviewAchievementsExpansionPanel(props: Props) {
     <ExpansionPanel defaultExpanded={printing}>
       <InView>
         <ManagerReviewEvaluationExpansionPanelSummary rating={projectReview.managerComment?.rating ?? null}>
-          <Typography variant="h5">{projectName}</Typography>
+          <Typography variant="h4">{projectName}</Typography>
         </ManagerReviewEvaluationExpansionPanelSummary>
       </InView>
       <ExpansionPanelDetails>
@@ -86,11 +86,6 @@ export function ManagerReviewAchievementsExpansionPanel(props: Props) {
                 {i18n._('Other people comments about {name} performance compared to initial expectation', { name })}
               </Typography>
             </Box>
-            {printing && projectReview.managerComment && (
-              <Grid item xs={12}>
-                <ManagerProjectOutput review={projectReview.managerComment} />
-              </Grid>
-            )}
             <ManagerReviewAchievementsRatingGroup rating="SUPERB" comments={projectReview.comments} />
             <ManagerReviewAchievementsRatingGroup rating="EXCEEDS_EXPECTATIONS" comments={projectReview.comments} />
             <ManagerReviewAchievementsRatingGroup rating="MEETS_EXPECTATIONS" comments={projectReview.comments} />
@@ -98,6 +93,11 @@ export function ManagerReviewAchievementsExpansionPanel(props: Props) {
             <ManagerReviewAchievementsRatingGroup rating={null} comments={projectReview.comments} />
           </Grid>
           <ThoseWhoDidNotComment comments={projectReview.comments} />
+          {printing && projectReview.managerComment && (
+            <Grid item xs={12}>
+              <ManagerProjectOutput self review={projectReview.managerComment} />
+            </Grid>
+          )}
           {!printing && (
             <Grid item xs={12}>
               <FormChangeDetector>

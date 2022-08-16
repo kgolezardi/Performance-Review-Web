@@ -31,8 +31,8 @@ msgstr "**Coordinate reviewers with your manager (maximum {num} reviewers)"
 #: src/pages/manager-adjustment-page/ManagerAdjustmentPage.tsx:42
 #: src/pages/manager-review-dashboard/ManagerReviewDashboardDrawerContent.tsx:66
 #: src/pages/manager-review-dashboard/ManagerReviewDashboardTable.tsx:75
-#: src/pages/manager-review-page/ManagerReviewPage.tsx:45
-#: src/pages/manager-review-page/ManagerReviewPrintPage.tsx:53
+#: src/pages/manager-review-page/ManagerReviewPage.tsx:46
+#: src/pages/manager-review-page/ManagerReviewPrintPage.tsx:52
 #: src/pages/peer-review-page/EndEvaluationDialogContent/AchievementsContent.tsx:13
 #: src/pages/peer-review-page/PeerReviewPage.tsx:45
 #: src/pages/result-page/ResultPage.tsx:21
@@ -62,7 +62,7 @@ msgstr "All reviews were successfully done"
 
 #: src/pages/manager-adjustment-page/achievements/ManagerAdjustmentAchievements.tsx:65
 #: src/pages/manager-review-page/achievements/ManagerReviewAchievements.tsx:63
-#: src/pages/manager-review-page/dominant-characteristics/ManagerReviewDominantCharacteristics.tsx:55
+#: src/pages/manager-review-page/dominant-characteristics/ManagerReviewDominantCharacteristics.tsx:57
 #: src/pages/manager-review-page/overall-evaluation/ManagerReviewOverallEvaluation.tsx:57
 #: src/pages/peer-review-page/EndEvaluation.tsx:71
 #: src/pages/peer-review-page/PeerReviewPersonInfoCard.tsx:32
@@ -126,8 +126,8 @@ msgstr "Doing"
 
 #: src/containers/main/getMenuItems.ts:28
 #: src/pages/dashboard-page/DashboardPage.tsx:49
-#: src/pages/manager-review-page/ManagerReviewPage.tsx:46
-#: src/pages/manager-review-page/ManagerReviewPrintPage.tsx:58
+#: src/pages/manager-review-page/ManagerReviewPage.tsx:47
+#: src/pages/manager-review-page/ManagerReviewPrintPage.tsx:57
 #: src/pages/peer-review-page/EndEvaluationDialogContent/DominantCharacteristicsContent.tsx:11
 #: src/pages/peer-review-page/PeerReviewPage.tsx:47
 #: src/pages/result-page/ResultPage.tsx:22
@@ -165,7 +165,7 @@ msgstr "Error"
 #: src/pages/manager-review-page/achievements/ManagerReviewForm.tsx:59
 #: src/pages/manager-review-page/overall-evaluation/ManagerReviewOverallEvaluation.tsx:74
 #: src/pages/peer-review-page/projectsTab/projects-form/PeerReviewProjectsForm.tsx:39
-#: src/shared/project-output/ManagerProjectOutput.tsx:36
+#: src/shared/project-output/ManagerProjectOutput.tsx:37
 #: src/shared/project-output/ProjectCommentOutput.tsx:27
 #: src/shared/project-output/ProjectOutput.tsx:34
 msgid "Evaluation"
@@ -247,6 +247,7 @@ msgstr "Login"
 #: src/pages/manager-review-dashboard/ManagerReviewDashboardDrawerContent.tsx:60
 #: src/pages/manager-review-dashboard/ManagerReviewDashboardTable.tsx:72
 #: src/pages/manager-review-dashboard/TableFilters.tsx:19
+#: src/shared/review-item-info/IdentifiedReviewItemInfo.tsx:18
 msgid "Manager"
 msgstr "Manager"
 
@@ -286,8 +287,8 @@ msgstr "Other people comments about {name} performance compared to initial expec
 
 #: src/pages/manager-review-dashboard/ManagerReviewDashboardDrawerContent.tsx:61
 #: src/pages/manager-review-dashboard/TableFilters.tsx:38
-#: src/pages/manager-review-page/ManagerReviewPage.tsx:47
-#: src/pages/manager-review-page/ManagerReviewPrintPage.tsx:63
+#: src/pages/manager-review-page/ManagerReviewPage.tsx:48
+#: src/pages/manager-review-page/ManagerReviewPrintPage.tsx:62
 msgid "Overall Evaluation"
 msgstr "Overall Evaluation"
 
@@ -336,7 +337,7 @@ msgstr "Project title"
 msgid "Projects"
 msgstr "Projects"
 
-#: src/shared/review-item-info/IdentifiedReviewItemInfo.tsx:17
+#: src/shared/review-item-info/IdentifiedReviewItemInfo.tsx:21
 msgid "Reviewee"
 msgstr "Reviewee"
 
@@ -347,7 +348,7 @@ msgstr "Reviewers (maximum {num})"
 
 #: src/pages/manager-adjustment-page/achievements/ManagerAdjustmentForm.tsx:54
 #: src/pages/manager-review-page/achievements/ManagerReviewForm.tsx:73
-#: src/pages/manager-review-page/dominant-characteristics/ManagerReviewDominantCharacteristics.tsx:88
+#: src/pages/manager-review-page/dominant-characteristics/ManagerReviewDominantCharacteristics.tsx:91
 #: src/pages/manager-review-page/overall-evaluation/ManagerReviewOverallEvaluation.tsx:82
 #: src/pages/peer-review-page/projectsTab/projects-form/PeerReviewProjectsForm.tsx:51
 #: src/pages/projects-page/ProjectForm.tsx:101
@@ -422,7 +423,7 @@ msgstr "Submit changes"
 #: src/core/snackbar/Snackbar.stories.tsx:13
 #: src/pages/manager-adjustment-page/achievements/ManagerAdjustmentAchievements.tsx:62
 #: src/pages/manager-review-page/achievements/ManagerReviewAchievements.tsx:60
-#: src/pages/manager-review-page/dominant-characteristics/ManagerReviewDominantCharacteristics.tsx:52
+#: src/pages/manager-review-page/dominant-characteristics/ManagerReviewDominantCharacteristics.tsx:54
 #: src/pages/manager-review-page/overall-evaluation/ManagerReviewOverallEvaluation.tsx:54
 #: src/pages/peer-review-page/projectsTab/project-expansion-panel/PeerReviewProjectExpansionPanel.tsx:39
 #: src/pages/projects-page/ProjectsPage.tsx:59
@@ -450,7 +451,7 @@ msgstr "The manager has not been consulted"
 msgid "The most important characteristics or behaviors I should improve in myself"
 msgstr "The most important characteristics or behaviors I should improve in myself"
 
-#: src/pages/manager-review-page/dominant-characteristics/ManagerReviewDominantCharacteristics.tsx:77
+#: src/pages/manager-review-page/dominant-characteristics/ManagerReviewDominantCharacteristics.tsx:80
 #: src/pages/result-page/strengths-weaknesses-result-page/StrengthsWeaknessesResult.tsx:33
 #: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:41
 msgid "The most important characteristics or behaviors he/she should improve"
@@ -461,7 +462,7 @@ msgstr "The most important characteristics or behaviors he/she should improve"
 msgid "The most important characteristics or effective behaviors that I should maintain"
 msgstr "The most important characteristics or effective behaviors that I should maintain"
 
-#: src/pages/manager-review-page/dominant-characteristics/ManagerReviewDominantCharacteristics.tsx:69
+#: src/pages/manager-review-page/dominant-characteristics/ManagerReviewDominantCharacteristics.tsx:72
 #: src/pages/result-page/strengths-weaknesses-result-page/StrengthsWeaknessesResult.tsx:32
 #: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:32
 msgid "The most important characteristics or effective behaviors that he/she should maintain"
@@ -517,12 +518,12 @@ msgstr "Username or Password is incorrect."
 msgid "View"
 msgstr "View"
 
-#: src/pages/manager-review-page/dominant-characteristics/ManagerReviewDominantCharacteristics.tsx:72
+#: src/pages/manager-review-page/dominant-characteristics/ManagerReviewDominantCharacteristics.tsx:75
 #: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:32
 msgid "What should he/she continue doing"
 msgstr "What should he/she continue doing"
 
-#: src/pages/manager-review-page/dominant-characteristics/ManagerReviewDominantCharacteristics.tsx:80
+#: src/pages/manager-review-page/dominant-characteristics/ManagerReviewDominantCharacteristics.tsx:83
 #: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:41
 msgid "What should he/she improve"
 msgstr "What should he/she improve"
@@ -596,10 +597,6 @@ msgstr "Your evaluation of {name} on project {projectName}"
 #: src/pages/manager-review-page/ManagerReviewExpansionPanelSummary.tsx:19
 msgid "Your evaluation:"
 msgstr "Your evaluation:"
-
-#: src/shared/project-output/ManagerProjectOutput.tsx:30
-msgid "Your manger comment"
-msgstr "Your manger comment"
 
 #: src/pages/manager-review-page/ManagerReviewProgress.tsx:33
 msgid "{evaluatedItems} of {total} achievements are evaluated"

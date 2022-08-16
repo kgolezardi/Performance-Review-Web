@@ -5,7 +5,7 @@ import { Box, Grid, lighten, useTheme } from '@material-ui/core';
 import { FCProps } from 'src/shared/types/FCProps';
 
 interface OwnProps {
-  type: 'self' | 'peer';
+  type: 'self' | 'peer' | 'manager';
 }
 
 type Props = FCProps<OwnProps>;
