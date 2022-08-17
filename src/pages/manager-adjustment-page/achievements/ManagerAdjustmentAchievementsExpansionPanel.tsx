@@ -27,13 +27,6 @@ const fragment = graphql`
       ...getUserLabel_user
     }
     projectName
-    comments {
-      ...ManagerReviewAchievementsRatingGroup_comments
-    }
-    managerComment {
-      id
-      rating
-    }
     approvedByManager
     ...ProjectOutput_review
     ...ManagerAdjustmentForm_data

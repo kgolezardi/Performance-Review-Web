@@ -76,6 +76,7 @@ export function ManagerAdjustmentAchievements(props: Props) {
     <>
       {projectReviews?.map((projectReview) => (
         <ManagerAdjustmentAchievementsExpansionPanel
+          key={projectReview.id}
           maximumReviewers={data.viewer.activeRound.maxReviewers}
           users={data.viewer.users}
           projectReview={projectReview}

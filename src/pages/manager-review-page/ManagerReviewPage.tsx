@@ -7,6 +7,7 @@ import { FormChangePrompt } from 'src/shared/form-change-prompt';
 import { FullPageSpinner } from 'src/shared/loading';
 import { InView } from 'src/shared/in-view';
 import { PersonInfoCardHeader } from 'src/shared/person-info-card-header';
+import { PrintButton } from 'src/shared/print-button';
 import { Redirect, Route, Switch, useParams } from 'react-router-dom';
 import { TabLink } from 'src/shared/tab';
 import { Tabs } from 'src/shared/tabs';
@@ -18,7 +19,6 @@ import ManagerReviewDominantCharacteristics from './dominant-characteristics/Man
 import ManagerReviewOverallEvaluation from './overall-evaluation';
 import { ManagerReviewAchievements } from './achievements';
 import { ManagerReviewPageQuery } from './__generated__/ManagerReviewPageQuery.graphql';
-import { ManagerReviewPrintButton } from './ManagerReviewPrintButton';
 
 const query = graphql`
   query ManagerReviewPageQuery($id: ID!) {
@@ -54,7 +54,7 @@ export default function ManagerReviewPage(props: Props) {
   return (
     <FormChangeDetector>
       <FormChangePrompt message={i18n._('Changes you made may not be saved.')} />
-      <Box overflow="hidden">
+      <Box py="1px">
         <Container maxWidth="md">
           <InView>
             <TopStickyCard>
@@ -104,7 +104,7 @@ export default function ManagerReviewPage(props: Props) {
           </Box>
         </Container>
       </Box>
-      <ManagerReviewPrintButton uid={revieweeId} />
+      <PrintButton printSrc={`/print-manager-review/${revieweeId}`} id="print-manager-review" />
     </FormChangeDetector>
   );
 }

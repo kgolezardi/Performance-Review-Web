@@ -20,10 +20,11 @@ export type Props = FCProps<OwnProps>;
 const query = graphql`
   query ResultPrintPageQuery($id: ID!) {
     viewer {
+      activeRound {
+        reviewersAreAnonymous
+      }
       user(id: $id) {
-        personReviews {
-          ...StrengthsWeaknessesResult_reviews
-        }
+        ...StrengthsWeaknessesOutput_reviews
         projectReviews {
           id
           ...ProjectResultExpansionPanel_projectReview
@@ -38,15 +39,15 @@ export function ResultPrintPage(props: Props) {
   const { id } = useAuthGuardUser();
 
   const data = useLazyLoadQuery<ResultPrintPageQuery>(query, { id });
-  const reviews = data.viewer.user?.personReviews ?? [];
   const projectReviews = data.viewer.user?.projectReviews ?? [];
 
   useEffect(() => {
-    setTimeout(() => {
+    if (data) {
       window.parent.postMessage({ action: 'print-result' }, '*');
-    }, 5000);
-  }, []);
+    }
+  }, [data]);
 
+  const reviewersAreAnonymous = data.viewer.activeRound.reviewersAreAnonymous;
   if (!data.viewer.user) {
     // TODO: handle this
     return <div>No user found</div>;
@@ -60,12 +61,16 @@ export function ResultPrintPage(props: Props) {
       <PageBreak />
       <Box paddingY={2}>
         {projectReviews?.map((projectReview) => (
-          <ProjectResultExpansionPanel projectReview={projectReview} key={projectReview.id} />
+          <ProjectResultExpansionPanel
+            reviewersAreAnonymous={reviewersAreAnonymous}
+            projectReview={projectReview}
+            key={projectReview.id}
+          />
         ))}
       </Box>
       <PageBreak />
       <Box paddingY={2}>
-        <StrengthsWeaknessesResult reviews={reviews} />
+        <StrengthsWeaknessesResult reviewersAreAnonymous={reviewersAreAnonymous} reviews={data.viewer.user} />
       </Box>
     </PrintingContext.Provider>
   );
