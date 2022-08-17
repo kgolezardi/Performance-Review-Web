@@ -8,6 +8,7 @@ import { useFragment } from 'react-relay/hooks';
 
 import { ThoseWhoDidNotComment_comments$key } from './__generated__/ThoseWhoDidNotComment_comments.graphql';
 import { getUserLabel } from '../utils/getUserLabel';
+import { usePrintingContext } from '../layouts/dashboard-layouts/PrintingContext';
 
 const fragment = graphql`
   fragment ThoseWhoDidNotComment_comments on ProjectCommentNode @relay(plural: true) {
@@ -35,13 +36,13 @@ export function ThoseWhoDidNotComment(props: Props) {
 
   const emptyComments = comments.filter((comment) => !comment.rating && !comment.answers.some(Boolean));
   const reviewers = emptyComments.map((review) => review.reviewer).filter(isNotNil);
-
+  const printing = usePrintingContext();
   const reviewAvatars = reviewers.map((reviewer) => ({
     avatarUrl: reviewer.avatarUrl ?? undefined,
     name: getUserLabel(reviewer),
   }));
 
-  if (!reviewAvatars.length) {
+  if (!reviewAvatars.length || printing) {
     return null;
   }
 
