@@ -2,12 +2,12 @@ import React from 'react';
 import { ExpansionPanel, ExpansionPanelDetails, ExpansionPanelSummary } from 'src/shared/expansion-panel';
 import { FCProps } from 'src/shared/types/FCProps';
 import { StrengthsWeaknessesOutput } from 'src/shared/strengths-weaknesses-output';
-import { StrengthsWeaknessesOutput_reviews$key } from 'src/shared/strengths-weaknesses-output/__generated__/StrengthsWeaknessesOutput_reviews.graphql';
+import { StrengthsWeaknessesOutput_user$key } from 'src/shared/strengths-weaknesses-output/__generated__/StrengthsWeaknessesOutput_user.graphql';
 import { Theme, Typography, createStyles, makeStyles } from '@material-ui/core';
 
 interface OwnProps {
   title?: string;
-  reviews: StrengthsWeaknessesOutput_reviews$key;
+  reviewee: StrengthsWeaknessesOutput_user$key;
   anonymous?: boolean;
   type: 'strengths' | 'weaknesses';
   showMangerPersonReviewOnlyInPrint?: boolean;
@@ -16,7 +16,7 @@ interface OwnProps {
 type Props = FCProps<OwnProps>;
 
 export function StrengthsWeaknessResultExpansionPanel(props: Props) {
-  const { title, reviews, anonymous, type, showMangerPersonReviewOnlyInPrint = false } = props;
+  const { title, reviewee, anonymous, type, showMangerPersonReviewOnlyInPrint = false } = props;
 
   const classes = useStyles();
 
@@ -27,7 +27,7 @@ export function StrengthsWeaknessResultExpansionPanel(props: Props) {
       </ExpansionPanelSummary>
       <ExpansionPanelDetails className={classes.expansionPanelDetails}>
         <StrengthsWeaknessesOutput
-          reviews={reviews}
+          reviewee={reviewee}
           type={type}
           anonymous={anonymous}
           showMangerPersonReviewOnlyInPrint={showMangerPersonReviewOnlyInPrint}

@@ -25,7 +25,7 @@ const query = graphql`
         personReviews {
           id
         }
-        ...StrengthsWeaknessesOutput_reviews
+        ...StrengthsWeaknessesOutput_user
         managerPersonReview {
           strengths
           weaknesses
@@ -67,8 +67,9 @@ export default function ManagerReviewDominantCharacteristics(props: Props) {
   };
 
   const isDirty = useFormDirty();
+  const reviewee = data.viewer.user;
 
-  if (!reviews || !data.viewer.user) {
+  if (!reviews || !reviewee) {
     return <Box padding={4}>no data</Box>;
   }
 
@@ -83,7 +84,7 @@ export default function ManagerReviewDominantCharacteristics(props: Props) {
       <Forminator onSubmit={handleSubmit} initialValue={initialValue}>
         <DictInput>
           <StrengthsWeaknessResultExpansionPanel
-            reviews={data.viewer.user}
+            reviewee={reviewee}
             title={i18n._('The most important characteristics or effective behaviors that he/she should maintain')}
             type="strengths"
             showMangerPersonReviewOnlyInPrint
@@ -99,7 +100,7 @@ export default function ManagerReviewDominantCharacteristics(props: Props) {
           </StrengthsWeaknessResultExpansionPanel>
           <StrengthsWeaknessResultExpansionPanel
             title={i18n._('The most important characteristics or behaviors he/she should improve')}
-            reviews={data.viewer.user}
+            reviewee={reviewee}
             type="weaknesses"
             showMangerPersonReviewOnlyInPrint
           >

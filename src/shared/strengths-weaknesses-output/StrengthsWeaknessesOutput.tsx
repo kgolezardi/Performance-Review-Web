@@ -5,13 +5,13 @@ import { useFragment } from 'react-relay/hooks';
 
 import { MultilineOutput, NumberedMultilineOutput } from '../multiline-output';
 import { ReviewItemInfo } from '../review-item-info';
-import { StrengthsWeaknessesOutput_reviews$key } from './__generated__/StrengthsWeaknessesOutput_reviews.graphql';
+import { StrengthsWeaknessesOutput_user$key } from './__generated__/StrengthsWeaknessesOutput_user.graphql';
 import { getUserLabel } from '../utils/getUserLabel';
 import { isNotNil } from '../utils/general.util';
 import { usePrintingContext } from '../layouts/dashboard-layouts/PrintingContext';
 
 const fragment = graphql`
-  fragment StrengthsWeaknessesOutput_reviews on UserNode {
+  fragment StrengthsWeaknessesOutput_user on UserNode {
     personReviews {
       isSelfReview
       strengths
@@ -33,7 +33,7 @@ const fragment = graphql`
 `;
 
 interface OwnProps {
-  reviews: StrengthsWeaknessesOutput_reviews$key;
+  reviewee: StrengthsWeaknessesOutput_user$key;
   type: 'strengths' | 'weaknesses';
   anonymous?: boolean;
   showMangerPersonReviewOnlyInPrint?: boolean;
@@ -44,7 +44,7 @@ type Props = React.PropsWithChildren<OwnProps>;
 export function StrengthsWeaknessesOutput(props: Props) {
   const { type, anonymous = false, showMangerPersonReviewOnlyInPrint = false } = props;
 
-  const { personReviews, managerPersonReview, manager } = useFragment(fragment, props.reviews);
+  const { personReviews, managerPersonReview, manager } = useFragment(fragment, props.reviewee);
   const printing = usePrintingContext();
 
   const selfReview = personReviews.find((review) => review.isSelfReview);
@@ -54,18 +54,20 @@ export function StrengthsWeaknessesOutput(props: Props) {
     .filter((review) => !!review[type]?.length);
 
   const showMangerPersonReview = !showMangerPersonReviewOnlyInPrint || printing;
+  const selfReviewType = selfReview?.[type] ?? [];
+  const reviewer = selfReview?.reviewer;
 
   return (
     <div>
-      {selfReview && selfReview[type] && (
+      {reviewer && selfReviewType && (
         <ReviewItemInfo
-          name={selfReview.reviewer ? getUserLabel(selfReview.reviewer) : undefined}
-          src={selfReview.reviewer?.avatarUrl ?? undefined}
+          name={getUserLabel(reviewer)}
+          src={reviewer.avatarUrl ?? undefined}
           type="self"
           anonymous={anonymous}
         >
-          {selfReview[type]?.length ? (
-            selfReview[type]?.map((review, index) => (
+          {selfReviewType.length ? (
+            selfReviewType.map((review, index) => (
               <Box key={index} marginBottom={1}>
                 <MultilineOutput value={review} />
               </Box>

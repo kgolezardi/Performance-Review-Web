@@ -24,7 +24,7 @@ const query = graphql`
         reviewersAreAnonymous
       }
       user(id: $id) {
-        ...StrengthsWeaknessesOutput_reviews
+        ...StrengthsWeaknessesOutput_user
         projectReviews {
           id
           ...ProjectResultExpansionPanel_projectReview
@@ -48,7 +48,9 @@ export function ResultPrintPage(props: Props) {
   }, [data]);
 
   const reviewersAreAnonymous = data.viewer.activeRound.reviewersAreAnonymous;
-  if (!data.viewer.user) {
+  const reviewee = data.viewer.user;
+
+  if (!reviewee) {
     // TODO: handle this
     return <div>No user found</div>;
   }
@@ -56,7 +58,7 @@ export function ResultPrintPage(props: Props) {
   return (
     <PrintingContext.Provider value={true}>
       <Helmet>
-        <title>{getUserLabel(data.viewer.user)}</title>
+        <title>{getUserLabel(reviewee)}</title>
       </Helmet>
       <PageBreak />
       <Box paddingY={2}>
@@ -70,7 +72,7 @@ export function ResultPrintPage(props: Props) {
       </Box>
       <PageBreak />
       <Box paddingY={2}>
-        <StrengthsWeaknessesResult reviewersAreAnonymous={reviewersAreAnonymous} reviews={data.viewer.user} />
+        <StrengthsWeaknessesResult reviewersAreAnonymous={reviewersAreAnonymous} reviewee={reviewee} />
       </Box>
     </PrintingContext.Provider>
   );

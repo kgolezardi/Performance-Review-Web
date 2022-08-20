@@ -20,7 +20,7 @@ const query = graphql`
         reviewersAreAnonymous
       }
       user(id: $id) {
-        ...StrengthsWeaknessesOutput_reviews
+        ...StrengthsWeaknessesOutput_user
         personReviews {
           id
         }
@@ -35,14 +35,16 @@ export default function StrengthsWeaknessesResultPage(props: Props) {
   const data = useLazyLoadQuery<StrengthsWeaknessesResultPageQuery>(query, { id: revieweeId });
 
   const reviews = data.viewer.user?.personReviews;
-  if (!reviews || !data.viewer.user) {
+  const reviewee = data.viewer.user;
+
+  if (!reviews || !reviewee) {
     return <Box padding={4}>no data</Box>;
   }
   return (
     <Box padding={4}>
       <StrengthsWeaknessesResult
         reviewersAreAnonymous={data.viewer.activeRound.reviewersAreAnonymous}
-        reviews={data.viewer.user}
+        reviewee={reviewee}
       />
     </Box>
   );
