@@ -17,7 +17,7 @@ export function getThemeOptions(direction: Direction, paletteType: PaletteType):
     },
     success: {
       ...green,
-      light: green[50],
+      light: '#DEFBE6',
     },
     error: red,
     type: paletteType,

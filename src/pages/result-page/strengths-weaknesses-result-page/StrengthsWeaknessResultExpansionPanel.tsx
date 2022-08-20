@@ -23,7 +23,7 @@ export function StrengthsWeaknessResultExpansionPanel(props: Props) {
   return (
     <ExpansionPanel>
       <ExpansionPanelSummary>
-        <Typography variant="h3">{title}</Typography>
+        <Typography variant="h5">{title}</Typography>
       </ExpansionPanelSummary>
       <ExpansionPanelDetails className={classes.expansionPanelDetails}>
         <StrengthsWeaknessesOutput

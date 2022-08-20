@@ -54,27 +54,21 @@ export function StrengthsWeaknessesOutput(props: Props) {
     .filter((review) => !!review[type]?.length);
 
   const showMangerPersonReview = !showMangerPersonReviewOnlyInPrint || printing;
-  const selfReviewType = selfReview?.[type] ?? [];
-  const reviewer = selfReview?.reviewer;
 
   return (
     <div>
-      {reviewer && selfReviewType && (
+      {selfReview && selfReview[type] && (
         <ReviewItemInfo
-          name={getUserLabel(reviewer)}
-          src={reviewer.avatarUrl ?? undefined}
+          name={selfReview.reviewer ? getUserLabel(selfReview.reviewer) : undefined}
+          src={selfReview.reviewer?.avatarUrl ?? undefined}
           type="self"
           anonymous={anonymous}
         >
-          {selfReviewType.length ? (
-            selfReviewType.map((review, index) => (
-              <Box key={index} marginBottom={1}>
-                <MultilineOutput value={review} />
-              </Box>
-            ))
-          ) : (
-            <MultilineOutput value={null} />
-          )}
+          {selfReview[type]?.map((review, index) => (
+            <Box key={index} marginBottom={1}>
+              <MultilineOutput value={review} />
+            </Box>
+          )) ?? <MultilineOutput value={null} />}
         </ReviewItemInfo>
       )}
       {showMangerPersonReview && manager && managerPersonReview && (
@@ -84,7 +78,7 @@ export function StrengthsWeaknessesOutput(props: Props) {
               <Box key={index} marginBottom={1}>
                 <NumberedMultilineOutput enableTruncating index={index} value={review} />
               </Box>
-            ))}
+            )) ?? <MultilineOutput value={null} />}
           </ReviewItemInfo>
         </Box>
       )}
