@@ -13,17 +13,13 @@ import {
 import { Grid } from '@material-ui/core';
 import { ReviewersInput } from 'src/shared/reviewers-input';
 import { ReviewersInput_Reviewers$key } from 'src/shared/reviewers-input/__generated__/ReviewersInput_Reviewers.graphql';
-import { equals, identity, sortBy } from 'ramda';
+import { arrayEqualSort } from 'src/shared/utils/arrayEqualSort';
 import { i18n } from '@lingui/core';
 import { useFormDirty } from 'src/shared/form-change-detector';
 import { useFragment } from 'react-relay/hooks';
 
 import { ManageAdjustmentFormData } from './ManageAdjustmentFormData';
 import { ManagerAdjustmentForm_data$key } from './__generated__/ManagerAdjustmentForm_data.graphql';
-
-const arrayEqual = (v1: string[] | undefined, v2: string[] | undefined) => {
-  return equals(sortBy(identity, v1 || []), sortBy(identity, v2 || []));
-};
 
 const fragment = graphql`
   fragment ManagerAdjustmentForm_data on ProjectReviewNode {
@@ -79,7 +75,7 @@ export function ManagerAdjustmentForm(props: Props) {
                 })}
                 maximumReviewers={maximumReviewers}
               />
-              <FragmentPrompt value={initialValue.reviewersId} equal={arrayEqual} />
+              <FragmentPrompt value={initialValue.reviewersId} equal={arrayEqualSort} />
             </DictInputItem>
           </Grid>
           <Grid item xs={12}>

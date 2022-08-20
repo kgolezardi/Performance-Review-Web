@@ -18,8 +18,9 @@ import { Question } from 'src/shared/DynamicFields';
 import { Rating } from 'src/shared/rating';
 import { ReviewersInput } from 'src/shared/reviewers-input';
 import { ReviewersInputProps } from 'src/shared/reviewers-input/types';
-import { equals, identity, prop, sortBy } from 'ramda';
+import { arrayEqualSort } from 'src/shared/utils/arrayEqualSort';
 import { i18n } from '@lingui/core';
+import { prop } from 'ramda';
 import { transformAnswersToFormData } from 'src/shared/utils/transformAnswers';
 import { useAuthGuardUser } from 'src/core/auth';
 import { useFormDirty } from 'src/shared/form-change-detector';
@@ -46,10 +47,6 @@ interface OwnProps {
 }
 
 type Props = FCProps<OwnProps>;
-
-const arrayEqual = (v1: string[] | undefined, v2: string[] | undefined) => {
-  return equals(sortBy(identity, v1 || []), sortBy(identity, v2 || []));
-};
 
 export function ProjectForm(props: Props) {
   const { onSubmit, onDelete, maximumProjectReviewers } = props;
@@ -133,7 +130,7 @@ export function ProjectForm(props: Props) {
                 })}
                 maximumReviewers={maximumProjectReviewers}
               />
-              <FragmentPrompt value={initialValue.reviewersId || []} equal={arrayEqual} />
+              <FragmentPrompt value={initialValue.reviewersId || []} equal={arrayEqualSort} />
             </DictInputItem>
           </Grid>
           <Grid item xs={12}>
