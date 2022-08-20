@@ -9,7 +9,7 @@ import { i18n } from '@lingui/core';
 import { peerReviewEvaluationDictionary, selfReviewEvaluationDictionary } from 'src/global-types';
 
 interface OwnProps {
-  value: Evaluation | null;
+  value: Evaluation | null | undefined;
   type: 'self' | 'peer';
   defaultValue?: string;
 }

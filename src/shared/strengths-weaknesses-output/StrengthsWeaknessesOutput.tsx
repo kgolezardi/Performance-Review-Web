@@ -59,22 +59,18 @@ export function StrengthsWeaknessesOutput(props: Props) {
 
   return (
     <div>
-      {reviewer && selfReviewType && (
+      {selfReviewType && (
         <ReviewItemInfo
-          name={getUserLabel(reviewer)}
-          src={reviewer.avatarUrl ?? undefined}
+          name={reviewer ? getUserLabel(reviewer) : undefined}
+          src={reviewer?.avatarUrl ?? undefined}
           type="self"
           anonymous={anonymous}
         >
-          {selfReviewType.length ? (
-            selfReviewType.map((review, index) => (
-              <Box key={index} marginBottom={1}>
-                <MultilineOutput value={review} />
-              </Box>
-            ))
-          ) : (
-            <MultilineOutput value={null} />
-          )}
+          {selfReviewType.map((review, index) => (
+            <Box key={index} marginBottom={1}>
+              <MultilineOutput value={review} />
+            </Box>
+          )) ?? <MultilineOutput value={null} />}
         </ReviewItemInfo>
       )}
       {showMangerPersonReview && manager && managerPersonReview && (
@@ -84,7 +80,7 @@ export function StrengthsWeaknessesOutput(props: Props) {
               <Box key={index} marginBottom={1}>
                 <NumberedMultilineOutput enableTruncating index={index} value={review} />
               </Box>
-            ))}
+            )) ?? <MultilineOutput value={null} />}
           </ReviewItemInfo>
         </Box>
       )}

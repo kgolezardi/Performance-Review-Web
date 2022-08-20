@@ -211,7 +211,7 @@ msgstr "کمتر از حد انتظاری که از من میره"
 
 #: src/pages/manager-adjustment-page/achievements/ManagerAdjustmentForm.tsx:46
 msgid "I approve"
-msgstr "لیست مرورکنندگان بالا مورد تایید بوده و تغییرات اعمال شده به اطلاع خود مرورکننده رسیده است."
+msgstr "لیست مرورکنندگان بالا مورد تایید بوده و تغییرات اعمال شده به اطلاع خود مرورشونده رسیده است."
 
 #: src/pages/projects-page/ProjectForm.tsx:90
 msgid "I consulted with my manager"
