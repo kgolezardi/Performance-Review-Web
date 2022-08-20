@@ -54,17 +54,19 @@ export function StrengthsWeaknessesOutput(props: Props) {
     .filter((review) => !!review[type]?.length);
 
   const showMangerPersonReview = !showMangerPersonReviewOnlyInPrint || printing;
+  const selfReviewType = selfReview?.[type] ?? [];
+  const reviewer = selfReview?.reviewer;
 
   return (
     <div>
-      {selfReview && selfReview[type] && (
+      {selfReviewType && (
         <ReviewItemInfo
-          name={selfReview.reviewer ? getUserLabel(selfReview.reviewer) : undefined}
-          src={selfReview.reviewer?.avatarUrl ?? undefined}
+          name={reviewer ? getUserLabel(reviewer) : undefined}
+          src={reviewer?.avatarUrl ?? undefined}
           type="self"
           anonymous={anonymous}
         >
-          {selfReview[type]?.map((review, index) => (
+          {selfReviewType.map((review, index) => (
             <Box key={index} marginBottom={1}>
               <MultilineOutput value={review} />
             </Box>
