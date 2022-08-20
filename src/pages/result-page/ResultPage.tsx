@@ -47,7 +47,7 @@ export default function ResultPage(props: Props) {
     <Container maxWidth="md" className={classes.container}>
       <Box marginY={5}>
         <QuoteBox border="1px solid #00800033" textAlign="center" color="green" mb={2} bgcolor="success.light">
-          <Typography variant="h6">{`${i18n._('Overall Evaluation')}:`}</Typography>
+          <Typography variant="h6">{`${i18n._("Manager's Overall Evaluation of Your Performance")}:`}</Typography>
           <EvaluationOutput type="peer" value={data.viewer.user?.managerPersonReview?.overallRating} />
         </QuoteBox>
         <Paper classes={{ root: classes.tabsPaper }}>
