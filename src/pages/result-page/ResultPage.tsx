@@ -1,7 +1,6 @@
 import graphql from 'babel-plugin-relay/macro';
 import React, { Suspense } from 'react';
 import { Box, Container, Paper, Theme, Typography, createStyles, makeStyles } from '@material-ui/core';
-import { Evaluation } from 'src/__generated__/enums';
 import { EvaluationOutput } from 'src/shared/evaluation-output';
 import { FCProps } from 'src/shared/types/FCProps';
 import { FullPageSpinner } from 'src/shared/loading';
@@ -48,8 +47,8 @@ export default function ResultPage(props: Props) {
     <Container maxWidth="md" className={classes.container}>
       <Box marginY={5}>
         <QuoteBox border="1px solid #00800033" textAlign="center" color="green" mb={2} bgcolor="success.light">
-          <Typography variant="h6">{`${i18n._('Overall Evaluation')}: `}</Typography>{' '}
-          <EvaluationOutput type="peer" value={data.viewer.user?.managerPersonReview?.overallRating as Evaluation} />
+          <Typography variant="h6">{`${i18n._('Overall Evaluation')}:`}</Typography>
+          <EvaluationOutput type="peer" value={data.viewer.user?.managerPersonReview?.overallRating} />
         </QuoteBox>
         <Paper classes={{ root: classes.tabsPaper }}>
           <Tabs value={tab ?? 'achievements'}>
