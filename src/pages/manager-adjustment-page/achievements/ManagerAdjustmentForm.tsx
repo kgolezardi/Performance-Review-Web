@@ -13,6 +13,7 @@ import {
 import { Grid } from '@material-ui/core';
 import { ReviewersInput } from 'src/shared/reviewers-input';
 import { ReviewersInput_Reviewers$key } from 'src/shared/reviewers-input/__generated__/ReviewersInput_Reviewers.graphql';
+import { arrayEqualSort } from 'src/shared/utils/arrayEqualSort';
 import { i18n } from '@lingui/core';
 import { useFormDirty } from 'src/shared/form-change-detector';
 import { useFragment } from 'react-relay/hooks';
@@ -74,7 +75,7 @@ export function ManagerAdjustmentForm(props: Props) {
                 })}
                 maximumReviewers={maximumReviewers}
               />
-              <FragmentPrompt value={initialValue.reviewersId} />
+              <FragmentPrompt value={initialValue.reviewersId} equal={arrayEqualSort} />
             </DictInputItem>
           </Grid>
           <Grid item xs={12}>

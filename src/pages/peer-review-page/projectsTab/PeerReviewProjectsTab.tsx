@@ -80,13 +80,13 @@ export function PeerReviewProjectsTab(props: Props) {
               </Grid>
             </Grid>
           </Box>
-          <Box>
+          <div>
             {projectReviews?.map((projectReview) => (
               <FormChangeDetector key={projectReview.id}>
                 <PeerReviewProjectExpansionPanel projectReview={projectReview} />
               </FormChangeDetector>
             ))}
-          </Box>
+          </div>
         </Fragment>
       )}
     </Fragment>
