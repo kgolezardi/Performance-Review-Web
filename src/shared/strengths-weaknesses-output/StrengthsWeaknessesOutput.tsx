@@ -66,23 +66,29 @@ export function StrengthsWeaknessesOutput(props: Props) {
           type="self"
           anonymous={anonymous}
         >
-          {selfReviewType.map((review, index) => (
-            <Box key={index} marginBottom={1}>
-              <MultilineOutput value={review} />
-            </Box>
-          )) ?? <MultilineOutput value={null} />}
+          {selfReviewType.length ? (
+            selfReviewType.map((review, index) => (
+              <Box key={index} marginBottom={1}>
+                <NumberedMultilineOutput index={index} value={review} />
+              </Box>
+            ))
+          ) : (
+            <MultilineOutput value={null} />
+          )}
         </ReviewItemInfo>
       )}
       {showMangerPersonReview && manager && managerPersonReview && (
-        <Box marginTop={2}>
-          <ReviewItemInfo name={getUserLabel(manager) ?? undefined} src={manager.avatarUrl ?? undefined} type="manager">
-            {managerPersonReview[type]?.map((review, index) => (
+        <ReviewItemInfo name={getUserLabel(manager) ?? undefined} src={manager.avatarUrl ?? undefined} type="manager">
+          {managerPersonReview[type]?.length ? (
+            managerPersonReview[type]?.map((review, index) => (
               <Box key={index} marginBottom={1}>
-                <NumberedMultilineOutput enableTruncating index={index} value={review} />
+                <NumberedMultilineOutput index={index} value={review} />
               </Box>
-            )) ?? <MultilineOutput value={null} />}
-          </ReviewItemInfo>
-        </Box>
+            ))
+          ) : (
+            <MultilineOutput value={null} />
+          )}
+        </ReviewItemInfo>
       )}
       {peerReviews?.map((review, index) => (
         <ReviewItemInfo
