@@ -17,11 +17,11 @@ msgstr ""
 msgid "%s - Performance Review"
 msgstr "%s - Performance Review"
 
-#: src/pages/manager-adjustment-page/achievements/ManagerAdjustmentForm.tsx:38
+#: src/pages/manager-adjustment-page/achievements/ManagerAdjustmentForm.tsx:39
 msgid "**Coordinate reviewers with manager"
 msgstr "**Coordinate reviewers with manager"
 
-#: src/pages/projects-page/ProjectForm.tsx:82
+#: src/pages/projects-page/ProjectForm.tsx:80
 msgid "**Coordinate reviewers with your manager (maximum {num} reviewers)"
 msgstr "**Coordinate reviewers with your manager (maximum {num} reviewers)"
 
@@ -35,7 +35,7 @@ msgstr "**Coordinate reviewers with your manager (maximum {num} reviewers)"
 #: src/pages/manager-review-page/ManagerReviewPrintPage.tsx:52
 #: src/pages/peer-review-page/EndEvaluationDialogContent/AchievementsContent.tsx:13
 #: src/pages/peer-review-page/PeerReviewPage.tsx:45
-#: src/pages/result-page/ResultPage.tsx:21
+#: src/pages/result-page/ResultPage.tsx:42
 #: src/pages/self-review-page/SelfReviewPage.tsx:22
 msgid "Achievements"
 msgstr "Achievements"
@@ -70,7 +70,7 @@ msgstr "All reviews were successfully done"
 msgid "An error occurred. Try again!"
 msgstr "An error occurred. Try again!"
 
-#: src/pages/projects-page/ProjectForm.tsx:97
+#: src/pages/projects-page/ProjectForm.tsx:95
 msgid "Are you sure you want to delete {projectName} review?"
 msgstr "Are you sure you want to delete {projectName} review?"
 
@@ -115,7 +115,7 @@ msgstr "Dashboard"
 msgid "Dear {name}, Hello"
 msgstr "Dear {name}, Hello"
 
-#: src/pages/projects-page/ProjectForm.tsx:97
+#: src/pages/projects-page/ProjectForm.tsx:95
 msgid "Delete"
 msgstr "Delete"
 
@@ -130,7 +130,7 @@ msgstr "Doing"
 #: src/pages/manager-review-page/ManagerReviewPrintPage.tsx:57
 #: src/pages/peer-review-page/EndEvaluationDialogContent/DominantCharacteristicsContent.tsx:11
 #: src/pages/peer-review-page/PeerReviewPage.tsx:47
-#: src/pages/result-page/ResultPage.tsx:22
+#: src/pages/result-page/ResultPage.tsx:43
 #: src/pages/self-review-page/SelfReviewPage.tsx:23
 msgid "Dominant Characteristics"
 msgstr "Dominant Characteristics"
@@ -201,7 +201,7 @@ msgstr "He/She Needs Improvement"
 msgid "He/She asked your review on {numberOfProjects} project(s)"
 msgstr "He/She asked your review on {numberOfProjects} project(s)"
 
-#: src/pages/projects-page/ProjectForm.tsx:67
+#: src/pages/projects-page/ProjectForm.tsx:65
 msgid "How effective were you in this project?"
 msgstr "How effective were you in this project?"
 
@@ -209,11 +209,11 @@ msgstr "How effective were you in this project?"
 msgid "I Need Improvement"
 msgstr "I Need Improvement"
 
-#: src/pages/manager-adjustment-page/achievements/ManagerAdjustmentForm.tsx:46
+#: src/pages/manager-adjustment-page/achievements/ManagerAdjustmentForm.tsx:47
 msgid "I approve"
 msgstr "I approve"
 
-#: src/pages/projects-page/ProjectForm.tsx:90
+#: src/pages/projects-page/ProjectForm.tsx:88
 msgid "I consulted with my manager"
 msgstr "I consulted with my manager"
 
@@ -251,6 +251,10 @@ msgstr "Login"
 msgid "Manager"
 msgstr "Manager"
 
+#: src/pages/result-page/ResultPage.tsx:37
+msgid "Manager's Overall Evaluation of Your Performance"
+msgstr "Manager's Overall Evaluation of Your Performance"
+
 #: src/global-types/Evaluation.ts:17
 msgid "Meets Expectations from Him/Her"
 msgstr "Meets Expectations from Him/Her"
@@ -259,7 +263,7 @@ msgstr "Meets Expectations from Him/Her"
 msgid "Meets Expectations from me"
 msgstr "Meets Expectations from me"
 
-#: src/pages/projects-page/ProjectForm.tsx:72
+#: src/pages/projects-page/ProjectForm.tsx:70
 msgid "My evaluation"
 msgstr "My evaluation"
 
@@ -341,17 +345,17 @@ msgstr "Projects"
 msgid "Reviewee"
 msgstr "Reviewee"
 
-#: src/pages/manager-adjustment-page/achievements/ManagerAdjustmentForm.tsx:38
-#: src/pages/projects-page/ProjectForm.tsx:82
+#: src/pages/manager-adjustment-page/achievements/ManagerAdjustmentForm.tsx:39
+#: src/pages/projects-page/ProjectForm.tsx:80
 msgid "Reviewers (maximum {num})"
 msgstr "Reviewers (maximum {num})"
 
-#: src/pages/manager-adjustment-page/achievements/ManagerAdjustmentForm.tsx:54
+#: src/pages/manager-adjustment-page/achievements/ManagerAdjustmentForm.tsx:55
 #: src/pages/manager-review-page/achievements/ManagerReviewForm.tsx:73
 #: src/pages/manager-review-page/dominant-characteristics/ManagerReviewDominantCharacteristics.tsx:93
 #: src/pages/manager-review-page/overall-evaluation/ManagerReviewOverallEvaluation.tsx:82
 #: src/pages/peer-review-page/projectsTab/projects-form/PeerReviewProjectsForm.tsx:51
-#: src/pages/projects-page/ProjectForm.tsx:101
+#: src/pages/projects-page/ProjectForm.tsx:99
 #: src/pages/strengths-weaknesses-page/StrengthsWeaknessesForm.tsx:63
 msgid "Save"
 msgstr "Save"
