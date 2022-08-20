@@ -16,6 +16,9 @@ export type Props = FCProps<OwnProps>;
 const query = graphql`
   query ProjectsResultPageQuery($id: ID!) {
     viewer {
+      activeRound {
+        reviewersAreAnonymous
+      }
       user(id: $id) {
         projectReviews {
           id
@@ -29,10 +32,16 @@ const query = graphql`
 export function ProjectsResultPage(props: Props) {
   const data = useLazyLoadQuery<ProjectsResultPageQuery>(query, { id: props.revieweeId });
   const projectReviews = data.viewer.user?.projectReviews;
+  const reviewersAreAnonymous = data.viewer.activeRound.reviewersAreAnonymous;
+
   return (
     <Box paddingY={2}>
       {projectReviews?.map((projectReview) => (
-        <ProjectResultExpansionPanel projectReview={projectReview} key={projectReview.id} />
+        <ProjectResultExpansionPanel
+          reviewersAreAnonymous={reviewersAreAnonymous}
+          projectReview={projectReview}
+          key={projectReview.id}
+        />
       ))}
     </Box>
   );

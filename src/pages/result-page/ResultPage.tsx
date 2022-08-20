@@ -2,6 +2,7 @@ import React, { Suspense } from 'react';
 import { Box, Container, Paper, Theme, createStyles, makeStyles } from '@material-ui/core';
 import { FCProps } from 'src/shared/types/FCProps';
 import { FullPageSpinner } from 'src/shared/loading';
+import { PrintButton } from 'src/shared/print-button';
 import { Redirect, Route, Switch, useParams } from 'react-router-dom';
 import { Styles } from 'src/shared/types/Styles';
 import { TabLink } from 'src/shared/tab';
@@ -10,7 +11,6 @@ import { i18n } from '@lingui/core';
 import { useAuthGuardUser } from 'src/core/auth';
 
 import StrengthsWeaknessesResultPage from './strengths-weaknesses-result-page/StrengthsWeaknessesResultPage';
-import { PrintResultButton } from './PrintResultButton';
 import { ProjectsResultPage } from './project-result-page/ProjectsResultPage';
 
 interface Params {
@@ -28,7 +28,7 @@ export default function ResultPage(props: Props) {
   const toPrefix = '';
 
   return (
-    <Container maxWidth="md">
+    <Container maxWidth="md" className={classes.container}>
       <Box marginY={5}>
         <Paper classes={{ root: classes.tabsPaper }}>
           <Tabs value={tab ?? 'achievements'}>
@@ -59,7 +59,7 @@ export default function ResultPage(props: Props) {
           </Suspense>
         </Paper>
       </Box>
-      <PrintResultButton />
+      <PrintButton printSrc="/print" id="print-result" />
     </Container>
   );
 }
@@ -76,6 +76,9 @@ const styles = (theme: Theme) =>
     tabPanelPaper: {
       borderTopLeftRadius: 0,
       borderTopRightRadius: 0,
+    },
+    container: {
+      overflow: 'hidden',
     },
   });
 

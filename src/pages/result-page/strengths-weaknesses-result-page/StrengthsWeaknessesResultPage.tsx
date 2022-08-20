@@ -16,9 +16,13 @@ type Props = FCProps<OwnProps>;
 const query = graphql`
   query StrengthsWeaknessesResultPageQuery($id: ID!) {
     viewer {
+      activeRound {
+        reviewersAreAnonymous
+      }
       user(id: $id) {
+        ...StrengthsWeaknessesOutput_user
         personReviews {
-          ...StrengthsWeaknessesResult_reviews
+          id
         }
       }
     }
@@ -31,12 +35,17 @@ export default function StrengthsWeaknessesResultPage(props: Props) {
   const data = useLazyLoadQuery<StrengthsWeaknessesResultPageQuery>(query, { id: revieweeId });
 
   const reviews = data.viewer.user?.personReviews;
-  if (!reviews) {
+  const reviewee = data.viewer.user;
+
+  if (!reviews || !reviewee) {
     return <Box padding={4}>no data</Box>;
   }
   return (
     <Box padding={4}>
-      <StrengthsWeaknessesResult reviews={reviews} />
+      <StrengthsWeaknessesResult
+        reviewersAreAnonymous={data.viewer.activeRound.reviewersAreAnonymous}
+        reviewee={reviewee}
+      />
     </Box>
   );
 }

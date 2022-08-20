@@ -1,10 +1,9 @@
 import React from 'react';
 import graphql from 'babel-plugin-relay/macro';
-import { Box, Grid, Typography } from '@material-ui/core';
 import { Evaluation } from 'src/global-types';
 import { EvaluationOutput } from 'src/shared/evaluation-output';
+import { Grid, Typography } from '@material-ui/core';
 import { i18n } from '@lingui/core';
-import { useAuthGuardUser } from 'src/core/auth';
 import { useFragment } from 'react-relay/hooks';
 import { useRoundQuestions } from 'src/core/round-questions';
 
@@ -22,12 +21,20 @@ const fragment = graphql`
       questionId
       value
     }
+    projectReview {
+      reviewee {
+        manager {
+          avatarUrl
+          ...getUserLabel_user
+        }
+      }
+    }
   }
 `;
 
 interface OwnProps {
   review: ManagerProjectOutput_review$key;
-  self: boolean;
+  self?: boolean;
 }
 
 type Props = React.PropsWithChildren<OwnProps>;
@@ -35,31 +42,29 @@ type Props = React.PropsWithChildren<OwnProps>;
 export function ManagerProjectOutput(props: Props) {
   const review = useFragment(fragment, props.review);
   const { managerReviewProjectQuestions } = useRoundQuestions();
-  const me = useAuthGuardUser();
   const questionsAnswers = getQuestionsAnswersPair(managerReviewProjectQuestions, review.answers);
+  const manager = review.projectReview.reviewee.manager;
 
-  if (!review) {
+  if (!review || !manager) {
     return null;
   }
 
   return (
-    <Box bgcolor="success.light" borderRadius={3} p={2}>
-      <ReviewItemInfo name={getUserLabel(me)} src={me.avatarUrl ?? undefined} type="manager">
-        <Grid container spacing={2}>
-          <Grid item xs={12}>
-            <Typography color="textSecondary" gutterBottom>
-              {i18n._('Evaluation')}
-            </Typography>
-            <EvaluationOutput value={review.rating as Evaluation} type="peer" />
-          </Grid>
-          {questionsAnswers.pairs.map(([question, answer], index) => (
-            <Grid key={index} item xs={12}>
-              <QuestionOutput questionLabel={question} />
-              <MultilineOutput value={answer} />
-            </Grid>
-          ))}
+    <ReviewItemInfo name={getUserLabel(manager)} src={manager.avatarUrl ?? undefined} type="manager">
+      <Grid container spacing={2}>
+        <Grid item xs={12}>
+          <Typography color="textSecondary" gutterBottom>
+            {i18n._('Evaluation')}
+          </Typography>
+          <EvaluationOutput value={review.rating as Evaluation} type="peer" />
         </Grid>
-      </ReviewItemInfo>
-    </Box>
+        {questionsAnswers.pairs.map(([question, answer], index) => (
+          <Grid key={index} item xs={12}>
+            <QuestionOutput questionLabel={question} />
+            <MultilineOutput value={answer} />
+          </Grid>
+        ))}
+      </Grid>
+    </ReviewItemInfo>
   );
 }

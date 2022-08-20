@@ -6,6 +6,7 @@ import { Box } from '@material-ui/core';
 import { DictInput, DictInputItem, Forminator, SubmitButton } from 'src/shared/forminator';
 import { FCProps } from 'src/shared/types/FCProps';
 import { StrengthsOrWeaknesses } from 'src/shared/strengths-weaknesses';
+import { StrengthsWeaknessResultExpansionPanel } from 'src/pages/result-page/strengths-weaknesses-result-page/StrengthsWeaknessResultExpansionPanel';
 import { arrayEqual, normalizeArray } from 'src/pages/strengths-weaknesses-page/utils';
 import { i18n } from '@lingui/core';
 import { useBiDiSnackbar } from 'src/shared/snackbar';
@@ -14,7 +15,6 @@ import { useLazyLoadQuery } from 'react-relay/hooks';
 import { useMutation } from 'src/relay';
 import { usePrintingContext } from 'src/shared/layouts/dashboard-layouts/PrintingContext';
 
-import { ManagerReviewDominantCharacteristicsExpansionPanel } from './ManagerReviewDominantCharacteristicsExpansionPanel';
 import { ManagerReviewDominantCharacteristicsQuery } from './__generated__/ManagerReviewDominantCharacteristicsQuery.graphql';
 import { managerReviewPersonMutation } from '../managerReviewPersonMutation';
 
@@ -23,8 +23,9 @@ const query = graphql`
     viewer {
       user(id: $id) {
         personReviews {
-          ...ManagerReviewDominantCharacteristicsExpansionPanel_reviews
+          id
         }
+        ...StrengthsWeaknessesOutput_user
         managerPersonReview {
           strengths
           weaknesses
@@ -66,8 +67,9 @@ export default function ManagerReviewDominantCharacteristics(props: Props) {
   };
 
   const isDirty = useFormDirty();
+  const reviewee = data.viewer.user;
 
-  if (!reviews) {
+  if (!reviews || !reviewee) {
     return <Box padding={4}>no data</Box>;
   }
 
@@ -81,11 +83,11 @@ export default function ManagerReviewDominantCharacteristics(props: Props) {
     <Box padding={4}>
       <Forminator onSubmit={handleSubmit} initialValue={initialValue}>
         <DictInput>
-          <ManagerReviewDominantCharacteristicsExpansionPanel
-            reviews={reviews}
+          <StrengthsWeaknessResultExpansionPanel
+            reviewee={reviewee}
             title={i18n._('The most important characteristics or effective behaviors that he/she should maintain')}
             type="strengths"
-            managerPersonReview={managerPersonReview}
+            showMangerPersonReviewOnlyInPrint
           >
             {!printing ? (
               <Box mt={2}>
@@ -95,12 +97,12 @@ export default function ManagerReviewDominantCharacteristics(props: Props) {
                 </DictInputItem>
               </Box>
             ) : null}
-          </ManagerReviewDominantCharacteristicsExpansionPanel>
-          <ManagerReviewDominantCharacteristicsExpansionPanel
+          </StrengthsWeaknessResultExpansionPanel>
+          <StrengthsWeaknessResultExpansionPanel
             title={i18n._('The most important characteristics or behaviors he/she should improve')}
-            reviews={reviews}
+            reviewee={reviewee}
             type="weaknesses"
-            managerPersonReview={managerPersonReview}
+            showMangerPersonReviewOnlyInPrint
           >
             {!printing ? (
               <Box mt={2}>
@@ -110,13 +112,15 @@ export default function ManagerReviewDominantCharacteristics(props: Props) {
                 </DictInputItem>
               </Box>
             ) : null}
-          </ManagerReviewDominantCharacteristicsExpansionPanel>
+          </StrengthsWeaknessResultExpansionPanel>
         </DictInput>
-        <ActionBar>
-          <SubmitButton variant="contained" color="primary" disabled={!isDirty}>
-            {i18n._('Save')}
-          </SubmitButton>
-        </ActionBar>
+        {!printing && (
+          <ActionBar>
+            <SubmitButton variant="contained" color="primary" disabled={!isDirty}>
+              {i18n._('Save')}
+            </SubmitButton>
+          </ActionBar>
+        )}
       </Forminator>
     </Box>
   );

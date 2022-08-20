@@ -20,10 +20,11 @@ export type Props = FCProps<OwnProps>;
 const query = graphql`
   query ResultPrintPageQuery($id: ID!) {
     viewer {
+      activeRound {
+        reviewersAreAnonymous
+      }
       user(id: $id) {
-        personReviews {
-          ...StrengthsWeaknessesResult_reviews
-        }
+        ...StrengthsWeaknessesOutput_user
         projectReviews {
           id
           ...ProjectResultExpansionPanel_projectReview
@@ -38,16 +39,18 @@ export function ResultPrintPage(props: Props) {
   const { id } = useAuthGuardUser();
 
   const data = useLazyLoadQuery<ResultPrintPageQuery>(query, { id });
-  const reviews = data.viewer.user?.personReviews ?? [];
   const projectReviews = data.viewer.user?.projectReviews ?? [];
 
   useEffect(() => {
-    setTimeout(() => {
+    if (data) {
       window.parent.postMessage({ action: 'print-result' }, '*');
-    }, 5000);
-  }, []);
+    }
+  }, [data]);
 
-  if (!data.viewer.user) {
+  const reviewersAreAnonymous = data.viewer.activeRound.reviewersAreAnonymous;
+  const reviewee = data.viewer.user;
+
+  if (!reviewee) {
     // TODO: handle this
     return <div>No user found</div>;
   }
@@ -55,17 +58,21 @@ export function ResultPrintPage(props: Props) {
   return (
     <PrintingContext.Provider value={true}>
       <Helmet>
-        <title>{getUserLabel(data.viewer.user)}</title>
+        <title>{getUserLabel(reviewee)}</title>
       </Helmet>
       <PageBreak />
       <Box paddingY={2}>
         {projectReviews?.map((projectReview) => (
-          <ProjectResultExpansionPanel projectReview={projectReview} key={projectReview.id} />
+          <ProjectResultExpansionPanel
+            reviewersAreAnonymous={reviewersAreAnonymous}
+            projectReview={projectReview}
+            key={projectReview.id}
+          />
         ))}
       </Box>
       <PageBreak />
       <Box paddingY={2}>
-        <StrengthsWeaknessesResult reviews={reviews} />
+        <StrengthsWeaknessesResult reviewersAreAnonymous={reviewersAreAnonymous} reviewee={reviewee} />
       </Box>
     </PrintingContext.Provider>
   );

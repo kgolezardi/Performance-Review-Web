@@ -5,16 +5,15 @@ import { CircularProgress, Fab, Theme, createStyles, makeStyles } from '@materia
 import { FCProps } from 'src/shared/types/FCProps';
 import { Styles } from 'src/shared/types/Styles';
 
-const iframeId = 'print-manager-review';
-
 interface OwnProps {
-  uid?: string;
+  printSrc: string;
+  id: string;
 }
 
 type Props = FCProps<OwnProps> & StyleProps;
 
-export function ManagerReviewPrintButton(props: Props) {
-  const { uid } = props;
+export function PrintButton(props: Props) {
+  const { printSrc, id } = props;
   const classes = useStyles(props);
 
   const [startPrinting, setStartPrinting] = React.useState(false);
@@ -29,7 +28,7 @@ export function ManagerReviewPrintButton(props: Props) {
   useEffect(() => {
     let timer: NodeJS.Timeout;
     const handleMessage = (event: MessageEvent) => {
-      if (event.data.action === iframeId) {
+      if (event.data.action === id) {
         timer = setTimeout(() => setShow(true), 2000);
       }
     };
@@ -40,7 +39,7 @@ export function ManagerReviewPrintButton(props: Props) {
       window.removeEventListener('message', handleMessage);
       clearTimeout(timer);
     };
-  }, []);
+  }, [id]);
 
   useEffect(() => {
     if (show) {
@@ -54,13 +53,7 @@ export function ManagerReviewPrintButton(props: Props) {
   return (
     <Fragment>
       {startPrinting && (
-        <iframe
-          ref={iframeRef}
-          id={iframeId}
-          src={'/print-manager-review/' + uid}
-          className={classes.noDisplay}
-          title="Print Manager Review"
-        />
+        <iframe ref={iframeRef} id={id} src={printSrc} className={classes.noDisplay} title="Print Page" />
       )}
       <Fab onClick={handleClick} color="primary" className={clsx(classes.fab)}>
         {startPrinting ? <CircularProgress color="inherit" /> : <PrintIcon />}
@@ -88,5 +81,5 @@ const styles = (theme: Theme) =>
     },
   });
 
-const useStyles = makeStyles(styles, { name: 'ManagerReviewPrintButton' });
+const useStyles = makeStyles(styles, { name: 'PrintButton' });
 type StyleProps = Styles<typeof styles>;

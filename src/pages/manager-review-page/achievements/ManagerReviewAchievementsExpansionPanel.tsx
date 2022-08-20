@@ -7,6 +7,7 @@ import { FormChangeDetector } from 'src/shared/form-change-detector';
 import { InView } from 'src/shared/in-view';
 import { ManagerProjectOutput } from 'src/shared/project-output/ManagerProjectOutput';
 import { ProjectOutput } from 'src/shared/project-output';
+import { ProjectResultRatingGroup } from 'src/pages/result-page/project-result-page/ProjectResultRatingGroup';
 import { QuoteBox } from 'src/shared/quote-box';
 import { Styles } from 'src/shared/types/Styles';
 import { ThoseWhoDidNotComment } from 'src/shared/those-who-did-not-comment/ThoseWhoDidNotComment';
@@ -17,7 +18,6 @@ import { usePrintingContext } from 'src/shared/layouts/dashboard-layouts/Printin
 
 import { ManageReviewFormData } from './ManagerReviewAchievementsValue';
 import { ManagerReviewAchievementsExpansionPanel_projectReview$key } from './__generated__/ManagerReviewAchievementsExpansionPanel_projectReview.graphql';
-import { ManagerReviewAchievementsRatingGroup } from './ManagerReviewAchievementsRatingGroup';
 import { ManagerReviewEvaluationExpansionPanelSummary } from '../ManagerReviewExpansionPanelSummary';
 import { ManagerReviewForm } from './ManagerReviewForm';
 
@@ -31,7 +31,7 @@ const fragment = graphql`
     }
     projectName
     comments {
-      ...ManagerReviewAchievementsRatingGroup_comments
+      ...ProjectResultRatingGroup_comments
       ...ThoseWhoDidNotComment_comments
     }
     managerComment {
@@ -86,16 +86,18 @@ export function ManagerReviewAchievementsExpansionPanel(props: Props) {
                 {i18n._('Other people comments about {name} performance compared to initial expectation', { name })}
               </Typography>
             </Box>
-            <ManagerReviewAchievementsRatingGroup rating="SUPERB" comments={projectReview.comments} />
-            <ManagerReviewAchievementsRatingGroup rating="EXCEEDS_EXPECTATIONS" comments={projectReview.comments} />
-            <ManagerReviewAchievementsRatingGroup rating="MEETS_EXPECTATIONS" comments={projectReview.comments} />
-            <ManagerReviewAchievementsRatingGroup rating="NEEDS_IMPROVEMENT" comments={projectReview.comments} />
-            <ManagerReviewAchievementsRatingGroup rating={null} comments={projectReview.comments} />
+            <ProjectResultRatingGroup rating="SUPERB" comments={projectReview.comments} />
+            <ProjectResultRatingGroup rating="EXCEEDS_EXPECTATIONS" comments={projectReview.comments} />
+            <ProjectResultRatingGroup rating="MEETS_EXPECTATIONS" comments={projectReview.comments} />
+            <ProjectResultRatingGroup rating="NEEDS_IMPROVEMENT" comments={projectReview.comments} />
+            <ProjectResultRatingGroup rating={null} comments={projectReview.comments} />
           </Grid>
           <ThoseWhoDidNotComment comments={projectReview.comments} />
           {printing && projectReview.managerComment && (
             <Grid item xs={12}>
-              <ManagerProjectOutput self review={projectReview.managerComment} />
+              <QuoteBox bgcolor={theme.palette.success.light}>
+                <ManagerProjectOutput self review={projectReview.managerComment} />
+              </QuoteBox>
             </Grid>
           )}
           {!printing && (

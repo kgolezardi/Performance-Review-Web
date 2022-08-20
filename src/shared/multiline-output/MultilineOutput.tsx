@@ -14,7 +14,7 @@ interface OwnProps extends Omit<TypographyProps, 'children'> {
 type Props = FCProps<OwnProps>;
 
 export function MultilineOutput(props: Props) {
-  const { value, defaultValue = '---', enableTruncating = false, maxLength = 500, ...typographyProps } = props;
+  const { value, defaultValue = '---', enableTruncating = true, maxLength = 500, ...typographyProps } = props;
 
   const printing = usePrintingContext();
   const [truncated, setTruncated] = useState(enableTruncating);

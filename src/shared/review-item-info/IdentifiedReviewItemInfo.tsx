@@ -16,6 +16,7 @@ import { Styles } from 'src/shared/types/Styles';
 import { i18n } from '@lingui/core';
 
 import { PersonType } from './ReviewItemInfo';
+import { QuoteBox } from '../quote-box';
 
 interface OwnProps {
   name?: string;
@@ -28,10 +29,10 @@ type Props = FCProps<OwnProps> & StyleProps;
 export function IdentifiedReviewItemInfo(props: Props) {
   const { children, name, src, type } = props;
   const classes = useStyles(props);
-  const bgColor = type === 'manager' ? 'success.light' : undefined;
+  const bgColor = type === 'manager' ? 'success.light' : 'transparent';
 
   return (
-    <Box bgcolor={bgColor} clone>
+    <QuoteBox bgcolor={bgColor}>
       <Grid container spacing={2} className={classes.root}>
         <Grid item>
           <Avatar className={classes.avatar} src={src}>
@@ -51,7 +52,7 @@ export function IdentifiedReviewItemInfo(props: Props) {
           {children}
         </Grid>
       </Grid>
-    </Box>
+    </QuoteBox>
   );
 }
 
