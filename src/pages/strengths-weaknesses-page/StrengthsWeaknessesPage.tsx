@@ -50,6 +50,9 @@ const query = graphql`
           strengths
           weaknesses
           isSelfReview
+          reviewee {
+            ...StrengthsWeaknessesForm_user
+          }
         }
       }
     }
@@ -103,6 +106,7 @@ export default function StrengthsWeaknessesPage(props: Props) {
             weaknesses: normalizeArray(review?.weaknesses),
           }}
           isSelfReview={review?.isSelfReview || false}
+          user={data.viewer.user?.peerPersonReview?.reviewee ?? null}
         />
       )}
     </Box>
