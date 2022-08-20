@@ -253,11 +253,11 @@ msgstr "مدیر مستقیم"
 
 #: src/global-types/Evaluation.ts:17
 msgid "Meets Expectations from Him/Her"
-msgstr "در حد انتظاری که ازش میره"
+msgstr "سازگار با انتظاری که ازش میره"
 
 #: src/global-types/Evaluation.ts:11
 msgid "Meets Expectations from me"
-msgstr "در حد انتظاری که از من میره"
+msgstr "سازگار با انتظاری که از من میره"
 
 #: src/pages/projects-page/ProjectForm.tsx:72
 msgid "My evaluation"
