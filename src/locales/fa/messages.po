@@ -253,7 +253,7 @@ msgstr "مدیر مستقیم"
 
 #: src/pages/result-page/ResultPage.tsx:37
 msgid "Manager's Overall Evaluation of Your Performance"
-msgstr "ارزیابی کلی مدیر از عملکرد شما"
+msgstr "ارزیابی کلی مدیر از عملکردت"
 
 #: src/global-types/Evaluation.ts:17
 msgid "Meets Expectations from Him/Her"
