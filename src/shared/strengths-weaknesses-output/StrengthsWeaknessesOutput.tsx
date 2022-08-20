@@ -89,20 +89,19 @@ export function StrengthsWeaknessesOutput(props: Props) {
         </Box>
       )}
       {peerReviews?.map((review, index) => (
-        <Box marginTop={2} key={index}>
-          <ReviewItemInfo
-            name={review.reviewer ? getUserLabel(review.reviewer) : undefined}
-            src={review.reviewer?.avatarUrl ?? undefined}
-            type="peer"
-            anonymous={anonymous}
-          >
-            {review[type]?.map((review, index) => (
-              <Box key={index} marginBottom={1}>
-                <NumberedMultilineOutput index={index} value={review} />
-              </Box>
-            ))}
-          </ReviewItemInfo>
-        </Box>
+        <ReviewItemInfo
+          key={index}
+          name={review.reviewer ? getUserLabel(review.reviewer) : undefined}
+          src={review.reviewer?.avatarUrl ?? undefined}
+          type="peer"
+          anonymous={anonymous}
+        >
+          {review[type]?.map((review, index) => (
+            <Box key={index} marginBottom={1}>
+              <NumberedMultilineOutput index={index} value={review} />
+            </Box>
+          ))}
+        </ReviewItemInfo>
       ))}
     </div>
   );
