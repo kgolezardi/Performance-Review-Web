@@ -54,7 +54,7 @@ export function ManagerReviewDashboardDrawerContent(props: Props) {
 
   return (
     <Box display="flex" flexDirection="column" padding={3} height="100%">
-      <Box>
+      <div>
         <Box display="flex" alignItems="center" justifyContent="space-between">
           <IconButton onClick={onCloseClick}>
             <CloseIcon />
@@ -79,7 +79,7 @@ export function ManagerReviewDashboardDrawerContent(props: Props) {
             value={user.managerPersonReview?.overallRating ?? null}
           />
         </Box>
-      </Box>
+      </div>
       <Box flex={1} overflow="auto" marginTop={3}>
         <Box mb={2}>
           <Typography variant="h6">{i18n._('Achievements')}</Typography>
