@@ -81,21 +81,20 @@ export const ProjectResultRatingGroup = React.memo(function ProjectResultRatingG
         </Box>
       </Box>
       {filteredComments.map((review) => (
-        <Box marginTop={2} key={review.id}>
-          <ReviewItemInfo
-            name={review.reviewer ? getUserLabel(review.reviewer) : undefined}
-            src={review.reviewer?.avatarUrl ?? undefined}
-            type="peer"
-            anonymous={reviewersAreAnonymous}
-          >
-            {peerAnswers(review.answers).pairs.map(([question, answer], index) => (
-              <Box key={index} my={2}>
-                <QuestionOutput questionLabel={question} />
-                <MultilineOutput value={answer} />
-              </Box>
-            ))}
-          </ReviewItemInfo>
-        </Box>
+        <ReviewItemInfo
+          key={review.id}
+          name={review.reviewer ? getUserLabel(review.reviewer) : undefined}
+          src={review.reviewer?.avatarUrl ?? undefined}
+          type="peer"
+          anonymous={reviewersAreAnonymous}
+        >
+          {peerAnswers(review.answers).pairs.map(([question, answer], index) => (
+            <Box key={index} my={2}>
+              <QuestionOutput questionLabel={question} />
+              <MultilineOutput value={answer} />
+            </Box>
+          ))}
+        </ReviewItemInfo>
       ))}
     </Box>
   );
