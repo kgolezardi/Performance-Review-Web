@@ -61,11 +61,9 @@ export function ThoseWhoDidNotComment(props: Props) {
 
   return (
     <Grid item xs={12}>
-      <Box marginTop={3}>
-        <Typography variant="h5">{i18n._('Those who did not comment')}</Typography>
-        <Box my={2}>
-          <ReviewAvatarGroup users={reviewAvatars} />
-        </Box>
+      <Typography variant="h5">{i18n._('Those who did not comment')}</Typography>
+      <Box my={2}>
+        <ReviewAvatarGroup users={reviewAvatars} />
       </Box>
     </Grid>
   );

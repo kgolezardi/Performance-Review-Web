@@ -480,7 +480,7 @@ msgstr "The parts that are not complete"
 msgid "The project review name already exists."
 msgstr "The project review name already exists."
 
-#: src/shared/those-who-did-not-comment/ThoseWhoDidNotComment.tsx:41
+#: src/shared/those-who-did-not-comment/ThoseWhoDidNotComment.tsx:52
 msgid "Those who did not comment"
 msgstr "Those who did not comment"
 
