@@ -102,9 +102,11 @@ export function ManagerReviewAchievementsExpansionPanel(props: Props) {
           )}
           {!printing && (
             <Grid item xs={12}>
-              <FormChangeDetector>
-                <ManagerReviewForm onSubmit={saveManagerProjectReview} formData={projectReview.managerComment} />
-              </FormChangeDetector>
+              <Box py={1}>
+                <FormChangeDetector>
+                  <ManagerReviewForm onSubmit={saveManagerProjectReview} formData={projectReview.managerComment} />
+                </FormChangeDetector>
+              </Box>
             </Grid>
           )}
         </Grid>
