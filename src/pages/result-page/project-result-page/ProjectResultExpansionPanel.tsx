@@ -27,11 +27,11 @@ const fragment = graphql`
     ...ProjectOutput_review
     comments {
       ...ProjectResultRatingGroup_comments
-      ...ThoseWhoDidNotComment_comments
     }
     managerComment {
       ...ManagerProjectOutput_review
     }
+    ...ThoseWhoDidNotComment_review
   }
 `;
 
@@ -109,7 +109,7 @@ export function ProjectResultExpansionPanel(props: Props) {
               comments={projectReview.comments}
             />
           </Grid>
-          <ThoseWhoDidNotComment comments={projectReview.comments} />
+          <ThoseWhoDidNotComment review={projectReview} />
         </Grid>
       </ExpansionPanelDetails>
     </ExpansionPanel>
