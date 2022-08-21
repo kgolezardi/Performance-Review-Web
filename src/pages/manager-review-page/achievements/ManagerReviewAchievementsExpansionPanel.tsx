@@ -32,7 +32,6 @@ const fragment = graphql`
     projectName
     comments {
       ...ProjectResultRatingGroup_comments
-      ...ThoseWhoDidNotComment_comments
     }
     managerComment {
       id
@@ -41,6 +40,7 @@ const fragment = graphql`
       ...ManagerProjectOutput_review
     }
     ...ProjectOutput_review
+    ...ThoseWhoDidNotComment_review
   }
 `;
 
@@ -92,7 +92,7 @@ export function ManagerReviewAchievementsExpansionPanel(props: Props) {
             <ProjectResultRatingGroup rating="NEEDS_IMPROVEMENT" comments={projectReview.comments} />
             <ProjectResultRatingGroup rating={null} comments={projectReview.comments} />
           </Grid>
-          <ThoseWhoDidNotComment comments={projectReview.comments} />
+          <ThoseWhoDidNotComment review={projectReview} />
           {printing && projectReview.managerComment && (
             <Grid item xs={12}>
               <QuoteBox bgcolor={theme.palette.success.light}>
