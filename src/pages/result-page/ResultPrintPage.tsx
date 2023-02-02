@@ -9,6 +9,7 @@ import { getUserLabel } from 'src/shared/utils/getUserLabel';
 import { useAuthGuardUser } from 'src/core/auth';
 import { useLazyLoadQuery } from 'react-relay/hooks';
 
+import { OverallRatingOutput } from './OverallRatingOutput';
 import { ProjectResultExpansionPanel } from './project-result-page/ProjectResultExpansionPanel';
 import { ResultPrintPageQuery } from './__generated__/ResultPrintPageQuery.graphql';
 import { StrengthsWeaknessesResult } from './strengths-weaknesses-result-page/StrengthsWeaknessesResult';
@@ -62,6 +63,7 @@ export function ResultPrintPage(props: Props) {
       </Helmet>
       <PageBreak />
       <Box paddingY={2}>
+        <OverallRatingOutput revieweeId={id} />
         {projectReviews?.map((projectReview) => (
           <ProjectResultExpansionPanel
             reviewersAreAnonymous={reviewersAreAnonymous}
